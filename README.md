@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://multimedia-javaup.cn/damai/structure/damai-banner.png" alt="DAMAI 大麦高并发票务系统" width="100%" />
+</p>
+
 **开源不易，还请您点个Star 多谢！🎉**
 
 # 项目背景
