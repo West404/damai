@@ -1,0 +1,15 @@
+# 大麦项目前端镜像（多阶段构建）
+# 构建上下文为仓库根目录（需要访问 docker/nginx.conf）
+# 第一阶段：Node 构建 Vue3 产物（使用 .env.production 配置）
+FROM node:18-alpine AS build
+WORKDIR /build
+COPY vue3/package.json ./
+RUN npm install --registry=https://registry.npmmirror.com
+COPY vue3/ ./
+RUN npm run build
+
+# 第二阶段：Nginx 托管静态资源并代理 /api 到网关
+FROM nginx:1.25-alpine
+COPY --from=build /build/dist /usr/share/nginx/html
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80

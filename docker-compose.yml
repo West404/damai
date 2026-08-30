@@ -286,6 +286,20 @@ services:
     ports:
       - "10082:10082"
 
+  # ============ 前端 ============
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.web
+    container_name: damai-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    networks:
+      - damai-net
+    depends_on:
+      - gateway-service
+
 networks:
   damai-net:
     driver: bridge

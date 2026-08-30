@@ -1,0 +1,7 @@
+# 前端镜像构建上下文为仓库根目录，排除无关内容
+.git
+**/target
+**/node_modules
+vue3/dist
+sql
+spotless
