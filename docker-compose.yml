@@ -1,0 +1,298 @@
+# 大麦项目一键部署编排
+# 前置步骤：在仓库根目录执行 mvn clean package -DskipTests 构建出各服务 jar
+# 启动：docker compose up -d
+# 停止：docker compose down（加 -v 会清除 MySQL 等数据卷）
+
+x-app-common: &app-common
+  restart: unless-stopped
+  networks:
+    - damai-net
+  depends_on:
+    nacos:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+
+x-app-env: &app-env
+  SPRING_CLOUD_NACOS_DISCOVERY_SERVER_ADDR: nacos:8848
+  SPRING_DATA_REDIS_HOST: redis
+  SPRING_DATA_REDIS_PORT: "6379"
+
+services:
+  # ============ 中间件 ============
+  mysql:
+    image: mysql:8.0
+    container_name: damai-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      TZ: Asia/Shanghai
+    ports:
+      - "3306:3306"
+    volumes:
+      - damai-mysql-data:/var/lib/mysql
+      # 首次启动自动初始化库表（1_ 开头的建库脚本会最先执行）
+      - ./sql/cloud:/docker-entrypoint-initdb.d
+    networks:
+      - damai-net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h127.0.0.1", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  redis:
+    image: redis:7-alpine
+    container_name: damai-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - damai-redis-data:/data
+    networks:
+      - damai-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  nacos:
+    image: nacos/nacos-server:v2.3.2
+    container_name: damai-nacos
+    restart: unless-stopped
+    environment:
+      MODE: standalone
+      NACOS_AUTH_ENABLE: "true"
+      NACOS_AUTH_TOKEN: SecretKey012345678901234567890123456789012345678901234567890123456789
+      NACOS_AUTH_IDENTITY_KEY: serverIdentity
+      NACOS_AUTH_IDENTITY_VALUE: security
+      JVM_XMS: 512m
+      JVM_XMX: 512m
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+    volumes:
+      - damai-nacos-data:/home/nacos/data
+    networks:
+      - damai-net
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo > /dev/tcp/127.0.0.1/8848"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  kafka:
+    image: bitnami/kafka:3.7
+    container_name: damai-kafka
+    restart: unless-stopped
+    environment:
+      KAFKA_CFG_NODE_ID: "0"
+      KAFKA_CFG_PROCESS_ROLES: controller,broker
+      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 0@kafka:9093
+      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_HEAP_OPTS: -Xms512m -Xmx512m
+    ports:
+      - "9092:9092"
+    volumes:
+      - damai-kafka-data:/bitnami/kafka
+    networks:
+      - damai-net
+    healthcheck:
+      test: ["CMD", "kafka-topics.sh", "--list", "--bootstrap-server", "127.0.0.1:9092"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+
+  elasticsearch:
+    image: elasticsearch:7.6.2
+    container_name: damai-elasticsearch
+    restart: unless-stopped
+    environment:
+      discovery.type: single-node
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    volumes:
+      - damai-es-data:/usr/share/elasticsearch/data
+    networks:
+      - damai-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:9200/_cluster/health"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+
+  # ============ 业务微服务 ============
+  gateway-service:
+    <<: *app-common
+    build:
+      context: ./damai-server/damai-gateway-service
+      dockerfile: ../../docker/Dockerfile
+    container_name: damai-gateway-service
+    environment:
+      <<: *app-env
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "6085:6085"
+    depends_on:
+      nacos:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+
+  user-service:
+    <<: *app-common
+    build:
+      context: ./damai-server/damai-user-service
+      dockerfile: ../../docker/Dockerfile
+    container_name: damai-user-service
+    environment:
+      <<: *app-env
+      # docker 环境使用 mysql:3306 的分库分表配置
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "6082:6082"
+    depends_on:
+      nacos:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+
+  base-data-service:
+    <<: *app-common
+    build:
+      context: ./damai-server/damai-base-data-service
+      dockerfile: ../../docker/Dockerfile
+    container_name: damai-base-data-service
+    environment:
+      <<: *app-env
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/damai_base_data?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&allowMultiQueries=true&serverTimezone=Asia/Shanghai"
+    ports:
+      - "6083:6083"
+    depends_on:
+      nacos:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+
+  customize-service:
+    <<: *app-common
+    build:
+      context: ./damai-server/damai-customize-service
+      dockerfile: ../../docker/Dockerfile
+    container_name: damai-customize-service
+    environment:
+      <<: *app-env
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/damai_customize?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&allowMultiQueries=true&serverTimezone=Asia/Shanghai"
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "6084:6084"
+    depends_on:
+      nacos:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+
+  program-service:
+    <<: *app-common
+    build:
+      context: ./damai-server/damai-program-service
+      dockerfile: ../../docker/Dockerfile
+    container_name: damai-program-service
+    environment:
+      <<: *app-env
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      # 对应 application.yml 中的 elasticsearch.ip
+      ELASTICSEARCH_IP: elasticsearch:9200
+    ports:
+      - "6086:6086"
+    depends_on:
+      nacos:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+
+  order-service:
+    <<: *app-common
+    build:
+      context: ./damai-server/damai-order-service
+      dockerfile: ../../docker/Dockerfile
+    container_name: damai-order-service
+    environment:
+      <<: *app-env
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "8081:8081"
+    depends_on:
+      nacos:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+
+  pay-service:
+    <<: *app-common
+    build:
+      context: ./damai-server/damai-pay-service
+      dockerfile: ../../docker/Dockerfile
+    container_name: damai-pay-service
+    environment:
+      <<: *app-env
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "6087:6087"
+    depends_on:
+      nacos:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+
+  admin-service:
+    <<: *app-common
+    build:
+      context: ./damai-server/damai-admin-service
+      dockerfile: ../../docker/Dockerfile
+    container_name: damai-admin-service
+    environment:
+      <<: *app-env
+    ports:
+      - "10082:10082"
+
+networks:
+  damai-net:
+    driver: bridge
+
+volumes:
+  damai-mysql-data:
+  damai-redis-data:
+  damai-nacos-data:
+  damai-kafka-data:
+  damai-es-data:
