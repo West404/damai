@@ -46,5 +46,11 @@
             <artifactId>damai-common</artifactId>
             <version>${revision}</version>
         </dependency>
+        <!-- 单元测试依赖（版本由根 pom 导入的 spring-boot-dependencies BOM 管理） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

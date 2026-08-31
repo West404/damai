@@ -16,6 +16,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,7 +71,9 @@ public class RsaTool {
 	public static String encrypt(String data, PublicKey publicKey) throws Exception {
 		Cipher cipher = Cipher.getInstance("RSA");
 		cipher.init(Cipher.ENCRYPT_MODE, publicKey);
-		int inputLen = data.getBytes().length;
+		// 固定使用UTF-8编码，避免与解密端（UTF-8解码）在非UTF-8平台上产生乱码
+		byte[] dataBytes = data.getBytes(StandardCharsets.UTF_8);
+		int inputLen = dataBytes.length;
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		int offset = 0;
 		byte[] cache;
@@ -78,9 +81,9 @@ public class RsaTool {
 		// 对数据分段加密
 		while (inputLen - offset > 0) {
 			if (inputLen - offset > MAX_ENCRYPT_BLOCK) {
-				cache = cipher.doFinal(data.getBytes(), offset, MAX_ENCRYPT_BLOCK);
+				cache = cipher.doFinal(dataBytes, offset, MAX_ENCRYPT_BLOCK);
 			} else {
-				cache = cipher.doFinal(data.getBytes(), offset, inputLen - offset);
+					cache = cipher.doFinal(dataBytes, offset, inputLen - offset);
 			}
 			out.write(cache, 0, cache.length);
 			i++;
