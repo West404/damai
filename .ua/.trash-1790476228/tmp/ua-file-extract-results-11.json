@@ -1,0 +1,1191 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 23,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 23,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 23,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 69,
+      "functions": [
+        {
+          "name": "ApiResponse",
+          "startLine": 27,
+          "endLine": 27,
+          "params": []
+        },
+        {
+          "name": "error",
+          "startLine": 29,
+          "endLine": 34,
+          "params": [
+            "code",
+            "message"
+          ]
+        },
+        {
+          "name": "error",
+          "startLine": 36,
+          "endLine": 41,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "error",
+          "startLine": 43,
+          "endLine": 48,
+          "params": [
+            "code",
+            "data"
+          ]
+        },
+        {
+          "name": "error",
+          "startLine": 50,
+          "endLine": 55,
+          "params": [
+            "baseCode"
+          ]
+        },
+        {
+          "name": "error",
+          "startLine": 57,
+          "endLine": 63,
+          "params": [
+            "baseCode",
+            "data"
+          ]
+        },
+        {
+          "name": "error",
+          "startLine": 65,
+          "endLine": 70,
+          "params": []
+        },
+        {
+          "name": "ok",
+          "startLine": 72,
+          "endLine": 76,
+          "params": []
+        },
+        {
+          "name": "ok",
+          "startLine": 78,
+          "endLine": 83,
+          "params": [
+            "t"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ApiResponse",
+          "startLine": 14,
+          "endLine": 84,
+          "methods": [
+            "ApiResponse",
+            "error",
+            "error",
+            "error",
+            "error",
+            "error",
+            "error",
+            "ok",
+            "ok"
+          ],
+          "properties": [
+            "code",
+            "message",
+            "data"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "error",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "error",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "error",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "error",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "error",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "error",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "ok",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "ok",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "ApiResponse",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "error",
+          "callee": "new ApiResponse<T>",
+          "lineNumber": 30
+        },
+        {
+          "caller": "error",
+          "callee": "new ApiResponse<T>",
+          "lineNumber": 37
+        },
+        {
+          "caller": "error",
+          "callee": "new ApiResponse<T>",
+          "lineNumber": 44
+        },
+        {
+          "caller": "error",
+          "callee": "new ApiResponse<T>",
+          "lineNumber": 51
+        },
+        {
+          "caller": "error",
+          "callee": "baseCode.getCode",
+          "lineNumber": 52
+        },
+        {
+          "caller": "error",
+          "callee": "baseCode.getMsg",
+          "lineNumber": 53
+        },
+        {
+          "caller": "error",
+          "callee": "new ApiResponse<T>",
+          "lineNumber": 58
+        },
+        {
+          "caller": "error",
+          "callee": "baseCode.getCode",
+          "lineNumber": 59
+        },
+        {
+          "caller": "error",
+          "callee": "baseCode.getMsg",
+          "lineNumber": 60
+        },
+        {
+          "caller": "error",
+          "callee": "new ApiResponse<T>",
+          "lineNumber": 66
+        },
+        {
+          "caller": "ok",
+          "callee": "new ApiResponse<T>",
+          "lineNumber": 73
+        },
+        {
+          "caller": "ok",
+          "callee": "new ApiResponse<T>",
+          "lineNumber": 79
+        },
+        {
+          "caller": "ok",
+          "callee": "apiResponse.setData",
+          "lineNumber": 81
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 9,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "OrderStatus",
+          "startLine": 22,
+          "endLine": 25,
+          "params": [
+            "code",
+            "msg"
+          ]
+        },
+        {
+          "name": "getCode",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "setCode",
+          "startLine": 31,
+          "endLine": 33,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 35,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "setMsg",
+          "startLine": 39,
+          "endLine": 41,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 43,
+          "endLine": 50,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getRc",
+          "startLine": 52,
+          "endLine": 59,
+          "params": [
+            "code"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "OrderStatus",
+          "startLine": 8,
+          "endLine": 60,
+          "methods": [
+            "OrderStatus",
+            "getCode",
+            "setCode",
+            "getMsg",
+            "setMsg",
+            "getMsg",
+            "getRc"
+          ],
+          "properties": [
+            "code",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCode",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "setCode",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "setMsg",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "getRc",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "OrderStatus",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getMsg",
+          "callee": "OrderStatus.values",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getMsg",
+          "callee": "re.code.intValue",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getMsg",
+          "callee": "code.intValue",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getRc",
+          "callee": "OrderStatus.values",
+          "lineNumber": 53
+        },
+        {
+          "caller": "getRc",
+          "callee": "re.code.intValue",
+          "lineNumber": 54
+        },
+        {
+          "caller": "getRc",
+          "callee": "code.intValue",
+          "lineNumber": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "BroadcastCallDto",
+          "startLine": 13,
+          "endLine": 24,
+          "methods": [],
+          "properties": [
+            "serviceName",
+            "requestBody"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BroadcastCallDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 26,
+      "classes": [
+        {
+          "name": "JobClient",
+          "startLine": 20,
+          "endLine": 31,
+          "methods": [
+            "callBack"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "JobClient",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "functions": [
+        {
+          "name": "callBack",
+          "startLine": 16,
+          "endLine": 19,
+          "params": [
+            "dto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "JobClientFallback",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [
+            "callBack"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "callBack",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "JobClientFallback",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "callBack",
+          "callee": "ApiResponse.error",
+          "lineNumber": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 29,
+      "classes": [
+        {
+          "name": "JobCallBackDto",
+          "startLine": 14,
+          "endLine": 36,
+          "methods": [],
+          "properties": [
+            "id",
+            "jobId",
+            "runInfo",
+            "runStatus",
+            "currentResidueRetryNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "JobCallBackDto",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 32,
+      "classes": [
+        {
+          "name": "OrderClient",
+          "startLine": 18,
+          "endLine": 37,
+          "methods": [
+            "create",
+            "accountOrderCount"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderClient",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "create",
+          "startLine": 18,
+          "endLine": 21,
+          "params": [
+            "orderCreateDto"
+          ]
+        },
+        {
+          "name": "accountOrderCount",
+          "startLine": 23,
+          "endLine": 26,
+          "params": [
+            "dto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "OrderClientFallback",
+          "startLine": 15,
+          "endLine": 27,
+          "methods": [
+            "create",
+            "accountOrderCount"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "create",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "accountOrderCount",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "OrderClientFallback",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "ApiResponse.error",
+          "lineNumber": 20
+        },
+        {
+          "caller": "accountOrderCount",
+          "callee": "ApiResponse.error",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "AccountOrderCountDto",
+          "startLine": 13,
+          "endLine": 24,
+          "methods": [],
+          "properties": [
+            "userId",
+            "programId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AccountOrderCountDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "OrderCancelDto",
+          "startLine": 13,
+          "endLine": 21,
+          "methods": [],
+          "properties": [
+            "orderNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderCancelDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 55,
+      "classes": [
+        {
+          "name": "OrderCreateDto",
+          "startLine": 18,
+          "endLine": 72,
+          "methods": [],
+          "properties": [
+            "orderNumber",
+            "programId",
+            "programItemPicture",
+            "userId",
+            "programTitle",
+            "programPlace",
+            "programShowTime",
+            "programPermitChooseSeat",
+            "distributionMode",
+            "takeTicketMode",
+            "orderPrice",
+            "createOrderTime",
+            "orderTicketUserCreateDtoList"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderCreateDto",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "OrderGetDto",
+          "startLine": 13,
+          "endLine": 21,
+          "methods": [],
+          "properties": [
+            "orderNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderGetDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "OrderListDto",
+          "startLine": 13,
+          "endLine": 21,
+          "methods": [],
+          "properties": [
+            "userId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderListDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "OrderPayCheckDto",
+          "startLine": 13,
+          "endLine": 24,
+          "methods": [],
+          "properties": [
+            "orderNumber",
+            "payChannelType"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderPayCheckDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 38,
+      "classes": [
+        {
+          "name": "OrderPayDto",
+          "startLine": 18,
+          "endLine": 49,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "platform",
+            "orderNumber",
+            "subject",
+            "price",
+            "channel",
+            "payBillType"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderPayDto",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 44,
+      "classes": [
+        {
+          "name": "OrderTicketUserCreateDto",
+          "startLine": 17,
+          "endLine": 57,
+          "methods": [],
+          "properties": [
+            "orderNumber",
+            "programId",
+            "userId",
+            "ticketUserId",
+            "seatId",
+            "seatInfo",
+            "ticketCategoryId",
+            "orderPrice",
+            "createOrderTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderTicketUserCreateDto",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 14,
+      "classes": [
+        {
+          "name": "AccountOrderCountVo",
+          "startLine": 11,
+          "endLine": 17,
+          "methods": [],
+          "properties": [
+            "count"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AccountOrderCountVo",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 51,
+      "classes": [
+        {
+          "name": "OrderGetVo",
+          "startLine": 15,
+          "endLine": 72,
+          "methods": [],
+          "properties": [
+            "orderNumber",
+            "programId",
+            "programItemPicture",
+            "userId",
+            "programTitle",
+            "programPlace",
+            "programShowTime",
+            "programPermitChooseSeat",
+            "distributionMode",
+            "takeTicketMode",
+            "orderPrice",
+            "payOrderType",
+            "orderStatus",
+            "createOrderTime",
+            "cancelOrderTime",
+            "payOrderTime",
+            "orderTicketInfoVoList",
+            "userAndTicketUserInfoVo"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderGetVo",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 38,
+      "classes": [
+        {
+          "name": "OrderListVo",
+          "startLine": 14,
+          "endLine": 53,
+          "methods": [],
+          "properties": [
+            "orderNumber",
+            "programId",
+            "programItemPicture",
+            "userId",
+            "programTitle",
+            "programPlace",
+            "programShowTime",
+            "orderPrice",
+            "payOrderType",
+            "orderStatus",
+            "createOrderTime",
+            "ticketCount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderListVo",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 32,
+      "classes": [
+        {
+          "name": "OrderPayCheckVo",
+          "startLine": 14,
+          "endLine": 44,
+          "methods": [],
+          "properties": [
+            "id",
+            "programId",
+            "userId",
+            "orderPrice",
+            "payOrderType",
+            "orderStatus",
+            "createOrderTime",
+            "cancelOrderTime",
+            "payOrderTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderPayCheckVo",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 23,
+      "classes": [
+        {
+          "name": "OrderTicketInfoVo",
+          "startLine": 13,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "seatInfo",
+            "price",
+            "quantity",
+            "favourablePrice",
+            "relPrice"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderTicketInfoVo",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 26,
+      "classes": [
+        {
+          "name": "TicketUserInfoVo",
+          "startLine": 14,
+          "endLine": 35,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "userId",
+            "relName",
+            "idType",
+            "idNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketUserInfoVo",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "UserAndTicketUserInfoVo",
+          "startLine": 13,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "userInfoVo",
+            "ticketUserInfoVoList"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserAndTicketUserInfoVo",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

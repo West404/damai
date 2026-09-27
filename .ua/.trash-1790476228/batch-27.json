@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {
+      "id": "service:docker/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "docker/Dockerfile",
+      "summary": "Shared Dockerfile for all damai microservices: packages a Maven-built Spring Boot jar onto an Eclipse Temurin 17 JRE base image with configurable JVM heap and a java -jar entrypoint.",
+      "tags": ["containerization", "infrastructure", "deployment", "docker"],
+      "complexity": "simple",
+      "languageNotes": "Single-stage build; the jar path is parameterized via ARG JAR_FILE=target/*.jar so the same Dockerfile is reused by every service build context in docker-compose.yml."
+    },
+    {
+      "id": "service:docker/Dockerfile:eclipse-temurin",
+      "type": "service",
+      "name": "eclipse-temurin",
+      "filePath": "docker/Dockerfile",
+      "lineRange": [4, 16],
+      "summary": "Image stage based on eclipse-temurin:17-jre that copies the service jar to /app/app.jar, sets JAVA_OPTS (-Xms256m -Xmx512m), and starts the app via sh -c java -jar.",
+      "tags": ["containerization", "jre", "runtime", "deployment"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "service:docker/Dockerfile", "target": "service:docker/Dockerfile:eclipse-temurin", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker/Dockerfile", "target": "file:docker-compose.yml", "type": "related", "direction": "forward", "weight": 0.5}
+  ]
+}

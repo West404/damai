@@ -1,0 +1,982 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-captcha-manage-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-captcha-manage-framework/pom.xml",
+      "summary": "验证码管理框架的聚合父 POM（packaging=pom），继承项目根 POM 并声明 damai-base-captcha 与 damai-captcha-framework 两个子模块。",
+      "tags": ["配置文件", "maven", "模块聚合", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-captcha-manage-framework/damai-base-captcha/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/pom.xml",
+      "summary": "基础验证码模块的 Maven 配置，仅声明对 damai-common 的依赖，产出无 Spring 依赖的验证码底层工具与 SPI 实现。",
+      "tags": ["配置文件", "maven", "验证码模块", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-captcha-manage-framework/damai-captcha-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-captcha-manage-framework/damai-captcha-framework/pom.xml",
+      "summary": "验证码操作封装模块的 Maven 配置，引入 spring-boot-starter-web（排除默认 logging）与 spring-boot-starter-data-redis，并依赖 damai-common、damai-base-captcha。",
+      "tags": ["配置文件", "maven", "验证码", "redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-common/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-common/pom.xml",
+      "summary": "公共模块的 Maven 配置，集中引入 commons-codec、commons-lang、jjwt、hutool、fastjson、log4j2、springdoc-openapi、spring-cloud-commons、jackson 与 netty macOS DNS 解析等依赖，供全部微服务复用。",
+      "tags": ["配置文件", "maven", "公共依赖", "build-system"],
+      "complexity": "moderate",
+      "languageNotes": "通过 exclusion 排除 spring-boot-starter-log4j2 传递的 log4j 组件，再显式引入统一版本的 log4j-core/api/slf4j-impl/web，避免日志实现冲突。"
+    },
+    {
+      "id": "document:damai-captcha-manage-framework/damai-base-captcha/src/main/resources/fonts/license.txt",
+      "type": "document",
+      "name": "license.txt",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/resources/fonts/license.txt",
+      "summary": "随验证码字体资源一同分发的文泉驿开源中文字体说明文档，介绍该项目背景、覆盖字符集与各发行版使用情况。",
+      "tags": ["documentation", "字体资源", "开源许可", "资源说明"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java",
+      "type": "file",
+      "name": "CaptchaConstant.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java",
+      "summary": "验证码基础模块的常量类，定义图形验证码的尺寸档位（TWO/THREE/FIVE）与字体文件后缀等常量。",
+      "tags": ["常量定义", "验证码", "配置常量"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java",
+      "type": "file",
+      "name": "Base64Utils.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java",
+      "summary": "基于 JDK Base64 的编解码工具类，提供标准与 URL 安全两种变体的字节数组/字符串互转方法。",
+      "tags": ["工具类", "base64", "编码解码", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "type": "file",
+      "name": "DateUtils.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "summary": "日期时间工具类，提供月份区间枚举、天数差计算、Date 与字符串多格式互转以及一天起止时间获取等能力，供验证码记录与业务时间处理使用。",
+      "tags": ["工具类", "日期时间", "格式化", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "type": "file",
+      "name": "FileCopyUtils.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "summary": "文件与流之间的拷贝工具类，封装字节流/字符流互拷、流转字节数组或字符串以及本地文件删除能力。",
+      "tags": ["工具类", "IO", "文件操作", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "type": "file",
+      "name": "StreamUtils.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "summary": "底层流处理工具类，提供输入输出流拷贝、指定区间拷贝、内容排空、空输入流以及禁止关闭的流包装（NonClosing 内部类）。",
+      "tags": ["工具类", "IO", "stream", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaCacheService",
+      "type": "file",
+      "name": "com.damai.captcha.service.CaptchaCacheService",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaCacheService",
+      "summary": "Java SPI 注册文件，为 CaptchaCacheService 声明默认的内存实现 CaptchaCacheServiceMemImpl，供验证码模块自动发现。",
+      "tags": ["SPI", "服务发现", "验证码", "资源配置"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaService",
+      "type": "file",
+      "name": "com.damai.captcha.service.CaptchaService",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaService",
+      "summary": "Java SPI 注册文件，注册滑块拼图、点选文字与默认三种验证码服务实现，是验证码类型工厂获取实现的扩展入口。",
+      "tags": ["SPI", "服务发现", "验证码", "扩展点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java",
+      "type": "file",
+      "name": "CaptchaEnvironment.java",
+      "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java",
+      "summary": "验证码框架的 EnvironmentPostProcessor 实现，在环境准备阶段开启 BeanDefinition 覆盖，保证框架自动配置可覆盖业务侧已有定义。",
+      "tags": ["spring-boot", "自动配置", "配置", "environment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaCacheService",
+      "type": "file",
+      "name": "com.damai.captcha.service.CaptchaCacheService",
+      "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaCacheService",
+      "summary": "Java SPI 注册文件，将验证码缓存服务替换为 Redis 实现 CaptchaCacheServiceRedisImpl，使分布式部署下验证码数据共享。",
+      "tags": ["SPI", "服务发现", "redis", "验证码"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Spring Boot 自动配置注册文件，声明 AjCaptchaAutoConfiguration 与 CaptchaAutoConfig 两个配置类随框架自动装配生效。",
+      "tags": ["spring-boot", "自动配置", "服务发现", "配置文件"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java",
+      "type": "file",
+      "name": "DaMaiCommonAutoConfig.java",
+      "filePath": "damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java",
+      "summary": "damai-common 的自动配置类，向 Spring 容器注册 JacksonCustom 定制器，使各微服务统一全局 JSON 序列化行为。",
+      "tags": ["自动配置", "spring-boot", "配置", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "type": "file",
+      "name": "JacksonCustom.java",
+      "filePath": "damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "summary": "Jackson2ObjectMapperBuilderCustomizer 实现，统一配置日期时间序列化格式、Long 转字符串防精度丢失、时区、null 处理与宽松字符等全局 JSON 规则。",
+      "tags": ["配置", "jackson", "序列化", "日期格式"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "type": "file",
+      "name": "JsonCustomSerializer.java",
+      "filePath": "damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "summary": "BeanSerializerModifier 实现，按字段实际类型（String/Number/Boolean/Date/枚举/数组/集合）决定 null 值的序列化输出，为前端提供空字符串、空数组等友好占位。",
+      "tags": ["序列化", "jackson", "null处理", "扩展点"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/constant/Constant.java",
+      "type": "file",
+      "name": "Constant.java",
+      "filePath": "damai-common/src/main/java/com/damai/constant/Constant.java",
+      "summary": "全局常量类，集中定义链路追踪标识、灰度开关与灰度参数、HTTP 上下文 key（code/userId/jobInfoId/jobRunRecordId）、支付宝异步通知返回内容以及服务前缀区分名等公共常量。",
+      "tags": ["常量定义", "灰度", "公共配置", "trace"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/CodeType.java",
+      "type": "file",
+      "name": "CodeType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/CodeType.java",
+      "summary": "响应码枚举，定义各业务错误码及其 value 与提示信息，并提供按 code 反查提示信息与响应体的静态方法。",
+      "tags": ["枚举", "错误码", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/IdType.java",
+      "type": "file",
+      "name": "IdType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/IdType.java",
+      "summary": "ID 类型枚举，定义各业务对象标识的类型码与提示信息，并提供按 code 获取提示与响应体的静态方法。",
+      "tags": ["枚举", "id生成", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java",
+      "type": "file",
+      "name": "JobInfoMethodCode.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java",
+      "summary": "任务方法码枚举，描述定时任务调度时的方法标识与提示信息，供 job 调度客户端统一引用。",
+      "tags": ["枚举", "定时任务", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/JobRunStatus.java",
+      "type": "file",
+      "name": "JobRunStatus.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/JobRunStatus.java",
+      "summary": "任务执行状态枚举，定义任务运行状态码与提示信息，并支持按 code 反查状态描述。",
+      "tags": ["枚举", "定时任务", "状态", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/JobRunType.java",
+      "type": "file",
+      "name": "JobRunType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/JobRunType.java",
+      "summary": "任务运行类型枚举，区分手动触发与自动调度等任务执行方式，供任务调度记录使用。",
+      "tags": ["枚举", "定时任务", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/PayBillType.java",
+      "type": "file",
+      "name": "PayBillType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PayBillType.java",
+      "summary": "支付账单类型枚举，定义支付单类型码与提示信息，供支付服务与订单服务共用。",
+      "tags": ["枚举", "支付", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java:CaptchaConstant",
+      "type": "class",
+      "name": "CaptchaConstant",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java",
+      "lineRange": [8, 14],
+      "summary": "验证码常量持有类，集中定义图形验证码的尺寸档位常量与字体文件后缀常量 TTF_ENDS_WITH。",
+      "tags": ["常量定义", "data-model", "验证码"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java:Base64Utils",
+      "type": "class",
+      "name": "Base64Utils",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java",
+      "lineRange": [17, 58],
+      "summary": "不可实例化的 Base64 工具类，封装 JDK Base64 的标准与 URL 安全编解码静态方法，供验证码图片数据传输使用。",
+      "tags": ["工具类", "base64", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:DateUtils",
+      "type": "class",
+      "name": "DateUtils",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "lineRange": [18, 150],
+      "summary": "日期时间工具类，聚合月份区间枚举、天数差、格式化与多格式解析、日界时间等静态方法并内置多套日期格式常量。",
+      "tags": ["工具类", "日期时间", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:FileCopyUtils",
+      "type": "class",
+      "name": "FileCopyUtils",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "lineRange": [18, 136],
+      "summary": "文件与流拷贝工具类，提供流到字节数组/字符串的转换以及按路径删除本地文件的静态方法。",
+      "tags": ["工具类", "IO", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:StreamUtils",
+      "type": "class",
+      "name": "StreamUtils",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "lineRange": [20, 151],
+      "summary": "流工具类，提供流的拷贝、区间拷贝、排空与不可关闭包装，并内含 NonClosingInputStream/NonClosingOutputStream 内部实现。",
+      "tags": ["工具类", "IO", "stream"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java:CaptchaEnvironment",
+      "type": "class",
+      "name": "CaptchaEnvironment",
+      "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java",
+      "lineRange": [12, 18],
+      "summary": "验证码框架的环境后置处理器，在启动早期允许 BeanDefinition 覆盖，使验证码自动配置能替换业务侧同名 Bean。",
+      "tags": ["spring-boot", "自动配置", "配置"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java:DaMaiCommonAutoConfig",
+      "type": "class",
+      "name": "DaMaiCommonAutoConfig",
+      "filePath": "damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java",
+      "lineRange": [12, 18],
+      "summary": "damai-common 的自动配置类，通过 @Bean 注册 JacksonCustom 定制器，统一所有微服务的 JSON 序列化规则。",
+      "tags": ["自动配置", "spring-boot", "配置"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/config/JacksonCustom.java:JacksonCustom",
+      "type": "class",
+      "name": "JacksonCustom",
+      "filePath": "damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "lineRange": [38, 91],
+      "summary": "Jackson 全局定制器实现，集中配置日期时间（Date 与 JSR-310）的序列化/反序列化格式、数字精度、时区与解析特性开关，并注册 JsonCustomSerializer 修改器。",
+      "tags": ["jackson", "序列化", "配置"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:JsonCustomSerializer",
+      "type": "class",
+      "name": "JsonCustomSerializer",
+      "filePath": "damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "lineRange": [21, 95],
+      "summary": "Jackson BeanSerializerModifier 实现，为属性分配按类型区分的 null 序列化器，实现 null 到空字符串/空数组/布尔 false 等友好输出。",
+      "tags": ["序列化", "jackson", "扩展点"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/constant/Constant.java:Constant",
+      "type": "class",
+      "name": "Constant",
+      "filePath": "damai-common/src/main/java/com/damai/constant/Constant.java",
+      "lineRange": [8, 41],
+      "summary": "全局常量类，集中存放链路追踪、灰度标识与参数、上下文 key、支付回调返回内容以及服务前缀区分名等跨模块常量。",
+      "tags": ["常量定义", "data-model", "公共配置"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/CodeType.java:CodeType",
+      "type": "class",
+      "name": "CodeType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/CodeType.java",
+      "lineRange": [8, 73],
+      "summary": "错误码枚举，承载 code/value/msg 三元信息并提供 code 到提示信息、响应体的静态查询方法。",
+      "tags": ["枚举", "错误码", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/IdType.java:IdType",
+      "type": "class",
+      "name": "IdType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/IdType.java",
+      "lineRange": [8, 62],
+      "summary": "ID 类型枚举，维护业务标识类型码与提示信息，并提供按 code 查询提示信息与响应体的静态方法。",
+      "tags": ["枚举", "id生成", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java:JobInfoMethodCode",
+      "type": "class",
+      "name": "JobInfoMethodCode",
+      "filePath": "damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java",
+      "lineRange": [8, 52],
+      "summary": "任务方法码枚举，定义定时任务调度方法标识与提示信息，并提供 code 反查方法。",
+      "tags": ["枚举", "定时任务", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/JobRunStatus.java:JobRunStatus",
+      "type": "class",
+      "name": "JobRunStatus",
+      "filePath": "damai-common/src/main/java/com/damai/enums/JobRunStatus.java",
+      "lineRange": [8, 51],
+      "summary": "任务执行状态枚举，描述任务运行状态与其提示信息，并提供 code 反查方法。",
+      "tags": ["枚举", "定时任务", "状态", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/JobRunType.java:JobRunType",
+      "type": "class",
+      "name": "JobRunType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/JobRunType.java",
+      "lineRange": [8, 23],
+      "summary": "任务运行类型枚举，用于区分定时任务的触发方式（如手动执行与调度执行）。",
+      "tags": ["枚举", "定时任务", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/PayBillType.java:PayBillType",
+      "type": "class",
+      "name": "PayBillType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PayBillType.java",
+      "lineRange": [8, 57],
+      "summary": "支付账单类型枚举，定义支付单类型码与提示信息，并提供 code 反查提示与响应体的方法。",
+      "tags": ["枚举", "支付", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:getMonthBetweenDate",
+      "type": "function",
+      "name": "getMonthBetweenDate",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "lineRange": [37, 62],
+      "summary": "枚举起止时间之间包含的所有月份，按指定格式输出月份字符串列表，解析失败时打印异常堆栈并返回已收集结果。",
+      "tags": ["日期计算", "区间枚举", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:differentDays",
+      "type": "function",
+      "name": "differentDays",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "lineRange": [64, 81],
+      "summary": "通过将两个日期清零时分秒毫秒后取时间戳差值，计算二者相差的天数。",
+      "tags": ["日期计算", "工具方法", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:convert",
+      "type": "function",
+      "name": "convert",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "lineRange": [90, 125],
+      "summary": "重载的日期转换方法：按指定格式将 Date 格式化为字符串；以及按内置候选格式集合把字符串解析为 Date，格式不匹配时记录 WARN 日志并返回 null。",
+      "tags": ["日期转换", "解析", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:copy",
+      "type": "function",
+      "name": "copy",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "lineRange": [23, 41],
+      "summary": "将输入流内容拷贝到输出流（委托 StreamUtils.copy），并在 finally 块中分别安全关闭两侧流且吞掉关闭异常。",
+      "tags": ["IO", "流拷贝", "工具方法"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:deleteFile",
+      "type": "function",
+      "name": "deleteFile",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "lineRange": [122, 134],
+      "summary": "按文件路径删除本地文件，仅在文件存在且为普通文件时执行删除，异常仅打印堆栈不向上抛出。",
+      "tags": ["文件操作", "IO", "工具方法"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copyToString",
+      "type": "function",
+      "name": "copyToString",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "lineRange": [37, 53],
+      "summary": "按指定字符集读取输入流的全部内容并组装为字符串返回。",
+      "tags": ["IO", "字符流", "工具方法"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copyRange",
+      "type": "function",
+      "name": "copyRange",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "lineRange": [78, 103],
+      "summary": "从输入流的指定起始位置拷贝指定长度字节到输出流，通过 skip 定位并在跳过的字节数不足时抛出 IOException。",
+      "tags": ["IO", "区间拷贝", "工具方法"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/config/JacksonCustom.java:customize",
+      "type": "function",
+      "name": "customize",
+      "filePath": "damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "lineRange": [45, 85],
+      "summary": "定制 ObjectMapper：设置非空序列化策略、Long/double 转字符串防精度丢失、Date 与 JSR-310 各类时间类型的序列化与反序列化格式、默认时区，并注册 JsonCustomSerializer 修改器与宽松字符等解析特性。",
+      "tags": ["jackson", "序列化", "配置"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:changeProperties",
+      "type": "function",
+      "name": "changeProperties",
+      "filePath": "damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "lineRange": [23, 33],
+      "summary": "BeanSerializerModifier 回调方法，遍历 Bean 属性并为其分配与类型匹配的 null 序列化器。",
+      "tags": ["jackson", "序列化", "扩展点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:judgeType",
+      "type": "function",
+      "name": "judgeType",
+      "filePath": "damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "lineRange": [35, 94],
+      "summary": "根据属性原始类型（String、Number、Boolean、Date、枚举、数组、集合等）返回对应的 JsonSerializer，实现 null 值输出为空字符串、空数组或默认值。",
+      "tags": ["jackson", "序列化", "类型判断"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java:CaptchaConstant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java:CaptchaConstant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java:Base64Utils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java:Base64Utils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:DateUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:DateUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:getMonthBetweenDate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:getMonthBetweenDate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:differentDays",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:differentDays",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:convert",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:convert",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:FileCopyUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:FileCopyUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:copy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:copy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:deleteFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:deleteFile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:StreamUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:StreamUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copyToString",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copyToString",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copyRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copyRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java",
+      "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java:CaptchaEnvironment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java",
+      "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java:CaptchaEnvironment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java",
+      "target": "class:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java:DaMaiCommonAutoConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java",
+      "target": "class:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java:DaMaiCommonAutoConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "target": "class:damai-common/src/main/java/com/damai/config/JacksonCustom.java:JacksonCustom",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "target": "class:damai-common/src/main/java/com/damai/config/JacksonCustom.java:JacksonCustom",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "target": "function:damai-common/src/main/java/com/damai/config/JacksonCustom.java:customize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "target": "function:damai-common/src/main/java/com/damai/config/JacksonCustom.java:customize",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "target": "class:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:JsonCustomSerializer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "target": "class:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:JsonCustomSerializer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "target": "function:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:changeProperties",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "target": "function:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:changeProperties",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "target": "function:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:judgeType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "target": "function:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:judgeType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/constant/Constant.java",
+      "target": "class:damai-common/src/main/java/com/damai/constant/Constant.java:Constant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/constant/Constant.java",
+      "target": "class:damai-common/src/main/java/com/damai/constant/Constant.java:Constant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/CodeType.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/CodeType.java:CodeType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/CodeType.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/CodeType.java:CodeType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/IdType.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/IdType.java:IdType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/IdType.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/IdType.java:IdType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java:JobInfoMethodCode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java:JobInfoMethodCode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/JobRunStatus.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/JobRunStatus.java:JobRunStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/JobRunStatus.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/JobRunStatus.java:JobRunStatus",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/JobRunType.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/JobRunType.java:JobRunType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/JobRunType.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/JobRunType.java:JobRunType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/PayBillType.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/PayBillType.java:PayBillType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/PayBillType.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/PayBillType.java:PayBillType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java",
+      "target": "file:damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "target": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaService",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaService",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaService",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaCacheService",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaCacheServiceMemImpl.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaCacheService",
+      "target": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "target": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaAutoConfiguration.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "target": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-captcha-manage-framework/pom.xml",
+      "target": "config:damai-captcha-manage-framework/damai-base-captcha/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-captcha-manage-framework/pom.xml",
+      "target": "config:damai-captcha-manage-framework/damai-captcha-framework/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-captcha-manage-framework/damai-base-captcha/pom.xml",
+      "target": "config:damai-captcha-manage-framework/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-captcha-manage-framework/damai-base-captcha/pom.xml",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-captcha-manage-framework/damai-captcha-framework/pom.xml",
+      "target": "config:damai-captcha-manage-framework/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-captcha-manage-framework/damai-captcha-framework/pom.xml",
+      "target": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-common/pom.xml",
+      "target": "file:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-common/pom.xml",
+      "target": "file:damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:damai-captcha-manage-framework/damai-base-captcha/src/main/resources/fonts/license.txt",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+[
+  {
+    "order": 1,
+    "title": "项目总览与技术栈",
+    "description": "导览从 README 开始：它用 28 个小节讲清了这套高并发票务系统的业务背景、微服务拆分、技术选型与高并发亮点，并给出本地启动方式。配合根目录的 Maven 聚合 POM，你能一眼看到 10 个模块、Java 17 + Spring Boot 3.3 + Spring Cloud Alibaba 3 的版本基线，以及后续所有章节要展开的中间件（Redis/Redisson/Kafka/Elasticsearch/ShardingSphere）。建议先建立「框架层 + 业务服务层 + 公共契约」三层心智模型，再进入后面的代码细节。",
+    "nodeIds": [
+      "document:README.md",
+      "config:pom.xml"
+    ],
+    "languageLesson": "Maven 聚合 POM（parent）通过 <modules> 声明子模块、<dependencyManagement> 统一收敛版本号，子模块只需写 groupId/artifactId 而无需写版本，避免多模块项目里的版本漂移——这正是本项目 10 个模块能共用同一套 Spring Cloud 版本的原因。"
+  },
+  {
+    "order": 2,
+    "title": "网关入口与统一校验",
+    "description": "承接上一步的架构图，这里是所有流量的第一站。GatewayApplication 启动 Spring Cloud Gateway 并开启服务发现与 Feign，RequestValidationFilter 把限流、请求体缓存、RSA 验签、token 鉴权与 API 规则拦截串成一条过滤器链，ResponseValidationFilter 则在返回时按渠道加密 data 字段。ApiRestrictService 从 Redis 读取规则、用 Lua 在时间窗口内统计调用量并拦截，配置层面由 application.yml 里的 Sentinel 流控与 Dashboard 参数兜底。",
+    "nodeIds": [
+      "file:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "config:damai-server/damai-gateway-service/src/main/resources/application.yml"
+    ],
+    "languageLesson": "Spring Cloud Gateway 的过滤器分为 GlobalFilter（对所有路由生效）与 GatewayFilter（绑定单条路由），按 @Order 升序串行执行；在过滤器里直接修改 ServerWebExchange，即可实现请求体重复读取、身份透传这类「一次请求多处消费」的需求。"
+  },
+  {
+    "order": 3,
+    "title": "微服务启动与有序初始化",
+    "description": "上一步的服务要能正确对外提供能力，前提是启动期的初始化顺序可控。damai-service-initialize 框架用 AbstractApplicationStartEventListenerHandler 与 AbstractApplicationPostConstructHandler 两个抽象基类规定了「启动事件初始化」与「启动后置处理」两套契约，业务只需声明执行顺序即可插入自己的预热逻辑。于是节目服务能在开机时建好 ES 索引并预热分类缓存与布隆过滤器，延迟队列框架也能在启动事件中扫描所有 ConsumerTask 并拉起消费线程——这解释了后续章节里那些「启动即生效」的缓存与队列为什么无需手动触发。",
+    "nodeIds": [
+      "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java",
+      "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java"
+    ],
+    "languageLesson": "Spring 的扩展点各有触发时机：ApplicationContextInitializer 在容器刷新前执行，ApplicationListener<ApplicationStartedEvent> 在容器就绪后执行，而 @PostConstruct 属于 Bean 生命周期内。用「执行顺序」字段把同类扩展点显式排序，是大型项目里避免初始化竞态的常见做法。"
+  },
+  {
+    "order": 4,
+    "title": "公共契约与基础工具",
+    "description": "进入代码主干前，先认识被引用次数最多的公共契约：ApiResponse 是全系统统一返回壳，BaseCode 定义了所有错误码，DaMaiFrameException 是跨服务传播的框架异常，StringUtil 与 SpringUtil 则提供字符串/容器级别的通用能力。这四五个文件的 fan-in 在整张图中排名最前（BaseCode 被 48 个文件引用），说明它们是所有微服务共享的词汇表。读懂它们，后面每个业务服务的方法签名与异常语义都会变得直观。",
+    "nodeIds": [
+      "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "file:damai-common/src/main/java/com/damai/core/SpringUtil.java"
+    ],
+    "languageLesson": "SpringUtil 实现 ApplicationContextInitializer 把 ApplicationContext 缓存为静态字段，从而让非 Spring 管理的代码也能拿到容器。这是典型的「用静态副作用换取调用便利」，代价是可测试性下降，因此只适合框架级工具类。"
+  },
+  {
+    "order": 5,
+    "title": "Redis 缓存封装与 Key 管理",
+    "description": "有了公共契约，接着看缓存的底座。RedisCache 把 RedisTemplate 的读写、序列化与过期策略收敛成业务友好的方法（fan-in 25，是 Redis 相关文件里最高），RedisKeyBuild 负责按业务前缀与参数拼接 key，RedisKeyManage 则集中登记所有缓存 key 与其 TTL。这一层让「缓存 key 不再散落在业务代码里」，也为下一步的分布式锁和 Lua 脚本提供了统一的 key 与序列化约定。",
+    "nodeIds": [
+      "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java"
+    ],
+    "languageLesson": "多级 key 用「冒号分隔的命名空间」（如 damai:program:detail:101）能直观表达层级关系，也方便用 SCAN 按前缀批量清理。集中管理 key 常量的好处是避免在 Lua 脚本与 Java 代码之间出现前缀不一致的隐性 bug。"
+  },
+  {
+    "order": 6,
+    "title": "Redisson 分布式锁与幂等",
+    "description": "高并发下必须有人来「排队」。Redisson 锁框架把加锁抽象成 @ServiceLock 注解——它支持锁类型（LockType 区分可重入/公平/读/写）、SpEL 表达式拼 key、等待时间与超时策略，由 @Order(-10) 的 ServiceLockAspect 统一拦截，底层落到 RedissonReentrantLocker 等实现，锁竞争失败时按 LockTimeOutStrategy 快速失败。RepeatExecuteLimitAspect 进一步在方法级做幂等：Redisson 幂等标记 + JVM 本地锁 + Redisson 公平锁三层校验，保证下单、取消订单、MQ 消费在同一业务键上只成功执行一次。",
+    "nodeIds": [
+      "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java",
+      "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java"
+    ],
+    "languageLesson": "注解 + AOP 把横切关注点（加锁、幂等、限流）从业务方法里剥离：注解只声明意图，切面负责 key 生成、加解锁与异常转换。负的 @Order 值让锁切面比事务切面更外层执行，避免「事务已开启但锁未获取」的时序问题。"
+  },
+  {
+    "order": 7,
+    "title": "Redis+Lua 原子扣减库存",
+    "description": "锁能串行化，但真正的抢票性能来自「把多步 Redis 操作压进一次原子脚本」。programDataCreateOrderResolution.lua 是下单抢座的核心：在一次执行中校验票档余量、校验座位售卖状态（支持指定座位与自动挑连座两种模式）、比对价格一致性，成功则扣减余量并把座位从「未售 Hash」迁移到「锁定 Hash」，返回购票座位列表或明确错误码。programSeat.lua 负责把未售/锁定/已售三个 Hash 合并成一份座位快照供查询与预热，ProgramSeatCacheData 启动时加载脚本并按数据量在并行/串行流之间切换解析，ProgramCacheCreateOrderData 承载脚本返回码。TicketCategoryService 则展示了票档维度的多级缓存读取与库存 Hash 预热，是最典型的读路径。",
+    "nodeIds": [
+      "file:damai-server/damai-program-service/src/main/resources/lua/programDataCreateOrderResolution.lua",
+      "file:damai-server/damai-program-service/src/main/resources/lua/programSeat.lua",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java"
+    ],
+    "languageLesson": "Redis 执行 Lua 脚本是单线程原子的：脚本内的所有读写不会被其他命令打断，因此「检查余量 + 扣减 + 迁移座位」不需要额外加锁，也就没有锁竞争开销。代价是脚本必须保持短小，耗时操作会阻塞整个实例——这正是本项目把复杂逻辑拆成多个小脚本（下单、座位读取、缓存失效、回补）的原因。"
+  },
+  {
+    "order": 8,
+    "title": "节目多级缓存与 ES 搜索",
+    "description": "扣减发生在缓存层，那缓存本身如何组织？ProgramService 是节目领域的核心（fan-out 71，全图最高），把 Caffeine 本地缓存与 Redis 组合成多级读路径，并聚合 Elasticsearch 检索结果。LocalCacheProgram、LocalCacheProgramShowTime、LocalCacheTicketCategory 演示了三种不同的本地过期策略——都让 Caffeine 的条目 TTL 与对应 Redis key 对齐或跟随演出时间，避免本地数据比 Redis 活得更久。ProgramEs 提供首页分类、推荐、分页与高亮搜索，ProgramBloomFilterInit 则在启动时把节目 ID 灌入布隆过滤器拦截无效查询。",
+    "nodeIds": [
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java"
+    ],
+    "languageLesson": "多级缓存的一致性是核心难点：本地缓存无法被其他节点直接失效，所以本项目的做法是「本地 TTL ≤ Redis TTL」+ 通过消息广播主动失效。布隆过滤器则有假阳性无假阴性——它能确定「不存在」，适合用来挡掉必然查不到的请求。"
+  },
+  {
+    "order": 9,
+    "title": "Redis Stream 缓存失效",
+    "description": "上一步留下的问题是：节点 A 修改了数据，节点 B 的 Caffeine 本地缓存怎么办？项目用 Redis Stream 做跨节点失效广播。RedisStreamPushHandler 是统一的生产入口，RedisStreamAutoConfig 自动装配推送器、运维助手与监听容器，并支持 group（消费组）与 broadcast（广播）两种模式；ProgramRedisStreamConsumer 收到节目 ID 后调用 ProgramService.delLocalCache 精确摘掉本地缓存。RedisStreamListener 在异常时只记日志不抛出，保证单条坏消息不会让消费线程退出。",
+    "nodeIds": [
+      "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamPushHandler.java",
+      "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java"
+    ],
+    "languageLesson": "Redis Stream 相比 Pub/Sub 会持久化消息并支持消费组与 ACK，消费者宕机后可以补消费；未 ACK 的消息留在 PENDING 列表里，可实现天然的重试语义。广播模式则相当于给每个消费者实例复制一份消息，正好适配「各节点都要清自己的本地缓存」这种场景。"
+  },
+  {
+    "order": 10,
+    "title": "下单主流程与订单落库",
+    "description": "把前面所有零件串起来：ProgramOrderService 负责余量校验、座位匹配、价格比对，先走 Lua 原子扣减缓存座位，再通过 RPC 同步或 Kafka 异步把订单交给订单服务；失败时调用补偿脚本回滚缓存。四套策略 ProgramOrderV1~V4 被 ProgramOrderContext 按版本号分派，展示了同一业务的渐进式演进：V1 裸奔做基线，V2 叠加本地锁 + Redisson 分布式锁，V3 缩短锁内耗时，V4 用本地锁 + Kafka 异步下单把落库压力转移到消费端，吞吐最高。订单侧 OrderService 与 OrderController 承接落库、支付回调、缓存反向操作与取消，CreateOrderSend 发送消息后由 CreateOrderConsumer 依据消息延迟判定「落库创建」还是「回滚座位」，OrderProgramCacheResolutionOperate 执行订单侧回补 Lua 保证 Redis 与数据库最终一致。",
+    "nodeIds": [
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "file:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java"
+    ],
+    "languageLesson": "策略模式用一个接口（ProgramOrderStrategy）承载多套算法，再由上下文按标识分派，好处是新增方案无需改动调用方代码——本项目正是借此把 V1~V4 四代并发方案并存，方便压测对比而不是删掉旧实现。"
+  },
+  {
+    "order": 11,
+    "title": "延迟队列取消订单",
+    "description": "下单成功后如果一直不支付，座位必须被释放——这靠 Redisson 延迟队列实现。DelayQueueContext 是发送端统一入口，按 topic 懒加载生产者并把 DelayOrderCancelDto（只带订单号）投递出去；DelayQueueProduceCombine 会把消息按隔离分区轮询散列到多个 Redis 队列，避免单队列热点。消费端 DelayConsumerQueue 用单线程阻塞拉取保证顺序，再把任务交给业务线程池并发执行，DelayOrderCancelConsumer 解析消息后驱动 OrderService 取消订单并回补库存。",
+    "nodeIds": [
+      "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java",
+      "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java"
+    ],
+    "languageLesson": "Redisson 的 RDelayedQueue 基于 ZSET 实现：消息先放入以到期时间戳为 score 的有序集合，由后台任务把到期的消息搬到目标队列供 BLPOP 消费。发送端与消费端通过「独立线程池 + 分区」解耦，是延迟任务的通用工程范式。"
+  },
+  {
+    "order": 12,
+    "title": "支付与退款策略",
+    "description": "订单落到「已支付」需要支付服务配合。PayController 暴露下单、异步回调、交易核对、退款与支付单详情五个接口，PayService 编排业务并持久化支付单与退款单（RefundBill）。渠道差异被 PayStrategyHandler 接口收敛——定义下单、验签、数据校验、交易查询、退款与渠道标识六个契约，AlipayStrategyHandler 给出支付宝实现并把第三方交易状态映射为内部 PayBillStatus；PayStrategyContext 按渠道分派，PayStrategyInitHandler 在启动阶段（呼应第 3 步的初始化契约）把所有渠道实现自动注册进上下文。",
+    "nodeIds": [
+      "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "file:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java",
+      "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyHandler.java",
+      "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java",
+      "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/AlipayStrategyHandler.java"
+    ],
+    "languageLesson": "策略 + 上下文 + 启动期注册是插件化渠道接入的标准三件套：新增微信支付时只需实现 PayStrategyHandler 并声明渠道标识，PayStrategyInitHandler 会自动把它装配进上下文，调用方代码零改动。异步回调必须验签并做幂等，否则重复通知会造成重复发货或重复退款。"
+  },
+  {
+    "order": 13,
+    "title": "验证码与签名防刷",
+    "description": "面对脚本抢票，光有限流还不够。UserCaptchaService 通过 Redis key 与 checkNeedCaptcha.lua 原子统计访问频次，决定当前请求是否必须过验证码，并代理验证码的获取与校验、输出 captchaId 供注册流程使用，CheckNeedCaptchaOperate 负责启动时加载该脚本；这与第 2 步网关的 ApiRestrictService 形成「边缘限流 + 业务级验证码」双重防刷。RsaSignTool 则提供 SHA256withRSA 的参数排序签名与验签，配合渠道密钥表让外部渠道报文可被网关校验，未通过签名的请求在过滤器链上就被拒绝。",
+    "nodeIds": [
+      "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+      "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "file:damai-server/damai-user-service/src/main/resources/lua/checkNeedCaptcha.lua",
+      "file:damai-common/src/main/java/com/damai/util/RsaSignTool.java"
+    ],
+    "languageLesson": "「先计数、再判断是否要验证码」这类逻辑必须原子执行，否则并发下会重复计数或漏判；把它写进 Lua 脚本是 Redis 上的通用解法。RSA 签名要先把参数按 key 排序再拼接，否则服务端与客户端因参数顺序不同会算出不同签名。"
+  },
+  {
+    "order": 14,
+    "title": "分库分表与建表脚本",
+    "description": "订单量决定了数据库必须分片。1_damai_cloud_create_database.sql 先建出 damai_order_0/1、damai_pay_0/1、damai_user_0/1 等 10 个分库，damai_order_0.sql 则给出订单主表 d_order_0~d_order_3 与购票人关联表的分表结构与种子数据。分片规则由 shardingsphere-order-local.yaml 声明（ds_0/ds_1 两个数据源 + 按 order_number、user_id 分片），而 DatabaseOrderComplexGeneArithmetic 与 TableOrderComplexGeneArithmetic 实现了「基因法」：从订单号与用户 ID 拼接的二进制基因中截取库基因位与表基因位，保证同一用户在同一库内散列稳定。",
+    "nodeIds": [
+      "table:sql/cloud/1_damai_cloud_create_database.sql",
+      "table:sql/cloud/damai_order_0.sql:d_order_0",
+      "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml",
+      "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java"
+    ],
+    "languageLesson": "分片键选择决定查询成本：用 order_number 分片能让订单详情精确定位到单库单表，但「查我的订单列表」会命中所有库；基因法把 userId 的比特位编码进订单号，使两种查询都能路由，代价是订单号可解读、不能随意改号。分库分表后原先的跨表 JOIN 与全局自增 ID 都不再可用，因此本项目用雪花算法生成订单号并冗余查询字段。"
+  },
+  {
+    "order": 15,
+    "title": "Docker 部署编排",
+    "description": "最后把整条链路跑起来。docker/Dockerfile 是八个微服务共用的镜像定义：基于 eclipse-temurin:17-jre，把已构建的 jar 复制为 /app/app.jar，通过 JAVA_OPTS 注入 JVM 参数后 ENTRYPOINT 启动。docker-compose.yml 负责一键编排 MySQL、Redis、Nacos、Kafka、Elasticsearch 等中间件与八个业务服务，统一挂载 damai-net 网络、健康检查依赖与数据卷；值得注意的是 user/order/pay 以 docker profile 启动从而启用分库分表配置（呼应第 14 步），program 额外注入 elasticsearch.ip 且依赖链最长。docker/README.md 给出了 jar 构建与访问入口的完整步骤。",
+    "nodeIds": [
+      "service:docker-compose.yml",
+      "service:docker/Dockerfile",
+      "service:docker-compose.yml:program-service",
+      "service:docker-compose.yml:order-service",
+      "document:docker/README.md"
+    ],
+    "languageLesson": "Docker 分层缓存按指令逐层失效，因此先复制依赖描述、再复制构建产物、最后才复制源码（或反过来，像本项目这样只复制已构建好的 jar）能显著加快重复构建。compose 的 depends_on 只保证启动顺序、不代表服务就绪，真正等待可用要配合 healthcheck 与 condition: service_healthy。"
+  }
+]

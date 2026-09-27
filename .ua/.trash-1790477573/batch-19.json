@@ -1,0 +1,994 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "type": "file",
+      "name": "SeatType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "summary": "座位类型枚举，定义座位类型码值与文案，并提供按 code 反查文案或枚举实例的静态方法，供节目座位管理链路统一使用。",
+      "tags": ["枚举", "data-model", "座位类型", "共享模块"],
+      "complexity": "simple",
+      "languageNotes": "采用 code/msg 双字段的枚举模式，与 BaseCode 体系一致；静态 getMsg/getRc 通过遍历 values() 做线性匹配。"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/SeatType.java:SeatType",
+      "type": "class",
+      "name": "SeatType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "lineRange": [8, 57],
+      "summary": "座位类型枚举类，当前仅含 GENERAL(1,\"通用座位\") 一个值，提供 code/msg 访问器与静态反查方法。",
+      "tags": ["枚举", "data-model", "座位类型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/SeatType.java:getMsg",
+      "type": "function",
+      "name": "getMsg",
+      "filePath": "damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "lineRange": [40, 47],
+      "summary": "按座位类型 code 遍历枚举值返回对应文案，未匹配时返回空字符串；被座位查询链路用于回填 seatTypeName。",
+      "tags": ["枚举", "工具方法", "类型转换"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/SeatType.java:getRc",
+      "type": "function",
+      "name": "getRc",
+      "filePath": "damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "lineRange": [49, 56],
+      "summary": "按 code 反查 SeatType 枚举实例，未匹配时返回 null，便于调用方进一步读取枚举属性。",
+      "tags": ["枚举", "工具方法", "类型转换"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "type": "file",
+      "name": "SellStatus.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "summary": "座位售卖状态枚举，定义未售卖/锁定/已售卖三种状态，并提供按 code 反查文案与枚举实例的静态方法。",
+      "tags": ["枚举", "data-model", "售卖状态", "共享模块"],
+      "complexity": "simple",
+      "languageNotes": "与 SeatType 同构的 code/msg 枚举模式，状态码 1/2/3 对应 d_seat 表 sell_status 字段。"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/SellStatus.java:SellStatus",
+      "type": "class",
+      "name": "SellStatus",
+      "filePath": "damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "lineRange": [8, 59],
+      "summary": "售卖状态枚举类，包含 NO_SOLD(1)、LOCK(2)、SOLD(3)，贯穿座位缓存分片与订单占座流程。",
+      "tags": ["枚举", "data-model", "售卖状态"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/SellStatus.java:getMsg",
+      "type": "function",
+      "name": "getMsg",
+      "filePath": "damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "lineRange": [42, 49],
+      "summary": "按状态 code 返回中文文案，未匹配返回空字符串。",
+      "tags": ["枚举", "工具方法", "类型转换"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/SellStatus.java:getRc",
+      "type": "function",
+      "name": "getRc",
+      "filePath": "damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "lineRange": [51, 58],
+      "summary": "按 code 反查 SellStatus 枚举实例，未匹配返回 null。",
+      "tags": ["枚举", "工具方法", "类型转换"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatAddDto.java",
+      "type": "file",
+      "name": "SeatAddDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatAddDto.java",
+      "summary": "单个座位新增的入参 DTO，携带节目、票档、排号/列号、座位类型与价格字段，并带 @NotNull 校验与 Swagger 注解。",
+      "tags": ["data-model", "dto", "validation", "座位"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatAddDto.java:SeatAddDto",
+      "type": "class",
+      "name": "SeatAddDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatAddDto.java",
+      "lineRange": [15, 42],
+      "summary": "节目座位新增参数对象，6 个字段全部为 REQUIRED，由 SeatController.add 接收并透传给 SeatService.add。",
+      "tags": ["data-model", "dto", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java",
+      "type": "file",
+      "name": "SeatBatchAddDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java",
+      "summary": "座位批量新增的入参 DTO，以节目 id 加座位相关信息列表的形式描述一批待生成的座位。",
+      "tags": ["data-model", "dto", "批量操作", "座位"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java:SeatBatchAddDto",
+      "type": "class",
+      "name": "SeatBatchAddDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java",
+      "lineRange": [15, 26],
+      "summary": "批量座位新增参数对象，包含 programId 与 List<SeatBatchRelateInfoAddDto> 票档价格数量列表。",
+      "tags": ["data-model", "dto", "批量操作"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchRelateInfoAddDto.java",
+      "type": "file",
+      "name": "SeatBatchRelateInfoAddDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchRelateInfoAddDto.java",
+      "summary": "批量座位新增中单条票档配置 DTO，描述某票档下按价格批量生成的座位数量。",
+      "tags": ["data-model", "dto", "票档", "座位"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchRelateInfoAddDto.java:SeatBatchRelateInfoAddDto",
+      "type": "class",
+      "name": "SeatBatchRelateInfoAddDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchRelateInfoAddDto.java",
+      "lineRange": [16, 31],
+      "summary": "票档批量座位配置参数对象，含 ticketCategoryId、price、count 三个必填字段。",
+      "tags": ["data-model", "dto", "票档"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatListDto.java",
+      "type": "file",
+      "name": "SeatListDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatListDto.java",
+      "summary": "座位相关信息查询的入参 DTO，仅需节目 id 即可拉取该节目全部票档下的座位分布与价格分组。",
+      "tags": ["data-model", "dto", "查询参数"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatListDto.java:SeatListDto",
+      "type": "class",
+      "name": "SeatListDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatListDto.java",
+      "lineRange": [13, 20],
+      "summary": "座位查询参数对象，唯一字段 programId 标记必填。",
+      "tags": ["data-model", "dto", "查询参数"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java",
+      "type": "file",
+      "name": "SeatRelateInfoVo.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java",
+      "summary": "座位相关信息出参 VO，聚合节目地点、演出时间、价格列表以及按价格分组的座位集合，供前端选座页渲染。",
+      "tags": ["data-model", "vo", "座位", "选座"],
+      "complexity": "simple",
+      "languageNotes": "使用 Map<String,List<SeatVo>> 以价格字符串为 key 做分组，前端可直接按价位展开座位网格。"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java:SeatRelateInfoVo",
+      "type": "class",
+      "name": "SeatRelateInfoVo",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java",
+      "lineRange": [17, 43],
+      "summary": "座位选座信息响应对象，含 programId、place、showTime、showWeekTime、priceList 与 seatVoMap，实现 Serializable 以支持缓存。",
+      "tags": ["data-model", "vo", "座位"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "type": "file",
+      "name": "SeatController.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "summary": "座位管理 REST 入口，暴露 /seat/add、/seat/batch/add、/seat/relate/info 三个 POST 接口，转发到 SeatService 并统一包装 ApiResponse。",
+      "tags": ["api-handler", "controller", "座位", "entry-point"],
+      "complexity": "simple",
+      "languageNotes": "使用 Spring Boot 3 的 jakarta.validation 与 springdoc OpenAPI 注解（@Tag/@Operation）声明接口契约。"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:SeatController",
+      "type": "class",
+      "name": "SeatController",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "lineRange": [23, 49],
+      "summary": "座位控制器，@RestController + @RequestMapping(\"/seat\")，注入 SeatService 提供单个添加、批量添加与座位相关信息查询接口。",
+      "tags": ["api-handler", "controller", "座位"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:add",
+      "type": "function",
+      "name": "add",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "lineRange": [32, 36],
+      "summary": "POST /seat/add 接口，校验并接收 SeatAddDto，调用 seatService.add 后以 ApiResponse 返回新座位 id。",
+      "tags": ["api-handler", "rest-endpoint", "座位"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:batchAdd",
+      "type": "function",
+      "name": "batchAdd",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "lineRange": [38, 42],
+      "summary": "POST /seat/batch/add 接口，接收 SeatBatchAddDto 并调用 seatService.batchAdd 批量生成座位。",
+      "tags": ["api-handler", "rest-endpoint", "批量操作"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:relateInfo",
+      "type": "function",
+      "name": "relateInfo",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "lineRange": [44, 48],
+      "summary": "POST /seat/relate/info 接口，按 SeatListDto 中的节目 id 返回座位选座信息 SeatRelateInfoVo。",
+      "tags": ["api-handler", "rest-endpoint", "选座"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java",
+      "type": "file",
+      "name": "Seat.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java",
+      "summary": "座位实体，映射 d_seat 表，记录节目、票档、排号列号、座位类型、价格与售卖状态，继承 BaseTableData 复用审计字段。",
+      "tags": ["data-model", "entity", "orm", "座位"],
+      "complexity": "simple",
+      "languageNotes": "MyBatis-Plus 注解式实体：@TableName(\"d_seat\")、@TableId(IdType.AUTO)（id 实际由 UidGenerator 赋值），配合 Lombok @Data。"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java:Seat",
+      "type": "class",
+      "name": "Seat",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java",
+      "lineRange": [18, 65],
+      "summary": "座位实体类，含 id、programId、ticketCategoryId、rowCode、colCode、seatType、price、sellStatus 字段，继承 BaseTableData 并实现 Serializable。",
+      "tags": ["data-model", "entity", "orm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/mapper/SeatMapper.java",
+      "type": "file",
+      "name": "SeatMapper.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/mapper/SeatMapper.java",
+      "summary": "座位持久层 Mapper，继承 MyBatis-Plus BaseMapper<Seat>，直接复用通用 CRUD 方法操作 d_seat 表。",
+      "tags": ["data-access", "mapper", "orm", "座位"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/mapper/SeatMapper.java:SeatMapper",
+      "type": "class",
+      "name": "SeatMapper",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/mapper/SeatMapper.java",
+      "lineRange": [12, 14],
+      "summary": "座位 Mapper 接口，无自定义方法，全部依赖 BaseMapper<Seat> 提供的 selectOne/selectList/insert 等能力。",
+      "tags": ["data-access", "mapper", "orm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "type": "file",
+      "name": "SeatService.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "summary": "座位领域服务，负责单个/批量座位落库、按票档把座位按未售卖、锁定、已售卖三类写入 Redis Hash 缓存，并组装选座页所需的座位与价格分组信息。",
+      "tags": ["service", "座位", "缓存", "分布式锁"],
+      "complexity": "complex",
+      "languageNotes": "通过 @ServiceLock(Read) 保证只读并发，内部再用 Redisson RLock 做 double-check 重建缓存；座位数据按 SellStatus 分片存入 Redis Hash 并带过期时间。"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:SeatService",
+      "type": "class",
+      "name": "SeatService",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "lineRange": [56, 235],
+      "summary": "座位服务类，继承 MyBatis-Plus ServiceImpl<SeatMapper, Seat>，注入 UidGenerator、RedisCache、ServiceLockTool、ProgramService、TicketCategoryService 与 ProgramSeatCacheData 等协作组件。",
+      "tags": ["service", "座位", "缓存"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:add",
+      "type": "function",
+      "name": "add",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "lineRange": [86, 100],
+      "summary": "新增单个座位：先按节目+排号+列号查重，重复则抛 SEAT_IS_EXIST 异常，否则拷贝属性、用 UidGenerator 生成 id 后插入并返回 id。",
+      "tags": ["座位", "业务逻辑", "幂等校验"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:selectSeatResolution",
+      "type": "function",
+      "name": "selectSeatResolution",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "lineRange": [102, 155],
+      "summary": "座位数据缓存解析核心方法：先读 Redis 缓存，未命中则在 Redisson 锁内 double-check 后查库，按售卖状态分组写入三个 Redis Hash 并返回按排号列号排序的座位列表。",
+      "tags": ["缓存", "分布式锁", "座位", "缓存预热"],
+      "complexity": "complex",
+      "languageNotes": "@ServiceLock(lockType=Read) 声明式锁 + GET_SEAT_LOCK 编程式 RLock 形成两级并发保护，缓存 key 由 RedisKeyBuild 拼接。"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:getSeatVoListByCacheResolution",
+      "type": "function",
+      "name": "getSeatVoListByCacheResolution",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "lineRange": [157, 166],
+      "summary": "组装未售卖/锁定/已售卖三个座位缓存 key，交由 Lua 脚本组件 ProgramSeatCacheData 一次性批量读取并返回座位列表。",
+      "tags": ["缓存", "lua", "座位"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:relateInfo",
+      "type": "function",
+      "name": "relateInfo",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "lineRange": [168, 200],
+      "summary": "组装选座信息：读取（或回源）节目信息与演出时间、按票档批量取座位并按剩余开售秒数写入缓存过期时间，最后校验节目是否允许选座并按价格分组返回 SeatRelateInfoVo。",
+      "tags": ["业务逻辑", "选座", "缓存", "聚合查询"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:batchAdd",
+      "type": "function",
+      "name": "batchAdd",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "lineRange": [202, 234],
+      "summary": "批量生成座位：按票档配置的 count 以每排 10 列铺排，逐条构造 Seat（类型固定为通用、状态未售卖）并在事务中插入。",
+      "tags": ["业务逻辑", "批量操作", "事务", "座位"],
+      "complexity": "moderate",
+      "languageNotes": "@Transactional(rollbackFor = Exception.class) 保证批量插入的原子性，行号 rowIndex 跨票档连续累加。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/SeatType.java:SeatType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/SeatType.java:getMsg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/SeatType.java:getRc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/SeatType.java:SeatType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/SeatType.java:getMsg",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/SeatType.java:getRc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/SellStatus.java:SellStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/SellStatus.java:getMsg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/SellStatus.java:getRc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/SellStatus.java:SellStatus",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/SellStatus.java:getMsg",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/SellStatus.java:getRc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatAddDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatAddDto.java:SeatAddDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatAddDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatAddDto.java:SeatAddDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java:SeatBatchAddDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java:SeatBatchAddDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchRelateInfoAddDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchRelateInfoAddDto.java:SeatBatchRelateInfoAddDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchRelateInfoAddDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchRelateInfoAddDto.java:SeatBatchRelateInfoAddDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatListDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatListDto.java:SeatListDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatListDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatListDto.java:SeatListDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java:SeatRelateInfoVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java:SeatRelateInfoVo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:SeatController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:add",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:batchAdd",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:relateInfo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:SeatController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:add",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:batchAdd",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:relateInfo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java:Seat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java:Seat",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/mapper/SeatMapper.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/mapper/SeatMapper.java:SeatMapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/mapper/SeatMapper.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/mapper/SeatMapper.java:SeatMapper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:SeatService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:add",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:selectSeatResolution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:getSeatVoListByCacheResolution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:relateInfo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:batchAdd",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:SeatService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:add",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:selectSeatResolution",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:getSeatVoListByCacheResolution",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:relateInfo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:batchAdd",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatAddDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatListDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/mapper/SeatMapper.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BusinessStatus.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramGetDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatAddDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchRelateInfoAddDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatListDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramShowTime.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/mapper/SeatMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:add",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:add",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:batchAdd",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:batchAdd",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java:relateInfo",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:relateInfo",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:selectSeatResolution",
+      "target": "function:damai-common/src/main/java/com/damai/enums/SeatType.java:getMsg",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:selectSeatResolution",
+      "target": "class:damai-common/src/main/java/com/damai/enums/SellStatus.java:SellStatus",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:batchAdd",
+      "target": "class:damai-common/src/main/java/com/damai/enums/SellStatus.java:SellStatus",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:getSeatVoListByCacheResolution",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java:getData",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:relateInfo",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java:detail",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:relateInfo",
+      "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:countBetweenSecond",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:selectSeatResolution",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:ServiceLockTool",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java:Seat",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchRelateInfoAddDto.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

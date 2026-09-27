@@ -1,0 +1,902 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java",
+      "type": "file",
+      "name": "AdminConfig.java",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java",
+      "summary": "管理后台服务的 Spring 配置类，注册全局 Jackson 定制器（JacksonCustomEnhance）与 Knife4j/springdoc 所需的 OpenAPI 元信息 Bean。",
+      "tags": ["配置类", "spring-config", "bean-definition", "openapi", "序列化"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java:AdminConfig",
+      "type": "class",
+      "name": "AdminConfig",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java",
+      "lineRange": [17, 38],
+      "summary": "管理后台服务的配置聚合类，集中声明 Jackson 定制器与 OpenAPI 文档信息两个 @Bean。",
+      "tags": ["配置类", "spring-config", "bean-definition", "openapi"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java:jacksonCustomEnhance",
+      "type": "function",
+      "name": "jacksonCustomEnhance",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java",
+      "lineRange": [19, 23],
+      "summary": "以 @Bean 方式注册 JacksonCustomEnhance，使管理后台接口统一采用项目约定的 JSON 序列化规则。",
+      "tags": ["bean-definition", "jackson", "serialization", "配置"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java:customOpenApi",
+      "type": "function",
+      "name": "customOpenApi",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java",
+      "lineRange": [25, 37],
+      "summary": "构建 OpenAPI 文档对象，设置标题、版本与联系人信息，供 Knife4j 展示管理后台接口文档。",
+      "tags": ["bean-definition", "openapi", "api-docs", "文档"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java",
+      "type": "file",
+      "name": "JacksonCustomEnhance.java",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java",
+      "summary": "实现 Jackson2ObjectMapperBuilderCustomizer 的全局 JSON 定制器，统一 Date、LocalDateTime、LocalDate、LocalTime 的序列化/反序列化格式并调整常用 JsonFeature。",
+      "tags": ["配置类", "jackson", "serialization", "日期时间", "全局定制"],
+      "complexity": "moderate",
+      "languageNotes": "通过内部匿名 JsonSerializer/JsonDeserializer 与 JavaTimeModule 组合，配合 Ordered 接口控制定制器生效顺序。"
+    },
+    {
+      "id": "class:damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java:JacksonCustomEnhance",
+      "type": "class",
+      "name": "JacksonCustomEnhance",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java",
+      "lineRange": [39, 92],
+      "summary": "全局 Jackson 定制器，负责注册日期时间序列化模块、时区与读写 Feature，并声明定制器的执行优先级。",
+      "tags": ["配置类", "jackson", "serialization", "日期时间"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java:customize",
+      "type": "function",
+      "name": "customize",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java",
+      "lineRange": [46, 86],
+      "summary": "向 Jackson2ObjectMapperBuilder 注册自定义日期序列化器、JavaTimeModule、默认时区，并开启/关闭字符串数字、控制字符等读写特性。",
+      "tags": ["jackson", "serialization", "日期时间", "全局定制"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java:getOrder",
+      "type": "function",
+      "name": "getOrder",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java",
+      "lineRange": [88, 91],
+      "summary": "返回定制器执行顺序值 1，保证该 Jackson 定制逻辑在其他定制器之后应用。",
+      "tags": ["jackson", "排序", "定制"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/SecurityConfig.java",
+      "type": "file",
+      "name": "SecurityConfig.java",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/SecurityConfig.java",
+      "summary": "管理后台（Spring Boot Admin Server）的安全配置，放行静态资源、登录页与 API 文档路径，其余请求要求认证。",
+      "tags": ["安全", "spring-security", "配置类", "admin-server"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-admin-service/src/main/java/com/damai/config/SecurityConfig.java:SecurityConfig",
+      "type": "class",
+      "name": "SecurityConfig",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/SecurityConfig.java",
+      "lineRange": [17, 50],
+      "summary": "管理后台安全配置类，基于 AdminServerProperties 的 contextPath 构建认证与授权规则。",
+      "tags": ["安全", "spring-security", "配置类", "授权"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-admin-service/src/main/java/com/damai/config/SecurityConfig.java:filterChain",
+      "type": "function",
+      "name": "filterChain",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/SecurityConfig.java",
+      "lineRange": [26, 49],
+      "summary": "构建 SecurityFilterChain：放行 assets、登录页、css/js/image 与 v3/api-docs，启用表单登录与登出，并关闭对登录接口的 CSRF 校验。",
+      "tags": ["安全", "spring-security", "filter-chain", "认证"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-admin-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-server/damai-admin-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Spring Boot 3 自动配置注册文件，当前为空文件，占位用于声明管理后台服务的自动配置类。",
+      "tags": ["autoconfiguration", "spring-boot", "占位文件", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-admin-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-admin-service/src/main/resources/application.yml",
+      "summary": "管理后台服务的运行配置：服务端口 10082、应用名与 Spring Boot Admin 监控中心标题、Nacos 注册地址、Spring Security 管理员账号、Actuator/Prometheus 指标暴露以及 springdoc 与 knife4j 的文档开关。",
+      "tags": ["配置文件", "configuration", "nacos", "knife4j", "monitoring"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:damai-server/damai-admin-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-admin-service/src/main/resources/log4j2.xml",
+      "summary": "管理后台服务的 Log4j2 日志配置：定义控制台与按天/按 100MB 滚动的 info、error 日志文件（最多保留 30 个），并预留 Logstash TCP 远程输出。",
+      "tags": ["配置文件", "日志", "log4j2", "日志滚动", "monitoring"],
+      "complexity": "moderate",
+      "languageNotes": "日志格式通过 Pattern 属性注入 traceId（%X{traceId}），便于链路追踪；每 600 秒自动重载配置。"
+    },
+    {
+      "id": "config:damai-server/damai-base-data-service/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server/damai-base-data-service/pom.xml",
+      "summary": "渠道基础数据服务的 Maven 构建描述：声明 Nacos 注册发现、MyBatis-Plus、Redis、OpenFeign、Sentinel、灰度发布、分布式锁、Jasypt 加密与 Prometheus 监控等依赖。",
+      "tags": ["maven", "构建配置", "依赖管理", "微服务"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "type": "file",
+      "name": "BaseDataApplication.java",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "summary": "base-data-service（渠道基础数据服务）的 Spring Boot 启动类，开启 MapperScan、事务管理、服务发现与 Feign 客户端。",
+      "tags": ["entry-point", "spring-boot", "启动类", "微服务"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java:BaseDataApplication",
+      "type": "class",
+      "name": "BaseDataApplication",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "lineRange": [14, 26],
+      "summary": "渠道基础数据服务的启动类，通过注解组合装配 Spring Boot、Nacos 服务发现、Feign 与 MyBatis Mapper 扫描。",
+      "tags": ["entry-point", "spring-boot", "启动类", "启动配置"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "lineRange": [21, 24],
+      "summary": "关闭 Nacos 默认日志配置后启动 Spring Boot 应用，是基础数据服务的进程入口。",
+      "tags": ["entry-point", "启动方法", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-customize-service/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server/damai-customize-service/pom.xml",
+      "summary": "定制服务的 Maven 构建描述：依赖 Web、Redis、MyBatis-Plus、Kafka、OpenFeign、Sentinel、重复执行限制与灰度发布等共享框架。",
+      "tags": ["maven", "构建配置", "依赖管理", "微服务"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java",
+      "type": "file",
+      "name": "CustomizeApplication.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java",
+      "summary": "customize-service（定制服务）的 Spring Boot 启动类，开启服务发现、Feign 客户端与 Mapper 扫描。",
+      "tags": ["entry-point", "spring-boot", "启动类", "微服务"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java:CustomizeApplication",
+      "type": "class",
+      "name": "CustomizeApplication",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java",
+      "lineRange": [13, 24],
+      "summary": "定制服务启动类，负责装配 Nacos 服务发现、Feign 调用与 MyBatis Mapper 扫描。",
+      "tags": ["entry-point", "spring-boot", "启动类", "启动配置"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java",
+      "lineRange": [19, 22],
+      "summary": "关闭 Nacos 默认日志配置后启动 Spring Boot 应用，是定制服务的进程入口。",
+      "tags": ["entry-point", "启动方法", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ServiceBroadcastCall.java",
+      "type": "file",
+      "name": "ServiceBroadcastCall.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/service/ServiceBroadcastCall.java",
+      "summary": "定制服务中的服务列表广播调用组件，当前为占位实现，call 方法固定返回 false，预留批量通知所有实例的能力。",
+      "tags": ["service", "占位实现", "广播调用", "spring-component"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/service/ServiceBroadcastCall.java:ServiceBroadcastCall",
+      "type": "class",
+      "name": "ServiceBroadcastCall",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/service/ServiceBroadcastCall.java",
+      "lineRange": [10, 18],
+      "summary": "以 @Component 注册的服务广播调用入口，用于向指定服务 ID 的所有实例广播请求，目前尚未实现具体逻辑。",
+      "tags": ["service", "占位实现", "广播调用"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/ServiceBroadcastCall.java:call",
+      "type": "function",
+      "name": "call",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/service/ServiceBroadcastCall.java",
+      "lineRange": [14, 16],
+      "summary": "对外暴露的广播调用方法，入参为服务 ID，当前直接返回 false 作为占位。",
+      "tags": ["占位实现", "广播调用", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-gateway-service/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server/damai-gateway-service/pom.xml",
+      "summary": "网关服务的 Maven 构建描述：依赖 Spring Cloud Gateway、Nacos、OpenFeign、Kafka、Knife4j 网关文档、Sentinel 网关适配器与分布式锁等组件。",
+      "tags": ["maven", "构建配置", "依赖管理", "gateway"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "type": "file",
+      "name": "GatewayApplication.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "summary": "网关服务的 Spring Boot 启动类，开启服务发现与 Feign 客户端，是全系统流量的统一入口。",
+      "tags": ["entry-point", "spring-boot", "gateway", "启动类"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java:GatewayApplication",
+      "type": "class",
+      "name": "GatewayApplication",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "lineRange": [12, 22],
+      "summary": "网关服务启动类，装配 Nacos 服务发现与 Feign 客户端，作为统一流量入口。",
+      "tags": ["entry-point", "gateway", "启动类", "启动配置"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "lineRange": [17, 20],
+      "summary": "关闭 Nacos 默认日志配置后启动网关应用，是网关进程的入口。",
+      "tags": ["entry-point", "启动方法", "gateway"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java",
+      "type": "file",
+      "name": "GatewaySentinelConfiguration.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java",
+      "summary": "网关的 Sentinel 整合配置，注册 Sentinel 网关过滤器与限流/熔断异常处理器，使网关具备流控降级能力。",
+      "tags": ["sentinel", "gateway", "限流熔断", "配置类"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java:GatewaySentinelConfiguration",
+      "type": "class",
+      "name": "GatewaySentinelConfiguration",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java",
+      "lineRange": [21, 45],
+      "summary": "网关 Sentinel 配置类，持有 ViewResolver 与 ServerCodecConfigurer，用于构造流控异常响应。",
+      "tags": ["sentinel", "gateway", "配置类", "限流熔断"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java:sentinelGatewayBlockExceptionHandler",
+      "type": "function",
+      "name": "sentinelGatewayBlockExceptionHandler",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java",
+      "lineRange": [33, 38],
+      "summary": "以最高优先级注册 SentinelGatewayBlockExceptionHandler，统一处理网关被限流/熔断时的响应。",
+      "tags": ["sentinel", "gateway", "异常处理", "限流熔断"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java:sentinelGatewayFilter",
+      "type": "function",
+      "name": "sentinelGatewayFilter",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java",
+      "lineRange": [40, 44],
+      "summary": "注册全局 SentinelGatewayFilter（Order = -1），在网关过滤链中执行 Sentinel 资源统计与规则校验。",
+      "tags": ["sentinel", "gateway", "global-filter", "限流熔断"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/constant/GatewayConstant.java",
+      "type": "file",
+      "name": "GatewayConstant.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/constant/GatewayConstant.java",
+      "summary": "网关常量类，集中定义请求体、加密标识、编码、业务体、token、免校验标记与 userId 等请求头/参数键名。",
+      "tags": ["常量", "gateway", "type-definition", "请求头"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/constant/GatewayConstant.java:GatewayConstant",
+      "type": "class",
+      "name": "GatewayConstant",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/constant/GatewayConstant.java",
+      "lineRange": [8, 30],
+      "summary": "网关层静态常量集合，定义网关与下游服务约定使用的请求头、参数名与版本标识。",
+      "tags": ["常量", "gateway", "type-definition", "约定"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/controller/HystrixFallBackController.java",
+      "type": "file",
+      "name": "HystrixFallBackController.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/controller/HystrixFallBackController.java",
+      "summary": "网关的熔断回退控制器，暴露 /fallBackHandler 接口，在被下游服务熔断时返回统一的兜底响应。",
+      "tags": ["api-handler", "gateway", "熔断", "fallback"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/controller/HystrixFallBackController.java:HystrixFallBackController",
+      "type": "class",
+      "name": "HystrixFallBackController",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/controller/HystrixFallBackController.java",
+      "lineRange": [11, 18],
+      "summary": "REST 控制器，提供网关熔断后的降级响应入口。",
+      "tags": ["api-handler", "gateway", "熔断", "fallback"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/controller/HystrixFallBackController.java:fallBackHandler",
+      "type": "function",
+      "name": "fallBackHandler",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/controller/HystrixFallBackController.java",
+      "lineRange": [14, 17],
+      "summary": "处理 /fallBackHandler 请求，返回固定文案“熔断器执行”作为服务不可用时的兜底提示。",
+      "tags": ["api-handler", "熔断", "fallback", "endpoint"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/KafkaTopic.java",
+      "type": "file",
+      "name": "KafkaTopic.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/KafkaTopic.java",
+      "summary": "Kafka 主题配置载体，通过 @Value 从 spring.kafka.topic 读取主题名（默认 default），供网关生产消息时使用。",
+      "tags": ["kafka", "配置", "data-model", "topic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/KafkaTopic.java:KafkaTopic",
+      "type": "class",
+      "name": "KafkaTopic",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/KafkaTopic.java",
+      "lineRange": [11, 17],
+      "summary": "使用 Lombok @Data 的配置类，仅承载 kafka topic 名称一个属性，由 Spring 注入配置值。",
+      "tags": ["kafka", "配置", "data-model", "lombok"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "type": "file",
+      "name": "ProducerConfig.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "summary": "网关 Kafka 生产者自动配置类，在配置了 spring.kafka.bootstrap-servers 时注册 KafkaTopic 与 ApiDataMessageSend，用于异步发送网关采集数据。",
+      "tags": ["kafka", "autoconfiguration", "生产者", "配置类"],
+      "complexity": "simple",
+      "languageNotes": "通过 @ConditionalOnProperty 控制自动装配条件，属于 Spring Boot 按需装配的典型写法。"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java:ProducerConfig",
+      "type": "class",
+      "name": "ProducerConfig",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "lineRange": [12, 24],
+      "summary": "Kafka 生产者配置类，声明 topic 载体与消息发送组件两个 @Bean，并由条件注解控制是否生效。",
+      "tags": ["kafka", "生产者", "配置类", "bean-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java:kafkaTopic",
+      "type": "function",
+      "name": "kafkaTopic",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "lineRange": [15, 18],
+      "summary": "创建并注册 KafkaTopic Bean，为后续生产者提供主题名配置。",
+      "tags": ["kafka", "bean-definition", "topic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java:apiDataMessageSend",
+      "type": "function",
+      "name": "apiDataMessageSend",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "lineRange": [20, 23],
+      "summary": "基于 KafkaTemplate 与 KafkaTopic 构造 ApiDataMessageSend Bean，作为网关向 Kafka 发送接口采集数据的入口。",
+      "tags": ["kafka", "bean-definition", "生产者", "消息发送"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java",
+      "type": "file",
+      "name": "RateLimiterConfig.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java",
+      "summary": "线上限流工具配置类，注册限流属性 RateLimiterProperty 与基于该属性的 RateLimiter Bean。",
+      "tags": ["限流", "gateway", "配置类", "bean-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java:RateLimiterConfig",
+      "type": "class",
+      "name": "RateLimiterConfig",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java",
+      "lineRange": [11, 23],
+      "summary": "限流配置类，负责组装限流参数与限流器实例并交由 Spring 容器管理。",
+      "tags": ["限流", "gateway", "配置类"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java:rateLimiterProperty",
+      "type": "function",
+      "name": "rateLimiterProperty",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java",
+      "lineRange": [14, 17],
+      "summary": "创建并注册 RateLimiterProperty Bean，统一承载限流相关配置项。",
+      "tags": ["限流", "bean-definition", "配置"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java:rateLimiter",
+      "type": "function",
+      "name": "rateLimiter",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java",
+      "lineRange": [19, 22],
+      "summary": "根据 RateLimiterProperty 中的每秒许可数构造 RateLimiter Bean，供网关限流逻辑使用。",
+      "tags": ["限流", "bean-definition", "gateway"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-server/damai-gateway-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "网关服务的 Spring Boot 3 自动配置注册文件，声明 ProducerConfig 与 com.damai.conf.Config 为自动配置类。",
+      "tags": ["autoconfiguration", "spring-boot", "configuration", "gateway"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/resources/lua/apiLimit.lua",
+      "type": "file",
+      "name": "apiLimit.lua",
+      "filePath": "damai-server/damai-gateway-service/src/main/resources/lua/apiLimit.lua",
+      "summary": "网关接口限流的 Redis Lua 脚本：基于 INCRBY 计数与 zset 滑动窗口统计，区分普通规则与深度规则（时间段窗口），命中阈值后写入限流标记并返回 JSON 格式的触发结果。",
+      "tags": ["限流", "redis", "lua", "滑动窗口", "gateway"],
+      "complexity": "moderate",
+      "languageNotes": "脚本通过 cjson.decode(KEYS[1]) 解析外部传入的规则对象，并用 zadd/zcount/zremrangebyscore 实现基于时间窗口的统计；返回值使用 string.format 拼装 JSON。"
+    },
+    {
+      "id": "config:damai-server/damai-mybatis-plus-service/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server/damai-mybatis-plus-service/pom.xml",
+      "summary": "MyBatis-Plus 代码生成器模块的 Maven 构建描述，依赖 mybatis-plus-spring-boot3-starter、mybatis-plus-generator、freemarker 与 mysql 驱动。",
+      "tags": ["maven", "构建配置", "mybatis-plus", "代码生成"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java",
+      "type": "file",
+      "name": "MybatisPlusGenerator.java",
+      "filePath": "damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java",
+      "summary": "MyBatis-Plus 代码生成器入口，配置数据源、包路径、类型转换策略与目标表后，使用 Freemarker 模板生成 Entity/Mapper 等代码。",
+      "tags": ["代码生成", "mybatis-plus", "freemarker", "entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java:MybatisPlusGenerator",
+      "type": "class",
+      "name": "MybatisPlusGenerator",
+      "filePath": "damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java",
+      "lineRange": [16, 56],
+      "summary": "代码生成器主类，通过 FastAutoGenerator 链式配置全局参数、数据源、包信息与表策略。",
+      "tags": ["代码生成", "mybatis-plus", "工具类"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java",
+      "lineRange": [18, 55],
+      "summary": "以硬编码的 MySQL 连接与表名（d_user_mobile，过滤 d_ 前缀）执行代码生成，并把 SMALLINT/TINYINT 统一映射为 Integer。",
+      "tags": ["代码生成", "mybatis-plus", "entry-point", "工具方法"],
+      "complexity": "moderate",
+      "languageNotes": "使用 Lambda 回调配置各 builder，并通过 typeConvertHandler 自定义 JDBC 类型到 Java 类型的映射。"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server/damai-order-service/pom.xml",
+      "summary": "订单服务的 Maven 构建描述：依赖 order/pay/program 三个客户端、Redis、Kafka、分布式锁、线程池、延迟队列、Sentinel 与灰度发布等框架。",
+      "tags": ["maven", "构建配置", "依赖管理", "微服务"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java",
+      "type": "file",
+      "name": "OrderApplication.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java",
+      "summary": "order-service（订单服务）的 Spring Boot 启动类，开启服务发现、Feign 客户端与 Mapper 扫描。",
+      "tags": ["entry-point", "spring-boot", "启动类", "order"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java:OrderApplication",
+      "type": "class",
+      "name": "OrderApplication",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java",
+      "lineRange": [13, 24],
+      "summary": "订单服务启动类，装配 Nacos 服务发现、Feign 远程调用与 MyBatis Mapper 扫描。",
+      "tags": ["entry-point", "order", "启动类", "启动配置"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java",
+      "lineRange": [19, 22],
+      "summary": "关闭 Nacos 默认日志配置后启动 Spring Boot 应用，是订单服务的进程入口。",
+      "tags": ["entry-point", "启动方法", "order"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java",
+      "target": "class:damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java:AdminConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java",
+      "target": "function:damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java:jacksonCustomEnhance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java",
+      "target": "function:damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java:customOpenApi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java",
+      "target": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java",
+      "target": "class:damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java:JacksonCustomEnhance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java",
+      "target": "function:damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java:customize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java",
+      "target": "function:damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java:getOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/SecurityConfig.java",
+      "target": "class:damai-server/damai-admin-service/src/main/java/com/damai/config/SecurityConfig.java:SecurityConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/SecurityConfig.java",
+      "target": "function:damai-server/damai-admin-service/src/main/java/com/damai/config/SecurityConfig.java:filterChain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "config:damai-server/damai-admin-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-admin-service/src/main/resources/log4j2.xml",
+      "target": "config:damai-server/damai-admin-service/src/main/resources/application.yml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-base-data-service/pom.xml",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java:BaseDataApplication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "config:damai-server/damai-customize-service/pom.xml",
+      "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java:CustomizeApplication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ServiceBroadcastCall.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/service/ServiceBroadcastCall.java:ServiceBroadcastCall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ServiceBroadcastCall.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/ServiceBroadcastCall.java:call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "config:damai-server/damai-gateway-service/pom.xml",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java:GatewayApplication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java:GatewaySentinelConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java:sentinelGatewayBlockExceptionHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java:sentinelGatewayFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/constant/GatewayConstant.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/constant/GatewayConstant.java:GatewayConstant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/controller/HystrixFallBackController.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/controller/HystrixFallBackController.java:HystrixFallBackController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/controller/HystrixFallBackController.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/controller/HystrixFallBackController.java:fallBackHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/KafkaTopic.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/KafkaTopic.java:KafkaTopic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java:ProducerConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java:kafkaTopic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java:apiDataMessageSend",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/KafkaTopic.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java:RateLimiterConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java:rateLimiterProperty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java:rateLimiter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterProperty.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/resources/lua/apiLimit.lua",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-mybatis-plus-service/pom.xml",
+      "target": "file:damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java",
+      "target": "class:damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java:MybatisPlusGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java",
+      "target": "function:damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "config:damai-server/damai-order-service/pom.xml",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java:OrderApplication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

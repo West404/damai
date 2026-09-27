@@ -1,0 +1,129 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java",
+      "type": "file",
+      "name": "ValuedEnum.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java",
+      "summary": "定义带值枚举的通用接口 ValuedEnum<T>，约定枚举通过 value() 方法暴露其绑定的值，便于 AbstractEnumUtils 统一完成解析与 valueOf 操作。属于百度 UID 生成器工具层的基础契约。",
+      "tags": ["utility", "interface", "枚举契约", "id-generator", "type-definition"],
+      "complexity": "simple",
+      "languageNotes": "泛型接口（interface ValuedEnum<T>），仅声明单一抽象方法，作为函数式契约供枚举类型实现。"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java",
+      "type": "file",
+      "name": "WorkerNodeType.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java",
+      "summary": "定义 Worker 节点类型枚举，区分容器节点（CONTAINER=1，如 Docker）与物理机节点（ACTUAL=2），实现 ValuedEnum<Integer> 以提供数值映射。用于 UID 生成器分配 workerId 时判定部署形态。",
+      "tags": ["枚举", "id-generator", "data-model", "worker-id", "type-definition"],
+      "complexity": "simple",
+      "languageNotes": "Java enum 实现泛型接口并提供私有构造器注入枚举值，通过 @Override 的 value() 暴露 Integer 类型码。"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java",
+      "type": "file",
+      "name": "WorkerNodeEntity.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java",
+      "summary": "对应数据库表 M_WORKER_NODE 的实体类，持久化 UID 生成器各 Worker 节点的主机名/IP、端口/随机时间戳、节点类型以及创建与修改时间。为 workerId 的注册与分配提供数据载体。",
+      "tags": ["data-model", "entity", "id-generator", "持久化", "pojo"],
+      "complexity": "moderate",
+      "languageNotes": "典型 Java POJO：字段均为私有并提供完整 getter/setter，launchDate 默认取当前时间；toString() 借助 Commons Lang 的 ReflectionToStringBuilder 反射输出。"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java:ValuedEnum",
+      "type": "class",
+      "name": "ValuedEnum",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java",
+      "lineRange": [25, 31],
+      "summary": "带值枚举的泛型接口，声明 value() 方法返回枚举绑定的值，供 AbstractEnumUtils 统一解析枚举字面量与值之间的映射。",
+      "tags": ["interface", "utility", "枚举契约", "泛型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java:WorkerNodeType",
+      "type": "class",
+      "name": "WorkerNodeType",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java",
+      "lineRange": [27, 50],
+      "summary": "Worker 节点类型枚举，包含 CONTAINER(1) 与 ACTUAL(2) 两个常量，通过私有构造器绑定类型码并由 value() 返回。",
+      "tags": ["枚举", "id-generator", "worker-id", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java:WorkerNodeEntity",
+      "type": "class",
+      "name": "WorkerNodeEntity",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java",
+      "lineRange": [30, 131],
+      "summary": "M_WORKER_NODE 表对应的实体类，聚合 id、hostName、port、type、launchDate、created、modified 七个字段及配套访问器，并提供基于反射的 toString 实现。",
+      "tags": ["entity", "data-model", "pojo", "持久化"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java:ValuedEnum",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java:WorkerNodeType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java:WorkerNodeEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java:ValuedEnum",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java:WorkerNodeType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java:WorkerNodeEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java:WorkerNodeType",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java:ValuedEnum",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

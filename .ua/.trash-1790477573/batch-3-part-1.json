@@ -1,0 +1,1127 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "type": "file",
+      "name": "CompositeCheckType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "summary": "定义组合模式（Composite）的校验类型枚举，涵盖用户注册、节目详情、订单创建、节目推荐四类业务校验，并提供按 code 反查枚举实例与提示文案的静态方法，是各服务组合校验链的类型标识来源。",
+      "tags": ["枚举", "组合模式", "校验类型", "data-model"],
+      "complexity": "moderate",
+      "languageNotes": "枚举内同时定义实例方法 getMsg() 与同名的静态方法 getMsg(Integer)，依赖重载区分，是 Java 枚举承载业务码的常见写法。"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java:CompositeCheckType",
+      "type": "class",
+      "name": "CompositeCheckType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "lineRange": [8, 85],
+      "summary": "组合模式校验类型枚举，以 code/value/msg 三元组描述业务校验场景；其 value 作为 CompositeContainer 中执行树的分派键。",
+      "tags": ["枚举", "组合模式", "校验类型", "分派键"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java:getMsg",
+      "type": "function",
+      "name": "getMsg",
+      "filePath": "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "lineRange": [68, 75],
+      "summary": "静态方法，遍历枚举按 code 匹配并返回对应中文提示文案，未命中时返回空串。",
+      "tags": ["静态方法", "枚举查找", "提示文案"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java:getRc",
+      "type": "function",
+      "name": "getRc",
+      "filePath": "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "lineRange": [77, 84],
+      "summary": "静态方法，按 code 反查 CompositeCheckType 枚举实例，未命中时返回 null。",
+      "tags": ["静态方法", "枚举查找", "反查"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "type": "file",
+      "name": "ProgramOrderVersion.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "summary": "节目下单策略版本枚举，定义 v1~v4 四个版本标识与描述，供订单控制器和策略工厂按版本号路由到对应的下单实现。",
+      "tags": ["枚举", "策略版本", "订单", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java:ProgramOrderVersion",
+      "type": "class",
+      "name": "ProgramOrderVersion",
+      "filePath": "damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "lineRange": [8, 57],
+      "summary": "下单版本枚举（v1~v4），既是策略 Bean 的注册键，也是接口路由与版本提示语的数据源。",
+      "tags": ["枚举", "策略版本", "版本路由"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java:getMsg",
+      "type": "function",
+      "name": "getMsg",
+      "filePath": "damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "lineRange": [40, 47],
+      "summary": "静态方法，按版本字符串匹配并返回对应的版本描述，未命中返回空串。",
+      "tags": ["静态方法", "枚举查找", "版本"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java:getRc",
+      "type": "function",
+      "name": "getRc",
+      "filePath": "damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "lineRange": [49, 56],
+      "summary": "静态方法，按版本字符串反查 ProgramOrderVersion 枚举实例，未命中返回 null。",
+      "tags": ["静态方法", "枚举查找", "反查"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "type": "file",
+      "name": "RepeatExecuteLimitConstants.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "summary": "防重复执行（幂等）注解的业务名称常量集合，统一管理下单、取消订单、MQ 消费等场景在防重复组件中使用的业务 key，避免各处硬编码字符串。",
+      "tags": ["常量", "幂等", "防重复执行", "命名约定"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java:RepeatExecuteLimitConstants",
+      "type": "class",
+      "name": "RepeatExecuteLimitConstants",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "lineRange": [8, 19],
+      "summary": "幂等业务名常量类，为 @RepeatExecuteLimit 注解的 name/keys 属性提供统一取值，是跨模块共享的常量契约。",
+      "tags": ["常量类", "幂等", "共享契约"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "type": "file",
+      "name": "RepeatExecuteLimit.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "summary": "防重复幂等注解定义，声明业务名、幂等 key 表达式、保持时长与提示信息，配合切面在方法级拦截重复提交。",
+      "tags": ["注解", "幂等", "防重复执行", "aop"],
+      "complexity": "simple",
+      "languageNotes": "Java 注解类型（@interface）未被树解析器识别，此处按导出的公共类型补充为 class 节点。"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java:RepeatExecuteLimit",
+      "type": "class",
+      "name": "RepeatExecuteLimit",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "lineRange": [16, 39],
+      "summary": "运行期保留的类型/方法级注解，用于声明幂等键与冲突提示语；由 RepeatExecuteLimitAspect 在切面中解析并借助 Redisson 实现防重复。",
+      "tags": ["注解", "幂等", "切面驱动", "分布式"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java",
+      "type": "file",
+      "name": "DelayOrderCancelDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java",
+      "summary": "延迟订单取消的消息体，只承载订单号，用于向 Redis 延迟队列投递超时未支付订单的取消任务。",
+      "tags": ["dto", "延迟队列", "订单取消", "消息体"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java:DelayOrderCancelDto",
+      "type": "class",
+      "name": "DelayOrderCancelDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java",
+      "lineRange": [13, 20],
+      "summary": "延迟取消订单的传输对象：生产者只写入订单号，消费者据此回滚座位缓存与订单状态。",
+      "tags": ["dto", "延迟队列", "跨服务契约"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "file",
+      "name": "ProgramOrderCreateDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "summary": "节目下单请求 DTO，封装节目 ID、用户 ID、购票人列表、座位列表、票档 ID 与购票数量等下单核心参数，是程序服务与订单服务之间的主要入参契约。",
+      "tags": ["dto", "下单", "请求参数", "跨服务契约"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java:ProgramOrderCreateDto",
+      "type": "class",
+      "name": "ProgramOrderCreateDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "lineRange": [15, 39],
+      "summary": "下单参数传输对象，被控制器、下单策略以及多项参数校验处理器共同使用。",
+      "tags": ["dto", "下单参数", "契约"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "type": "file",
+      "name": "SeatDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "summary": "座位请求 DTO，描述用户选择的座位（票档、排号、列号、座位类型与价格），作为下单参数的一部分参与座位匹配与价格校验。",
+      "tags": ["dto", "座位", "请求参数", "下单"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java:SeatDto",
+      "type": "class",
+      "name": "SeatDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "lineRange": [17, 46],
+      "summary": "可序列化的座位入参对象，字段参与非空校验、票价比对与缓存扣减键的构造。",
+      "tags": ["dto", "座位", "可序列化"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "type": "file",
+      "name": "SeatVo.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "summary": "座位视图对象，除座位基础信息外还包含节目 ID、售卖状态与座位类型名称，广泛用于 Redis 缓存序列化与跨服务传输（节目服务、订单服务）。",
+      "tags": ["vo", "座位", "缓存序列化", "跨服务契约"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java:SeatVo",
+      "type": "class",
+      "name": "SeatVo",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "lineRange": [15, 49],
+      "summary": "座位视图模型，是 Lua 脚本缓存数据与订单明细之间的共享数据结构。",
+      "tags": ["vo", "座位", "共享数据结构"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "type": "file",
+      "name": "ProgramOrderController.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "summary": "节目订单 REST 控制器，暴露 /program/order/create/v1~v4 四个购票接口，按版本号从策略上下文取出对应策略执行下单，用于对比不同并发方案的压测效果。",
+      "tags": ["controller", "api-handler", "入口点", "策略分发"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java:ProgramOrderController",
+      "type": "class",
+      "name": "ProgramOrderController",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "lineRange": [21, 56],
+      "summary": "购票接口控制器，四个版本接口共用同一入参 DTO，仅切换策略版本键。",
+      "tags": ["controller", "api-handler", "版本路由"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java:createV1",
+      "type": "function",
+      "name": "createV1",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "lineRange": [29, 34],
+      "summary": "购票 V1 接口，取 v1 策略创建订单并封装统一响应体。",
+      "tags": ["api-handler", "rest", "购票"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java:createV2",
+      "type": "function",
+      "name": "createV2",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "lineRange": [36, 41],
+      "summary": "购票 V2 接口，取 v2 策略（本地锁 + 分布式锁）创建订单。",
+      "tags": ["api-handler", "rest", "购票"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java:createV3",
+      "type": "function",
+      "name": "createV3",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "lineRange": [43, 48],
+      "summary": "购票 V3 接口，取 v3 策略（本地锁 + 轻量下单）创建订单。",
+      "tags": ["api-handler", "rest", "购票"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java:createV4",
+      "type": "function",
+      "name": "createV4",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "lineRange": [50, 55],
+      "summary": "购票 V4 接口，取 v4 策略（本地锁 + Kafka 异步下单）创建订单。",
+      "tags": ["api-handler", "rest", "购票"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/lock/LockTask.java",
+      "type": "file",
+      "name": "LockTask.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/lock/LockTask.java",
+      "summary": "函数式锁任务接口，约定“在锁保护下执行并返回结果”的回调形状，供本地锁与分布式锁的下单链路复用。",
+      "tags": ["接口", "函数式接口", "锁", "回调"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/lock/LockTask.java:LockTask",
+      "type": "class",
+      "name": "LockTask",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/lock/LockTask.java",
+      "lineRange": [8, 15],
+      "summary": "泛型函数式接口，作为锁内执行体的抽象，使加锁逻辑与业务逻辑解耦。",
+      "tags": ["函数式接口", "锁", "解耦"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "type": "file",
+      "name": "ProgramOrderService.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "summary": "节目下单核心服务：负责票档余量校验、座位匹配与价格比对，通过 Redis/Lua 脚本原子扣减缓存座位，再经 RPC 同步或 Kafka 异步通道创建订单，并在失败时回滚缓存数据。",
+      "tags": ["service", "下单核心", "缓存一致性", "分布式", "mq"],
+      "complexity": "complex",
+      "languageNotes": "大量使用 Optional、Stream/Collectors 与 fastjson JSONObject 手工拼装 Lua 脚本参数，属于典型的“Java 侧拼参 + Lua 侧原子执行”模式。"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:ProgramOrderService",
+      "type": "class",
+      "name": "ProgramOrderService",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "lineRange": [57, 428],
+      "summary": "下单服务主类，聚合座位服务、节目服务、票档服务、缓存操作器、延迟取消发送器、Kafka 发送器与订单 RPC 客户端，串联完整下单与回滚链路。",
+      "tags": ["service", "下单核心", "依赖聚合"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:getTicketCategoryList",
+      "type": "function",
+      "name": "getTicketCategoryList",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "lineRange": [91, 118],
+      "summary": "根据座位列表或指定票档汇总本次下单涉及的票档信息，并校验票档是否存在，缺失时抛出业务异常。",
+      "tags": ["票档", "校验", "辅助方法"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:create",
+      "type": "function",
+      "name": "create",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "lineRange": [120, 182],
+      "summary": "同步下单主流程：校验票档余量与购票数量、比对参数价格与库中价格、匹配相邻座位，通过后回滚缓存并调用 doCreate 落单。",
+      "tags": ["下单", "座位校验", "主流程"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:createNew",
+      "type": "function",
+      "name": "createNew",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "lineRange": [185, 188],
+      "summary": "轻量下单入口：缓存已被原子扣减，仅需取回扣减结果并执行落单，供 V3 策略在锁内调用。",
+      "tags": ["下单", "轻量入口", "策略复用"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:createNewAsync",
+      "type": "function",
+      "name": "createNewAsync",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "lineRange": [194, 197],
+      "summary": "异步下单入口：缓存扣减后走 Kafka 通道落单，供 V4 策略在锁内调用，避免同步落库阻塞。",
+      "tags": ["下单", "异步", "mq"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:createOrderOperateProgramCacheResolution",
+      "type": "function",
+      "name": "createOrderOperateProgramCacheResolution",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "lineRange": [199, 260],
+      "summary": "组装票档余量与座位数据并执行 Lua 脚本，在 Redis 中原子扣减余量、锁定座位，返回本次实际购得的座位列表。",
+      "tags": ["redis", "lua", "原子扣减", "缓存"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:doCreate",
+      "type": "function",
+      "name": "doCreate",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "lineRange": [262, 272],
+      "summary": "组装订单参数后通过 RPC 同步创建订单，并投递延迟取消消息以处理超时未支付场景。",
+      "tags": ["下单", "rpc", "延迟队列"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:doCreateV2",
+      "type": "function",
+      "name": "doCreateV2",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "lineRange": [274, 284],
+      "summary": "组装订单参数后通过 Kafka 异步创建订单，同样投递延迟取消消息实现超时回滚。",
+      "tags": ["下单", "kafka", "延迟队列"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:buildCreateOrderParam",
+      "type": "function",
+      "name": "buildCreateOrderParam",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "lineRange": [286, 325],
+      "summary": "组装订单创建 DTO：填充节目快照字段、生成订单号、汇总票价，并按购票人逐条构造座位明细。",
+      "tags": ["参数组装", "订单", "dto"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:createOrderByRpc",
+      "type": "function",
+      "name": "createOrderByRpc",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "lineRange": [327, 335],
+      "summary": "通过 OrderClient 同步创建订单，返回码非成功时回滚节目缓存数据并抛出业务异常。",
+      "tags": ["rpc", "订单创建", "回滚"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:createOrderByMq",
+      "type": "function",
+      "name": "createOrderByMq",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "lineRange": [337, 362],
+      "summary": "通过 Kafka 发送下单消息，用 CountDownLatch 等待发送与消费回调结果，失败或中断时回滚缓存并判断是否已成功落单。",
+      "tags": ["kafka", "异步", "回滚", "并发工具"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:updateProgramCacheDataResolution",
+      "type": "function",
+      "name": "updateProgramCacheDataResolution",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "lineRange": [364, 427],
+      "summary": "根据订单状态（待支付/已取消）生成票档余量与座位占用、释放的缓存变更数据，交由 Lua 脚本完成回滚或释放锁定座位。",
+      "tags": ["缓存", "回滚", "lua", "一致性"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+      "type": "file",
+      "name": "AbstractProgramCheckHandler.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+      "summary": "节目订单校验处理器抽象基类，固定组合模式类型为订单创建校验（program_order_create_check），具体校验项由各子类实现，是下单前置校验链的扩展点。",
+      "tags": ["抽象类", "组合模式", "校验", "扩展点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java:AbstractProgramCheckHandler",
+      "type": "class",
+      "name": "AbstractProgramCheckHandler",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+      "lineRange": [12, 18],
+      "summary": "继承 AbstractComposite<ProgramOrderCreateDto> 的抽象处理器，统一向容器声明所属校验类型，使子类注册即可加入下单校验链。",
+      "tags": ["抽象基类", "组合模式", "校验链"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "type": "file",
+      "name": "ProgramOrderCreateParamCheckHandler.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "summary": "下单参数校验处理器，校验同一购票人是否重复、座位数与购票人数是否一致，以及座位与票档的各关键字段是否为空，是下单校验链中的一环。",
+      "tags": ["校验", "组合模式", "handler", "下单"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java:ProgramOrderCreateParamCheckHandler",
+      "type": "class",
+      "name": "ProgramOrderCreateParamCheckHandler",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "lineRange": [21, 83],
+      "summary": "组合模式叶子处理器，execute 方法承载全部参数断言逻辑，其余模板方法使用默认顺序与层级。",
+      "tags": ["校验处理器", "组合模式", "参数断言"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "lineRange": [24, 67],
+      "summary": "执行下单参数校验：检测购票人重复、座位与购票人数量匹配、座位 ID/票档/排号/列号/价格非空以及票档与数量合法，任一不满足即抛出统一业务异常。",
+      "tags": ["校验", "参数断言", "异常"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderMqDomain.java",
+      "type": "file",
+      "name": "CreateOrderMqDomain.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderMqDomain.java",
+      "summary": "Kafka 下单回调的消息域对象，携带订单号与失败异常，用于异步下单结果的回传与失败判定。",
+      "tags": ["kafka", "消息模型", "异步", "回调"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderMqDomain.java:CreateOrderMqDomain",
+      "type": "class",
+      "name": "CreateOrderMqDomain",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderMqDomain.java",
+      "lineRange": [10, 15],
+      "summary": "异步下单的上下文载体，成功回调置空异常、失败回调写入异常，供调用方在 CountDownLatch 解除阻塞后判断结果。",
+      "tags": ["消息模型", "异步", "结果传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "type": "file",
+      "name": "CreateOrderSend.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "summary": "Kafka 下单消息发送器，封装主题前缀解析与发送逻辑，并在发送完成后回调成功或失败处理器。",
+      "tags": ["kafka", "生产者", "消息发送", "callback"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java:CreateOrderSend",
+      "type": "class",
+      "name": "CreateOrderSend",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "lineRange": [21, 46],
+      "summary": "下单消息发送组件，注入 KafkaTemplate 与主题配置，通过回调接口把发送结果交还业务层处理。",
+      "tags": ["kafka", "生产者", "组件"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java:sendMessage",
+      "type": "function",
+      "name": "sendMessage",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "lineRange": [33, 45],
+      "summary": "向 Kafka 发送下单消息（主题带环境前缀），whenComplete 中按发送结果触发成功或失败回调。",
+      "tags": ["kafka", "发送", "callback"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java:CompositeCheckType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java:getMsg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java:getRc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java:ProgramOrderVersion",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java:getMsg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java:getRc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java:RepeatExecuteLimitConstants",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java:RepeatExecuteLimit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java:DelayOrderCancelDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java:ProgramOrderCreateDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java:SeatDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java:SeatVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java:ProgramOrderController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java:createV1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java:createV2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java:createV3",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java:createV4",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/lock/LockTask.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/lock/LockTask.java:LockTask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:ProgramOrderService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:getTicketCategoryList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:create",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:createNew",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:createNewAsync",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:createOrderOperateProgramCacheResolution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:doCreate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:doCreateV2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:buildCreateOrderParam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:createOrderByRpc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:createOrderByMq",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:updateProgramCacheDataResolution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java:AbstractProgramCheckHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java:ProgramOrderCreateParamCheckHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderMqDomain.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderMqDomain.java:CreateOrderMqDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java:CreateOrderSend",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java:sendMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramShowTime.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderMqDomain.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderMqDomain.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "target": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/FailureCallback.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/SuccessCallback.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:findAdjacentSeatVos",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java:sendMessage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java:programCacheOperate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java:programCacheOperate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java:sendMessage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java:selectSeatResolution",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java:simpleGetProgramAndShowMultipleCache",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "target": "function:damai-common/src/main/java/com/damai/core/SpringUtil.java:getPrefixDistinctionName",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java:AbstractProgramCheckHandler",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java:AbstractComposite",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java:ProgramOrderCreateParamCheckHandler",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java:AbstractProgramCheckHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

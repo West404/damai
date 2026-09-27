@@ -1,0 +1,214 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java",
+      "type": "file",
+      "name": "DelayQueueProduceCombine.java",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java",
+      "summary": "延迟队列生产者组合组件，按隔离区域数量创建多个 DelayProduceQueue 分片，并通过 IsolationRegionSelector 轮询选择分片发送延迟消息，降低单个 Redis 延迟队列的热点压力。",
+      "tags": ["延迟队列", "分片", "producer", "redisson", "高并发"],
+      "complexity": "simple",
+      "languageNotes": "构造器内完成分片初始化，规避了 Spring 依赖注入的复杂度；分片列表为 final 且构造后不再变更。"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java:DelayQueueProduceCombine",
+      "type": "class",
+      "name": "DelayQueueProduceCombine",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java",
+      "lineRange": [15, 35],
+      "summary": "延迟消息生产者分片容器：依据 delayQueueProperties.isolationRegionCount 构建 topic-i 命名的 Redisson 延迟队列列表，对外暴露线程安全的分片轮询投递方法。",
+      "tags": ["延迟队列", "分片", "producer", "redisson"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java:offer",
+      "type": "function",
+      "name": "offer",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java",
+      "lineRange": [30, 34],
+      "summary": "向延迟队列投递消息：先通过分片选择器取下标，再委托对应 DelayProduceQueue 分片执行 offer。",
+      "tags": ["延迟队列", "投递", "分片", "producer"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java",
+      "type": "file",
+      "name": "DelayProduceQueue.java",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java",
+      "summary": "单个延迟队列的生产端实现，继承 DelayBaseQueue 复用 Redisson 阻塞队列，在其上包装 RDelayedQueue 以支持带延迟时间的消息投递。",
+      "tags": ["延迟队列", "producer", "redisson", "队列"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java:DelayProduceQueue",
+      "type": "class",
+      "name": "DelayProduceQueue",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java",
+      "lineRange": [13, 24],
+      "summary": "基于 RedissonClient 的延迟队列生产端封装类，构造时绑定延迟队列，提供带时间单位的 offer 方法完成延迟投递。",
+      "tags": ["延迟队列", "producer", "redisson", "封装"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java:offer",
+      "type": "function",
+      "name": "offer",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java",
+      "lineRange": [21, 23],
+      "summary": "将消息内容与延迟时间写入 Redisson 延迟队列，到点后自动转入底层阻塞队列供消费端拉取。",
+      "tags": ["延迟队列", "投递", "redisson"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java",
+      "type": "file",
+      "name": "IsolationRegionSelector.java",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java",
+      "summary": "线程安全的递增分片选择器，借助 AtomicInteger 与 synchronized 在 0 到阈值之间循环取下标，为延迟队列产生均匀的分片路由。",
+      "tags": ["分片", "负载均衡", "并发", "selector"],
+      "complexity": "simple",
+      "languageNotes": "使用 AtomicInteger 配合 synchronized 方法保证计数与重置的原子性，属于典型的轮询（round-robin）下标分配实现。"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java:IsolationRegionSelector",
+      "type": "class",
+      "name": "IsolationRegionSelector",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java",
+      "lineRange": [10, 34],
+      "summary": "分片下标选择器类，维护当前计数并在达到阈值时归零，对外提供 getIndex 实现循环递增的分片路由。",
+      "tags": ["分片", "并发", "轮询", "selector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java:getIndex",
+      "type": "function",
+      "name": "getIndex",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java",
+      "lineRange": [25, 33],
+      "summary": "同步返回下一个分片下标：达到阈值时重置计数并返回 0，否则先自增再返回当前值，保证分片被均匀轮询。",
+      "tags": ["分片", "并发", "轮询", "selector"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java:DelayQueueProduceCombine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java:offer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java:DelayQueueProduceCombine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java:offer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java:offer",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java:getIndex",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java:offer",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java:offer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java:DelayProduceQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java:offer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java:DelayProduceQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java:offer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java:DelayProduceQueue",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java:DelayBaseQueue",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java:IsolationRegionSelector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java:getIndex",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java:IsolationRegionSelector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java:getIndex",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

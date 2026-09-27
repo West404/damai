@@ -1,0 +1,1338 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+      "type": "file",
+      "name": "OrderTicketUser.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+      "summary": "购票人订单实体，一行对应一个座位/票档的购票记录，包含座位信息、票档、支付价格与订单状态等字段。",
+      "tags": [
+        "data-model",
+        "entity",
+        "购票人",
+        "mybatis-plus"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java",
+      "type": "file",
+      "name": "OrderTicketUserAggregate.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java",
+      "summary": "购票人订单聚合结果对象，用于按订单号统计每个订单下的购票人数量。",
+      "tags": [
+        "data-model",
+        "聚合对象",
+        "订单统计"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java",
+      "type": "file",
+      "name": "OrderMapper.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java",
+      "summary": "订单表 MyBatis-Plus Mapper 接口，除基础 CRUD 外提供账户下购票人数量统计与订单数据真实删除。",
+      "tags": [
+        "mapper",
+        "data-access",
+        "订单",
+        "mybatis-plus"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+      "type": "file",
+      "name": "OrderTicketUserMapper.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+      "summary": "购票人订单 Mapper 接口，提供按订单号列表聚合购票人数量与购票人订单数据真实删除。",
+      "tags": [
+        "mapper",
+        "data-access",
+        "购票人",
+        "mybatis-plus"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "type": "file",
+      "name": "OrderService.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "summary": "订单核心业务服务，覆盖创建订单、发起支付、支付回调与核对、订单状态变更、节目座位/票档缓存反向操作、列表详情聚合与订单取消，并通过 RPC 与支付、用户、节目服务协作。",
+      "tags": [
+        "service",
+        "订单",
+        "业务核心",
+        "分布式锁",
+        "缓存"
+      ],
+      "complexity": "complex",
+      "languageNotes": "基于 MyBatis-Plus ServiceImpl 与 Wrappers 构造条件，事务方法统一 @Transactional(rollbackFor = Exception.class)，并用 @ServiceLock/@RepeatExecuteLimit 注解实现 Redisson 分布式锁与防重复执行。"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java",
+      "type": "file",
+      "name": "OrderTicketUserService.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java",
+      "summary": "购票人订单服务，继承 MyBatis-Plus ServiceImpl，为订单创建提供购票人记录批量保存等基础能力。",
+      "tags": [
+        "service",
+        "购票人",
+        "mybatis-plus"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "type": "file",
+      "name": "DelayOrderCancelConsumer.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "summary": "延迟队列消费者，订阅订单取消延迟 topic，解析 DelayOrderCancelDto 后驱动 OrderService 取消订单。",
+      "tags": [
+        "consumer",
+        "延迟队列",
+        "订单取消",
+        "redisson"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "type": "file",
+      "name": "CreateOrderConsumer.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "summary": "Kafka 消费者，监听创建订单主题，依据消息延迟时间决定落库创建订单还是回滚节目座位数据。",
+      "tags": [
+        "consumer",
+        "kafka",
+        "订单创建",
+        "异步处理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java:OrderTicketUser",
+      "type": "class",
+      "name": "OrderTicketUser",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+      "lineRange": [
+        19,
+        98
+      ],
+      "summary": "购票人订单实体类，继承 BaseTableData，按座位/票档记录订单明细与支付信息。",
+      "tags": [
+        "data-model",
+        "entity",
+        "购票人",
+        "mybatis-plus"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java:OrderTicketUserAggregate",
+      "type": "class",
+      "name": "OrderTicketUserAggregate",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java",
+      "lineRange": [
+        11,
+        16
+      ],
+      "summary": "购票人订单聚合对象，包含订单号与购票人数量两个字段。",
+      "tags": [
+        "data-model",
+        "聚合对象",
+        "订单统计"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java:OrderMapper",
+      "type": "class",
+      "name": "OrderMapper",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java",
+      "lineRange": [
+        13,
+        28
+      ],
+      "summary": "订单 Mapper 接口，继承 MyBatis-Plus BaseMapper<Order> 并声明账户购票人数量统计与订单真实删除方法。",
+      "tags": [
+        "mapper",
+        "data-access",
+        "订单",
+        "mybatis-plus"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java:OrderTicketUserMapper",
+      "type": "class",
+      "name": "OrderTicketUserMapper",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+      "lineRange": [
+        15,
+        30
+      ],
+      "summary": "购票人订单 Mapper 接口，继承 BaseMapper<OrderTicketUser> 并声明购票人聚合查询与真实删除方法。",
+      "tags": [
+        "mapper",
+        "data-access",
+        "购票人",
+        "mybatis-plus"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:OrderService",
+      "type": "class",
+      "name": "OrderService",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        99,
+        631
+      ],
+      "summary": "订单领域核心服务类，继承 ServiceImpl<OrderMapper, Order>，编排订单创建、支付、回调、状态更新、缓存反向操作与取消等流程。",
+      "tags": [
+        "service",
+        "订单",
+        "业务核心",
+        "分布式锁"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java:OrderTicketUserService",
+      "type": "class",
+      "name": "OrderTicketUserService",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java",
+      "lineRange": [
+        14,
+        16
+      ],
+      "summary": "购票人订单服务类，继承 ServiceImpl<OrderTicketUserMapper, OrderTicketUser> 提供批量保存等基础操作。",
+      "tags": [
+        "service",
+        "购票人",
+        "mybatis-plus"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java:DelayOrderCancelConsumer",
+      "type": "class",
+      "name": "DelayOrderCancelConsumer",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "lineRange": [
+        23,
+        57
+      ],
+      "summary": "延迟订单取消消费者，实现 ConsumerTask 接口，按前缀区分名拼接订阅 topic。",
+      "tags": [
+        "consumer",
+        "延迟队列",
+        "订单取消"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java:CreateOrderConsumer",
+      "type": "class",
+      "name": "CreateOrderConsumer",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "lineRange": [
+        31,
+        77
+      ],
+      "summary": "Kafka 创建订单消费者，按消息延迟阈值决定创建订单或回滚座位数据。",
+      "tags": [
+        "consumer",
+        "kafka",
+        "订单创建"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:create",
+      "type": "function",
+      "name": "create",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        138,
+        165
+      ],
+      "summary": "创建订单：校验订单号唯一后复制 DTO 生成订单与购票人记录并批量落库，最后递增缓存中的订单计数。",
+      "tags": [
+        "service",
+        "订单创建",
+        "事务",
+        "mybatis-plus"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:cancel",
+      "type": "function",
+      "name": "cancel",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        170,
+        176
+      ],
+      "summary": "取消订单入口：在防重复执行与分布式锁保护下将订单及购票人记录状态置为已取消。",
+      "tags": [
+        "service",
+        "订单取消",
+        "分布式锁",
+        "事务"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:pay",
+      "type": "function",
+      "name": "pay",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        178,
+        204
+      ],
+      "summary": "发起支付：校验订单存在性与状态、比对支付金额，组装 PayDto 后调用支付服务 commonPay 返回支付参数。",
+      "tags": [
+        "service",
+        "支付",
+        "rpc调用",
+        "参数校验"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:getPayDto",
+      "type": "function",
+      "name": "getPayDto",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        206,
+        217
+      ],
+      "summary": "根据支付入参与订单号组装 PayDto，填充账单类型、渠道、平台、金额及配置的回调与跳转地址。",
+      "tags": [
+        "service",
+        "支付",
+        "数据组装"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:payCheck",
+      "type": "function",
+      "name": "payCheck",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        222,
+        283
+      ],
+      "summary": "支付后核对：对已取消订单发起退款，否则向支付服务发起交易查询，并按账单状态更新订单状态与节目座位缓存。",
+      "tags": [
+        "service",
+        "支付核对",
+        "分布式锁",
+        "缓存反向操作"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:alipayNotify",
+      "type": "function",
+      "name": "alipayNotify",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        286,
+        346
+      ],
+      "summary": "处理支付宝异步回调：解析回调参数、以订单号加分布式锁，按订单当前状态退款或确认支付通知，成功后更新订单与节目数据。",
+      "tags": [
+        "service",
+        "支付回调",
+        "分布式锁",
+        "幂等"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:updateOrderRelatedData",
+      "type": "function",
+      "name": "updateOrderRelatedData",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        351,
+        404
+      ],
+      "summary": "订单状态变更主流程：更新订单与购票人记录的状态和时间，取消时回补缓存计数，支付时按座位聚合并反向操作节目座位与票档缓存。",
+      "tags": [
+        "service",
+        "订单状态",
+        "缓存反向操作",
+        "事务"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:checkOrderStatus",
+      "type": "function",
+      "name": "checkOrderStatus",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        406,
+        419
+      ],
+      "summary": "校验订单状态，若已取消、已支付或已退款则抛出业务异常，避免重复或非法状态变更。",
+      "tags": [
+        "service",
+        "状态校验",
+        "异常处理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:updateProgramRelatedDataResolution",
+      "type": "function",
+      "name": "updateProgramRelatedDataResolution",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        421,
+        491
+      ],
+      "summary": "节目数据反向操作：基于座位缓存分组回滚/确认座位锁与售出状态、票档余票，并组装延迟消息数据同步节目服务。",
+      "tags": [
+        "service",
+        "缓存反向操作",
+        "座位库存",
+        "延迟消息"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:selectList",
+      "type": "function",
+      "name": "selectList",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        493,
+        514
+      ],
+      "summary": "查询用户订单列表：按用户 id 查询订单、转换为 VO 并聚合每个订单的购票人数量。",
+      "tags": [
+        "service",
+        "订单查询",
+        "数据聚合"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        516,
+        584
+      ],
+      "summary": "查询订单详情：组装订单 VO 与按票档分组的购票人信息，并通过用户服务 RPC 补充用户与购票人资料。",
+      "tags": [
+        "service",
+        "订单查询",
+        "rpc调用",
+        "数据聚合"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:initiateCancel",
+      "type": "function",
+      "name": "initiateCancel",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "lineRange": [
+        611,
+        624
+      ],
+      "summary": "取消订单前置校验：确认订单存在且处于未支付状态后调用 cancel 执行取消。",
+      "tags": [
+        "service",
+        "订单取消",
+        "参数校验"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "lineRange": [
+        33,
+        51
+      ],
+      "summary": "消费延迟订单取消消息：判空后反序列化 DelayOrderCancelDto，转换为 OrderCancelDto 调用 OrderService.cancel 并记录结果日志。",
+      "tags": [
+        "consumer",
+        "延迟队列",
+        "订单取消"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java:consumerOrderMessage",
+      "type": "function",
+      "name": "consumerOrderMessage",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "lineRange": [
+        43,
+        76
+      ],
+      "summary": "消费 Kafka 创建订单消息：计算消息延迟，超时则回滚节目座位数据，未超时则调用 OrderService.createMq 落库创建订单。",
+      "tags": [
+        "consumer",
+        "kafka",
+        "订单创建",
+        "幂等"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java:OrderTicketUser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java:OrderTicketUserAggregate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java:OrderMapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java:OrderTicketUserMapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:OrderService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java:OrderTicketUserService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java:DelayOrderCancelConsumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java:CreateOrderConsumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java:consumerOrderMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:create",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:cancel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:pay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:getPayDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:payCheck",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:alipayNotify",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:updateOrderRelatedData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:checkOrderStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:updateProgramRelatedDataResolution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:selectList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:initiateCancel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java:OrderTicketUser",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java:OrderTicketUserAggregate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java:OrderMapper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java:OrderTicketUserMapper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:OrderService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java:OrderTicketUserService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java:DelayOrderCancelConsumer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java:execute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java:CreateOrderConsumer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java:consumerOrderMessage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:create",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:cancel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:pay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:payCheck",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:alipayNotify",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:updateOrderRelatedData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:checkOrderStatus",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:updateProgramRelatedDataResolution",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:selectList",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:get",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:initiateCancel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BusinessStatus.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/PayChannel.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOperateDataDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryCountDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "target": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java:OrderTicketUser",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java:DelayOrderCancelConsumer",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java:ConsumerTask",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java:execute",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:cancel",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:updateProgramRelatedDataResolution",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java:sendMessage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

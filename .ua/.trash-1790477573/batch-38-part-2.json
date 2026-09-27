@@ -1,0 +1,502 @@
+{
+  "nodes": [
+    {
+      "id": "table:sql/cloud/damai_pay_1.sql",
+      "type": "table",
+      "name": "damai_pay_1.sql",
+      "filePath": "sql/cloud/damai_pay_1.sql",
+      "summary": "支付库分片 1（damai_pay_1）的结构脚本，内容与分片 0 对称，同样定义 d_pay_bill_0/1 支付账单与 d_refund_bill_0/1 退款单分表。",
+      "tags": ["database", "支付", "分库分表", "退款"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_1.sql:d_pay_bill_0",
+      "type": "table",
+      "name": "d_pay_bill_0",
+      "filePath": "sql/cloud/damai_pay_1.sql",
+      "summary": "分片库 damai_pay_1 中的支付账单分表 0，记录支付流水、商户订单号、渠道与场景、交易凭证号、金额与账单状态，out_order_no 唯一索引。",
+      "tags": ["database", "支付", "账单", "分表"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_1.sql:d_pay_bill_1",
+      "type": "table",
+      "name": "d_pay_bill_1",
+      "filePath": "sql/cloud/damai_pay_1.sql",
+      "summary": "分片库 damai_pay_1 中的支付账单分表 1，结构与分表 0 一致。",
+      "tags": ["database", "支付", "账单", "分表"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_1.sql:d_refund_bill_0",
+      "type": "table",
+      "name": "d_refund_bill_0",
+      "filePath": "sql/cloud/damai_pay_1.sql",
+      "summary": "分片库 damai_pay_1 中的退款单分表 0，关联支付账单记录退款金额、退款状态与退款原因。",
+      "tags": ["database", "退款", "交易", "分表"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_1.sql:d_refund_bill_1",
+      "type": "table",
+      "name": "d_refund_bill_1",
+      "filePath": "sql/cloud/damai_pay_1.sql",
+      "summary": "分片库 damai_pay_1 中的退款单分表 1，结构与分表 0 一致。",
+      "tags": ["database", "退款", "交易", "分表"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql",
+      "type": "table",
+      "name": "damai_program_0.sql",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "节目库分片 0（damai_program_0）的结构与种子数据脚本，包含节目主表、节目分类、节目分组、场次、座位、票档等 11 张业务表以及 Seata 的 undo_log 回滚表。",
+      "tags": ["database", "节目", "分库分表", "票务"],
+      "complexity": "complex",
+      "languageNotes": "单文件同时包含 DDL 与大量 INSERT 种子数据（含中文票档名，如「看台 380元」「内场 2580元」），undo_log 为 Seata AT 模式的标准回滚日志结构。"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_0",
+      "type": "table",
+      "name": "d_program_0",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "节目主表分表 0，字段覆盖节目分组、城市/分类、标题、演员、场馆、图片，以及限购数量、退票规则、入场规则、实名制、儿童购票、电子票与电子发票说明等购票约束。",
+      "tags": ["database", "节目", "票务", "分表"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_1",
+      "type": "table",
+      "name": "d_program_1",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "节目主表分表 1，字段与分表 0 完全一致，承载节目数据的水平分片。",
+      "tags": ["database", "节目", "票务", "分表"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_category",
+      "type": "table",
+      "name": "d_program_category",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "节目分类表，通过 parent_id 自关联组织多级分类（type 区分层级），为节目提供分类归属。",
+      "tags": ["database", "节目分类", "字典表", "票务"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_group_0",
+      "type": "table",
+      "name": "d_program_group_0",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "节目分组分表 0，program_json 存放分组内节目 JSON 列表，recent_show_time 记录最近演出时间，用于节目列表按「最近场次」聚合与排序。",
+      "tags": ["database", "节目分组", "json存储", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_group_1",
+      "type": "table",
+      "name": "d_program_group_1",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "节目分组分表 1，结构与分表 0 一致，program_json 与 recent_show_time 用于首页节目聚合展示。",
+      "tags": ["database", "节目分组", "json存储", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_show_time_0",
+      "type": "table",
+      "name": "d_program_show_time_0",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "节目场次分表 0，记录演出时间、精确到天的演出日期、所在星期与城市 id，并按 program_id 建索引用于按节目查询场次。",
+      "tags": ["database", "场次", "节目", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_show_time_1",
+      "type": "table",
+      "name": "d_program_show_time_1",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "节目场次分表 1，结构与分表 0 一致，承载场次数据的水平分片。",
+      "tags": ["database", "场次", "节目", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_seat_0",
+      "type": "table",
+      "name": "d_seat_0",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "座位分表 0，记录节目、票档、排号/列号、座位类型、价格与售卖状态，是选座购票的核心数据表。",
+      "tags": ["database", "座位", "选座", "分表"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_seat_1",
+      "type": "table",
+      "name": "d_seat_1",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "座位分表 1，结构与分表 0 一致，承载座位数据的水平分片。",
+      "tags": ["database", "座位", "选座", "分表"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_ticket_category_0",
+      "type": "table",
+      "name": "d_ticket_category_0",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "节目票档分表 0，记录票档介绍、单价以及总数量 total_number 与剩余数量 remain_number，是票档库存扣减与展示的数据来源。",
+      "tags": ["database", "票档", "库存", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_ticket_category_1",
+      "type": "table",
+      "name": "d_ticket_category_1",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "节目票档分表 1，结构与分表 0 一致，同样维护总数量与剩余库存。",
+      "tags": ["database", "票档", "库存", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:undo_log",
+      "type": "table",
+      "name": "undo_log",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Seata AT 模式事务回滚日志表，以 branch_id+xid 为主键保存回滚信息、状态与时间戳，支撑节目库的分布式事务一致性。",
+      "tags": ["database", "分布式事务", "seata", "回滚日志"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql",
+      "type": "table",
+      "name": "damai_program_1.sql",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "节目库分片 1（damai_program_1）的结构与种子数据脚本，内容与分片 0 对称，包含 11 张节目业务表与 undo_log。",
+      "tags": ["database", "节目", "分库分表", "票务"],
+      "complexity": "complex",
+      "languageNotes": "与分片 0 保持完全相同的表结构与索引定义，便于分片扩容与数据克隆。"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_0",
+      "type": "table",
+      "name": "d_program_0",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "分片库 damai_program_1 中的节目主表分表 0，含购票限制、退票/入场规则、实名制与电子票说明等 40 余个字段。",
+      "tags": ["database", "节目", "票务", "分表"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_1",
+      "type": "table",
+      "name": "d_program_1",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "分片库 damai_program_1 中的节目主表分表 1，字段与分表 0 完全一致。",
+      "tags": ["database", "节目", "票务", "分表"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_category",
+      "type": "table",
+      "name": "d_program_category",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "分片库 damai_program_1 中的节目分类表，以 parent_id 组织多级分类。",
+      "tags": ["database", "节目分类", "字典表", "票务"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_group_0",
+      "type": "table",
+      "name": "d_program_group_0",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "分片库 damai_program_1 中的节目分组分表 0，program_json 存分组节目列表、recent_show_time 存最近演出时间。",
+      "tags": ["database", "节目分组", "json存储", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_group_1",
+      "type": "table",
+      "name": "d_program_group_1",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "分片库 damai_program_1 中的节目分组分表 1，结构与分表 0 一致。",
+      "tags": ["database", "节目分组", "json存储", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_show_time_0",
+      "type": "table",
+      "name": "d_program_show_time_0",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "分片库 damai_program_1 中的节目场次分表 0，按 program_id 建索引记录演出时间与城市。",
+      "tags": ["database", "场次", "节目", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_show_time_1",
+      "type": "table",
+      "name": "d_program_show_time_1",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "分片库 damai_program_1 中的节目场次分表 1，结构与分表 0 一致。",
+      "tags": ["database", "场次", "节目", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_seat_0",
+      "type": "table",
+      "name": "d_seat_0",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "分片库 damai_program_1 中的座位分表 0，记录排号/列号、座位类型、价格与售卖状态。",
+      "tags": ["database", "座位", "选座", "分表"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_seat_1",
+      "type": "table",
+      "name": "d_seat_1",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "分片库 damai_program_1 中的座位分表 1，结构与分表 0 一致。",
+      "tags": ["database", "座位", "选座", "分表"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_ticket_category_0",
+      "type": "table",
+      "name": "d_ticket_category_0",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "分片库 damai_program_1 中的节目票档分表 0，维护票档价格与总/剩余库存。",
+      "tags": ["database", "票档", "库存", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_ticket_category_1",
+      "type": "table",
+      "name": "d_ticket_category_1",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "分片库 damai_program_1 中的节目票档分表 1，结构与分表 0 一致。",
+      "tags": ["database", "票档", "库存", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:undo_log",
+      "type": "table",
+      "name": "undo_log",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "分片库 damai_program_1 中的 Seata AT 模式回滚日志表，结构同分片 0。",
+      "tags": ["database", "分布式事务", "seata", "回滚日志"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql",
+      "type": "table",
+      "name": "damai_user_0.sql",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "用户库分片 0（damai_user_0）的结构脚本，包含用户主表分表 d_user_0/1、购票人（实名观演人）分表 d_ticket_user_0/1，以及用于手机号/邮箱反查的索引表 d_user_mobile_0/1 与 d_user_email_0/1。",
+      "tags": ["database", "用户", "分库分表", "实名认证"],
+      "complexity": "complex",
+      "languageNotes": "用户库采用「一实体多索引表」设计：d_user_email_* / d_user_mobile_* 只保留 user_id + 查询键，避免在用户主表上建高频查询的二级索引。"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_user_0",
+      "type": "table",
+      "name": "d_user_0",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "用户主表分表 0，保存用户名、真实姓名、手机号、性别、密码、邮箱及邮箱/实名认证状态、身份证号与收货地址。",
+      "tags": ["database", "用户", "分表", "实名认证"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_user_1",
+      "type": "table",
+      "name": "d_user_1",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "用户主表分表 1，结构与分表 0 一致，承载用户数据的水平分片。",
+      "tags": ["database", "用户", "分表", "实名认证"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_ticket_user_0",
+      "type": "table",
+      "name": "d_ticket_user_0",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "购票人（实名观演人）分表 0，记录所属用户、真实姓名、证件类型（身份证/港澳台居住证/通行证/护照等）与证件号码，是实名购票的常用购票人列表。",
+      "tags": ["database", "购票人", "实名认证", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_ticket_user_1",
+      "type": "table",
+      "name": "d_ticket_user_1",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "购票人分表 1，结构与分表 0 一致，承载观演人数据的水平分片。",
+      "tags": ["database", "购票人", "实名认证", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_user_email_0",
+      "type": "table",
+      "name": "d_user_email_0",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "用户邮箱索引表分表 0，保存 user_id 与邮箱并对 email 建索引，用于按邮箱反查用户。",
+      "tags": ["database", "用户", "索引表", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_user_email_1",
+      "type": "table",
+      "name": "d_user_email_1",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "用户邮箱索引表分表 1，结构与分表 0 一致。",
+      "tags": ["database", "用户", "索引表", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_user_mobile_0",
+      "type": "table",
+      "name": "d_user_mobile_0",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "用户手机号索引表分表 0，保存 user_id 与手机号并对 mobile 建索引，用于登录时按手机号反查用户。",
+      "tags": ["database", "用户", "索引表", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_user_mobile_1",
+      "type": "table",
+      "name": "d_user_mobile_1",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "用户手机号索引表分表 1，结构与分表 0 一致。",
+      "tags": ["database", "用户", "索引表", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql",
+      "type": "table",
+      "name": "damai_user_1.sql",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "用户库分片 1（damai_user_1）的结构脚本，内容与分片 0 对称，包含 d_user_0/1、d_ticket_user_0/1、d_user_email_0/1 与 d_user_mobile_0/1。",
+      "tags": ["database", "用户", "分库分表", "实名认证"],
+      "complexity": "complex",
+      "languageNotes": "分片库表结构与分片 0 完全一致，仅 USE 的库名不同。"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_user_0",
+      "type": "table",
+      "name": "d_user_0",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "分片库 damai_user_1 中的用户主表分表 0，含基本信息、密码与邮箱/实名认证状态。",
+      "tags": ["database", "用户", "分表", "实名认证"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_user_1",
+      "type": "table",
+      "name": "d_user_1",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "分片库 damai_user_1 中的用户主表分表 1，结构与分表 0 一致。",
+      "tags": ["database", "用户", "分表", "实名认证"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_ticket_user_0",
+      "type": "table",
+      "name": "d_ticket_user_0",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "分片库 damai_user_1 中的购票人分表 0，记录证件类型与证件号码等实名信息。",
+      "tags": ["database", "购票人", "实名认证", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_ticket_user_1",
+      "type": "table",
+      "name": "d_ticket_user_1",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "分片库 damai_user_1 中的购票人分表 1，结构与分表 0 一致。",
+      "tags": ["database", "购票人", "实名认证", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_user_email_0",
+      "type": "table",
+      "name": "d_user_email_0",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "分片库 damai_user_1 中的用户邮箱索引表分表 0，按 email 建索引用于反查用户。",
+      "tags": ["database", "用户", "索引表", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_user_email_1",
+      "type": "table",
+      "name": "d_user_email_1",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "分片库 damai_user_1 中的用户邮箱索引表分表 1，结构与分表 0 一致。",
+      "tags": ["database", "用户", "索引表", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_user_mobile_0",
+      "type": "table",
+      "name": "d_user_mobile_0",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "分片库 damai_user_1 中的用户手机号索引表分表 0，按 mobile 建索引用于登录反查。",
+      "tags": ["database", "用户", "索引表", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_user_mobile_1",
+      "type": "table",
+      "name": "d_user_mobile_1",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "分片库 damai_user_1 中的用户手机号索引表分表 1，结构与分表 0 一致。",
+      "tags": ["database", "用户", "索引表", "分表"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "table:sql/cloud/damai_pay_1.sql", "target": "table:sql/cloud/damai_pay_1.sql:d_pay_bill_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_1.sql", "target": "table:sql/cloud/damai_pay_1.sql:d_pay_bill_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_1.sql", "target": "table:sql/cloud/damai_pay_1.sql:d_refund_bill_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_1.sql", "target": "table:sql/cloud/damai_pay_1.sql:d_refund_bill_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_category", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_group_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_group_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_show_time_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_show_time_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_seat_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_seat_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_ticket_category_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_ticket_category_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:undo_log", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_category", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_group_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_group_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_show_time_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_show_time_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_seat_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_seat_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_ticket_category_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_ticket_category_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:undo_log", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_user_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_user_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_ticket_user_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_ticket_user_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_user_email_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_user_email_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_user_mobile_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_user_mobile_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_user_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_user_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_ticket_user_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_ticket_user_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_user_email_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_user_email_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_user_mobile_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_user_mobile_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_1.sql", "target": "table:sql/cloud/1_damai_cloud_create_database.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/1_damai_cloud_create_database.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/1_damai_cloud_create_database.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/1_damai_cloud_create_database.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/1_damai_cloud_create_database.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_1.sql", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_1.sql", "type": "related", "direction": "forward", "weight": 0.5}
+  ]
+}

@@ -1,0 +1,604 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "file",
+      "name": "ApiResponse.java",
+      "filePath": "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "summary": "Generic unified API response wrapper (code/message/data) with static ok/error factory methods, used as the standard return type across all Damai controllers and Feign clients.",
+      "tags": ["api-handler", "data-model", "serialization", "utility"],
+      "complexity": "moderate",
+      "languageNotes": "Uses Java generics with overloaded static factory methods for success and error responses."
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/common/ApiResponse.java:ApiResponse",
+      "type": "class",
+      "name": "ApiResponse",
+      "filePath": "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "lineRange": [14, 84],
+      "summary": "Generic response envelope carrying a status code, message, and payload; factories build success responses or error responses from a BaseCode enum.",
+      "tags": ["data-model", "api-handler", "serialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:error",
+      "type": "function",
+      "name": "error",
+      "filePath": "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "lineRange": [29, 70],
+      "summary": "Overloaded static factories that build an error ApiResponse from a raw code/message pair or from a BaseCode enum, optionally carrying data.",
+      "tags": ["factory", "error-handling", "api-handler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "function",
+      "name": "ok",
+      "filePath": "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "lineRange": [72, 83],
+      "summary": "Static factories that build a successful ApiResponse, with or without a payload.",
+      "tags": ["factory", "api-handler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+      "type": "file",
+      "name": "OrderStatus.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+      "summary": "Enumeration of order lifecycle states (e.g. unpaid, paid, cancelled) with code/msg pairs and static lookup helpers used by order and program services.",
+      "tags": ["type-definition", "data-model", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/OrderStatus.java:OrderStatus",
+      "type": "class",
+      "name": "OrderStatus",
+      "filePath": "damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+      "lineRange": [8, 60],
+      "summary": "Enum defining order status codes and messages, with static getMsg/getRc lookups resolving a status by its numeric code.",
+      "tags": ["type-definition", "enum", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/OrderStatus.java:getRc",
+      "type": "function",
+      "name": "getRc",
+      "filePath": "damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+      "lineRange": [52, 59],
+      "summary": "Static lookup returning the matching OrderStatus enum constant for a given numeric status code.",
+      "tags": ["utility", "lookup", "enum"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java",
+      "type": "file",
+      "name": "BroadcastCallDto.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java",
+      "summary": "DTO carrying a target service name and request body for the customize service's broadcast call endpoint.",
+      "tags": ["data-model", "dto", "feign-client"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java:BroadcastCallDto",
+      "type": "class",
+      "name": "BroadcastCallDto",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java",
+      "lineRange": [13, 24],
+      "summary": "Lombok-style data holder with serviceName and requestBody fields for broadcast invocation requests.",
+      "tags": ["data-model", "dto"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java",
+      "type": "file",
+      "name": "JobClient.java",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java",
+      "summary": "Feign client interface for the job service, exposing the callBack endpoint used by the distributed scheduler to report task execution results.",
+      "tags": ["feign-client", "api-handler", "microservice"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java:JobClient",
+      "type": "class",
+      "name": "JobClient",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java",
+      "lineRange": [20, 31],
+      "summary": "Feign interface declaring the callBack remote endpoint that accepts a JobCallBackDto and returns an ApiResponse, with JobClientFallback as its fallback.",
+      "tags": ["feign-client", "microservice", "api-handler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java",
+      "type": "file",
+      "name": "JobClientFallback.java",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java",
+      "summary": "Sentinel/Feign fallback for JobClient that returns a standardized REMOTE_CALL error ApiResponse when the job service is unavailable.",
+      "tags": ["feign-client", "fallback", "fault-tolerance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java:JobClientFallback",
+      "type": "class",
+      "name": "JobClientFallback",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java",
+      "lineRange": [13, 20],
+      "summary": "Fallback implementation of JobClient whose callBack method degrades to an error ApiResponse built from BaseCode.REMOTE_CALL.",
+      "tags": ["fallback", "fault-tolerance", "feign-client"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java:callBack",
+      "type": "function",
+      "name": "callBack",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java",
+      "lineRange": [16, 19],
+      "summary": "Fallback callback returning ApiResponse.error(BaseCode.REMOTE_CALL) when the remote job service call fails.",
+      "tags": ["fallback", "error-handling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java",
+      "type": "file",
+      "name": "JobCallBackDto.java",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java",
+      "summary": "DTO for job scheduler callbacks carrying job id, run info, run status, and remaining retry count.",
+      "tags": ["data-model", "dto", "scheduler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java:JobCallBackDto",
+      "type": "class",
+      "name": "JobCallBackDto",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java",
+      "lineRange": [14, 36],
+      "summary": "Data holder for distributed-job callback payloads with fields id, jobId, runInfo, runStatus, and currentResidueRetryNumber.",
+      "tags": ["data-model", "dto"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java",
+      "type": "file",
+      "name": "OrderClient.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java",
+      "summary": "Feign client interface for the order service, exposing order creation and per-account order count endpoints used by program and other services.",
+      "tags": ["feign-client", "api-handler", "microservice", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java:OrderClient",
+      "type": "class",
+      "name": "OrderClient",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java",
+      "lineRange": [18, 37],
+      "summary": "Feign interface declaring create(OrderCreateDto) and accountOrderCount(AccountOrderCountDto) remote endpoints returning ApiResponse, with OrderClientFallback as fallback.",
+      "tags": ["feign-client", "microservice", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java",
+      "type": "file",
+      "name": "OrderClientFallback.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java",
+      "summary": "Sentinel/Feign fallback for OrderClient that degrades order creation and order count calls to standardized REMOTE_CALL error responses.",
+      "tags": ["feign-client", "fallback", "fault-tolerance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java:OrderClientFallback",
+      "type": "class",
+      "name": "OrderClientFallback",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java",
+      "lineRange": [15, 27],
+      "summary": "Fallback implementation of OrderClient whose create and accountOrderCount methods return ApiResponse.error(BaseCode.REMOTE_CALL).",
+      "tags": ["fallback", "fault-tolerance", "feign-client"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java:create",
+      "type": "function",
+      "name": "create",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java",
+      "lineRange": [18, 21],
+      "summary": "Fallback for order creation returning an error ApiResponse built from BaseCode.REMOTE_CALL.",
+      "tags": ["fallback", "error-handling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java:accountOrderCount",
+      "type": "function",
+      "name": "accountOrderCount",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java",
+      "lineRange": [23, 26],
+      "summary": "Fallback for account order count returning an error ApiResponse built from BaseCode.REMOTE_CALL.",
+      "tags": ["fallback", "error-handling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+      "type": "file",
+      "name": "AccountOrderCountDto.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+      "summary": "DTO with userId and programId used to query how many orders an account holds for a given program.",
+      "tags": ["data-model", "dto", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java:AccountOrderCountDto",
+      "type": "class",
+      "name": "AccountOrderCountDto",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+      "lineRange": [13, 24],
+      "summary": "Data holder carrying userId and programId for the account order count query.",
+      "tags": ["data-model", "dto"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java",
+      "type": "file",
+      "name": "OrderCancelDto.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java",
+      "summary": "DTO carrying an orderNumber used to request cancellation of an order.",
+      "tags": ["data-model", "dto", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java:OrderCancelDto",
+      "type": "class",
+      "name": "OrderCancelDto",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java",
+      "lineRange": [13, 21],
+      "summary": "Data holder with a single orderNumber field for order cancellation requests.",
+      "tags": ["data-model", "dto"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "type": "file",
+      "name": "OrderCreateDto.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "summary": "Rich DTO for order creation carrying program details, pricing, seat/distribution modes, and the per-ticket-user creation list.",
+      "tags": ["data-model", "dto", "order-domain"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java:OrderCreateDto",
+      "type": "class",
+      "name": "OrderCreateDto",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "lineRange": [18, 72],
+      "summary": "Order creation payload with 13 fields including programId, userId, programTitle, orderPrice, and orderTicketUserCreateDtoList.",
+      "tags": ["data-model", "dto", "order-domain"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java",
+      "type": "file",
+      "name": "OrderGetDto.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java",
+      "summary": "DTO carrying an orderNumber used to fetch the full detail of a single order.",
+      "tags": ["data-model", "dto", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java:OrderGetDto",
+      "type": "class",
+      "name": "OrderGetDto",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java",
+      "lineRange": [13, 21],
+      "summary": "Data holder with a single orderNumber field for order detail queries.",
+      "tags": ["data-model", "dto"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java",
+      "type": "file",
+      "name": "OrderListDto.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java",
+      "summary": "DTO carrying a userId used to list all orders belonging to an account.",
+      "tags": ["data-model", "dto", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java:OrderListDto",
+      "type": "class",
+      "name": "OrderListDto",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java",
+      "lineRange": [13, 21],
+      "summary": "Data holder with a single userId field for account order list queries.",
+      "tags": ["data-model", "dto"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java",
+      "type": "file",
+      "name": "OrderPayCheckDto.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java",
+      "summary": "DTO carrying orderNumber and payChannelType used to check an order's payment status before returning to the caller.",
+      "tags": ["data-model", "dto", "order-domain", "payment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java:OrderPayCheckDto",
+      "type": "class",
+      "name": "OrderPayCheckDto",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java",
+      "lineRange": [13, 24],
+      "summary": "Data holder with orderNumber and payChannelType fields for payment status checks.",
+      "tags": ["data-model", "dto", "payment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java",
+      "type": "file",
+      "name": "OrderPayDto.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java",
+      "summary": "Serializable DTO for initiating order payment, carrying platform, subject, price, channel, and pay bill type.",
+      "tags": ["data-model", "dto", "payment", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java:OrderPayDto",
+      "type": "class",
+      "name": "OrderPayDto",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java",
+      "lineRange": [18, 49],
+      "summary": "Payment initiation payload with platform, orderNumber, subject, price, channel, and payBillType fields.",
+      "tags": ["data-model", "dto", "payment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java",
+      "type": "file",
+      "name": "OrderTicketUserCreateDto.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java",
+      "summary": "DTO for a single ticket-holder line item within order creation, carrying seat, ticket category, and price details.",
+      "tags": ["data-model", "dto", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java:OrderTicketUserCreateDto",
+      "type": "class",
+      "name": "OrderTicketUserCreateDto",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java",
+      "lineRange": [17, 57],
+      "summary": "Per-ticket-user creation payload with orderNumber, programId, userId, ticketUserId, seatId, seatInfo, ticketCategoryId, orderPrice, and createOrderTime.",
+      "tags": ["data-model", "dto", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java",
+      "type": "file",
+      "name": "AccountOrderCountVo.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java",
+      "summary": "VO returning the count of orders an account holds for a program.",
+      "tags": ["data-model", "vo", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java:AccountOrderCountVo",
+      "type": "class",
+      "name": "AccountOrderCountVo",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java",
+      "lineRange": [11, 17],
+      "summary": "View object with a single count field for the account order count result.",
+      "tags": ["data-model", "vo"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java",
+      "type": "file",
+      "name": "OrderGetVo.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java",
+      "summary": "Detailed order view object including program info, pricing, status, timestamps, ticket line items, and user/ticket-user information.",
+      "tags": ["data-model", "vo", "order-domain"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java:OrderGetVo",
+      "type": "class",
+      "name": "OrderGetVo",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java",
+      "lineRange": [15, 72],
+      "summary": "Full order detail view with 18 fields including orderStatus, payOrderType, orderTicketInfoVoList, and userAndTicketUserInfoVo.",
+      "tags": ["data-model", "vo", "order-domain"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java",
+      "type": "file",
+      "name": "OrderListVo.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java",
+      "summary": "Summary view object for order list rows with program info, price, status, and ticket count.",
+      "tags": ["data-model", "vo", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java:OrderListVo",
+      "type": "class",
+      "name": "OrderListVo",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java",
+      "lineRange": [14, 53],
+      "summary": "Order list row view with 12 fields including programTitle, orderPrice, orderStatus, and ticketCount.",
+      "tags": ["data-model", "vo", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java",
+      "type": "file",
+      "name": "OrderPayCheckVo.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java",
+      "summary": "View object returned by the payment status check, exposing order status and lifecycle timestamps.",
+      "tags": ["data-model", "vo", "order-domain", "payment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java:OrderPayCheckVo",
+      "type": "class",
+      "name": "OrderPayCheckVo",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java",
+      "lineRange": [14, 44],
+      "summary": "Payment check result view with order id, programId, userId, orderPrice, payOrderType, orderStatus, and create/cancel/pay timestamps.",
+      "tags": ["data-model", "vo", "payment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java",
+      "type": "file",
+      "name": "OrderTicketInfoVo.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java",
+      "summary": "View object for a ticket line item in an order detail, with seat info, quantity, and price breakdown.",
+      "tags": ["data-model", "vo", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java:OrderTicketInfoVo",
+      "type": "class",
+      "name": "OrderTicketInfoVo",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java",
+      "lineRange": [13, 32],
+      "summary": "Ticket line item view with seatInfo, price, quantity, favourablePrice, and relPrice fields.",
+      "tags": ["data-model", "vo"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java",
+      "type": "file",
+      "name": "TicketUserInfoVo.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java",
+      "summary": "Serializable view object describing a ticket holder (real name and ID document) attached to an order.",
+      "tags": ["data-model", "vo", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java:TicketUserInfoVo",
+      "type": "class",
+      "name": "TicketUserInfoVo",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java",
+      "lineRange": [14, 35],
+      "summary": "Ticket holder view with id, userId, relName, idType, and idNumber fields.",
+      "tags": ["data-model", "vo"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java",
+      "type": "file",
+      "name": "UserAndTicketUserInfoVo.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java",
+      "summary": "Composite view object bundling the purchasing user's info with the list of ticket-holder infos for an order.",
+      "tags": ["data-model", "vo", "order-domain"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java:UserAndTicketUserInfoVo",
+      "type": "class",
+      "name": "UserAndTicketUserInfoVo",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java",
+      "lineRange": [13, 22],
+      "summary": "Composite view holding userInfoVo and ticketUserInfoVoList for order detail display.",
+      "tags": ["data-model", "vo"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "target": "class:damai-common/src/main/java/com/damai/common/ApiResponse.java:ApiResponse", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:error", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "target": "class:damai-common/src/main/java/com/damai/common/ApiResponse.java:ApiResponse", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:error", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:damai-common/src/main/java/com/damai/enums/OrderStatus.java", "target": "class:damai-common/src/main/java/com/damai/enums/OrderStatus.java:OrderStatus", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/OrderStatus.java", "target": "function:damai-common/src/main/java/com/damai/enums/OrderStatus.java:getRc", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/OrderStatus.java", "target": "class:damai-common/src/main/java/com/damai/enums/OrderStatus.java:OrderStatus", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/OrderStatus.java", "target": "function:damai-common/src/main/java/com/damai/enums/OrderStatus.java:getRc", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java", "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java:BroadcastCallDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java", "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java:BroadcastCallDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java", "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java:JobClient", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java", "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java:JobClient", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java", "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java", "target": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java", "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java:JobClientFallback", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java", "target": "function:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java:callBack", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java", "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java:JobClientFallback", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java", "target": "function:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java:callBack", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java", "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java", "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java", "target": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "class:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java:JobClientFallback", "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java:JobClient", "type": "implements", "direction": "forward", "weight": 0.9},
+    {"source": "function:damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java:callBack", "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:error", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java", "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java:JobCallBackDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java", "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java:JobCallBackDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java:OrderClient", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java:OrderClient", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java", "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java", "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java", "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java", "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java:OrderClientFallback", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java", "target": "function:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java:create", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java", "target": "function:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java:accountOrderCount", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java:OrderClientFallback", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java", "target": "function:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java:create", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java", "target": "function:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java:accountOrderCount", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java", "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java", "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java", "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java", "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java", "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "class:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java:OrderClientFallback", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java:OrderClient", "type": "implements", "direction": "forward", "weight": 0.9},
+    {"source": "function:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java:create", "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:error", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java:accountOrderCount", "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:error", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java:AccountOrderCountDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java:AccountOrderCountDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java:OrderCancelDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java:OrderCancelDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java:OrderCreateDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java:OrderCreateDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java:OrderGetDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java:OrderGetDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java:OrderListDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java:OrderListDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java:OrderPayCheckDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java:OrderPayCheckDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java:OrderPayDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java:OrderPayDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java:OrderTicketUserCreateDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java:OrderTicketUserCreateDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java:AccountOrderCountVo", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java:AccountOrderCountVo", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java:OrderGetVo", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java:OrderGetVo", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java:OrderListVo", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java:OrderListVo", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java:OrderPayCheckVo", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java:OrderPayCheckVo", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java:OrderTicketInfoVo", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java:OrderTicketInfoVo", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java:TicketUserInfoVo", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java:TicketUserInfoVo", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java:UserAndTicketUserInfoVo", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java", "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java:UserAndTicketUserInfoVo", "type": "exports", "direction": "forward", "weight": 0.8}
+  ]
+}

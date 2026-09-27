@@ -1,0 +1,918 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java",
+      "type": "file",
+      "name": "LocalCacheProgramShowTime.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java",
+      "summary": "基于 Caffeine 的节目开演时间本地缓存组件，按演出时间与当前时间之差动态设置条目过期时长，减轻 Redis 与数据库的查询压力。",
+      "tags": ["本地缓存", "Caffeine", "缓存组件", "性能优化"],
+      "complexity": "simple",
+      "languageNotes": "通过匿名 Expiry 实现自定义过期策略，仅 expireAfterCreate 计算 TTL，读写均保持原时长。"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java:LocalCacheProgramShowTime",
+      "type": "class",
+      "name": "LocalCacheProgramShowTime",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java",
+      "lineRange": [22, 77],
+      "summary": "节目开演时间本地缓存类，持有 Caffeine 缓存实例并提供带缓存的查询与失效方法。",
+      "tags": ["本地缓存", "Caffeine", "缓存组件"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java:localLockCacheInit",
+      "type": "function",
+      "name": "localLockCacheInit",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java",
+      "lineRange": [37, 61],
+      "summary": "初始化 Caffeine 本地缓存实例，设置最大容量并按节目开演时间与当前时间的秒数差计算条目过期时长。",
+      "tags": ["缓存初始化", "Caffeine", "过期策略"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "type": "file",
+      "name": "ProgramDetailCheckHandler.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "summary": "下单前的节目信息校验处理器，校验节目是否允许选座以及单笔订单的购票数量是否超过限购上限。",
+      "tags": ["校验器", "责任链", "订单创建", "业务校验"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java:ProgramDetailCheckHandler",
+      "type": "class",
+      "name": "ProgramDetailCheckHandler",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "lineRange": [24, 61],
+      "summary": "节目详情校验处理器，实现父订单、票档与下单三级校验钩子，核心逻辑集中在 execute 方法。",
+      "tags": ["校验器", "责任链", "订单创建"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "lineRange": [30, 45],
+      "summary": "查询节目详情并校验选座权限与限购数量，不满足规则时抛出带错误码的业务异常。",
+      "tags": ["业务校验", "异常处理", "订单创建"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramTimeType.java",
+      "type": "file",
+      "name": "ProgramTimeType.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramTimeType.java",
+      "summary": "节目时间筛选类型常量定义，涵盖全部、今天、明天、本周、本月与日历等时间维度，供节目列表与搜索筛选使用。",
+      "tags": ["常量定义", "枚举", "时间筛选", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramTimeType.java:ProgramTimeType",
+      "type": "class",
+      "name": "ProgramTimeType",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramTimeType.java",
+      "lineRange": [9, 19],
+      "summary": "节目时间类型枚举，以整型编码标识六种时间筛选维度。",
+      "tags": ["常量定义", "枚举", "时间筛选"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "type": "file",
+      "name": "DelayOperateProgramDataConsumer.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "summary": "延迟队列消费者实现，订阅节目数据操作主题并触发节目缓存与 ES 数据的重建操作。",
+      "tags": ["延迟队列", "消费者", "消息驱动", "Redisson"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java:DelayOperateProgramDataConsumer",
+      "type": "class",
+      "name": "DelayOperateProgramDataConsumer",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "lineRange": [20, 42],
+      "summary": "延迟消息消费者，实现 ConsumerTask 的消息执行与主题声明，委托节目服务完成数据处理。",
+      "tags": ["延迟队列", "消费者", "消息驱动"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "lineRange": [27, 36],
+      "summary": "解析延迟消息内容为 ProgramOperateDataDto，并调用节目服务执行对应的数据操作。",
+      "tags": ["消息消费", "反序列化", "延迟队列"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java",
+      "type": "file",
+      "name": "DelayOrderCancelSend.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java",
+      "summary": "订单取消延迟消息发送器，将取消消息投递到 Redisson 延迟队列以便到期自动处理。",
+      "tags": ["延迟队列", "消息发送", "Redisson", "订单取消"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java:DelayOrderCancelSend",
+      "type": "class",
+      "name": "DelayOrderCancelSend",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java",
+      "lineRange": [18, 40],
+      "summary": "延迟消息发送组件，依赖 DelayQueueContext 完成消息投递并记录发送日志。",
+      "tags": ["延迟队列", "消息发送", "Redisson"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java:sendMessage",
+      "type": "function",
+      "name": "sendMessage",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java",
+      "lineRange": [30, 39],
+      "summary": "将订单取消消息按服务前缀区分名发送到延迟队列，异常时记录错误日志。",
+      "tags": ["消息发送", "延迟队列", "异常处理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "type": "file",
+      "name": "ProgramEs.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "summary": "节目数据 Elasticsearch 查询服务，提供首页分类列表、推荐列表、分页查询、关键词高亮搜索与文档删除等能力。",
+      "tags": ["elasticsearch", "查询服务", "搜索", "分页查询", "api-handler"],
+      "complexity": "complex",
+      "languageNotes": "大量使用 QueryBuilders / SearchSourceBuilder 构建 bool、range、match 查询，并用 ScriptSortBuilder 实现热度加权排序。"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:ProgramEs",
+      "type": "class",
+      "name": "ProgramEs",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "lineRange": [45, 309],
+      "summary": "节目 ES 操作门面类，封装首页、推荐、分页、搜索与删除五类查询入口及排序、高亮等私有辅助方法。",
+      "tags": ["elasticsearch", "查询服务", "搜索"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:selectHomeList",
+      "type": "function",
+      "name": "selectHomeList",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "lineRange": [52, 93],
+      "summary": "按地区与父级分类分页查询节目并按分类聚合，组装首页分类节目列表返回。",
+      "tags": ["elasticsearch", "首页查询", "聚合"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:recommendList",
+      "type": "function",
+      "name": "recommendList",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "lineRange": [95, 139],
+      "summary": "按地区与分类条件构建 bool 查询，排除当前节目并用脚本排序实现推荐节目列表查询。",
+      "tags": ["elasticsearch", "推荐", "脚本排序"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:selectPage",
+      "type": "function",
+      "name": "selectPage",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "lineRange": [142, 190],
+      "summary": "依据地区、分类与演出时间区间等条件组装 ES 查询，分页返回并统一转换为 PageVo。",
+      "tags": ["elasticsearch", "分页查询", "条件构造"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:getProgramPageOrder",
+      "type": "function",
+      "name": "getProgramPageOrder",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "lineRange": [192, 216],
+      "summary": "根据分页请求的排序类型选择排序字段与排序方向，返回 ProgramPageOrder 排序配置。",
+      "tags": ["排序", "辅助方法", "elasticsearch"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:search",
+      "type": "function",
+      "name": "search",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "lineRange": [218, 269],
+      "summary": "构建带时间区间与关键词高亮的 ES 搜索请求，支持多字段匹配与排序后分页返回结果。",
+      "tags": ["elasticsearch", "全文搜索", "高亮"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:getHighlightBuilder",
+      "type": "function",
+      "name": "getHighlightBuilder",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "lineRange": [271, 282],
+      "summary": "为指定字段列表构建带前置与后置标签的高亮构造器。",
+      "tags": ["高亮", "辅助方法", "elasticsearch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:deleteByProgramId",
+      "type": "function",
+      "name": "deleteByProgramId",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "lineRange": [284, 308],
+      "summary": "按节目 ID 查询 ES 文档并依据文档 ID 逐条删除，实现节目数据在索引中的清理。",
+      "tags": ["elasticsearch", "数据删除", "条件查询"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java",
+      "type": "file",
+      "name": "ProgramBloomFilterInit.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java",
+      "summary": "应用启动后置处理器，将全部节目 ID 预加载进布隆过滤器以拦截无效的节目查询请求。",
+      "tags": ["布隆过滤器", "初始化", "启动加载", "Redisson"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java:ProgramBloomFilterInit",
+      "type": "class",
+      "name": "ProgramBloomFilterInit",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java",
+      "lineRange": [18, 40],
+      "summary": "节目 ID 布隆过滤器初始化器，继承应用启动后置处理基类并声明初始化执行顺序。",
+      "tags": ["布隆过滤器", "初始化", "启动加载"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java:executeInit",
+      "type": "function",
+      "name": "executeInit",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java",
+      "lineRange": [32, 39],
+      "summary": "查询全部节目 ID 并逐个写入布隆过滤器，为节目存在性校验提供前置拦截。",
+      "tags": ["布隆过滤器", "数据预热", "初始化"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java",
+      "type": "file",
+      "name": "ProgramCategoryInitData.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java",
+      "summary": "应用启动后置处理器，通过业务线程池异步初始化节目分类的 Redis 缓存数据。",
+      "tags": ["初始化", "启动加载", "Redis", "异步"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java:ProgramCategoryInitData",
+      "type": "class",
+      "name": "ProgramCategoryInitData",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java",
+      "lineRange": [14, 32],
+      "summary": "节目分类缓存初始化器，在启动后置阶段异步触发分类数据写入 Redis。",
+      "tags": ["初始化", "启动加载", "Redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java:executeInit",
+      "type": "function",
+      "name": "executeInit",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java",
+      "lineRange": [26, 31],
+      "summary": "提交异步任务到业务线程池，执行节目分类 Redis 数据初始化。",
+      "tags": ["异步", "缓存预热", "初始化"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramDocumentParamName.java",
+      "type": "file",
+      "name": "ProgramDocumentParamName.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramDocumentParamName.java",
+      "summary": "ES 节目文档字段名常量定义，统一维护索引名、索引类型与节目各属性字段名，供索引映射与查询复用。",
+      "tags": ["常量定义", "elasticsearch", "字段映射", "schema-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramDocumentParamName.java:ProgramDocumentParamName",
+      "type": "class",
+      "name": "ProgramDocumentParamName",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramDocumentParamName.java",
+      "lineRange": [7, 53],
+      "summary": "节目 ES 文档字段常量类，定义标题、演员、场馆、分类、时间与价格等二十余个字段名。",
+      "tags": ["常量定义", "elasticsearch", "字段映射"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java:LocalCacheProgramShowTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java:localLockCacheInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java:LocalCacheProgramShowTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java:ProgramDetailCheckHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java:ProgramDetailCheckHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramTimeType.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramTimeType.java:ProgramTimeType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramTimeType.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramTimeType.java:ProgramTimeType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java:DelayOperateProgramDataConsumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java:DelayOperateProgramDataConsumer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java:DelayOrderCancelSend",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java:sendMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java:DelayOrderCancelSend",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:ProgramEs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:selectHomeList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:recommendList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:selectPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:getProgramPageOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:search",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:getHighlightBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:deleteByProgramId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:ProgramEs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java:ProgramBloomFilterInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java:executeInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java:ProgramBloomFilterInit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java:ProgramCategoryInitData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java:executeInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java:ProgramCategoryInitData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramShowTime.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BusinessStatus.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramGetDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "target": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOperateDataDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java",
+      "target": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BusinessStatus.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataQueryDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramListDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramPageListDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramRecommendListDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramSearchDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramHomeVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramListVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramDocumentParamName.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramCategoryService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java",
+      "target": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java:localLockCacheInit",
+      "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:countBetweenSecond",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java:localLockCacheInit",
+      "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:now",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java:execute",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java:detailV2",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java:execute",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java:operateProgramData",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java:sendMessage",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java:sendMessage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:selectPage",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java:convertPage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:search",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java:convertPage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:selectHomeList",
+      "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:queryPage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:selectPage",
+      "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:queryPage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:recommendList",
+      "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:executeQuery",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:search",
+      "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:executeQuery",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:deleteByProgramId",
+      "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:query",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java:deleteByProgramId",
+      "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:deleteByDocumentId",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java:executeInit",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java:getAllProgramIdList",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java:executeInit",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java:add",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java:executeInit",
+      "target": "function:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java:executeInit",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramCategoryService.java:programCategoryRedisDataInit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java:ProgramDetailCheckHandler",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java:AbstractProgramCheckHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java:ProgramBloomFilterInit",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java:ProgramCategoryInitData",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

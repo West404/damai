@@ -1,0 +1,46 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-id-generator-framework/src/main/resources/uid/cached-uid-spring.xml",
+      "type": "config",
+      "name": "cached-uid-spring.xml",
+      "filePath": "damai-id-generator-framework/src/main/resources/uid/cached-uid-spring.xml",
+      "summary": "Spring XML bean wiring for Baidu UID-generator's CachedUidGenerator with a DisposableWorkerIdAssigner, importing the shared MyBatis datasource configuration; RingBuffer tuning properties are documented but left at defaults.",
+      "tags": ["configuration", "spring", "id-generator", "bean-wiring"],
+      "complexity": "simple",
+      "languageNotes": "Legacy spring-beans 3.1 XSD bean definitions; comments document RingBuffer boostPower/paddingFactor/scheduleInterval tuning knobs."
+    },
+    {
+      "id": "config:damai-id-generator-framework/src/main/resources/uid/default-uid-spring.xml",
+      "type": "config",
+      "name": "default-uid-spring.xml",
+      "filePath": "damai-id-generator-framework/src/main/resources/uid/default-uid-spring.xml",
+      "summary": "Spring XML bean wiring for Baidu UID-generator's DefaultUidGenerator, configuring snowflake bit allocation (timeBits=29, workerBits=21, seqBits=13, epoch 2016-09-20) with a DisposableWorkerIdAssigner.",
+      "tags": ["configuration", "spring", "id-generator", "bean-wiring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-id-generator-framework/src/main/resources/uid/mybatis-spring.xml",
+      "type": "config",
+      "name": "mybatis-spring.xml",
+      "filePath": "damai-id-generator-framework/src/main/resources/uid/mybatis-spring.xml",
+      "summary": "Spring XML configuration for the UID generator's persistence layer: property placeholder loading uid/*.properties, Druid datasource, MyBatis SqlSessionFactory and mapper scanning for worker-node registration, plus transaction management.",
+      "tags": ["configuration", "spring", "mybatis", "datasource", "id-generator"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:damai-id-generator-framework/src/main/resources/uid/mysql.properties",
+      "type": "config",
+      "name": "mysql.properties",
+      "filePath": "damai-id-generator-framework/src/main/resources/uid/mysql.properties",
+      "summary": "JDBC connection and Druid connection-pool properties for the baidu-id MySQL database that stores UID worker-node assignments.",
+      "tags": ["configuration", "datasource", "properties", "id-generator"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "config:damai-id-generator-framework/src/main/resources/uid/cached-uid-spring.xml", "target": "config:damai-id-generator-framework/src/main/resources/uid/mybatis-spring.xml", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-id-generator-framework/src/main/resources/uid/default-uid-spring.xml", "target": "config:damai-id-generator-framework/src/main/resources/uid/mybatis-spring.xml", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-id-generator-framework/src/main/resources/uid/mybatis-spring.xml", "target": "config:damai-id-generator-framework/src/main/resources/uid/mysql.properties", "type": "depends_on", "direction": "forward", "weight": 0.6}
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "projectRoot": "E:/WorkSpace/damai",
+  "batchFiles": [
+    {"path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java", "language": "java", "sizeLines": 29, "fileCategory": "code"},
+    {"path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java", "language": "java", "sizeLines": 40, "fileCategory": "code"},
+    {"path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java", "language": "java", "sizeLines": 29, "fileCategory": "code"},
+    {"path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java", "language": "java", "sizeLines": 30, "fileCategory": "code"},
+    {"path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java", "language": "java", "sizeLines": 30, "fileCategory": "code"},
+    {"path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java", "language": "java", "sizeLines": 30, "fileCategory": "code"},
+    {"path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java", "language": "java", "sizeLines": 35, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java": [],
+    "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java": ["damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java", "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java", "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java", "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java"],
+    "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java": ["damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java"],
+    "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java": ["damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java"],
+    "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java": ["damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java"],
+    "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java": ["damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java"],
+    "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java": ["damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java"]
+  }
+}

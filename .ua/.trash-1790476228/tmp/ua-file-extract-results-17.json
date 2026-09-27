@@ -1,0 +1,1703 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 17,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 17,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 17,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 1290,
+      "nonEmptyLines": 1143,
+      "classes": [
+        {
+          "name": "RedisCache",
+          "startLine": 22,
+          "endLine": 1290,
+          "methods": [
+            "get",
+            "get",
+            "getRange",
+            "getValueIsList",
+            "getValueIsList",
+            "getKeys",
+            "hasKey",
+            "del",
+            "del",
+            "expire",
+            "getExpire",
+            "getExpire",
+            "keys",
+            "move",
+            "persist",
+            "randomKey",
+            "rename",
+            "renameIfAbsent",
+            "type",
+            "set",
+            "set",
+            "set",
+            "setIfAbsent",
+            "size",
+            "multiSet",
+            "multiSetIfAbsent",
+            "incrBy",
+            "incrByDouble",
+            "append",
+            "putHash",
+            "putHash",
+            "putHash",
+            "putHash",
+            "putHash",
+            "putHash",
+            "putHashIfAbsent",
+            "getForHash",
+            "getValueIsListForHash",
+            "multiGetForHash",
+            "getAllForHash",
+            "getAllMapForHash",
+            "hasKeyForHash",
+            "delForHash",
+            "delForHash",
+            "incrByForHash",
+            "incrByDoubleForHash",
+            "hashKeysForHash",
+            "sizeForHash",
+            "indexForList",
+            "leftPushForList",
+            "leftPushAllForList",
+            "leftPushIfPresentForList",
+            "leftPushForList",
+            "rightPushForList",
+            "rightPushAllForList",
+            "rightPushIfPresentForList",
+            "rightPushForList",
+            "setForList",
+            "leftPopForList",
+            "leftPopBlockForList",
+            "rightPopForList",
+            "rightPopBlockForList",
+            "rightPopAndLeftPushForList",
+            "rightPopBlockAndLeftPushForList",
+            "getAllForList",
+            "rangeForList",
+            "removeForList",
+            "trimForList",
+            "lenForList",
+            "addForSet",
+            "addForSet",
+            "removeForSet",
+            "removeForSet",
+            "popForSet",
+            "moveForSet",
+            "sizeForSet",
+            "isMemberForSet",
+            "intersectForSet",
+            "intersectForSet",
+            "intersectAndStoreForSet",
+            "intersectAndStoreForSet",
+            "unionForSet",
+            "unionForSet",
+            "unionAndStoreForSet",
+            "unionAndStoreForSet",
+            "differenceForSet",
+            "differenceForSet",
+            "differenceForSet",
+            "differenceForSet",
+            "membersForSet",
+            "randomMemberForSet",
+            "randomMembersForSet",
+            "distinctRandomMembersForSet",
+            "scanForSet",
+            "addForSortedSet",
+            "addForSortedSet",
+            "addForSortedSet",
+            "addForSortedSet",
+            "addForSortedSet",
+            "addForSortedSet",
+            "getRangeForSortedSet",
+            "getReverseRangeForSortedSet",
+            "delForSortedSet",
+            "delForSortedSet",
+            "delRangeForSortedSet",
+            "incrementScoreForSortedSet",
+            "sizeForSortedSet",
+            "rankForSortedSet",
+            "reverseRankForSortedSet",
+            "rangeWithScoreForSortedSet",
+            "rangeByScoreForSortedSet",
+            "rangeByScoreWithScoreForSortedSet",
+            "rangeByScoreWithScoreForSortedSet",
+            "reverseRangeWithScoreForSortedSet",
+            "reverseRangeByScoreForSortedSet",
+            "reverseRangeByScoreWithScoreForSortedSet",
+            "reverseRangeByScoreForSortedSet",
+            "countForSortedSet",
+            "zCardForSortedSet",
+            "scoreByValueForSortedSet",
+            "removeRangeForSortedSet",
+            "removeRangeByScoreForSortedSet",
+            "unionAndStoreForSortedSet",
+            "unionAndStoreForSortedSet",
+            "intersectAndStoreForSortedSet",
+            "intersectAndStoreForSortedSet",
+            "scanForSortedSet",
+            "getByType",
+            "getInstance"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RedisCache",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 25,
+      "classes": [
+        {
+          "name": "ProgramClient",
+          "startLine": 19,
+          "endLine": 30,
+          "methods": [
+            "selectListByProgram"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramClient",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 19,
+      "functions": [
+        {
+          "name": "selectListByProgram",
+          "startLine": 19,
+          "endLine": 22,
+          "params": [
+            "ticketCategoryListByProgramDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramClientFallback",
+          "startLine": 16,
+          "endLine": 23,
+          "methods": [
+            "selectListByProgram"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "selectListByProgram",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramClientFallback",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "selectListByProgram",
+          "callee": "ApiResponse.error",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryAddDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 31,
+      "classes": [
+        {
+          "name": "TicketCategoryAddDto",
+          "startLine": 16,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "programId",
+            "introduce",
+            "price",
+            "totalNumber",
+            "remainNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketCategoryAddDto",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "TicketCategoryDto",
+          "startLine": 13,
+          "endLine": 21,
+          "methods": [],
+          "properties": [
+            "id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketCategoryDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "TicketCategoryListByProgramDto",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "programId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketCategoryListByProgramDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 24,
+      "classes": [
+        {
+          "name": "TicketCategoryDetailVo",
+          "startLine": 14,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "programId",
+            "introduce",
+            "price",
+            "totalNumber",
+            "remainNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketCategoryDetailVo",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 32,
+      "classes": [
+        {
+          "name": "TicketCategoryVo",
+          "startLine": 15,
+          "endLine": 39,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "introduce",
+            "price"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketCategoryVo",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "ApiRestrictData",
+          "startLine": 10,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "triggerResult",
+            "triggerCallStat",
+            "apiCount",
+            "threshold",
+            "messageIndex"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ApiRestrictData",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 30,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "apiRuleOperate",
+          "startLine": 41,
+          "endLine": 44,
+          "params": [
+            "keys",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ApiRestrictCacheOperate",
+          "startLine": 21,
+          "endLine": 45,
+          "methods": [
+            "init",
+            "apiRuleOperate"
+          ],
+          "properties": [
+            "redisCache",
+            "redisScript"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "apiRuleOperate",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "ApiRestrictCacheOperate",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DefaultRedisScript<>",
+          "lineNumber": 33
+        },
+        {
+          "caller": "init",
+          "callee": "redisScript.setScriptSource",
+          "lineNumber": 34
+        },
+        {
+          "caller": "init",
+          "callee": "new ResourceScriptSource",
+          "lineNumber": 34
+        },
+        {
+          "caller": "init",
+          "callee": "new ClassPathResource",
+          "lineNumber": 34
+        },
+        {
+          "caller": "init",
+          "callee": "redisScript.setResultType",
+          "lineNumber": 35
+        },
+        {
+          "caller": "init",
+          "callee": "log.error",
+          "lineNumber": 37
+        },
+        {
+          "caller": "apiRuleOperate",
+          "callee": "redisCache.getInstance().execute",
+          "lineNumber": 42
+        },
+        {
+          "caller": "apiRuleOperate",
+          "callee": "redisCache.getInstance",
+          "lineNumber": 42
+        },
+        {
+          "caller": "apiRuleOperate",
+          "callee": "JSON.parseObject",
+          "lineNumber": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 28,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "programCacheReverseOperate",
+          "startLine": 39,
+          "endLine": 41,
+          "params": [
+            "keys"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "OrderProgramCacheResolutionOperate",
+          "startLine": 19,
+          "endLine": 42,
+          "methods": [
+            "init",
+            "programCacheReverseOperate"
+          ],
+          "properties": [
+            "redisCache",
+            "redisScript"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "programCacheReverseOperate",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "OrderProgramCacheResolutionOperate",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DefaultRedisScript<>",
+          "lineNumber": 31
+        },
+        {
+          "caller": "init",
+          "callee": "redisScript.setScriptSource",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "new ResourceScriptSource",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "new ClassPathResource",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "redisScript.setResultType",
+          "lineNumber": 33
+        },
+        {
+          "caller": "init",
+          "callee": "log.error",
+          "lineNumber": 35
+        },
+        {
+          "caller": "programCacheReverseOperate",
+          "callee": "redisCache.getInstance().execute",
+          "lineNumber": 40
+        },
+        {
+          "caller": "programCacheReverseOperate",
+          "callee": "redisCache.getInstance",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 43,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 34,
+          "endLine": 38,
+          "params": [
+            "ticketCategoryAddDto"
+          ]
+        },
+        {
+          "name": "detail",
+          "startLine": 40,
+          "endLine": 44,
+          "params": [
+            "ticketCategoryDto"
+          ]
+        },
+        {
+          "name": "selectListByProgram",
+          "startLine": 46,
+          "endLine": 50,
+          "params": [
+            "ticketCategoryListByProgramDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TicketCategoryController",
+          "startLine": 25,
+          "endLine": 51,
+          "methods": [
+            "add",
+            "detail",
+            "selectListByProgram"
+          ],
+          "properties": [
+            "ticketCategoryService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "detail",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "selectListByProgram",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "TicketCategoryController",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 37
+        },
+        {
+          "caller": "add",
+          "callee": "ticketCategoryService.add",
+          "lineNumber": 37
+        },
+        {
+          "caller": "detail",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 43
+        },
+        {
+          "caller": "detail",
+          "callee": "ticketCategoryService.detail",
+          "lineNumber": 43
+        },
+        {
+          "caller": "selectListByProgram",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 49
+        },
+        {
+          "caller": "selectListByProgram",
+          "callee": "ticketCategoryService.selectListByProgram",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 172,
+      "nonEmptyLines": 154,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 74,
+          "endLine": 85,
+          "params": [
+            "ticketCategoryAddDto"
+          ]
+        },
+        {
+          "name": "selectTicketCategoryListByProgramIdMultipleCache",
+          "startLine": 87,
+          "endLine": 90,
+          "params": [
+            "programId",
+            "showTime"
+          ]
+        },
+        {
+          "name": "selectTicketCategoryListByProgramId",
+          "startLine": 92,
+          "endLine": 122,
+          "params": [
+            "programId",
+            "expireTime",
+            "timeUnit"
+          ]
+        },
+        {
+          "name": "getRedisRemainNumberResolution",
+          "startLine": 124,
+          "endLine": 154,
+          "params": [
+            "programId",
+            "ticketCategoryId"
+          ]
+        },
+        {
+          "name": "detail",
+          "startLine": 156,
+          "endLine": 161,
+          "params": [
+            "ticketCategoryDto"
+          ]
+        },
+        {
+          "name": "selectListByProgram",
+          "startLine": 163,
+          "endLine": 171,
+          "params": [
+            "ticketCategoryListByProgramDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TicketCategoryService",
+          "startLine": 52,
+          "endLine": 172,
+          "methods": [
+            "add",
+            "selectTicketCategoryListByProgramIdMultipleCache",
+            "selectTicketCategoryListByProgramId",
+            "getRedisRemainNumberResolution",
+            "detail",
+            "selectListByProgram"
+          ],
+          "properties": [
+            "uidGenerator",
+            "redisCache",
+            "ticketCategoryMapper",
+            "serviceLockTool",
+            "localCacheTicketCategory",
+            "programMapper"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "selectTicketCategoryListByProgramIdMultipleCache",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "selectTicketCategoryListByProgramId",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "getRedisRemainNumberResolution",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "detail",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "selectListByProgram",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "TicketCategoryService",
+          "line": 52,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "programMapper.selectById",
+          "lineNumber": 76
+        },
+        {
+          "caller": "add",
+          "callee": "ticketCategoryAddDto.getProgramId",
+          "lineNumber": 76
+        },
+        {
+          "caller": "add",
+          "callee": "Objects.isNull",
+          "lineNumber": 77
+        },
+        {
+          "caller": "add",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 78
+        },
+        {
+          "caller": "add",
+          "callee": "new TicketCategory",
+          "lineNumber": 80
+        },
+        {
+          "caller": "add",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 81
+        },
+        {
+          "caller": "add",
+          "callee": "ticketCategory.setId",
+          "lineNumber": 82
+        },
+        {
+          "caller": "add",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 82
+        },
+        {
+          "caller": "add",
+          "callee": "ticketCategoryMapper.insert",
+          "lineNumber": 83
+        },
+        {
+          "caller": "add",
+          "callee": "ticketCategory.getId",
+          "lineNumber": 84
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramIdMultipleCache",
+          "callee": "localCacheTicketCategory.getCache",
+          "lineNumber": 88
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramIdMultipleCache",
+          "callee": "selectTicketCategoryListByProgramId",
+          "lineNumber": 88
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramIdMultipleCache",
+          "callee": "DateUtils.countBetweenSecond",
+          "lineNumber": 89
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramIdMultipleCache",
+          "callee": "DateUtils.now",
+          "lineNumber": 89
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "redisCache.getValueIsList",
+          "lineNumber": 95
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 95
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 97
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "serviceLockTool.getLock",
+          "lineNumber": 100
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "String.valueOf",
+          "lineNumber": 101
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "lock.lock",
+          "lineNumber": 102
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "redisCache.getValueIsList",
+          "lineNumber": 104
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 105
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "Wrappers.lambdaQuery(TicketCategory.class).eq",
+          "lineNumber": 109
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 109
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "ticketCategoryMapper.selectList",
+          "lineNumber": 111
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "ticketCategoryList.stream().map(ticketCategory -> {\r\n                            ticketCategory.setRemainNumber(null);\r\n                            TicketCategoryVo ticketCategoryVo = new TicketCategoryVo();\r\n                            BeanUtil.copyProperties(ticketCategory, ticketCategoryVo);\r\n                            return ticketCategoryVo;\r\n                        }).collect",
+          "lineNumber": 112
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "ticketCategoryList.stream().map",
+          "lineNumber": 112
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "ticketCategoryList.stream",
+          "lineNumber": 112
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "ticketCategory.setRemainNumber",
+          "lineNumber": 113
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "new TicketCategoryVo",
+          "lineNumber": 114
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 115
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "Collectors.toList",
+          "lineNumber": 117
+        },
+        {
+          "caller": "selectTicketCategoryListByProgramId",
+          "callee": "lock.unlock",
+          "lineNumber": 120
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "redisCache.getAllMapForHash",
+          "lineNumber": 127
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 127
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 130
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "serviceLockTool.getLock",
+          "lineNumber": 133
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "String.valueOf",
+          "lineNumber": 134
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "String.valueOf",
+          "lineNumber": 134
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "lock.lock",
+          "lineNumber": 135
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "redisCache.getAllMapForHash",
+          "lineNumber": 138
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 138
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 140
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "Wrappers.lambdaQuery(TicketCategory.class)\r\n                    .eq(TicketCategory::getProgramId, programId).eq",
+          "lineNumber": 143
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "Wrappers.lambdaQuery(TicketCategory.class).eq",
+          "lineNumber": 143
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 143
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "ticketCategoryMapper.selectList",
+          "lineNumber": 145
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "ticketCategoryList.stream().collect",
+          "lineNumber": 146
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "ticketCategoryList.stream",
+          "lineNumber": 146
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "Collectors.toMap",
+          "lineNumber": 146
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "String.valueOf",
+          "lineNumber": 146
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "t.getId",
+          "lineNumber": 146
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "redisCache.putHash",
+          "lineNumber": 148
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 148
+        },
+        {
+          "caller": "getRedisRemainNumberResolution",
+          "callee": "lock.unlock",
+          "lineNumber": 152
+        },
+        {
+          "caller": "detail",
+          "callee": "ticketCategoryMapper.selectById",
+          "lineNumber": 157
+        },
+        {
+          "caller": "detail",
+          "callee": "ticketCategoryDto.getId",
+          "lineNumber": 157
+        },
+        {
+          "caller": "detail",
+          "callee": "new TicketCategoryDetailVo",
+          "lineNumber": 158
+        },
+        {
+          "caller": "detail",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 159
+        },
+        {
+          "caller": "selectListByProgram",
+          "callee": "ticketCategoryMapper.selectList",
+          "lineNumber": 164
+        },
+        {
+          "caller": "selectListByProgram",
+          "callee": "Wrappers.lambdaQuery(TicketCategory.class).eq",
+          "lineNumber": 164
+        },
+        {
+          "caller": "selectListByProgram",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 164
+        },
+        {
+          "caller": "selectListByProgram",
+          "callee": "ticketCategoryListByProgramDto.getProgramId",
+          "lineNumber": 165
+        },
+        {
+          "caller": "selectListByProgram",
+          "callee": "ticketCategorieList.stream().map(ticketCategory -> {\r\n            TicketCategoryDetailVo ticketCategoryDetailVo = new TicketCategoryDetailVo();\r\n            BeanUtil.copyProperties(ticketCategory,ticketCategoryDetailVo);\r\n            return ticketCategoryDetailVo;\r\n        }).collect",
+          "lineNumber": 166
+        },
+        {
+          "caller": "selectListByProgram",
+          "callee": "ticketCategorieList.stream().map",
+          "lineNumber": 166
+        },
+        {
+          "caller": "selectListByProgram",
+          "callee": "ticketCategorieList.stream",
+          "lineNumber": 166
+        },
+        {
+          "caller": "selectListByProgram",
+          "callee": "new TicketCategoryDetailVo",
+          "lineNumber": 167
+        },
+        {
+          "caller": "selectListByProgram",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 168
+        },
+        {
+          "caller": "selectListByProgram",
+          "callee": "Collectors.toList",
+          "lineNumber": 170
+        }
+      ],
+      "metrics": {
+        "importCount": 20,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 70,
+      "functions": [
+        {
+          "name": "localLockCacheInit",
+          "startLine": 43,
+          "endLine": 69,
+          "params": []
+        },
+        {
+          "name": "getCache",
+          "startLine": 74,
+          "endLine": 76,
+          "params": [
+            "id",
+            "function"
+          ]
+        },
+        {
+          "name": "del",
+          "startLine": 78,
+          "endLine": 80,
+          "params": [
+            "id"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LocalCacheTicketCategory",
+          "startLine": 26,
+          "endLine": 81,
+          "methods": [
+            "localLockCacheInit",
+            "getCache",
+            "del"
+          ],
+          "properties": [
+            "localCache",
+            "maximumSize",
+            "redisCache"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "localLockCacheInit",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "getCache",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "del",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "LocalCacheTicketCategory",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder()\r\n                .maximumSize(maximumSize)\r\n                .expireAfter(new Expiry<Long, List<TicketCategoryVo>>() {\r\n                    @Override\r\n                    public long expireAfterCreate(@NonNull final Long key, @NonNull final List<TicketCategoryVo> value,\r\n                                                  final long currentTime) {\r\n                        Long expire = redisCache.getExpire(RedisKeyBuild.createRedisKey\r\n                                (RedisKeyManage.PROGRAM_TICKET_CATEGORY_LIST, key),TimeUnit.MILLISECONDS);\r\n                        return TimeUnit.MILLISECONDS.toNanos(expire);\r\n                    }\r\n                    \r\n                    @Override\r\n                    public long expireAfterUpdate(@NonNull final Long key, @NonNull final List<TicketCategoryVo> value,\r\n                                                  final long currentTime, @NonNegative final long currentDuration) {\r\n                        return currentDuration;\r\n                    }\r\n                    \r\n                    @Override\r\n                    public long expireAfterRead(@NonNull final Long key, @NonNull final List<TicketCategoryVo> value,\r\n                                                final long currentTime, @NonNegative final long currentDuration) {\r\n                        return currentDuration;\r\n                    }\r\n                }).build",
+          "lineNumber": 45
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder()\r\n                .maximumSize(maximumSize).expireAfter",
+          "lineNumber": 45
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder().maximumSize",
+          "lineNumber": 45
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder",
+          "lineNumber": 45
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "new Expiry<Long, List<TicketCategoryVo>>",
+          "lineNumber": 47
+        },
+        {
+          "caller": "expireAfterCreate",
+          "callee": "redisCache.getExpire",
+          "lineNumber": 51
+        },
+        {
+          "caller": "expireAfterCreate",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 51
+        },
+        {
+          "caller": "expireAfterCreate",
+          "callee": "TimeUnit.MILLISECONDS.toNanos",
+          "lineNumber": 53
+        },
+        {
+          "caller": "getCache",
+          "callee": "localCache.get",
+          "lineNumber": 75
+        },
+        {
+          "caller": "del",
+          "callee": "localCache.invalidate",
+          "lineNumber": 79
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 29,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "programCacheOperate",
+          "startLine": 40,
+          "endLine": 43,
+          "params": [
+            "keys",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramCacheCreateOrderResolutionOperate",
+          "startLine": 20,
+          "endLine": 44,
+          "methods": [
+            "init",
+            "programCacheOperate"
+          ],
+          "properties": [
+            "redisCache",
+            "redisScript"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "programCacheOperate",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramCacheCreateOrderResolutionOperate",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DefaultRedisScript<>",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "redisScript.setScriptSource",
+          "lineNumber": 33
+        },
+        {
+          "caller": "init",
+          "callee": "new ResourceScriptSource",
+          "lineNumber": 33
+        },
+        {
+          "caller": "init",
+          "callee": "new ClassPathResource",
+          "lineNumber": 33
+        },
+        {
+          "caller": "init",
+          "callee": "redisScript.setResultType",
+          "lineNumber": 34
+        },
+        {
+          "caller": "init",
+          "callee": "log.error",
+          "lineNumber": 36
+        },
+        {
+          "caller": "programCacheOperate",
+          "callee": "redisCache.getInstance().execute",
+          "lineNumber": 41
+        },
+        {
+          "caller": "programCacheOperate",
+          "callee": "redisCache.getInstance",
+          "lineNumber": 41
+        },
+        {
+          "caller": "programCacheOperate",
+          "callee": "JSON.parseObject",
+          "lineNumber": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 28,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "programCacheOperate",
+          "startLine": 39,
+          "endLine": 41,
+          "params": [
+            "keys",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramCacheResolutionOperate",
+          "startLine": 19,
+          "endLine": 42,
+          "methods": [
+            "init",
+            "programCacheOperate"
+          ],
+          "properties": [
+            "redisCache",
+            "redisScript"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "programCacheOperate",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramCacheResolutionOperate",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DefaultRedisScript<>",
+          "lineNumber": 31
+        },
+        {
+          "caller": "init",
+          "callee": "redisScript.setScriptSource",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "new ResourceScriptSource",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "new ClassPathResource",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "redisScript.setResultType",
+          "lineNumber": 33
+        },
+        {
+          "caller": "init",
+          "callee": "log.error",
+          "lineNumber": 35
+        },
+        {
+          "caller": "programCacheOperate",
+          "callee": "redisCache.getInstance().execute",
+          "lineNumber": 40
+        },
+        {
+          "caller": "programCacheOperate",
+          "callee": "redisCache.getInstance",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 28,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "del",
+          "startLine": 39,
+          "endLine": 41,
+          "params": [
+            "keys",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramDelCacheData",
+          "startLine": 19,
+          "endLine": 42,
+          "methods": [
+            "init",
+            "del"
+          ],
+          "properties": [
+            "redisCache",
+            "redisScript"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "del",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramDelCacheData",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DefaultRedisScript<>",
+          "lineNumber": 31
+        },
+        {
+          "caller": "init",
+          "callee": "redisScript.setScriptSource",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "new ResourceScriptSource",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "new ClassPathResource",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "redisScript.setResultType",
+          "lineNumber": 33
+        },
+        {
+          "caller": "init",
+          "callee": "log.error",
+          "lineNumber": 35
+        },
+        {
+          "caller": "del",
+          "callee": "redisCache.getInstance().execute",
+          "lineNumber": 40
+        },
+        {
+          "caller": "del",
+          "callee": "redisCache.getInstance",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    }
+  ]
+}

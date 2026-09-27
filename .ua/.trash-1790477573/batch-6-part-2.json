@@ -1,0 +1,919 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "type": "file",
+      "name": "TokenService.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "summary": "网关 token 服务：解析 JWT 取出用户标识，再从 Redis 读取登录用户信息，供网关鉴权与身份透传。",
+      "tags": [
+        "service",
+        "jwt",
+        "authentication",
+        "redis"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java:TokenService",
+      "type": "class",
+      "name": "TokenService",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "lineRange": [
+        23,
+        45
+      ],
+      "summary": "网关 token 解析与用户加载服务。",
+      "tags": [
+        "gateway",
+        "authentication",
+        "jwt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java:parseToken",
+      "type": "function",
+      "name": "parseToken",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "lineRange": [
+        29,
+        35
+      ],
+      "summary": "解析 token 字符串得到用户 JSON 中的用户标识。",
+      "tags": [
+        "jwt",
+        "parsing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java:getUser",
+      "type": "function",
+      "name": "getUser",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "lineRange": [
+        37,
+        44
+      ],
+      "summary": "根据 token 与渠道密钥从 Redis 获取用户 VO，不存在时抛出鉴权异常。",
+      "tags": [
+        "authentication",
+        "redis"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+      "type": "file",
+      "name": "UserVo.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+      "summary": "网关模块的用户视图对象，承载鉴权后透传的用户基础字段（id、手机号、状态等）。",
+      "tags": [
+        "data-model",
+        "vo",
+        "user"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java:UserVo",
+      "type": "class",
+      "name": "UserVo",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+      "lineRange": [
+        12,
+        30
+      ],
+      "summary": "网关侧用户 VO，字段与用户服务返回结构保持一致。",
+      "tags": [
+        "data-model",
+        "vo"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java",
+      "type": "file",
+      "name": "PayStrategyContext.java",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java",
+      "summary": "支付策略上下文，按支付渠道注册并查找支付策略处理器，实现支付方式的策略模式分发。",
+      "tags": [
+        "service",
+        "strategy",
+        "payment",
+        "context"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java:PayStrategyContext",
+      "type": "class",
+      "name": "PayStrategyContext",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java",
+      "lineRange": [
+        15,
+        27
+      ],
+      "summary": "支付策略注册与查找上下文，内部维护渠道到策略处理器的映射。",
+      "tags": [
+        "strategy",
+        "factory",
+        "payment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java",
+      "lineRange": [
+        23,
+        26
+      ],
+      "summary": "按支付渠道获取对应策略处理器，不存在时抛出业务异常。",
+      "tags": [
+        "strategy",
+        "lookup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "type": "file",
+      "name": "ProgramBloomFilterCheckHandler.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "summary": "节目布隆过滤器校验处理器，在详情查询前判断节目 ID 是否存在于布隆过滤器，拦截不存在的节目以避免缓存穿透。",
+      "tags": [
+        "api-handler",
+        "composite",
+        "bloom-filter",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java:ProgramBloomFilterCheckHandler",
+      "type": "class",
+      "name": "ProgramBloomFilterCheckHandler",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "lineRange": [
+        17,
+        50
+      ],
+      "summary": "节目详情查询前的布隆过滤器校验处理器，命中失败即抛出业务异常。",
+      "tags": [
+        "composite",
+        "validation",
+        "bloom-filter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "lineRange": [
+        23,
+        29
+      ],
+      "summary": "校验节目 ID 是否存在于布隆过滤器中，不存在则抛出业务异常。",
+      "tags": [
+        "validation",
+        "bloom-filter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java",
+      "type": "file",
+      "name": "ProgramRecommendCheckHandler.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java",
+      "summary": "节目推荐查询校验处理器，校验区域、父分类与节目 ID 参数是否齐全，缺参抛出业务异常。",
+      "tags": [
+        "api-handler",
+        "composite",
+        "validation",
+        "recommendation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java:ProgramRecommendCheckHandler",
+      "type": "class",
+      "name": "ProgramRecommendCheckHandler",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java",
+      "lineRange": [
+        17,
+        48
+      ],
+      "summary": "推荐列表查询的参数完整性校验处理器。",
+      "tags": [
+        "composite",
+        "validation",
+        "recommendation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java",
+      "lineRange": [
+        20,
+        27
+      ],
+      "summary": "校验推荐查询参数完整性（areaId、parentProgramCategoryId、programId）。",
+      "tags": [
+        "validation",
+        "parameter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "type": "file",
+      "name": "ProgramOrderContext.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "summary": "节目下单策略上下文，按版本号注册并获取对应下单策略（V1–V4），支撑下单流程的渐进式演进。",
+      "tags": [
+        "service",
+        "strategy",
+        "order",
+        "context"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java:ProgramOrderContext",
+      "type": "class",
+      "name": "ProgramOrderContext",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "lineRange": [
+        19,
+        43
+      ],
+      "summary": "下单策略注册与查找上下文，供下单接口按版本选择策略实现。",
+      "tags": [
+        "strategy",
+        "context",
+        "order"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "lineRange": [
+        32,
+        37
+      ],
+      "summary": "启动时把各版本下单策略按 version 注册到本地 Map。",
+      "tags": [
+        "initialization",
+        "strategy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "lineRange": [
+        39,
+        42
+      ],
+      "summary": "按版本号获取下单策略实现，不存在时抛出业务异常。",
+      "tags": [
+        "strategy",
+        "lookup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "type": "file",
+      "name": "TokenService.java",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "summary": "用户服务 token 服务：使用固定密钥解析 JWT 并从 Redis 读取登录用户信息，复用网关模块的 UserVo 保持字段一致。",
+      "tags": [
+        "service",
+        "jwt",
+        "authentication",
+        "redis"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java:TokenService",
+      "type": "class",
+      "name": "TokenService",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "lineRange": [
+        23,
+        47
+      ],
+      "summary": "用户服务侧的 token 解析与用户加载服务。",
+      "tags": [
+        "authentication",
+        "jwt",
+        "user-service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java:parseToken",
+      "type": "function",
+      "name": "parseToken",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "lineRange": [
+        31,
+        37
+      ],
+      "summary": "解析 token 得到用户 JSON 中的用户标识。",
+      "tags": [
+        "jwt",
+        "parsing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java:getUser",
+      "type": "function",
+      "name": "getUser",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "lineRange": [
+        39,
+        46
+      ],
+      "summary": "根据 token 与固定密钥从 Redis 获取用户 VO，不存在时抛出鉴权异常。",
+      "tags": [
+        "authentication",
+        "redis"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java",
+      "type": "file",
+      "name": "AbstractUserRegisterCheckHandler.java",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java",
+      "summary": "用户注册校验处理器抽象基类，统一返回 USER_REGISTER_CHECK 校验类型并继承组合处理器基础能力。",
+      "tags": [
+        "abstract-class",
+        "composite",
+        "validation",
+        "register"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java:AbstractUserRegisterCheckHandler",
+      "type": "class",
+      "name": "AbstractUserRegisterCheckHandler",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java",
+      "lineRange": [
+        14,
+        20
+      ],
+      "summary": "注册校验处理器基类，定义注册校验类型并复用 AbstractComposite 的执行顺序能力。",
+      "tags": [
+        "abstract-class",
+        "composite",
+        "register"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java",
+      "type": "file",
+      "name": "UserExistCheckHandler.java",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java",
+      "summary": "注册流程中的用户存在性校验处理器，调用 UserService 判断手机号是否已注册。",
+      "tags": [
+        "api-handler",
+        "composite",
+        "validation",
+        "register"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java:UserExistCheckHandler",
+      "type": "class",
+      "name": "UserExistCheckHandler",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java",
+      "lineRange": [
+        14,
+        39
+      ],
+      "summary": "注册校验链中的手机号存在性校验节点。",
+      "tags": [
+        "composite",
+        "validation",
+        "register"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java",
+      "lineRange": [
+        20,
+        23
+      ],
+      "summary": "校验手机号是否已存在，已存在则抛出注册异常。",
+      "tags": [
+        "validation",
+        "register"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java:TokenService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java:parseToken",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java:getUser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java:UserVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java",
+      "target": "class:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java:PayStrategyContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java",
+      "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java:ProgramBloomFilterCheckHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java:ProgramRecommendCheckHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java:ProgramOrderContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java:TokenService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java:parseToken",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java:getUser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java:AbstractUserRegisterCheckHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java:UserExistCheckHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java",
+      "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java:parseToken",
+      "target": "function:damai-common/src/main/java/com/damai/jwt/TokenUtil.java:parseToken",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java:getUser",
+      "target": "function:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java:createRedisKey",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java:execute",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java:contains",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java:parseToken",
+      "target": "function:damai-common/src/main/java/com/damai/jwt/TokenUtil.java:parseToken",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java:getUser",
+      "target": "function:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java:createRedisKey",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java:execute",
+      "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:doExist",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java:ProgramBloomFilterCheckHandler",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java:AbstractComposite",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java:ProgramRecommendCheckHandler",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java:AbstractComposite",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java:AbstractUserRegisterCheckHandler",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java:AbstractComposite",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java:UserExistCheckHandler",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java:AbstractUserRegisterCheckHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-common/src/main/java/com/damai/jwt/TokenUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramGetDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramRecommendListDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-common/src/main/java/com/damai/jwt/TokenUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserRegisterDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserRegisterDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java",
+      "target": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java",
+      "target": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

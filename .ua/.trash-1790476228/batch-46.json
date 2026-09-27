@@ -1,0 +1,46 @@
+{
+  "nodes": [
+    {
+      "id": "file:spotless/license-header",
+      "type": "file",
+      "name": "license-header",
+      "filePath": "spotless/license-header",
+      "summary": "Apache License 2.0 header template injected by the Spotless Maven plugin into the project's source files during the check/apply goals.",
+      "tags": ["configuration", "license", "build-system", "spotless"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:spotless/spotless.xml",
+      "type": "config",
+      "name": "spotless.xml",
+      "filePath": "spotless/spotless.xml",
+      "summary": "Eclipse JDT code formatter profile (ShardingSphere Apache Current style) referenced by the Spotless Maven plugin to enforce Java formatting: 4-space indentation, 200-column line split, and Java 8 compliance.",
+      "tags": ["configuration", "code-formatter", "spotless", "build-system", "java"],
+      "complexity": "simple",
+      "languageNotes": "XML-serialized Eclipse JDT CodeFormatterProfile targeting Java 1.8 source/compliance/target platform."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:spotless/license-header",
+      "target": "file:pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:spotless/spotless.xml",
+      "target": "file:pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:spotless/spotless.xml",
+      "target": "file:spotless/license-header",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

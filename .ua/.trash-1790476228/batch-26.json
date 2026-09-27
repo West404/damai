@@ -1,0 +1,107 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java",
+      "type": "file",
+      "name": "MonitorServerConfig.java",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java",
+      "summary": "Spring configuration for the admin monitoring service; reads the DingTalk webhook token and registers DingTalkMessage and MonitorServer beans.",
+      "tags": ["config", "spring-boot", "monitoring", "bean-registration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java:MonitorServerConfig",
+      "type": "class",
+      "name": "MonitorServerConfig",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java",
+      "lineRange": [15, 32],
+      "summary": "@Configuration class injecting the DingTalk robot token from properties and exposing dingTalkMessage() and monitorServer() @Bean factory methods.",
+      "tags": ["config", "spring-boot", "factory", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java",
+      "type": "file",
+      "name": "DingTalkMessage.java",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java",
+      "summary": "DingTalk robot client that builds a markdown/text message payload and POSTs it to the DingTalk webhook using RestTemplate for service health alerts.",
+      "tags": ["monitoring", "notification", "dingtalk", "http-client", "alerting"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java:DingTalkMessage",
+      "type": "class",
+      "name": "DingTalkMessage",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java",
+      "lineRange": [20, 43],
+      "summary": "Holds the webhook token and a RestTemplate; createMessage() assembles the JSON request body and headers, sendMessage() posts it to the DingTalk API when the token is configured.",
+      "tags": ["monitoring", "notification", "dingtalk"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java:createMessage",
+      "type": "function",
+      "name": "createMessage",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java",
+      "lineRange": [27, 36],
+      "summary": "Builds the DingTalk message JSON payload (type and content), sets JSON content-type headers, and wraps everything in an HttpEntity.",
+      "tags": ["notification", "serialization", "http"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java",
+      "type": "file",
+      "name": "MonitorServer.java",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java",
+      "summary": "Spring Boot Admin notifier that watches instance status-change events and pushes DingTalk alerts with a SpEL-rendered message when a service goes down or recovers.",
+      "tags": ["monitoring", "spring-boot-admin", "notifier", "alerting", "event-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java:MonitorServer",
+      "type": "class",
+      "name": "MonitorServer",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java",
+      "lineRange": [25, 71],
+      "summary": "Extends Spring Boot Admin's AbstractStatusChangeNotifier; filters ignored status transitions in shouldNotify() and renders/sends the alert text via DingTalkMessage in doNotify().",
+      "tags": ["monitoring", "spring-boot-admin", "notifier", "alerting"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java:shouldNotify",
+      "type": "function",
+      "name": "shouldNotify",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java",
+      "lineRange": [41, 51],
+      "summary": "Decides whether a status-change event warrants a notification by comparing the old and new status against the configured ignore list via binary search.",
+      "tags": ["monitoring", "filtering", "event-handler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java:doNotify",
+      "type": "function",
+      "name": "doNotify",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java",
+      "lineRange": [53, 70],
+      "summary": "Assembles the alert context (instance, old/new status), evaluates the SpEL message template, logs it, and sends the rendered text through DingTalkMessage as a reactive Mono.",
+      "tags": ["monitoring", "alerting", "spel", "reactive"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {"source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java", "target": "class:damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java:MonitorServerConfig", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java", "target": "class:damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java:MonitorServerConfig", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java", "target": "file:damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java", "target": "file:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "class:damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java:MonitorServerConfig", "target": "class:damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java:DingTalkMessage", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "class:damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java:MonitorServerConfig", "target": "class:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java:MonitorServer", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java", "target": "class:damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java:DingTalkMessage", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java", "target": "class:damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java:DingTalkMessage", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java", "target": "function:damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java:createMessage", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java", "target": "class:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java:MonitorServer", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java", "target": "class:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java:MonitorServer", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java", "target": "function:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java:shouldNotify", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java", "target": "function:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java:doNotify", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "function:damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java:doNotify", "target": "function:damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java:createMessage", "type": "calls", "direction": "forward", "weight": 0.8}
+  ]
+}

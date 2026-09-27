@@ -1,0 +1,624 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 8,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 8,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 8,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 34,
+      "classes": [
+        {
+          "name": "ApiDataDto",
+          "startLine": 15,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "pageNo",
+            "pageSize",
+            "startDate",
+            "endDate",
+            "apiAddress",
+            "apiUrl"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ApiDataDto",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 43,
+      "classes": [
+        {
+          "name": "ApiDataVo",
+          "startLine": 16,
+          "endLine": 60,
+          "methods": [],
+          "properties": [
+            "id",
+            "headVersion",
+            "apiAddress",
+            "apiMethod",
+            "apiBody",
+            "apiParams",
+            "apiUrl",
+            "createTime",
+            "status",
+            "callDayTime",
+            "callHourTime",
+            "callMinuteTime",
+            "callSecondTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ApiDataVo",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "pageList",
+          "startLine": 30,
+          "endLine": 34,
+          "params": [
+            "dto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ApiDataController",
+          "startLine": 22,
+          "endLine": 35,
+          "methods": [
+            "pageList"
+          ],
+          "properties": [
+            "apiDataService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "pageList",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "ApiDataController",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "pageList",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 33
+        },
+        {
+          "caller": "pageList",
+          "callee": "apiDataService.pageList",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 26,
+      "classes": [
+        {
+          "name": "ApiData",
+          "startLine": 14,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "id",
+            "headVersion",
+            "apiAddress",
+            "apiMethod",
+            "apiBody",
+            "apiParams",
+            "apiUrl",
+            "callDayTime",
+            "callHourTime",
+            "callMinuteTime",
+            "callSecondTime",
+            "type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ApiData",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "consumerOrderMessage",
+          "startLine": 30,
+          "endLine": 41,
+          "params": [
+            "consumerRecord"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ApiDataMessageConsumer",
+          "startLine": 22,
+          "endLine": 42,
+          "methods": [
+            "consumerOrderMessage"
+          ],
+          "properties": [
+            "apiDataService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "consumerOrderMessage",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "ApiDataMessageConsumer",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "Optional.ofNullable(consumerRecord.value()).map(String::valueOf).ifPresent",
+          "lineNumber": 33
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "Optional.ofNullable(consumerRecord.value()).map",
+          "lineNumber": 33
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 33
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "consumerRecord.value",
+          "lineNumber": 33
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "log.info",
+          "lineNumber": 34
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "JSON.parseObject",
+          "lineNumber": 35
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "apiDataService.saveApiData",
+          "lineNumber": 36
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "log.error",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "ApiDataMapper",
+          "startLine": 14,
+          "endLine": 22,
+          "methods": [
+            "pageList"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ApiDataMapper",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 63,
+      "functions": [
+        {
+          "name": "saveApiData",
+          "startLine": 38,
+          "endLine": 45,
+          "params": [
+            "apiData"
+          ]
+        },
+        {
+          "name": "pageList",
+          "startLine": 47,
+          "endLine": 68,
+          "params": [
+            "dto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ApiDataService",
+          "startLine": 31,
+          "endLine": 69,
+          "methods": [
+            "saveApiData",
+            "pageList"
+          ],
+          "properties": [
+            "apiDataMapper"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "saveApiData",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "pageList",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "ApiDataService",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "saveApiData",
+          "callee": "apiDataMapper.selectById",
+          "lineNumber": 40
+        },
+        {
+          "caller": "saveApiData",
+          "callee": "apiData.getId",
+          "lineNumber": 40
+        },
+        {
+          "caller": "saveApiData",
+          "callee": "Objects.isNull",
+          "lineNumber": 41
+        },
+        {
+          "caller": "saveApiData",
+          "callee": "log.info",
+          "lineNumber": 42
+        },
+        {
+          "caller": "saveApiData",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 42
+        },
+        {
+          "caller": "saveApiData",
+          "callee": "apiDataMapper.insert",
+          "lineNumber": 43
+        },
+        {
+          "caller": "pageList",
+          "callee": "Page.of",
+          "lineNumber": 48
+        },
+        {
+          "caller": "pageList",
+          "callee": "dto.getPageNo",
+          "lineNumber": 48
+        },
+        {
+          "caller": "pageList",
+          "callee": "dto.getPageSize",
+          "lineNumber": 48
+        },
+        {
+          "caller": "pageList",
+          "callee": "Wrappers.lambdaQuery(ApiData.class)\r\n                .eq(StringUtil.isNotEmpty(dto.getApiAddress()), ApiData::getApiAddress, dto.getApiAddress())\r\n                .eq(StringUtil.isNotEmpty(dto.getApiUrl()), ApiData::getApiUrl, dto.getApiUrl())\r\n                .ge(Objects.nonNull(dto.getStartDate()),ApiData::getCreateTime,dto.getStartDate()).le",
+          "lineNumber": 49
+        },
+        {
+          "caller": "pageList",
+          "callee": "Wrappers.lambdaQuery(ApiData.class)\r\n                .eq(StringUtil.isNotEmpty(dto.getApiAddress()), ApiData::getApiAddress, dto.getApiAddress())\r\n                .eq(StringUtil.isNotEmpty(dto.getApiUrl()), ApiData::getApiUrl, dto.getApiUrl()).ge",
+          "lineNumber": 49
+        },
+        {
+          "caller": "pageList",
+          "callee": "Wrappers.lambdaQuery(ApiData.class)\r\n                .eq(StringUtil.isNotEmpty(dto.getApiAddress()), ApiData::getApiAddress, dto.getApiAddress()).eq",
+          "lineNumber": 49
+        },
+        {
+          "caller": "pageList",
+          "callee": "Wrappers.lambdaQuery(ApiData.class).eq",
+          "lineNumber": 49
+        },
+        {
+          "caller": "pageList",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 49
+        },
+        {
+          "caller": "pageList",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 50
+        },
+        {
+          "caller": "pageList",
+          "callee": "dto.getApiAddress",
+          "lineNumber": 50
+        },
+        {
+          "caller": "pageList",
+          "callee": "dto.getApiAddress",
+          "lineNumber": 50
+        },
+        {
+          "caller": "pageList",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 51
+        },
+        {
+          "caller": "pageList",
+          "callee": "dto.getApiUrl",
+          "lineNumber": 51
+        },
+        {
+          "caller": "pageList",
+          "callee": "dto.getApiUrl",
+          "lineNumber": 51
+        },
+        {
+          "caller": "pageList",
+          "callee": "Objects.nonNull",
+          "lineNumber": 52
+        },
+        {
+          "caller": "pageList",
+          "callee": "dto.getStartDate",
+          "lineNumber": 52
+        },
+        {
+          "caller": "pageList",
+          "callee": "dto.getStartDate",
+          "lineNumber": 52
+        },
+        {
+          "caller": "pageList",
+          "callee": "Objects.nonNull",
+          "lineNumber": 53
+        },
+        {
+          "caller": "pageList",
+          "callee": "dto.getEndDate",
+          "lineNumber": 53
+        },
+        {
+          "caller": "pageList",
+          "callee": "dto.getEndDate",
+          "lineNumber": 53
+        },
+        {
+          "caller": "pageList",
+          "callee": "apiDataMapper.selectPage",
+          "lineNumber": 54
+        },
+        {
+          "caller": "pageList",
+          "callee": "apiDataPage.getRecords",
+          "lineNumber": 55
+        },
+        {
+          "caller": "pageList",
+          "callee": "new Page<>",
+          "lineNumber": 56
+        },
+        {
+          "caller": "pageList",
+          "callee": "BeanUtils.copyProperties",
+          "lineNumber": 57
+        },
+        {
+          "caller": "pageList",
+          "callee": "new ArrayList<>",
+          "lineNumber": 58
+        },
+        {
+          "caller": "pageList",
+          "callee": "CollUtil.isNotEmpty",
+          "lineNumber": 59
+        },
+        {
+          "caller": "pageList",
+          "callee": "apiDataList.stream().map(apiData -> {\r\n                ApiDataVo apiDataVo = new ApiDataVo();\r\n                BeanUtils.copyProperties(apiData,apiDataVo);\r\n                return apiDataVo;\r\n            }).collect",
+          "lineNumber": 60
+        },
+        {
+          "caller": "pageList",
+          "callee": "apiDataList.stream().map",
+          "lineNumber": 60
+        },
+        {
+          "caller": "pageList",
+          "callee": "apiDataList.stream",
+          "lineNumber": 60
+        },
+        {
+          "caller": "pageList",
+          "callee": "new ApiDataVo",
+          "lineNumber": 61
+        },
+        {
+          "caller": "pageList",
+          "callee": "BeanUtils.copyProperties",
+          "lineNumber": 62
+        },
+        {
+          "caller": "pageList",
+          "callee": "Collectors.toList",
+          "lineNumber": 64
+        },
+        {
+          "caller": "pageList",
+          "callee": "apiDataPageVo.setRecords",
+          "lineNumber": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 25,
+      "classes": [
+        {
+          "name": "ApiDataDto",
+          "startLine": 12,
+          "endLine": 43,
+          "methods": [],
+          "properties": [
+            "id",
+            "headVersion",
+            "apiAddress",
+            "apiMethod",
+            "apiBody",
+            "apiParams",
+            "apiUrl",
+            "createTime",
+            "status",
+            "callDayTime",
+            "callHourTime",
+            "callMinuteTime",
+            "callSecondTime",
+            "type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ApiDataDto",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

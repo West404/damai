@@ -1,0 +1,75 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 1,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "docker/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 15,
+      "nonEmptyLines": 11,
+      "services": [
+        {
+          "name": "eclipse-temurin",
+          "image": "eclipse-temurin:17-jre",
+          "ports": [],
+          "startLine": 4,
+          "endLine": 16
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM eclipse-temurin:17-jre",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "ARG JAR_FILE=target/*.jar",
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "COPY ${JAR_FILE} app.jar",
+          "startLine": 10,
+          "endLine": 10
+        },
+        {
+          "name": "ENV JAVA_OPTS=\"-Xms256m -Xmx512m\"",
+          "startLine": 13,
+          "endLine": 13
+        },
+        {
+          "name": "ENTRYPOINT [\"sh\", \"-c\", \"java $JAVA_OPTS -jar /app/app.jar\"]",
+          "startLine": 15,
+          "endLine": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 6
+      }
+    }
+  ]
+}

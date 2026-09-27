@@ -1,0 +1,4802 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 33,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 33,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 33,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 136,
+      "nonEmptyLines": 115,
+      "functions": [
+        {
+          "name": "BitsAllocator",
+          "startLine": 59,
+          "endLine": 77,
+          "params": [
+            "timestampBits",
+            "workerIdBits",
+            "sequenceBits"
+          ]
+        },
+        {
+          "name": "allocate",
+          "startLine": 88,
+          "endLine": 90,
+          "params": [
+            "deltaSeconds",
+            "workerId",
+            "sequence"
+          ]
+        },
+        {
+          "name": "getSignBits",
+          "startLine": 95,
+          "endLine": 97,
+          "params": []
+        },
+        {
+          "name": "getTimestampBits",
+          "startLine": 99,
+          "endLine": 101,
+          "params": []
+        },
+        {
+          "name": "getWorkerIdBits",
+          "startLine": 103,
+          "endLine": 105,
+          "params": []
+        },
+        {
+          "name": "getSequenceBits",
+          "startLine": 107,
+          "endLine": 109,
+          "params": []
+        },
+        {
+          "name": "getMaxDeltaSeconds",
+          "startLine": 111,
+          "endLine": 113,
+          "params": []
+        },
+        {
+          "name": "getMaxWorkerId",
+          "startLine": 115,
+          "endLine": 117,
+          "params": []
+        },
+        {
+          "name": "getMaxSequence",
+          "startLine": 119,
+          "endLine": 121,
+          "params": []
+        },
+        {
+          "name": "getTimestampShift",
+          "startLine": 123,
+          "endLine": 125,
+          "params": []
+        },
+        {
+          "name": "getWorkerIdShift",
+          "startLine": 127,
+          "endLine": 129,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 131,
+          "endLine": 134,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "BitsAllocator",
+          "startLine": 28,
+          "endLine": 136,
+          "methods": [
+            "BitsAllocator",
+            "allocate",
+            "getSignBits",
+            "getTimestampBits",
+            "getWorkerIdBits",
+            "getSequenceBits",
+            "getMaxDeltaSeconds",
+            "getMaxWorkerId",
+            "getMaxSequence",
+            "getTimestampShift",
+            "getWorkerIdShift",
+            "toString"
+          ],
+          "properties": [
+            "TOTAL_BITS",
+            "signBits",
+            "timestampBits",
+            "workerIdBits",
+            "sequenceBits",
+            "maxDeltaSeconds",
+            "maxWorkerId",
+            "maxSequence",
+            "timestampShift",
+            "workerIdShift"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TOTAL_BITS",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "BitsAllocator",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "allocate",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "getSignBits",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "getTimestampBits",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "getWorkerIdBits",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "getSequenceBits",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "getMaxDeltaSeconds",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "getMaxWorkerId",
+          "line": 115,
+          "isDefault": false
+        },
+        {
+          "name": "getMaxSequence",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "getTimestampShift",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "getWorkerIdShift",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "BitsAllocator",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "BitsAllocator",
+          "callee": "Assert.isTrue",
+          "lineNumber": 62
+        },
+        {
+          "caller": "toString",
+          "callee": "ToStringBuilder.reflectionToString",
+          "lineNumber": 133
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 51,
+      "classes": [
+        {
+          "name": "UidGenerator",
+          "startLine": 25,
+          "endLine": 58,
+          "methods": [
+            "getUid",
+            "getId",
+            "getOrderNumber",
+            "parseUid"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "UidGenerator",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 181,
+      "nonEmptyLines": 155,
+      "functions": [
+        {
+          "name": "BufferPaddingExecutor",
+          "startLine": 75,
+          "endLine": 77,
+          "params": [
+            "ringBuffer",
+            "uidProvider"
+          ]
+        },
+        {
+          "name": "BufferPaddingExecutor",
+          "startLine": 86,
+          "endLine": 104,
+          "params": [
+            "ringBuffer",
+            "uidProvider",
+            "usingSchedule"
+          ]
+        },
+        {
+          "name": "start",
+          "startLine": 109,
+          "endLine": 113,
+          "params": []
+        },
+        {
+          "name": "shutdown",
+          "startLine": 118,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "isRunning",
+          "startLine": 133,
+          "endLine": 135,
+          "params": []
+        },
+        {
+          "name": "asyncPadding",
+          "startLine": 140,
+          "endLine": 142,
+          "params": []
+        },
+        {
+          "name": "paddingBuffer",
+          "startLine": 147,
+          "endLine": 171,
+          "params": []
+        },
+        {
+          "name": "setScheduleInterval",
+          "startLine": 176,
+          "endLine": 179,
+          "params": [
+            "scheduleInterval"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BufferPaddingExecutor",
+          "startLine": 39,
+          "endLine": 181,
+          "methods": [
+            "BufferPaddingExecutor",
+            "BufferPaddingExecutor",
+            "start",
+            "shutdown",
+            "isRunning",
+            "asyncPadding",
+            "paddingBuffer",
+            "setScheduleInterval"
+          ],
+          "properties": [
+            "LOGGER",
+            "WORKER_NAME",
+            "SCHEDULE_NAME",
+            "DEFAULT_SCHEDULE_INTERVAL",
+            "running",
+            "lastSecond",
+            "ringBuffer",
+            "uidProvider",
+            "bufferPadExecutors",
+            "bufferPadSchedule",
+            "scheduleInterval"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BufferPaddingExecutor",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "BufferPaddingExecutor",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "shutdown",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "isRunning",
+          "line": 133,
+          "isDefault": false
+        },
+        {
+          "name": "asyncPadding",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "paddingBuffer",
+          "line": 147,
+          "isDefault": false
+        },
+        {
+          "name": "setScheduleInterval",
+          "line": 176,
+          "isDefault": false
+        },
+        {
+          "name": "BufferPaddingExecutor",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "BufferPaddingExecutor",
+          "callee": "new AtomicBoolean",
+          "lineNumber": 87
+        },
+        {
+          "caller": "BufferPaddingExecutor",
+          "callee": "new PaddedAtomicLong",
+          "lineNumber": 88
+        },
+        {
+          "caller": "BufferPaddingExecutor",
+          "callee": "TimeUnit.MILLISECONDS.toSeconds",
+          "lineNumber": 88
+        },
+        {
+          "caller": "BufferPaddingExecutor",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 88
+        },
+        {
+          "caller": "BufferPaddingExecutor",
+          "callee": "Runtime.getRuntime().availableProcessors",
+          "lineNumber": 93
+        },
+        {
+          "caller": "BufferPaddingExecutor",
+          "callee": "Runtime.getRuntime",
+          "lineNumber": 93
+        },
+        {
+          "caller": "BufferPaddingExecutor",
+          "callee": "new ThreadPoolExecutor",
+          "lineNumber": 95
+        },
+        {
+          "caller": "BufferPaddingExecutor",
+          "callee": "new LinkedBlockingQueue<Runnable>",
+          "lineNumber": 96
+        },
+        {
+          "caller": "BufferPaddingExecutor",
+          "callee": "new NamingThreadFactory",
+          "lineNumber": 96
+        },
+        {
+          "caller": "BufferPaddingExecutor",
+          "callee": "new ScheduledThreadPoolExecutor",
+          "lineNumber": 100
+        },
+        {
+          "caller": "BufferPaddingExecutor",
+          "callee": "new NamingThreadFactory",
+          "lineNumber": 100
+        },
+        {
+          "caller": "start",
+          "callee": "bufferPadSchedule.scheduleWithFixedDelay",
+          "lineNumber": 111
+        },
+        {
+          "caller": "start",
+          "callee": "paddingBuffer",
+          "lineNumber": 111
+        },
+        {
+          "caller": "shutdown",
+          "callee": "bufferPadExecutors.isShutdown",
+          "lineNumber": 119
+        },
+        {
+          "caller": "shutdown",
+          "callee": "bufferPadExecutors.shutdownNow",
+          "lineNumber": 120
+        },
+        {
+          "caller": "shutdown",
+          "callee": "bufferPadSchedule.isShutdown",
+          "lineNumber": 123
+        },
+        {
+          "caller": "shutdown",
+          "callee": "bufferPadSchedule.shutdownNow",
+          "lineNumber": 124
+        },
+        {
+          "caller": "isRunning",
+          "callee": "running.get",
+          "lineNumber": 134
+        },
+        {
+          "caller": "asyncPadding",
+          "callee": "bufferPadExecutors.submit",
+          "lineNumber": 141
+        },
+        {
+          "caller": "paddingBuffer",
+          "callee": "LOGGER.info",
+          "lineNumber": 148
+        },
+        {
+          "caller": "paddingBuffer",
+          "callee": "lastSecond.get",
+          "lineNumber": 148
+        },
+        {
+          "caller": "paddingBuffer",
+          "callee": "running.compareAndSet",
+          "lineNumber": 151
+        },
+        {
+          "caller": "paddingBuffer",
+          "callee": "LOGGER.info",
+          "lineNumber": 152
+        },
+        {
+          "caller": "paddingBuffer",
+          "callee": "uidProvider.provide",
+          "lineNumber": 159
+        },
+        {
+          "caller": "paddingBuffer",
+          "callee": "lastSecond.incrementAndGet",
+          "lineNumber": 159
+        },
+        {
+          "caller": "paddingBuffer",
+          "callee": "ringBuffer.put",
+          "lineNumber": 161
+        },
+        {
+          "caller": "paddingBuffer",
+          "callee": "running.compareAndSet",
+          "lineNumber": 169
+        },
+        {
+          "caller": "paddingBuffer",
+          "callee": "LOGGER.info",
+          "lineNumber": 170
+        },
+        {
+          "caller": "paddingBuffer",
+          "callee": "lastSecond.get",
+          "lineNumber": 170
+        },
+        {
+          "caller": "setScheduleInterval",
+          "callee": "Assert.isTrue",
+          "lineNumber": 177
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 9,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 32,
+      "classes": [
+        {
+          "name": "RejectedPutBufferHandler",
+          "startLine": 24,
+          "endLine": 34,
+          "methods": [
+            "rejectPutBuffer"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RejectedPutBufferHandler",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 31,
+      "classes": [
+        {
+          "name": "RejectedTakeBufferHandler",
+          "startLine": 24,
+          "endLine": 33,
+          "methods": [
+            "rejectTakeBuffer"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RejectedTakeBufferHandler",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 261,
+      "nonEmptyLines": 220,
+      "functions": [
+        {
+          "name": "RingBuffer",
+          "startLine": 75,
+          "endLine": 77,
+          "params": [
+            "bufferSize"
+          ]
+        },
+        {
+          "name": "RingBuffer",
+          "startLine": 87,
+          "endLine": 99,
+          "params": [
+            "bufferSize",
+            "paddingFactor"
+          ]
+        },
+        {
+          "name": "put",
+          "startLine": 111,
+          "endLine": 139,
+          "params": [
+            "uid"
+          ]
+        },
+        {
+          "name": "take",
+          "startLine": 151,
+          "endLine": 184,
+          "params": []
+        },
+        {
+          "name": "calSlotIndex",
+          "startLine": 189,
+          "endLine": 191,
+          "params": [
+            "sequence"
+          ]
+        },
+        {
+          "name": "discardPutBuffer",
+          "startLine": 196,
+          "endLine": 198,
+          "params": [
+            "ringBuffer",
+            "uid"
+          ]
+        },
+        {
+          "name": "exceptionRejectedTakeBuffer",
+          "startLine": 203,
+          "endLine": 206,
+          "params": [
+            "ringBuffer"
+          ]
+        },
+        {
+          "name": "initFlags",
+          "startLine": 211,
+          "endLine": 218,
+          "params": [
+            "bufferSize"
+          ]
+        },
+        {
+          "name": "getTail",
+          "startLine": 223,
+          "endLine": 225,
+          "params": []
+        },
+        {
+          "name": "getCursor",
+          "startLine": 227,
+          "endLine": 229,
+          "params": []
+        },
+        {
+          "name": "getBufferSize",
+          "startLine": 231,
+          "endLine": 233,
+          "params": []
+        },
+        {
+          "name": "setBufferPaddingExecutor",
+          "startLine": 238,
+          "endLine": 240,
+          "params": [
+            "bufferPaddingExecutor"
+          ]
+        },
+        {
+          "name": "setRejectedPutHandler",
+          "startLine": 242,
+          "endLine": 244,
+          "params": [
+            "rejectedPutHandler"
+          ]
+        },
+        {
+          "name": "setRejectedTakeHandler",
+          "startLine": 246,
+          "endLine": 248,
+          "params": [
+            "rejectedTakeHandler"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 250,
+          "endLine": 259,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "RingBuffer",
+          "startLine": 39,
+          "endLine": 261,
+          "methods": [
+            "RingBuffer",
+            "RingBuffer",
+            "put",
+            "take",
+            "calSlotIndex",
+            "discardPutBuffer",
+            "exceptionRejectedTakeBuffer",
+            "initFlags",
+            "getTail",
+            "getCursor",
+            "getBufferSize",
+            "setBufferPaddingExecutor",
+            "setRejectedPutHandler",
+            "setRejectedTakeHandler",
+            "toString"
+          ],
+          "properties": [
+            "LOGGER",
+            "START_POINT",
+            "CAN_PUT_FLAG",
+            "CAN_TAKE_FLAG",
+            "DEFAULT_PADDING_PERCENT",
+            "bufferSize",
+            "indexMask",
+            "slots",
+            "flags",
+            "tail",
+            "cursor",
+            "paddingThreshold",
+            "rejectedPutHandler",
+            "rejectedTakeHandler",
+            "bufferPaddingExecutor"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DEFAULT_PADDING_PERCENT",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "RingBuffer",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "RingBuffer",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "put",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "take",
+          "line": 151,
+          "isDefault": false
+        },
+        {
+          "name": "getTail",
+          "line": 223,
+          "isDefault": false
+        },
+        {
+          "name": "getCursor",
+          "line": 227,
+          "isDefault": false
+        },
+        {
+          "name": "getBufferSize",
+          "line": 231,
+          "isDefault": false
+        },
+        {
+          "name": "setBufferPaddingExecutor",
+          "line": 238,
+          "isDefault": false
+        },
+        {
+          "name": "setRejectedPutHandler",
+          "line": 242,
+          "isDefault": false
+        },
+        {
+          "name": "setRejectedTakeHandler",
+          "line": 246,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 250,
+          "isDefault": false
+        },
+        {
+          "name": "RingBuffer",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "RingBuffer",
+          "callee": "Assert.isTrue",
+          "lineNumber": 89
+        },
+        {
+          "caller": "RingBuffer",
+          "callee": "Assert.isTrue",
+          "lineNumber": 90
+        },
+        {
+          "caller": "RingBuffer",
+          "callee": "Integer.bitCount",
+          "lineNumber": 90
+        },
+        {
+          "caller": "RingBuffer",
+          "callee": "Assert.isTrue",
+          "lineNumber": 91
+        },
+        {
+          "caller": "RingBuffer",
+          "callee": "initFlags",
+          "lineNumber": 96
+        },
+        {
+          "caller": "put",
+          "callee": "tail.get",
+          "lineNumber": 112
+        },
+        {
+          "caller": "put",
+          "callee": "cursor.get",
+          "lineNumber": 113
+        },
+        {
+          "caller": "put",
+          "callee": "rejectedPutHandler.rejectPutBuffer",
+          "lineNumber": 118
+        },
+        {
+          "caller": "put",
+          "callee": "calSlotIndex",
+          "lineNumber": 123
+        },
+        {
+          "caller": "put",
+          "callee": "flags[nextTailIndex].get",
+          "lineNumber": 124
+        },
+        {
+          "caller": "put",
+          "callee": "rejectedPutHandler.rejectPutBuffer",
+          "lineNumber": 125
+        },
+        {
+          "caller": "put",
+          "callee": "flags[nextTailIndex].set",
+          "lineNumber": 133
+        },
+        {
+          "caller": "put",
+          "callee": "tail.incrementAndGet",
+          "lineNumber": 134
+        },
+        {
+          "caller": "take",
+          "callee": "cursor.get",
+          "lineNumber": 153
+        },
+        {
+          "caller": "take",
+          "callee": "cursor.updateAndGet",
+          "lineNumber": 154
+        },
+        {
+          "caller": "take",
+          "callee": "tail.get",
+          "lineNumber": 154
+        },
+        {
+          "caller": "take",
+          "callee": "Assert.isTrue",
+          "lineNumber": 157
+        },
+        {
+          "caller": "take",
+          "callee": "tail.get",
+          "lineNumber": 160
+        },
+        {
+          "caller": "take",
+          "callee": "LOGGER.info",
+          "lineNumber": 162
+        },
+        {
+          "caller": "take",
+          "callee": "bufferPaddingExecutor.asyncPadding",
+          "lineNumber": 164
+        },
+        {
+          "caller": "take",
+          "callee": "rejectedTakeHandler.rejectTakeBuffer",
+          "lineNumber": 169
+        },
+        {
+          "caller": "take",
+          "callee": "calSlotIndex",
+          "lineNumber": 173
+        },
+        {
+          "caller": "take",
+          "callee": "Assert.isTrue",
+          "lineNumber": 174
+        },
+        {
+          "caller": "take",
+          "callee": "flags[nextCursorIndex].get",
+          "lineNumber": 174
+        },
+        {
+          "caller": "take",
+          "callee": "flags[nextCursorIndex].set",
+          "lineNumber": 179
+        },
+        {
+          "caller": "discardPutBuffer",
+          "callee": "LOGGER.warn",
+          "lineNumber": 197
+        },
+        {
+          "caller": "exceptionRejectedTakeBuffer",
+          "callee": "LOGGER.warn",
+          "lineNumber": 204
+        },
+        {
+          "caller": "exceptionRejectedTakeBuffer",
+          "callee": "new RuntimeException",
+          "lineNumber": 205
+        },
+        {
+          "caller": "initFlags",
+          "callee": "new PaddedAtomicLong",
+          "lineNumber": 214
+        },
+        {
+          "caller": "getTail",
+          "callee": "tail.get",
+          "lineNumber": 224
+        },
+        {
+          "caller": "getCursor",
+          "callee": "cursor.get",
+          "lineNumber": 228
+        },
+        {
+          "caller": "toString",
+          "callee": "new StringBuilder",
+          "lineNumber": 252
+        },
+        {
+          "caller": "toString",
+          "callee": "builder.append(\"RingBuffer [bufferSize=\").append(bufferSize)\r\n               .append(\", tail=\").append(tail)\r\n               .append(\", cursor=\").append(cursor)\r\n               .append(\", paddingThreshold=\").append(paddingThreshold).append",
+          "lineNumber": 253
+        },
+        {
+          "caller": "toString",
+          "callee": "builder.append(\"RingBuffer [bufferSize=\").append(bufferSize)\r\n               .append(\", tail=\").append(tail)\r\n               .append(\", cursor=\").append(cursor)\r\n               .append(\", paddingThreshold=\").append",
+          "lineNumber": 253
+        },
+        {
+          "caller": "toString",
+          "callee": "builder.append(\"RingBuffer [bufferSize=\").append(bufferSize)\r\n               .append(\", tail=\").append(tail)\r\n               .append(\", cursor=\").append(cursor).append",
+          "lineNumber": 253
+        },
+        {
+          "caller": "toString",
+          "callee": "builder.append(\"RingBuffer [bufferSize=\").append(bufferSize)\r\n               .append(\", tail=\").append(tail)\r\n               .append(\", cursor=\").append",
+          "lineNumber": 253
+        },
+        {
+          "caller": "toString",
+          "callee": "builder.append(\"RingBuffer [bufferSize=\").append(bufferSize)\r\n               .append(\", tail=\").append(tail).append",
+          "lineNumber": 253
+        },
+        {
+          "caller": "toString",
+          "callee": "builder.append(\"RingBuffer [bufferSize=\").append(bufferSize)\r\n               .append(\", tail=\").append",
+          "lineNumber": 253
+        },
+        {
+          "caller": "toString",
+          "callee": "builder.append(\"RingBuffer [bufferSize=\").append(bufferSize).append",
+          "lineNumber": 253
+        },
+        {
+          "caller": "toString",
+          "callee": "builder.append(\"RingBuffer [bufferSize=\").append",
+          "lineNumber": 253
+        },
+        {
+          "caller": "toString",
+          "callee": "builder.append",
+          "lineNumber": 253
+        },
+        {
+          "caller": "toString",
+          "callee": "builder.toString",
+          "lineNumber": 258
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 13,
+        "functionCount": 15,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "redisTemplate",
+          "startLine": 23,
+          "endLine": 29,
+          "params": [
+            "redisConnectionFactory"
+          ]
+        },
+        {
+          "name": "redisDisposableWorkerIdAssigner",
+          "startLine": 31,
+          "endLine": 34,
+          "params": [
+            "redisTemplate"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "IdGeneratorRedisConfig",
+          "startLine": 19,
+          "endLine": 35,
+          "methods": [
+            "redisTemplate",
+            "redisDisposableWorkerIdAssigner"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "redisTemplate",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "redisDisposableWorkerIdAssigner",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "IdGeneratorRedisConfig",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "redisTemplate",
+          "callee": "new RedisTemplate",
+          "lineNumber": 25
+        },
+        {
+          "caller": "redisTemplate",
+          "callee": "redisTemplate.setDefaultSerializer",
+          "lineNumber": 26
+        },
+        {
+          "caller": "redisTemplate",
+          "callee": "new StringRedisSerializer",
+          "lineNumber": 26
+        },
+        {
+          "caller": "redisTemplate",
+          "callee": "redisTemplate.setConnectionFactory",
+          "lineNumber": 27
+        },
+        {
+          "caller": "redisDisposableWorkerIdAssigner",
+          "callee": "new RedisDisposableWorkerIdAssigner",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "uidGenerator",
+          "startLine": 26,
+          "endLine": 32,
+          "params": [
+            "disposableWorkerIdAssigner",
+            "snowflakeIdGenerator"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "WorkerNodeConfig",
+          "startLine": 16,
+          "endLine": 33,
+          "methods": [
+            "uidGenerator"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "uidGenerator",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "WorkerNodeConfig",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "uidGenerator",
+          "callee": "new CachedUidGenerator",
+          "lineNumber": 28
+        },
+        {
+          "caller": "uidGenerator",
+          "callee": "cachedUidGenerator.setWorkerIdAssigner",
+          "lineNumber": 29
+        },
+        {
+          "caller": "uidGenerator",
+          "callee": "cachedUidGenerator.setSnowflakeIdGenerator",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "UidGenerateException",
+          "startLine": 33,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "UidGenerateException",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "message",
+            "cause"
+          ]
+        },
+        {
+          "name": "UidGenerateException",
+          "startLine": 52,
+          "endLine": 54,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "UidGenerateException",
+          "startLine": 62,
+          "endLine": 64,
+          "params": [
+            "msgFormat"
+          ]
+        },
+        {
+          "name": "UidGenerateException",
+          "startLine": 71,
+          "endLine": 73,
+          "params": [
+            "cause"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UidGenerateException",
+          "startLine": 23,
+          "endLine": 75,
+          "methods": [
+            "UidGenerateException",
+            "UidGenerateException",
+            "UidGenerateException",
+            "UidGenerateException",
+            "UidGenerateException"
+          ],
+          "properties": [
+            "serialVersionUID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UidGenerateException",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "UidGenerateException",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "UidGenerateException",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "UidGenerateException",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "UidGenerateException",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "UidGenerateException",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "UidGenerateException",
+          "callee": "String.format",
+          "lineNumber": 63
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 183,
+      "nonEmptyLines": 156,
+      "functions": [
+        {
+          "name": "afterPropertiesSet",
+          "startLine": 66,
+          "endLine": 74,
+          "params": []
+        },
+        {
+          "name": "getUid",
+          "startLine": 76,
+          "endLine": 84,
+          "params": []
+        },
+        {
+          "name": "getId",
+          "startLine": 86,
+          "endLine": 89,
+          "params": []
+        },
+        {
+          "name": "getOrderNumber",
+          "startLine": 91,
+          "endLine": 94,
+          "params": [
+            "userId",
+            "tableCount"
+          ]
+        },
+        {
+          "name": "parseUid",
+          "startLine": 96,
+          "endLine": 99,
+          "params": [
+            "uid"
+          ]
+        },
+        {
+          "name": "destroy",
+          "startLine": 101,
+          "endLine": 104,
+          "params": []
+        },
+        {
+          "name": "nextIdsForOneSecond",
+          "startLine": 112,
+          "endLine": 124,
+          "params": [
+            "currentSecond"
+          ]
+        },
+        {
+          "name": "initRingBuffer",
+          "startLine": 129,
+          "endLine": 158,
+          "params": []
+        },
+        {
+          "name": "setBoostPower",
+          "startLine": 163,
+          "endLine": 166,
+          "params": [
+            "boostPower"
+          ]
+        },
+        {
+          "name": "setRejectedPutBufferHandler",
+          "startLine": 168,
+          "endLine": 171,
+          "params": [
+            "rejectedPutBufferHandler"
+          ]
+        },
+        {
+          "name": "setRejectedTakeBufferHandler",
+          "startLine": 173,
+          "endLine": 176,
+          "params": [
+            "rejectedTakeBufferHandler"
+          ]
+        },
+        {
+          "name": "setScheduleInterval",
+          "startLine": 178,
+          "endLine": 181,
+          "params": [
+            "scheduleInterval"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CachedUidGenerator",
+          "startLine": 50,
+          "endLine": 183,
+          "methods": [
+            "afterPropertiesSet",
+            "getUid",
+            "getId",
+            "getOrderNumber",
+            "parseUid",
+            "destroy",
+            "nextIdsForOneSecond",
+            "initRingBuffer",
+            "setBoostPower",
+            "setRejectedPutBufferHandler",
+            "setRejectedTakeBufferHandler",
+            "setScheduleInterval"
+          ],
+          "properties": [
+            "LOGGER",
+            "DEFAULT_BOOST_POWER",
+            "boostPower",
+            "paddingFactor",
+            "scheduleInterval",
+            "rejectedPutBufferHandler",
+            "rejectedTakeBufferHandler",
+            "ringBuffer",
+            "bufferPaddingExecutor"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "afterPropertiesSet",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "getUid",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "getId",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "getOrderNumber",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "parseUid",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "destroy",
+          "line": 101,
+          "isDefault": false
+        },
+        {
+          "name": "setBoostPower",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "setRejectedPutBufferHandler",
+          "line": 168,
+          "isDefault": false
+        },
+        {
+          "name": "setRejectedTakeBufferHandler",
+          "line": 173,
+          "isDefault": false
+        },
+        {
+          "name": "setScheduleInterval",
+          "line": 178,
+          "isDefault": false
+        },
+        {
+          "name": "CachedUidGenerator",
+          "line": 50,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "afterPropertiesSet",
+          "callee": "super.afterPropertiesSet",
+          "lineNumber": 69
+        },
+        {
+          "caller": "afterPropertiesSet",
+          "callee": "this.initRingBuffer",
+          "lineNumber": 72
+        },
+        {
+          "caller": "afterPropertiesSet",
+          "callee": "LOGGER.info",
+          "lineNumber": 73
+        },
+        {
+          "caller": "getUid",
+          "callee": "ringBuffer.take",
+          "lineNumber": 79
+        },
+        {
+          "caller": "getUid",
+          "callee": "LOGGER.error",
+          "lineNumber": 81
+        },
+        {
+          "caller": "getUid",
+          "callee": "new UidGenerateException",
+          "lineNumber": 82
+        },
+        {
+          "caller": "getId",
+          "callee": "super.getId",
+          "lineNumber": 88
+        },
+        {
+          "caller": "getOrderNumber",
+          "callee": "super.getOrderNumber",
+          "lineNumber": 93
+        },
+        {
+          "caller": "parseUid",
+          "callee": "super.parseUid",
+          "lineNumber": 98
+        },
+        {
+          "caller": "destroy",
+          "callee": "bufferPaddingExecutor.shutdown",
+          "lineNumber": 103
+        },
+        {
+          "caller": "nextIdsForOneSecond",
+          "callee": "bitsAllocator.getMaxSequence",
+          "lineNumber": 114
+        },
+        {
+          "caller": "nextIdsForOneSecond",
+          "callee": "new ArrayList<>",
+          "lineNumber": 115
+        },
+        {
+          "caller": "nextIdsForOneSecond",
+          "callee": "bitsAllocator.allocate",
+          "lineNumber": 118
+        },
+        {
+          "caller": "nextIdsForOneSecond",
+          "callee": "uidList.add",
+          "lineNumber": 120
+        },
+        {
+          "caller": "initRingBuffer",
+          "callee": "bitsAllocator.getMaxSequence",
+          "lineNumber": 131
+        },
+        {
+          "caller": "initRingBuffer",
+          "callee": "new RingBuffer",
+          "lineNumber": 132
+        },
+        {
+          "caller": "initRingBuffer",
+          "callee": "LOGGER.info",
+          "lineNumber": 133
+        },
+        {
+          "caller": "initRingBuffer",
+          "callee": "new BufferPaddingExecutor",
+          "lineNumber": 137
+        },
+        {
+          "caller": "initRingBuffer",
+          "callee": "bufferPaddingExecutor.setScheduleInterval",
+          "lineNumber": 139
+        },
+        {
+          "caller": "initRingBuffer",
+          "callee": "LOGGER.info",
+          "lineNumber": 142
+        },
+        {
+          "caller": "initRingBuffer",
+          "callee": "this.ringBuffer.setBufferPaddingExecutor",
+          "lineNumber": 145
+        },
+        {
+          "caller": "initRingBuffer",
+          "callee": "this.ringBuffer.setRejectedPutHandler",
+          "lineNumber": 147
+        },
+        {
+          "caller": "initRingBuffer",
+          "callee": "this.ringBuffer.setRejectedTakeHandler",
+          "lineNumber": 150
+        },
+        {
+          "caller": "initRingBuffer",
+          "callee": "bufferPaddingExecutor.paddingBuffer",
+          "lineNumber": 154
+        },
+        {
+          "caller": "initRingBuffer",
+          "callee": "bufferPaddingExecutor.start",
+          "lineNumber": 157
+        },
+        {
+          "caller": "setBoostPower",
+          "callee": "Assert.isTrue",
+          "lineNumber": 164
+        },
+        {
+          "caller": "setRejectedPutBufferHandler",
+          "callee": "Assert.notNull",
+          "lineNumber": 169
+        },
+        {
+          "caller": "setRejectedTakeBufferHandler",
+          "callee": "Assert.notNull",
+          "lineNumber": 174
+        },
+        {
+          "caller": "setScheduleInterval",
+          "callee": "Assert.isTrue",
+          "lineNumber": 179
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 11,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 237,
+      "nonEmptyLines": 202,
+      "functions": [
+        {
+          "name": "afterPropertiesSet",
+          "startLine": 89,
+          "endLine": 101,
+          "params": []
+        },
+        {
+          "name": "getUid",
+          "startLine": 103,
+          "endLine": 111,
+          "params": []
+        },
+        {
+          "name": "getId",
+          "startLine": 113,
+          "endLine": 116,
+          "params": []
+        },
+        {
+          "name": "getOrderNumber",
+          "startLine": 118,
+          "endLine": 121,
+          "params": [
+            "userId",
+            "tableCount"
+          ]
+        },
+        {
+          "name": "parseUid",
+          "startLine": 123,
+          "endLine": 142,
+          "params": [
+            "uid"
+          ]
+        },
+        {
+          "name": "nextId",
+          "startLine": 150,
+          "endLine": 176,
+          "params": []
+        },
+        {
+          "name": "getNextSecond",
+          "startLine": 181,
+          "endLine": 188,
+          "params": [
+            "lastTimestamp"
+          ]
+        },
+        {
+          "name": "getCurrentSecond",
+          "startLine": 193,
+          "endLine": 200,
+          "params": []
+        },
+        {
+          "name": "setWorkerIdAssigner",
+          "startLine": 205,
+          "endLine": 207,
+          "params": [
+            "workerIdAssigner"
+          ]
+        },
+        {
+          "name": "setTimeBits",
+          "startLine": 209,
+          "endLine": 213,
+          "params": [
+            "timeBits"
+          ]
+        },
+        {
+          "name": "setWorkerBits",
+          "startLine": 215,
+          "endLine": 219,
+          "params": [
+            "workerBits"
+          ]
+        },
+        {
+          "name": "setSeqBits",
+          "startLine": 221,
+          "endLine": 225,
+          "params": [
+            "seqBits"
+          ]
+        },
+        {
+          "name": "setEpochStr",
+          "startLine": 227,
+          "endLine": 232,
+          "params": [
+            "epochStr"
+          ]
+        },
+        {
+          "name": "setSnowflakeIdGenerator",
+          "startLine": 234,
+          "endLine": 236,
+          "params": [
+            "snowflakeIdGenerator"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DefaultUidGenerator",
+          "startLine": 61,
+          "endLine": 237,
+          "methods": [
+            "afterPropertiesSet",
+            "getUid",
+            "getId",
+            "getOrderNumber",
+            "parseUid",
+            "nextId",
+            "getNextSecond",
+            "getCurrentSecond",
+            "setWorkerIdAssigner",
+            "setTimeBits",
+            "setWorkerBits",
+            "setSeqBits",
+            "setEpochStr",
+            "setSnowflakeIdGenerator"
+          ],
+          "properties": [
+            "LOGGER",
+            "timeBits",
+            "workerBits",
+            "seqBits",
+            "epochStr",
+            "epochSeconds",
+            "bitsAllocator",
+            "workerId",
+            "sequence",
+            "lastSecond",
+            "workerIdAssigner",
+            "snowflakeIdGenerator"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "afterPropertiesSet",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "getUid",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "getId",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "getOrderNumber",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "parseUid",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "setWorkerIdAssigner",
+          "line": 205,
+          "isDefault": false
+        },
+        {
+          "name": "setTimeBits",
+          "line": 209,
+          "isDefault": false
+        },
+        {
+          "name": "setWorkerBits",
+          "line": 215,
+          "isDefault": false
+        },
+        {
+          "name": "setSeqBits",
+          "line": 221,
+          "isDefault": false
+        },
+        {
+          "name": "setEpochStr",
+          "line": 227,
+          "isDefault": false
+        },
+        {
+          "name": "setSnowflakeIdGenerator",
+          "line": 234,
+          "isDefault": false
+        },
+        {
+          "name": "DefaultUidGenerator",
+          "line": 61,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "afterPropertiesSet",
+          "callee": "new BitsAllocator",
+          "lineNumber": 92
+        },
+        {
+          "caller": "afterPropertiesSet",
+          "callee": "workerIdAssigner.assignWorkerId",
+          "lineNumber": 95
+        },
+        {
+          "caller": "afterPropertiesSet",
+          "callee": "bitsAllocator.getMaxWorkerId",
+          "lineNumber": 96
+        },
+        {
+          "caller": "afterPropertiesSet",
+          "callee": "new RuntimeException",
+          "lineNumber": 97
+        },
+        {
+          "caller": "afterPropertiesSet",
+          "callee": "bitsAllocator.getMaxWorkerId",
+          "lineNumber": 97
+        },
+        {
+          "caller": "afterPropertiesSet",
+          "callee": "LOGGER.info",
+          "lineNumber": 100
+        },
+        {
+          "caller": "getUid",
+          "callee": "nextId",
+          "lineNumber": 106
+        },
+        {
+          "caller": "getUid",
+          "callee": "LOGGER.error",
+          "lineNumber": 108
+        },
+        {
+          "caller": "getUid",
+          "callee": "new UidGenerateException",
+          "lineNumber": 109
+        },
+        {
+          "caller": "getId",
+          "callee": "snowflakeIdGenerator.nextId",
+          "lineNumber": 115
+        },
+        {
+          "caller": "getOrderNumber",
+          "callee": "snowflakeIdGenerator.getOrderNumber",
+          "lineNumber": 120
+        },
+        {
+          "caller": "parseUid",
+          "callee": "bitsAllocator.getSignBits",
+          "lineNumber": 126
+        },
+        {
+          "caller": "parseUid",
+          "callee": "bitsAllocator.getTimestampBits",
+          "lineNumber": 127
+        },
+        {
+          "caller": "parseUid",
+          "callee": "bitsAllocator.getWorkerIdBits",
+          "lineNumber": 128
+        },
+        {
+          "caller": "parseUid",
+          "callee": "bitsAllocator.getSequenceBits",
+          "lineNumber": 129
+        },
+        {
+          "caller": "parseUid",
+          "callee": "new Date",
+          "lineNumber": 136
+        },
+        {
+          "caller": "parseUid",
+          "callee": "TimeUnit.SECONDS.toMillis",
+          "lineNumber": 136
+        },
+        {
+          "caller": "parseUid",
+          "callee": "AbstractDateUtils.formatByDateTimePattern",
+          "lineNumber": 137
+        },
+        {
+          "caller": "parseUid",
+          "callee": "String.format",
+          "lineNumber": 140
+        },
+        {
+          "caller": "nextId",
+          "callee": "getCurrentSecond",
+          "lineNumber": 151
+        },
+        {
+          "caller": "nextId",
+          "callee": "new UidGenerateException",
+          "lineNumber": 156
+        },
+        {
+          "caller": "nextId",
+          "callee": "bitsAllocator.getMaxSequence",
+          "lineNumber": 161
+        },
+        {
+          "caller": "nextId",
+          "callee": "getNextSecond",
+          "lineNumber": 164
+        },
+        {
+          "caller": "nextId",
+          "callee": "bitsAllocator.allocate",
+          "lineNumber": 175
+        },
+        {
+          "caller": "getNextSecond",
+          "callee": "getCurrentSecond",
+          "lineNumber": 182
+        },
+        {
+          "caller": "getNextSecond",
+          "callee": "getCurrentSecond",
+          "lineNumber": 184
+        },
+        {
+          "caller": "getCurrentSecond",
+          "callee": "TimeUnit.MILLISECONDS.toSeconds",
+          "lineNumber": 194
+        },
+        {
+          "caller": "getCurrentSecond",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 194
+        },
+        {
+          "caller": "getCurrentSecond",
+          "callee": "bitsAllocator.getMaxDeltaSeconds",
+          "lineNumber": 195
+        },
+        {
+          "caller": "getCurrentSecond",
+          "callee": "new UidGenerateException",
+          "lineNumber": 196
+        },
+        {
+          "caller": "setEpochStr",
+          "callee": "StringUtils.isNotBlank",
+          "lineNumber": 228
+        },
+        {
+          "caller": "setEpochStr",
+          "callee": "TimeUnit.MILLISECONDS.toSeconds",
+          "lineNumber": 230
+        },
+        {
+          "caller": "setEpochStr",
+          "callee": "AbstractDateUtils.parseByDayPattern(epochStr).getTime",
+          "lineNumber": 230
+        },
+        {
+          "caller": "setEpochStr",
+          "callee": "AbstractDateUtils.parseByDayPattern",
+          "lineNumber": 230
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 12,
+        "functionCount": 14,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 121,
+      "nonEmptyLines": 109,
+      "functions": [
+        {
+          "name": "parseByDayPattern",
+          "startLine": 45,
+          "endLine": 47,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "parseByDateTimePattern",
+          "startLine": 55,
+          "endLine": 57,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "parseDate",
+          "startLine": 67,
+          "endLine": 73,
+          "params": [
+            "str",
+            "pattern"
+          ]
+        },
+        {
+          "name": "formatDate",
+          "startLine": 82,
+          "endLine": 84,
+          "params": [
+            "date",
+            "pattern"
+          ]
+        },
+        {
+          "name": "formatByDayPattern",
+          "startLine": 92,
+          "endLine": 98,
+          "params": [
+            "date"
+          ]
+        },
+        {
+          "name": "formatByDateTimePattern",
+          "startLine": 106,
+          "endLine": 108,
+          "params": [
+            "date"
+          ]
+        },
+        {
+          "name": "getCurrentDayByDayPattern",
+          "startLine": 116,
+          "endLine": 119,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractDateUtils",
+          "startLine": 29,
+          "endLine": 121,
+          "methods": [
+            "parseByDayPattern",
+            "parseByDateTimePattern",
+            "parseDate",
+            "formatDate",
+            "formatByDayPattern",
+            "formatByDateTimePattern",
+            "getCurrentDayByDayPattern"
+          ],
+          "properties": [
+            "DAY_PATTERN",
+            "DATETIME_PATTERN",
+            "DATETIME_MS_PATTERN",
+            "DEFAULT_DATE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DAY_PATTERN",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "DATETIME_PATTERN",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "DATETIME_MS_PATTERN",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_DATE",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "parseByDayPattern",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "parseByDateTimePattern",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "parseDate",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "formatDate",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "formatByDayPattern",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "formatByDateTimePattern",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "getCurrentDayByDayPattern",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractDateUtils",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseByDayPattern",
+          "callee": "parseDate",
+          "lineNumber": 46
+        },
+        {
+          "caller": "parseByDateTimePattern",
+          "callee": "parseDate",
+          "lineNumber": 56
+        },
+        {
+          "caller": "parseDate",
+          "callee": "parseDate",
+          "lineNumber": 69
+        },
+        {
+          "caller": "parseDate",
+          "callee": "new RuntimeException",
+          "lineNumber": 71
+        },
+        {
+          "caller": "formatDate",
+          "callee": "DateFormatUtils.format",
+          "lineNumber": 83
+        },
+        {
+          "caller": "formatByDayPattern",
+          "callee": "DateFormatUtils.format",
+          "lineNumber": 94
+        },
+        {
+          "caller": "formatByDateTimePattern",
+          "callee": "DateFormatUtils.format",
+          "lineNumber": 107
+        },
+        {
+          "caller": "getCurrentDayByDayPattern",
+          "callee": "Calendar.getInstance",
+          "lineNumber": 117
+        },
+        {
+          "caller": "getCurrentDayByDayPattern",
+          "callee": "formatByDayPattern",
+          "lineNumber": 118
+        },
+        {
+          "caller": "getCurrentDayByDayPattern",
+          "callee": "cal.getTime",
+          "lineNumber": 118
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 12,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 165,
+      "nonEmptyLines": 143,
+      "functions": [
+        {
+          "name": "NamingThreadFactory",
+          "startLine": 57,
+          "endLine": 59,
+          "params": []
+        },
+        {
+          "name": "NamingThreadFactory",
+          "startLine": 61,
+          "endLine": 63,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "NamingThreadFactory",
+          "startLine": 65,
+          "endLine": 67,
+          "params": [
+            "name",
+            "daemon"
+          ]
+        },
+        {
+          "name": "NamingThreadFactory",
+          "startLine": 69,
+          "endLine": 74,
+          "params": [
+            "name",
+            "daemon",
+            "handler"
+          ]
+        },
+        {
+          "name": "newThread",
+          "startLine": 76,
+          "endLine": 102,
+          "params": [
+            "r"
+          ]
+        },
+        {
+          "name": "getInvoker",
+          "startLine": 110,
+          "endLine": 117,
+          "params": [
+            "depth"
+          ]
+        },
+        {
+          "name": "getSequence",
+          "startLine": 125,
+          "endLine": 136,
+          "params": [
+            "invoker"
+          ]
+        },
+        {
+          "name": "getName",
+          "startLine": 141,
+          "endLine": 143,
+          "params": []
+        },
+        {
+          "name": "setName",
+          "startLine": 145,
+          "endLine": 147,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "isDaemon",
+          "startLine": 149,
+          "endLine": 151,
+          "params": []
+        },
+        {
+          "name": "setDaemon",
+          "startLine": 153,
+          "endLine": 155,
+          "params": [
+            "daemon"
+          ]
+        },
+        {
+          "name": "getUncaughtExceptionHandler",
+          "startLine": 157,
+          "endLine": 159,
+          "params": []
+        },
+        {
+          "name": "setUncaughtExceptionHandler",
+          "startLine": 161,
+          "endLine": 163,
+          "params": [
+            "handler"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NamingThreadFactory",
+          "startLine": 34,
+          "endLine": 165,
+          "methods": [
+            "NamingThreadFactory",
+            "NamingThreadFactory",
+            "NamingThreadFactory",
+            "NamingThreadFactory",
+            "newThread",
+            "getInvoker",
+            "getSequence",
+            "getName",
+            "setName",
+            "isDaemon",
+            "setDaemon",
+            "getUncaughtExceptionHandler",
+            "setUncaughtExceptionHandler"
+          ],
+          "properties": [
+            "LOGGER",
+            "name",
+            "daemon",
+            "uncaughtExceptionHandler",
+            "sequences"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NamingThreadFactory",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "NamingThreadFactory",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "NamingThreadFactory",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "NamingThreadFactory",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "newThread",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "getName",
+          "line": 141,
+          "isDefault": false
+        },
+        {
+          "name": "setName",
+          "line": 145,
+          "isDefault": false
+        },
+        {
+          "name": "isDaemon",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "setDaemon",
+          "line": 153,
+          "isDefault": false
+        },
+        {
+          "name": "getUncaughtExceptionHandler",
+          "line": 157,
+          "isDefault": false
+        },
+        {
+          "name": "setUncaughtExceptionHandler",
+          "line": 161,
+          "isDefault": false
+        },
+        {
+          "name": "NamingThreadFactory",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NamingThreadFactory",
+          "callee": "new ConcurrentHashMap<String, AtomicLong>",
+          "lineNumber": 73
+        },
+        {
+          "caller": "newThread",
+          "callee": "new Thread",
+          "lineNumber": 78
+        },
+        {
+          "caller": "newThread",
+          "callee": "thread.setDaemon",
+          "lineNumber": 79
+        },
+        {
+          "caller": "newThread",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 84
+        },
+        {
+          "caller": "newThread",
+          "callee": "getInvoker",
+          "lineNumber": 85
+        },
+        {
+          "caller": "newThread",
+          "callee": "thread.setName",
+          "lineNumber": 87
+        },
+        {
+          "caller": "newThread",
+          "callee": "getSequence",
+          "lineNumber": 87
+        },
+        {
+          "caller": "newThread",
+          "callee": "thread.setUncaughtExceptionHandler",
+          "lineNumber": 91
+        },
+        {
+          "caller": "newThread",
+          "callee": "thread.setUncaughtExceptionHandler",
+          "lineNumber": 93
+        },
+        {
+          "caller": "newThread",
+          "callee": "new UncaughtExceptionHandler",
+          "lineNumber": 93
+        },
+        {
+          "caller": "uncaughtException",
+          "callee": "LOGGER.error",
+          "lineNumber": 96
+        },
+        {
+          "caller": "uncaughtException",
+          "callee": "t.getId",
+          "lineNumber": 96
+        },
+        {
+          "caller": "uncaughtException",
+          "callee": "t.getName",
+          "lineNumber": 96
+        },
+        {
+          "caller": "getInvoker",
+          "callee": "new Exception",
+          "lineNumber": 111
+        },
+        {
+          "caller": "getInvoker",
+          "callee": "e.getStackTrace",
+          "lineNumber": 112
+        },
+        {
+          "caller": "getInvoker",
+          "callee": "ClassUtils.getShortClassName",
+          "lineNumber": 114
+        },
+        {
+          "caller": "getInvoker",
+          "callee": "stes[depth].getClassName",
+          "lineNumber": 114
+        },
+        {
+          "caller": "getInvoker",
+          "callee": "getClass().getSimpleName",
+          "lineNumber": 116
+        },
+        {
+          "caller": "getInvoker",
+          "callee": "getClass",
+          "lineNumber": 116
+        },
+        {
+          "caller": "getSequence",
+          "callee": "this.sequences.get",
+          "lineNumber": 126
+        },
+        {
+          "caller": "getSequence",
+          "callee": "new AtomicLong",
+          "lineNumber": 128
+        },
+        {
+          "caller": "getSequence",
+          "callee": "this.sequences.putIfAbsent",
+          "lineNumber": 129
+        },
+        {
+          "caller": "getSequence",
+          "callee": "r.incrementAndGet",
+          "lineNumber": 135
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 12,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "PaddedAtomicLong",
+          "startLine": 37,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "PaddedAtomicLong",
+          "startLine": 41,
+          "endLine": 43,
+          "params": [
+            "initialValue"
+          ]
+        },
+        {
+          "name": "sumPaddingToPreventOptimization",
+          "startLine": 48,
+          "endLine": 50,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "PaddedAtomicLong",
+          "startLine": 28,
+          "endLine": 52,
+          "methods": [
+            "PaddedAtomicLong",
+            "PaddedAtomicLong",
+            "sumPaddingToPreventOptimization"
+          ],
+          "properties": [
+            "serialVersionUID",
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5",
+            "p6"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "p1",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "p2",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "p3",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "p4",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "p5",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "p6",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "PaddedAtomicLong",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "PaddedAtomicLong",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "sumPaddingToPreventOptimization",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "PaddedAtomicLong",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 29,
+      "classes": [
+        {
+          "name": "WorkerIdAssigner",
+          "startLine": 23,
+          "endLine": 33,
+          "methods": [
+            "assignWorkerId"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "WorkerIdAssigner",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 25,
+      "functions": [
+        {
+          "name": "workAndDataCenterIdHandler",
+          "startLine": 16,
+          "endLine": 19,
+          "params": [
+            "stringRedisTemplate"
+          ]
+        },
+        {
+          "name": "workDataCenterId",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "workAndDataCenterIdHandler"
+          ]
+        },
+        {
+          "name": "snowflakeIdGenerator",
+          "startLine": 26,
+          "endLine": 29,
+          "params": [
+            "workDataCenterId"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "IdGeneratorAutoConfig",
+          "startLine": 14,
+          "endLine": 30,
+          "methods": [
+            "workAndDataCenterIdHandler",
+            "workDataCenterId",
+            "snowflakeIdGenerator"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "workAndDataCenterIdHandler",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "workDataCenterId",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "snowflakeIdGenerator",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "IdGeneratorAutoConfig",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "workAndDataCenterIdHandler",
+          "callee": "new WorkAndDataCenterIdHandler",
+          "lineNumber": 18
+        },
+        {
+          "caller": "workDataCenterId",
+          "callee": "workAndDataCenterIdHandler.getWorkAndDataCenterId",
+          "lineNumber": 23
+        },
+        {
+          "caller": "snowflakeIdGenerator",
+          "callee": "new SnowflakeIdGenerator",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 199,
+      "nonEmptyLines": 169,
+      "functions": [
+        {
+          "name": "SnowflakeIdGenerator",
+          "startLine": 46,
+          "endLine": 54,
+          "params": [
+            "workDataCenterId"
+          ]
+        },
+        {
+          "name": "SnowflakeIdGenerator",
+          "startLine": 56,
+          "endLine": 61,
+          "params": [
+            "inetAddress"
+          ]
+        },
+        {
+          "name": "initLog",
+          "startLine": 63,
+          "endLine": 67,
+          "params": []
+        },
+        {
+          "name": "SnowflakeIdGenerator",
+          "startLine": 69,
+          "endLine": 77,
+          "params": [
+            "workerId",
+            "datacenterId"
+          ]
+        },
+        {
+          "name": "getMaxWorkerId",
+          "startLine": 79,
+          "endLine": 87,
+          "params": [
+            "datacenterId",
+            "maxWorkerId"
+          ]
+        },
+        {
+          "name": "getDatacenterId",
+          "startLine": 89,
+          "endLine": 109,
+          "params": [
+            "maxDatacenterId"
+          ]
+        },
+        {
+          "name": "getBase",
+          "startLine": 111,
+          "endLine": 147,
+          "params": []
+        },
+        {
+          "name": "nextId",
+          "startLine": 149,
+          "endLine": 156,
+          "params": []
+        },
+        {
+          "name": "getOrderNumber",
+          "startLine": 162,
+          "endLine": 170,
+          "params": [
+            "userId",
+            "tableCount"
+          ]
+        },
+        {
+          "name": "tilNextMillis",
+          "startLine": 172,
+          "endLine": 178,
+          "params": [
+            "lastTimestamp"
+          ]
+        },
+        {
+          "name": "timeGen",
+          "startLine": 180,
+          "endLine": 182,
+          "params": []
+        },
+        {
+          "name": "parseIdTimestamp",
+          "startLine": 184,
+          "endLine": 186,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "log2N",
+          "startLine": 188,
+          "endLine": 190,
+          "params": [
+            "count"
+          ]
+        },
+        {
+          "name": "getMaxWorkerId",
+          "startLine": 192,
+          "endLine": 194,
+          "params": []
+        },
+        {
+          "name": "getMaxDatacenterId",
+          "startLine": 196,
+          "endLine": 198,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SnowflakeIdGenerator",
+          "startLine": 19,
+          "endLine": 199,
+          "methods": [
+            "SnowflakeIdGenerator",
+            "SnowflakeIdGenerator",
+            "initLog",
+            "SnowflakeIdGenerator",
+            "getMaxWorkerId",
+            "getDatacenterId",
+            "getBase",
+            "nextId",
+            "getOrderNumber",
+            "tilNextMillis",
+            "timeGen",
+            "parseIdTimestamp",
+            "log2N",
+            "getMaxWorkerId",
+            "getMaxDatacenterId"
+          ],
+          "properties": [
+            "BASIS_TIME",
+            "workerIdBits",
+            "datacenterIdBits",
+            "maxWorkerId",
+            "maxDatacenterId",
+            "sequenceBits",
+            "workerIdShift",
+            "datacenterIdShift",
+            "timestampLeftShift",
+            "sequenceMask",
+            "workerId",
+            "datacenterId",
+            "sequence",
+            "lastTimestamp",
+            "inetAddress"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SnowflakeIdGenerator",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "SnowflakeIdGenerator",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "SnowflakeIdGenerator",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "getBase",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "nextId",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "getOrderNumber",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "parseIdTimestamp",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "log2N",
+          "line": 188,
+          "isDefault": false
+        },
+        {
+          "name": "getMaxWorkerId",
+          "line": 192,
+          "isDefault": false
+        },
+        {
+          "name": "getMaxDatacenterId",
+          "line": 196,
+          "isDefault": false
+        },
+        {
+          "name": "SnowflakeIdGenerator",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "Objects.nonNull",
+          "lineNumber": 47
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "workDataCenterId.getDataCenterId",
+          "lineNumber": 47
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "workDataCenterId.getWorkId",
+          "lineNumber": 48
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "workDataCenterId.getDataCenterId",
+          "lineNumber": 49
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "getDatacenterId",
+          "lineNumber": 51
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "getMaxWorkerId",
+          "lineNumber": 52
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "getDatacenterId",
+          "lineNumber": 58
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "getMaxWorkerId",
+          "lineNumber": 59
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "initLog",
+          "lineNumber": 60
+        },
+        {
+          "caller": "initLog",
+          "callee": "log.isDebugEnabled",
+          "lineNumber": 64
+        },
+        {
+          "caller": "initLog",
+          "callee": "log.debug",
+          "lineNumber": 65
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "Assert.isFalse",
+          "lineNumber": 70
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "String.format",
+          "lineNumber": 71
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "Assert.isFalse",
+          "lineNumber": 72
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "String.format",
+          "lineNumber": 73
+        },
+        {
+          "caller": "SnowflakeIdGenerator",
+          "callee": "initLog",
+          "lineNumber": 76
+        },
+        {
+          "caller": "getMaxWorkerId",
+          "callee": "new StringBuilder",
+          "lineNumber": 80
+        },
+        {
+          "caller": "getMaxWorkerId",
+          "callee": "mpid.append",
+          "lineNumber": 81
+        },
+        {
+          "caller": "getMaxWorkerId",
+          "callee": "ManagementFactory.getRuntimeMXBean().getName",
+          "lineNumber": 82
+        },
+        {
+          "caller": "getMaxWorkerId",
+          "callee": "ManagementFactory.getRuntimeMXBean",
+          "lineNumber": 82
+        },
+        {
+          "caller": "getMaxWorkerId",
+          "callee": "StringUtils.isNotBlank",
+          "lineNumber": 83
+        },
+        {
+          "caller": "getMaxWorkerId",
+          "callee": "mpid.append",
+          "lineNumber": 84
+        },
+        {
+          "caller": "getMaxWorkerId",
+          "callee": "name.split",
+          "lineNumber": 84
+        },
+        {
+          "caller": "getMaxWorkerId",
+          "callee": "mpid.toString().hashCode",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getMaxWorkerId",
+          "callee": "mpid.toString",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getDatacenterId",
+          "callee": "InetAddress.getLocalHost",
+          "lineNumber": 93
+        },
+        {
+          "caller": "getDatacenterId",
+          "callee": "NetworkInterface.getByInetAddress",
+          "lineNumber": 95
+        },
+        {
+          "caller": "getDatacenterId",
+          "callee": "network.getHardwareAddress",
+          "lineNumber": 99
+        },
+        {
+          "caller": "getDatacenterId",
+          "callee": "log.warn",
+          "lineNumber": 106
+        },
+        {
+          "caller": "getDatacenterId",
+          "callee": "e.getMessage",
+          "lineNumber": 106
+        },
+        {
+          "caller": "getBase",
+          "callee": "timeGen",
+          "lineNumber": 113
+        },
+        {
+          "caller": "getBase",
+          "callee": "wait",
+          "lineNumber": 119
+        },
+        {
+          "caller": "getBase",
+          "callee": "timeGen",
+          "lineNumber": 120
+        },
+        {
+          "caller": "getBase",
+          "callee": "new RuntimeException",
+          "lineNumber": 122
+        },
+        {
+          "caller": "getBase",
+          "callee": "String.format",
+          "lineNumber": 122
+        },
+        {
+          "caller": "getBase",
+          "callee": "new RuntimeException",
+          "lineNumber": 125
+        },
+        {
+          "caller": "getBase",
+          "callee": "new RuntimeException",
+          "lineNumber": 128
+        },
+        {
+          "caller": "getBase",
+          "callee": "String.format",
+          "lineNumber": 128
+        },
+        {
+          "caller": "getBase",
+          "callee": "tilNextMillis",
+          "lineNumber": 137
+        },
+        {
+          "caller": "getBase",
+          "callee": "ThreadLocalRandom.current().nextLong",
+          "lineNumber": 141
+        },
+        {
+          "caller": "getBase",
+          "callee": "ThreadLocalRandom.current",
+          "lineNumber": 141
+        },
+        {
+          "caller": "nextId",
+          "callee": "getBase",
+          "lineNumber": 150
+        },
+        {
+          "caller": "getOrderNumber",
+          "callee": "getBase",
+          "lineNumber": 163
+        },
+        {
+          "caller": "getOrderNumber",
+          "callee": "log2N",
+          "lineNumber": 164
+        },
+        {
+          "caller": "tilNextMillis",
+          "callee": "timeGen",
+          "lineNumber": 173
+        },
+        {
+          "caller": "tilNextMillis",
+          "callee": "timeGen",
+          "lineNumber": 175
+        },
+        {
+          "caller": "timeGen",
+          "callee": "SystemClock.now",
+          "lineNumber": 181
+        },
+        {
+          "caller": "log2N",
+          "callee": "Math.log",
+          "lineNumber": 189
+        },
+        {
+          "caller": "log2N",
+          "callee": "Math.log",
+          "lineNumber": 189
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 11,
+        "functionCount": 15,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "WorkAndDataCenterIdHandler",
+          "startLine": 32,
+          "endLine": 41,
+          "params": [
+            "stringRedisTemplate"
+          ]
+        },
+        {
+          "name": "getWorkAndDataCenterId",
+          "startLine": 43,
+          "endLine": 55,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "WorkAndDataCenterIdHandler",
+          "startLine": 18,
+          "endLine": 56,
+          "methods": [
+            "WorkAndDataCenterIdHandler",
+            "getWorkAndDataCenterId"
+          ],
+          "properties": [
+            "SNOWFLAKE_WORK_ID_KEY",
+            "SNOWFLAKE_DATA_CENTER_ID_key",
+            "keys",
+            "stringRedisTemplate",
+            "redisScript"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "keys",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "WorkAndDataCenterIdHandler",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "getWorkAndDataCenterId",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "WorkAndDataCenterIdHandler",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "WorkAndDataCenterIdHandler",
+          "callee": "new DefaultRedisScript<>",
+          "lineNumber": 35
+        },
+        {
+          "caller": "WorkAndDataCenterIdHandler",
+          "callee": "redisScript.setScriptSource",
+          "lineNumber": 36
+        },
+        {
+          "caller": "WorkAndDataCenterIdHandler",
+          "callee": "new ResourceScriptSource",
+          "lineNumber": 36
+        },
+        {
+          "caller": "WorkAndDataCenterIdHandler",
+          "callee": "new ClassPathResource",
+          "lineNumber": 36
+        },
+        {
+          "caller": "WorkAndDataCenterIdHandler",
+          "callee": "redisScript.setResultType",
+          "lineNumber": 37
+        },
+        {
+          "caller": "WorkAndDataCenterIdHandler",
+          "callee": "log.error",
+          "lineNumber": 39
+        },
+        {
+          "caller": "getWorkAndDataCenterId",
+          "callee": "new WorkDataCenterId",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getWorkAndDataCenterId",
+          "callee": "String.valueOf",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getWorkAndDataCenterId",
+          "callee": "String.valueOf",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getWorkAndDataCenterId",
+          "callee": "stringRedisTemplate.execute",
+          "lineNumber": 49
+        },
+        {
+          "caller": "getWorkAndDataCenterId",
+          "callee": "JSON.parseObject",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getWorkAndDataCenterId",
+          "callee": "log.error",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 12,
+      "classes": [
+        {
+          "name": "WorkDataCenterId",
+          "startLine": 10,
+          "endLine": 16,
+          "methods": [],
+          "properties": [
+            "workId",
+            "dataCenterId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WorkDataCenterId",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "delayQueueInitHandler",
+          "startLine": 19,
+          "endLine": 22,
+          "params": [
+            "delayQueueBasePart"
+          ]
+        },
+        {
+          "name": "delayQueueBasePart",
+          "startLine": 24,
+          "endLine": 27,
+          "params": [
+            "redissonClient",
+            "delayQueueProperties"
+          ]
+        },
+        {
+          "name": "delayQueueContext",
+          "startLine": 29,
+          "endLine": 32,
+          "params": [
+            "delayQueueBasePart"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DelayQueueAutoConfig",
+          "startLine": 16,
+          "endLine": 33,
+          "methods": [
+            "delayQueueInitHandler",
+            "delayQueueBasePart",
+            "delayQueueContext"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "delayQueueInitHandler",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "delayQueueBasePart",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "delayQueueContext",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "DelayQueueAutoConfig",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "delayQueueInitHandler",
+          "callee": "new DelayQueueInitHandler",
+          "lineNumber": 21
+        },
+        {
+          "caller": "delayQueueBasePart",
+          "callee": "new DelayQueueBasePart",
+          "lineNumber": 26
+        },
+        {
+          "caller": "delayQueueContext",
+          "callee": "new DelayQueueContext",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 39,
+      "classes": [
+        {
+          "name": "DelayQueueProperties",
+          "startLine": 15,
+          "endLine": 47,
+          "methods": [],
+          "properties": [
+            "PREFIX",
+            "corePoolSize",
+            "maximumPoolSize",
+            "keepAliveTime",
+            "unit",
+            "workQueueSize",
+            "isolationRegionCount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PREFIX",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "DelayQueueProperties",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 16,
+      "classes": [
+        {
+          "name": "DelayQueueBasePart",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "redissonClient",
+            "delayQueueProperties"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DelayQueueBasePart",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 17,
+      "functions": [
+        {
+          "name": "DelayQueuePart",
+          "startLine": 18,
+          "endLine": 21,
+          "params": [
+            "delayQueueBasePart",
+            "consumerTask"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DelayQueuePart",
+          "startLine": 11,
+          "endLine": 22,
+          "methods": [
+            "DelayQueuePart"
+          ],
+          "properties": [
+            "delayQueueBasePart",
+            "consumerTask"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DelayQueuePart",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "DelayQueuePart",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 18,
+      "classes": [
+        {
+          "name": "ConsumerTask",
+          "startLine": 8,
+          "endLine": 20,
+          "methods": [
+            "execute",
+            "topic"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ConsumerTask",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 72,
+      "functions": [
+        {
+          "name": "DelayConsumerQueue",
+          "startLine": 34,
+          "endLine": 48,
+          "params": [
+            "delayQueuePart",
+            "relTopic"
+          ]
+        },
+        {
+          "name": "listenStart",
+          "startLine": 50,
+          "endLine": 73,
+          "params": []
+        },
+        {
+          "name": "destroy",
+          "startLine": 75,
+          "endLine": 83,
+          "params": [
+            "executorService"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DelayConsumerQueue",
+          "startLine": 19,
+          "endLine": 84,
+          "methods": [
+            "DelayConsumerQueue",
+            "listenStart",
+            "destroy"
+          ],
+          "properties": [
+            "listenStartThreadCount",
+            "executeTaskThreadCount",
+            "listenStartThreadPool",
+            "executeTaskThreadPool",
+            "runFlag",
+            "consumerTask"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DelayConsumerQueue",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "listenStart",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "destroy",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "DelayConsumerQueue",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getRedissonClient",
+          "lineNumber": 35
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart",
+          "lineNumber": 35
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "new ThreadPoolExecutor",
+          "lineNumber": 36
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "new LinkedBlockingQueue<>",
+          "lineNumber": 37
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "new Thread",
+          "lineNumber": 37
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "Thread.currentThread().getThreadGroup",
+          "lineNumber": 37
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "Thread.currentThread",
+          "lineNumber": 37
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "listenStartThreadCount.getAndIncrement",
+          "lineNumber": 38
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "new ThreadPoolExecutor",
+          "lineNumber": 39
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getDelayQueueProperties().getCorePoolSize",
+          "lineNumber": 40
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getDelayQueueProperties",
+          "lineNumber": 40
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart",
+          "lineNumber": 40
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getDelayQueueProperties().getMaximumPoolSize",
+          "lineNumber": 41
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getDelayQueueProperties",
+          "lineNumber": 41
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart",
+          "lineNumber": 41
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getDelayQueueProperties().getKeepAliveTime",
+          "lineNumber": 42
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getDelayQueueProperties",
+          "lineNumber": 42
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart",
+          "lineNumber": 42
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getDelayQueueProperties().getUnit",
+          "lineNumber": 43
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getDelayQueueProperties",
+          "lineNumber": 43
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart",
+          "lineNumber": 43
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "new LinkedBlockingQueue<>",
+          "lineNumber": 44
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getDelayQueueProperties().getWorkQueueSize",
+          "lineNumber": 44
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getDelayQueueProperties",
+          "lineNumber": 44
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getDelayQueueBasePart",
+          "lineNumber": 44
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "new Thread",
+          "lineNumber": 45
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "Thread.currentThread().getThreadGroup",
+          "lineNumber": 45
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "Thread.currentThread",
+          "lineNumber": 45
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "executeTaskThreadCount.getAndIncrement",
+          "lineNumber": 46
+        },
+        {
+          "caller": "DelayConsumerQueue",
+          "callee": "delayQueuePart.getConsumerTask",
+          "lineNumber": 47
+        },
+        {
+          "caller": "listenStart",
+          "callee": "runFlag.get",
+          "lineNumber": 51
+        },
+        {
+          "caller": "listenStart",
+          "callee": "runFlag.set",
+          "lineNumber": 52
+        },
+        {
+          "caller": "listenStart",
+          "callee": "listenStartThreadPool.execute",
+          "lineNumber": 53
+        },
+        {
+          "caller": "listenStart",
+          "callee": "Thread.interrupted",
+          "lineNumber": 54
+        },
+        {
+          "caller": "listenStart",
+          "callee": "blockingQueue.take",
+          "lineNumber": 57
+        },
+        {
+          "caller": "listenStart",
+          "callee": "executeTaskThreadPool.execute",
+          "lineNumber": 58
+        },
+        {
+          "caller": "listenStart",
+          "callee": "consumerTask.execute",
+          "lineNumber": 60
+        },
+        {
+          "caller": "listenStart",
+          "callee": "log.error",
+          "lineNumber": 62
+        },
+        {
+          "caller": "listenStart",
+          "callee": "destroy",
+          "lineNumber": 66
+        },
+        {
+          "caller": "listenStart",
+          "callee": "log.error",
+          "lineNumber": 68
+        },
+        {
+          "caller": "destroy",
+          "callee": "Objects.nonNull",
+          "lineNumber": 77
+        },
+        {
+          "caller": "destroy",
+          "callee": "executorService.shutdown",
+          "lineNumber": 78
+        },
+        {
+          "caller": "destroy",
+          "callee": "log.error",
+          "lineNumber": 81
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "onApplicationEvent",
+          "startLine": 24,
+          "endLine": 42,
+          "params": [
+            "event"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DelayQueueInitHandler",
+          "startLine": 19,
+          "endLine": 43,
+          "methods": [
+            "onApplicationEvent"
+          ],
+          "properties": [
+            "delayQueueBasePart"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "onApplicationEvent",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "DelayQueueInitHandler",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "onApplicationEvent",
+          "callee": "event.getApplicationContext().getBeansOfType",
+          "lineNumber": 27
+        },
+        {
+          "caller": "onApplicationEvent",
+          "callee": "event.getApplicationContext",
+          "lineNumber": 27
+        },
+        {
+          "caller": "onApplicationEvent",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 28
+        },
+        {
+          "caller": "onApplicationEvent",
+          "callee": "consumerTaskMap.values",
+          "lineNumber": 31
+        },
+        {
+          "caller": "onApplicationEvent",
+          "callee": "new DelayQueuePart",
+          "lineNumber": 32
+        },
+        {
+          "caller": "onApplicationEvent",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getDelayQueueProperties().getIsolationRegionCount",
+          "lineNumber": 33
+        },
+        {
+          "caller": "onApplicationEvent",
+          "callee": "delayQueuePart.getDelayQueueBasePart().getDelayQueueProperties",
+          "lineNumber": 33
+        },
+        {
+          "caller": "onApplicationEvent",
+          "callee": "delayQueuePart.getDelayQueueBasePart",
+          "lineNumber": 33
+        },
+        {
+          "caller": "onApplicationEvent",
+          "callee": "new DelayConsumerQueue",
+          "lineNumber": 37
+        },
+        {
+          "caller": "onApplicationEvent",
+          "callee": "delayQueuePart.getConsumerTask().topic",
+          "lineNumber": 38
+        },
+        {
+          "caller": "onApplicationEvent",
+          "callee": "delayQueuePart.getConsumerTask",
+          "lineNumber": 38
+        },
+        {
+          "caller": "onApplicationEvent",
+          "callee": "delayConsumerQueue.listenStart",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 16,
+      "classes": [
+        {
+          "name": "TestDto",
+          "startLine": 13,
+          "endLine": 19,
+          "methods": [],
+          "properties": [
+            "id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TestDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 18,
+      "classes": [
+        {
+          "name": "TestSendDto",
+          "startLine": 13,
+          "endLine": 23,
+          "methods": [],
+          "properties": [
+            "count",
+            "message",
+            "time"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TestSendDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "testData",
+          "startLine": 27,
+          "endLine": 32,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "testData2",
+          "startLine": 34,
+          "endLine": 39,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "testData3",
+          "startLine": 41,
+          "endLine": 46,
+          "params": [
+            "request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestController",
+          "startLine": 18,
+          "endLine": 47,
+          "methods": [
+            "testData",
+            "testData2",
+            "testData3"
+          ],
+          "properties": [
+            "testService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "testData",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "testData2",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "testData3",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "TestController",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "testData",
+          "callee": "testService.testData",
+          "lineNumber": 30
+        },
+        {
+          "caller": "testData",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 31
+        },
+        {
+          "caller": "testData2",
+          "callee": "testService.testData2",
+          "lineNumber": 37
+        },
+        {
+          "caller": "testData2",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 38
+        },
+        {
+          "caller": "testData3",
+          "callee": "testService.testData3",
+          "lineNumber": 44
+        },
+        {
+          "caller": "testData3",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 97,
+      "nonEmptyLines": 83,
+      "functions": [
+        {
+          "name": "testData",
+          "startLine": 47,
+          "endLine": 55,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "testData2",
+          "startLine": 57,
+          "endLine": 65,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "testData3",
+          "startLine": 67,
+          "endLine": 75,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "testData4",
+          "startLine": 77,
+          "endLine": 85,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "testData5",
+          "startLine": 87,
+          "endLine": 96,
+          "params": [
+            "request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestService",
+          "startLine": 20,
+          "endLine": 97,
+          "methods": [
+            "testData",
+            "testData2",
+            "testData3",
+            "testData4",
+            "testData5"
+          ],
+          "properties": [
+            "executor",
+            "tl",
+            "itl",
+            "ttl",
+            "ttl2"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "testData",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "testData2",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "testData3",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "testData4",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "testData5",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "TestService",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "beforeExecute",
+          "callee": "get",
+          "lineNumber": 35
+        },
+        {
+          "caller": "beforeExecute",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 36
+        },
+        {
+          "caller": "beforeExecute",
+          "callee": "MDC.put",
+          "lineNumber": 37
+        },
+        {
+          "caller": "afterExecute",
+          "callee": "MDC.clear",
+          "lineNumber": 43
+        },
+        {
+          "caller": "testData",
+          "callee": "request.getHeader",
+          "lineNumber": 48
+        },
+        {
+          "caller": "testData",
+          "callee": "System.out.print",
+          "lineNumber": 49
+        },
+        {
+          "caller": "testData",
+          "callee": "tl.set",
+          "lineNumber": 50
+        },
+        {
+          "caller": "testData",
+          "callee": "new Thread(() -> {\r\n            String traceId2 = tl.get();\r\n            System.out.println(\"子线程traceId:\"+traceId2);\r\n        }).start",
+          "lineNumber": 51
+        },
+        {
+          "caller": "testData",
+          "callee": "new Thread",
+          "lineNumber": 51
+        },
+        {
+          "caller": "testData",
+          "callee": "tl.get",
+          "lineNumber": 52
+        },
+        {
+          "caller": "testData",
+          "callee": "System.out.println",
+          "lineNumber": 53
+        },
+        {
+          "caller": "testData2",
+          "callee": "request.getHeader",
+          "lineNumber": 58
+        },
+        {
+          "caller": "testData2",
+          "callee": "System.out.print",
+          "lineNumber": 59
+        },
+        {
+          "caller": "testData2",
+          "callee": "itl.set",
+          "lineNumber": 60
+        },
+        {
+          "caller": "testData2",
+          "callee": "new Thread(() -> {\r\n            String traceId2 = itl.get();\r\n            System.out.println(\"子线程traceId:\"+traceId2);\r\n        }).start",
+          "lineNumber": 61
+        },
+        {
+          "caller": "testData2",
+          "callee": "new Thread",
+          "lineNumber": 61
+        },
+        {
+          "caller": "testData2",
+          "callee": "itl.get",
+          "lineNumber": 62
+        },
+        {
+          "caller": "testData2",
+          "callee": "System.out.println",
+          "lineNumber": 63
+        },
+        {
+          "caller": "testData3",
+          "callee": "request.getHeader",
+          "lineNumber": 68
+        },
+        {
+          "caller": "testData3",
+          "callee": "System.out.print",
+          "lineNumber": 69
+        },
+        {
+          "caller": "testData3",
+          "callee": "itl.set",
+          "lineNumber": 70
+        },
+        {
+          "caller": "testData3",
+          "callee": "executor.execute",
+          "lineNumber": 71
+        },
+        {
+          "caller": "testData3",
+          "callee": "itl.get",
+          "lineNumber": 72
+        },
+        {
+          "caller": "testData3",
+          "callee": "System.out.println",
+          "lineNumber": 73
+        },
+        {
+          "caller": "testData4",
+          "callee": "request.getHeader",
+          "lineNumber": 78
+        },
+        {
+          "caller": "testData4",
+          "callee": "System.out.print",
+          "lineNumber": 79
+        },
+        {
+          "caller": "testData4",
+          "callee": "ttl.set",
+          "lineNumber": 80
+        },
+        {
+          "caller": "testData4",
+          "callee": "executor.execute",
+          "lineNumber": 81
+        },
+        {
+          "caller": "testData4",
+          "callee": "TtlRunnable.get",
+          "lineNumber": 81
+        },
+        {
+          "caller": "testData4",
+          "callee": "ttl.get",
+          "lineNumber": 82
+        },
+        {
+          "caller": "testData4",
+          "callee": "System.out.println",
+          "lineNumber": 83
+        },
+        {
+          "caller": "testData5",
+          "callee": "request.getHeader",
+          "lineNumber": 88
+        },
+        {
+          "caller": "testData5",
+          "callee": "System.out.print",
+          "lineNumber": 89
+        },
+        {
+          "caller": "testData5",
+          "callee": "ttl2.set",
+          "lineNumber": 90
+        },
+        {
+          "caller": "testData5",
+          "callee": "executor.execute",
+          "lineNumber": 91
+        },
+        {
+          "caller": "testData5",
+          "callee": "TtlRunnable.get",
+          "lineNumber": 91
+        },
+        {
+          "caller": "testData5",
+          "callee": "MDC.get",
+          "lineNumber": 92
+        },
+        {
+          "caller": "testData5",
+          "callee": "System.out.println",
+          "lineNumber": 93
+        },
+        {
+          "caller": "testData5",
+          "callee": "log.info",
+          "lineNumber": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "execute",
+          "startLine": 19,
+          "endLine": 23,
+          "params": [
+            "content"
+          ]
+        },
+        {
+          "name": "topic",
+          "startLine": 25,
+          "endLine": 28,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Test",
+          "startLine": 14,
+          "endLine": 29,
+          "methods": [
+            "execute",
+            "topic"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "execute",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "topic",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "Test",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "execute",
+          "callee": "JSON.parseObject",
+          "lineNumber": 21
+        },
+        {
+          "caller": "execute",
+          "callee": "log.info",
+          "lineNumber": 22
+        },
+        {
+          "caller": "execute",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 22
+        },
+        {
+          "caller": "execute",
+          "callee": "testSendDto.getTime",
+          "lineNumber": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "reset",
+          "startLine": 27,
+          "endLine": 31,
+          "params": [
+            "testSendDto"
+          ]
+        },
+        {
+          "name": "test",
+          "startLine": 33,
+          "endLine": 36,
+          "params": [
+            "testDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestController",
+          "startLine": 20,
+          "endLine": 37,
+          "methods": [
+            "reset",
+            "test"
+          ],
+          "properties": [
+            "testService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "reset",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "test",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "TestController",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "reset",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 30
+        },
+        {
+          "caller": "reset",
+          "callee": "testService.reset",
+          "lineNumber": 30
+        },
+        {
+          "caller": "test",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 20,
+      "functions": [
+        {
+          "name": "reset",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "testSendDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestService",
+          "startLine": 15,
+          "endLine": 25,
+          "methods": [
+            "reset"
+          ],
+          "properties": [
+            "count"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "reset",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "TestService",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "reset",
+          "callee": "count.set",
+          "lineNumber": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

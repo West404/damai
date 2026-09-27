@@ -1,0 +1,185 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [
+    "damai-server/damai-program-service/src/main/resources/log4j2.xml"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 4
+    }
+  },
+  "results": [
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/application.yml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 142,
+      "nonEmptyLines": 141,
+      "sections": [
+        {
+          "heading": "server",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "spring",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "bloom-filter",
+          "level": 1,
+          "line": 57
+        },
+        {
+          "heading": "mybatis-plus",
+          "level": 1,
+          "line": 61
+        },
+        {
+          "heading": "feign",
+          "level": 1,
+          "line": 71
+        },
+        {
+          "heading": "management",
+          "level": 1,
+          "line": 87
+        },
+        {
+          "heading": "jasypt",
+          "level": 1,
+          "line": 105
+        },
+        {
+          "heading": "elasticsearch",
+          "level": 1,
+          "line": 109
+        },
+        {
+          "heading": "delay",
+          "level": 1,
+          "line": 113
+        },
+        {
+          "heading": "springdoc",
+          "level": 1,
+          "line": 118
+        },
+        {
+          "heading": "knife4j",
+          "level": 1,
+          "line": 131
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 11
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/shardingsphere-program-docker.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 117,
+      "nonEmptyLines": 115,
+      "sections": [
+        {
+          "heading": "dataSources",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "rules",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "props",
+          "level": 1,
+          "line": 116
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/shardingsphere-program-local.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 117,
+      "nonEmptyLines": 115,
+      "sections": [
+        {
+          "heading": "dataSources",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "rules",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "props",
+          "level": 1,
+          "line": 116
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/shardingsphere-program-pro.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 117,
+      "nonEmptyLines": 115,
+      "sections": [
+        {
+          "heading": "dataSources",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "rules",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "props",
+          "level": 1,
+          "line": 116
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    }
+  ]
+}

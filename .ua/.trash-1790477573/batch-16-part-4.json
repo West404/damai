@@ -1,0 +1,464 @@
+{
+ "nodes": [
+  {
+   "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/CheckNeedCaptchaDataVo.java",
+   "type": "file",
+   "name": "CheckNeedCaptchaDataVo.java",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/CheckNeedCaptchaDataVo.java",
+   "summary": "是否需要验证码的响应对象，携带 captchaId 与 verifyCaptcha 标志，供注册等接口透传。",
+   "tags": [
+    "data-model",
+    "vo",
+    "验证码",
+    "dto"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "type": "file",
+   "name": "UserCaptchaController.java",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "summary": "用户服务的验证码 REST 接口层，提供 /user/captcha/check/need、/get、/verify 三个 POST 接口。",
+   "tags": [
+    "api-handler",
+    "controller",
+    "entry-point",
+    "验证码"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "type": "file",
+   "name": "UserCaptchaService.java",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "summary": "通过 Redis 键与 Lua 脚本判断当前请求是否需要验证码，并代理验证码的获取与校验，输出 captchaId 供注册流程使用。",
+   "tags": [
+    "service",
+    "验证码",
+    "redis",
+    "lua",
+    "限流"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/vo/CheckNeedCaptchaDataVo.java:CheckNeedCaptchaDataVo",
+   "type": "class",
+   "name": "CheckNeedCaptchaDataVo",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/CheckNeedCaptchaDataVo.java",
+   "lineRange": [
+    11,
+    20
+   ],
+   "summary": "Lombok @Data VO，携带是否需要验证码的标志与验证码唯一标识。",
+   "tags": [
+    "data-model",
+    "vo",
+    "验证码",
+    "dto"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java:UserCaptchaController",
+   "type": "class",
+   "name": "UserCaptchaController",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "lineRange": [
+    21,
+    46
+   ],
+   "summary": "用户服务的验证码接口层，暴露检查、获取与校验三个 POST 接口。",
+   "tags": [
+    "api-handler",
+    "controller",
+    "验证码"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java:checkNeedCaptcha",
+   "type": "function",
+   "name": "checkNeedCaptcha",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "lineRange": [
+    29,
+    33
+   ],
+   "summary": "POST /user/captcha/check/need：返回是否需要验证码及 captchaId。",
+   "tags": [
+    "api-handler",
+    "验证码",
+    "http"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java:getCaptcha",
+   "type": "function",
+   "name": "getCaptcha",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "lineRange": [
+    35,
+    39
+   ],
+   "summary": "POST /user/captcha/get：获取验证码图片数据。",
+   "tags": [
+    "api-handler",
+    "验证码",
+    "http"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java:verifyCaptcha",
+   "type": "function",
+   "name": "verifyCaptcha",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "lineRange": [
+    41,
+    45
+   ],
+   "summary": "POST /user/captcha/verify：校验验证码结果。",
+   "tags": [
+    "api-handler",
+    "验证码",
+    "http"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:UserCaptchaService",
+   "type": "class",
+   "name": "UserCaptchaService",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "lineRange": [
+    22,
+    69
+   ],
+   "summary": "验证码领域服务，借助 Redis 计数与 Lua 脚本判定是否需要验证码，并代理获取与校验。",
+   "tags": [
+    "service",
+    "验证码",
+    "redis",
+    "lua"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:checkNeedCaptcha",
+   "type": "function",
+   "name": "checkNeedCaptcha",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "lineRange": [
+    43,
+    60
+   ],
+   "summary": "生成 Uid 与 Redis 计数键后调用 Lua 脚本判定是否需要验证码，返回 captchaId 与标志。",
+   "tags": [
+    "验证码",
+    "redis",
+    "lua",
+    "限流"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:getCaptcha",
+   "type": "function",
+   "name": "getCaptcha",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "lineRange": [
+    62,
+    64
+   ],
+   "summary": "委派 CaptchaHandle 获取验证码。",
+   "tags": [
+    "验证码",
+    "delegation",
+    "service"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:verifyCaptcha",
+   "type": "function",
+   "name": "verifyCaptcha",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "lineRange": [
+    66,
+    68
+   ],
+   "summary": "委派 CaptchaHandle 校验验证码。",
+   "tags": [
+    "验证码",
+    "delegation",
+    "service"
+   ],
+   "complexity": "simple"
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/CheckNeedCaptchaDataVo.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/vo/CheckNeedCaptchaDataVo.java:CheckNeedCaptchaDataVo",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/CheckNeedCaptchaDataVo.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/vo/CheckNeedCaptchaDataVo.java:CheckNeedCaptchaDataVo",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java:UserCaptchaController",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java:UserCaptchaController",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java:checkNeedCaptcha",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java:checkNeedCaptcha",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java:getCaptcha",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java:getCaptcha",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java:verifyCaptcha",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java:verifyCaptcha",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:UserCaptchaService",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:UserCaptchaService",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:checkNeedCaptcha",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:checkNeedCaptcha",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:getCaptcha",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:getCaptcha",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:verifyCaptcha",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:verifyCaptcha",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/CheckNeedCaptchaDataVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/CheckNeedCaptchaDataVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:checkNeedCaptcha",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:getCaptcha",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java:verifyCaptcha",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:getCaptcha",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:checkCaptcha",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java:checkNeedCaptchaOperate",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+   "target": "function:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java:createRedisKey",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  }
+ ]
+}

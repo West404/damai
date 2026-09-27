@@ -1,0 +1,332 @@
+{
+  "projectRoot": "E:/WorkSpace/damai",
+  "batchFiles": [
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "language": "java",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "language": "java",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/lock/LockTask.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "language": "java",
+      "sizeLines": 428,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "language": "java",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderMqDomain.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "language": "java",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "language": "java",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "language": "java",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "language": "java",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "language": "java",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/FailureCallback.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/SuccessCallback.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "language": "java",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java": [],
+    "damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java": [],
+    "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java": [],
+    "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java": [],
+    "damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java": [],
+    "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java": [],
+    "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java": [],
+    "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java": [],
+    "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/lock/LockTask.java": [],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+      "damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java",
+      "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramShowTime.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderMqDomain.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java": [
+      "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java": [
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderMqDomain.java": [
+      "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java": [
+      "damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/FailureCallback.java",
+      "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/SuccessCallback.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java": [
+      "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java": [
+      "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java": [
+      "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/lock/LockTask.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java": [
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java": [
+      "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java": [
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java": [
+      "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java": [
+      "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java": [
+      "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java"
+    ],
+    "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/FailureCallback.java": [],
+    "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/SuccessCallback.java": [],
+    "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java": [],
+    "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java": [
+      "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java"
+    ],
+    "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java": [
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java"
+    ],
+    "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java": [
+      "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java",
+      "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java"
+    ]
+  }
+}

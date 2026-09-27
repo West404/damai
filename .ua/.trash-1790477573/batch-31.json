@@ -1,0 +1,66 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-customize-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-customize-service/src/main/resources/application.yml",
+      "summary": "customize-service（定制服务）的主配置，定义 6084 服务端口、应用名、Redis/Nacos/Kafka 连接、MyBatis-Plus 逻辑删除与 mapper 路径、Feign+Sentinel+OkHttp 调用策略、Actuator/Prometheus 监控、Jasypt 加密以及 springdoc/knife4j 接口文档。",
+      "tags": ["配置", "spring-boot", "configuration", "微服务", "nacos"],
+      "complexity": "moderate",
+      "languageNotes": "通过 spring.profiles.active=local 激活环境覆盖配置，应用名使用 ${prefix.distinction.name:damai}-customize-service 占位符以支持多环境前缀区分。"
+    },
+    {
+      "id": "config:damai-server/damai-customize-service/src/main/resources/application-local.yml",
+      "type": "config",
+      "name": "application-local.yml",
+      "filePath": "damai-server/damai-customize-service/src/main/resources/application-local.yml",
+      "summary": "customize-service 的 local 本地环境数据源覆盖配置，使用 HikariCP 连接本机 MySQL 的 damai_customize 库，并开启批量重写与多语句查询参数。",
+      "tags": ["配置", "数据源", "configuration", "本地环境", "hikari"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-customize-service/src/main/resources/application-pro.yml",
+      "type": "config",
+      "name": "application-pro.yml",
+      "filePath": "damai-server/damai-customize-service/src/main/resources/application-pro.yml",
+      "summary": "customize-service 的 pro 生产环境数据源覆盖配置，指向 cookframe.com 上的 damai_customize 库，HikariCP 连接池参数与本地环境保持一致。",
+      "tags": ["配置", "数据源", "configuration", "生产环境", "hikari"],
+      "complexity": "simple",
+      "languageNotes": "明文保存数据库账号密码，属于凭据硬编码风险点。"
+    },
+    {
+      "id": "config:damai-server/damai-customize-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-customize-service/src/main/resources/log4j2.xml",
+      "summary": "customize-service 的 Log4j2 日志配置，定义 Console、按天/100MB 滚动的普通日志与 error 日志三个 Appender，日志格式中携带 traceId，并预留 Logstash Socket Appender 用于 ELK 采集。",
+      "tags": ["配置", "日志", "logging", "log4j2", "elk"],
+      "complexity": "moderate",
+      "languageNotes": "monitorInterval=600 支持运行时热加载；filePattern 中使用 $${date:...} 转义以生成按月分目录的 gz 归档。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:damai-server/damai-customize-service/src/main/resources/application-local.yml",
+      "target": "config:damai-server/damai-customize-service/src/main/resources/application.yml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-customize-service/src/main/resources/application-pro.yml",
+      "target": "config:damai-server/damai-customize-service/src/main/resources/application.yml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-customize-service/src/main/resources/log4j2.xml",
+      "target": "config:damai-server/damai-customize-service/src/main/resources/application.yml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

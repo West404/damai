@@ -1,0 +1,743 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleUpdateDto.java",
+      "type": "file",
+      "name": "RuleUpdateDto.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleUpdateDto.java",
+      "summary": "普通规则修改入参 DTO，在新增字段基础上增加规则 id，用于 /rule/update 接口覆盖式更新普通规则。",
+      "tags": ["dto", "更新", "数据模型", "入参"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleUpdateDto.java:RuleUpdateDto",
+      "type": "class",
+      "name": "RuleUpdateDto",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleUpdateDto.java",
+      "lineRange": [13, 42],
+      "summary": "普通规则修改参数类，包含 id 与全部可编辑的限流规则字段。",
+      "tags": ["dto", "更新", "数据模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/AllDepthRuleVo.java",
+      "type": "file",
+      "name": "AllDepthRuleVo.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/AllDepthRuleVo.java",
+      "summary": "聚合返回 VO，把普通规则 VO 与深度规则 VO 列表组合在一起，供 /allRule/get 一次性返回当前全部生效规则。",
+      "tags": ["vo", "聚合", "数据模型", "出参"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/AllDepthRuleVo.java:AllDepthRuleVo",
+      "type": "class",
+      "name": "AllDepthRuleVo",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/AllDepthRuleVo.java",
+      "lineRange": [13, 22],
+      "summary": "普通规则与深度规则列表的聚合响应对象。",
+      "tags": ["vo", "聚合", "数据模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "type": "file",
+      "name": "DepthRuleVo.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "summary": "深度规则返回 VO，暴露时间窗口、统计维度、阈值、状态与创建时间，是自定义服务对外输出的深度限流规则结构。",
+      "tags": ["vo", "规则", "数据模型", "出参"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java:DepthRuleVo",
+      "type": "class",
+      "name": "DepthRuleVo",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "lineRange": [16, 57],
+      "summary": "深度规则响应类，包含 id、时间窗口、统计与生效限制参数、limitApi、status、createTime。",
+      "tags": ["vo", "规则", "数据模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java",
+      "type": "file",
+      "name": "RuleVo.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java",
+      "summary": "普通规则返回 VO，携带统计时间、阈值、生效限制、限流 API、状态与格式化后的创建时间。",
+      "tags": ["vo", "规则", "数据模型", "出参"],
+      "complexity": "simple",
+      "languageNotes": "createTime 同时使用 Spring @DateTimeFormat 与 Jackson @JsonFormat 固定为 yyyy-MM-dd HH:mm:ss 格式。"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java:RuleVo",
+      "type": "class",
+      "name": "RuleVo",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java",
+      "lineRange": [16, 50],
+      "summary": "普通规则响应类，包含 id、统计与阈值参数、limitApi、status 及创建时间。",
+      "tags": ["vo", "规则", "数据模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "type": "file",
+      "name": "AllRuleController.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "summary": "自定义服务的全量规则聚合接口入口，暴露 /allRule/add 与 /allRule/get，一次请求即可提交或读取普通规则与深度规则全集。",
+      "tags": ["api-handler", "controller", "入口点", "规则聚合"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java:AllRuleController",
+      "type": "class",
+      "name": "AllRuleController",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "lineRange": [21, 42],
+      "summary": "Spring MVC 控制器，把全量规则的新增与查询请求委派给 AllRuleService。",
+      "tags": ["api-handler", "controller", "rest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java:add",
+      "type": "function",
+      "name": "add",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "lineRange": [30, 35],
+      "summary": "接收校验后的 AllRuleDto，调用 AllRuleService.add 覆盖式保存全量规则，返回无数据的成功响应。",
+      "tags": ["api-handler", "入口点", "新增"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "lineRange": [37, 41],
+      "summary": "查询当前全部规则，把 AllDepthRuleVo 聚合结果包装为 ApiResponse 返回。",
+      "tags": ["api-handler", "查询", "controller"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "type": "file",
+      "name": "DepthRuleController.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "summary": "深度规则管理接口入口，提供 /depthRule/add、/update、/updateStatus、/get 四个 POST 接口，供后台维护多条深度限流规则。",
+      "tags": ["api-handler", "controller", "入口点", "规则管理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:DepthRuleController",
+      "type": "class",
+      "name": "DepthRuleController",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "lineRange": [25, 59],
+      "summary": "深度规则控制器，负责新增、修改、状态变更与列表查询，全部委派给 DepthRuleService。",
+      "tags": ["api-handler", "controller", "rest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:add",
+      "type": "function",
+      "name": "add",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "lineRange": [33, 38],
+      "summary": "新增深度规则接口，参数校验通过后交由 DepthRuleService.depthRuleAdd 处理（含时间窗口冲突校验）。",
+      "tags": ["api-handler", "新增", "入口点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "lineRange": [40, 45],
+      "summary": "修改深度规则接口，调用 DepthRuleService.depthRuleUpdate 并按 id 覆盖更新。",
+      "tags": ["api-handler", "更新", "controller"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:updateStatus",
+      "type": "function",
+      "name": "updateStatus",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "lineRange": [47, 52],
+      "summary": "启停深度规则接口，按 id 更新 status 并触发规则缓存刷新。",
+      "tags": ["api-handler", "状态变更", "controller"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "lineRange": [54, 58],
+      "summary": "查询全部深度规则列表接口，返回 List<DepthRuleVo>。",
+      "tags": ["api-handler", "查询", "controller"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "type": "file",
+      "name": "RuleController.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "summary": "普通规则管理接口入口，提供 /rule/add、/update、/updateStatus、/get 四个 POST 接口，维护全局唯一的普通限流规则。",
+      "tags": ["api-handler", "controller", "入口点", "规则管理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:RuleController",
+      "type": "class",
+      "name": "RuleController",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "lineRange": [24, 58],
+      "summary": "普通规则控制器，负责新增、修改、状态变更与按 id 查询，全部委派给 RuleService。",
+      "tags": ["api-handler", "controller", "rest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:add",
+      "type": "function",
+      "name": "add",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "lineRange": [32, 37],
+      "summary": "新增普通规则接口，调用 RuleService.ruleAdd 覆盖式保存并刷新规则缓存。",
+      "tags": ["api-handler", "新增", "入口点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "lineRange": [39, 44],
+      "summary": "修改普通规则接口，调用 RuleService.ruleUpdate 更新记录并刷新缓存。",
+      "tags": ["api-handler", "更新", "controller"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:updateStatus",
+      "type": "function",
+      "name": "updateStatus",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "lineRange": [46, 51],
+      "summary": "启停普通规则接口，按 id 更新 status 并刷新缓存。",
+      "tags": ["api-handler", "状态变更", "controller"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "lineRange": [53, 57],
+      "summary": "按 id 查询普通规则接口，把 RuleVo 包装为 ApiResponse 返回。",
+      "tags": ["api-handler", "查询", "controller"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/entity/DepthRule.java",
+      "type": "file",
+      "name": "DepthRule.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/entity/DepthRule.java",
+      "summary": "深度规则数据库实体，映射 MyBatis-Plus 表 d_depth_rule，描述时间窗口、统计维度、阈值与生效限制等字段。",
+      "tags": ["数据模型", "entity", "orm", "mybatis-plus"],
+      "complexity": "simple",
+      "languageNotes": "使用 Lombok @Data 生成访问器，并继承框架通用 BaseTableData 获得公共字段。"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/entity/DepthRule.java:DepthRule",
+      "type": "class",
+      "name": "DepthRule",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/entity/DepthRule.java",
+      "lineRange": [14, 37],
+      "summary": "深度规则实体类，通过 @TableName(\"d_depth_rule\") 映射数据库表并继承 BaseTableData。",
+      "tags": ["数据模型", "entity", "orm"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleUpdateDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleUpdateDto.java:RuleUpdateDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleUpdateDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleUpdateDto.java:RuleUpdateDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/AllDepthRuleVo.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/AllDepthRuleVo.java:AllDepthRuleVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/AllDepthRuleVo.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/AllDepthRuleVo.java:AllDepthRuleVo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java:DepthRuleVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java:DepthRuleVo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java:RuleVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java:RuleVo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/RuleVo.java",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java:AllRuleController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java:add",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java:AllRuleController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/AllRuleDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/AllDepthRuleVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/AllRuleService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java:add",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/AllRuleService.java:add",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java:get",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/AllRuleService.java:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java:add",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java:get",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:DepthRuleController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:add",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:updateStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:DepthRuleController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleStatusDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleUpdateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/DepthRuleService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:add",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/DepthRuleService.java:depthRuleAdd",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:update",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/DepthRuleService.java:depthRuleUpdate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:updateStatus",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/DepthRuleService.java:depthRuleUpdateStatus",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:get",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/DepthRuleService.java:selectList",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:add",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:update",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:updateStatus",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java:get",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:RuleController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:add",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:updateStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:RuleController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleGetDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleStatusDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleUpdateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/RuleService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/RuleVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:add",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/RuleService.java:ruleAdd",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:update",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/RuleService.java:ruleUpdate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:updateStatus",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/RuleService.java:ruleUpdateStatus",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:get",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/RuleService.java:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:add",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:update",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:updateStatus",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java:get",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/entity/DepthRule.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/entity/DepthRule.java:DepthRule",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/entity/DepthRule.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/entity/DepthRule.java:DepthRule",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/entity/DepthRule.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:damai-server/damai-customize-service/src/main/java/com/damai/entity/DepthRule.java:DepthRule",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

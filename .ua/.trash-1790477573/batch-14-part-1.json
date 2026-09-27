@@ -1,0 +1,855 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "type": "file",
+      "name": "BaseParameterHolder.java",
+      "filePath": "damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "summary": "基于 ThreadLocal 的线程绑定参数持有器，为每个请求线程保存并读写 traceId、userId、灰度标识等上下文键值对，是全局链路上下文传递的基础工具。",
+      "tags": ["工具类", "threadlocal", "上下文传递", "并发"],
+      "complexity": "simple",
+      "languageNotes": "使用 ThreadLocal<Map<String,String>> 存放上下文，提供整体替换与移除方法以便线程池任务间迁移上下文。"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:setParameter",
+      "type": "function",
+      "name": "setParameter",
+      "filePath": "damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "lineRange": [17, 21],
+      "summary": "把指定名称的上下文参数写入当前线程的 ThreadLocal Map，供同线程后续逻辑读取。",
+      "tags": ["threadlocal", "setter", "上下文传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:getParameter",
+      "type": "function",
+      "name": "getParameter",
+      "filePath": "damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "lineRange": [23, 25],
+      "summary": "按名称从当前线程的参数 Map 中读取值，上下文不存在时返回 null。",
+      "tags": ["threadlocal", "getter", "上下文传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:removeParameter",
+      "type": "function",
+      "name": "removeParameter",
+      "filePath": "damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "lineRange": [27, 32],
+      "summary": "从当前线程参数 Map 中移除指定键，避免请求结束后上下文残留污染后续请求。",
+      "tags": ["threadlocal", "清理", "上下文传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:getParameterMap",
+      "type": "function",
+      "name": "getParameterMap",
+      "filePath": "damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "lineRange": [34, 40],
+      "summary": "获取当前线程的参数 Map，尚未初始化时创建一个初始容量 64 的 HashMap。",
+      "tags": ["threadlocal", "getter", "上下文传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:setParameterMap",
+      "type": "function",
+      "name": "setParameterMap",
+      "filePath": "damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "lineRange": [42, 44],
+      "summary": "整体替换当前线程的参数 Map，用于线程池任务执行时迁移父线程上下文。",
+      "tags": ["threadlocal", "setter", "上下文传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:removeParameterMap",
+      "type": "function",
+      "name": "removeParameterMap",
+      "filePath": "damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "lineRange": [46, 48],
+      "summary": "清除当前线程的整个参数 Map，释放 ThreadLocal 引用避免内存泄漏。",
+      "tags": ["threadlocal", "清理", "内存泄漏"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:BaseParameterHolder",
+      "type": "class",
+      "name": "BaseParameterHolder",
+      "filePath": "damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "lineRange": [12, 49],
+      "summary": "线程参数持有器类，提供线程隔离的上下文参数读写、整体替换与清理等静态方法。",
+      "tags": ["工具类", "threadlocal", "上下文传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java",
+      "type": "file",
+      "name": "BaseParameterFilter.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java",
+      "summary": "业务服务的 Servlet 过滤器，从请求头解析 traceId、灰度标识、userId 与 code，写入 ThreadLocal 和 MDC，并在请求结束后统一清理，保证日志链路追踪与灰度上下文可用。",
+      "tags": ["middleware", "filter", "日志追踪", "上下文传递"],
+      "complexity": "moderate",
+      "languageNotes": "继承 Spring 的 OncePerRequestFilter，使用 try/finally 保证 ThreadLocal 与 MDC 一定被清理。"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java:doFilterInternal",
+      "type": "function",
+      "name": "doFilterInternal",
+      "filePath": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java",
+      "lineRange": [28, 69],
+      "summary": "读取请求体与 traceId、灰度、userId、code 四个请求头，写入 BaseParameterHolder 与 MDC，执行过滤链后在 finally 中清理全部上下文并打印请求日志。",
+      "tags": ["filter", "日志追踪", "上下文传递", "try-finally"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java:BaseParameterFilter",
+      "type": "class",
+      "name": "BaseParameterFilter",
+      "filePath": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java",
+      "lineRange": [26, 70],
+      "summary": "业务服务侧的请求过滤器，负责把请求头中的链路与灰度参数注入线程上下文并负责收尾清理。",
+      "tags": ["middleware", "filter", "上下文传递"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java",
+      "type": "file",
+      "name": "ExtCachingServiceInstanceListSupplier.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java",
+      "summary": "对 Spring Cloud CachingServiceInstanceListSupplier 的扩展，在返回缓存的服务实例列表前先经过 FilterLoadBalance 过滤，使灰度路由在缓存层同样生效。",
+      "tags": ["负载均衡", "灰度发布", "缓存", "扩展点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java",
+      "lineRange": [29, 39],
+      "summary": "包装父类返回的服务实例 Flux，对每个批次执行负载均衡过滤并返回过滤后的实例列表。",
+      "tags": ["负载均衡", "响应式", "灰度发布"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java:ExtCachingServiceInstanceListSupplier",
+      "type": "class",
+      "name": "ExtCachingServiceInstanceListSupplier",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java",
+      "lineRange": [18, 40],
+      "summary": "缓存型服务实例供应器的增强子类，持有 FilterLoadBalance 以便在读取缓存后做实例过滤。",
+      "tags": ["负载均衡", "缓存", "灰度发布"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java",
+      "type": "file",
+      "name": "FilterLoadBalance.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java",
+      "summary": "负载均衡服务实例过滤接口，定义 selectServer 方法对候选服务实例集合执行过滤，是灰度路由的扩展点。",
+      "tags": ["负载均衡", "接口", "灰度发布", "扩展点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java:FilterLoadBalance",
+      "type": "class",
+      "name": "FilterLoadBalance",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java",
+      "lineRange": [12, 19],
+      "summary": "定义服务实例过滤契约的接口，由负载均衡供应器在选取实例前调用。",
+      "tags": ["负载均衡", "接口", "灰度发布"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java",
+      "type": "file",
+      "name": "GrayLoadBalanceAutoConfiguration.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java",
+      "summary": "灰度版本选择相关自动配置，通过 @LoadBalancerClients 为所有负载均衡客户端注册增强配置，并装配 DefaultFilterLoadBalance 与 ServerGrayFilter 两个 Bean。",
+      "tags": ["自动配置", "负载均衡", "灰度发布", "spring-cloud"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java:GrayLoadBalanceAutoConfiguration",
+      "type": "class",
+      "name": "GrayLoadBalanceAutoConfiguration",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java",
+      "lineRange": [20, 32],
+      "summary": "灰度负载均衡自动配置类，提供默认过滤器负载均衡器和灰度服务过滤器的 Bean 定义。",
+      "tags": ["自动配置", "负载均衡", "灰度发布"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "type": "file",
+      "name": "ContextHandler.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "summary": "上下文获取抽象接口，定义从当前请求头取值的方法，屏蔽 Gateway 与 WebMvc 两种运行环境的差异。",
+      "tags": ["接口", "上下文传递", "抽象层", "spring-cloud"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java:ContextHandler",
+      "type": "class",
+      "name": "ContextHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "lineRange": [8, 17],
+      "summary": "上下文读取接口，Gateway 与 WebMvc 环境各自提供实现以统一灰度标识等请求头读取方式。",
+      "tags": ["接口", "上下文传递", "抽象层"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "type": "file",
+      "name": "EnhanceServiceInstanceListSupplierBuilder.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "summary": "Spring Cloud ServiceInstanceListSupplierBuilder 的增强版构建器，支持组合发现客户端、缓存、健康检查、权重、区域优先、会话粘滞与子集等策略，并注入 FilterLoadBalance 让缓存层也具备灰度过滤能力。",
+      "tags": ["建造者模式", "负载均衡", "灰度发布", "spring-cloud", "扩展点"],
+      "complexity": "complex",
+      "languageNotes": "通过 baseCreator 与 creators 列表按顺序包装供应器，build 时依次 apply 形成责任链。"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:withBlockingDiscoveryClient",
+      "type": "function",
+      "name": "withBlockingDiscoveryClient",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "lineRange": [85, 95],
+      "summary": "以阻塞式 DiscoveryClient 作为基础供应器，并输出弃用告警日志。",
+      "tags": ["构建器", "负载均衡", "阻塞式"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:withDiscoveryClient",
+      "type": "function",
+      "name": "withDiscoveryClient",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "lineRange": [103, 113],
+      "summary": "以响应式 ReactiveDiscoveryClient 作为基础供应器构建服务实例来源。",
+      "tags": ["构建器", "负载均衡", "响应式"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:withHealthChecks",
+      "type": "function",
+      "name": "withHealthChecks",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "lineRange": [163, 172],
+      "summary": "为基础供应器叠加基于 WebClient 的健康检查能力。",
+      "tags": ["健康检查", "构建器", "负载均衡"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:withCaching",
+      "type": "function",
+      "name": "withCaching",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "lineRange": [316, 330],
+      "summary": "叠加带 CacheManager 的缓存供应器，改用 ExtCachingServiceInstanceListSupplier 以在缓存结果上执行灰度过滤，无缓存管理器时回退并告警。",
+      "tags": ["缓存", "构建器", "灰度发布"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:build",
+      "type": "function",
+      "name": "build",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "lineRange": [376, 386],
+      "summary": "校验基础供应器已配置后，按注册顺序依次包装各 creator，构建最终的服务实例列表供应器。",
+      "tags": ["构建器", "装配", "负载均衡"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:healthCheckServiceInstanceListSupplier",
+      "type": "function",
+      "name": "healthCheckServiceInstanceListSupplier",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "lineRange": [388, 397],
+      "summary": "构造基于 WebClient 的非阻塞健康检查供应器，按健康检查路径的响应状态是否为 200 判断实例可用。",
+      "tags": ["健康检查", "响应式", "负载均衡"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:blockingHealthCheckServiceInstanceListSupplier",
+      "type": "function",
+      "name": "blockingHealthCheckServiceInstanceListSupplier",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "lineRange": [399, 430],
+      "summary": "构造基于 RestTemplate 或 RestClient 的阻塞式健康检查供应器，通过 GET 请求状态码判断实例健康，并提供 getUri 拼接健康检查地址。",
+      "tags": ["健康检查", "阻塞式", "负载均衡"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:EnhanceServiceInstanceListSupplierBuilder",
+      "type": "class",
+      "name": "EnhanceServiceInstanceListSupplierBuilder",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "lineRange": [65, 458],
+      "summary": "链式构建服务实例供应器的建造者类，提供 discovery、weighted、healthChecks、zonePreference、caching、subset 等 with 方法并最终 build 出供应器链。",
+      "tags": ["建造者模式", "负载均衡", "健康检查", "灰度发布"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "type": "file",
+      "name": "EnhanceLoadBalancerClientConfiguration.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "summary": "对 Spring Cloud LoadBalancerClientConfiguration 的定制增强，通过 @AutoConfigureBefore 提前装配，按响应式/阻塞式发现客户端与各类配置条件提供带灰度过滤的服务实例供应器、重试感知供应器与负载均衡器 Bean。",
+      "tags": ["自动配置", "负载均衡", "灰度发布", "spring-cloud", "条件装配"],
+      "complexity": "complex",
+      "languageNotes": "使用 AllNestedConditions 组合多个 Condition，按 spring.cloud.loadbalancer.configurations 属性选择不同供应器策略。"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java:reactorServiceInstanceLoadBalancer",
+      "type": "function",
+      "name": "reactorServiceInstanceLoadBalancer",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "lineRange": [66, 72],
+      "summary": "注册默认的轮询负载均衡器 Bean，通过工厂的懒加载 Provider 获取服务实例供应器。",
+      "tags": ["负载均衡", "bean", "轮询"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java:EnhanceLoadBalancerClientConfiguration",
+      "type": "class",
+      "name": "EnhanceLoadBalancerClientConfiguration",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "lineRange": [61, 394],
+      "summary": "增强版负载均衡客户端配置类，集中定义轮询负载均衡器 Bean 以及各类灰度供应器配置条件。",
+      "tags": ["自动配置", "负载均衡", "灰度发布"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java:EnhanceLoadBalancerClientConfiguration.ReactiveSupportConfiguration",
+      "type": "class",
+      "name": "EnhanceLoadBalancerClientConfiguration.ReactiveSupportConfiguration",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "lineRange": [74, 153],
+      "summary": "响应式发现客户端场景的内部配置类，按条件提供默认、区域优先、健康检查、会话粘滞、同实例优先、权重与子集等策略的服务实例供应器 Bean。",
+      "tags": ["内部配置类", "响应式", "负载均衡", "条件装配"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java:EnhanceLoadBalancerClientConfiguration.BlockingSupportConfiguration",
+      "type": "class",
+      "name": "EnhanceLoadBalancerClientConfiguration.BlockingSupportConfiguration",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "lineRange": [155, 239],
+      "summary": "阻塞式发现客户端场景的内部配置类，按条件提供带缓存、RestTemplate 或 RestClient 健康检查、权重与子集等策略的服务实例供应器 Bean。",
+      "tags": ["内部配置类", "阻塞式", "负载均衡", "条件装配"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java",
+      "type": "file",
+      "name": "AbstractServerFilter.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java",
+      "summary": "服务实例过滤器基类，实现 Ordered 排序接口，统一遍历实例列表并按子类 doFilter 的结果原地剔除不满足条件的实例。",
+      "tags": ["抽象类", "过滤器", "负载均衡", "灰度发布"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java:filter",
+      "type": "function",
+      "name": "filter",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java",
+      "lineRange": [17, 26],
+      "summary": "迭代服务实例列表，调用抽象方法 doFilter 判断是否保留，不通过则从列表中移除。",
+      "tags": ["过滤器", "迭代器", "负载均衡"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java:AbstractServerFilter",
+      "type": "class",
+      "name": "AbstractServerFilter",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java",
+      "lineRange": [15, 35],
+      "summary": "过滤逻辑模板类，固定遍历与移除流程，把具体判定交给子类实现的抽象方法 doFilter。",
+      "tags": ["抽象类", "过滤器", "模板方法"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "type": "file",
+      "name": "ServerGrayFilter.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "summary": "灰度过滤器实现，把请求头/线程上下文中的灰度标识与 Nacos 服务实例 metadata 中的灰度标识进行匹配，决定该实例是否参与本次调用，并在无灰度实例时回退到普通实例。",
+      "tags": ["灰度发布", "过滤器", "nacos", "负载均衡"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java:doFilter",
+      "type": "function",
+      "name": "doFilter",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "lineRange": [53, 93],
+      "summary": "依次从请求头、线程参数与本服务灰度配置取请求方灰度标识，与实例 metadata 灰度标识比对；当请求为灰度而实例列表无灰度实例时放行，出现异常时过滤掉该实例并记录错误日志。",
+      "tags": ["灰度发布", "过滤器", "nacos", "异常处理"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java:ServerGrayFilter",
+      "type": "class",
+      "name": "ServerGrayFilter",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "lineRange": [33, 99],
+      "summary": "灰度服务过滤器，继承 AbstractServerFilter 并以最高优先级执行，通过 Nacos 实例 metadata 判定灰度归属。",
+      "tags": ["灰度发布", "过滤器", "nacos"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "target": "class:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:BaseParameterHolder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:setParameter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:getParameter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:removeParameter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:getParameterMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:setParameterMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:removeParameterMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java:BaseParameterFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java:doFilterInternal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java:ExtCachingServiceInstanceListSupplier",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java:FilterLoadBalance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java:GrayLoadBalanceAutoConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java:ContextHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:EnhanceServiceInstanceListSupplierBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:withBlockingDiscoveryClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:withDiscoveryClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:withHealthChecks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:withCaching",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:build",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:healthCheckServiceInstanceListSupplier",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:blockingHealthCheckServiceInstanceListSupplier",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java:EnhanceLoadBalancerClientConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java:EnhanceLoadBalancerClientConfiguration.ReactiveSupportConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java:EnhanceLoadBalancerClientConfiguration.BlockingSupportConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java:reactorServiceInstanceLoadBalancer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java:AbstractServerFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java:filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java:ServerGrayFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java:doFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "target": "class:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:BaseParameterHolder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java:BaseParameterFilter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java:ExtCachingServiceInstanceListSupplier",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java:FilterLoadBalance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java:GrayLoadBalanceAutoConfiguration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java:ContextHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java:EnhanceServiceInstanceListSupplierBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java:EnhanceLoadBalancerClientConfiguration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java:AbstractServerFilter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java:ServerGrayFilter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java:ServerGrayFilter",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java:AbstractServerFilter",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java:doFilterInternal",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:setParameter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java:doFilterInternal",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:removeParameter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java:doFilterInternal",
+      "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:inputStreamConvertString",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java:doFilterInternal",
+      "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isNotEmpty",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java:doFilter",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:getParameter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java:doFilter",
+      "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isNotEmpty",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:setParameter",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:getParameterMap",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/RuleStatus.java",
+      "type": "file",
+      "name": "RuleStatus.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/RuleStatus.java",
+      "summary": "定义 API 限流规则的启停状态枚举（RUN=1 正常 / STOP=0 禁用），并提供按 code 反查中文描述与枚举实例的静态方法，供自定义规则服务与网关限流判断共用。",
+      "tags": ["枚举", "规则状态", "数据模型", "enums"],
+      "complexity": "simple",
+      "languageNotes": "Java 枚举内同时定义实例字段（code/msg）与静态查找方法，是该项目的统一 code/msg 枚举写法。"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/RuleStatus.java:RuleStatus",
+      "type": "class",
+      "name": "RuleStatus",
+      "filePath": "damai-common/src/main/java/com/damai/enums/RuleStatus.java",
+      "lineRange": [8, 58],
+      "summary": "规则状态枚举类，RUN 表示规则生效、STOP 表示规则禁用，封装 code/msg 字段并提供 code 到描述与枚举实例的静态查询。",
+      "tags": ["枚举", "规则状态", "数据模型", "状态码"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/RuleStatus.java:getMsg",
+      "type": "function",
+      "name": "getMsg",
+      "filePath": "damai-common/src/main/java/com/damai/enums/RuleStatus.java",
+      "lineRange": [41, 48],
+      "summary": "静态工具方法，遍历枚举值并按 code 返回对应中文描述，未匹配时返回空字符串。",
+      "tags": ["工具方法", "枚举", "状态码"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/RuleStatus.java:getRc",
+      "type": "function",
+      "name": "getRc",
+      "filePath": "damai-common/src/main/java/com/damai/enums/RuleStatus.java",
+      "lineRange": [50, 57],
+      "summary": "按 code 反查并返回 RuleStatus 枚举实例，未匹配时返回 null。",
+      "tags": ["工具方法", "枚举", "状态码"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/AllRuleDto.java",
+      "type": "file",
+      "name": "AllRuleDto.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/AllRuleDto.java",
+      "summary": "自定义规则客户端的聚合入参 DTO，同时携带一条普通规则与多条深度规则，用于一次性提交全量限流规则配置。",
+      "tags": ["dto", "数据模型", "聚合", "入参"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/AllRuleDto.java:AllRuleDto",
+      "type": "class",
+      "name": "AllRuleDto",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/AllRuleDto.java",
+      "lineRange": [15, 25],
+      "summary": "聚合普通规则 DTO 与深度规则 DTO 列表的传输对象，作为 /allRule/add 接口的请求体。",
+      "tags": ["dto", "数据模型", "聚合"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleDto.java",
+      "type": "file",
+      "name": "DepthRuleDto.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleDto.java",
+      "summary": "深度规则新增入参 DTO，包含时间窗口、统计时间与类型、阈值、生效限制时间、限流 API 与提示语等字段，并用 Jakarta Validation 与 Swagger Schema 注解声明必填约束。",
+      "tags": ["dto", "validation", "数据模型", "入参"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleDto.java:DepthRuleDto",
+      "type": "class",
+      "name": "DepthRuleDto",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleDto.java",
+      "lineRange": [14, 53],
+      "summary": "深度规则请求参数类，描述时间窗口、统计维度、阈值与生效限制等限流规则要素。",
+      "tags": ["dto", "数据模型", "validation", "规则"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleStatusDto.java",
+      "type": "file",
+      "name": "DepthRuleStatusDto.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleStatusDto.java",
+      "summary": "深度规则状态变更入参 DTO，仅携带规则 id 与目标状态，对应 /depthRule/updateStatus 接口。",
+      "tags": ["dto", "状态变更", "数据模型", "入参"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleStatusDto.java:DepthRuleStatusDto",
+      "type": "class",
+      "name": "DepthRuleStatusDto",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleStatusDto.java",
+      "lineRange": [13, 24],
+      "summary": "深度规则启停状态变更参数类，包含规则 id 与 status 字段。",
+      "tags": ["dto", "状态变更", "数据模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleUpdateDto.java",
+      "type": "file",
+      "name": "DepthRuleUpdateDto.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleUpdateDto.java",
+      "summary": "深度规则修改入参 DTO，在新增字段基础上增加规则 id，用于 /depthRule/update 接口整体覆盖式更新。",
+      "tags": ["dto", "更新", "数据模型", "入参"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleUpdateDto.java:DepthRuleUpdateDto",
+      "type": "class",
+      "name": "DepthRuleUpdateDto",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleUpdateDto.java",
+      "lineRange": [13, 49],
+      "summary": "深度规则修改参数类，含 id 与全部可编辑的限流规则字段。",
+      "tags": ["dto", "更新", "数据模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleDto.java",
+      "type": "file",
+      "name": "RuleDto.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleDto.java",
+      "summary": "普通规则新增入参 DTO，描述全局限流规则的统计时间、阈值、生效限制时间与限流 API 等要素。",
+      "tags": ["dto", "validation", "数据模型", "入参"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleDto.java:RuleDto",
+      "type": "class",
+      "name": "RuleDto",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleDto.java",
+      "lineRange": [13, 41],
+      "summary": "普通规则请求参数类，承载统计时间、统计类型、阈值、生效限制时间与提示信息。",
+      "tags": ["dto", "数据模型", "validation", "规则"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleGetDto.java",
+      "type": "file",
+      "name": "RuleGetDto.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleGetDto.java",
+      "summary": "普通规则查询入参 DTO，仅包含规则 id，用于 /rule/get 接口按主键查询。",
+      "tags": ["dto", "查询", "数据模型", "入参"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleGetDto.java:RuleGetDto",
+      "type": "class",
+      "name": "RuleGetDto",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleGetDto.java",
+      "lineRange": [13, 20],
+      "summary": "普通规则查询参数类，仅含 Long 型规则 id。",
+      "tags": ["dto", "查询", "数据模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleStatusDto.java",
+      "type": "file",
+      "name": "RuleStatusDto.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleStatusDto.java",
+      "summary": "普通规则状态变更入参 DTO，携带规则 id 与目标状态，对应 /rule/updateStatus 接口。",
+      "tags": ["dto", "状态变更", "数据模型", "入参"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleStatusDto.java:RuleStatusDto",
+      "type": "class",
+      "name": "RuleStatusDto",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleStatusDto.java",
+      "lineRange": [13, 24],
+      "summary": "普通规则启停状态变更参数类，包含规则 id 与 status 字段。",
+      "tags": ["dto", "状态变更", "数据模型"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/RuleStatus.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/RuleStatus.java:RuleStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/RuleStatus.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/RuleStatus.java:getMsg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/RuleStatus.java",
+      "target": "function:damai-common/src/main/java/com/damai/enums/RuleStatus.java:getRc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/RuleStatus.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/RuleStatus.java:RuleStatus",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/AllRuleDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/AllRuleDto.java:AllRuleDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/AllRuleDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/AllRuleDto.java:AllRuleDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleDto.java:DepthRuleDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleDto.java:DepthRuleDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleStatusDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleStatusDto.java:DepthRuleStatusDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleStatusDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleStatusDto.java:DepthRuleStatusDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleUpdateDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleUpdateDto.java:DepthRuleUpdateDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleUpdateDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleUpdateDto.java:DepthRuleUpdateDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleDto.java:RuleDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleDto.java:RuleDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleGetDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleGetDto.java:RuleGetDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleGetDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleGetDto.java:RuleGetDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleStatusDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleStatusDto.java:RuleStatusDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleStatusDto.java",
+      "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleStatusDto.java:RuleStatusDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

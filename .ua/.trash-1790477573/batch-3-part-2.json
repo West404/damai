@@ -1,0 +1,1229 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java",
+      "type": "file",
+      "name": "ProgramCacheCreateOrderData.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java",
+      "summary": "Lua 下单脚本的返回结果模型，包含执行结果码与扣减成功的座位列表，用于在 Java 侧判断缓存扣减是否成功并取回所购座位。",
+      "tags": ["lua", "结果模型", "缓存", "下单"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java:ProgramCacheCreateOrderData",
+      "type": "class",
+      "name": "ProgramCacheCreateOrderData",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java",
+      "lineRange": [13, 19],
+      "summary": "缓存扣减结果对象：code 表示脚本执行结果，purchaseSeatList 为实际锁定的座位。",
+      "tags": ["结果模型", "lua", "座位列表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "type": "file",
+      "name": "ProgramSeatCacheData.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "summary": "节目座位缓存读取组件，启动时加载 classpath 下的 programSeat.lua 脚本，执行脚本后按数据量阈值选择并行或串行流解析座位 JSON。",
+      "tags": ["缓存", "lua", "座位查询", "component"],
+      "complexity": "moderate",
+      "languageNotes": "以 THRESHOLD_VALUE=2000 作为并行流开关，属于按数据规模切换串行/并行 Stream 的吞吐优化写法。"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java:ProgramSeatCacheData",
+      "type": "class",
+      "name": "ProgramSeatCacheData",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "lineRange": [24, 62],
+      "summary": "座位缓存读取 Spring 组件，持有 RedisCache 与已编译的 Lua 脚本，对外提供批量座位查询能力。",
+      "tags": ["组件", "缓存读取", "lua"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "lineRange": [35, 44],
+      "summary": "@PostConstruct 初始化：构建 DefaultRedisScript 并加载 lua/programSeat.lua，异常时记录错误日志。",
+      "tags": ["初始化", "lua", "生命周期"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java:getData",
+      "type": "function",
+      "name": "getData",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "lineRange": [46, 61],
+      "summary": "执行 Lua 脚本读取座位 JSON 列表，数量超过阈值时改用并行流反序列化为 SeatVo 列表以提升吞吐。",
+      "tags": ["缓存读取", "并行流", "反序列化"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "type": "file",
+      "name": "BaseProgramOrder.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "summary": "下单本地锁基类：按票档 ID 排序后逐把获取 ReentrantLock，在锁保护内执行下单任务，返回首个成功订单号并统一释放全部锁。",
+      "tags": ["本地锁", "下单", "并发控制", "基类"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java:BaseProgramOrder",
+      "type": "class",
+      "name": "BaseProgramOrder",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "lineRange": [23, 69],
+      "summary": "抽取本地锁下单模板方法的基类，被 V3、V4 策略继承复用，保证同一票档订单在同一 JVM 内串行。",
+      "tags": ["基类", "本地锁", "模板方法"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java:localLockCreateOrder",
+      "type": "function",
+      "name": "localLockCreateOrder",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "lineRange": [30, 68],
+      "summary": "按票档 ID 有序获取本地锁（避免死锁），在锁内执行 LockTask；单把锁获取失败即中断返回，最终统一释放已获取的锁并记录异常日志。",
+      "tags": ["本地锁", "并发控制", "下单"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "type": "file",
+      "name": "ProgramOrderStrategy.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "summary": "下单策略接口，定义创建订单与获取版本号两个契约；V1~V4 四种并发方案分别实现该接口，由策略上下文按版本号分派。",
+      "tags": ["接口", "策略模式", "下单", "契约"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java:ProgramOrderStrategy",
+      "type": "class",
+      "name": "ProgramOrderStrategy",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "lineRange": [10, 24],
+      "summary": "策略契约接口：createOrder 负责下单并返回订单号，version 返回该实现对应的版本标识。",
+      "tags": ["策略接口", "下单", "版本标识"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "type": "file",
+      "name": "ProgramOrderV1Strategy.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "summary": "V1 下单策略（基线方案）：执行订单创建校验链后直接同步调用服务下单，不加任何锁，用于对比并发压测基准。",
+      "tags": ["策略", "v1", "下单", "组合模式"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java:ProgramOrderV1Strategy",
+      "type": "class",
+      "name": "ProgramOrderV1Strategy",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "lineRange": [22, 46],
+      "summary": "实现 ProgramOrderStrategy 的 V1 版本，依赖下单服务与组合模式容器。",
+      "tags": ["策略实现", "v1", "基线方案"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java:createOrder",
+      "type": "function",
+      "name": "createOrder",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "lineRange": [32, 40],
+      "summary": "先通过组合容器执行订单创建校验链，再调用 ProgramOrderService.create 完成同步下单。",
+      "tags": ["策略", "下单", "校验链"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "type": "file",
+      "name": "ProgramOrderV2Strategy.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "summary": "V2 下单策略：在参数校验之外叠加本地锁与 Redisson 分布式锁，按票档有序加锁，实现跨节点串行下单。",
+      "tags": ["策略", "v2", "分布式锁", "下单"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java:ProgramOrderV2Strategy",
+      "type": "class",
+      "name": "ProgramOrderV2Strategy",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "lineRange": [36, 126],
+      "summary": "实现 ProgramOrderStrategy 的 V2 版本，同时持有本地锁缓存与分布式锁工具，锁的获取与释放逻辑全部内联在 createOrder 中。",
+      "tags": ["策略实现", "v2", "双锁"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java:createOrder",
+      "type": "function",
+      "name": "createOrder",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "lineRange": [53, 120],
+      "summary": "按票档 ID 有序获取本地锁与分布式锁，全部获取成功后调用下单服务；过程中任一步失败即逐级释放已持有的锁、记录日志并抛出业务异常。",
+      "tags": ["分布式锁", "本地锁", "并发控制", "下单"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "type": "file",
+      "name": "ProgramOrderV3Strategy.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "summary": "V3 下单策略：复用 BaseProgramOrder 的本地锁执行链路，并在锁内调用已完成缓存扣减的轻量下单入口，减少锁内耗时。",
+      "tags": ["策略", "v3", "本地锁", "下单"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java:ProgramOrderV3Strategy",
+      "type": "class",
+      "name": "ProgramOrderV3Strategy",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "lineRange": [23, 50],
+      "summary": "实现 ProgramOrderStrategy 的 V3 版本，继承能力来源于 BaseProgramOrder 的组合式依赖而非继承关系。",
+      "tags": ["策略实现", "v3", "本地锁"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java:createOrder",
+      "type": "function",
+      "name": "createOrder",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "lineRange": [36, 44],
+      "summary": "执行订单创建校验链后，经 BaseProgramOrder 本地锁调用 ProgramOrderService.createNew 完成下单。",
+      "tags": ["策略", "本地锁", "下单"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "type": "file",
+      "name": "ProgramOrderV4Strategy.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "summary": "V4 下单策略：本地锁保护下走 Kafka 异步下单入口，把订单落库压力转移到消息消费端，是四套方案中吞吐最高的演进形态。",
+      "tags": ["策略", "v4", "异步", "mq", "下单"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java:ProgramOrderV4Strategy",
+      "type": "class",
+      "name": "ProgramOrderV4Strategy",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "lineRange": [23, 55],
+      "summary": "实现 ProgramOrderStrategy 的 V4 版本，结构上与 V3 一致，仅把下单入口替换为异步版本。",
+      "tags": ["策略实现", "v4", "异步"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java:createOrder",
+      "type": "function",
+      "name": "createOrder",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "lineRange": [41, 49],
+      "summary": "执行订单创建校验链后，经 BaseProgramOrder 本地锁调用 ProgramOrderService.createNewAsync 异步下单。",
+      "tags": ["策略", "本地锁", "异步下单"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "type": "file",
+      "name": "SeatMatch.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "summary": "座位匹配工具类：优先寻找同一排的连续座位，其次寻找同一列的连续座位，两者都不足时随机返回座位，兼顾选座体验与下单成功率。",
+      "tags": ["工具类", "座位匹配", "算法", "下单"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:SeatMatch",
+      "type": "class",
+      "name": "SeatMatch",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "lineRange": [18, 92],
+      "summary": "无状态座位匹配工具类，按行、按列分组排序后做贪心连续匹配，并提供随机兜底策略。",
+      "tags": ["工具类", "座位匹配", "无状态"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:findAdjacentSeatVos",
+      "type": "function",
+      "name": "findAdjacentSeatVos",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "lineRange": [27, 59],
+      "summary": "座位匹配入口：按排分组排序后逐排尝试连续座位，失败再尝试同列连续座位，仍不足且可用座位足够时随机洗牌返回，否则抛出异常。",
+      "tags": ["座位匹配", "贪心算法", "入口"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:findConsecutiveSeats",
+      "type": "function",
+      "name": "findConsecutiveSeats",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "lineRange": [61, 75],
+      "summary": "在已按列号排序的同一排座位中滑动窗口寻找列号连续的座位组合，找不到返回空集合。",
+      "tags": ["算法", "连续座位", "同排"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:findSameColumnSeats",
+      "type": "function",
+      "name": "findSameColumnSeats",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "lineRange": [77, 91],
+      "summary": "按列分组并排序后寻找行号连续的座位，作为同排连座不足时的跨行兜底方案，找不到返回空集合。",
+      "tags": ["算法", "连续座位", "同列"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/FailureCallback.java",
+      "type": "file",
+      "name": "FailureCallback.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/FailureCallback.java",
+      "summary": "Kafka 消息发送失败回调接口，约定失败时的处理入口，由业务方实现（如回滚缓存、记录异常）。",
+      "tags": ["接口", "callback", "kafka", "消息"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/FailureCallback.java:FailureCallback",
+      "type": "class",
+      "name": "FailureCallback",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/FailureCallback.java",
+      "lineRange": [8, 17],
+      "summary": "单方法回调接口，接收发送结果对象，是消息发送组件的失败扩展点。",
+      "tags": ["回调接口", "扩展点", "消息"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/SuccessCallback.java",
+      "type": "file",
+      "name": "SuccessCallback.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/SuccessCallback.java",
+      "summary": "Kafka 消息发送成功回调接口，约定成功时的处理入口，与 FailureCallback 成对使用。",
+      "tags": ["接口", "callback", "kafka", "消息"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/SuccessCallback.java:SuccessCallback",
+      "type": "class",
+      "name": "SuccessCallback",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/SuccessCallback.java",
+      "lineRange": [8, 17],
+      "summary": "单方法回调接口，接收发送结果对象，是消息发送组件的成功扩展点。",
+      "tags": ["回调接口", "扩展点", "消息"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java",
+      "type": "file",
+      "name": "AbstractApplicationStartEventListenerHandler.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java",
+      "summary": "应用启动事件监听处理器的抽象基类，定义启动初始化任务的执行顺序与执行方法契约，各框架/服务据此插入启动期初始化逻辑。",
+      "tags": ["抽象类", "启动初始化", "扩展点", "生命周期"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java:AbstractApplicationStartEventListenerHandler",
+      "type": "class",
+      "name": "AbstractApplicationStartEventListenerHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java",
+      "lineRange": [12, 18],
+      "summary": "启动初始化扩展基类，子类通过 executeOrder 声明顺序、executeInit 编写初始化逻辑。",
+      "tags": ["抽象基类", "启动钩子", "顺序控制"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java",
+      "type": "file",
+      "name": "CompositeAutoConfiguration.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java",
+      "summary": "组合模式自动装配配置类，注册 CompositeContainer 与 CompositeInit 两个 Bean，使业务服务引入框架后即可使用组合校验能力。",
+      "tags": ["configuration", "自动装配", "组合模式", "spring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java:CompositeAutoConfiguration",
+      "type": "class",
+      "name": "CompositeAutoConfiguration",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java",
+      "lineRange": [11, 22],
+      "summary": "Spring 配置类，通过 @Bean 装配组合模式容器与启动初始化器。",
+      "tags": ["spring配置", "bean装配", "组合模式"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java:compositeContainer",
+      "type": "function",
+      "name": "compositeContainer",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java",
+      "lineRange": [13, 16],
+      "summary": "注册组合模式容器 Bean。",
+      "tags": ["bean", "配置", "组合模式"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java:compositeInit",
+      "type": "function",
+      "name": "compositeInit",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java",
+      "lineRange": [18, 21],
+      "summary": "注册组合模式初始化器 Bean，注入容器实例以驱动启动期构建执行树。",
+      "tags": ["bean", "配置", "初始化"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "type": "file",
+      "name": "CompositeContainer.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "summary": "组合模式容器：启动时按 type 收集全部 AbstractComposite 组件，依据 tier 与 parentOrder 构建执行树并缓存，运行时按类型触发整条链式执行。",
+      "tags": ["组合模式", "容器", "执行树", "责任链"],
+      "complexity": "moderate",
+      "languageNotes": "使用 TreeMap + 双层 Map（tier → order → 组件）做层级分组，再以递归 buildTree 完成父子挂载，是典型的编译期建树、运行期遍历设计。"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:CompositeContainer",
+      "type": "class",
+      "name": "CompositeContainer",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "lineRange": [20, 95],
+      "summary": "泛型组合容器，持有 类型 → 根组件 的映射缓存；对外只暴露 init 与 execute，建树逻辑为私有静态方法。",
+      "tags": ["组件容器", "组合模式", "缓存映射"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "lineRange": [24, 34],
+      "summary": "从 Spring 上下文取出所有 AbstractComposite Bean，按 type 分组后逐组建树并写入缓存。",
+      "tags": ["初始化", "bean收集", "组合模式"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "lineRange": [36, 40],
+      "summary": "按业务类型取出执行树根节点并触发整条链式执行；类型未注册时抛出 DaMaiFrameException。",
+      "tags": ["执行", "分派", "组合模式"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:buildTree",
+      "type": "function",
+      "name": "buildTree",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "lineRange": [47, 68],
+      "summary": "递归将下一层组件按 executeParentOrder 挂到当前层父组件上，形成有序的执行树。",
+      "tags": ["递归", "执行树", "算法"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:build",
+      "type": "function",
+      "name": "build",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "lineRange": [75, 94],
+      "summary": "按 executeTier 与 executeOrder 对组件分组，递归建树后从最小层级中选出无父节点的组件作为根返回。",
+      "tags": ["构建", "执行树", "算法"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "type": "file",
+      "name": "CompositeInit.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "summary": "应用启动钩子实现：以执行顺序 1 在启动事件中触发组合模式容器初始化，保证校验链在服务对外提供能力前已构建完成。",
+      "tags": ["启动初始化", "组合模式", "hook", "生命周期"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java:CompositeInit",
+      "type": "class",
+      "name": "CompositeInit",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "lineRange": [13, 27],
+      "summary": "继承启动初始化基类，通过构造注入组合容器，把容器初始化挂载到应用启动事件上。",
+      "tags": ["启动钩子", "组合模式", "构造注入"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java:executeOrder",
+      "type": "function",
+      "name": "executeOrder",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "lineRange": [18, 21],
+      "summary": "返回初始化执行顺序 1，使组合模式构建在各初始化任务中优先执行。",
+      "tags": ["顺序控制", "初始化", "启动钩子"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java:executeInit",
+      "type": "function",
+      "name": "executeInit",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "lineRange": [23, 26],
+      "summary": "调用组合模式容器 init 方法完成组件收集与执行树构建。",
+      "tags": ["初始化", "组合模式", "启动钩子"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java:ProgramCacheCreateOrderData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java:ProgramSeatCacheData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java:getData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java:BaseProgramOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java:localLockCreateOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java:ProgramOrderStrategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java:ProgramOrderV1Strategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java:createOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java:ProgramOrderV2Strategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java:createOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java:ProgramOrderV3Strategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java:createOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java:ProgramOrderV4Strategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java:createOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:SeatMatch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:findAdjacentSeatVos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:findConsecutiveSeats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:findSameColumnSeats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/FailureCallback.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/FailureCallback.java:FailureCallback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/SuccessCallback.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/SuccessCallback.java:SuccessCallback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java:AbstractApplicationStartEventListenerHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java:CompositeAutoConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java:compositeContainer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java:compositeInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:CompositeContainer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:buildTree",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:build",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java:CompositeInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java:executeOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java:executeInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/lock/LockTask.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:create",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:create",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:createNew",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java:localLockCreateOrder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java:createNewAsync",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java:localLockCreateOrder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java:executeInit",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:init",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:execute",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java:allExecute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:buildTree",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java:executeParentOrder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:findAdjacentSeatVos",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:findConsecutiveSeats",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:findAdjacentSeatVos",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java:findSameColumnSeats",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java:ProgramOrderV1Strategy",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java:ProgramOrderStrategy",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java:ProgramOrderV2Strategy",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java:ProgramOrderStrategy",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java:ProgramOrderV3Strategy",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java:ProgramOrderStrategy",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java:ProgramOrderV4Strategy",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java:ProgramOrderStrategy",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java:CompositeInit",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java:AbstractApplicationStartEventListenerHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

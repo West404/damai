@@ -1,0 +1,287 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java",
+      "type": "file",
+      "name": "ProgramPageOrder.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java",
+      "summary": "Simple data holder carrying the sort field name and sort order for paged program Elasticsearch queries.",
+      "tags": ["data-model", "sorting", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java:ProgramPageOrder",
+      "type": "class",
+      "name": "ProgramPageOrder",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java",
+      "lineRange": [11, 15],
+      "summary": "Value object with sortParam and sortOrder used to parameterize program page sorting.",
+      "tags": ["data-model", "sorting"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "type": "file",
+      "name": "UserBloomFilterInitData.java",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "summary": "Startup initializer that loads all registered user mobile numbers into the Bloom filter to prevent cache penetration on user lookups.",
+      "tags": ["initialization", "bloom-filter", "cache", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:UserBloomFilterInitData",
+      "type": "class",
+      "name": "UserBloomFilterInitData",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "lineRange": [19, 43],
+      "summary": "Post-construct handler seeding the user Bloom filter with every known mobile number on the business thread pool.",
+      "tags": ["initialization", "bloom-filter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:executeInit",
+      "type": "function",
+      "name": "executeInit",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "lineRange": [34, 42],
+      "summary": "Asynchronously fetches all user mobile numbers via UserService and adds each to the Bloom filter.",
+      "tags": ["initialization", "bloom-filter", "async"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "type": "file",
+      "name": "CheckNeedCaptchaOperate.java",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "summary": "Loads a Lua script at startup and executes it against Redis to atomically decide whether a captcha challenge is required.",
+      "tags": ["lua", "redis", "captcha", "service"],
+      "complexity": "moderate",
+      "languageNotes": "Uses Spring Data Redis DefaultRedisScript with a classpath ResourceScriptSource for atomic Lua execution."
+    },
+    {
+      "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java:CheckNeedCaptchaOperate",
+      "type": "class",
+      "name": "CheckNeedCaptchaOperate",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "lineRange": [20, 49],
+      "summary": "Component that initializes the captcha-check Lua script and exposes checkNeedCaptchaOperate to run it via RedisCache.",
+      "tags": ["lua", "redis", "captcha"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java:executeInit",
+      "type": "function",
+      "name": "executeInit",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "lineRange": [34, 43],
+      "summary": "Builds the DefaultRedisScript from the classpath Lua resource and sets its Boolean result type.",
+      "tags": ["initialization", "lua", "redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java",
+      "type": "file",
+      "name": "BasePageDto.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java",
+      "summary": "Base pagination request DTO carrying pageNumber and pageSize, extended by service-specific page query DTOs.",
+      "tags": ["data-model", "pagination", "dto"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java:BasePageDto",
+      "type": "class",
+      "name": "BasePageDto",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java",
+      "lineRange": [12, 22],
+      "summary": "Base class with default page number/size fields for paged request DTOs.",
+      "tags": ["data-model", "pagination"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "type": "file",
+      "name": "MybatisPlusMetaObjectHandler.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "summary": "MyBatis-Plus meta object handler that auto-fills createTime and updateTime audit fields on insert and update.",
+      "tags": ["mybatis-plus", "orm", "audit", "persistence"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java:MybatisPlusMetaObjectHandler",
+      "type": "class",
+      "name": "MybatisPlusMetaObjectHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "lineRange": [14, 29],
+      "summary": "MetaObjectHandler implementation filling timestamp fields automatically during entity persistence.",
+      "tags": ["mybatis-plus", "orm", "audit"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "type": "file",
+      "name": "PageUtil.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "summary": "Pagination utility converting PageHelper PageInfo and MyBatis-Plus IPage results into the unified PageVo structure with record mapping.",
+      "tags": ["pagination", "utility", "conversion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java:PageUtil",
+      "type": "class",
+      "name": "PageUtil",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "lineRange": [16, 38],
+      "summary": "Static helper class building Page parameters and converting paged results to PageVo with element transformation.",
+      "tags": ["pagination", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java:convertPage",
+      "type": "function",
+      "name": "convertPage",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "lineRange": [26, 37],
+      "summary": "Converts PageInfo or IPage results into PageVo, applying a mapping function to each record.",
+      "tags": ["pagination", "conversion", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java",
+      "type": "file",
+      "name": "PageVo.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java",
+      "summary": "Unified pagination response VO carrying page number, page size, total count and the record list returned to clients.",
+      "tags": ["data-model", "pagination", "vo"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java:PageVo",
+      "type": "class",
+      "name": "PageVo",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java",
+      "lineRange": [32, 47],
+      "summary": "Serializable generic value object representing a paged result across all services.",
+      "tags": ["data-model", "pagination"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "type": "file",
+      "name": "AbstractApplicationPostConstructHandler.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "summary": "Base class for startup initialization handlers, defining the ordering contract via the type() method implemented by concrete initializers.",
+      "tags": ["initialization", "base-class", "framework"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler",
+      "type": "class",
+      "name": "AbstractApplicationPostConstructHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "lineRange": [12, 18],
+      "summary": "Abstract handler whose type() value determines execution order of application post-construct initializers.",
+      "tags": ["initialization", "base-class"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "type": "file",
+      "name": "BusinessThreadPool.java",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "summary": "Shared business thread pool sizing itself from available CPU cores and wrapping submitted tasks with context propagation.",
+      "tags": ["thread-pool", "concurrency", "framework", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:BusinessThreadPool",
+      "type": "class",
+      "name": "BusinessThreadPool",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "lineRange": [22, 57],
+      "summary": "Static facade over a ThreadPoolExecutor with custom thread factory and rejection handler, exposing execute and submit with context wrapping.",
+      "tags": ["thread-pool", "concurrency"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "lineRange": [49, 51],
+      "summary": "Wraps the runnable with task context and submits it to the underlying pool.",
+      "tags": ["thread-pool", "concurrency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java",
+      "type": "file",
+      "name": "BusinessNameThreadFactory.java",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java",
+      "summary": "Thread factory producing descriptively named pool threads (business-thread-pool-N) for the shared business thread pool.",
+      "tags": ["thread-pool", "factory", "concurrency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java:BusinessNameThreadFactory",
+      "type": "class",
+      "name": "BusinessNameThreadFactory",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java",
+      "lineRange": [9, 19],
+      "summary": "Custom ThreadFactory generating sequentially numbered business thread names.",
+      "tags": ["thread-pool", "factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java",
+      "type": "file",
+      "name": "ThreadPoolRejectedExecutionHandler.java",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java",
+      "summary": "Rejected execution handler that logs the rejected task and executor state before throwing RejectedExecutionException.",
+      "tags": ["thread-pool", "error-handling", "concurrency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java:ThreadPoolRejectedExecutionHandler",
+      "type": "class",
+      "name": "ThreadPoolRejectedExecutionHandler",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java",
+      "lineRange": [12, 28],
+      "summary": "Custom RejectedExecutionHandler adding diagnostic logging to task rejection.",
+      "tags": ["thread-pool", "error-handling"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java", "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java:ProgramPageOrder", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java", "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:UserBloomFilterInitData", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java", "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:executeInit", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java", "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java", "target": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java", "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java", "target": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "class:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:UserBloomFilterInitData", "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler", "type": "inherits", "direction": "forward", "weight": 0.9},
+    {"source": "function:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:executeInit", "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:getAllMobile", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:executeInit", "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java:add", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:executeInit", "target": "function:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:execute", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java", "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java:CheckNeedCaptchaOperate", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java", "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java:executeInit", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java", "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java", "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "class:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java:CheckNeedCaptchaOperate", "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler", "type": "inherits", "direction": "forward", "weight": 0.9},
+    {"source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java", "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java:BasePageDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java", "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java:MybatisPlusMetaObjectHandler", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java", "target": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java", "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java:PageUtil", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java", "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java:convertPage", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java", "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java", "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java:PageVo", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java", "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java", "target": "class:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:BusinessThreadPool", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java", "target": "function:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:execute", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java", "target": "file:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java", "target": "file:damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java", "target": "file:damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java", "target": "class:damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java:BusinessNameThreadFactory", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java", "target": "class:damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java:ThreadPoolRejectedExecutionHandler", "type": "contains", "direction": "forward", "weight": 1.0}
+  ]
+}

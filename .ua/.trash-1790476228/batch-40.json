@@ -1,0 +1,630 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/PermitRefund.java",
+      "type": "file",
+      "name": "PermitRefund.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PermitRefund.java",
+      "summary": "Enum defining whether refunding is permitted for a ticket order, with code-based lookup helpers.",
+      "tags": ["enum", "data-model", "order-domain", "lookup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/ProgramPageType.java",
+      "type": "file",
+      "name": "ProgramPageType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/ProgramPageType.java",
+      "summary": "Enum describing program (show) page types with code, value, and message fields plus lookup utilities.",
+      "tags": ["enum", "data-model", "program-domain", "lookup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/TimeType.java",
+      "type": "file",
+      "name": "TimeType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/TimeType.java",
+      "summary": "Enum representing time granularity types with code/message pairs and static lookup methods.",
+      "tags": ["enum", "data-model", "time", "lookup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/UserLogStatus.java",
+      "type": "file",
+      "name": "UserLogStatus.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/UserLogStatus.java",
+      "summary": "Enum of user login/log status codes with static message and enum resolution helpers.",
+      "tags": ["enum", "data-model", "user-domain", "lookup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/environment/SpringEnvironment.java",
+      "type": "file",
+      "name": "SpringEnvironment.java",
+      "filePath": "damai-common/src/main/java/com/damai/environment/SpringEnvironment.java",
+      "summary": "Spring Boot EnvironmentPostProcessor that enables bean definition overriding at application startup.",
+      "tags": ["spring-boot", "configuration", "startup-hook", "post-processor"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/exception/BaseException.java",
+      "type": "file",
+      "name": "BaseException.java",
+      "filePath": "damai-common/src/main/java/com/damai/exception/BaseException.java",
+      "summary": "Base runtime exception for the project with multiple constructors including a code-carrying variant.",
+      "tags": ["exception", "error-handling", "base-class"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java",
+      "type": "file",
+      "name": "DamaiJsonLayout.java",
+      "filePath": "damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java",
+      "summary": "Custom Log4j2 JSON layout that serializes log events to JSON with project name and environment metadata via plugin factory methods.",
+      "tags": ["logging", "log4j2", "json", "layout", "serialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java",
+      "type": "file",
+      "name": "JsonWriterBuilder.java",
+      "filePath": "damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java",
+      "summary": "Fluent builder that constructs a Jackson ObjectWriter for Log4j JSON output with field exclusion filters and compact-mode support.",
+      "tags": ["logging", "builder", "jackson", "json", "serialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/test/Test.java",
+      "type": "file",
+      "name": "Test.java",
+      "filePath": "damai-common/src/main/java/com/damai/test/Test.java",
+      "summary": "Ad-hoc manual test harness that submits a runnable to a thread pool to observe thread naming behavior.",
+      "tags": ["test", "thread-pool", "manual-test", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/util/Base64.java",
+      "type": "file",
+      "name": "Base64.java",
+      "filePath": "damai-common/src/main/java/com/damai/util/Base64.java",
+      "summary": "Self-contained Base64 encoder implementation with lookup tables, whitespace handling, and data validation helpers.",
+      "tags": ["utility", "encoding", "base64", "serialization"],
+      "complexity": "moderate",
+      "languageNotes": "Hand-rolled Base64 encoder using static lookup alphabet arrays rather than java.util.Base64."
+    },
+    {
+      "id": "file:damai-common/src/main/resources/META-INF/spring.factories",
+      "type": "file",
+      "name": "spring.factories",
+      "filePath": "damai-common/src/main/resources/META-INF/spring.factories",
+      "summary": "Spring Boot factories file registering SpringEnvironment as an EnvironmentPostProcessor and SpringUtil as an ApplicationContextInitializer.",
+      "tags": ["configuration", "spring-boot", "auto-configuration", "registration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-common/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Spring Boot 3 auto-configuration registration file listing DaMaiCommonAutoConfig for automatic component wiring.",
+      "tags": ["configuration", "spring-boot", "auto-configuration", "registration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-elasticsearch-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-elasticsearch-framework/pom.xml",
+      "summary": "Maven module descriptor for the Elasticsearch framework wrapper, declaring spring-data-elasticsearch, damai-common, and PageHelper dependencies with logging exclusions.",
+      "tags": ["configuration", "build-system", "maven", "elasticsearch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsProperties.java",
+      "type": "file",
+      "name": "BusinessEsProperties.java",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsProperties.java",
+      "summary": "Configuration properties bean binding business Elasticsearch connection settings such as host, credentials, timeouts, and pool size.",
+      "tags": ["configuration", "properties", "elasticsearch", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataCreateDto.java",
+      "type": "file",
+      "name": "EsDataCreateDto.java",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataCreateDto.java",
+      "summary": "Simple DTO carrying a parameter name/value pair used when creating Elasticsearch index data.",
+      "tags": ["dto", "data-model", "elasticsearch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-elasticsearch-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-elasticsearch-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Spring Boot 3 auto-configuration registration file enabling BusinessEsAutoConfig for the Elasticsearch framework module.",
+      "tags": ["configuration", "spring-boot", "auto-configuration", "registration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:damai-id-generator-framework/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "damai-id-generator-framework/README.md",
+      "summary": "Brief module readme introducing the distributed ID generator framework based on Baidu UIDGenerator.",
+      "tags": ["documentation", "id-generator", "overview"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-id-generator-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-id-generator-framework/pom.xml",
+      "summary": "Maven module descriptor for the distributed ID generator framework, depending on commons-lang, commons-collections, spring-data-redis, and damai-common.",
+      "tags": ["configuration", "build-system", "maven", "id-generator"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferedUidProvider.java",
+      "type": "file",
+      "name": "BufferedUidProvider.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferedUidProvider.java",
+      "summary": "UID provider implementation from the Baidu UIDGenerator port that serves buffered unique IDs via a provide method.",
+      "tags": ["id-generator", "provider", "buffer", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/DisposableWorkerIdAssigner.java",
+      "type": "file",
+      "name": "DisposableWorkerIdAssigner.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/DisposableWorkerIdAssigner.java",
+      "summary": "Fully commented-out worker ID assigner implementation retained from the Baidu UIDGenerator port; currently dead code.",
+      "tags": ["id-generator", "commented-out", "dead-code", "worker-id"],
+      "complexity": "simple",
+      "languageNotes": "Entire file body is commented out, so no active classes or methods exist."
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java",
+      "type": "file",
+      "name": "AbstractDockerUtils.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java",
+      "summary": "Abstract utility that detects Docker runtime environments by reading DOCKER_HOST and DOCKER_PORT environment variables.",
+      "tags": ["utility", "docker", "environment", "id-generator"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java",
+      "type": "file",
+      "name": "AbstractEnumUtils.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java",
+      "summary": "Abstract utility providing generic enum parsing and safe valueOf resolution helpers.",
+      "tags": ["utility", "enum", "parsing", "id-generator"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java",
+      "type": "file",
+      "name": "AbstractNetUtils.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java",
+      "summary": "Abstract network utility that resolves the first valid local non-loopback inet address for worker node identification.",
+      "tags": ["utility", "network", "id-generator", "inet-address"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/dao/WorkerNodeDAO.java",
+      "type": "file",
+      "name": "WorkerNodeDAO.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/dao/WorkerNodeDAO.java",
+      "summary": "Fully commented-out MyBatis DAO interface for the WORKER_NODE table retained from the Baidu UIDGenerator port; currently dead code.",
+      "tags": ["id-generator", "commented-out", "dead-code", "dao"],
+      "complexity": "simple",
+      "languageNotes": "Entire file body is commented out, so no active interface exists."
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/IdGeneratorConstant.java",
+      "type": "file",
+      "name": "IdGeneratorConstant.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/IdGeneratorConstant.java",
+      "summary": "Constants holder defining bit allocation and maximum values for worker ID and data center ID in the snowflake-style ID generator.",
+      "tags": ["constants", "id-generator", "snowflake", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/PermitRefund.java:PermitRefund",
+      "type": "class",
+      "name": "PermitRefund",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PermitRefund.java",
+      "lineRange": [8, 59],
+      "summary": "Enum of refund-permission states with code/message fields and static lookup by code.",
+      "tags": ["enum", "data-model", "lookup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/ProgramPageType.java:ProgramPageType",
+      "type": "class",
+      "name": "ProgramPageType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/ProgramPageType.java",
+      "lineRange": [8, 74],
+      "summary": "Enum of program page types with code, value, and message fields plus static code-based lookup.",
+      "tags": ["enum", "data-model", "lookup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/TimeType.java:TimeType",
+      "type": "class",
+      "name": "TimeType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/TimeType.java",
+      "lineRange": [8, 54],
+      "summary": "Enum of time granularity types with static code-based message and enum lookup.",
+      "tags": ["enum", "data-model", "lookup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/UserLogStatus.java:UserLogStatus",
+      "type": "class",
+      "name": "UserLogStatus",
+      "filePath": "damai-common/src/main/java/com/damai/enums/UserLogStatus.java",
+      "lineRange": [8, 59],
+      "summary": "Enum of user log status codes with static lookup helpers resolving message or enum by code.",
+      "tags": ["enum", "data-model", "lookup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/environment/SpringEnvironment.java:SpringEnvironment",
+      "type": "class",
+      "name": "SpringEnvironment",
+      "filePath": "damai-common/src/main/java/com/damai/environment/SpringEnvironment.java",
+      "lineRange": [12, 18],
+      "summary": "EnvironmentPostProcessor implementation that turns on bean definition overriding for the Spring application.",
+      "tags": ["spring-boot", "post-processor", "startup-hook"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/exception/BaseException.java:BaseException",
+      "type": "class",
+      "name": "BaseException",
+      "filePath": "damai-common/src/main/java/com/damai/exception/BaseException.java",
+      "lineRange": [8, 29],
+      "summary": "Project base runtime exception offering five constructor variants, including one carrying an error code.",
+      "tags": ["exception", "error-handling", "base-class"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java:DamaiJsonLayout",
+      "type": "class",
+      "name": "DamaiJsonLayout",
+      "filePath": "damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java",
+      "lineRange": [44, 155],
+      "summary": "Log4j2 plugin layout that renders log events as JSON documents enriched with project name and environment fields.",
+      "tags": ["logging", "log4j2", "json", "layout", "plugin"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java:JsonWriterBuilder",
+      "type": "class",
+      "name": "JsonWriterBuilder",
+      "filePath": "damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java",
+      "lineRange": [21, 92],
+      "summary": "Builder assembling a configured Jackson ObjectWriter for JSON log serialization with exclusion filters and pretty-print modes.",
+      "tags": ["logging", "builder", "jackson", "json"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/test/Test.java:Test",
+      "type": "class",
+      "name": "Test",
+      "filePath": "damai-common/src/main/java/com/damai/test/Test.java",
+      "lineRange": [14, 35],
+      "summary": "Manual thread-pool test class with an execute helper and a main entry point.",
+      "tags": ["test", "thread-pool", "manual-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/util/Base64.java:Base64",
+      "type": "class",
+      "name": "Base64",
+      "filePath": "damai-common/src/main/java/com/damai/util/Base64.java",
+      "lineRange": [10, 194],
+      "summary": "Static Base64 encoding utility with alphabet lookup tables, octet classification, and whitespace stripping.",
+      "tags": ["utility", "encoding", "base64"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsProperties.java:BusinessEsProperties",
+      "type": "class",
+      "name": "BusinessEsProperties",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsProperties.java",
+      "lineRange": [11, 34],
+      "summary": "Configuration properties class holding business Elasticsearch connection and switch settings.",
+      "tags": ["configuration", "properties", "elasticsearch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataCreateDto.java:EsDataCreateDto",
+      "type": "class",
+      "name": "EsDataCreateDto",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataCreateDto.java",
+      "lineRange": [10, 21],
+      "summary": "DTO with a parameter name/value pair for Elasticsearch data creation requests.",
+      "tags": ["dto", "data-model", "elasticsearch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferedUidProvider.java:BufferedUidProvider",
+      "type": "class",
+      "name": "BufferedUidProvider",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferedUidProvider.java",
+      "lineRange": [25, 35],
+      "summary": "UID provider that hands out buffered unique identifiers through a single provide method.",
+      "tags": ["id-generator", "provider", "buffer"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java:AbstractDockerUtils",
+      "type": "class",
+      "name": "AbstractDockerUtils",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java",
+      "lineRange": [27, 104],
+      "summary": "Abstract base detecting Docker host and port from environment variables to decide containerized execution.",
+      "tags": ["utility", "docker", "environment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java:AbstractEnumUtils",
+      "type": "class",
+      "name": "AbstractEnumUtils",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java",
+      "lineRange": [25, 64],
+      "summary": "Abstract base with generic enum parsing by value and null-safe valueOf resolution.",
+      "tags": ["utility", "enum", "parsing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java:AbstractNetUtils",
+      "type": "class",
+      "name": "AbstractNetUtils",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java",
+      "lineRange": [28, 84],
+      "summary": "Abstract base resolving and caching the first valid local inet address across network interfaces.",
+      "tags": ["utility", "network", "inet-address"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/IdGeneratorConstant.java:IdGeneratorConstant",
+      "type": "class",
+      "name": "IdGeneratorConstant",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/IdGeneratorConstant.java",
+      "lineRange": [8, 16],
+      "summary": "Constant definitions for worker and data center ID bit widths and their maximum values.",
+      "tags": ["constants", "id-generator", "snowflake"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/PermitRefund.java:getMsg",
+      "type": "function",
+      "name": "getMsg",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PermitRefund.java",
+      "lineRange": [42, 49],
+      "summary": "Resolves the message string for a given PermitRefund code by scanning enum values.",
+      "tags": ["lookup", "enum", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/PermitRefund.java:getRc",
+      "type": "function",
+      "name": "getRc",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PermitRefund.java",
+      "lineRange": [51, 58],
+      "summary": "Returns the PermitRefund enum constant matching the given code, or null when absent.",
+      "tags": ["lookup", "enum", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/ProgramPageType.java:getMsg",
+      "type": "function",
+      "name": "getMsg",
+      "filePath": "damai-common/src/main/java/com/damai/enums/ProgramPageType.java",
+      "lineRange": [57, 64],
+      "summary": "Resolves the message string for a given ProgramPageType code by scanning enum values.",
+      "tags": ["lookup", "enum", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/ProgramPageType.java:getRc",
+      "type": "function",
+      "name": "getRc",
+      "filePath": "damai-common/src/main/java/com/damai/enums/ProgramPageType.java",
+      "lineRange": [66, 73],
+      "summary": "Returns the ProgramPageType enum constant matching the given code, or null when absent.",
+      "tags": ["lookup", "enum", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/TimeType.java:getMsg",
+      "type": "function",
+      "name": "getMsg",
+      "filePath": "damai-common/src/main/java/com/damai/enums/TimeType.java",
+      "lineRange": [37, 44],
+      "summary": "Resolves the message string for a given TimeType code by scanning enum values.",
+      "tags": ["lookup", "enum", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/TimeType.java:getRc",
+      "type": "function",
+      "name": "getRc",
+      "filePath": "damai-common/src/main/java/com/damai/enums/TimeType.java",
+      "lineRange": [46, 53],
+      "summary": "Returns the TimeType enum constant matching the given code, or null when absent.",
+      "tags": ["lookup", "enum", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/UserLogStatus.java:getMsg",
+      "type": "function",
+      "name": "getMsg",
+      "filePath": "damai-common/src/main/java/com/damai/enums/UserLogStatus.java",
+      "lineRange": [42, 49],
+      "summary": "Resolves the message string for a given UserLogStatus code by scanning enum values.",
+      "tags": ["lookup", "enum", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/enums/UserLogStatus.java:getRc",
+      "type": "function",
+      "name": "getRc",
+      "filePath": "damai-common/src/main/java/com/damai/enums/UserLogStatus.java",
+      "lineRange": [51, 58],
+      "summary": "Returns the UserLogStatus enum constant matching the given code, or null when absent.",
+      "tags": ["lookup", "enum", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java:DamaiJsonLayout",
+      "type": "function",
+      "name": "DamaiJsonLayout",
+      "filePath": "damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java",
+      "lineRange": [51, 70],
+      "summary": "Constructor wiring the JSON writer via JsonWriterBuilder and preparing header/footer serializers with project metadata.",
+      "tags": ["constructor", "logging", "json", "initialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java:toSerializable",
+      "type": "function",
+      "name": "toSerializable",
+      "filePath": "damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java",
+      "lineRange": [112, 118],
+      "summary": "Serializes a log event into the supplied writer, wrapping the JSON output in array delimiters.",
+      "tags": ["serialization", "logging", "json"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java:newLayout",
+      "type": "function",
+      "name": "newLayout",
+      "filePath": "damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java",
+      "lineRange": [123, 145],
+      "summary": "Log4j2 plugin factory method building a DamaiJsonLayout from annotated plugin attributes.",
+      "tags": ["factory", "plugin", "logging", "json"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java:build",
+      "type": "function",
+      "name": "build",
+      "filePath": "damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java",
+      "lineRange": [70, 91],
+      "summary": "Assembles the Jackson ObjectWriter with field exclusion filters and compact or pretty printing based on builder flags.",
+      "tags": ["builder", "jackson", "serialization", "logging"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/Base64.java:encode",
+      "type": "function",
+      "name": "encode",
+      "filePath": "damai-common/src/main/java/com/damai/util/Base64.java",
+      "lineRange": [98, 170],
+      "summary": "Encodes binary data into a Base64 string, processing four-byte groups and padding the tail.",
+      "tags": ["encoding", "base64", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/Base64.java:removeWhiteSpace",
+      "type": "function",
+      "name": "removeWhiteSpace",
+      "filePath": "damai-common/src/main/java/com/damai/util/Base64.java",
+      "lineRange": [179, 193],
+      "summary": "Strips whitespace characters from Base64-encoded data prior to decoding.",
+      "tags": ["encoding", "base64", "sanitization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java:retrieveFromEnv",
+      "type": "function",
+      "name": "retrieveFromEnv",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java",
+      "lineRange": [76, 102],
+      "summary": "Reads and validates DOCKER_HOST and DOCKER_PORT environment variables, failing fast on partial configuration.",
+      "tags": ["docker", "environment", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java:parse",
+      "type": "function",
+      "name": "parse",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java",
+      "lineRange": [34, 46],
+      "summary": "Parses an enum constant of the given type whose value equals the supplied value, or null when unmatched.",
+      "tags": ["enum", "parsing", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java:getLocalInetAddress",
+      "type": "function",
+      "name": "getLocalInetAddress",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java",
+      "lineRange": [49, 73],
+      "summary": "Iterates network interfaces to select the first non-loopback, non-link-local IPv4 address, throwing when none is found.",
+      "tags": ["network", "inet-address", "utility"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {"source": "file:damai-common/src/main/java/com/damai/enums/PermitRefund.java", "target": "class:damai-common/src/main/java/com/damai/enums/PermitRefund.java:PermitRefund", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/ProgramPageType.java", "target": "class:damai-common/src/main/java/com/damai/enums/ProgramPageType.java:ProgramPageType", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/TimeType.java", "target": "class:damai-common/src/main/java/com/damai/enums/TimeType.java:TimeType", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/UserLogStatus.java", "target": "class:damai-common/src/main/java/com/damai/enums/UserLogStatus.java:UserLogStatus", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/environment/SpringEnvironment.java", "target": "class:damai-common/src/main/java/com/damai/environment/SpringEnvironment.java:SpringEnvironment", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/exception/BaseException.java", "target": "class:damai-common/src/main/java/com/damai/exception/BaseException.java:BaseException", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java", "target": "class:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java:DamaiJsonLayout", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java", "target": "class:damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java:JsonWriterBuilder", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/test/Test.java", "target": "class:damai-common/src/main/java/com/damai/test/Test.java:Test", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/Base64.java", "target": "class:damai-common/src/main/java/com/damai/util/Base64.java:Base64", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsProperties.java", "target": "class:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsProperties.java:BusinessEsProperties", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataCreateDto.java", "target": "class:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataCreateDto.java:EsDataCreateDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferedUidProvider.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferedUidProvider.java:BufferedUidProvider", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java:AbstractDockerUtils", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java:AbstractEnumUtils", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java:AbstractNetUtils", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/IdGeneratorConstant.java", "target": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/IdGeneratorConstant.java:IdGeneratorConstant", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/PermitRefund.java", "target": "function:damai-common/src/main/java/com/damai/enums/PermitRefund.java:getMsg", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/PermitRefund.java", "target": "function:damai-common/src/main/java/com/damai/enums/PermitRefund.java:getRc", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/ProgramPageType.java", "target": "function:damai-common/src/main/java/com/damai/enums/ProgramPageType.java:getMsg", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/ProgramPageType.java", "target": "function:damai-common/src/main/java/com/damai/enums/ProgramPageType.java:getRc", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/TimeType.java", "target": "function:damai-common/src/main/java/com/damai/enums/TimeType.java:getMsg", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/TimeType.java", "target": "function:damai-common/src/main/java/com/damai/enums/TimeType.java:getRc", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/UserLogStatus.java", "target": "function:damai-common/src/main/java/com/damai/enums/UserLogStatus.java:getMsg", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/UserLogStatus.java", "target": "function:damai-common/src/main/java/com/damai/enums/UserLogStatus.java:getRc", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java", "target": "function:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java:DamaiJsonLayout", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java", "target": "function:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java:toSerializable", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java", "target": "function:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java:newLayout", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java", "target": "function:damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java:build", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/Base64.java", "target": "function:damai-common/src/main/java/com/damai/util/Base64.java:encode", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/Base64.java", "target": "function:damai-common/src/main/java/com/damai/util/Base64.java:removeWhiteSpace", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java", "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java:retrieveFromEnv", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java", "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java:parse", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java", "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java:getLocalInetAddress", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/PermitRefund.java", "target": "class:damai-common/src/main/java/com/damai/enums/PermitRefund.java:PermitRefund", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/ProgramPageType.java", "target": "class:damai-common/src/main/java/com/damai/enums/ProgramPageType.java:ProgramPageType", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/TimeType.java", "target": "class:damai-common/src/main/java/com/damai/enums/TimeType.java:TimeType", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/UserLogStatus.java", "target": "class:damai-common/src/main/java/com/damai/enums/UserLogStatus.java:UserLogStatus", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/environment/SpringEnvironment.java", "target": "class:damai-common/src/main/java/com/damai/environment/SpringEnvironment.java:SpringEnvironment", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/exception/BaseException.java", "target": "class:damai-common/src/main/java/com/damai/exception/BaseException.java:BaseException", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java", "target": "class:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java:DamaiJsonLayout", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java", "target": "class:damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java:JsonWriterBuilder", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/util/Base64.java", "target": "class:damai-common/src/main/java/com/damai/util/Base64.java:Base64", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsProperties.java", "target": "class:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsProperties.java:BusinessEsProperties", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataCreateDto.java", "target": "class:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataCreateDto.java:EsDataCreateDto", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferedUidProvider.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferedUidProvider.java:BufferedUidProvider", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java:AbstractDockerUtils", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java:AbstractEnumUtils", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java:AbstractNetUtils", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/IdGeneratorConstant.java", "target": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/IdGeneratorConstant.java:IdGeneratorConstant", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java:DamaiJsonLayout", "target": "class:damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java:JsonWriterBuilder", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java:newLayout", "target": "class:damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java:DamaiJsonLayout", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/resources/META-INF/spring.factories", "target": "file:damai-common/src/main/java/com/damai/environment/SpringEnvironment.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-elasticsearch-framework/pom.xml", "target": "file:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsProperties.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-id-generator-framework/pom.xml", "target": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/IdGeneratorConstant.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "document:damai-id-generator-framework/README.md", "target": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/IdGeneratorConstant.java", "type": "documents", "direction": "forward", "weight": 0.5}
+  ]
+}

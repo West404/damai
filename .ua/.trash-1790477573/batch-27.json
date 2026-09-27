@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {
+      "id": "service:docker/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "docker/Dockerfile",
+      "summary": "大麦项目微服务通用容器镜像定义：基于 eclipse-temurin:17-jre，把各服务已构建好的 jar 复制为 /app/app.jar，并通过 JAVA_OPTS 注入 JVM 参数后以 ENTRYPOINT 启动，被根目录 docker-compose.yml 以 8 个微服务目录为构建上下文复用。",
+      "tags": ["containerization", "infrastructure", "deployment", "container-image", "jvm-tuning"],
+      "complexity": "simple",
+      "languageNotes": "单阶段构建（非多阶段）：通过 ARG JAR_FILE 默认值 target/*.jar 与 compose 的 build context 配合，实现一份 Dockerfile 服务全部微服务；ENTRYPOINT 采用 sh -c 形式以便运行时展开 $JAVA_OPTS，堆内存默认限制 -Xms256m -Xmx512m。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:docker/Dockerfile",
+      "target": "document:docker/README.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

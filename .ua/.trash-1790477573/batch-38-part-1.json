@@ -1,0 +1,320 @@
+{
+  "nodes": [
+    {
+      "id": "table:sql/cloud/1_damai_cloud_create_database.sql",
+      "type": "table",
+      "name": "1_damai_cloud_create_database.sql",
+      "filePath": "sql/cloud/1_damai_cloud_create_database.sql",
+      "summary": "云环境数据库初始化脚本，以 utf8mb4 字符集创建 damai_base_data、damai_customize、damai_order_0/1、damai_pay_0/1、damai_program_0/1、damai_user_0/1 共 10 个分库，是所有建表脚本的前置依赖。",
+      "tags": ["database", "初始化脚本", "分库分表", "DDL"],
+      "complexity": "simple",
+      "languageNotes": "使用 CREATE DATABASE IF NOT EXISTS 保证脚本可重复执行，10 个库名与后端的 ShardingSphere 分片数据源一一对应。"
+    },
+    {
+      "id": "table:sql/cloud/damai_base_data.sql",
+      "type": "table",
+      "name": "damai_base_data.sql",
+      "filePath": "sql/cloud/damai_base_data.sql",
+      "summary": "基础数据服务库 damai_base_data 的结构脚本，定义地区字典表 d_area 与第三方渠道密钥配置表 d_channel_data。",
+      "tags": ["database", "基础数据", "字典表", "渠道对接"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_base_data.sql:d_area",
+      "type": "table",
+      "name": "d_area",
+      "filePath": "sql/cloud/damai_base_data.sql",
+      "summary": "地区表，通过 parent_id 自关联组织省/区/县层级，type 标记层级（1 省、2 区、3 县），municipality 标记直辖市，并对 parent_id 与 type 建立索引。",
+      "tags": ["database", "字典表", "地区层级", "基础数据"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_base_data.sql:d_channel_data",
+      "type": "table",
+      "name": "d_channel_data",
+      "filePath": "sql/cloud/damai_base_data.sql",
+      "summary": "渠道数据表，保存渠道名称、编码、简介以及签名公私钥、AES 密钥、数据加解密密钥与 token 密钥，供第三方渠道报文验签与加解密使用。",
+      "tags": ["database", "渠道对接", "密钥配置", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_customize.sql",
+      "type": "table",
+      "name": "damai_customize.sql",
+      "filePath": "sql/cloud/damai_customize.sql",
+      "summary": "定制化服务库 damai_customize 的结构脚本，定义接口调用埋点表 d_api_data 以及一般规则表 d_rule、深度规则表 d_depth_rule，构成接口限流黑名单的基础数据。",
+      "tags": ["database", "定制服务", "限流", "规则配置"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_customize.sql:d_api_data",
+      "type": "table",
+      "name": "d_api_data",
+      "filePath": "sql/cloud/damai_customize.sql",
+      "summary": "接口调用数据表，记录客户端 IP、请求方法/路径/参数、请求体与调用时间，并按天/小时/分钟/秒四个维度建索引，用于接口调用统计与限流规则匹配（type 区分一般规则与深度规则）。",
+      "tags": ["database", "api监控", "限流统计", "定制服务"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_customize.sql:d_depth_rule",
+      "type": "table",
+      "name": "d_depth_rule",
+      "filePath": "sql/cloud/damai_customize.sql",
+      "summary": "深度规则表，通过限制开始/结束时间窗口、统计时间与统计时间类型（秒/分钟）、调用阈值与生效时长描述深度限流规则。",
+      "tags": ["database", "规则配置", "限流", "定制服务"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_customize.sql:d_rule",
+      "type": "table",
+      "name": "d_rule",
+      "filePath": "sql/cloud/damai_customize.sql",
+      "summary": "一般限流规则表，定义统计时间/类型、调用阈值、生效时长/类型以及逗号分隔的限制路径 limit_api。",
+      "tags": ["database", "规则配置", "限流", "定制服务"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql",
+      "type": "table",
+      "name": "damai_order_0.sql",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "订单库分片 0（damai_order_0）的完整结构与种子数据脚本，包含订单主表分表 d_order_0~d_order_3 与订单购票人关联分表 d_order_ticket_user_0~d_order_ticket_user_3。",
+      "tags": ["database", "订单", "分库分表", "migration"],
+      "complexity": "complex",
+      "languageNotes": "采用 MySQL 分库分表命名约定：库名带分片后缀，表名以 _0~_3 结尾，复制同一套 DDL 到不同分库/分表，由 ShardingSphere 按分片键路由。"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_0",
+      "type": "table",
+      "name": "d_order_0",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "订单主表分表 0，冗余保存节目标题/图片/地点/演出时间与是否支持选座，记录订单价格、支付方式及订单状态（1 未支付、2 已取消、3 已支付、4 已退单）；order_number 唯一索引，user_id 与 program_id 普通索引。",
+      "tags": ["database", "订单", "分表", "交易"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_1",
+      "type": "table",
+      "name": "d_order_1",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "订单主表分表 1，结构与分表 0 完全一致，用于订单数据水平拆分，按 user_id、program_id 建索引。",
+      "tags": ["database", "订单", "分表", "交易"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_2",
+      "type": "table",
+      "name": "d_order_2",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "订单主表分表 2，结构与分表 0 一致，承载订单数据的水平分片。",
+      "tags": ["database", "订单", "分表", "交易"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_3",
+      "type": "table",
+      "name": "d_order_3",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "订单主表分表 3，结构与分表 0 一致，承载订单数据的水平分片。",
+      "tags": ["database", "订单", "分表", "交易"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_0",
+      "type": "table",
+      "name": "d_order_ticket_user_0",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "订单购票人关联分表 0，记录订单编号、购票人 id、座位 id/座位信息、票档 id 及订单价格与状态，用于一个订单下多个实名观演人的落库。",
+      "tags": ["database", "订单", "购票人", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_1",
+      "type": "table",
+      "name": "d_order_ticket_user_1",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "订单购票人关联分表 1，结构与分表 0 一致，按 order_number 建索引。",
+      "tags": ["database", "订单", "购票人", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_2",
+      "type": "table",
+      "name": "d_order_ticket_user_2",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "订单购票人关联分表 2，结构与分表 0 一致，承载购票人明细的水平分片。",
+      "tags": ["database", "订单", "购票人", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_3",
+      "type": "table",
+      "name": "d_order_ticket_user_3",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "订单购票人关联分表 3，结构与分表 0 一致，承载购票人明细的水平分片。",
+      "tags": ["database", "订单", "购票人", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql",
+      "type": "table",
+      "name": "damai_order_1.sql",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "订单库分片 1（damai_order_1）的结构与种子数据脚本，内容与分片 0 对称，同样包含 d_order_0~d_order_3 与 d_order_ticket_user_0~d_order_ticket_user_3。",
+      "tags": ["database", "订单", "分库分表", "migration"],
+      "complexity": "complex",
+      "languageNotes": "分片库之间保持完全相同的 DDL，仅 USE 的库名不同，便于水平扩容时克隆。"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_0",
+      "type": "table",
+      "name": "d_order_0",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "分片库 damai_order_1 中的订单主表分表 0，字段与索引同分片库 0 保持一致，含订单状态与支付信息。",
+      "tags": ["database", "订单", "分表", "交易"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_1",
+      "type": "table",
+      "name": "d_order_1",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "分片库 damai_order_1 中的订单主表分表 1，按 user_id、program_id 建索引。",
+      "tags": ["database", "订单", "分表", "交易"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_2",
+      "type": "table",
+      "name": "d_order_2",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "分片库 damai_order_1 中的订单主表分表 2，承载订单数据的水平分片。",
+      "tags": ["database", "订单", "分表", "交易"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_3",
+      "type": "table",
+      "name": "d_order_3",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "分片库 damai_order_1 中的订单主表分表 3，承载订单数据的水平分片。",
+      "tags": ["database", "订单", "分表", "交易"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_0",
+      "type": "table",
+      "name": "d_order_ticket_user_0",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "分片库 damai_order_1 中的订单购票人关联分表 0，保存座位、票档与订单价格等购票人明细。",
+      "tags": ["database", "订单", "购票人", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_1",
+      "type": "table",
+      "name": "d_order_ticket_user_1",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "分片库 damai_order_1 中的订单购票人关联分表 1，结构与分表 0 一致。",
+      "tags": ["database", "订单", "购票人", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_2",
+      "type": "table",
+      "name": "d_order_ticket_user_2",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "分片库 damai_order_1 中的订单购票人关联分表 2，结构与分表 0 一致。",
+      "tags": ["database", "订单", "购票人", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_3",
+      "type": "table",
+      "name": "d_order_ticket_user_3",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "分片库 damai_order_1 中的订单购票人关联分表 3，结构与分表 0 一致。",
+      "tags": ["database", "订单", "购票人", "分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_0.sql",
+      "type": "table",
+      "name": "damai_pay_0.sql",
+      "filePath": "sql/cloud/damai_pay_0.sql",
+      "summary": "支付库分片 0（damai_pay_0）的结构脚本，定义支付账单分表 d_pay_bill_0/1 与退款单分表 d_refund_bill_0/1。",
+      "tags": ["database", "支付", "分库分表", "退款"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_0.sql:d_pay_bill_0",
+      "type": "table",
+      "name": "d_pay_bill_0",
+      "filePath": "sql/cloud/damai_pay_0.sql",
+      "summary": "支付账单分表 0，记录支付流水号、商户订单号、支付渠道与场景、三方交易凭证号、支付金额及账单类型/状态（对应 PayBillType、PayBillStatus 枚举），out_order_no 唯一索引。",
+      "tags": ["database", "支付", "账单", "分表"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_0.sql:d_pay_bill_1",
+      "type": "table",
+      "name": "d_pay_bill_1",
+      "filePath": "sql/cloud/damai_pay_0.sql",
+      "summary": "支付账单分表 1，结构与分表 0 一致，用于支付流水的水平拆分。",
+      "tags": ["database", "支付", "账单", "分表"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_0.sql:d_refund_bill_0",
+      "type": "table",
+      "name": "d_refund_bill_0",
+      "filePath": "sql/cloud/damai_pay_0.sql",
+      "summary": "退款单分表 0，通过商户订单号与 pay_bill_id 关联支付账单，记录退款金额、退款状态（1 未退款、2 已退款）与退款原因。",
+      "tags": ["database", "退款", "交易", "分表"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_0.sql:d_refund_bill_1",
+      "type": "table",
+      "name": "d_refund_bill_1",
+      "filePath": "sql/cloud/damai_pay_0.sql",
+      "summary": "退款单分表 1，结构与分表 0 一致，用于退款数据的水平拆分。",
+      "tags": ["database", "退款", "交易", "分表"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {"source": "table:sql/cloud/damai_base_data.sql", "target": "table:sql/cloud/damai_base_data.sql:d_area", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_base_data.sql", "target": "table:sql/cloud/damai_base_data.sql:d_channel_data", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_customize.sql", "target": "table:sql/cloud/damai_customize.sql:d_api_data", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_customize.sql", "target": "table:sql/cloud/damai_customize.sql:d_depth_rule", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_customize.sql", "target": "table:sql/cloud/damai_customize.sql:d_rule", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_2", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_3", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_2", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_3", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_2", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_3", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_2", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_3", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_0.sql", "target": "table:sql/cloud/damai_pay_0.sql:d_pay_bill_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_0.sql", "target": "table:sql/cloud/damai_pay_0.sql:d_pay_bill_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_0.sql", "target": "table:sql/cloud/damai_pay_0.sql:d_refund_bill_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_0.sql", "target": "table:sql/cloud/damai_pay_0.sql:d_refund_bill_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_base_data.sql", "target": "table:sql/cloud/1_damai_cloud_create_database.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "table:sql/cloud/damai_customize.sql", "target": "table:sql/cloud/1_damai_cloud_create_database.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/1_damai_cloud_create_database.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/1_damai_cloud_create_database.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "table:sql/cloud/damai_pay_0.sql", "target": "table:sql/cloud/1_damai_cloud_create_database.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_1.sql", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "table:sql/cloud/damai_pay_0.sql", "target": "table:sql/cloud/damai_pay_1.sql", "type": "related", "direction": "forward", "weight": 0.5}
+  ]
+}

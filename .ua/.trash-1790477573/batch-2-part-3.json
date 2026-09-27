@@ -1,0 +1,1358 @@
+{
+ "nodes": [
+  {
+   "id": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+   "type": "file",
+   "name": "User.java",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+   "summary": "用户实体，映射 d_user 表，包含姓名、手机号、密码、邮箱、性别、实名认证与邮箱认证状态、身份证号、收货地址等字段。",
+   "tags": [
+    "entity",
+    "data-model",
+    "mybatis-plus",
+    "用户"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-user-service/src/main/java/com/damai/entity/User.java:User",
+   "type": "class",
+   "name": "User",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+   "lineRange": [
+    15,
+    78
+   ],
+   "summary": "用户持久化实体，@TableName 指定 d_user，集中承载账号、联系方式与认证状态字段。",
+   "tags": [
+    "entity",
+    "data-model",
+    "mybatis-plus",
+    "用户"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java",
+   "type": "file",
+   "name": "UserEmail.java",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java",
+   "summary": "用户邮箱实体，映射用户邮箱表，以 userId 关联用户并提供邮箱唯一性落库能力。",
+   "tags": [
+    "entity",
+    "data-model",
+    "mybatis-plus",
+    "邮箱"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java:UserEmail",
+   "type": "class",
+   "name": "UserEmail",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java",
+   "lineRange": [
+    15,
+    36
+   ],
+   "summary": "用户邮箱持久化实体，以 userId 外联用户，用于保证一个邮箱只绑定一个账号。",
+   "tags": [
+    "entity",
+    "data-model",
+    "mybatis-plus",
+    "邮箱"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+   "type": "file",
+   "name": "UserMobile.java",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+   "summary": "用户手机号实体，映射 d_user_mobile 表，以 userId 关联用户并支撑手机号登录与查重。",
+   "tags": [
+    "entity",
+    "data-model",
+    "mybatis-plus",
+    "手机号"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java:UserMobile",
+   "type": "class",
+   "name": "UserMobile",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+   "lineRange": [
+    15,
+    36
+   ],
+   "summary": "用户手机号持久化实体，@TableName 指定 d_user_mobile，支撑手机号登录与查重。",
+   "tags": [
+    "entity",
+    "data-model",
+    "mybatis-plus",
+    "手机号"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+   "type": "file",
+   "name": "TicketUserMapper.java",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+   "summary": "购票人 Mapper 接口，继承 MyBatis-Plus BaseMapper 获得 TicketUser 的基础 CRUD 能力。",
+   "tags": [
+    "mapper",
+    "mybatis-plus",
+    "数据访问",
+    "购票人"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java:TicketUserMapper",
+   "type": "class",
+   "name": "TicketUserMapper",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+   "lineRange": [
+    12,
+    14
+   ],
+   "summary": "MyBatis-Plus Mapper 接口，泛型绑定 TicketUser 实体。",
+   "tags": [
+    "mapper",
+    "mybatis-plus",
+    "数据访问",
+    "购票人"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java",
+   "type": "file",
+   "name": "UserEmailMapper.java",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java",
+   "summary": "用户邮箱 Mapper 接口，继承 MyBatis-Plus BaseMapper 获得 UserEmail 的基础 CRUD 能力。",
+   "tags": [
+    "mapper",
+    "mybatis-plus",
+    "数据访问",
+    "邮箱"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java:UserEmailMapper",
+   "type": "class",
+   "name": "UserEmailMapper",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java",
+   "lineRange": [
+    11,
+    13
+   ],
+   "summary": "MyBatis-Plus Mapper 接口，泛型绑定 UserEmail 实体。",
+   "tags": [
+    "mapper",
+    "mybatis-plus",
+    "数据访问",
+    "邮箱"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java",
+   "type": "file",
+   "name": "UserMapper.java",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java",
+   "summary": "用户 Mapper 接口，继承 MyBatis-Plus BaseMapper 获得 User 的基础 CRUD 能力。",
+   "tags": [
+    "mapper",
+    "mybatis-plus",
+    "数据访问",
+    "用户"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java:UserMapper",
+   "type": "class",
+   "name": "UserMapper",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java",
+   "lineRange": [
+    12,
+    14
+   ],
+   "summary": "MyBatis-Plus Mapper 接口，泛型绑定 User 实体。",
+   "tags": [
+    "mapper",
+    "mybatis-plus",
+    "数据访问",
+    "用户"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java",
+   "type": "file",
+   "name": "UserMobileMapper.java",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java",
+   "summary": "用户手机号 Mapper 接口，继承 MyBatis-Plus BaseMapper 获得 UserMobile 的基础 CRUD 能力。",
+   "tags": [
+    "mapper",
+    "mybatis-plus",
+    "数据访问",
+    "手机号"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java:UserMobileMapper",
+   "type": "class",
+   "name": "UserMobileMapper",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java",
+   "lineRange": [
+    11,
+    13
+   ],
+   "summary": "MyBatis-Plus Mapper 接口，泛型绑定 UserMobile 实体。",
+   "tags": [
+    "mapper",
+    "mybatis-plus",
+    "数据访问",
+    "手机号"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "type": "file",
+   "name": "TicketUserService.java",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "summary": "购票人业务服务，提供列表查询（Redis 缓存读写）、新增（用户与证件唯一性校验 + UidGenerator 主键）与删除，并在写操作后清理购票人列表缓存。",
+   "tags": [
+    "service",
+    "业务逻辑",
+    "购票人",
+    "缓存"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java:TicketUserService",
+   "type": "class",
+   "name": "TicketUserService",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "lineRange": [
+    35,
+    96
+   ],
+   "summary": "购票人业务服务，注入 TicketUserMapper/UserMapper/UidGenerator/RedisCache，实现带缓存的列表查询、唯一性校验的新增与删除。",
+   "tags": [
+    "service",
+    "业务逻辑",
+    "购票人",
+    "缓存"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java:list",
+   "type": "function",
+   "name": "list",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "lineRange": [
+    50,
+    61
+   ],
+   "summary": "查询购票人列表：先按 userId 读 Redis 缓存，未命中则用 LambdaQueryWrapper 查库，随后把结果转换为 TicketUserVo 列表。",
+   "tags": [
+    "业务逻辑",
+    "缓存查询",
+    "购票人"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java:add",
+   "type": "function",
+   "name": "add",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "lineRange": [
+    63,
+    82
+   ],
+   "summary": "新增购票人：校验目标用户存在、同证件不重复，用 UidGenerator 生成主键入库并清理该用户的购票人列表缓存。",
+   "tags": [
+    "业务逻辑",
+    "唯一性校验",
+    "购票人",
+    "缓存失效"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java",
+   "type": "file",
+   "name": "UserMobileService.java",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java",
+   "summary": "用户手机号服务，仅继承 MyBatis-Plus ServiceImpl<UserMobileMapper, UserMobile> 以复用通用 CRUD 能力，供其他服务注入使用。",
+   "tags": [
+    "service",
+    "mybatis-plus",
+    "手机号",
+    "空实现"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java:UserMobileService",
+   "type": "class",
+   "name": "UserMobileService",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java",
+   "lineRange": [
+    14,
+    17
+   ],
+   "summary": "空壳服务类，仅通过继承 ServiceImpl 暴露手机号实体的通用 CRUD 方法。",
+   "tags": [
+    "service",
+    "mybatis-plus",
+    "手机号",
+    "空实现"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "type": "file",
+   "name": "UserService.java",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "summary": "用户核心业务服务，统一承载注册（分布式锁 + 组合校验 + 布隆过滤器）、登录（手机号/邮箱双通道、Redis 错误次数限流、JWT 签发）、登出、资料/密码/邮箱/手机号修改、实名认证、按手机号或 id 查询以及用户与购票人聚合查询。",
+   "tags": [
+    "service",
+    "业务逻辑",
+    "用户",
+    "分布式锁",
+    "认证"
+   ],
+   "complexity": "complex",
+   "languageNotes": "登录态与错误计数均落在 Redis；注册路径使用 @ServiceLock 分布式锁防止同手机号并发注册；渠道密钥通过 BaseDataClient 远程获取并带 Redis 缓存。"
+  },
+  {
+   "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:UserService",
+   "type": "class",
+   "name": "UserService",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "lineRange": [
+    74,
+    388
+   ],
+   "summary": "用户领域核心服务，聚合 4 个 Mapper、UidGenerator、RedisCache、BloomFilterHandler、CompositeContainer 与 BaseDataClient，实现注册到认证的完整用户生命周期逻辑。",
+   "tags": [
+    "service",
+    "业务逻辑",
+    "用户",
+    "分布式锁",
+    "认证"
+   ],
+   "complexity": "complex",
+   "languageNotes": "继承 MyBatis-Plus ServiceImpl<UserMapper, User> 复用通用持久化方法，同时通过 @Transactional(rollbackFor=Exception.class) 保证注册等多表写入的一致性。"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:register",
+   "type": "function",
+   "name": "register",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "lineRange": [
+    110,
+    128
+   ],
+   "summary": "用户注册：先经 CompositeContainer 执行注册组合校验，再用 UidGenerator 生成 id 分别写入用户表与手机号表，并把手机号加入布隆过滤器。",
+   "tags": [
+    "业务逻辑",
+    "注册",
+    "组合校验",
+    "布隆过滤器"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:doExist",
+   "type": "function",
+   "name": "doExist",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "lineRange": [
+    135,
+    145
+   ],
+   "summary": "手机号存在性判断：先查布隆过滤器快速拦截，疑似存在时再查手机号表，命中则抛 DaMaiFrameException。",
+   "tags": [
+    "业务逻辑",
+    "布隆过滤器",
+    "校验"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:login",
+   "type": "function",
+   "name": "login",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "lineRange": [
+    152,
+    204
+   ],
+   "summary": "用户登录主流程：支持手机号或邮箱两种方式，用 Redis 记录并限制连续密码错误次数，校验通过后写入登录缓存并签发携带渠道密钥的 JWT token。",
+   "tags": [
+    "业务逻辑",
+    "登录",
+    "JWT",
+    "限流"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:logout",
+   "type": "function",
+   "name": "logout",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "lineRange": [
+    226,
+    235
+   ],
+   "summary": "退出登录：用渠道密钥解析 token 取出用户信息，删除 Redis 中对应的登录态缓存。",
+   "tags": [
+    "业务逻辑",
+    "登出",
+    "token",
+    "缓存"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:update",
+   "type": "function",
+   "name": "update",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "lineRange": [
+    245,
+    254
+   ],
+   "summary": "修改用户基本资料：校验用户存在后拷贝字段更新 User 记录。",
+   "tags": [
+    "业务逻辑",
+    "用户资料",
+    "更新"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:updatePassword",
+   "type": "function",
+   "name": "updatePassword",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "lineRange": [
+    255,
+    264
+   ],
+   "summary": "修改密码：校验用户存在后更新密码字段。",
+   "tags": [
+    "业务逻辑",
+    "密码",
+    "更新"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:updateEmail",
+   "type": "function",
+   "name": "updateEmail",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "lineRange": [
+    265,
+    293
+   ],
+   "summary": "修改邮箱：更新用户邮箱与邮箱认证状态，并按邮箱是否已存在决定插入或更新用户邮箱表。",
+   "tags": [
+    "业务逻辑",
+    "邮箱",
+    "数据一致性"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:updateMobile",
+   "type": "function",
+   "name": "updateMobile",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "lineRange": [
+    295,
+    321
+   ],
+   "summary": "修改手机号：更新用户手机号，同时保证手机号表记录唯一（存在则更新、不存在则插入）。",
+   "tags": [
+    "业务逻辑",
+    "手机号",
+    "数据一致性"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:authentication",
+   "type": "function",
+   "name": "authentication",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "lineRange": [
+    323,
+    338
+   ],
+   "summary": "实名认证：校验用户存在且尚未认证，写入真实姓名、身份证号并将实名认证状态置为已认证。",
+   "tags": [
+    "业务逻辑",
+    "实名认证",
+    "校验"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:getByMobile",
+   "type": "function",
+   "name": "getByMobile",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "lineRange": [
+    340,
+    355
+   ],
+   "summary": "按手机号查询用户：经手机号表取得 userId 后查询用户表，回填手机号并转换为 UserVo 返回。",
+   "tags": [
+    "业务逻辑",
+    "查询",
+    "手机号"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:getUserAndTicketUserList",
+   "type": "function",
+   "name": "getUserAndTicketUserList",
+   "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "lineRange": [
+    367,
+    381
+   ],
+   "summary": "聚合查询用户信息与购票人列表并组装 UserGetAndTicketUserListVo，供订单等内部服务一次性获取下单所需数据。",
+   "tags": [
+    "业务逻辑",
+    "聚合查询",
+    "内部调用"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+   "type": "file",
+   "name": "BaseTableData.java",
+   "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+   "summary": "所有数据库实体的公共父类，统一提供 createTime（插入填充）、editTime（插入与更新填充）与逻辑删除标记 status 字段。",
+   "tags": [
+    "entity",
+    "data-model",
+    "公共父类",
+    "mybatis-plus"
+   ],
+   "complexity": "simple",
+   "languageNotes": "@TableField(fill=...) 交由 MyBatis-Plus 自动填充时间字段，避免各业务表重复处理审计字段。"
+  },
+  {
+   "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData",
+   "type": "class",
+   "name": "BaseTableData",
+   "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+   "lineRange": [
+    13,
+    33
+   ],
+   "summary": "实体公共父类，定义 createTime、editTime、status 三个字段并交由 MyBatis-Plus 自动填充，被用户、订单、节目等各服务实体统一继承。",
+   "tags": [
+    "entity",
+    "data-model",
+    "公共父类",
+    "基础类"
+   ],
+   "complexity": "simple"
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java:UserEmail",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java:UserEmail",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java",
+   "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "class:damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java:UserEmail",
+   "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData",
+   "type": "inherits",
+   "direction": "forward",
+   "weight": 0.9
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java:UserEmailMapper",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java:UserEmailMapper",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java:UserMobileMapper",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java:UserMobileMapper",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java:UserMobileService",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java:UserMobileService",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java:UserMapper",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java:UserMapper",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+   "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+   "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java:UserMobile",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java:UserMobile",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+   "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "class:damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java:UserMobile",
+   "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData",
+   "type": "inherits",
+   "direction": "forward",
+   "weight": 0.9
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java:TicketUserMapper",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java:TicketUserMapper",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/TicketUser.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java:TicketUserService",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java:TicketUserService",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java:list",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java:add",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/TicketUser.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/entity/User.java:User",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/entity/User.java:User",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+   "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "class:damai-server/damai-user-service/src/main/java/com/damai/entity/User.java:User",
+   "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData",
+   "type": "inherits",
+   "direction": "forward",
+   "weight": 0.9
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:UserService",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:UserService",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:register",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:doExist",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:login",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:logout",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:update",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:updatePassword",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:updateEmail",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:updateMobile",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:authentication",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:getByMobile",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:getUserAndTicketUserList",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-common/src/main/java/com/damai/enums/BusinessStatus.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-common/src/main/java/com/damai/jwt/TokenUtil.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/GetChannelDataByCodeDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserMobileDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserRegisterDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateEmailDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateMobileDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdatePasswordDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserLoginVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/TicketUser.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-common/src/main/java/com/damai/jwt/TokenUtil.java:createToken",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-common/src/main/java/com/damai/jwt/TokenUtil.java:parseToken",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java:add",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java:contains",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java:execute",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "target": "function:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java:createRedisKey",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  }
+ ]
+}

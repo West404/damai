@@ -1,0 +1,655 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "type": "file",
+      "name": "ProgramElasticsearchInitData.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "summary": "应用启动后置处理器，负责创建或重建节目 ES 索引、定义索引字段映射并全量导入节目文档数据。",
+      "tags": ["elasticsearch", "初始化", "索引映射", "数据导入"],
+      "complexity": "moderate",
+      "languageNotes": "索引映射通过 EsDocumentMappingDto 列表逐字段声明类型（keyword/text/long/date 等）。"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:ProgramElasticsearchInitData",
+      "type": "class",
+      "name": "ProgramElasticsearchInitData",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "lineRange": [27, 136],
+      "summary": "节目 ES 数据初始化器，封装索引维护、数据导入与字段映射构建三类逻辑。",
+      "tags": ["elasticsearch", "初始化", "索引映射"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:executeInit",
+      "type": "function",
+      "name": "executeInit",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "lineRange": [43, 52],
+      "summary": "提交异步任务执行 ES 索引与数据初始化，异常时记录错误日志避免影响启动流程。",
+      "tags": ["初始化", "异步", "elasticsearch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:initElasticsearchData",
+      "type": "function",
+      "name": "initElasticsearchData",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "lineRange": [54, 91],
+      "summary": "重建索引后遍历全部节目，组装含分类、时间与价格区间的文档字段并写入 ES。",
+      "tags": ["数据导入", "索引重建", "elasticsearch"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:indexAdd",
+      "type": "function",
+      "name": "indexAdd",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "lineRange": [93, 108],
+      "summary": "检查索引是否存在，存在则删除并按字段映射重新创建节目索引。",
+      "tags": ["索引维护", "elasticsearch", "初始化"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:getEsMapping",
+      "type": "function",
+      "name": "getEsMapping",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "lineRange": [110, 135],
+      "summary": "构建节目索引的字段映射列表，逐一声明标题、演员、分类、时间与价格等字段的类型。",
+      "tags": ["索引映射", "字段定义", "elasticsearch"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "type": "file",
+      "name": "ProgramShowTimeRenewal.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "summary": "应用启动后置处理器，执行节目演出时间续期，并按需删除 ES 索引、清理 Redis 与本地缓存。",
+      "tags": ["初始化", "启动加载", "缓存清理", "elasticsearch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java:ProgramShowTimeRenewal",
+      "type": "class",
+      "name": "ProgramShowTimeRenewal",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "lineRange": [19, 52],
+      "summary": "演出时间续期处理器，负责在续期成功后失效 ES 索引与多级缓存。",
+      "tags": ["初始化", "缓存清理", "elasticsearch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java:executeInit",
+      "type": "function",
+      "name": "executeInit",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "lineRange": [36, 51],
+      "summary": "调用演出时间续期逻辑，续期成功则删除 ES 索引并清理节目 Redis 与本地缓存数据。",
+      "tags": ["数据续期", "缓存清理", "初始化"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "type": "file",
+      "name": "ProgramDataTask.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "summary": "节目数据定时任务，异步重置节目缓存数据并触发演出时间续期与 Elasticsearch 数据重建。",
+      "tags": ["定时任务", "调度", "数据同步", "异步"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java:ProgramDataTask",
+      "type": "class",
+      "name": "ProgramDataTask",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "lineRange": [22, 60],
+      "summary": "节目数据修复定时任务，依赖节目服务、演出时间续期器与 ES 初始化器完成数据重置。",
+      "tags": ["定时任务", "调度", "数据同步"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java:executeTask",
+      "type": "function",
+      "name": "executeTask",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "lineRange": [39, 59],
+      "summary": "异步执行定时任务：先对各节目执行缓存重置，再依次触发演出时间续期与 ES 数据初始化。",
+      "tags": ["定时任务", "缓存重置", "异步"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java",
+      "type": "file",
+      "name": "ProgramPageOrder.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java",
+      "summary": "节目分页排序参数封装类，保存排序字段名与排序方向，供 ES 分页查询构建排序条件。",
+      "tags": ["data-model", "分页排序", "DTO"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java:ProgramPageOrder",
+      "type": "class",
+      "name": "ProgramPageOrder",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java",
+      "lineRange": [11, 15],
+      "summary": "分页排序配置对象，仅含排序参数与排序方向两个字段。",
+      "tags": ["data-model", "分页排序", "DTO"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "type": "file",
+      "name": "UserBloomFilterInitData.java",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "summary": "用户服务启动后置处理器，将全部用户手机号预加载进布隆过滤器，拦截不存在的账号查询。",
+      "tags": ["布隆过滤器", "初始化", "启动加载", "用户服务"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:UserBloomFilterInitData",
+      "type": "class",
+      "name": "UserBloomFilterInitData",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "lineRange": [19, 43],
+      "summary": "用户手机号布隆过滤器初始化器，在启动后置阶段异步预热用户数据。",
+      "tags": ["布隆过滤器", "初始化", "用户服务"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:executeInit",
+      "type": "function",
+      "name": "executeInit",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "lineRange": [34, 42],
+      "summary": "异步查询全部用户手机号并写入布隆过滤器，用于手机号存在性前置校验。",
+      "tags": ["布隆过滤器", "数据预热", "异步"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "type": "file",
+      "name": "CheckNeedCaptchaOperate.java",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "summary": "启动时加载 Lua 脚本并执行「是否需要验证码」判断的组件，基于 Redis 脚本原子性统计访问频次。",
+      "tags": ["lua", "redis", "验证码", "初始化"],
+      "complexity": "simple",
+      "languageNotes": "使用 DefaultRedisScript + ResourceScriptSource 从 classpath 加载 Lua 脚本，并声明返回类型为 Boolean。"
+    },
+    {
+      "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java:CheckNeedCaptchaOperate",
+      "type": "class",
+      "name": "CheckNeedCaptchaOperate",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "lineRange": [20, 49],
+      "summary": "验证码判定脚本执行器，持有 Redis 脚本对象并提供脚本初始化与执行方法。",
+      "tags": ["lua", "redis", "验证码"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java:executeInit",
+      "type": "function",
+      "name": "executeInit",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "lineRange": [34, 43],
+      "summary": "从 classpath 加载 Lua 脚本资源并设置结果类型，完成 Redis 脚本对象初始化。",
+      "tags": ["lua", "脚本加载", "初始化"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java",
+      "type": "file",
+      "name": "BasePageDto.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java",
+      "summary": "分页请求基础 DTO，承载页码与每页条数两个通用分页参数，供各服务分页入参继承复用。",
+      "tags": ["data-model", "分页", "DTO", "基础类"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java:BasePageDto",
+      "type": "class",
+      "name": "BasePageDto",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java",
+      "lineRange": [12, 22],
+      "summary": "分页入参基类，仅定义 pageNumber 与 pageSize 两个属性。",
+      "tags": ["data-model", "分页", "DTO"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:ProgramElasticsearchInitData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:executeInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:initElasticsearchData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:indexAdd",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:getEsMapping",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:ProgramElasticsearchInitData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java:ProgramShowTimeRenewal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java:executeInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java:ProgramShowTimeRenewal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java:ProgramDataTask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java:executeTask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java:ProgramDataTask",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java:ProgramPageOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java:ProgramPageOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:UserBloomFilterInitData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:executeInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:UserBloomFilterInitData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java:CheckNeedCaptchaOperate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java:executeInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java:CheckNeedCaptchaOperate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java:BasePageDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java:BasePageDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDocumentMappingDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/TicketCategoryAggregate.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "target": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "target": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "target": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramResetExecuteDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "target": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "target": "file:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "target": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:initElasticsearchData",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java:getAllProgramIdList",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:initElasticsearchData",
+      "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:add",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:indexAdd",
+      "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:createIndex",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java:executeInit",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:renewal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java:executeInit",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java:delRedisData",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java:executeTask",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java:resetExecute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java:executeTask",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java:executeInit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java:executeTask",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:executeInit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java:executeTask",
+      "target": "function:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:executeInit",
+      "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java:getAllMobile",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:executeInit",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java:add",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:executeInit",
+      "target": "function:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java:ProgramElasticsearchInitData",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java:ProgramShowTimeRenewal",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java:UserBloomFilterInitData",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java:CheckNeedCaptchaOperate",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

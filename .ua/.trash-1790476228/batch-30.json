@@ -1,0 +1,45 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-base-data-service/src/main/resources/application-local.yml",
+      "type": "config",
+      "name": "application-local.yml",
+      "filePath": "damai-server/damai-base-data-service/src/main/resources/application-local.yml",
+      "summary": "Local-profile datasource override for base-data-service: HikariCP pool pointing at the local MySQL damai_base_data schema.",
+      "tags": ["configuration", "datasource", "spring-profile"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-base-data-service/src/main/resources/application-pro.yml",
+      "type": "config",
+      "name": "application-pro.yml",
+      "filePath": "damai-server/damai-base-data-service/src/main/resources/application-pro.yml",
+      "summary": "Production-profile datasource override for base-data-service: HikariCP pool pointing at the remote MySQL damai_base_data schema.",
+      "tags": ["configuration", "datasource", "spring-profile", "production"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-base-data-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-base-data-service/src/main/resources/application.yml",
+      "summary": "Main Spring Boot configuration for base-data-service (port 6083): Nacos discovery, Redis, MyBatis-Plus with logic-delete, Feign/OkHttp with compression, Actuator/Prometheus metrics, jasypt encryption, and springdoc/knife4j API docs.",
+      "tags": ["configuration", "spring-boot", "microservice", "nacos", "mybatis-plus"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:damai-server/damai-base-data-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-base-data-service/src/main/resources/log4j2.xml",
+      "summary": "Log4j2 logging configuration for base-data-service with console and rolling-file appenders (100MB size / daily rollover, 30-file retention), a separate error log, traceId MDC pattern, and a commented-out Logstash socket appender.",
+      "tags": ["configuration", "logging", "log4j2", "observability"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {"source": "config:damai-server/damai-base-data-service/src/main/resources/application-local.yml", "target": "config:damai-server/damai-base-data-service/src/main/resources/application.yml", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "config:damai-server/damai-base-data-service/src/main/resources/application-pro.yml", "target": "config:damai-server/damai-base-data-service/src/main/resources/application.yml", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "config:damai-server/damai-base-data-service/src/main/resources/log4j2.xml", "target": "config:damai-server/damai-base-data-service/src/main/resources/application.yml", "type": "related", "direction": "forward", "weight": 0.5}
+  ]
+}

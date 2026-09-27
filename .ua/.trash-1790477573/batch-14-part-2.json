@@ -1,0 +1,598 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java",
+      "type": "file",
+      "name": "DefaultFilterLoadBalance.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java",
+      "summary": "FilterLoadBalance 的默认实现，按容器注入顺序依次执行所有 AbstractServerFilter，完成服务实例列表的灰度过滤。",
+      "tags": ["负载均衡", "过滤器", "实现类", "灰度发布"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java:DefaultFilterLoadBalance",
+      "type": "class",
+      "name": "DefaultFilterLoadBalance",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java",
+      "lineRange": [16, 27],
+      "summary": "负载均衡过滤实现类，持有策略过滤器列表并逐个调用其 filter 方法。",
+      "tags": ["负载均衡", "过滤器", "实现类"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java:selectServer",
+      "type": "function",
+      "name": "selectServer",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java",
+      "lineRange": [21, 26],
+      "summary": "遍历所有策略过滤器并依次对服务实例列表执行 filter，实现接口 FilterLoadBalance 定义的服务过滤。",
+      "tags": ["负载均衡", "过滤器", "实现类"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java",
+      "type": "file",
+      "name": "GatewayContextAutoConfiguration.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java",
+      "summary": "Gateway 环境下的自动配置，注册路由上下文写入过滤器、上下文清理过滤器以及基于 ServerWebExchange 的 ContextHandler 实现。",
+      "tags": ["自动配置", "gateway", "上下文传递", "spring-cloud"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java:GatewayContextAutoConfiguration",
+      "type": "class",
+      "name": "GatewayContextAutoConfiguration",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java",
+      "lineRange": [15, 31],
+      "summary": "Gateway 上下文自动配置类，提供两个全局过滤器与 GatewayContextHandler 的 Bean 定义。",
+      "tags": ["自动配置", "gateway", "上下文传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkClearFilter.java",
+      "type": "file",
+      "name": "GatewayWorkClearFilter.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkClearFilter.java",
+      "summary": "Gateway 全局过滤器，在请求处理完成后清理当前线程的网关上下文，避免 WebFlux 复用的 Reactor 线程出现上下文串场或内存泄漏。",
+      "tags": ["gateway", "过滤器", "上下文传递", "清理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkClearFilter.java:GatewayWorkClearFilter",
+      "type": "class",
+      "name": "GatewayWorkClearFilter",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkClearFilter.java",
+      "lineRange": [16, 27],
+      "summary": "网关上下文清理过滤器，实现 GlobalFilter 与 Ordered，请求结束后移除线程本地上下文。",
+      "tags": ["gateway", "过滤器", "清理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java",
+      "type": "file",
+      "name": "GatewayWorkRouteFilter.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java",
+      "summary": "Gateway 全局过滤器，在路由阶段把当前 ServerWebExchange 绑定到线程本地的 GatewayContextHolder，供后续上下文读取使用。",
+      "tags": ["gateway", "过滤器", "上下文传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java:GatewayWorkRouteFilter",
+      "type": "class",
+      "name": "GatewayWorkRouteFilter",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java",
+      "lineRange": [16, 28],
+      "summary": "网关上下文写入过滤器，把请求交换对象设置进当前线程的上下文持有器后继续过滤链。",
+      "tags": ["gateway", "过滤器", "上下文传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java:filter",
+      "type": "function",
+      "name": "filter",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java",
+      "lineRange": [18, 22],
+      "summary": "把当前请求的 ServerWebExchange 设置到线程本地的 GatewayContextHolder，然后继续执行过滤链。",
+      "tags": ["gateway", "过滤器", "上下文传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java",
+      "type": "file",
+      "name": "GatewayContextHandler.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java",
+      "summary": "ContextHandler 的 Gateway 实现，基于当前 ServerWebExchange 从请求头读取值，并暴露 Exchange 与 ServerHttpRequest 供上层使用。",
+      "tags": ["gateway", "上下文传递", "实现类", "响应式"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java:GatewayContextHandler",
+      "type": "class",
+      "name": "GatewayContextHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java",
+      "lineRange": [14, 29],
+      "summary": "网关侧上下文读取实现类，通过线程上下文中的 Exchange 解析请求头。",
+      "tags": ["gateway", "上下文传递", "实现类"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "type": "file",
+      "name": "GatewayContextHolder.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "summary": "Gateway 线程本地的 ServerWebExchange 持有器，提供获取与移除当前网关上下文的静态方法。",
+      "tags": ["gateway", "threadlocal", "上下文传递", "webflux"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java:getCurrentGatewayContext",
+      "type": "function",
+      "name": "getCurrentGatewayContext",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "lineRange": [21, 23],
+      "summary": "返回当前线程绑定的 GatewayContextHolder 实例，尚未绑定时由 ThreadLocal 初始化为空实例。",
+      "tags": ["threadlocal", "getter", "gateway"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java:removeCurrentGatewayContext",
+      "type": "function",
+      "name": "removeCurrentGatewayContext",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "lineRange": [25, 27],
+      "summary": "移除当前线程的网关上下文，避免 WebFlux 线程复用造成的请求上下文串场。",
+      "tags": ["threadlocal", "清理", "gateway"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java:GatewayContextHolder",
+      "type": "class",
+      "name": "GatewayContextHolder",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "lineRange": [13, 29],
+      "summary": "以 ThreadLocal 保存 ServerWebExchange 的持有器类，提供静态的获取与移除方法。",
+      "tags": ["gateway", "threadlocal", "上下文传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/config/WebMvcContextAutoConfiguration.java",
+      "type": "file",
+      "name": "WebMvcContextAutoConfiguration.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/config/WebMvcContextAutoConfiguration.java",
+      "summary": "WebMvc 环境下的自动配置，注册基于 RequestContextHolder 的 ContextHandler Bean。",
+      "tags": ["自动配置", "webmvc", "上下文传递", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/config/WebMvcContextAutoConfiguration.java:WebMvcContextAutoConfiguration",
+      "type": "class",
+      "name": "WebMvcContextAutoConfiguration",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/config/WebMvcContextAutoConfiguration.java",
+      "lineRange": [12, 18],
+      "summary": "WebMvc 上下文自动配置类，提供 WebMvcContextHandler 的 Bean 定义。",
+      "tags": ["自动配置", "webmvc", "上下文传递"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java",
+      "type": "file",
+      "name": "WebMvcContextHandler.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java",
+      "summary": "ContextHandler 的 WebMvc 实现，通过 RequestContextHolder 获取当前 HttpServletRequest 并从中读取请求头。",
+      "tags": ["webmvc", "上下文传递", "实现类", "servlet"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java:WebMvcContextHandler",
+      "type": "class",
+      "name": "WebMvcContextHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java",
+      "lineRange": [16, 42],
+      "summary": "WebMvc 侧上下文读取实现类，封装 ServletRequestAttributes 到 HttpServletRequest 的获取与请求头读取。",
+      "tags": ["webmvc", "上下文传递", "实现类"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "type": "file",
+      "name": "BaseThreadPool.java",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "summary": "线程池基类，负责任务提交与执行之间传递并还原 MDC 日志上下文与 BaseParameterHolder 线程参数，保证异步任务的链路追踪连续且不互相污染。",
+      "tags": ["线程池", "上下文传递", "日志追踪", "基础类"],
+      "complexity": "moderate",
+      "languageNotes": "通过包装 Runnable/Callable 并使用 try/finally 还原上下文，是典型的装饰器模式实现。"
+    },
+    {
+      "id": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:wrapTask",
+      "type": "function",
+      "name": "wrapTask",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "lineRange": [25, 49],
+      "summary": "把 Runnable 或 Callable 包装为携带父线程 MDC 与参数上下文的可执行任务，运行前预处理、运行后还原执行线程原上下文。",
+      "tags": ["线程池", "上下文传递", "装饰器", "并发"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:preprocess",
+      "type": "function",
+      "name": "preprocess",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "lineRange": [51, 68],
+      "summary": "在任务执行线程上还原父线程的 MDC 与线程参数上下文，并返回执行线程原有上下文以便任务结束后回滚。",
+      "tags": ["上下文传递", "threadlocal", "并发"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:postProcess",
+      "type": "function",
+      "name": "postProcess",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "lineRange": [70, 81],
+      "summary": "任务执行结束后还原执行线程原有的 MDC 与线程参数上下文，防止线程池复用造成上下文污染。",
+      "tags": ["上下文传递", "清理", "并发"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:BaseThreadPool",
+      "type": "class",
+      "name": "BaseThreadPool",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "lineRange": [15, 82],
+      "summary": "线程池基类，提供上下文采集、任务包装与上下文还原等受保护的静态方法，供业务线程池继承复用。",
+      "tags": ["线程池", "上下文传递", "基础类"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkClearFilter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkClearFilter.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/config/WebMvcContextAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/config/WebMvcContextAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "target": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java:DefaultFilterLoadBalance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java:selectServer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java:GatewayContextAutoConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkClearFilter.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkClearFilter.java:GatewayWorkClearFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java:GatewayWorkRouteFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java:filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java:GatewayContextHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java:GatewayContextHolder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java:getCurrentGatewayContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java:removeCurrentGatewayContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/config/WebMvcContextAutoConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/config/WebMvcContextAutoConfiguration.java:WebMvcContextAutoConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java:WebMvcContextHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "target": "class:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:BaseThreadPool",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "target": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:wrapTask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "target": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:preprocess",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "target": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:postProcess",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java:DefaultFilterLoadBalance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java:GatewayContextAutoConfiguration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkClearFilter.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkClearFilter.java:GatewayWorkClearFilter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java:GatewayWorkRouteFilter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java:GatewayContextHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java:GatewayContextHolder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/config/WebMvcContextAutoConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/config/WebMvcContextAutoConfiguration.java:WebMvcContextAutoConfiguration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java:WebMvcContextHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "target": "class:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:BaseThreadPool",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java:DefaultFilterLoadBalance",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java:FilterLoadBalance",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java:GatewayContextHandler",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java:ContextHandler",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java:WebMvcContextHandler",
+      "target": "class:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java:ContextHandler",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java:selectServer",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java:filter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java:filter",
+      "target": "function:damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java:getCurrentGatewayContext",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:wrapTask",
+      "target": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:preprocess",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:wrapTask",
+      "target": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:postProcess",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:preprocess",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:getParameterMap",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:preprocess",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:removeParameterMap",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:preprocess",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:setParameterMap",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:postProcess",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:removeParameterMap",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:postProcess",
+      "target": "function:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java:setParameterMap",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

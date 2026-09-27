@@ -1,0 +1,47 @@
+{
+  "issues": [],
+  "warnings": [
+    "Node 'file:damai-common/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports' has no edges (orphan)",
+    "Node 'file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/DisposableWorkerIdAssigner.java' has no edges (orphan)",
+    "Node 'file:damai-id-generator-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports' has no edges (orphan)",
+    "Node 'file:damai-redis-tool-framework/damai-redis-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports' has no edges (orphan)",
+    "Node 'file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports' has no edges (orphan)",
+    "Node 'file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports' has no edges (orphan)",
+    "Node 'file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports' has no edges (orphan)",
+    "Node 'file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports' has no edges (orphan)",
+    "Node 'file:damai-server/damai-admin-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports' has no edges (orphan)",
+    "Node 'file:damai-server/damai-order-service/src/main/resources/lua/OrderProgramDataResolution.lua' has no edges (orphan)",
+    "Node 'file:damai-server/damai-program-service/src/main/resources/lua/programDataResolution.lua' has no edges (orphan)",
+    "Node 'file:damai-server/damai-program-service/src/main/resources/lua/programDel.lua' has no edges (orphan)",
+    "Node 'file:damai-server/damai-program-service/src/main/resources/lua/programSeat.lua' has no edges (orphan)",
+    "Node 'file:damai-server/damai-user-service/src/main/resources/lua/checkNeedCaptcha.lua' has no edges (orphan)"
+  ],
+  "stats": {
+    "totalNodes": 2007,
+    "totalEdges": 3918,
+    "totalLayers": 10,
+    "tourSteps": 15,
+    "nodeTypes": {
+      "file": 600,
+      "class": 553,
+      "function": 661,
+      "service": 15,
+      "document": 4,
+      "config": 92,
+      "table": 82
+    },
+    "edgeTypes": {
+      "imports": 1251,
+      "contains": 1297,
+      "exports": 621,
+      "inherits": 53,
+      "implements": 33,
+      "calls": 383,
+      "depends_on": 120,
+      "related": 44,
+      "configures": 109,
+      "documents": 6,
+      "migrates": 1
+    }
+  }
+}

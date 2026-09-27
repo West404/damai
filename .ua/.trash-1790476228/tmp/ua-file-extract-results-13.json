@@ -1,0 +1,5136 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 22,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 22,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 22,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 24,
+      "classes": [
+        {
+          "name": "UserInfoVo",
+          "startLine": 12,
+          "endLine": 33,
+          "methods": [],
+          "properties": [
+            "id",
+            "name",
+            "relName",
+            "gender",
+            "mobile",
+            "address"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserInfoVo",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "call",
+          "startLine": 28,
+          "endLine": 33,
+          "params": [
+            "broadcastCallDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BroadcastController",
+          "startLine": 20,
+          "endLine": 34,
+          "methods": [
+            "call"
+          ],
+          "properties": [
+            "broadcastService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "call",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "BroadcastController",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "call",
+          "callee": "broadcastService.call",
+          "lineNumber": 31
+        },
+        {
+          "caller": "call",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "call",
+          "startLine": 14,
+          "endLine": 15,
+          "params": [
+            "broadcastCallDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BroadcastService",
+          "startLine": 11,
+          "endLine": 16,
+          "methods": [
+            "call"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "call",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "BroadcastService",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 59,
+      "functions": [
+        {
+          "name": "restTemplate",
+          "startLine": 30,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "messageConverters",
+          "startLine": 35,
+          "endLine": 39,
+          "params": [
+            "converters"
+          ]
+        },
+        {
+          "name": "errorWebExceptionHandler",
+          "startLine": 41,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "addCorsMappings",
+          "startLine": 48,
+          "endLine": 56,
+          "params": [
+            "registry"
+          ]
+        },
+        {
+          "name": "threadPoolExecutor",
+          "startLine": 58,
+          "endLine": 68,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Config",
+          "startLine": 26,
+          "endLine": 69,
+          "methods": [
+            "restTemplate",
+            "messageConverters",
+            "errorWebExceptionHandler",
+            "addCorsMappings",
+            "threadPoolExecutor"
+          ],
+          "properties": [
+            "threadCount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "messageConverters",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "errorWebExceptionHandler",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "addCorsMappings",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "threadPoolExecutor",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "Config",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "restTemplate",
+          "callee": "new RestTemplate",
+          "lineNumber": 32
+        },
+        {
+          "caller": "messageConverters",
+          "callee": "new HttpMessageConverters",
+          "lineNumber": 38
+        },
+        {
+          "caller": "messageConverters",
+          "callee": "converters.orderedStream().collect",
+          "lineNumber": 38
+        },
+        {
+          "caller": "messageConverters",
+          "callee": "converters.orderedStream",
+          "lineNumber": 38
+        },
+        {
+          "caller": "messageConverters",
+          "callee": "Collectors.toList",
+          "lineNumber": 38
+        },
+        {
+          "caller": "errorWebExceptionHandler",
+          "callee": "new GatewayDefaultExceptionHandler",
+          "lineNumber": 44
+        },
+        {
+          "caller": "addCorsMappings",
+          "callee": "registry.addMapping(\"/**\")\r\n                .allowedOriginPatterns(\"*\")\r\n                .allowedMethods(\"*\")\r\n                .allowedHeaders(\"*\")\r\n                .allowCredentials(true).maxAge",
+          "lineNumber": 50
+        },
+        {
+          "caller": "addCorsMappings",
+          "callee": "registry.addMapping(\"/**\")\r\n                .allowedOriginPatterns(\"*\")\r\n                .allowedMethods(\"*\")\r\n                .allowedHeaders(\"*\").allowCredentials",
+          "lineNumber": 50
+        },
+        {
+          "caller": "addCorsMappings",
+          "callee": "registry.addMapping(\"/**\")\r\n                .allowedOriginPatterns(\"*\")\r\n                .allowedMethods(\"*\").allowedHeaders",
+          "lineNumber": 50
+        },
+        {
+          "caller": "addCorsMappings",
+          "callee": "registry.addMapping(\"/**\")\r\n                .allowedOriginPatterns(\"*\").allowedMethods",
+          "lineNumber": 50
+        },
+        {
+          "caller": "addCorsMappings",
+          "callee": "registry.addMapping(\"/**\").allowedOriginPatterns",
+          "lineNumber": 50
+        },
+        {
+          "caller": "addCorsMappings",
+          "callee": "registry.addMapping",
+          "lineNumber": 50
+        },
+        {
+          "caller": "threadPoolExecutor",
+          "callee": "new ThreadPoolExecutor",
+          "lineNumber": 60
+        },
+        {
+          "caller": "threadPoolExecutor",
+          "callee": "Runtime.getRuntime().availableProcessors",
+          "lineNumber": 60
+        },
+        {
+          "caller": "threadPoolExecutor",
+          "callee": "Runtime.getRuntime",
+          "lineNumber": 60
+        },
+        {
+          "caller": "threadPoolExecutor",
+          "callee": "Runtime.getRuntime().availableProcessors",
+          "lineNumber": 61
+        },
+        {
+          "caller": "threadPoolExecutor",
+          "callee": "Runtime.getRuntime",
+          "lineNumber": 61
+        },
+        {
+          "caller": "threadPoolExecutor",
+          "callee": "new LinkedBlockingQueue<>",
+          "lineNumber": 64
+        },
+        {
+          "caller": "threadPoolExecutor",
+          "callee": "new Thread",
+          "lineNumber": 65
+        },
+        {
+          "caller": "threadPoolExecutor",
+          "callee": "Thread.currentThread().getThreadGroup",
+          "lineNumber": 66
+        },
+        {
+          "caller": "threadPoolExecutor",
+          "callee": "Thread.currentThread",
+          "lineNumber": 66
+        },
+        {
+          "caller": "threadPoolExecutor",
+          "callee": "threadCount.getAndIncrement",
+          "lineNumber": 67
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 14,
+      "classes": [
+        {
+          "name": "RequestTemporaryWrapper",
+          "startLine": 13,
+          "endLine": 19,
+          "methods": [],
+          "properties": [
+            "map",
+            "apiResponse"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RequestTemporaryWrapper",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "handle",
+          "startLine": 26,
+          "endLine": 80,
+          "params": [
+            "exchange",
+            "ex"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GatewayDefaultExceptionHandler",
+          "startLine": 23,
+          "endLine": 81,
+          "methods": [
+            "handle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "handle",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "GatewayDefaultExceptionHandler",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "handle",
+          "callee": "exchange.getResponse",
+          "lineNumber": 29
+        },
+        {
+          "caller": "handle",
+          "callee": "response.isCommitted",
+          "lineNumber": 31
+        },
+        {
+          "caller": "handle",
+          "callee": "Mono.error",
+          "lineNumber": 32
+        },
+        {
+          "caller": "handle",
+          "callee": "response.getHeaders().setContentType",
+          "lineNumber": 35
+        },
+        {
+          "caller": "handle",
+          "callee": "response.getHeaders",
+          "lineNumber": 35
+        },
+        {
+          "caller": "handle",
+          "callee": "new RequestTemporaryWrapper",
+          "lineNumber": 38
+        },
+        {
+          "caller": "handle",
+          "callee": "responseStatusException.getStatusCode",
+          "lineNumber": 41
+        },
+        {
+          "caller": "handle",
+          "callee": "exchange.getRequest().getPath().value",
+          "lineNumber": 42
+        },
+        {
+          "caller": "handle",
+          "callee": "exchange.getRequest().getPath",
+          "lineNumber": 42
+        },
+        {
+          "caller": "handle",
+          "callee": "exchange.getRequest",
+          "lineNumber": 42
+        },
+        {
+          "caller": "handle",
+          "callee": "exchange.getRequest().getMethod().name",
+          "lineNumber": 43
+        },
+        {
+          "caller": "handle",
+          "callee": "exchange.getRequest().getMethod",
+          "lineNumber": 43
+        },
+        {
+          "caller": "handle",
+          "callee": "exchange.getRequest",
+          "lineNumber": 43
+        },
+        {
+          "caller": "handle",
+          "callee": "ApiResponse.error",
+          "lineNumber": 44
+        },
+        {
+          "caller": "handle",
+          "callee": "BaseCode.NOT_FOUND.getCode",
+          "lineNumber": 44
+        },
+        {
+          "caller": "handle",
+          "callee": "String.format",
+          "lineNumber": 44
+        },
+        {
+          "caller": "handle",
+          "callee": "BaseCode.NOT_FOUND.getMsg",
+          "lineNumber": 44
+        },
+        {
+          "caller": "handle",
+          "callee": "ApiResponse.error",
+          "lineNumber": 48
+        },
+        {
+          "caller": "handle",
+          "callee": "daMaiFrameException.getCode",
+          "lineNumber": 48
+        },
+        {
+          "caller": "handle",
+          "callee": "daMaiFrameException.getMessage",
+          "lineNumber": 48
+        },
+        {
+          "caller": "handle",
+          "callee": "requestTemporaryWrapper.setApiResponse",
+          "lineNumber": 49
+        },
+        {
+          "caller": "handle",
+          "callee": "ApiResponse.error",
+          "lineNumber": 53
+        },
+        {
+          "caller": "handle",
+          "callee": "ae.getCode",
+          "lineNumber": 53
+        },
+        {
+          "caller": "handle",
+          "callee": "ae.getMessage",
+          "lineNumber": 53
+        },
+        {
+          "caller": "handle",
+          "callee": "apiResponse.setData",
+          "lineNumber": 54
+        },
+        {
+          "caller": "handle",
+          "callee": "ae.getArgumentErrorList",
+          "lineNumber": 54
+        },
+        {
+          "caller": "handle",
+          "callee": "requestTemporaryWrapper.setApiResponse",
+          "lineNumber": 55
+        },
+        {
+          "caller": "handle",
+          "callee": "ApiResponse.error",
+          "lineNumber": 58
+        },
+        {
+          "caller": "handle",
+          "callee": "requestTemporaryWrapper.setApiResponse",
+          "lineNumber": 59
+        },
+        {
+          "caller": "handle",
+          "callee": "response.setStatusCode",
+          "lineNumber": 63
+        },
+        {
+          "caller": "handle",
+          "callee": "response.setStatusCode",
+          "lineNumber": 65
+        },
+        {
+          "caller": "handle",
+          "callee": "response.writeWith",
+          "lineNumber": 68
+        },
+        {
+          "caller": "handle",
+          "callee": "Mono.fromSupplier",
+          "lineNumber": 69
+        },
+        {
+          "caller": "handle",
+          "callee": "response.bufferFactory",
+          "lineNumber": 70
+        },
+        {
+          "caller": "handle",
+          "callee": "new ObjectMapper",
+          "lineNumber": 71
+        },
+        {
+          "caller": "handle",
+          "callee": "bufferFactory.wrap",
+          "lineNumber": 74
+        },
+        {
+          "caller": "handle",
+          "callee": "objectMapper.writeValueAsBytes",
+          "lineNumber": 74
+        },
+        {
+          "caller": "handle",
+          "callee": "requestTemporaryWrapper.getApiResponse",
+          "lineNumber": 74
+        },
+        {
+          "caller": "handle",
+          "callee": "log.error",
+          "lineNumber": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 94,
+      "nonEmptyLines": 81,
+      "functions": [
+        {
+          "name": "create",
+          "startLine": 41,
+          "endLine": 45,
+          "params": [
+            "orderCreateDto"
+          ]
+        },
+        {
+          "name": "pay",
+          "startLine": 47,
+          "endLine": 51,
+          "params": [
+            "orderPayDto"
+          ]
+        },
+        {
+          "name": "payCheck",
+          "startLine": 53,
+          "endLine": 57,
+          "params": [
+            "orderPayCheckDto"
+          ]
+        },
+        {
+          "name": "alipayNotify",
+          "startLine": 59,
+          "endLine": 63,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "selectList",
+          "startLine": 65,
+          "endLine": 69,
+          "params": [
+            "orderListDto"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 71,
+          "endLine": 75,
+          "params": [
+            "orderGetDto"
+          ]
+        },
+        {
+          "name": "accountOrderCount",
+          "startLine": 77,
+          "endLine": 81,
+          "params": [
+            "accountOrderCountDto"
+          ]
+        },
+        {
+          "name": "getCache",
+          "startLine": 83,
+          "endLine": 87,
+          "params": [
+            "orderGetDto"
+          ]
+        },
+        {
+          "name": "cancel",
+          "startLine": 89,
+          "endLine": 93,
+          "params": [
+            "orderCancelDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "OrderController",
+          "startLine": 33,
+          "endLine": 94,
+          "methods": [
+            "create",
+            "pay",
+            "payCheck",
+            "alipayNotify",
+            "selectList",
+            "get",
+            "accountOrderCount",
+            "getCache",
+            "cancel"
+          ],
+          "properties": [
+            "orderService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "create",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "pay",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "payCheck",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "alipayNotify",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "selectList",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "accountOrderCount",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "getCache",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "cancel",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "OrderController",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 44
+        },
+        {
+          "caller": "create",
+          "callee": "orderService.create",
+          "lineNumber": 44
+        },
+        {
+          "caller": "pay",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 50
+        },
+        {
+          "caller": "pay",
+          "callee": "orderService.pay",
+          "lineNumber": 50
+        },
+        {
+          "caller": "payCheck",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 56
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderService.payCheck",
+          "lineNumber": 56
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "orderService.alipayNotify",
+          "lineNumber": 62
+        },
+        {
+          "caller": "selectList",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 68
+        },
+        {
+          "caller": "selectList",
+          "callee": "orderService.selectList",
+          "lineNumber": 68
+        },
+        {
+          "caller": "get",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 74
+        },
+        {
+          "caller": "get",
+          "callee": "orderService.get",
+          "lineNumber": 74
+        },
+        {
+          "caller": "accountOrderCount",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 80
+        },
+        {
+          "caller": "accountOrderCount",
+          "callee": "orderService.accountOrderCount",
+          "lineNumber": 80
+        },
+        {
+          "caller": "getCache",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getCache",
+          "callee": "orderService.getCache",
+          "lineNumber": 86
+        },
+        {
+          "caller": "cancel",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 92
+        },
+        {
+          "caller": "cancel",
+          "callee": "orderService.initiateCancel",
+          "lineNumber": 92
+        }
+      ],
+      "metrics": {
+        "importCount": 13,
+        "exportCount": 10,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 108,
+      "nonEmptyLines": 87,
+      "classes": [
+        {
+          "name": "Order",
+          "startLine": 17,
+          "endLine": 108,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "orderNumber",
+            "programId",
+            "programItemPicture",
+            "userId",
+            "programTitle",
+            "programPlace",
+            "programShowTime",
+            "programPermitChooseSeat",
+            "distributionMode",
+            "takeTicketMode",
+            "orderPrice",
+            "payOrderType",
+            "orderStatus",
+            "createOrderTime",
+            "cancelOrderTime",
+            "payOrderTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Order",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 98,
+      "nonEmptyLines": 79,
+      "classes": [
+        {
+          "name": "OrderTicketUser",
+          "startLine": 17,
+          "endLine": 98,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "orderNumber",
+            "programId",
+            "userId",
+            "ticketUserId",
+            "seatId",
+            "seatInfo",
+            "ticketCategoryId",
+            "orderPrice",
+            "payOrderPrice",
+            "payOrderType",
+            "orderStatus",
+            "createOrderTime",
+            "cancelOrderTime",
+            "payOrderTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderTicketUser",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 12,
+      "classes": [
+        {
+          "name": "OrderTicketUserAggregate",
+          "startLine": 10,
+          "endLine": 16,
+          "methods": [],
+          "properties": [
+            "orderNumber",
+            "orderTicketUserCount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderTicketUserAggregate",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 23,
+      "classes": [
+        {
+          "name": "OrderMapper",
+          "startLine": 13,
+          "endLine": 28,
+          "methods": [
+            "accountOrderCount",
+            "relDelOrder"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderMapper",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 24,
+      "classes": [
+        {
+          "name": "OrderTicketUserMapper",
+          "startLine": 15,
+          "endLine": 30,
+          "methods": [
+            "selectOrderTicketUserAggregate",
+            "relDelOrderTicketUser"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderTicketUserMapper",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 631,
+      "nonEmptyLines": 579,
+      "functions": [
+        {
+          "name": "create",
+          "startLine": 138,
+          "endLine": 165,
+          "params": [
+            "orderCreateDto"
+          ]
+        },
+        {
+          "name": "cancel",
+          "startLine": 170,
+          "endLine": 176,
+          "params": [
+            "orderCancelDto"
+          ]
+        },
+        {
+          "name": "pay",
+          "startLine": 178,
+          "endLine": 204,
+          "params": [
+            "orderPayDto"
+          ]
+        },
+        {
+          "name": "getPayDto",
+          "startLine": 206,
+          "endLine": 217,
+          "params": [
+            "orderPayDto",
+            "orderNumber"
+          ]
+        },
+        {
+          "name": "payCheck",
+          "startLine": 222,
+          "endLine": 283,
+          "params": [
+            "orderPayCheckDto"
+          ]
+        },
+        {
+          "name": "alipayNotify",
+          "startLine": 286,
+          "endLine": 346,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "updateOrderRelatedData",
+          "startLine": 351,
+          "endLine": 404,
+          "params": [
+            "orderNumber",
+            "orderStatus"
+          ]
+        },
+        {
+          "name": "checkOrderStatus",
+          "startLine": 406,
+          "endLine": 419,
+          "params": [
+            "order"
+          ]
+        },
+        {
+          "name": "updateProgramRelatedDataResolution",
+          "startLine": 421,
+          "endLine": 491,
+          "params": [
+            "programId",
+            "seatMap",
+            "orderStatus"
+          ]
+        },
+        {
+          "name": "selectList",
+          "startLine": 493,
+          "endLine": 514,
+          "params": [
+            "orderListDto"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 516,
+          "endLine": 584,
+          "params": [
+            "orderGetDto"
+          ]
+        },
+        {
+          "name": "accountOrderCount",
+          "startLine": 586,
+          "endLine": 591,
+          "params": [
+            "accountOrderCountDto"
+          ]
+        },
+        {
+          "name": "createMq",
+          "startLine": 594,
+          "endLine": 600,
+          "params": [
+            "orderCreateDto"
+          ]
+        },
+        {
+          "name": "updateProgramRelatedDataMq",
+          "startLine": 602,
+          "endLine": 605,
+          "params": [
+            "programId",
+            "seatMap",
+            "orderStatus"
+          ]
+        },
+        {
+          "name": "getCache",
+          "startLine": 607,
+          "endLine": 609,
+          "params": [
+            "orderGetDto"
+          ]
+        },
+        {
+          "name": "initiateCancel",
+          "startLine": 611,
+          "endLine": 624,
+          "params": [
+            "orderCancelDto"
+          ]
+        },
+        {
+          "name": "delOrderAndOrderTicketUser",
+          "startLine": 627,
+          "endLine": 630,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "OrderService",
+          "startLine": 97,
+          "endLine": 631,
+          "methods": [
+            "create",
+            "cancel",
+            "pay",
+            "getPayDto",
+            "payCheck",
+            "alipayNotify",
+            "updateOrderRelatedData",
+            "checkOrderStatus",
+            "updateProgramRelatedDataResolution",
+            "selectList",
+            "get",
+            "accountOrderCount",
+            "createMq",
+            "updateProgramRelatedDataMq",
+            "getCache",
+            "initiateCancel",
+            "delOrderAndOrderTicketUser"
+          ],
+          "properties": [
+            "uidGenerator",
+            "orderMapper",
+            "orderTicketUserMapper",
+            "orderTicketUserService",
+            "orderProgramCacheResolutionOperate",
+            "redisCache",
+            "payClient",
+            "userClient",
+            "orderProperties",
+            "orderService",
+            "delayOperateProgramDataSend",
+            "serviceLockTool"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "create",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "cancel",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "pay",
+          "line": 178,
+          "isDefault": false
+        },
+        {
+          "name": "payCheck",
+          "line": 222,
+          "isDefault": false
+        },
+        {
+          "name": "alipayNotify",
+          "line": 286,
+          "isDefault": false
+        },
+        {
+          "name": "updateOrderRelatedData",
+          "line": 351,
+          "isDefault": false
+        },
+        {
+          "name": "checkOrderStatus",
+          "line": 406,
+          "isDefault": false
+        },
+        {
+          "name": "updateProgramRelatedDataResolution",
+          "line": 421,
+          "isDefault": false
+        },
+        {
+          "name": "selectList",
+          "line": 493,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 516,
+          "isDefault": false
+        },
+        {
+          "name": "accountOrderCount",
+          "line": 586,
+          "isDefault": false
+        },
+        {
+          "name": "createMq",
+          "line": 594,
+          "isDefault": false
+        },
+        {
+          "name": "updateProgramRelatedDataMq",
+          "line": 602,
+          "isDefault": false
+        },
+        {
+          "name": "getCache",
+          "line": 607,
+          "isDefault": false
+        },
+        {
+          "name": "initiateCancel",
+          "line": 611,
+          "isDefault": false
+        },
+        {
+          "name": "delOrderAndOrderTicketUser",
+          "line": 627,
+          "isDefault": false
+        },
+        {
+          "name": "OrderService",
+          "line": 97,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "Wrappers.lambdaQuery(Order.class).eq",
+          "lineNumber": 141
+        },
+        {
+          "caller": "create",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 141
+        },
+        {
+          "caller": "create",
+          "callee": "orderCreateDto.getOrderNumber",
+          "lineNumber": 141
+        },
+        {
+          "caller": "create",
+          "callee": "orderMapper.selectOne",
+          "lineNumber": 142
+        },
+        {
+          "caller": "create",
+          "callee": "Objects.nonNull",
+          "lineNumber": 143
+        },
+        {
+          "caller": "create",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 144
+        },
+        {
+          "caller": "create",
+          "callee": "new Order",
+          "lineNumber": 146
+        },
+        {
+          "caller": "create",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 147
+        },
+        {
+          "caller": "create",
+          "callee": "order.setDistributionMode",
+          "lineNumber": 148
+        },
+        {
+          "caller": "create",
+          "callee": "order.setTakeTicketMode",
+          "lineNumber": 149
+        },
+        {
+          "caller": "create",
+          "callee": "new ArrayList<>",
+          "lineNumber": 150
+        },
+        {
+          "caller": "create",
+          "callee": "orderCreateDto.getOrderTicketUserCreateDtoList",
+          "lineNumber": 151
+        },
+        {
+          "caller": "create",
+          "callee": "new OrderTicketUser",
+          "lineNumber": 152
+        },
+        {
+          "caller": "create",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 153
+        },
+        {
+          "caller": "create",
+          "callee": "orderTicketUser.setId",
+          "lineNumber": 154
+        },
+        {
+          "caller": "create",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 154
+        },
+        {
+          "caller": "create",
+          "callee": "orderTicketUserList.add",
+          "lineNumber": 155
+        },
+        {
+          "caller": "create",
+          "callee": "orderMapper.insert",
+          "lineNumber": 157
+        },
+        {
+          "caller": "create",
+          "callee": "orderTicketUserService.saveBatch",
+          "lineNumber": 158
+        },
+        {
+          "caller": "create",
+          "callee": "redisCache.incrBy",
+          "lineNumber": 159
+        },
+        {
+          "caller": "create",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 159
+        },
+        {
+          "caller": "create",
+          "callee": "orderCreateDto.getUserId",
+          "lineNumber": 161
+        },
+        {
+          "caller": "create",
+          "callee": "orderCreateDto.getProgramId",
+          "lineNumber": 162
+        },
+        {
+          "caller": "create",
+          "callee": "orderCreateDto.getOrderTicketUserCreateDtoList().size",
+          "lineNumber": 163
+        },
+        {
+          "caller": "create",
+          "callee": "orderCreateDto.getOrderTicketUserCreateDtoList",
+          "lineNumber": 163
+        },
+        {
+          "caller": "create",
+          "callee": "String.valueOf",
+          "lineNumber": 164
+        },
+        {
+          "caller": "create",
+          "callee": "order.getOrderNumber",
+          "lineNumber": 164
+        },
+        {
+          "caller": "cancel",
+          "callee": "updateOrderRelatedData",
+          "lineNumber": 174
+        },
+        {
+          "caller": "cancel",
+          "callee": "orderCancelDto.getOrderNumber",
+          "lineNumber": 174
+        },
+        {
+          "caller": "pay",
+          "callee": "orderPayDto.getOrderNumber",
+          "lineNumber": 179
+        },
+        {
+          "caller": "pay",
+          "callee": "Wrappers.lambdaQuery(Order.class).eq",
+          "lineNumber": 181
+        },
+        {
+          "caller": "pay",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 181
+        },
+        {
+          "caller": "pay",
+          "callee": "orderMapper.selectOne",
+          "lineNumber": 182
+        },
+        {
+          "caller": "pay",
+          "callee": "Objects.isNull",
+          "lineNumber": 183
+        },
+        {
+          "caller": "pay",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 184
+        },
+        {
+          "caller": "pay",
+          "callee": "Objects.equals",
+          "lineNumber": 186
+        },
+        {
+          "caller": "pay",
+          "callee": "order.getOrderStatus",
+          "lineNumber": 186
+        },
+        {
+          "caller": "pay",
+          "callee": "OrderStatus.CANCEL.getCode",
+          "lineNumber": 186
+        },
+        {
+          "caller": "pay",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 187
+        },
+        {
+          "caller": "pay",
+          "callee": "Objects.equals",
+          "lineNumber": 189
+        },
+        {
+          "caller": "pay",
+          "callee": "order.getOrderStatus",
+          "lineNumber": 189
+        },
+        {
+          "caller": "pay",
+          "callee": "OrderStatus.PAY.getCode",
+          "lineNumber": 189
+        },
+        {
+          "caller": "pay",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 190
+        },
+        {
+          "caller": "pay",
+          "callee": "Objects.equals",
+          "lineNumber": 192
+        },
+        {
+          "caller": "pay",
+          "callee": "order.getOrderStatus",
+          "lineNumber": 192
+        },
+        {
+          "caller": "pay",
+          "callee": "OrderStatus.REFUND.getCode",
+          "lineNumber": 192
+        },
+        {
+          "caller": "pay",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 193
+        },
+        {
+          "caller": "pay",
+          "callee": "orderPayDto.getPrice().compareTo",
+          "lineNumber": 195
+        },
+        {
+          "caller": "pay",
+          "callee": "orderPayDto.getPrice",
+          "lineNumber": 195
+        },
+        {
+          "caller": "pay",
+          "callee": "order.getOrderPrice",
+          "lineNumber": 195
+        },
+        {
+          "caller": "pay",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 196
+        },
+        {
+          "caller": "pay",
+          "callee": "getPayDto",
+          "lineNumber": 198
+        },
+        {
+          "caller": "pay",
+          "callee": "payClient.commonPay",
+          "lineNumber": 199
+        },
+        {
+          "caller": "pay",
+          "callee": "Objects.equals",
+          "lineNumber": 200
+        },
+        {
+          "caller": "pay",
+          "callee": "payResponse.getCode",
+          "lineNumber": 200
+        },
+        {
+          "caller": "pay",
+          "callee": "BaseCode.SUCCESS.getCode",
+          "lineNumber": 200
+        },
+        {
+          "caller": "pay",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 201
+        },
+        {
+          "caller": "pay",
+          "callee": "payResponse.getData",
+          "lineNumber": 203
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "new PayDto",
+          "lineNumber": 207
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "payDto.setOrderNumber",
+          "lineNumber": 208
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "String.valueOf",
+          "lineNumber": 208
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "payDto.setPayBillType",
+          "lineNumber": 209
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "orderPayDto.getPayBillType",
+          "lineNumber": 209
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "payDto.setSubject",
+          "lineNumber": 210
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "orderPayDto.getSubject",
+          "lineNumber": 210
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "payDto.setChannel",
+          "lineNumber": 211
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "orderPayDto.getChannel",
+          "lineNumber": 211
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "payDto.setPlatform",
+          "lineNumber": 212
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "orderPayDto.getPlatform",
+          "lineNumber": 212
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "payDto.setPrice",
+          "lineNumber": 213
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "orderPayDto.getPrice",
+          "lineNumber": 213
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "payDto.setNotifyUrl",
+          "lineNumber": 214
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "orderProperties.getOrderPayNotifyUrl",
+          "lineNumber": 214
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "payDto.setReturnUrl",
+          "lineNumber": 215
+        },
+        {
+          "caller": "getPayDto",
+          "callee": "orderProperties.getOrderPayReturnUrl",
+          "lineNumber": 215
+        },
+        {
+          "caller": "payCheck",
+          "callee": "new OrderPayCheckVo",
+          "lineNumber": 224
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Wrappers.lambdaQuery(Order.class).eq",
+          "lineNumber": 226
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 226
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderPayCheckDto.getOrderNumber",
+          "lineNumber": 226
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderMapper.selectOne",
+          "lineNumber": 227
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Objects.isNull",
+          "lineNumber": 228
+        },
+        {
+          "caller": "payCheck",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 229
+        },
+        {
+          "caller": "payCheck",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 231
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Objects.equals",
+          "lineNumber": 232
+        },
+        {
+          "caller": "payCheck",
+          "callee": "order.getOrderStatus",
+          "lineNumber": 232
+        },
+        {
+          "caller": "payCheck",
+          "callee": "OrderStatus.CANCEL.getCode",
+          "lineNumber": 232
+        },
+        {
+          "caller": "payCheck",
+          "callee": "new RefundDto",
+          "lineNumber": 233
+        },
+        {
+          "caller": "payCheck",
+          "callee": "refundDto.setOrderNumber",
+          "lineNumber": 234
+        },
+        {
+          "caller": "payCheck",
+          "callee": "String.valueOf",
+          "lineNumber": 234
+        },
+        {
+          "caller": "payCheck",
+          "callee": "order.getOrderNumber",
+          "lineNumber": 234
+        },
+        {
+          "caller": "payCheck",
+          "callee": "refundDto.setAmount",
+          "lineNumber": 235
+        },
+        {
+          "caller": "payCheck",
+          "callee": "order.getOrderPrice",
+          "lineNumber": 235
+        },
+        {
+          "caller": "payCheck",
+          "callee": "refundDto.setChannel",
+          "lineNumber": 236
+        },
+        {
+          "caller": "payCheck",
+          "callee": "refundDto.setReason",
+          "lineNumber": 237
+        },
+        {
+          "caller": "payCheck",
+          "callee": "payClient.refund",
+          "lineNumber": 238
+        },
+        {
+          "caller": "payCheck",
+          "callee": "response.getCode().equals",
+          "lineNumber": 239
+        },
+        {
+          "caller": "payCheck",
+          "callee": "response.getCode",
+          "lineNumber": 239
+        },
+        {
+          "caller": "payCheck",
+          "callee": "BaseCode.SUCCESS.getCode",
+          "lineNumber": 239
+        },
+        {
+          "caller": "payCheck",
+          "callee": "new Order",
+          "lineNumber": 240
+        },
+        {
+          "caller": "payCheck",
+          "callee": "updateOrder.setEditTime",
+          "lineNumber": 241
+        },
+        {
+          "caller": "payCheck",
+          "callee": "DateUtils.now",
+          "lineNumber": 241
+        },
+        {
+          "caller": "payCheck",
+          "callee": "updateOrder.setOrderStatus",
+          "lineNumber": 242
+        },
+        {
+          "caller": "payCheck",
+          "callee": "OrderStatus.REFUND.getCode",
+          "lineNumber": 242
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderMapper.update",
+          "lineNumber": 243
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Wrappers.lambdaUpdate(Order.class).eq",
+          "lineNumber": 243
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 243
+        },
+        {
+          "caller": "payCheck",
+          "callee": "order.getOrderNumber",
+          "lineNumber": 243
+        },
+        {
+          "caller": "payCheck",
+          "callee": "log.error",
+          "lineNumber": 245
+        },
+        {
+          "caller": "payCheck",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 245
+        },
+        {
+          "caller": "payCheck",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 245
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderPayCheckVo.setOrderStatus",
+          "lineNumber": 247
+        },
+        {
+          "caller": "payCheck",
+          "callee": "OrderStatus.REFUND.getCode",
+          "lineNumber": 247
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderPayCheckVo.setCancelOrderTime",
+          "lineNumber": 248
+        },
+        {
+          "caller": "payCheck",
+          "callee": "DateUtils.now",
+          "lineNumber": 248
+        },
+        {
+          "caller": "payCheck",
+          "callee": "new TradeCheckDto",
+          "lineNumber": 252
+        },
+        {
+          "caller": "payCheck",
+          "callee": "tradeCheckDto.setOutTradeNo",
+          "lineNumber": 253
+        },
+        {
+          "caller": "payCheck",
+          "callee": "String.valueOf",
+          "lineNumber": 253
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderPayCheckDto.getOrderNumber",
+          "lineNumber": 253
+        },
+        {
+          "caller": "payCheck",
+          "callee": "tradeCheckDto.setChannel",
+          "lineNumber": 254
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Optional.ofNullable(PayChannel.getRc(orderPayCheckDto.getPayChannelType()))\r\n                .map(PayChannel::getValue).orElseThrow",
+          "lineNumber": 254
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Optional.ofNullable(PayChannel.getRc(orderPayCheckDto.getPayChannelType())).map",
+          "lineNumber": 254
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 254
+        },
+        {
+          "caller": "payCheck",
+          "callee": "PayChannel.getRc",
+          "lineNumber": 254
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderPayCheckDto.getPayChannelType",
+          "lineNumber": 254
+        },
+        {
+          "caller": "payCheck",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 255
+        },
+        {
+          "caller": "payCheck",
+          "callee": "payClient.tradeCheck",
+          "lineNumber": 256
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Objects.equals",
+          "lineNumber": 257
+        },
+        {
+          "caller": "payCheck",
+          "callee": "tradeCheckVoApiResponse.getCode",
+          "lineNumber": 257
+        },
+        {
+          "caller": "payCheck",
+          "callee": "BaseCode.SUCCESS.getCode",
+          "lineNumber": 257
+        },
+        {
+          "caller": "payCheck",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 258
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Optional.ofNullable(tradeCheckVoApiResponse.getData()).orElseThrow",
+          "lineNumber": 260
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 260
+        },
+        {
+          "caller": "payCheck",
+          "callee": "tradeCheckVoApiResponse.getData",
+          "lineNumber": 260
+        },
+        {
+          "caller": "payCheck",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 261
+        },
+        {
+          "caller": "payCheck",
+          "callee": "tradeCheckVo.isSuccess",
+          "lineNumber": 262
+        },
+        {
+          "caller": "payCheck",
+          "callee": "tradeCheckVo.getPayBillStatus",
+          "lineNumber": 263
+        },
+        {
+          "caller": "payCheck",
+          "callee": "order.getOrderStatus",
+          "lineNumber": 264
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Objects.equals",
+          "lineNumber": 265
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderPayCheckVo.setOrderStatus",
+          "lineNumber": 266
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Objects.equals",
+          "lineNumber": 268
+        },
+        {
+          "caller": "payCheck",
+          "callee": "PayBillStatus.PAY.getCode",
+          "lineNumber": 268
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderPayCheckVo.setPayOrderTime",
+          "lineNumber": 269
+        },
+        {
+          "caller": "payCheck",
+          "callee": "DateUtils.now",
+          "lineNumber": 269
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderService.updateOrderRelatedData",
+          "lineNumber": 270
+        },
+        {
+          "caller": "payCheck",
+          "callee": "order.getOrderNumber",
+          "lineNumber": 270
+        },
+        {
+          "caller": "payCheck",
+          "callee": "Objects.equals",
+          "lineNumber": 271
+        },
+        {
+          "caller": "payCheck",
+          "callee": "PayBillStatus.CANCEL.getCode",
+          "lineNumber": 271
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderPayCheckVo.setCancelOrderTime",
+          "lineNumber": 272
+        },
+        {
+          "caller": "payCheck",
+          "callee": "DateUtils.now",
+          "lineNumber": 272
+        },
+        {
+          "caller": "payCheck",
+          "callee": "orderService.updateOrderRelatedData",
+          "lineNumber": 273
+        },
+        {
+          "caller": "payCheck",
+          "callee": "order.getOrderNumber",
+          "lineNumber": 273
+        },
+        {
+          "caller": "payCheck",
+          "callee": "log.warn",
+          "lineNumber": 276
+        },
+        {
+          "caller": "payCheck",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 280
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "new HashMap<>",
+          "lineNumber": 288
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "customizeRequestWrapper.getRequestBody",
+          "lineNumber": 290
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "StringUtil.convertQueryStringToMap",
+          "lineNumber": 291
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "log.info",
+          "lineNumber": 293
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 293
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "params.get",
+          "lineNumber": 294
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 295
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "serviceLockTool.getLock",
+          "lineNumber": 299
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "lock.lock",
+          "lineNumber": 301
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "orderMapper.selectOne",
+          "lineNumber": 303
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "Wrappers.lambdaQuery(Order.class).eq",
+          "lineNumber": 303
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 303
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "Long.parseLong",
+          "lineNumber": 303
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "Objects.isNull",
+          "lineNumber": 304
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 305
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "Objects.equals",
+          "lineNumber": 307
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "order.getOrderStatus",
+          "lineNumber": 307
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "OrderStatus.CANCEL.getCode",
+          "lineNumber": 307
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "new RefundDto",
+          "lineNumber": 308
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "refundDto.setOrderNumber",
+          "lineNumber": 309
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "refundDto.setAmount",
+          "lineNumber": 310
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "order.getOrderPrice",
+          "lineNumber": 310
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "refundDto.setChannel",
+          "lineNumber": 311
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "refundDto.setReason",
+          "lineNumber": 312
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "payClient.refund",
+          "lineNumber": 313
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "response.getCode().equals",
+          "lineNumber": 314
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "response.getCode",
+          "lineNumber": 314
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "BaseCode.SUCCESS.getCode",
+          "lineNumber": 314
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "new Order",
+          "lineNumber": 315
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "updateOrder.setEditTime",
+          "lineNumber": 316
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "DateUtils.now",
+          "lineNumber": 316
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "updateOrder.setOrderStatus",
+          "lineNumber": 317
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "OrderStatus.REFUND.getCode",
+          "lineNumber": 317
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "orderMapper.update",
+          "lineNumber": 318
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "Wrappers.lambdaUpdate(Order.class).eq",
+          "lineNumber": 318
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 318
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "log.error",
+          "lineNumber": 320
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 320
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 320
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "new NotifyDto",
+          "lineNumber": 326
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "notifyDto.setChannel",
+          "lineNumber": 327
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "PayChannel.ALIPAY.getValue",
+          "lineNumber": 327
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "notifyDto.setParams",
+          "lineNumber": 328
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "payClient.notify",
+          "lineNumber": 329
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "Objects.equals",
+          "lineNumber": 330
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "notifyResponse.getCode",
+          "lineNumber": 330
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "BaseCode.SUCCESS.getCode",
+          "lineNumber": 330
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 331
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "ALIPAY_NOTIFY_SUCCESS_RESULT.equals",
+          "lineNumber": 333
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "notifyResponse.getData().getPayResult",
+          "lineNumber": 333
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "notifyResponse.getData",
+          "lineNumber": 333
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "orderService.updateOrderRelatedData",
+          "lineNumber": 335
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "Long.parseLong",
+          "lineNumber": 335
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "notifyResponse.getData().getOutTradeNo",
+          "lineNumber": 335
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "notifyResponse.getData",
+          "lineNumber": 335
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "log.warn",
+          "lineNumber": 338
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "notifyResponse.getData().getPayResult",
+          "lineNumber": 341
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "notifyResponse.getData",
+          "lineNumber": 341
+        },
+        {
+          "caller": "alipayNotify",
+          "callee": "lock.unlock",
+          "lineNumber": 343
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Objects.equals",
+          "lineNumber": 353
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderStatus.getCode",
+          "lineNumber": 353
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "OrderStatus.CANCEL.getCode",
+          "lineNumber": 353
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Objects.equals",
+          "lineNumber": 354
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderStatus.getCode",
+          "lineNumber": 354
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "OrderStatus.PAY.getCode",
+          "lineNumber": 354
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 355
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Wrappers.lambdaQuery(Order.class).eq",
+          "lineNumber": 358
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 358
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderMapper.selectOne",
+          "lineNumber": 359
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "checkOrderStatus",
+          "lineNumber": 360
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "new Order",
+          "lineNumber": 361
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "updateOrder.setId",
+          "lineNumber": 362
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "order.getId",
+          "lineNumber": 362
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "updateOrder.setOrderStatus",
+          "lineNumber": 363
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderStatus.getCode",
+          "lineNumber": 363
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "new OrderTicketUser",
+          "lineNumber": 365
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "updateOrderTicketUser.setOrderStatus",
+          "lineNumber": 366
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderStatus.getCode",
+          "lineNumber": 366
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Objects.equals",
+          "lineNumber": 367
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderStatus.getCode",
+          "lineNumber": 367
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "OrderStatus.PAY.getCode",
+          "lineNumber": 367
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "updateOrder.setPayOrderTime",
+          "lineNumber": 368
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "DateUtils.now",
+          "lineNumber": 368
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "updateOrderTicketUser.setPayOrderTime",
+          "lineNumber": 369
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "DateUtils.now",
+          "lineNumber": 369
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Objects.equals",
+          "lineNumber": 370
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderStatus.getCode",
+          "lineNumber": 370
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "OrderStatus.CANCEL.getCode",
+          "lineNumber": 370
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "updateOrder.setCancelOrderTime",
+          "lineNumber": 371
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "DateUtils.now",
+          "lineNumber": 371
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "updateOrderTicketUser.setCancelOrderTime",
+          "lineNumber": 372
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "DateUtils.now",
+          "lineNumber": 372
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Wrappers.lambdaUpdate(Order.class).eq",
+          "lineNumber": 375
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 375
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "order.getOrderNumber",
+          "lineNumber": 375
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderMapper.update",
+          "lineNumber": 376
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Wrappers.lambdaUpdate(OrderTicketUser.class).eq",
+          "lineNumber": 379
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 379
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "order.getOrderNumber",
+          "lineNumber": 379
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderTicketUserMapper.update",
+          "lineNumber": 381
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 383
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Wrappers.lambdaQuery(OrderTicketUser.class).eq",
+          "lineNumber": 386
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 386
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "order.getOrderNumber",
+          "lineNumber": 386
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderTicketUserMapper.selectList",
+          "lineNumber": 387
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 388
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 389
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Objects.equals",
+          "lineNumber": 391
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderStatus.getCode",
+          "lineNumber": 391
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "OrderStatus.CANCEL.getCode",
+          "lineNumber": 391
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "redisCache.incrBy",
+          "lineNumber": 392
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 392
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "order.getUserId",
+          "lineNumber": 393
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "order.getProgramId",
+          "lineNumber": 393
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "order.getProgramId",
+          "lineNumber": 395
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderTicketUserList.stream().collect",
+          "lineNumber": 397
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderTicketUserList.stream",
+          "lineNumber": 397
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Collectors.groupingBy",
+          "lineNumber": 397
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "new HashMap<>",
+          "lineNumber": 398
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderTicketUserSeatList.size",
+          "lineNumber": 398
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "orderTicketUserSeatList.forEach",
+          "lineNumber": 399
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "seatMap.put",
+          "lineNumber": 400
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "v.stream().map(OrderTicketUser::getSeatId).collect",
+          "lineNumber": 400
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "v.stream().map",
+          "lineNumber": 400
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "v.stream",
+          "lineNumber": 400
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "Collectors.toList",
+          "lineNumber": 400
+        },
+        {
+          "caller": "updateOrderRelatedData",
+          "callee": "updateProgramRelatedDataResolution",
+          "lineNumber": 403
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "Objects.isNull",
+          "lineNumber": 407
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 408
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "Objects.equals",
+          "lineNumber": 410
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "order.getOrderStatus",
+          "lineNumber": 410
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "OrderStatus.CANCEL.getCode",
+          "lineNumber": 410
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 411
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "Objects.equals",
+          "lineNumber": 413
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "order.getOrderStatus",
+          "lineNumber": 413
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "OrderStatus.PAY.getCode",
+          "lineNumber": 413
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 414
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "Objects.equals",
+          "lineNumber": 416
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "order.getOrderStatus",
+          "lineNumber": 416
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "OrderStatus.REFUND.getCode",
+          "lineNumber": 416
+        },
+        {
+          "caller": "checkOrderStatus",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 417
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new HashMap<>",
+          "lineNumber": 422
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "seatMap.size",
+          "lineNumber": 422
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "seatMap.forEach",
+          "lineNumber": 423
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "seatVoMap.put",
+          "lineNumber": 423
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "redisCache.multiGetForHash",
+          "lineNumber": 423
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 424
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "v.stream().map(String::valueOf).collect",
+          "lineNumber": 425
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "v.stream().map",
+          "lineNumber": 425
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "v.stream",
+          "lineNumber": 425
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "Collectors.toList",
+          "lineNumber": 425
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 426
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 427
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new JSONArray",
+          "lineNumber": 429
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new JSONArray",
+          "lineNumber": 430
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new ArrayList<>",
+          "lineNumber": 431
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "seatVoMap.size",
+          "lineNumber": 431
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new JSONArray",
+          "lineNumber": 432
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new ArrayList<>",
+          "lineNumber": 433
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "seatVoMap.forEach",
+          "lineNumber": 434
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new JSONObject",
+          "lineNumber": 435
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "unLockSeatIdjsonObject.put",
+          "lineNumber": 436
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "RedisKeyBuild.createRedisKey(\r\n                    RedisKeyManage.PROGRAM_SEAT_LOCK_RESOLUTION_HASH, programId, k).getRelKey",
+          "lineNumber": 436
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 436
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "unLockSeatIdjsonObject.put",
+          "lineNumber": 438
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "v.stream()\r\n                    .map(SeatVo::getId).map(String::valueOf).collect",
+          "lineNumber": 438
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "v.stream()\r\n                    .map(SeatVo::getId).map",
+          "lineNumber": 438
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "v.stream().map",
+          "lineNumber": 438
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "v.stream",
+          "lineNumber": 438
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "Collectors.toList",
+          "lineNumber": 439
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "unLockSeatIdjsonArray.add",
+          "lineNumber": 440
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new JSONObject",
+          "lineNumber": 441
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "Objects.equals",
+          "lineNumber": 443
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "orderStatus.getCode",
+          "lineNumber": 443
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "OrderStatus.CANCEL.getCode",
+          "lineNumber": 443
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "RedisKeyBuild.createRedisKey(\r\n                        RedisKeyManage.PROGRAM_SEAT_NO_SOLD_RESOLUTION_HASH, programId, k).getRelKey",
+          "lineNumber": 444
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 444
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "seatVo.setSellStatus",
+          "lineNumber": 447
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "SellStatus.NO_SOLD.getCode",
+          "lineNumber": 447
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "Objects.equals",
+          "lineNumber": 449
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "orderStatus.getCode",
+          "lineNumber": 449
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "OrderStatus.PAY.getCode",
+          "lineNumber": 449
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "RedisKeyBuild.createRedisKey(\r\n                        RedisKeyManage.PROGRAM_SEAT_SOLD_RESOLUTION_HASH, programId, k).getRelKey",
+          "lineNumber": 450
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 450
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "seatVo.setSellStatus",
+          "lineNumber": 453
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "SellStatus.SOLD.getCode",
+          "lineNumber": 453
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "seatDatajsonObject.put",
+          "lineNumber": 456
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new ArrayList<>",
+          "lineNumber": 457
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "seatDataList.add",
+          "lineNumber": 459
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "String.valueOf",
+          "lineNumber": 459
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "seatVo.getId",
+          "lineNumber": 459
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "seatDataList.add",
+          "lineNumber": 460
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 460
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "seatDatajsonObject.put",
+          "lineNumber": 462
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "addSeatDatajsonArray.add",
+          "lineNumber": 463
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new JSONObject",
+          "lineNumber": 464
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "jsonObject.put",
+          "lineNumber": 465
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "RedisKeyBuild.createRedisKey(\r\n                    RedisKeyManage.PROGRAM_TICKET_REMAIN_NUMBER_HASH_RESOLUTION, programId, k).getRelKey",
+          "lineNumber": 465
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 465
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "jsonObject.put",
+          "lineNumber": 467
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "String.valueOf",
+          "lineNumber": 467
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "jsonObject.put",
+          "lineNumber": 468
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "v.size",
+          "lineNumber": 468
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "jsonArray.add",
+          "lineNumber": 469
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new TicketCategoryCountDto",
+          "lineNumber": 470
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "ticketCategoryCountDto.setTicketCategoryId",
+          "lineNumber": 471
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "ticketCategoryCountDto.setCount",
+          "lineNumber": 472
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "v.size",
+          "lineNumber": 472
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "ticketCategoryCountDtoList.add",
+          "lineNumber": 473
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "unLockSeatIdList.addAll",
+          "lineNumber": 474
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "v.stream().map(SeatVo::getId).toList",
+          "lineNumber": 474
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "v.stream().map",
+          "lineNumber": 474
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "v.stream",
+          "lineNumber": 474
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new ArrayList<>",
+          "lineNumber": 476
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "keys.add",
+          "lineNumber": 477
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "String.valueOf",
+          "lineNumber": 477
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "orderStatus.getCode",
+          "lineNumber": 477
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 479
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 480
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 481
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "orderProgramCacheResolutionOperate.programCacheReverseOperate",
+          "lineNumber": 482
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "Objects.equals",
+          "lineNumber": 483
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "orderStatus.getCode",
+          "lineNumber": 483
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "OrderStatus.PAY.getCode",
+          "lineNumber": 483
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "new ProgramOperateDataDto",
+          "lineNumber": 484
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "programOperateDataDto.setProgramId",
+          "lineNumber": 485
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "programOperateDataDto.setSeatIdList",
+          "lineNumber": 486
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "programOperateDataDto.setTicketCategoryCountDtoList",
+          "lineNumber": 487
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "programOperateDataDto.setSellStatus",
+          "lineNumber": 488
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "SellStatus.SOLD.getCode",
+          "lineNumber": 488
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "delayOperateProgramDataSend.sendMessage",
+          "lineNumber": 489
+        },
+        {
+          "caller": "updateProgramRelatedDataResolution",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 489
+        },
+        {
+          "caller": "selectList",
+          "callee": "new ArrayList<>",
+          "lineNumber": 494
+        },
+        {
+          "caller": "selectList",
+          "callee": "Wrappers.lambdaQuery(Order.class)\r\n                        .eq(Order::getUserId, orderListDto.getUserId()).orderByDesc",
+          "lineNumber": 496
+        },
+        {
+          "caller": "selectList",
+          "callee": "Wrappers.lambdaQuery(Order.class).eq",
+          "lineNumber": 496
+        },
+        {
+          "caller": "selectList",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 496
+        },
+        {
+          "caller": "selectList",
+          "callee": "orderListDto.getUserId",
+          "lineNumber": 497
+        },
+        {
+          "caller": "selectList",
+          "callee": "orderMapper.selectList",
+          "lineNumber": 499
+        },
+        {
+          "caller": "selectList",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 500
+        },
+        {
+          "caller": "selectList",
+          "callee": "BeanUtil.copyToList",
+          "lineNumber": 503
+        },
+        {
+          "caller": "selectList",
+          "callee": "orderTicketUserMapper.selectOrderTicketUserAggregate",
+          "lineNumber": 505
+        },
+        {
+          "caller": "selectList",
+          "callee": "orderList.stream().map(Order::getOrderNumber).collect",
+          "lineNumber": 505
+        },
+        {
+          "caller": "selectList",
+          "callee": "orderList.stream().map",
+          "lineNumber": 505
+        },
+        {
+          "caller": "selectList",
+          "callee": "orderList.stream",
+          "lineNumber": 505
+        },
+        {
+          "caller": "selectList",
+          "callee": "Collectors.toList",
+          "lineNumber": 506
+        },
+        {
+          "caller": "selectList",
+          "callee": "orderTicketUserAggregateList.stream().collect",
+          "lineNumber": 507
+        },
+        {
+          "caller": "selectList",
+          "callee": "orderTicketUserAggregateList.stream",
+          "lineNumber": 507
+        },
+        {
+          "caller": "selectList",
+          "callee": "Collectors.toMap",
+          "lineNumber": 508
+        },
+        {
+          "caller": "selectList",
+          "callee": "orderListVo.setTicketCount",
+          "lineNumber": 511
+        },
+        {
+          "caller": "selectList",
+          "callee": "orderTicketUserAggregateMap.get",
+          "lineNumber": 511
+        },
+        {
+          "caller": "selectList",
+          "callee": "orderListVo.getOrderNumber",
+          "lineNumber": 511
+        },
+        {
+          "caller": "get",
+          "callee": "Wrappers.lambdaQuery(Order.class).eq",
+          "lineNumber": 518
+        },
+        {
+          "caller": "get",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 518
+        },
+        {
+          "caller": "get",
+          "callee": "orderGetDto.getOrderNumber",
+          "lineNumber": 518
+        },
+        {
+          "caller": "get",
+          "callee": "orderMapper.selectOne",
+          "lineNumber": 519
+        },
+        {
+          "caller": "get",
+          "callee": "Objects.isNull",
+          "lineNumber": 520
+        },
+        {
+          "caller": "get",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 521
+        },
+        {
+          "caller": "get",
+          "callee": "Wrappers.lambdaQuery(OrderTicketUser.class).eq",
+          "lineNumber": 524
+        },
+        {
+          "caller": "get",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 524
+        },
+        {
+          "caller": "get",
+          "callee": "order.getOrderNumber",
+          "lineNumber": 524
+        },
+        {
+          "caller": "get",
+          "callee": "orderTicketUserMapper.selectList",
+          "lineNumber": 525
+        },
+        {
+          "caller": "get",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 526
+        },
+        {
+          "caller": "get",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 527
+        },
+        {
+          "caller": "get",
+          "callee": "new OrderGetVo",
+          "lineNumber": 530
+        },
+        {
+          "caller": "get",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 531
+        },
+        {
+          "caller": "get",
+          "callee": "new ArrayList<>",
+          "lineNumber": 533
+        },
+        {
+          "caller": "get",
+          "callee": "orderTicketUserList.stream().collect",
+          "lineNumber": 535
+        },
+        {
+          "caller": "get",
+          "callee": "orderTicketUserList.stream",
+          "lineNumber": 535
+        },
+        {
+          "caller": "get",
+          "callee": "Collectors.groupingBy",
+          "lineNumber": 535
+        },
+        {
+          "caller": "get",
+          "callee": "orderTicketUserMap.forEach",
+          "lineNumber": 536
+        },
+        {
+          "caller": "get",
+          "callee": "new OrderTicketInfoVo",
+          "lineNumber": 537
+        },
+        {
+          "caller": "get",
+          "callee": "order.getProgramPermitChooseSeat().equals",
+          "lineNumber": 539
+        },
+        {
+          "caller": "get",
+          "callee": "order.getProgramPermitChooseSeat",
+          "lineNumber": 539
+        },
+        {
+          "caller": "get",
+          "callee": "BusinessStatus.YES.getCode",
+          "lineNumber": 539
+        },
+        {
+          "caller": "get",
+          "callee": "v.stream().map(OrderTicketUser::getSeatInfo).collect",
+          "lineNumber": 540
+        },
+        {
+          "caller": "get",
+          "callee": "v.stream().map",
+          "lineNumber": 540
+        },
+        {
+          "caller": "get",
+          "callee": "v.stream",
+          "lineNumber": 540
+        },
+        {
+          "caller": "get",
+          "callee": "Collectors.joining",
+          "lineNumber": 540
+        },
+        {
+          "caller": "get",
+          "callee": "orderTicketInfoVo.setSeatInfo",
+          "lineNumber": 542
+        },
+        {
+          "caller": "get",
+          "callee": "orderTicketInfoVo.setPrice",
+          "lineNumber": 543
+        },
+        {
+          "caller": "get",
+          "callee": "v.get(0).getOrderPrice",
+          "lineNumber": 543
+        },
+        {
+          "caller": "get",
+          "callee": "v.get",
+          "lineNumber": 543
+        },
+        {
+          "caller": "get",
+          "callee": "orderTicketInfoVo.setQuantity",
+          "lineNumber": 544
+        },
+        {
+          "caller": "get",
+          "callee": "v.size",
+          "lineNumber": 544
+        },
+        {
+          "caller": "get",
+          "callee": "orderTicketInfoVo.setRelPrice",
+          "lineNumber": 545
+        },
+        {
+          "caller": "get",
+          "callee": "v.stream().map(OrderTicketUser::getOrderPrice).reduce",
+          "lineNumber": 545
+        },
+        {
+          "caller": "get",
+          "callee": "v.stream().map",
+          "lineNumber": 545
+        },
+        {
+          "caller": "get",
+          "callee": "v.stream",
+          "lineNumber": 545
+        },
+        {
+          "caller": "get",
+          "callee": "orderTicketInfoVoList.add",
+          "lineNumber": 547
+        },
+        {
+          "caller": "get",
+          "callee": "orderGetVo.setOrderTicketInfoVoList",
+          "lineNumber": 550
+        },
+        {
+          "caller": "get",
+          "callee": "new UserGetAndTicketUserListDto",
+          "lineNumber": 552
+        },
+        {
+          "caller": "get",
+          "callee": "userGetAndTicketUserListDto.setUserId",
+          "lineNumber": 553
+        },
+        {
+          "caller": "get",
+          "callee": "order.getUserId",
+          "lineNumber": 553
+        },
+        {
+          "caller": "get",
+          "callee": "userClient.getUserAndTicketUserList",
+          "lineNumber": 555
+        },
+        {
+          "caller": "get",
+          "callee": "Objects.equals",
+          "lineNumber": 557
+        },
+        {
+          "caller": "get",
+          "callee": "userGetAndTicketUserApiResponse.getCode",
+          "lineNumber": 557
+        },
+        {
+          "caller": "get",
+          "callee": "BaseCode.SUCCESS.getCode",
+          "lineNumber": 557
+        },
+        {
+          "caller": "get",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 558
+        },
+        {
+          "caller": "get",
+          "callee": "Optional.ofNullable(userGetAndTicketUserApiResponse.getData()).orElseThrow",
+          "lineNumber": 562
+        },
+        {
+          "caller": "get",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 562
+        },
+        {
+          "caller": "get",
+          "callee": "userGetAndTicketUserApiResponse.getData",
+          "lineNumber": 562
+        },
+        {
+          "caller": "get",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 563
+        },
+        {
+          "caller": "get",
+          "callee": "Objects.isNull",
+          "lineNumber": 564
+        },
+        {
+          "caller": "get",
+          "callee": "userAndTicketUserListVo.getUserVo",
+          "lineNumber": 564
+        },
+        {
+          "caller": "get",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 565
+        },
+        {
+          "caller": "get",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 567
+        },
+        {
+          "caller": "get",
+          "callee": "userAndTicketUserListVo.getTicketUserVoList",
+          "lineNumber": 567
+        },
+        {
+          "caller": "get",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 568
+        },
+        {
+          "caller": "get",
+          "callee": "new ArrayList<>",
+          "lineNumber": 570
+        },
+        {
+          "caller": "get",
+          "callee": "userAndTicketUserListVo.getTicketUserVoList()\r\n                .stream().collect",
+          "lineNumber": 571
+        },
+        {
+          "caller": "get",
+          "callee": "userAndTicketUserListVo.getTicketUserVoList().stream",
+          "lineNumber": 571
+        },
+        {
+          "caller": "get",
+          "callee": "userAndTicketUserListVo.getTicketUserVoList",
+          "lineNumber": 571
+        },
+        {
+          "caller": "get",
+          "callee": "Collectors.toMap",
+          "lineNumber": 572
+        },
+        {
+          "caller": "get",
+          "callee": "filterTicketUserVoList.add",
+          "lineNumber": 574
+        },
+        {
+          "caller": "get",
+          "callee": "ticketUserVoMap.get",
+          "lineNumber": 574
+        },
+        {
+          "caller": "get",
+          "callee": "orderTicketUser.getTicketUserId",
+          "lineNumber": 574
+        },
+        {
+          "caller": "get",
+          "callee": "new UserInfoVo",
+          "lineNumber": 576
+        },
+        {
+          "caller": "get",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 577
+        },
+        {
+          "caller": "get",
+          "callee": "userAndTicketUserListVo.getUserVo",
+          "lineNumber": 577
+        },
+        {
+          "caller": "get",
+          "callee": "new UserAndTicketUserInfoVo",
+          "lineNumber": 578
+        },
+        {
+          "caller": "get",
+          "callee": "userAndTicketUserInfoVo.setUserInfoVo",
+          "lineNumber": 579
+        },
+        {
+          "caller": "get",
+          "callee": "userAndTicketUserInfoVo.setTicketUserInfoVoList",
+          "lineNumber": 580
+        },
+        {
+          "caller": "get",
+          "callee": "BeanUtil.copyToList",
+          "lineNumber": 580
+        },
+        {
+          "caller": "get",
+          "callee": "orderGetVo.setUserAndTicketUserInfoVo",
+          "lineNumber": 581
+        },
+        {
+          "caller": "accountOrderCount",
+          "callee": "new AccountOrderCountVo",
+          "lineNumber": 587
+        },
+        {
+          "caller": "accountOrderCount",
+          "callee": "accountOrderCountVo.setCount",
+          "lineNumber": 588
+        },
+        {
+          "caller": "accountOrderCount",
+          "callee": "orderMapper.accountOrderCount",
+          "lineNumber": 588
+        },
+        {
+          "caller": "accountOrderCount",
+          "callee": "accountOrderCountDto.getUserId",
+          "lineNumber": 588
+        },
+        {
+          "caller": "accountOrderCount",
+          "callee": "accountOrderCountDto.getProgramId",
+          "lineNumber": 589
+        },
+        {
+          "caller": "createMq",
+          "callee": "create",
+          "lineNumber": 597
+        },
+        {
+          "caller": "createMq",
+          "callee": "redisCache.set",
+          "lineNumber": 598
+        },
+        {
+          "caller": "createMq",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 598
+        },
+        {
+          "caller": "updateProgramRelatedDataMq",
+          "callee": "updateProgramRelatedDataResolution",
+          "lineNumber": 604
+        },
+        {
+          "caller": "getCache",
+          "callee": "redisCache.get",
+          "lineNumber": 608
+        },
+        {
+          "caller": "getCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 608
+        },
+        {
+          "caller": "getCache",
+          "callee": "orderGetDto.getOrderNumber",
+          "lineNumber": 608
+        },
+        {
+          "caller": "initiateCancel",
+          "callee": "orderMapper.selectOne",
+          "lineNumber": 615
+        },
+        {
+          "caller": "initiateCancel",
+          "callee": "Wrappers.lambdaQuery(Order.class).eq",
+          "lineNumber": 615
+        },
+        {
+          "caller": "initiateCancel",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 615
+        },
+        {
+          "caller": "initiateCancel",
+          "callee": "orderCancelDto.getOrderNumber",
+          "lineNumber": 616
+        },
+        {
+          "caller": "initiateCancel",
+          "callee": "Objects.isNull",
+          "lineNumber": 617
+        },
+        {
+          "caller": "initiateCancel",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 618
+        },
+        {
+          "caller": "initiateCancel",
+          "callee": "Objects.equals",
+          "lineNumber": 620
+        },
+        {
+          "caller": "initiateCancel",
+          "callee": "order.getOrderStatus",
+          "lineNumber": 620
+        },
+        {
+          "caller": "initiateCancel",
+          "callee": "OrderStatus.NO_PAY.getCode",
+          "lineNumber": 620
+        },
+        {
+          "caller": "initiateCancel",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 621
+        },
+        {
+          "caller": "initiateCancel",
+          "callee": "cancel",
+          "lineNumber": 623
+        },
+        {
+          "caller": "delOrderAndOrderTicketUser",
+          "callee": "orderMapper.relDelOrder",
+          "lineNumber": 628
+        },
+        {
+          "caller": "delOrderAndOrderTicketUser",
+          "callee": "orderTicketUserMapper.relDelOrderTicketUser",
+          "lineNumber": 629
+        }
+      ],
+      "metrics": {
+        "importCount": 56,
+        "exportCount": 17,
+        "functionCount": 17,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "classes": [
+        {
+          "name": "OrderTicketUserService",
+          "startLine": 13,
+          "endLine": 16,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderTicketUserService",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "execute",
+          "startLine": 33,
+          "endLine": 51,
+          "params": [
+            "content"
+          ]
+        },
+        {
+          "name": "topic",
+          "startLine": 53,
+          "endLine": 56,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DelayOrderCancelConsumer",
+          "startLine": 21,
+          "endLine": 57,
+          "methods": [
+            "execute",
+            "topic"
+          ],
+          "properties": [
+            "orderService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "execute",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "topic",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "DelayOrderCancelConsumer",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "execute",
+          "callee": "log.info",
+          "lineNumber": 35
+        },
+        {
+          "caller": "execute",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 36
+        },
+        {
+          "caller": "execute",
+          "callee": "log.error",
+          "lineNumber": 37
+        },
+        {
+          "caller": "execute",
+          "callee": "JSON.parseObject",
+          "lineNumber": 40
+        },
+        {
+          "caller": "execute",
+          "callee": "new OrderCancelDto",
+          "lineNumber": 43
+        },
+        {
+          "caller": "execute",
+          "callee": "orderCancelDto.setOrderNumber",
+          "lineNumber": 44
+        },
+        {
+          "caller": "execute",
+          "callee": "delayOrderCancelDto.getOrderNumber",
+          "lineNumber": 44
+        },
+        {
+          "caller": "execute",
+          "callee": "orderService.cancel",
+          "lineNumber": 45
+        },
+        {
+          "caller": "execute",
+          "callee": "log.info",
+          "lineNumber": 47
+        },
+        {
+          "caller": "execute",
+          "callee": "log.error",
+          "lineNumber": 49
+        },
+        {
+          "caller": "topic",
+          "callee": "SpringUtil.getPrefixDistinctionName",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "consumerOrderMessage",
+          "startLine": 43,
+          "endLine": 76,
+          "params": [
+            "consumerRecord"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CreateOrderConsumer",
+          "startLine": 28,
+          "endLine": 77,
+          "methods": [
+            "consumerOrderMessage"
+          ],
+          "properties": [
+            "orderService",
+            "MESSAGE_DELAY_TIME"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MESSAGE_DELAY_TIME",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "consumerOrderMessage",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "CreateOrderConsumer",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "Optional.ofNullable(consumerRecord.value()).map(String::valueOf).ifPresent",
+          "lineNumber": 46
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "Optional.ofNullable(consumerRecord.value()).map",
+          "lineNumber": 46
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 46
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "consumerRecord.value",
+          "lineNumber": 46
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "JSON.parseObject",
+          "lineNumber": 48
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "orderCreateDto.getCreateOrderTime().getTime",
+          "lineNumber": 50
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "orderCreateDto.getCreateOrderTime",
+          "lineNumber": 50
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 52
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "log.info",
+          "lineNumber": 56
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "log.info",
+          "lineNumber": 59
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "orderCreateDto.getOrderNumber",
+          "lineNumber": 60
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "orderCreateDto.getOrderTicketUserCreateDtoList().stream().collect",
+          "lineNumber": 62
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "orderCreateDto.getOrderTicketUserCreateDtoList().stream",
+          "lineNumber": 62
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "orderCreateDto.getOrderTicketUserCreateDtoList",
+          "lineNumber": 62
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "Collectors.groupingBy",
+          "lineNumber": 62
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "new HashMap<>",
+          "lineNumber": 63
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "orderTicketUserSeatList.size",
+          "lineNumber": 63
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "orderTicketUserSeatList.forEach",
+          "lineNumber": 64
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "seatMap.put",
+          "lineNumber": 65
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "v.stream().map(OrderTicketUserCreateDto::getSeatId).collect",
+          "lineNumber": 65
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "v.stream().map",
+          "lineNumber": 65
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "v.stream",
+          "lineNumber": 65
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "Collectors.toList",
+          "lineNumber": 65
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "orderService.updateProgramRelatedDataMq",
+          "lineNumber": 67
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "orderCreateDto.getProgramId",
+          "lineNumber": 67
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "orderService.createMq",
+          "lineNumber": 69
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "log.info",
+          "lineNumber": 70
+        },
+        {
+          "caller": "consumerOrderMessage",
+          "callee": "log.error",
+          "lineNumber": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 3,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "classes": [
+        {
+          "name": "OrderProperties",
+          "startLine": 12,
+          "endLine": 27,
+          "methods": [],
+          "properties": [
+            "orderPayNotifyUrl",
+            "orderPayReturnUrl"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderProperties",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 135,
+      "nonEmptyLines": 121,
+      "functions": [
+        {
+          "name": "execute",
+          "startLine": 58,
+          "endLine": 119,
+          "params": [
+            "programOrderCreateDto"
+          ]
+        },
+        {
+          "name": "executeParentOrder",
+          "startLine": 121,
+          "endLine": 124,
+          "params": []
+        },
+        {
+          "name": "executeTier",
+          "startLine": 126,
+          "endLine": 129,
+          "params": []
+        },
+        {
+          "name": "executeOrder",
+          "startLine": 131,
+          "endLine": 134,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramUserExistCheckHandler",
+          "startLine": 39,
+          "endLine": 135,
+          "methods": [
+            "execute",
+            "executeParentOrder",
+            "executeTier",
+            "executeOrder"
+          ],
+          "properties": [
+            "userClient",
+            "redisCache",
+            "orderClient",
+            "programService",
+            "tokenExpireManager"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "executeParentOrder",
+          "line": 121,
+          "isDefault": false
+        },
+        {
+          "name": "executeTier",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "executeOrder",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramUserExistCheckHandler",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "execute",
+          "callee": "redisCache.getValueIsList",
+          "lineNumber": 60
+        },
+        {
+          "caller": "execute",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 60
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getUserId",
+          "lineNumber": 61
+        },
+        {
+          "caller": "execute",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 62
+        },
+        {
+          "caller": "execute",
+          "callee": "new TicketUserListDto",
+          "lineNumber": 63
+        },
+        {
+          "caller": "execute",
+          "callee": "ticketUserListDto.setUserId",
+          "lineNumber": 64
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getUserId",
+          "lineNumber": 64
+        },
+        {
+          "caller": "execute",
+          "callee": "userClient.list",
+          "lineNumber": 65
+        },
+        {
+          "caller": "execute",
+          "callee": "Objects.equals",
+          "lineNumber": 66
+        },
+        {
+          "caller": "execute",
+          "callee": "apiResponse.getCode",
+          "lineNumber": 66
+        },
+        {
+          "caller": "execute",
+          "callee": "BaseCode.SUCCESS.getCode",
+          "lineNumber": 66
+        },
+        {
+          "caller": "execute",
+          "callee": "apiResponse.getData",
+          "lineNumber": 67
+        },
+        {
+          "caller": "execute",
+          "callee": "log.error",
+          "lineNumber": 69
+        },
+        {
+          "caller": "execute",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 69
+        },
+        {
+          "caller": "execute",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 70
+        },
+        {
+          "caller": "execute",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 73
+        },
+        {
+          "caller": "execute",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 74
+        },
+        {
+          "caller": "execute",
+          "callee": "ticketUserVoList.stream().collect",
+          "lineNumber": 76
+        },
+        {
+          "caller": "execute",
+          "callee": "ticketUserVoList.stream",
+          "lineNumber": 76
+        },
+        {
+          "caller": "execute",
+          "callee": "Collectors.toMap",
+          "lineNumber": 77
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getTicketUserIdList",
+          "lineNumber": 78
+        },
+        {
+          "caller": "execute",
+          "callee": "Objects.isNull",
+          "lineNumber": 79
+        },
+        {
+          "caller": "execute",
+          "callee": "ticketUserVoMap.get",
+          "lineNumber": 79
+        },
+        {
+          "caller": "execute",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 80
+        },
+        {
+          "caller": "execute",
+          "callee": "new ProgramGetDto",
+          "lineNumber": 83
+        },
+        {
+          "caller": "execute",
+          "callee": "programGetDto.setId",
+          "lineNumber": 84
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getProgramId",
+          "lineNumber": 84
+        },
+        {
+          "caller": "execute",
+          "callee": "programService.detailV2",
+          "lineNumber": 85
+        },
+        {
+          "caller": "execute",
+          "callee": "Objects.isNull",
+          "lineNumber": 86
+        },
+        {
+          "caller": "execute",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 87
+        },
+        {
+          "caller": "execute",
+          "callee": "redisCache.hasKey",
+          "lineNumber": 90
+        },
+        {
+          "caller": "execute",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 90
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getUserId",
+          "lineNumber": 91
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getProgramId",
+          "lineNumber": 91
+        },
+        {
+          "caller": "execute",
+          "callee": "redisCache.get",
+          "lineNumber": 92
+        },
+        {
+          "caller": "execute",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 92
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getUserId",
+          "lineNumber": 93
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getProgramId",
+          "lineNumber": 93
+        },
+        {
+          "caller": "execute",
+          "callee": "new AccountOrderCountDto",
+          "lineNumber": 95
+        },
+        {
+          "caller": "execute",
+          "callee": "accountOrderCountDto.setUserId",
+          "lineNumber": 96
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getUserId",
+          "lineNumber": 96
+        },
+        {
+          "caller": "execute",
+          "callee": "accountOrderCountDto.setProgramId",
+          "lineNumber": 97
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getProgramId",
+          "lineNumber": 97
+        },
+        {
+          "caller": "execute",
+          "callee": "orderClient.accountOrderCount",
+          "lineNumber": 98
+        },
+        {
+          "caller": "execute",
+          "callee": "Objects.equals",
+          "lineNumber": 99
+        },
+        {
+          "caller": "execute",
+          "callee": "apiResponse.getCode",
+          "lineNumber": 99
+        },
+        {
+          "caller": "execute",
+          "callee": "BaseCode.SUCCESS.getCode",
+          "lineNumber": 99
+        },
+        {
+          "caller": "execute",
+          "callee": "Optional.ofNullable(apiResponse.getData()).map(AccountOrderCountVo::getCount).orElse",
+          "lineNumber": 100
+        },
+        {
+          "caller": "execute",
+          "callee": "Optional.ofNullable(apiResponse.getData()).map",
+          "lineNumber": 100
+        },
+        {
+          "caller": "execute",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 100
+        },
+        {
+          "caller": "execute",
+          "callee": "apiResponse.getData",
+          "lineNumber": 100
+        },
+        {
+          "caller": "execute",
+          "callee": "redisCache.set",
+          "lineNumber": 101
+        },
+        {
+          "caller": "execute",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 101
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getUserId",
+          "lineNumber": 102
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getProgramId",
+          "lineNumber": 103
+        },
+        {
+          "caller": "execute",
+          "callee": "tokenExpireManager.getTokenExpireTime",
+          "lineNumber": 104
+        },
+        {
+          "caller": "execute",
+          "callee": "Optional.ofNullable(programOrderCreateDto.getSeatDtoList()).map(List::size).orElse",
+          "lineNumber": 108
+        },
+        {
+          "caller": "execute",
+          "callee": "Optional.ofNullable(programOrderCreateDto.getSeatDtoList()).map",
+          "lineNumber": 108
+        },
+        {
+          "caller": "execute",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 108
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getSeatDtoList",
+          "lineNumber": 108
+        },
+        {
+          "caller": "execute",
+          "callee": "Optional.ofNullable(programOrderCreateDto.getTicketCount()).orElse",
+          "lineNumber": 110
+        },
+        {
+          "caller": "execute",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 110
+        },
+        {
+          "caller": "execute",
+          "callee": "programOrderCreateDto.getTicketCount",
+          "lineNumber": 110
+        }
+      ],
+      "metrics": {
+        "importCount": 18,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "TokenExpireManager",
+          "startLine": 12,
+          "endLine": 18,
+          "methods": [],
+          "properties": [
+            "tokenExpireTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TokenExpireManager",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 62,
+      "functions": [
+        {
+          "name": "toolkitExceptionHandler",
+          "startLine": 28,
+          "endLine": 32,
+          "params": [
+            "request",
+            "daMaiFrameException"
+          ]
+        },
+        {
+          "name": "validExceptionHandler",
+          "startLine": 36,
+          "endLine": 51,
+          "params": [
+            "request",
+            "ex"
+          ]
+        },
+        {
+          "name": "defaultErrorHandler",
+          "startLine": 56,
+          "endLine": 60,
+          "params": [
+            "request",
+            "throwable"
+          ]
+        },
+        {
+          "name": "getRequestUrl",
+          "startLine": 62,
+          "endLine": 64,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "getRequestQuery",
+          "startLine": 66,
+          "endLine": 68,
+          "params": [
+            "request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DefaultExceptionHandler",
+          "startLine": 21,
+          "endLine": 69,
+          "methods": [
+            "toolkitExceptionHandler",
+            "validExceptionHandler",
+            "defaultErrorHandler",
+            "getRequestUrl",
+            "getRequestQuery"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "toolkitExceptionHandler",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "validExceptionHandler",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "defaultErrorHandler",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "DefaultExceptionHandler",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "toolkitExceptionHandler",
+          "callee": "log.error",
+          "lineNumber": 30
+        },
+        {
+          "caller": "toolkitExceptionHandler",
+          "callee": "daMaiFrameException.getMessage",
+          "lineNumber": 30
+        },
+        {
+          "caller": "toolkitExceptionHandler",
+          "callee": "request.getMethod",
+          "lineNumber": 30
+        },
+        {
+          "caller": "toolkitExceptionHandler",
+          "callee": "getRequestUrl",
+          "lineNumber": 30
+        },
+        {
+          "caller": "toolkitExceptionHandler",
+          "callee": "getRequestQuery",
+          "lineNumber": 30
+        },
+        {
+          "caller": "toolkitExceptionHandler",
+          "callee": "ApiResponse.error",
+          "lineNumber": 31
+        },
+        {
+          "caller": "toolkitExceptionHandler",
+          "callee": "daMaiFrameException.getCode",
+          "lineNumber": 31
+        },
+        {
+          "caller": "toolkitExceptionHandler",
+          "callee": "daMaiFrameException.getMessage",
+          "lineNumber": 31
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "log.error",
+          "lineNumber": 39
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "ex.getMessage",
+          "lineNumber": 39
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "request.getMethod",
+          "lineNumber": 39
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "getRequestUrl",
+          "lineNumber": 39
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "getRequestQuery",
+          "lineNumber": 39
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "ex.getBindingResult",
+          "lineNumber": 40
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "bindingResult.getFieldErrors()\r\n                        .stream()\r\n                        .map(fieldError -> {\r\n                            ArgumentError argumentError = new ArgumentError();\r\n                            argumentError.setArgumentName(fieldError.getField());\r\n                            argumentError.setMessage(fieldError.getDefaultMessage());\r\n                            return argumentError;\r\n                        }).collect",
+          "lineNumber": 42
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "bindingResult.getFieldErrors()\r\n                        .stream().map",
+          "lineNumber": 42
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "bindingResult.getFieldErrors().stream",
+          "lineNumber": 42
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "bindingResult.getFieldErrors",
+          "lineNumber": 42
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "new ArgumentError",
+          "lineNumber": 45
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "argumentError.setArgumentName",
+          "lineNumber": 46
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "fieldError.getField",
+          "lineNumber": 46
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "argumentError.setMessage",
+          "lineNumber": 47
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "fieldError.getDefaultMessage",
+          "lineNumber": 47
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "Collectors.toList",
+          "lineNumber": 49
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "ApiResponse.error",
+          "lineNumber": 50
+        },
+        {
+          "caller": "validExceptionHandler",
+          "callee": "BaseCode.PARAMETER_ERROR.getCode",
+          "lineNumber": 50
+        },
+        {
+          "caller": "defaultErrorHandler",
+          "callee": "log.error",
+          "lineNumber": 58
+        },
+        {
+          "caller": "defaultErrorHandler",
+          "callee": "throwable.getMessage",
+          "lineNumber": 58
+        },
+        {
+          "caller": "defaultErrorHandler",
+          "callee": "request.getMethod",
+          "lineNumber": 58
+        },
+        {
+          "caller": "defaultErrorHandler",
+          "callee": "getRequestUrl",
+          "lineNumber": 58
+        },
+        {
+          "caller": "defaultErrorHandler",
+          "callee": "getRequestQuery",
+          "lineNumber": 58
+        },
+        {
+          "caller": "defaultErrorHandler",
+          "callee": "ApiResponse.error",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getRequestUrl",
+          "callee": "request.getRequestURL().toString",
+          "lineNumber": 63
+        },
+        {
+          "caller": "getRequestUrl",
+          "callee": "request.getRequestURL",
+          "lineNumber": 63
+        },
+        {
+          "caller": "getRequestQuery",
+          "callee": "request.getQueryString",
+          "lineNumber": 67
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 4,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "doFilterInternal",
+          "startLine": 19,
+          "endLine": 24,
+          "params": [
+            "request",
+            "response",
+            "filterChain"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RequestWrapperFilter",
+          "startLine": 17,
+          "endLine": 25,
+          "methods": [
+            "doFilterInternal"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RequestWrapperFilter",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "doFilterInternal",
+          "callee": "new CustomizeRequestWrapper",
+          "lineNumber": 22
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "filterChain.doFilter",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "CustomizeRequestWrapper",
+          "startLine": 25,
+          "endLine": 28,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "getInputStream",
+          "startLine": 30,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "getReader",
+          "startLine": 57,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "getRequestBody",
+          "startLine": 62,
+          "endLine": 64,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "CustomizeRequestWrapper",
+          "startLine": 20,
+          "endLine": 65,
+          "methods": [
+            "CustomizeRequestWrapper",
+            "getInputStream",
+            "getReader",
+            "getRequestBody"
+          ],
+          "properties": [
+            "requestBody"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CustomizeRequestWrapper",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "getInputStream",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "getReader",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "getRequestBody",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "CustomizeRequestWrapper",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "CustomizeRequestWrapper",
+          "callee": "StringUtil.inputStreamConvertString",
+          "lineNumber": 27
+        },
+        {
+          "caller": "CustomizeRequestWrapper",
+          "callee": "request.getInputStream",
+          "lineNumber": 27
+        },
+        {
+          "caller": "getInputStream",
+          "callee": "new ByteArrayInputStream",
+          "lineNumber": 33
+        },
+        {
+          "caller": "getInputStream",
+          "callee": "requestBody.getBytes",
+          "lineNumber": 33
+        },
+        {
+          "caller": "getInputStream",
+          "callee": "new ServletInputStream",
+          "lineNumber": 34
+        },
+        {
+          "caller": "read",
+          "callee": "byteArrayInputStream.read",
+          "lineNumber": 37
+        },
+        {
+          "caller": "getReader",
+          "callee": "new BufferedReader",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getReader",
+          "callee": "new InputStreamReader",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getReader",
+          "callee": "this.getInputStream",
+          "lineNumber": 59
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-id-generator-framework/src/main/resources/uid/cached-uid-spring.xml",
+      "type": "config",
+      "name": "cached-uid-spring.xml",
+      "filePath": "damai-id-generator-framework/src/main/resources/uid/cached-uid-spring.xml",
+      "summary": "百度 UID 生成器的 CachedUidGenerator Spring XML 装配文件，声明 DisposableWorkerIdAssigner 与 cachedUidGenerator 两个 Bean，并通过 <import> 引入 mybatis-spring.xml。属于上游示例遗留配置，damai 运行时实际由 WorkerNodeConfig 自动装配。",
+      "tags": ["configuration", "spring-xml", "uid-generator", "遗留配置"],
+      "complexity": "simple",
+      "languageNotes": "以注释形式保留了 RingBuffer 的可选调优参数（boostPower、paddingFactor、scheduleInterval 及两端拒绝策略），默认全部不启用。"
+    },
+    {
+      "id": "config:damai-id-generator-framework/src/main/resources/uid/default-uid-spring.xml",
+      "type": "config",
+      "name": "default-uid-spring.xml",
+      "filePath": "damai-id-generator-framework/src/main/resources/uid/default-uid-spring.xml",
+      "summary": "DefaultUidGenerator 的 Spring XML 装配文件，显式设置 timeBits=29、workerBits=21、seqBits=13 与 epochStr=2016-09-20，并引入 mybatis-spring.xml。与 cached 版本是二选一的位分配方案。",
+      "tags": ["configuration", "spring-xml", "uid-generator", "位分配"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-id-generator-framework/src/main/resources/uid/mybatis-spring.xml",
+      "type": "config",
+      "name": "mybatis-spring.xml",
+      "filePath": "damai-id-generator-framework/src/main/resources/uid/mybatis-spring.xml",
+      "summary": "UID 生成器的 MyBatis 与数据源 Spring XML，配置 PropertiesFactoryBean 加载 classpath:/uid/*.properties、SqlSessionFactory、MapperScannerConfigurer、注解事务管理器，以及继承 abstractDataSource 的 Druid 数据源和 BATCH 模式的 SqlSessionTemplate。",
+      "tags": ["configuration", "spring-xml", "mybatis", "datasource", "druid"],
+      "complexity": "moderate",
+      "languageNotes": "使用 parent=\"abstractDataSource\" 的 Bean 继承复用 Druid 连接池配置，所有连接参数通过 ${} 占位符从 mysql.properties 注入。"
+    },
+    {
+      "id": "config:damai-id-generator-framework/src/main/resources/uid/mysql.properties",
+      "type": "config",
+      "name": "mysql.properties",
+      "filePath": "damai-id-generator-framework/src/main/resources/uid/mysql.properties",
+      "summary": "UID 生成器遗留的 MySQL/Druid 数据源属性文件，指向本地 baidu-id 库，并定义连接池基础参数（初始连接数、空闲回收、校验查询、泄漏回收等）。",
+      "tags": ["configuration", "database", "datasource", "druid"],
+      "complexity": "simple",
+      "languageNotes": "内含明文 root/root 连接凭据，属示例级配置，不适用于生产环境。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:damai-id-generator-framework/src/main/resources/uid/cached-uid-spring.xml",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:CachedUidGenerator",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-id-generator-framework/src/main/resources/uid/default-uid-spring.xml",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:DefaultUidGenerator",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-id-generator-framework/src/main/resources/uid/cached-uid-spring.xml",
+      "target": "config:damai-id-generator-framework/src/main/resources/uid/mybatis-spring.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-id-generator-framework/src/main/resources/uid/default-uid-spring.xml",
+      "target": "config:damai-id-generator-framework/src/main/resources/uid/mybatis-spring.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-id-generator-framework/src/main/resources/uid/mybatis-spring.xml",
+      "target": "config:damai-id-generator-framework/src/main/resources/uid/mysql.properties",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-id-generator-framework/src/main/resources/uid/mybatis-spring.xml",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/dao/WorkerNodeDAO.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-id-generator-framework/src/main/resources/uid/cached-uid-spring.xml",
+      "target": "config:damai-id-generator-framework/src/main/resources/uid/default-uid-spring.xml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

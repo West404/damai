@@ -1,0 +1,42 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-gateway-service/src/main/resources/application-pro.yml",
+      "type": "config",
+      "name": "application-pro.yml",
+      "filePath": "damai-server/damai-gateway-service/src/main/resources/application-pro.yml",
+      "summary": "Production-profile Spring Cloud Gateway routing table: discovery locator plus explicit load-balanced routes (StripPrefix=2) mapping /damai/{basedata,customize,job,order,pay,program,user,admin}/** paths to the corresponding Nacos-registered microservices.",
+      "tags": ["configuration", "gateway", "routing", "spring-cloud-gateway", "production"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:damai-server/damai-gateway-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-gateway-service/src/main/resources/application.yml",
+      "summary": "Main Spring Boot configuration for gateway-service (port 6085): Nacos discovery with gray metadata, Sentinel dashboard wiring, gateway default CORS filter, Kafka producer for save_api_data, API rate-limit path list, Feign/OkHttp, Actuator/Prometheus, jasypt, and knife4j gateway doc aggregation.",
+      "tags": ["configuration", "spring-boot", "gateway", "nacos", "sentinel"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:damai-server/damai-gateway-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-gateway-service/src/main/resources/log4j2.xml",
+      "summary": "Log4j2 logging configuration for gateway-service with console and rolling-file appenders (100MB size / daily rollover, 30-file retention), a separate error log, traceId MDC pattern, and a commented-out Logstash socket appender.",
+      "tags": ["configuration", "logging", "log4j2", "observability"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {"source": "config:damai-server/damai-gateway-service/src/main/resources/application-pro.yml", "target": "config:damai-server/damai-gateway-service/src/main/resources/application.yml", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "config:damai-server/damai-gateway-service/src/main/resources/log4j2.xml", "target": "config:damai-server/damai-gateway-service/src/main/resources/application.yml", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "config:damai-server/damai-gateway-service/src/main/resources/application-pro.yml", "target": "service:docker-compose.yml:base-data-service", "type": "routes", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-gateway-service/src/main/resources/application-pro.yml", "target": "service:docker-compose.yml:customize-service", "type": "routes", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-gateway-service/src/main/resources/application-pro.yml", "target": "service:docker-compose.yml:order-service", "type": "routes", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-gateway-service/src/main/resources/application-pro.yml", "target": "service:docker-compose.yml:pay-service", "type": "routes", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-gateway-service/src/main/resources/application-pro.yml", "target": "service:docker-compose.yml:program-service", "type": "routes", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-gateway-service/src/main/resources/application-pro.yml", "target": "service:docker-compose.yml:user-service", "type": "routes", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-gateway-service/src/main/resources/application-pro.yml", "target": "service:docker-compose.yml:admin-service", "type": "routes", "direction": "forward", "weight": 0.6}
+  ]
+}

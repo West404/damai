@@ -1,0 +1,193 @@
+{
+  "nodes": [
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Main project documentation for the damai high-concurrency ticketing system, covering background, architecture, tech stack (Spring Cloud Alibaba, Redis, Kafka, ELK, Sentinel), business flow, feature highlights, and startup instructions across 28 sections.",
+      "tags": ["documentation", "entry-point", "overview", "microservices"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "docker-compose.yml",
+      "summary": "One-click Docker Compose orchestration for the full damai stack: middleware (MySQL, Redis, Nacos, Kafka, Elasticsearch) plus eight business microservices built from a shared Dockerfile, with healthcheck-gated startup ordering.",
+      "tags": ["orchestration", "infrastructure", "deployment", "containerization"],
+      "complexity": "complex",
+      "languageNotes": "Uses YAML anchors (x-app-common, x-app-env) to share restart/network/depends_on and Nacos/Redis environment settings across all business services."
+    },
+    {
+      "id": "config:pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "pom.xml",
+      "summary": "Root Maven POM (packaging pom) aggregating 10 modules and centrally managing dependency versions for Spring Boot 3.3.0, Spring Cloud 2023.0.2, Spring Cloud Alibaba, MyBatis-Plus, Redisson, ShardingSphere and others, with compiler/flatten/source plugins.",
+      "tags": ["configuration", "build-system", "maven", "dependency-management"],
+      "complexity": "moderate",
+      "languageNotes": "Uses ${revision} CI-friendly versioning with flatten-maven-plugin to resolve the placeholder at install/deploy time."
+    },
+    {
+      "id": "service:docker-compose.yml:mysql",
+      "type": "service",
+      "name": "mysql",
+      "filePath": "docker-compose.yml",
+      "summary": "MySQL 8.0 container (damai-mysql) persisting data in a named volume and auto-initializing schemas from ./sql/cloud on first startup.",
+      "tags": ["infrastructure", "database", "containerization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:redis",
+      "type": "service",
+      "name": "redis",
+      "filePath": "docker-compose.yml",
+      "summary": "Redis 7-alpine container (damai-redis) with persistent volume and ping healthcheck, used for caching and distributed locking.",
+      "tags": ["infrastructure", "cache", "containerization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:nacos",
+      "type": "service",
+      "name": "nacos",
+      "filePath": "docker-compose.yml",
+      "summary": "Nacos 2.3.2 standalone container (damai-nacos) with auth enabled, serving as service registry and discovery for all microservices.",
+      "tags": ["infrastructure", "service-discovery", "containerization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:kafka",
+      "type": "service",
+      "name": "kafka",
+      "filePath": "docker-compose.yml",
+      "summary": "Bitnami Kafka 3.7 container (damai-kafka) in KRaft combined broker/controller mode with auto topic creation, backing the order/API-data messaging pipelines.",
+      "tags": ["infrastructure", "messaging", "containerization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:elasticsearch",
+      "type": "service",
+      "name": "elasticsearch",
+      "filePath": "docker-compose.yml",
+      "summary": "Elasticsearch 7.6.2 single-node container (damai-elasticsearch) powering program search in the program-service.",
+      "tags": ["infrastructure", "search", "containerization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:gateway-service",
+      "type": "service",
+      "name": "gateway-service",
+      "filePath": "docker-compose.yml",
+      "summary": "API gateway microservice container exposed on port 6085, built from the shared Dockerfile and wired to Nacos, Redis, and Kafka.",
+      "tags": ["infrastructure", "microservice", "gateway", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:user-service",
+      "type": "service",
+      "name": "user-service",
+      "filePath": "docker-compose.yml",
+      "summary": "User microservice container on port 6082 running with the docker profile for ShardingSphere sharded MySQL access.",
+      "tags": ["infrastructure", "microservice", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:base-data-service",
+      "type": "service",
+      "name": "base-data-service",
+      "filePath": "docker-compose.yml",
+      "summary": "Base data microservice container on port 6083 with its datasource URL pointed at the damai_base_data schema on the compose MySQL container.",
+      "tags": ["infrastructure", "microservice", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:customize-service",
+      "type": "service",
+      "name": "customize-service",
+      "filePath": "docker-compose.yml",
+      "summary": "Customize microservice container on port 6084 connected to MySQL (damai_customize schema) and Kafka for API-data capture.",
+      "tags": ["infrastructure", "microservice", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:program-service",
+      "type": "service",
+      "name": "program-service",
+      "filePath": "docker-compose.yml",
+      "summary": "Program microservice container on port 6086 wired to MySQL, Kafka, and the Elasticsearch container for program search.",
+      "tags": ["infrastructure", "microservice", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:order-service",
+      "type": "service",
+      "name": "order-service",
+      "filePath": "docker-compose.yml",
+      "summary": "Order microservice container on port 8081 with docker profile, depending on Nacos, Redis, MySQL, and Kafka.",
+      "tags": ["infrastructure", "microservice", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:pay-service",
+      "type": "service",
+      "name": "pay-service",
+      "filePath": "docker-compose.yml",
+      "summary": "Pay microservice container on port 6087 running with the docker profile, depending on Nacos, Redis, and MySQL.",
+      "tags": ["infrastructure", "microservice", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:admin-service",
+      "type": "service",
+      "name": "admin-service",
+      "filePath": "docker-compose.yml",
+      "summary": "Admin/monitoring microservice container (Spring Boot Admin) exposed on port 10082.",
+      "tags": ["infrastructure", "microservice", "monitoring", "deployment"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:mysql", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:redis", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:nacos", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:kafka", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:elasticsearch", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:gateway-service", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:user-service", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:base-data-service", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:customize-service", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:program-service", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:order-service", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:pay-service", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker-compose.yml:admin-service", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "service:docker-compose.yml", "target": "service:docker/Dockerfile", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "document:README.md", "target": "config:pom.xml", "type": "documents", "direction": "forward", "weight": 0.5},
+    {"source": "document:README.md", "target": "service:docker-compose.yml", "type": "documents", "direction": "forward", "weight": 0.5},
+    {"source": "service:docker-compose.yml:gateway-service", "target": "service:docker-compose.yml:nacos", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:gateway-service", "target": "service:docker-compose.yml:redis", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:gateway-service", "target": "service:docker-compose.yml:kafka", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:user-service", "target": "service:docker-compose.yml:nacos", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:user-service", "target": "service:docker-compose.yml:redis", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:user-service", "target": "service:docker-compose.yml:mysql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:base-data-service", "target": "service:docker-compose.yml:nacos", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:base-data-service", "target": "service:docker-compose.yml:redis", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:base-data-service", "target": "service:docker-compose.yml:mysql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:customize-service", "target": "service:docker-compose.yml:nacos", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:customize-service", "target": "service:docker-compose.yml:redis", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:customize-service", "target": "service:docker-compose.yml:mysql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:customize-service", "target": "service:docker-compose.yml:kafka", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:program-service", "target": "service:docker-compose.yml:nacos", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:program-service", "target": "service:docker-compose.yml:redis", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:program-service", "target": "service:docker-compose.yml:mysql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:program-service", "target": "service:docker-compose.yml:kafka", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:program-service", "target": "service:docker-compose.yml:elasticsearch", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:order-service", "target": "service:docker-compose.yml:nacos", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:order-service", "target": "service:docker-compose.yml:redis", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:order-service", "target": "service:docker-compose.yml:mysql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:order-service", "target": "service:docker-compose.yml:kafka", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:pay-service", "target": "service:docker-compose.yml:nacos", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:pay-service", "target": "service:docker-compose.yml:redis", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "service:docker-compose.yml:pay-service", "target": "service:docker-compose.yml:mysql", "type": "depends_on", "direction": "forward", "weight": 0.6}
+  ]
+}

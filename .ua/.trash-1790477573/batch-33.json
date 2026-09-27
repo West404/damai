@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-gateway-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-gateway-service/src/main/resources/application.yml",
+      "summary": "网关服务的通用配置：端口 6085、Nacos 服务发现（含灰度 metadata）、Sentinel 流控与 Dashboard、Redis、Kafka 生产者、Feign/OkHttp、Actuator+Prometheus 监控、Jasypt 加密与 knife4j 聚合文档，并默认激活 pro profile。",
+      "tags": ["配置文件", "configuration", "gateway", "Nacos", "Sentinel"],
+      "complexity": "moderate",
+      "languageNotes": "使用 ${prefix.distinction.name:damai} 占位符实现多环境服务名前缀，Sentinel 数据源配置以注释形式保留。"
+    },
+    {
+      "id": "config:damai-server/damai-gateway-service/src/main/resources/application-pro.yml",
+      "type": "config",
+      "name": "application-pro.yml",
+      "filePath": "damai-server/damai-gateway-service/src/main/resources/application-pro.yml",
+      "summary": "网关生产环境路由配置，把 /damai/basedata、customize、job、order、pay、program、user、admin 等前缀的请求按服务发现负载均衡转发到对应微服务，并统一 StripPrefix=2。",
+      "tags": ["配置文件", "configuration", "gateway", "路由", "orchestration"],
+      "complexity": "moderate",
+      "languageNotes": "Spring Cloud Gateway 声明式路由：id/uri(lb://)/predicates(Path)/filters 四要素，metadata.title 供管理端展示。"
+    },
+    {
+      "id": "config:damai-server/damai-gateway-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-gateway-service/src/main/resources/log4j2.xml",
+      "summary": "网关服务的 Log4j2 日志配置：定义 Console、RollingFile、RollingFileError 三个 Appender，按天与 100MB 滚动、最多保留 30 个文件，日志格式中输出 traceId 与 skyWalkingTraceId，并将 Spring/MyBatis 日志级别压制到 INFO。",
+      "tags": ["配置文件", "configuration", "logging", "可观测性", "基础设施"],
+      "complexity": "moderate",
+      "languageNotes": "XML 结构化日志配置；远程 Logstash Socket Appender 与 DamaiJsonLayout 以注释形式预留。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:damai-server/damai-gateway-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-gateway-service/src/main/resources/application-pro.yml",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-gateway-service/src/main/resources/log4j2.xml",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-gateway-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-gateway-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/KafkaTopic.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-gateway-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/property/GatewayProperty.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-gateway-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-gateway-service/src/main/resources/application-pro.yml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-program-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-program-service/src/main/resources/application.yml",
+      "summary": "program-service（演出节目服务）的主配置文件，声明服务端口 6086、以 ShardingSphere 驱动接入分片数据源、Redis/Redis Stream、Nacos 注册、Kafka 生产、MyBatis-Plus、Feign/OkHttp、布隆过滤器、Jasypt 加密、Elasticsearch、延迟队列以及 springdoc/knife4j 接口文档等运行时参数。",
+      "tags": ["configuration", "spring-boot", "shardingsphere", "nacos", "mybatis-plus"],
+      "complexity": "moderate",
+      "languageNotes": "通过 spring.profiles.active 决定加载 shardingsphere-program-${profile}.yaml；jasypt.enabled 未显式声明但配置了 PBEWithMD5AndDES 加密器，用于解密配置中的密文。"
+    },
+    {
+      "id": "config:damai-server/damai-program-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-program-service/src/main/resources/log4j2.xml",
+      "summary": "program-service 的 Log4j2 日志配置，定义了控制台、常规滚动文件与错误滚动文件三个 Appender，并按天与 100MB 双策略滚动、最多保留 30 个归档，同时输出 traceId/skyWalkingTraceId 以支持链路追踪。",
+      "tags": ["configuration", "logging", "log4j2", "observability"],
+      "complexity": "moderate",
+      "languageNotes": "Configuration 设置 monitorInterval=600 支持配置热加载；PATTERN 中使用 %X{traceId}、%X{skyWalkingTraceId} 读取 MDC 变量注入链路 ID；面向 Logstash 的 Socket Appender 及 DamaiJsonLayout 被注释保留。"
+    },
+    {
+      "id": "config:damai-server/damai-program-service/src/main/resources/shardingsphere-program-local.yaml",
+      "type": "config",
+      "name": "shardingsphere-program-local.yaml",
+      "filePath": "damai-server/damai-program-service/src/main/resources/shardingsphere-program-local.yaml",
+      "summary": "本地环境 ShardingSphere 分库分表规则：定义指向 127.0.0.1:3306 的 ds_0/ds_1 两个 Hikari 数据源，对 d_program、d_program_group、d_program_show_time、d_seat、d_ticket_category 按 id 或 program_id 取模分成 2 库 × 2 表，d_program_category 作为广播表。",
+      "tags": ["configuration", "shardingsphere", "database", "分库分表", "data-source"],
+      "complexity": "moderate",
+      "languageNotes": "使用 ShardingSphere 自定义 YAML 标签 !SHARDING；分片算法为 INLINE 表达式，如 d_program_${(id.intdiv(2)) % 2}，以 intdiv 实现“先分库再分表”的二级分片。"
+    },
+    {
+      "id": "config:damai-server/damai-program-service/src/main/resources/shardingsphere-program-docker.yaml",
+      "type": "config",
+      "name": "shardingsphere-program-docker.yaml",
+      "filePath": "damai-server/damai-program-service/src/main/resources/shardingsphere-program-docker.yaml",
+      "summary": "Docker 环境 ShardingSphere 分库分表规则，分片算法与广播表配置与本地版本完全一致，仅将数据源地址改为容器网络内的 mysql:3306（damai_program_0/1 两个库）。",
+      "tags": ["configuration", "shardingsphere", "database", "docker", "分库分表"],
+      "complexity": "moderate",
+      "languageNotes": "与 shardingsphere-program-local.yaml 仅差 jdbcUrl 主机名，属于同一套规则的按环境镜像版本。"
+    },
+    {
+      "id": "config:damai-server/damai-program-service/src/main/resources/shardingsphere-program-pro.yaml",
+      "type": "config",
+      "name": "shardingsphere-program-pro.yaml",
+      "filePath": "damai-server/damai-program-service/src/main/resources/shardingsphere-program-pro.yaml",
+      "summary": "生产环境 ShardingSphere 分库分表规则，分片算法与广播表配置同本地版本，数据源改为指向 www.cookframe.com:3306 并携带生产库账号密码。",
+      "tags": ["configuration", "shardingsphere", "database", "production", "分库分表"],
+      "complexity": "moderate",
+      "languageNotes": "生产库口令以明文写入配置文件，属于敏感信息落盘，建议改用 Jasypt 密文或外部配置中心下发。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:damai-server/damai-program-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-program-service/src/main/resources/shardingsphere-program-local.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-program-service/src/main/resources/shardingsphere-program-docker.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-program-service/src/main/resources/shardingsphere-program-pro.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/src/main/resources/shardingsphere-program-local.yaml",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/src/main/resources/shardingsphere-program-docker.yaml",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/src/main/resources/shardingsphere-program-pro.yaml",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/src/main/resources/log4j2.xml",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/src/main/resources/log4j2.xml",
+      "target": "config:damai-server/damai-program-service/src/main/resources/application.yml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

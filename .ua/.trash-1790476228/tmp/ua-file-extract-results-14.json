@@ -1,0 +1,3319 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 19,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 19,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 19,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "setParameter",
+          "startLine": 17,
+          "endLine": 21,
+          "params": [
+            "name",
+            "value"
+          ]
+        },
+        {
+          "name": "getParameter",
+          "startLine": 23,
+          "endLine": 25,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "removeParameter",
+          "startLine": 27,
+          "endLine": 32,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "getParameterMap",
+          "startLine": 34,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "setParameterMap",
+          "startLine": 42,
+          "endLine": 44,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "removeParameterMap",
+          "startLine": 46,
+          "endLine": 48,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "BaseParameterHolder",
+          "startLine": 12,
+          "endLine": 49,
+          "methods": [
+            "setParameter",
+            "getParameter",
+            "removeParameter",
+            "getParameterMap",
+            "setParameterMap",
+            "removeParameterMap"
+          ],
+          "properties": [
+            "THREAD_LOCAL_MAP"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "setParameter",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "getParameter",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "removeParameter",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "getParameterMap",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "setParameterMap",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "removeParameterMap",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "BaseParameterHolder",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setParameter",
+          "callee": "getParameterMap",
+          "lineNumber": 18
+        },
+        {
+          "caller": "setParameter",
+          "callee": "map.put",
+          "lineNumber": 19
+        },
+        {
+          "caller": "setParameter",
+          "callee": "THREAD_LOCAL_MAP.set",
+          "lineNumber": 20
+        },
+        {
+          "caller": "getParameter",
+          "callee": "Optional.ofNullable(THREAD_LOCAL_MAP.get()).map(map -> map.get(name)).orElse",
+          "lineNumber": 24
+        },
+        {
+          "caller": "getParameter",
+          "callee": "Optional.ofNullable(THREAD_LOCAL_MAP.get()).map",
+          "lineNumber": 24
+        },
+        {
+          "caller": "getParameter",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 24
+        },
+        {
+          "caller": "getParameter",
+          "callee": "THREAD_LOCAL_MAP.get",
+          "lineNumber": 24
+        },
+        {
+          "caller": "getParameter",
+          "callee": "map.get",
+          "lineNumber": 24
+        },
+        {
+          "caller": "removeParameter",
+          "callee": "THREAD_LOCAL_MAP.get",
+          "lineNumber": 28
+        },
+        {
+          "caller": "removeParameter",
+          "callee": "map.remove",
+          "lineNumber": 30
+        },
+        {
+          "caller": "getParameterMap",
+          "callee": "THREAD_LOCAL_MAP.get",
+          "lineNumber": 35
+        },
+        {
+          "caller": "getParameterMap",
+          "callee": "new HashMap<>",
+          "lineNumber": 37
+        },
+        {
+          "caller": "setParameterMap",
+          "callee": "THREAD_LOCAL_MAP.set",
+          "lineNumber": 43
+        },
+        {
+          "caller": "removeParameterMap",
+          "callee": "THREAD_LOCAL_MAP.remove",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 70,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "doFilterInternal",
+          "startLine": 28,
+          "endLine": 69,
+          "params": [
+            "request",
+            "response",
+            "filterChain"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BaseParameterFilter",
+          "startLine": 26,
+          "endLine": 70,
+          "methods": [
+            "doFilterInternal"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BaseParameterFilter",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "doFilterInternal",
+          "callee": "request.getInputStream",
+          "lineNumber": 30
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "StringUtil.inputStreamConvertString",
+          "lineNumber": 31
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 32
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "requestBody.replaceAll(\" \", \"\").replaceAll",
+          "lineNumber": 33
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "requestBody.replaceAll",
+          "lineNumber": 33
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "request.getHeader",
+          "lineNumber": 35
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "request.getHeader",
+          "lineNumber": 36
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "request.getHeader",
+          "lineNumber": 37
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "request.getHeader",
+          "lineNumber": 38
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 41
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "BaseParameterHolder.setParameter",
+          "lineNumber": 42
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "MDC.put",
+          "lineNumber": 43
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 45
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "BaseParameterHolder.setParameter",
+          "lineNumber": 46
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "MDC.put",
+          "lineNumber": 47
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 49
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "BaseParameterHolder.setParameter",
+          "lineNumber": 50
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "MDC.put",
+          "lineNumber": 51
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 53
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "BaseParameterHolder.setParameter",
+          "lineNumber": 54
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "MDC.put",
+          "lineNumber": 55
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "log.info",
+          "lineNumber": 57
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "request.getRequestURI",
+          "lineNumber": 57
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "filterChain.doFilter",
+          "lineNumber": 58
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "BaseParameterHolder.removeParameter",
+          "lineNumber": 60
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "MDC.remove",
+          "lineNumber": 61
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "BaseParameterHolder.removeParameter",
+          "lineNumber": 62
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "MDC.remove",
+          "lineNumber": 63
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "BaseParameterHolder.removeParameter",
+          "lineNumber": 64
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "MDC.remove",
+          "lineNumber": 65
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "BaseParameterHolder.removeParameter",
+          "lineNumber": 66
+        },
+        {
+          "caller": "doFilterInternal",
+          "callee": "MDC.remove",
+          "lineNumber": 67
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "ExtCachingServiceInstanceListSupplier",
+          "startLine": 22,
+          "endLine": 27,
+          "params": [
+            "delegate",
+            "cacheManager",
+            "filterLoadBalance"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 29,
+          "endLine": 39,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ExtCachingServiceInstanceListSupplier",
+          "startLine": 18,
+          "endLine": 40,
+          "methods": [
+            "ExtCachingServiceInstanceListSupplier",
+            "get"
+          ],
+          "properties": [
+            "filterLoadBalance"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ExtCachingServiceInstanceListSupplier",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "ExtCachingServiceInstanceListSupplier",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get",
+          "callee": "super.get",
+          "lineNumber": 31
+        },
+        {
+          "caller": "get",
+          "callee": "listFlux.map",
+          "lineNumber": 32
+        },
+        {
+          "caller": "get",
+          "callee": "new ArrayList<>",
+          "lineNumber": 33
+        },
+        {
+          "caller": "get",
+          "callee": "Optional.ofNullable(serviceInstances).ifPresent",
+          "lineNumber": 34
+        },
+        {
+          "caller": "get",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 34
+        },
+        {
+          "caller": "get",
+          "callee": "filterLoadBalance.selectServer",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "FilterLoadBalance",
+          "startLine": 12,
+          "endLine": 19,
+          "methods": [
+            "selectServer"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FilterLoadBalance",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "defaultFilterLoadBalance",
+          "startLine": 23,
+          "endLine": 26,
+          "params": [
+            "strategyEnabledFilterList"
+          ]
+        },
+        {
+          "name": "serverGrayFilter",
+          "startLine": 28,
+          "endLine": 31,
+          "params": [
+            "contextHandler"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GrayLoadBalanceAutoConfiguration",
+          "startLine": 20,
+          "endLine": 32,
+          "methods": [
+            "defaultFilterLoadBalance",
+            "serverGrayFilter"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "defaultFilterLoadBalance",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "serverGrayFilter",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "GrayLoadBalanceAutoConfiguration",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "defaultFilterLoadBalance",
+          "callee": "new DefaultFilterLoadBalance",
+          "lineNumber": 25
+        },
+        {
+          "caller": "serverGrayFilter",
+          "callee": "new ServerGrayFilter",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "ContextHandler",
+          "startLine": 8,
+          "endLine": 17,
+          "methods": [
+            "getValueFromHeader"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ContextHandler",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 458,
+      "nonEmptyLines": 414,
+      "functions": [
+        {
+          "name": "EnhanceServiceInstanceListSupplierBuilder",
+          "startLine": 75,
+          "endLine": 77,
+          "params": [
+            "filterLoadBalance"
+          ]
+        },
+        {
+          "name": "withBlockingDiscoveryClient",
+          "startLine": 85,
+          "endLine": 95,
+          "params": []
+        },
+        {
+          "name": "withDiscoveryClient",
+          "startLine": 103,
+          "endLine": 113,
+          "params": []
+        },
+        {
+          "name": "withBase",
+          "startLine": 121,
+          "endLine": 124,
+          "params": [
+            "supplier"
+          ]
+        },
+        {
+          "name": "withWeighted",
+          "startLine": 131,
+          "endLine": 139,
+          "params": []
+        },
+        {
+          "name": "withWeighted",
+          "startLine": 148,
+          "endLine": 156,
+          "params": [
+            "weightFunction"
+          ]
+        },
+        {
+          "name": "withHealthChecks",
+          "startLine": 163,
+          "endLine": 172,
+          "params": []
+        },
+        {
+          "name": "withHealthChecks",
+          "startLine": 180,
+          "endLine": 187,
+          "params": [
+            "webClient"
+          ]
+        },
+        {
+          "name": "withSameInstancePreference",
+          "startLine": 194,
+          "endLine": 201,
+          "params": []
+        },
+        {
+          "name": "withBlockingHealthChecks",
+          "startLine": 208,
+          "endLine": 216,
+          "params": []
+        },
+        {
+          "name": "withBlockingRestClientHealthChecks",
+          "startLine": 223,
+          "endLine": 231,
+          "params": []
+        },
+        {
+          "name": "withBlockingHealthChecks",
+          "startLine": 239,
+          "endLine": 246,
+          "params": [
+            "restTemplate"
+          ]
+        },
+        {
+          "name": "withBlockingHealthChecks",
+          "startLine": 254,
+          "endLine": 261,
+          "params": [
+            "restClient"
+          ]
+        },
+        {
+          "name": "withZonePreference",
+          "startLine": 268,
+          "endLine": 276,
+          "params": []
+        },
+        {
+          "name": "withZonePreference",
+          "startLine": 284,
+          "endLine": 292,
+          "params": [
+            "zoneName"
+          ]
+        },
+        {
+          "name": "withRequestBasedStickySession",
+          "startLine": 299,
+          "endLine": 306,
+          "params": []
+        },
+        {
+          "name": "withCaching",
+          "startLine": 316,
+          "endLine": 330,
+          "params": []
+        },
+        {
+          "name": "withRetryAwareness",
+          "startLine": 332,
+          "endLine": 336,
+          "params": []
+        },
+        {
+          "name": "withHints",
+          "startLine": 338,
+          "endLine": 345,
+          "params": []
+        },
+        {
+          "name": "withSubset",
+          "startLine": 347,
+          "endLine": 355,
+          "params": []
+        },
+        {
+          "name": "with",
+          "startLine": 363,
+          "endLine": 368,
+          "params": [
+            "delegateCreator"
+          ]
+        },
+        {
+          "name": "build",
+          "startLine": 376,
+          "endLine": 386,
+          "params": [
+            "context"
+          ]
+        },
+        {
+          "name": "healthCheckServiceInstanceListSupplier",
+          "startLine": 388,
+          "endLine": 397,
+          "params": [
+            "webClient",
+            "delegate",
+            "loadBalancerClientFactory"
+          ]
+        },
+        {
+          "name": "blockingHealthCheckServiceInstanceListSupplier",
+          "startLine": 399,
+          "endLine": 414,
+          "params": [
+            "restTemplate",
+            "delegate",
+            "loadBalancerClientFactory"
+          ]
+        },
+        {
+          "name": "blockingHealthCheckServiceInstanceListSupplier",
+          "startLine": 416,
+          "endLine": 430,
+          "params": [
+            "restClient",
+            "delegate",
+            "loadBalancerClientFactory"
+          ]
+        },
+        {
+          "name": "getUri",
+          "startLine": 432,
+          "endLine": 438,
+          "params": [
+            "serviceInstance",
+            "healthCheckPath"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "EnhanceServiceInstanceListSupplierBuilder",
+          "startLine": 65,
+          "endLine": 458,
+          "methods": [
+            "EnhanceServiceInstanceListSupplierBuilder",
+            "withBlockingDiscoveryClient",
+            "withDiscoveryClient",
+            "withBase",
+            "withWeighted",
+            "withWeighted",
+            "withHealthChecks",
+            "withHealthChecks",
+            "withSameInstancePreference",
+            "withBlockingHealthChecks",
+            "withBlockingRestClientHealthChecks",
+            "withBlockingHealthChecks",
+            "withBlockingHealthChecks",
+            "withZonePreference",
+            "withZonePreference",
+            "withRequestBasedStickySession",
+            "withCaching",
+            "withRetryAwareness",
+            "withHints",
+            "withSubset",
+            "with",
+            "build",
+            "healthCheckServiceInstanceListSupplier",
+            "blockingHealthCheckServiceInstanceListSupplier",
+            "blockingHealthCheckServiceInstanceListSupplier",
+            "getUri"
+          ],
+          "properties": [
+            "LOG",
+            "baseCreator",
+            "creators",
+            "filterLoadBalance"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "EnhanceServiceInstanceListSupplierBuilder",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "withBlockingDiscoveryClient",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "withDiscoveryClient",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "withBase",
+          "line": 121,
+          "isDefault": false
+        },
+        {
+          "name": "withWeighted",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "withWeighted",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "withHealthChecks",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "withHealthChecks",
+          "line": 180,
+          "isDefault": false
+        },
+        {
+          "name": "withSameInstancePreference",
+          "line": 194,
+          "isDefault": false
+        },
+        {
+          "name": "withBlockingHealthChecks",
+          "line": 208,
+          "isDefault": false
+        },
+        {
+          "name": "withBlockingRestClientHealthChecks",
+          "line": 223,
+          "isDefault": false
+        },
+        {
+          "name": "withBlockingHealthChecks",
+          "line": 239,
+          "isDefault": false
+        },
+        {
+          "name": "withBlockingHealthChecks",
+          "line": 254,
+          "isDefault": false
+        },
+        {
+          "name": "withZonePreference",
+          "line": 268,
+          "isDefault": false
+        },
+        {
+          "name": "withZonePreference",
+          "line": 284,
+          "isDefault": false
+        },
+        {
+          "name": "withRequestBasedStickySession",
+          "line": 299,
+          "isDefault": false
+        },
+        {
+          "name": "withCaching",
+          "line": 316,
+          "isDefault": false
+        },
+        {
+          "name": "withRetryAwareness",
+          "line": 332,
+          "isDefault": false
+        },
+        {
+          "name": "withHints",
+          "line": 338,
+          "isDefault": false
+        },
+        {
+          "name": "withSubset",
+          "line": 347,
+          "isDefault": false
+        },
+        {
+          "name": "with",
+          "line": 363,
+          "isDefault": false
+        },
+        {
+          "name": "build",
+          "line": 376,
+          "isDefault": false
+        },
+        {
+          "name": "EnhanceServiceInstanceListSupplierBuilder",
+          "line": 65,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "withBlockingDiscoveryClient",
+          "callee": "LOG.isWarnEnabled",
+          "lineNumber": 86
+        },
+        {
+          "caller": "withBlockingDiscoveryClient",
+          "callee": "LOG.warn",
+          "lineNumber": 87
+        },
+        {
+          "caller": "withBlockingDiscoveryClient",
+          "callee": "context.getBean",
+          "lineNumber": 90
+        },
+        {
+          "caller": "withBlockingDiscoveryClient",
+          "callee": "new DiscoveryClientServiceInstanceListSupplier",
+          "lineNumber": 92
+        },
+        {
+          "caller": "withBlockingDiscoveryClient",
+          "callee": "context.getEnvironment",
+          "lineNumber": 92
+        },
+        {
+          "caller": "withDiscoveryClient",
+          "callee": "LOG.isWarnEnabled",
+          "lineNumber": 104
+        },
+        {
+          "caller": "withDiscoveryClient",
+          "callee": "LOG.warn",
+          "lineNumber": 105
+        },
+        {
+          "caller": "withDiscoveryClient",
+          "callee": "context.getBean",
+          "lineNumber": 108
+        },
+        {
+          "caller": "withDiscoveryClient",
+          "callee": "new DiscoveryClientServiceInstanceListSupplier",
+          "lineNumber": 110
+        },
+        {
+          "caller": "withDiscoveryClient",
+          "callee": "context.getEnvironment",
+          "lineNumber": 110
+        },
+        {
+          "caller": "withWeighted",
+          "callee": "context.getBean",
+          "lineNumber": 133
+        },
+        {
+          "caller": "withWeighted",
+          "callee": "new WeightedServiceInstanceListSupplier",
+          "lineNumber": 135
+        },
+        {
+          "caller": "withWeighted",
+          "callee": "this.creators.add",
+          "lineNumber": 137
+        },
+        {
+          "caller": "withWeighted",
+          "callee": "context.getBean",
+          "lineNumber": 150
+        },
+        {
+          "caller": "withWeighted",
+          "callee": "new WeightedServiceInstanceListSupplier",
+          "lineNumber": 152
+        },
+        {
+          "caller": "withWeighted",
+          "callee": "this.creators.add",
+          "lineNumber": 154
+        },
+        {
+          "caller": "withHealthChecks",
+          "callee": "context.getBean",
+          "lineNumber": 165
+        },
+        {
+          "caller": "withHealthChecks",
+          "callee": "context.getBean",
+          "lineNumber": 167
+        },
+        {
+          "caller": "withHealthChecks",
+          "callee": "healthCheckServiceInstanceListSupplier",
+          "lineNumber": 168
+        },
+        {
+          "caller": "withHealthChecks",
+          "callee": "webClient.build",
+          "lineNumber": 168
+        },
+        {
+          "caller": "withHealthChecks",
+          "callee": "this.creators.add",
+          "lineNumber": 170
+        },
+        {
+          "caller": "withHealthChecks",
+          "callee": "context.getBean",
+          "lineNumber": 182
+        },
+        {
+          "caller": "withHealthChecks",
+          "callee": "healthCheckServiceInstanceListSupplier",
+          "lineNumber": 183
+        },
+        {
+          "caller": "withHealthChecks",
+          "callee": "this.creators.add",
+          "lineNumber": 185
+        },
+        {
+          "caller": "withSameInstancePreference",
+          "callee": "context.getBean",
+          "lineNumber": 196
+        },
+        {
+          "caller": "withSameInstancePreference",
+          "callee": "new SameInstancePreferenceServiceInstanceListSupplier",
+          "lineNumber": 197
+        },
+        {
+          "caller": "withSameInstancePreference",
+          "callee": "this.creators.add",
+          "lineNumber": 199
+        },
+        {
+          "caller": "withBlockingHealthChecks",
+          "callee": "context.getBean",
+          "lineNumber": 210
+        },
+        {
+          "caller": "withBlockingHealthChecks",
+          "callee": "context.getBean",
+          "lineNumber": 211
+        },
+        {
+          "caller": "withBlockingHealthChecks",
+          "callee": "blockingHealthCheckServiceInstanceListSupplier",
+          "lineNumber": 212
+        },
+        {
+          "caller": "withBlockingHealthChecks",
+          "callee": "this.creators.add",
+          "lineNumber": 214
+        },
+        {
+          "caller": "withBlockingRestClientHealthChecks",
+          "callee": "context.getBean",
+          "lineNumber": 225
+        },
+        {
+          "caller": "withBlockingRestClientHealthChecks",
+          "callee": "context.getBean",
+          "lineNumber": 226
+        },
+        {
+          "caller": "withBlockingRestClientHealthChecks",
+          "callee": "blockingHealthCheckServiceInstanceListSupplier",
+          "lineNumber": 227
+        },
+        {
+          "caller": "withBlockingRestClientHealthChecks",
+          "callee": "this.creators.add",
+          "lineNumber": 229
+        },
+        {
+          "caller": "withBlockingHealthChecks",
+          "callee": "context.getBean",
+          "lineNumber": 241
+        },
+        {
+          "caller": "withBlockingHealthChecks",
+          "callee": "blockingHealthCheckServiceInstanceListSupplier",
+          "lineNumber": 242
+        },
+        {
+          "caller": "withBlockingHealthChecks",
+          "callee": "this.creators.add",
+          "lineNumber": 244
+        },
+        {
+          "caller": "withBlockingHealthChecks",
+          "callee": "context.getBean",
+          "lineNumber": 256
+        },
+        {
+          "caller": "withBlockingHealthChecks",
+          "callee": "blockingHealthCheckServiceInstanceListSupplier",
+          "lineNumber": 257
+        },
+        {
+          "caller": "withBlockingHealthChecks",
+          "callee": "this.creators.add",
+          "lineNumber": 259
+        },
+        {
+          "caller": "withZonePreference",
+          "callee": "context.getBean",
+          "lineNumber": 270
+        },
+        {
+          "caller": "withZonePreference",
+          "callee": "context.getBean",
+          "lineNumber": 271
+        },
+        {
+          "caller": "withZonePreference",
+          "callee": "new ZonePreferenceServiceInstanceListSupplier",
+          "lineNumber": 272
+        },
+        {
+          "caller": "withZonePreference",
+          "callee": "this.creators.add",
+          "lineNumber": 274
+        },
+        {
+          "caller": "withZonePreference",
+          "callee": "context.getBean",
+          "lineNumber": 286
+        },
+        {
+          "caller": "withZonePreference",
+          "callee": "new LoadBalancerZoneConfig",
+          "lineNumber": 287
+        },
+        {
+          "caller": "withZonePreference",
+          "callee": "new ZonePreferenceServiceInstanceListSupplier",
+          "lineNumber": 288
+        },
+        {
+          "caller": "withZonePreference",
+          "callee": "this.creators.add",
+          "lineNumber": 290
+        },
+        {
+          "caller": "withRequestBasedStickySession",
+          "callee": "context.getBean",
+          "lineNumber": 301
+        },
+        {
+          "caller": "withRequestBasedStickySession",
+          "callee": "new RequestBasedStickySessionServiceInstanceListSupplier",
+          "lineNumber": 302
+        },
+        {
+          "caller": "withRequestBasedStickySession",
+          "callee": "this.creators.add",
+          "lineNumber": 304
+        },
+        {
+          "caller": "withCaching",
+          "callee": "context.getBeanProvider",
+          "lineNumber": 318
+        },
+        {
+          "caller": "withCaching",
+          "callee": "cacheManagerProvider.getIfAvailable",
+          "lineNumber": 320
+        },
+        {
+          "caller": "withCaching",
+          "callee": "new ExtCachingServiceInstanceListSupplier",
+          "lineNumber": 321
+        },
+        {
+          "caller": "withCaching",
+          "callee": "cacheManagerProvider.getIfAvailable",
+          "lineNumber": 321
+        },
+        {
+          "caller": "withCaching",
+          "callee": "LOG.isWarnEnabled",
+          "lineNumber": 323
+        },
+        {
+          "caller": "withCaching",
+          "callee": "LOG.warn",
+          "lineNumber": 324
+        },
+        {
+          "caller": "withCaching",
+          "callee": "creators.add",
+          "lineNumber": 328
+        },
+        {
+          "caller": "withRetryAwareness",
+          "callee": "new RetryAwareServiceInstanceListSupplier",
+          "lineNumber": 333
+        },
+        {
+          "caller": "withRetryAwareness",
+          "callee": "creators.add",
+          "lineNumber": 334
+        },
+        {
+          "caller": "withHints",
+          "callee": "context.getBean",
+          "lineNumber": 340
+        },
+        {
+          "caller": "withHints",
+          "callee": "new HintBasedServiceInstanceListSupplier",
+          "lineNumber": 341
+        },
+        {
+          "caller": "withHints",
+          "callee": "creators.add",
+          "lineNumber": 343
+        },
+        {
+          "caller": "withSubset",
+          "callee": "context.getBean",
+          "lineNumber": 349
+        },
+        {
+          "caller": "withSubset",
+          "callee": "context.getBean",
+          "lineNumber": 350
+        },
+        {
+          "caller": "withSubset",
+          "callee": "new SubsetServiceInstanceListSupplier",
+          "lineNumber": 351
+        },
+        {
+          "caller": "withSubset",
+          "callee": "creators.add",
+          "lineNumber": 353
+        },
+        {
+          "caller": "with",
+          "callee": "creators.add",
+          "lineNumber": 365
+        },
+        {
+          "caller": "build",
+          "callee": "Assert.notNull",
+          "lineNumber": 377
+        },
+        {
+          "caller": "build",
+          "callee": "baseCreator.apply",
+          "lineNumber": 379
+        },
+        {
+          "caller": "build",
+          "callee": "creator.apply",
+          "lineNumber": 382
+        },
+        {
+          "caller": "healthCheckServiceInstanceListSupplier",
+          "callee": "new HealthCheckServiceInstanceListSupplier",
+          "lineNumber": 391
+        },
+        {
+          "caller": "healthCheckServiceInstanceListSupplier",
+          "callee": "webClient.get()\r\n\t\t\t\t\t\t.uri(UriComponentsBuilder.fromUriString(getUri(serviceInstance, healthCheckPath)).build()\r\n\t\t\t\t\t\t\t\t.toUri()).exchangeToMono",
+          "lineNumber": 392
+        },
+        {
+          "caller": "healthCheckServiceInstanceListSupplier",
+          "callee": "webClient.get().uri",
+          "lineNumber": 392
+        },
+        {
+          "caller": "healthCheckServiceInstanceListSupplier",
+          "callee": "webClient.get",
+          "lineNumber": 392
+        },
+        {
+          "caller": "healthCheckServiceInstanceListSupplier",
+          "callee": "UriComponentsBuilder.fromUriString(getUri(serviceInstance, healthCheckPath)).build().toUri",
+          "lineNumber": 393
+        },
+        {
+          "caller": "healthCheckServiceInstanceListSupplier",
+          "callee": "UriComponentsBuilder.fromUriString(getUri(serviceInstance, healthCheckPath)).build",
+          "lineNumber": 393
+        },
+        {
+          "caller": "healthCheckServiceInstanceListSupplier",
+          "callee": "UriComponentsBuilder.fromUriString",
+          "lineNumber": 393
+        },
+        {
+          "caller": "healthCheckServiceInstanceListSupplier",
+          "callee": "getUri",
+          "lineNumber": 393
+        },
+        {
+          "caller": "healthCheckServiceInstanceListSupplier",
+          "callee": "clientResponse.releaseBody().thenReturn",
+          "lineNumber": 395
+        },
+        {
+          "caller": "healthCheckServiceInstanceListSupplier",
+          "callee": "clientResponse.releaseBody",
+          "lineNumber": 395
+        },
+        {
+          "caller": "healthCheckServiceInstanceListSupplier",
+          "callee": "HttpStatus.OK.equals",
+          "lineNumber": 396
+        },
+        {
+          "caller": "healthCheckServiceInstanceListSupplier",
+          "callee": "clientResponse.statusCode",
+          "lineNumber": 396
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "new HealthCheckServiceInstanceListSupplier",
+          "lineNumber": 402
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "Mono.defer",
+          "lineNumber": 403
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "UriComponentsBuilder.fromUriString(getUri(serviceInstance, healthCheckPath)).build().toUri",
+          "lineNumber": 404
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "UriComponentsBuilder.fromUriString(getUri(serviceInstance, healthCheckPath)).build",
+          "lineNumber": 404
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "UriComponentsBuilder.fromUriString",
+          "lineNumber": 404
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "getUri",
+          "lineNumber": 404
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "Mono.just",
+          "lineNumber": 407
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "HttpStatus.OK.equals",
+          "lineNumber": 408
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "restTemplate.getForEntity(uri, Void.class).getStatusCode",
+          "lineNumber": 408
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "restTemplate.getForEntity",
+          "lineNumber": 408
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "Mono.just",
+          "lineNumber": 411
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "new HealthCheckServiceInstanceListSupplier",
+          "lineNumber": 418
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "Mono.defer",
+          "lineNumber": 419
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "UriComponentsBuilder.fromUriString(getUri(serviceInstance, healthCheckPath)).build().toUri",
+          "lineNumber": 420
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "UriComponentsBuilder.fromUriString(getUri(serviceInstance, healthCheckPath)).build",
+          "lineNumber": 420
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "UriComponentsBuilder.fromUriString",
+          "lineNumber": 420
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "getUri",
+          "lineNumber": 420
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "Mono.just",
+          "lineNumber": 423
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "HttpStatus.OK.equals",
+          "lineNumber": 423
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "restClient.get().uri(uri).retrieve().toBodilessEntity().getStatusCode",
+          "lineNumber": 424
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "restClient.get().uri(uri).retrieve().toBodilessEntity",
+          "lineNumber": 424
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "restClient.get().uri(uri).retrieve",
+          "lineNumber": 424
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "restClient.get().uri",
+          "lineNumber": 424
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "restClient.get",
+          "lineNumber": 424
+        },
+        {
+          "caller": "blockingHealthCheckServiceInstanceListSupplier",
+          "callee": "Mono.just",
+          "lineNumber": 427
+        },
+        {
+          "caller": "getUri",
+          "callee": "StringUtils.hasText",
+          "lineNumber": 433
+        },
+        {
+          "caller": "getUri",
+          "callee": "healthCheckPath.startsWith",
+          "lineNumber": 434
+        },
+        {
+          "caller": "getUri",
+          "callee": "serviceInstance.getUri().toString",
+          "lineNumber": 435
+        },
+        {
+          "caller": "getUri",
+          "callee": "serviceInstance.getUri",
+          "lineNumber": 435
+        },
+        {
+          "caller": "getUri",
+          "callee": "serviceInstance.getUri().toString",
+          "lineNumber": 437
+        },
+        {
+          "caller": "getUri",
+          "callee": "serviceInstance.getUri",
+          "lineNumber": 437
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 23,
+        "functionCount": 26,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 394,
+      "nonEmptyLines": 324,
+      "functions": [
+        {
+          "name": "reactorServiceInstanceLoadBalancer",
+          "startLine": 66,
+          "endLine": 72,
+          "params": [
+            "environment",
+            "loadBalancerClientFactory"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "EnhanceLoadBalancerClientConfiguration",
+          "startLine": 61,
+          "endLine": 394,
+          "methods": [
+            "reactorServiceInstanceLoadBalancer"
+          ],
+          "properties": [
+            "REACTIVE_SERVICE_INSTANCE_SUPPLIER_ORDER"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "reactorServiceInstanceLoadBalancer",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "EnhanceLoadBalancerClientConfiguration",
+          "line": 61,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "reactorServiceInstanceLoadBalancer",
+          "callee": "environment.getProperty",
+          "lineNumber": 69
+        },
+        {
+          "caller": "reactorServiceInstanceLoadBalancer",
+          "callee": "new RoundRobinLoadBalancer",
+          "lineNumber": 70
+        },
+        {
+          "caller": "reactorServiceInstanceLoadBalancer",
+          "callee": "loadBalancerClientFactory.getLazyProvider",
+          "lineNumber": 71
+        },
+        {
+          "caller": "discoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching().build",
+          "lineNumber": 85
+        },
+        {
+          "caller": "discoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching",
+          "lineNumber": 85
+        },
+        {
+          "caller": "discoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient",
+          "lineNumber": 85
+        },
+        {
+          "caller": "discoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 85
+        },
+        {
+          "caller": "zonePreferenceDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching().withZonePreference().build",
+          "lineNumber": 94
+        },
+        {
+          "caller": "zonePreferenceDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching().withZonePreference",
+          "lineNumber": 94
+        },
+        {
+          "caller": "zonePreferenceDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching",
+          "lineNumber": 94
+        },
+        {
+          "caller": "zonePreferenceDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient",
+          "lineNumber": 94
+        },
+        {
+          "caller": "zonePreferenceDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 94
+        },
+        {
+          "caller": "xForwarderHeadersTransformer",
+          "callee": "new XForwardedHeadersTransformer",
+          "lineNumber": 101
+        },
+        {
+          "caller": "healthCheckDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withHealthChecks().build",
+          "lineNumber": 110
+        },
+        {
+          "caller": "healthCheckDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withHealthChecks",
+          "lineNumber": 110
+        },
+        {
+          "caller": "healthCheckDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient",
+          "lineNumber": 110
+        },
+        {
+          "caller": "healthCheckDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 110
+        },
+        {
+          "caller": "requestBasedStickySessionDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching()\r\n\t\t\t\t\t.withRequestBasedStickySession().build",
+          "lineNumber": 119
+        },
+        {
+          "caller": "requestBasedStickySessionDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching().withRequestBasedStickySession",
+          "lineNumber": 119
+        },
+        {
+          "caller": "requestBasedStickySessionDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching",
+          "lineNumber": 119
+        },
+        {
+          "caller": "requestBasedStickySessionDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient",
+          "lineNumber": 119
+        },
+        {
+          "caller": "requestBasedStickySessionDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 119
+        },
+        {
+          "caller": "sameInstancePreferenceServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching()\r\n\t\t\t\t\t.withSameInstancePreference().build",
+          "lineNumber": 129
+        },
+        {
+          "caller": "sameInstancePreferenceServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching().withSameInstancePreference",
+          "lineNumber": 129
+        },
+        {
+          "caller": "sameInstancePreferenceServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching",
+          "lineNumber": 129
+        },
+        {
+          "caller": "sameInstancePreferenceServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient",
+          "lineNumber": 129
+        },
+        {
+          "caller": "sameInstancePreferenceServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 129
+        },
+        {
+          "caller": "weightedServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching().withWeighted().build",
+          "lineNumber": 139
+        },
+        {
+          "caller": "weightedServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching().withWeighted",
+          "lineNumber": 139
+        },
+        {
+          "caller": "weightedServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withCaching",
+          "lineNumber": 139
+        },
+        {
+          "caller": "weightedServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient",
+          "lineNumber": 139
+        },
+        {
+          "caller": "weightedServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 139
+        },
+        {
+          "caller": "subsetServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withSubset().withCaching().build",
+          "lineNumber": 149
+        },
+        {
+          "caller": "subsetServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withSubset().withCaching",
+          "lineNumber": 149
+        },
+        {
+          "caller": "subsetServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient().withSubset",
+          "lineNumber": 149
+        },
+        {
+          "caller": "subsetServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withDiscoveryClient",
+          "lineNumber": 149
+        },
+        {
+          "caller": "subsetServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 149
+        },
+        {
+          "caller": "discoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching().build",
+          "lineNumber": 166
+        },
+        {
+          "caller": "discoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching",
+          "lineNumber": 166
+        },
+        {
+          "caller": "discoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient",
+          "lineNumber": 166
+        },
+        {
+          "caller": "discoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 166
+        },
+        {
+          "caller": "zonePreferenceDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching()\r\n\t\t\t\t\t.withZonePreference().build",
+          "lineNumber": 175
+        },
+        {
+          "caller": "zonePreferenceDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching().withZonePreference",
+          "lineNumber": 175
+        },
+        {
+          "caller": "zonePreferenceDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching",
+          "lineNumber": 175
+        },
+        {
+          "caller": "zonePreferenceDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient",
+          "lineNumber": 175
+        },
+        {
+          "caller": "zonePreferenceDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 175
+        },
+        {
+          "caller": "healthCheckDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withBlockingHealthChecks().build",
+          "lineNumber": 185
+        },
+        {
+          "caller": "healthCheckDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withBlockingHealthChecks",
+          "lineNumber": 185
+        },
+        {
+          "caller": "healthCheckDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient",
+          "lineNumber": 185
+        },
+        {
+          "caller": "healthCheckDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 185
+        },
+        {
+          "caller": "healthCheckRestClientDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient()\r\n\t\t\t\t\t.withBlockingRestClientHealthChecks().build",
+          "lineNumber": 195
+        },
+        {
+          "caller": "healthCheckRestClientDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withBlockingRestClientHealthChecks",
+          "lineNumber": 195
+        },
+        {
+          "caller": "healthCheckRestClientDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient",
+          "lineNumber": 195
+        },
+        {
+          "caller": "healthCheckRestClientDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 195
+        },
+        {
+          "caller": "requestBasedStickySessionDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching()\r\n\t\t\t\t\t.withRequestBasedStickySession().build",
+          "lineNumber": 205
+        },
+        {
+          "caller": "requestBasedStickySessionDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching().withRequestBasedStickySession",
+          "lineNumber": 205
+        },
+        {
+          "caller": "requestBasedStickySessionDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching",
+          "lineNumber": 205
+        },
+        {
+          "caller": "requestBasedStickySessionDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient",
+          "lineNumber": 205
+        },
+        {
+          "caller": "requestBasedStickySessionDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 205
+        },
+        {
+          "caller": "sameInstancePreferenceServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching()\r\n\t\t\t\t\t.withSameInstancePreference().build",
+          "lineNumber": 215
+        },
+        {
+          "caller": "sameInstancePreferenceServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching().withSameInstancePreference",
+          "lineNumber": 215
+        },
+        {
+          "caller": "sameInstancePreferenceServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching",
+          "lineNumber": 215
+        },
+        {
+          "caller": "sameInstancePreferenceServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient",
+          "lineNumber": 215
+        },
+        {
+          "caller": "sameInstancePreferenceServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 215
+        },
+        {
+          "caller": "weightedServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching().withWeighted().build",
+          "lineNumber": 225
+        },
+        {
+          "caller": "weightedServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching().withWeighted",
+          "lineNumber": 225
+        },
+        {
+          "caller": "weightedServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withCaching",
+          "lineNumber": 225
+        },
+        {
+          "caller": "weightedServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient",
+          "lineNumber": 225
+        },
+        {
+          "caller": "weightedServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 225
+        },
+        {
+          "caller": "subsetServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withSubset().withCaching().build",
+          "lineNumber": 235
+        },
+        {
+          "caller": "subsetServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withSubset().withCaching",
+          "lineNumber": 235
+        },
+        {
+          "caller": "subsetServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient().withSubset",
+          "lineNumber": 235
+        },
+        {
+          "caller": "subsetServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder(filterLoadBalance).withBlockingDiscoveryClient",
+          "lineNumber": 235
+        },
+        {
+          "caller": "subsetServiceInstanceListSupplier",
+          "callee": "new EnhanceServiceInstanceListSupplierBuilder",
+          "lineNumber": 235
+        },
+        {
+          "caller": "retryAwareDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new RetryAwareServiceInstanceListSupplier",
+          "lineNumber": 254
+        },
+        {
+          "caller": "retryAwareDiscoveryClientServiceInstanceListSupplier",
+          "callee": "new RetryAwareServiceInstanceListSupplier",
+          "lineNumber": 272
+        },
+        {
+          "caller": "matches",
+          "callee": "LoadBalancerEnvironmentPropertyUtils.trueOrMissingForClientOrDefault",
+          "lineNumber": 318
+        },
+        {
+          "caller": "matches",
+          "callee": "context.getEnvironment",
+          "lineNumber": 318
+        },
+        {
+          "caller": "matches",
+          "callee": "LoadBalancerEnvironmentPropertyUtils.equalToOrMissingForClientOrDefault",
+          "lineNumber": 328
+        },
+        {
+          "caller": "matches",
+          "callee": "context.getEnvironment",
+          "lineNumber": 328
+        },
+        {
+          "caller": "matches",
+          "callee": "LoadBalancerEnvironmentPropertyUtils.equalToForClientOrDefault",
+          "lineNumber": 338
+        },
+        {
+          "caller": "matches",
+          "callee": "context.getEnvironment",
+          "lineNumber": 338
+        },
+        {
+          "caller": "matches",
+          "callee": "LoadBalancerEnvironmentPropertyUtils.equalToForClientOrDefault",
+          "lineNumber": 348
+        },
+        {
+          "caller": "matches",
+          "callee": "context.getEnvironment",
+          "lineNumber": 348
+        },
+        {
+          "caller": "matches",
+          "callee": "LoadBalancerEnvironmentPropertyUtils.equalToForClientOrDefault",
+          "lineNumber": 358
+        },
+        {
+          "caller": "matches",
+          "callee": "context.getEnvironment",
+          "lineNumber": 358
+        },
+        {
+          "caller": "matches",
+          "callee": "LoadBalancerEnvironmentPropertyUtils.equalToForClientOrDefault",
+          "lineNumber": 368
+        },
+        {
+          "caller": "matches",
+          "callee": "context.getEnvironment",
+          "lineNumber": 368
+        },
+        {
+          "caller": "matches",
+          "callee": "LoadBalancerEnvironmentPropertyUtils.equalToForClientOrDefault",
+          "lineNumber": 378
+        },
+        {
+          "caller": "matches",
+          "callee": "context.getEnvironment",
+          "lineNumber": 378
+        },
+        {
+          "caller": "matches",
+          "callee": "LoadBalancerEnvironmentPropertyUtils.equalToForClientOrDefault",
+          "lineNumber": 388
+        },
+        {
+          "caller": "matches",
+          "callee": "context.getEnvironment",
+          "lineNumber": 388
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "filter",
+          "startLine": 17,
+          "endLine": 26,
+          "params": [
+            "servers"
+          ]
+        },
+        {
+          "name": "doFilter",
+          "startLine": 34,
+          "endLine": 34,
+          "params": [
+            "servers",
+            "server"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractServerFilter",
+          "startLine": 15,
+          "endLine": 35,
+          "methods": [
+            "filter",
+            "doFilter"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "filter",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "doFilter",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractServerFilter",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "filter",
+          "callee": "servers.iterator",
+          "lineNumber": 18
+        },
+        {
+          "caller": "filter",
+          "callee": "iterator.hasNext",
+          "lineNumber": 19
+        },
+        {
+          "caller": "filter",
+          "callee": "iterator.next",
+          "lineNumber": 20
+        },
+        {
+          "caller": "filter",
+          "callee": "doFilter",
+          "lineNumber": 21
+        },
+        {
+          "caller": "filter",
+          "callee": "iterator.remove",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 99,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "ServerGrayFilter",
+          "startLine": 46,
+          "endLine": 50,
+          "params": [
+            "contextHandler"
+          ]
+        },
+        {
+          "name": "doFilter",
+          "startLine": 53,
+          "endLine": 93,
+          "params": [
+            "servers",
+            "server"
+          ]
+        },
+        {
+          "name": "getOrder",
+          "startLine": 95,
+          "endLine": 98,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServerGrayFilter",
+          "startLine": 33,
+          "endLine": 99,
+          "methods": [
+            "ServerGrayFilter",
+            "doFilter",
+            "getOrder"
+          ],
+          "properties": [
+            "serverGray",
+            "contextHandler",
+            "map"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ServerGrayFilter",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "doFilter",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "getOrder",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "ServerGrayFilter",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ServerGrayFilter",
+          "callee": "this.map.put",
+          "lineNumber": 48
+        },
+        {
+          "caller": "ServerGrayFilter",
+          "callee": "this.map.put",
+          "lineNumber": 49
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable(contextHandler.getValueFromHeader(GRAY_PARAMETER))\r\n                    .filter(StringUtil::isNotEmpty).orElseGet",
+          "lineNumber": 57
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable(contextHandler.getValueFromHeader(GRAY_PARAMETER)).filter",
+          "lineNumber": 57
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 57
+        },
+        {
+          "caller": "doFilter",
+          "callee": "contextHandler.getValueFromHeader",
+          "lineNumber": 57
+        },
+        {
+          "caller": "doFilter",
+          "callee": "BaseParameterHolder.getParameter",
+          "lineNumber": 59
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable(grayFromRequest).filter(StringUtil::isNotEmpty).orElse",
+          "lineNumber": 60
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable(grayFromRequest).filter",
+          "lineNumber": 60
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 60
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable(nacosServiceInstance.getMetadata())\r\n                    .filter(CollectionUtil::isNotEmpty)\r\n                    .map(metadata -> metadata.get(GRAY_PARAMETER))\r\n                    .filter(StringUtil::isNotEmpty).orElse",
+          "lineNumber": 62
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable(nacosServiceInstance.getMetadata())\r\n                    .filter(CollectionUtil::isNotEmpty)\r\n                    .map(metadata -> metadata.get(GRAY_PARAMETER)).filter",
+          "lineNumber": 62
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable(nacosServiceInstance.getMetadata())\r\n                    .filter(CollectionUtil::isNotEmpty).map",
+          "lineNumber": 62
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable(nacosServiceInstance.getMetadata()).filter",
+          "lineNumber": 62
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 62
+        },
+        {
+          "caller": "doFilter",
+          "callee": "nacosServiceInstance.getMetadata",
+          "lineNumber": 62
+        },
+        {
+          "caller": "doFilter",
+          "callee": "metadata.get",
+          "lineNumber": 64
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable(map.get(grayFromMetaData.toLowerCase())).orElse",
+          "lineNumber": 67
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 67
+        },
+        {
+          "caller": "doFilter",
+          "callee": "map.get",
+          "lineNumber": 67
+        },
+        {
+          "caller": "doFilter",
+          "callee": "grayFromMetaData.toLowerCase",
+          "lineNumber": 67
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable(map.get(grayFromRequest.toLowerCase())).orElse",
+          "lineNumber": 68
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 68
+        },
+        {
+          "caller": "doFilter",
+          "callee": "map.get",
+          "lineNumber": 68
+        },
+        {
+          "caller": "doFilter",
+          "callee": "grayFromRequest.toLowerCase",
+          "lineNumber": 68
+        },
+        {
+          "caller": "doFilter",
+          "callee": "grayFromMetaData.equalsIgnoreCase",
+          "lineNumber": 69
+        },
+        {
+          "caller": "doFilter",
+          "callee": "grayFromRequest.equalsIgnoreCase",
+          "lineNumber": 71
+        },
+        {
+          "caller": "doFilter",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 72
+        },
+        {
+          "caller": "doFilter",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 73
+        },
+        {
+          "caller": "doFilter",
+          "callee": "new HashMap<>",
+          "lineNumber": 75
+        },
+        {
+          "caller": "doFilter",
+          "callee": "servers.size",
+          "lineNumber": 75
+        },
+        {
+          "caller": "doFilter",
+          "callee": "instance.getMetadata().get",
+          "lineNumber": 78
+        },
+        {
+          "caller": "doFilter",
+          "callee": "instance.getMetadata",
+          "lineNumber": 78
+        },
+        {
+          "caller": "doFilter",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 79
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Objects.isNull",
+          "lineNumber": 79
+        },
+        {
+          "caller": "doFilter",
+          "callee": "map.get",
+          "lineNumber": 79
+        },
+        {
+          "caller": "doFilter",
+          "callee": "balanceGray.toLowerCase",
+          "lineNumber": 79
+        },
+        {
+          "caller": "doFilter",
+          "callee": "map.put",
+          "lineNumber": 82
+        },
+        {
+          "caller": "doFilter",
+          "callee": "Objects.isNull",
+          "lineNumber": 84
+        },
+        {
+          "caller": "doFilter",
+          "callee": "map.get",
+          "lineNumber": 84
+        },
+        {
+          "caller": "doFilter",
+          "callee": "log.error",
+          "lineNumber": 90
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "selectServer",
+          "startLine": 21,
+          "endLine": 26,
+          "params": [
+            "servers"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DefaultFilterLoadBalance",
+          "startLine": 16,
+          "endLine": 27,
+          "methods": [
+            "selectServer"
+          ],
+          "properties": [
+            "strategyFilterList"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "selectServer",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "DefaultFilterLoadBalance",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "selectServer",
+          "callee": "strategyEnabledFilter.filter",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "gatewayWorkRouteFilter",
+          "startLine": 17,
+          "endLine": 20,
+          "params": []
+        },
+        {
+          "name": "gatewayWorkClearFilter",
+          "startLine": 22,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "webMvcContext",
+          "startLine": 27,
+          "endLine": 30,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "GatewayContextAutoConfiguration",
+          "startLine": 15,
+          "endLine": 31,
+          "methods": [
+            "gatewayWorkRouteFilter",
+            "gatewayWorkClearFilter",
+            "webMvcContext"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "gatewayWorkRouteFilter",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "gatewayWorkClearFilter",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "webMvcContext",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "GatewayContextAutoConfiguration",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "gatewayWorkRouteFilter",
+          "callee": "new GatewayWorkRouteFilter",
+          "lineNumber": 19
+        },
+        {
+          "caller": "gatewayWorkClearFilter",
+          "callee": "new GatewayWorkClearFilter",
+          "lineNumber": 24
+        },
+        {
+          "caller": "webMvcContext",
+          "callee": "new GatewayContextHandler",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkClearFilter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "filter",
+          "startLine": 17,
+          "endLine": 21,
+          "params": [
+            "exchange",
+            "chain"
+          ]
+        },
+        {
+          "name": "getOrder",
+          "startLine": 23,
+          "endLine": 26,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "GatewayWorkClearFilter",
+          "startLine": 16,
+          "endLine": 27,
+          "methods": [
+            "filter",
+            "getOrder"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "filter",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "getOrder",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "GatewayWorkClearFilter",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "filter",
+          "callee": "GatewayContextHolder.removeCurrentGatewayContext",
+          "lineNumber": 19
+        },
+        {
+          "caller": "filter",
+          "callee": "chain.filter",
+          "lineNumber": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "filter",
+          "startLine": 18,
+          "endLine": 22,
+          "params": [
+            "exchange",
+            "chain"
+          ]
+        },
+        {
+          "name": "getOrder",
+          "startLine": 24,
+          "endLine": 27,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "GatewayWorkRouteFilter",
+          "startLine": 16,
+          "endLine": 28,
+          "methods": [
+            "filter",
+            "getOrder"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "filter",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "getOrder",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "GatewayWorkRouteFilter",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "filter",
+          "callee": "GatewayContextHolder.getCurrentGatewayContext().setExchange",
+          "lineNumber": 20
+        },
+        {
+          "caller": "filter",
+          "callee": "GatewayContextHolder.getCurrentGatewayContext",
+          "lineNumber": 20
+        },
+        {
+          "caller": "filter",
+          "callee": "chain.filter",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "getValueFromHeader",
+          "startLine": 15,
+          "endLine": 20,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "getExchange",
+          "startLine": 22,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "getServerHttpRequest",
+          "startLine": 26,
+          "endLine": 28,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "GatewayContextHandler",
+          "startLine": 14,
+          "endLine": 29,
+          "methods": [
+            "getValueFromHeader",
+            "getExchange",
+            "getServerHttpRequest"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getValueFromHeader",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "getExchange",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "getServerHttpRequest",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "GatewayContextHandler",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getValueFromHeader",
+          "callee": "Optional.ofNullable(getServerHttpRequest())\r\n                .map(request -> request.getHeaders().getFirst(name)).orElse",
+          "lineNumber": 17
+        },
+        {
+          "caller": "getValueFromHeader",
+          "callee": "Optional.ofNullable(getServerHttpRequest()).map",
+          "lineNumber": 17
+        },
+        {
+          "caller": "getValueFromHeader",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 17
+        },
+        {
+          "caller": "getValueFromHeader",
+          "callee": "getServerHttpRequest",
+          "lineNumber": 17
+        },
+        {
+          "caller": "getValueFromHeader",
+          "callee": "request.getHeaders().getFirst",
+          "lineNumber": 18
+        },
+        {
+          "caller": "getValueFromHeader",
+          "callee": "request.getHeaders",
+          "lineNumber": 18
+        },
+        {
+          "caller": "getExchange",
+          "callee": "GatewayContextHolder.getCurrentGatewayContext().getExchange",
+          "lineNumber": 23
+        },
+        {
+          "caller": "getExchange",
+          "callee": "GatewayContextHolder.getCurrentGatewayContext",
+          "lineNumber": 23
+        },
+        {
+          "caller": "getServerHttpRequest",
+          "callee": "Optional.ofNullable(getExchange()).map(ServerWebExchange::getRequest).orElse",
+          "lineNumber": 27
+        },
+        {
+          "caller": "getServerHttpRequest",
+          "callee": "Optional.ofNullable(getExchange()).map",
+          "lineNumber": 27
+        },
+        {
+          "caller": "getServerHttpRequest",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 27
+        },
+        {
+          "caller": "getServerHttpRequest",
+          "callee": "getExchange",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "getCurrentGatewayContext",
+          "startLine": 21,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "removeCurrentGatewayContext",
+          "startLine": 25,
+          "endLine": 27,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "GatewayContextHolder",
+          "startLine": 13,
+          "endLine": 29,
+          "methods": [
+            "getCurrentGatewayContext",
+            "removeCurrentGatewayContext"
+          ],
+          "properties": [
+            "THREAD_LOCAL",
+            "exchange"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCurrentGatewayContext",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "removeCurrentGatewayContext",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "GatewayContextHolder",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getCurrentGatewayContext",
+          "callee": "THREAD_LOCAL.get",
+          "lineNumber": 22
+        },
+        {
+          "caller": "removeCurrentGatewayContext",
+          "callee": "THREAD_LOCAL.remove",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/config/WebMvcContextAutoConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "webMvcContext",
+          "startLine": 14,
+          "endLine": 17,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "WebMvcContextAutoConfiguration",
+          "startLine": 12,
+          "endLine": 18,
+          "methods": [
+            "webMvcContext"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "webMvcContext",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "WebMvcContextAutoConfiguration",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "webMvcContext",
+          "callee": "new WebMvcContextHandler",
+          "lineNumber": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "getValueFromHeader",
+          "startLine": 17,
+          "endLine": 24,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "getHttpServletRequest",
+          "startLine": 26,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "getRestAttributes",
+          "startLine": 35,
+          "endLine": 41,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "WebMvcContextHandler",
+          "startLine": 16,
+          "endLine": 42,
+          "methods": [
+            "getValueFromHeader",
+            "getHttpServletRequest",
+            "getRestAttributes"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getValueFromHeader",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "getHttpServletRequest",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "getRestAttributes",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "WebMvcContextHandler",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getValueFromHeader",
+          "callee": "getHttpServletRequest",
+          "lineNumber": 19
+        },
+        {
+          "caller": "getValueFromHeader",
+          "callee": "Objects.nonNull",
+          "lineNumber": 20
+        },
+        {
+          "caller": "getValueFromHeader",
+          "callee": "request.getHeader",
+          "lineNumber": 21
+        },
+        {
+          "caller": "getHttpServletRequest",
+          "callee": "getRestAttributes",
+          "lineNumber": 27
+        },
+        {
+          "caller": "getHttpServletRequest",
+          "callee": "attributes.getRequest",
+          "lineNumber": 32
+        },
+        {
+          "caller": "getRestAttributes",
+          "callee": "RequestContextHolder.getRequestAttributes",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 73,
+      "functions": [
+        {
+          "name": "getContextForTask",
+          "startLine": 17,
+          "endLine": 19,
+          "params": []
+        },
+        {
+          "name": "getContextForHold",
+          "startLine": 21,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "wrapTask",
+          "startLine": 25,
+          "endLine": 36,
+          "params": [
+            "runnable",
+            "parentMdcContext",
+            "parentHoldContext"
+          ]
+        },
+        {
+          "name": "wrapTask",
+          "startLine": 38,
+          "endLine": 49,
+          "params": [
+            "task",
+            "parentMdcContext",
+            "parentHoldContext"
+          ]
+        },
+        {
+          "name": "preprocess",
+          "startLine": 51,
+          "endLine": 68,
+          "params": [
+            "parentMdcContext",
+            "parentHoldContext"
+          ]
+        },
+        {
+          "name": "postProcess",
+          "startLine": 70,
+          "endLine": 81,
+          "params": [
+            "mdcContext",
+            "holdContext"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BaseThreadPool",
+          "startLine": 15,
+          "endLine": 82,
+          "methods": [
+            "getContextForTask",
+            "getContextForHold",
+            "wrapTask",
+            "wrapTask",
+            "preprocess",
+            "postProcess"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BaseThreadPool",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getContextForTask",
+          "callee": "MDC.getCopyOfContextMap",
+          "lineNumber": 18
+        },
+        {
+          "caller": "getContextForHold",
+          "callee": "BaseParameterHolder.getParameterMap",
+          "lineNumber": 22
+        },
+        {
+          "caller": "wrapTask",
+          "callee": "preprocess",
+          "lineNumber": 27
+        },
+        {
+          "caller": "wrapTask",
+          "callee": "preprocess.get",
+          "lineNumber": 28
+        },
+        {
+          "caller": "wrapTask",
+          "callee": "preprocess.get",
+          "lineNumber": 29
+        },
+        {
+          "caller": "wrapTask",
+          "callee": "runnable.run",
+          "lineNumber": 31
+        },
+        {
+          "caller": "wrapTask",
+          "callee": "postProcess",
+          "lineNumber": 33
+        },
+        {
+          "caller": "wrapTask",
+          "callee": "preprocess",
+          "lineNumber": 40
+        },
+        {
+          "caller": "wrapTask",
+          "callee": "preprocess.get",
+          "lineNumber": 41
+        },
+        {
+          "caller": "wrapTask",
+          "callee": "preprocess.get",
+          "lineNumber": 42
+        },
+        {
+          "caller": "wrapTask",
+          "callee": "task.call",
+          "lineNumber": 44
+        },
+        {
+          "caller": "wrapTask",
+          "callee": "postProcess",
+          "lineNumber": 46
+        },
+        {
+          "caller": "preprocess",
+          "callee": "new HashMap<>",
+          "lineNumber": 52
+        },
+        {
+          "caller": "preprocess",
+          "callee": "BaseParameterHolder.getParameterMap",
+          "lineNumber": 53
+        },
+        {
+          "caller": "preprocess",
+          "callee": "MDC.getCopyOfContextMap",
+          "lineNumber": 54
+        },
+        {
+          "caller": "preprocess",
+          "callee": "MDC.clear",
+          "lineNumber": 56
+        },
+        {
+          "caller": "preprocess",
+          "callee": "MDC.setContextMap",
+          "lineNumber": 58
+        },
+        {
+          "caller": "preprocess",
+          "callee": "BaseParameterHolder.removeParameterMap",
+          "lineNumber": 61
+        },
+        {
+          "caller": "preprocess",
+          "callee": "BaseParameterHolder.setParameterMap",
+          "lineNumber": 63
+        },
+        {
+          "caller": "preprocess",
+          "callee": "map.put",
+          "lineNumber": 65
+        },
+        {
+          "caller": "preprocess",
+          "callee": "map.put",
+          "lineNumber": 66
+        },
+        {
+          "caller": "postProcess",
+          "callee": "MDC.clear",
+          "lineNumber": 72
+        },
+        {
+          "caller": "postProcess",
+          "callee": "MDC.setContextMap",
+          "lineNumber": 74
+        },
+        {
+          "caller": "postProcess",
+          "callee": "BaseParameterHolder.removeParameterMap",
+          "lineNumber": 77
+        },
+        {
+          "caller": "postProcess",
+          "callee": "BaseParameterHolder.setParameterMap",
+          "lineNumber": 79
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    }
+  ]
+}

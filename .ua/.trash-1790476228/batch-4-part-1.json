@@ -1,0 +1,260 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java",
+      "type": "file",
+      "name": "AlipayTradeStatus.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java",
+      "summary": "Enum of Alipay trade status codes (WAIT_BUYER_PAY, TRADE_CLOSED, TRADE_SUCCESS, TRADE_FINISHED) with code/value/msg fields and static lookup helpers.",
+      "tags": ["enum", "payment", "alipay", "status-code"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "type": "file",
+      "name": "PayBillStatus.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "summary": "Enum modeling the internal pay bill lifecycle (unpaid, paid, cancelled, refunded) with code/msg lookup helpers shared across services.",
+      "tags": ["enum", "payment", "status-code", "shared"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/PayChannel.java",
+      "type": "file",
+      "name": "PayChannel.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PayChannel.java",
+      "summary": "Enum of supported payment channels (e.g. Alipay) with code/value/msg fields used for strategy dispatch.",
+      "tags": ["enum", "payment", "channel", "shared"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "type": "file",
+      "name": "PayClient.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "summary": "Feign client interface for the pay service, declaring remote endpoints for commonPay, notify, tradeCheck and refund.",
+      "tags": ["feign-client", "api-handler", "payment", "remote-call"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "type": "file",
+      "name": "PayClientFallback.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "summary": "Feign fallback implementation for PayClient that returns degraded error ApiResponse results when the pay service is unavailable.",
+      "tags": ["feign-client", "fallback", "fault-tolerance", "payment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "type": "file",
+      "name": "NotifyDto.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "summary": "DTO carrying an asynchronous payment notification, holding the channel and the raw notify parameter map.",
+      "tags": ["dto", "payment", "notify", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java",
+      "type": "file",
+      "name": "PayBillDto.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java",
+      "summary": "DTO carrying the order number used to query pay bill details.",
+      "tags": ["dto", "payment", "query"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "type": "file",
+      "name": "PayDto.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "summary": "DTO for initiating a payment, including platform, order number, subject, price, channel, pay bill type and notify/return URLs.",
+      "tags": ["dto", "payment", "request", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "type": "file",
+      "name": "RefundDto.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "summary": "DTO for refund requests carrying order number, refund amount, channel and reason.",
+      "tags": ["dto", "payment", "refund"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "type": "file",
+      "name": "TradeCheckDto.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "summary": "DTO for trade status check requests, holding the out trade number and payment channel.",
+      "tags": ["dto", "payment", "trade-check"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "type": "file",
+      "name": "NotifyVo.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "summary": "VO returned after processing a payment notify, carrying the out trade number and the pay result flag.",
+      "tags": ["vo", "payment", "notify"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "type": "file",
+      "name": "PayBillVo.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "summary": "VO exposing full pay bill detail: pay number, out order number, channel, scene, subject, trade number, amount, bill type, status and pay time.",
+      "tags": ["vo", "payment", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "type": "file",
+      "name": "TradeCheckVo.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "summary": "VO with the trade check result: success flag, pay bill status, out trade number and total amount.",
+      "tags": ["vo", "payment", "trade-check"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "type": "file",
+      "name": "PayController.java",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "summary": "REST controller of the pay service exposing endpoints for common pay, notify, trade check, refund and pay bill detail, delegating to PayService.",
+      "tags": ["api-handler", "controller", "payment", "rest"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java:AlipayTradeStatus",
+      "type": "class",
+      "name": "AlipayTradeStatus",
+      "filePath": "damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java",
+      "lineRange": [8, 74],
+      "summary": "Enum mapping Alipay trade status strings to internal codes with getMsg/getRc static lookup by code.",
+      "tags": ["enum", "alipay", "payment", "status-code"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/PayBillStatus.java:PayBillStatus",
+      "type": "class",
+      "name": "PayBillStatus",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "lineRange": [8, 60],
+      "summary": "Enum of internal pay bill statuses (NO_PAY, PAY, CANCEL, REFUND) with code/msg accessors and static lookups.",
+      "tags": ["enum", "payment", "status-code"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/PayChannel.java:PayChannel",
+      "type": "class",
+      "name": "PayChannel",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PayChannel.java",
+      "lineRange": [8, 70],
+      "summary": "Enum of payment channels with code/value/msg triple and static lookup helpers used by the pay strategy context.",
+      "tags": ["enum", "payment", "channel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java:PayClient",
+      "type": "class",
+      "name": "PayClient",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "lineRange": [21, 52],
+      "summary": "Feign interface declaring the pay service remote API: commonPay, notify, tradeCheck and refund.",
+      "tags": ["feign-client", "interface", "payment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java:PayClientFallback",
+      "type": "class",
+      "name": "PayClientFallback",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "lineRange": [18, 40],
+      "summary": "Fallback for PayClient returning ApiResponse.error for every remote pay operation during circuit breaking.",
+      "tags": ["fallback", "fault-tolerance", "feign-client"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java:PayDto",
+      "type": "class",
+      "name": "PayDto",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "lineRange": [18, 57],
+      "summary": "Payment initiation DTO with validation annotations covering platform, order number, subject, price, channel and callback URLs.",
+      "tags": ["dto", "payment", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java:PayBillVo",
+      "type": "class",
+      "name": "PayBillVo",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "lineRange": [16, 87],
+      "summary": "Pay bill detail VO mirroring the PayBill entity fields for API responses.",
+      "tags": ["vo", "payment", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController",
+      "type": "class",
+      "name": "PayController",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "lineRange": [27, 64],
+      "summary": "Spring REST controller routing /pay endpoints to PayService and wrapping results in ApiResponse.",
+      "tags": ["controller", "api-handler", "payment", "rest"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {"source": "file:damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java", "target": "class:damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java:AlipayTradeStatus", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/PayBillStatus.java", "target": "class:damai-common/src/main/java/com/damai/enums/PayBillStatus.java:PayBillStatus", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/PayChannel.java", "target": "class:damai-common/src/main/java/com/damai/enums/PayChannel.java:PayChannel", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java", "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java:PayClient", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java", "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java:PayClientFallback", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java", "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java:PayDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java", "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java:PayBillVo", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java", "target": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java", "target": "class:damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java:AlipayTradeStatus", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/PayBillStatus.java", "target": "class:damai-common/src/main/java/com/damai/enums/PayBillStatus.java:PayBillStatus", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/PayChannel.java", "target": "class:damai-common/src/main/java/com/damai/enums/PayChannel.java:PayChannel", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java", "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java:PayClient", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java", "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java:PayClientFallback", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java", "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java:PayDto", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java", "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java:PayBillVo", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java", "target": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java", "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java", "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java", "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java", "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java", "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java", "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java:PayClientFallback", "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java:PayClient", "type": "implements", "direction": "forward", "weight": 0.9},
+    {"source": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java:PayClientFallback", "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:error", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController", "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java:commonPay", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController", "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java:notify", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController", "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java:tradeCheck", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController", "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java:refund", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController", "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java:detail", "type": "calls", "direction": "forward", "weight": 0.8}
+  ]
+}

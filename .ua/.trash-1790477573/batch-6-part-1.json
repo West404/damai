@@ -1,0 +1,1525 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/ChannelDataMapper.java",
+      "type": "file",
+      "name": "ChannelDataMapper.java",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/mapper/ChannelDataMapper.java",
+      "summary": "渠道数据表 ChannelTableData 的 MyBatis-Plus Mapper 接口，为渠道数据业务提供基础持久化能力。",
+      "tags": [
+        "data-access",
+        "mybatis-plus",
+        "mapper",
+        "channel-data"
+      ],
+      "complexity": "simple",
+      "languageNotes": "空接口继承 BaseMapper，SQL 由 MyBatis-Plus 反射生成，未定义自定义方法。"
+    },
+    {
+      "id": "class:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/ChannelDataMapper.java:ChannelDataMapper",
+      "type": "class",
+      "name": "ChannelDataMapper",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/mapper/ChannelDataMapper.java",
+      "lineRange": [
+        12,
+        14
+      ],
+      "summary": "渠道数据 Mapper 接口，直接复用 MyBatis-Plus 通用 CRUD 方法操作渠道表。",
+      "tags": [
+        "mapper",
+        "mybatis-plus",
+        "data-access"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "type": "file",
+      "name": "ChannelDataService.java",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "summary": "base-data 服务的渠道数据业务实现：按 code 查询启用状态的渠道信息，新增渠道并同步写入 Redis 缓存。",
+      "tags": [
+        "service",
+        "channel-data",
+        "redis-cache",
+        "mybatis-plus"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java:ChannelDataService",
+      "type": "class",
+      "name": "ChannelDataService",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "lineRange": [
+        29,
+        68
+      ],
+      "summary": "渠道数据服务实现类，组合 Mapper、UidGenerator 与 RedisCache 完成渠道数据的查询、落库与缓存同步。",
+      "tags": [
+        "service",
+        "channel-data",
+        "cache"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java:getByCode",
+      "type": "function",
+      "name": "getByCode",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "lineRange": [
+        42,
+        51
+      ],
+      "summary": "根据渠道 code 查询状态为启用的渠道记录并转换为 VO 返回。",
+      "tags": [
+        "query",
+        "channel-data"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java:add",
+      "type": "function",
+      "name": "add",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "lineRange": [
+        53,
+        61
+      ],
+      "summary": "新增渠道数据：生成分布式 ID、写入数据库并刷新 Redis 中的渠道配置缓存。",
+      "tags": [
+        "mutation",
+        "channel-data",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "type": "file",
+      "name": "RequestValidationFilter.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "summary": "网关统一请求校验过滤器，串行执行限流、请求体缓存、RSA 验签、token 鉴权与 API 规则拦截，并把用户身份透传给下游服务。",
+      "tags": [
+        "api-handler",
+        "middleware",
+        "validation",
+        "security",
+        "限流"
+      ],
+      "complexity": "complex",
+      "languageNotes": "基于 Spring Cloud Gateway 的 GlobalFilter + Ordered，用 Reactor 缓存请求体后重写 header 完成 V1/V2 双协议验签。"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:RequestValidationFilter",
+      "type": "class",
+      "name": "RequestValidationFilter",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "lineRange": [
+        73,
+        326
+      ],
+      "summary": "网关请求校验过滤器主体，实现 GlobalFilter 与 Ordered，编排限流、验签、鉴权与规则拦截逻辑。",
+      "tags": [
+        "gateway",
+        "filter",
+        "validation",
+        "security"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:filter",
+      "type": "function",
+      "name": "filter",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "lineRange": [
+        102,
+        117
+      ],
+      "summary": "过滤器入口，按限流开关获取信号量许可，异常时释放许可并返回限流业务异常。",
+      "tags": [
+        "rate-limiting",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:doFilter",
+      "type": "function",
+      "name": "doFilter",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "lineRange": [
+        119,
+        149
+      ],
+      "summary": "注入 traceId、构建透传 header 与线程上下文，并按 Content-Type 决定是否读取请求体。",
+      "tags": [
+        "middleware",
+        "context-propagation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:readBody",
+      "type": "function",
+      "name": "readBody",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "lineRange": [
+        151,
+        173
+      ],
+      "summary": "缓存请求体并重新包装 ServerHttpRequest，把处理后的 header 与请求体继续向下游传递。",
+      "tags": [
+        "reactor",
+        "request-body"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "lineRange": [
+        175,
+        182
+      ],
+      "summary": "把客户端请求参数封装进 RequestTemporaryWrapper，供后续验签阶段读取。",
+      "tags": [
+        "helper",
+        "serialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:doExecute",
+      "type": "function",
+      "name": "doExecute",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "lineRange": [
+        184,
+        251
+      ],
+      "summary": "核心校验流程：解析请求体、校验渠道签名、token 鉴权、用户身份校验与 API 规则拦截。",
+      "tags": [
+        "validation",
+        "security",
+        "orchestration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:decorateHead",
+      "type": "function",
+      "name": "decorateHead",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "lineRange": [
+        255,
+        286
+      ],
+      "summary": "重写转发请求的 header（traceId、userId 与内容长度），保证下游拿到正确上下文。",
+      "tags": [
+        "header",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:skipCheckToken",
+      "type": "function",
+      "name": "skipCheckToken",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "lineRange": [
+        293,
+        301
+      ],
+      "summary": "基于 AntPathMatcher 判断当前 URL 是否命中免 token 校验白名单。",
+      "tags": [
+        "whitelist",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:skipCheckParameter",
+      "type": "function",
+      "name": "skipCheckParameter",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "lineRange": [
+        303,
+        311
+      ],
+      "summary": "基于 AntPathMatcher 判断当前 URL 是否跳过参数签名校验。",
+      "tags": [
+        "whitelist",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "type": "file",
+      "name": "ResponseValidationFilter.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "summary": "网关响应校验过滤器，对返回体按渠道用 RSA 公钥加密 data 字段，保障渠道数据回传安全。",
+      "tags": [
+        "api-handler",
+        "gateway",
+        "security",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java:ResponseValidationFilter",
+      "type": "class",
+      "name": "ResponseValidationFilter",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "lineRange": [
+        48,
+        140
+      ],
+      "summary": "响应侧过滤器，装饰响应体并在写出前对渠道报文做加签/加密处理。",
+      "tags": [
+        "gateway",
+        "filter",
+        "security"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java:filter",
+      "type": "function",
+      "name": "filter",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "lineRange": [
+        63,
+        66
+      ],
+      "summary": "过滤器入口，装饰响应对象后继续执行过滤链。",
+      "tags": [
+        "entry-point",
+        "filter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java:decorate",
+      "type": "function",
+      "name": "decorate",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "lineRange": [
+        69,
+        120
+      ],
+      "summary": "构造 ServerHttpResponseDecorator，缓存响应体并在写回前完成加密处理。",
+      "tags": [
+        "reactor",
+        "response-body"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java:checkResponseBody",
+      "type": "function",
+      "name": "checkResponseBody",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "lineRange": [
+        122,
+        139
+      ],
+      "summary": "按渠道公钥加密响应 data 字段，写回密文后返回新的响应体。",
+      "tags": [
+        "encryption",
+        "rsa",
+        "response-body"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java",
+      "type": "file",
+      "name": "RateLimiter.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java",
+      "summary": "基于 Semaphore 的本地限流器，为网关请求提供单位时间内的许可获取与释放能力。",
+      "tags": [
+        "utility",
+        "rate-limiting",
+        "concurrency"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java:RateLimiter",
+      "type": "class",
+      "name": "RateLimiter",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java",
+      "lineRange": [
+        14,
+        33
+      ],
+      "summary": "信号量实现的单机限流器，限制单位时间内的并发请求数。",
+      "tags": [
+        "rate-limiting",
+        "concurrency",
+        "限流"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java:acquire",
+      "type": "function",
+      "name": "acquire",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java",
+      "lineRange": [
+        24,
+        28
+      ],
+      "summary": "尝试获取一个许可，获取失败时抛出限流业务异常。",
+      "tags": [
+        "rate-limiting",
+        "concurrency"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterProperty.java",
+      "type": "file",
+      "name": "RateLimiterProperty.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterProperty.java",
+      "summary": "网关限流配置属性类，读取限流开关与每秒许可数配置。",
+      "tags": [
+        "configuration",
+        "properties",
+        "rate-limiting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterProperty.java:RateLimiterProperty",
+      "type": "class",
+      "name": "RateLimiterProperty",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterProperty.java",
+      "lineRange": [
+        11,
+        19
+      ],
+      "summary": "限流配置属性对象，包含 rateSwitch 开关与 ratePermits 许可数。",
+      "tags": [
+        "configuration",
+        "properties"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/property/GatewayProperty.java",
+      "type": "file",
+      "name": "GatewayProperty.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/property/GatewayProperty.java",
+      "summary": "网关业务配置属性类，维护限流路径、token 校验白名单、参数校验跳过路径与需要 userId 的接口路径。",
+      "tags": [
+        "configuration",
+        "properties",
+        "gateway"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/property/GatewayProperty.java:GatewayProperty",
+      "type": "class",
+      "name": "GatewayProperty",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/property/GatewayProperty.java",
+      "lineRange": [
+        12,
+        35
+      ],
+      "summary": "网关路径规则配置对象，供过滤器与 API 规则服务读取路径匹配规则。",
+      "tags": [
+        "configuration",
+        "routing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "type": "file",
+      "name": "ApiRestrictService.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "summary": "网关 API 规则限制服务：从 Redis 读取规则与深度规则参数，通过 Lua 脚本在时间窗口内统计调用量并拦截，同时上报 API 调用数据。",
+      "tags": [
+        "service",
+        "api-handler",
+        "redis",
+        "lua",
+        "限流"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:ApiRestrictService",
+      "type": "class",
+      "name": "ApiRestrictService",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "lineRange": [
+        44,
+        268
+      ],
+      "summary": "API 规则拦截核心服务，负责规则参数组装、客户端 IP 解析与调用数据上报。",
+      "tags": [
+        "gateway",
+        "rate-limiting",
+        "rule-engine"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:checkApiRestrict",
+      "type": "function",
+      "name": "checkApiRestrict",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "lineRange": [
+        63,
+        73
+      ],
+      "summary": "判断请求 URI 是否命中需要 API 规则限制的路径。",
+      "tags": [
+        "routing",
+        "whitelist"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:apiRestrict",
+      "type": "function",
+      "name": "apiRestrict",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "lineRange": [
+        75,
+        152
+      ],
+      "summary": "执行 API 规则拦截：读取规则与深度规则、调用 Lua 脚本统计调用次数、命中后保存调用数据并抛出异常。",
+      "tags": [
+        "rate-limiting",
+        "rule-engine",
+        "redis-lua"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:getRuleParameter",
+      "type": "function",
+      "name": "getRuleParameter",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "lineRange": [
+        154,
+        173
+      ],
+      "summary": "把规则 VO 转换为 Lua 脚本所需参数（统计窗口、阈值、生效时间与 Redis key）。",
+      "tags": [
+        "parameter",
+        "redis"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:getDepthRuleParameter",
+      "type": "function",
+      "name": "getDepthRuleParameter",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "lineRange": [
+        175,
+        204
+      ],
+      "summary": "组装深度规则参数列表（多时间窗口），供 Lua 脚本批量计算。",
+      "tags": [
+        "parameter",
+        "rule-engine"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:sortStartTimeWindow",
+      "type": "function",
+      "name": "sortStartTimeWindow",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "lineRange": [
+        206,
+        211
+      ],
+      "summary": "计算并排序深度规则的起止时间窗口时间戳。",
+      "tags": [
+        "sorting",
+        "date-time"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:getTimeWindowTimestamp",
+      "type": "function",
+      "name": "getTimeWindowTimestamp",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "lineRange": [
+        213,
+        216
+      ],
+      "summary": "把 HH:mm:ss 形式的时间窗口转换为当日时间戳。",
+      "tags": [
+        "date-time",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:getIpAddress",
+      "type": "function",
+      "name": "getIpAddress",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "lineRange": [
+        223,
+        253
+      ],
+      "summary": "依次从多个代理请求头解析客户端真实 IP，兜底使用 RemoteAddress。",
+      "tags": [
+        "network",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:saveApiData",
+      "type": "function",
+      "name": "saveApiData",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "lineRange": [
+        255,
+        267
+      ],
+      "summary": "封装 API 调用数据 DTO（ID、IP、URL、多级时间与类型）并发送到 Kafka 上报。",
+      "tags": [
+        "kafka",
+        "reporting",
+        "dto"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "type": "file",
+      "name": "ChannelDataService.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "summary": "网关侧渠道数据服务：优先读 Redis 缓存，未命中时经线程池 + Feign 调用 base-data 服务获取渠道配置并回填缓存。",
+      "tags": [
+        "service",
+        "feign-client",
+        "cache",
+        "redis",
+        "async"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java:ChannelDataService",
+      "type": "class",
+      "name": "ChannelDataService",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "lineRange": [
+        36,
+        105
+      ],
+      "summary": "渠道配置查询服务，封装缓存读写、远程调用与异常兜底逻辑。",
+      "tags": [
+        "gateway",
+        "cache",
+        "feign-client"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java:checkCode",
+      "type": "function",
+      "name": "checkCode",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "lineRange": [
+        52,
+        61
+      ],
+      "summary": "校验渠道 code 非空，否则抛出参数异常。",
+      "tags": [
+        "validation",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java:getChannelDataByCode",
+      "type": "function",
+      "name": "getChannelDataByCode",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "lineRange": [
+        63,
+        71
+      ],
+      "summary": "按 code 先查缓存再查远程，返回渠道配置 VO。",
+      "tags": [
+        "cache",
+        "query"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java:getChannelDataByClient",
+      "type": "function",
+      "name": "getChannelDataByClient",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "lineRange": [
+        81,
+        104
+      ],
+      "summary": "通过线程池提交 Feign 调用获取渠道配置，处理超时与业务失败异常。",
+      "tags": [
+        "feign-client",
+        "async",
+        "error-handling"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/ChannelDataMapper.java",
+      "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/ChannelDataMapper.java:ChannelDataMapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java:ChannelDataService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java:getByCode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java:add",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:RequestValidationFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:doFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:readBody",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:doExecute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:decorateHead",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:skipCheckToken",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:skipCheckParameter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java:ResponseValidationFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java:filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java:decorate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java:checkResponseBody",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java:RateLimiter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java:acquire",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterProperty.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterProperty.java:RateLimiterProperty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/property/GatewayProperty.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/property/GatewayProperty.java:GatewayProperty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:ApiRestrictService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:checkApiRestrict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:apiRestrict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:getRuleParameter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:getDepthRuleParameter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:sortStartTimeWindow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:getTimeWindowTimestamp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:getIpAddress",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:saveApiData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java:ChannelDataService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java:checkCode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java:getChannelDataByCode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java:getChannelDataByClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java:add",
+      "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:now",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java:add",
+      "target": "function:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java:createRedisKey",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:doExecute",
+      "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isEmpty",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:doExecute",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java:getChannelDataByCode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:doExecute",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java:getUser",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:doExecute",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:apiRestrict",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:doExecute",
+      "target": "function:damai-common/src/main/java/com/damai/util/RsaSignTool.java:verifyRsaSign256",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java:doExecute",
+      "target": "function:damai-common/src/main/java/com/damai/util/RsaTool.java:decrypt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java:checkResponseBody",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java:getChannelDataByCode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java:checkResponseBody",
+      "target": "function:damai-common/src/main/java/com/damai/util/RsaTool.java:encrypt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:apiRestrict",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java:apiRuleOperate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java:saveApiData",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java:sendMessage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java:getChannelDataByClient",
+      "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isEmpty",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/ChannelDataMapper.java",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/entity/ChannelTableData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/Status.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/ChannelDataAddDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/GetChannelDataByCodeDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/entity/ChannelTableData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/ChannelDataMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/ArgumentError.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/ArgumentException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/RsaSignTool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/RsaTool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterProperty.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/property/GatewayProperty.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "target": "file:damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/RsaTool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/ApiRuleType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/RuleTimeUnit.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/property/GatewayProperty.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/RuleVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/ArgumentError.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/ArgumentException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/GetChannelDataByCodeDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,866 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 8,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 8,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 8,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/MessageConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 16,
+      "classes": [
+        {
+          "name": "MessageConsumer",
+          "startLine": 10,
+          "endLine": 19,
+          "methods": [
+            "accept"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MessageConsumer",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamConfigProperties.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 30,
+      "classes": [
+        {
+          "name": "RedisStreamConfigProperties",
+          "startLine": 12,
+          "endLine": 37,
+          "methods": [],
+          "properties": [
+            "PREFIX",
+            "streamName",
+            "consumerGroup",
+            "consumerName",
+            "consumerType"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PREFIX",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "RedisStreamConfigProperties",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "addGroup",
+          "startLine": 26,
+          "endLine": 28,
+          "params": [
+            "streamName",
+            "groupName"
+          ]
+        },
+        {
+          "name": "hasKey",
+          "startLine": 30,
+          "endLine": 37,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "del",
+          "startLine": 39,
+          "endLine": 41,
+          "params": [
+            "key",
+            "recordIds"
+          ]
+        },
+        {
+          "name": "streamBindingGroup",
+          "startLine": 43,
+          "endLine": 53,
+          "params": [
+            "streamName",
+            "group"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedisStreamHandler",
+          "startLine": 18,
+          "endLine": 54,
+          "methods": [
+            "addGroup",
+            "hasKey",
+            "del",
+            "streamBindingGroup"
+          ],
+          "properties": [
+            "redisStreamPushHandler",
+            "stringRedisTemplate"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "addGroup",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "hasKey",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "del",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "streamBindingGroup",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "RedisStreamHandler",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "addGroup",
+          "callee": "stringRedisTemplate.opsForStream().createGroup",
+          "lineNumber": 27
+        },
+        {
+          "caller": "addGroup",
+          "callee": "stringRedisTemplate.opsForStream",
+          "lineNumber": 27
+        },
+        {
+          "caller": "hasKey",
+          "callee": "Objects.isNull",
+          "lineNumber": 31
+        },
+        {
+          "caller": "hasKey",
+          "callee": "stringRedisTemplate.hasKey",
+          "lineNumber": 34
+        },
+        {
+          "caller": "del",
+          "callee": "stringRedisTemplate.opsForStream().delete",
+          "lineNumber": 40
+        },
+        {
+          "caller": "del",
+          "callee": "stringRedisTemplate.opsForStream",
+          "lineNumber": 40
+        },
+        {
+          "caller": "streamBindingGroup",
+          "callee": "hasKey",
+          "lineNumber": 44
+        },
+        {
+          "caller": "streamBindingGroup",
+          "callee": "new HashMap<>",
+          "lineNumber": 46
+        },
+        {
+          "caller": "streamBindingGroup",
+          "callee": "map.put",
+          "lineNumber": 47
+        },
+        {
+          "caller": "streamBindingGroup",
+          "callee": "redisStreamPushHandler.push",
+          "lineNumber": 48
+        },
+        {
+          "caller": "streamBindingGroup",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 48
+        },
+        {
+          "caller": "streamBindingGroup",
+          "callee": "addGroup",
+          "lineNumber": 49
+        },
+        {
+          "caller": "streamBindingGroup",
+          "callee": "del",
+          "lineNumber": 50
+        },
+        {
+          "caller": "streamBindingGroup",
+          "callee": "log.info",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "onMessage",
+          "startLine": 21,
+          "endLine": 32,
+          "params": [
+            "message"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedisStreamListener",
+          "startLine": 14,
+          "endLine": 33,
+          "methods": [
+            "onMessage"
+          ],
+          "properties": [
+            "messageConsumer"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "onMessage",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "RedisStreamListener",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "onMessage",
+          "callee": "message.getId",
+          "lineNumber": 24
+        },
+        {
+          "caller": "onMessage",
+          "callee": "message.getValue",
+          "lineNumber": 25
+        },
+        {
+          "caller": "onMessage",
+          "callee": "log.info",
+          "lineNumber": 26
+        },
+        {
+          "caller": "onMessage",
+          "callee": "message.getStream",
+          "lineNumber": 27
+        },
+        {
+          "caller": "onMessage",
+          "callee": "messageConsumer.accept",
+          "lineNumber": 28
+        },
+        {
+          "caller": "onMessage",
+          "callee": "log.error",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamPushHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "push",
+          "startLine": 24,
+          "endLine": 32,
+          "params": [
+            "msg"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedisStreamPushHandler",
+          "startLine": 15,
+          "endLine": 33,
+          "methods": [
+            "push"
+          ],
+          "properties": [
+            "stringRedisTemplate",
+            "redisStreamConfigProperties"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "push",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "RedisStreamPushHandler",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "push",
+          "callee": "StreamRecords.newRecord()\r\n                .in(redisStreamConfigProperties.getStreamName())\r\n                .ofObject(msg).withId",
+          "lineNumber": 25
+        },
+        {
+          "caller": "push",
+          "callee": "StreamRecords.newRecord()\r\n                .in(redisStreamConfigProperties.getStreamName()).ofObject",
+          "lineNumber": 25
+        },
+        {
+          "caller": "push",
+          "callee": "StreamRecords.newRecord().in",
+          "lineNumber": 25
+        },
+        {
+          "caller": "push",
+          "callee": "StreamRecords.newRecord",
+          "lineNumber": 25
+        },
+        {
+          "caller": "push",
+          "callee": "redisStreamConfigProperties.getStreamName",
+          "lineNumber": 26
+        },
+        {
+          "caller": "push",
+          "callee": "RecordId.autoGenerate",
+          "lineNumber": 28
+        },
+        {
+          "caller": "push",
+          "callee": "this.stringRedisTemplate.opsForStream().add",
+          "lineNumber": 29
+        },
+        {
+          "caller": "push",
+          "callee": "this.stringRedisTemplate.opsForStream",
+          "lineNumber": 29
+        },
+        {
+          "caller": "push",
+          "callee": "log.info",
+          "lineNumber": 30
+        },
+        {
+          "caller": "push",
+          "callee": "redisStreamConfigProperties.getStreamName",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 108,
+      "nonEmptyLines": 101,
+      "functions": [
+        {
+          "name": "redisStreamPushHandler",
+          "startLine": 38,
+          "endLine": 42,
+          "params": [
+            "stringRedisTemplate",
+            "redisStreamConfigProperties"
+          ]
+        },
+        {
+          "name": "redisStreamHandler",
+          "startLine": 44,
+          "endLine": 48,
+          "params": [
+            "redisStreamPushHandler",
+            "stringRedisTemplate"
+          ]
+        },
+        {
+          "name": "streamMessageListenerContainer",
+          "startLine": 56,
+          "endLine": 86,
+          "params": [
+            "redisConnectionFactory",
+            "redisStreamConfigProperties",
+            "redisStreamHandler",
+            "messageConsumer"
+          ]
+        },
+        {
+          "name": "createThreadPool",
+          "startLine": 88,
+          "endLine": 102,
+          "params": []
+        },
+        {
+          "name": "checkConsumerType",
+          "startLine": 103,
+          "endLine": 107,
+          "params": [
+            "consumerType"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedisStreamAutoConfig",
+          "startLine": 34,
+          "endLine": 108,
+          "methods": [
+            "redisStreamPushHandler",
+            "redisStreamHandler",
+            "streamMessageListenerContainer",
+            "createThreadPool",
+            "checkConsumerType"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "redisStreamPushHandler",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "redisStreamHandler",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "streamMessageListenerContainer",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "createThreadPool",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "checkConsumerType",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "RedisStreamAutoConfig",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "redisStreamPushHandler",
+          "callee": "new RedisStreamPushHandler",
+          "lineNumber": 41
+        },
+        {
+          "caller": "redisStreamHandler",
+          "callee": "new RedisStreamHandler",
+          "lineNumber": 47
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "StreamMessageListenerContainer.StreamMessageListenerContainerOptions.builder()\r\n                    .pollTimeout(Duration.ofSeconds(5))\r\n                    .batchSize(10)\r\n                    .targetType(String.class)\r\n                    .errorHandler(t -> log.error(\"出现异常\", t))\r\n                    .executor(createThreadPool()).build",
+          "lineNumber": 64
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "StreamMessageListenerContainer.StreamMessageListenerContainerOptions.builder()\r\n                    .pollTimeout(Duration.ofSeconds(5))\r\n                    .batchSize(10)\r\n                    .targetType(String.class)\r\n                    .errorHandler(t -> log.error(\"出现异常\", t)).executor",
+          "lineNumber": 64
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "StreamMessageListenerContainer.StreamMessageListenerContainerOptions.builder()\r\n                    .pollTimeout(Duration.ofSeconds(5))\r\n                    .batchSize(10)\r\n                    .targetType(String.class).errorHandler",
+          "lineNumber": 64
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "StreamMessageListenerContainer.StreamMessageListenerContainerOptions.builder()\r\n                    .pollTimeout(Duration.ofSeconds(5))\r\n                    .batchSize(10).targetType",
+          "lineNumber": 64
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "StreamMessageListenerContainer.StreamMessageListenerContainerOptions.builder()\r\n                    .pollTimeout(Duration.ofSeconds(5)).batchSize",
+          "lineNumber": 64
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "StreamMessageListenerContainer.StreamMessageListenerContainerOptions.builder().pollTimeout",
+          "lineNumber": 64
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "StreamMessageListenerContainer.StreamMessageListenerContainerOptions.builder",
+          "lineNumber": 64
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "Duration.ofSeconds",
+          "lineNumber": 65
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "log.error",
+          "lineNumber": 68
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "createThreadPool",
+          "lineNumber": 69
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "StreamMessageListenerContainer.create",
+          "lineNumber": 71
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "checkConsumerType",
+          "lineNumber": 72
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "redisStreamConfigProperties.getConsumerType",
+          "lineNumber": 72
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "new RedisStreamListener",
+          "lineNumber": 73
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "RedisStreamConstant.GROUP.equals",
+          "lineNumber": 74
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "redisStreamConfigProperties.getConsumerType",
+          "lineNumber": 74
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "redisStreamHandler.streamBindingGroup",
+          "lineNumber": 75
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "redisStreamConfigProperties.getStreamName",
+          "lineNumber": 75
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "redisStreamConfigProperties.getConsumerGroup",
+          "lineNumber": 76
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "container.receiveAutoAck",
+          "lineNumber": 77
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "Consumer.from",
+          "lineNumber": 77
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "redisStreamConfigProperties.getConsumerGroup",
+          "lineNumber": 77
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "redisStreamConfigProperties.getConsumerName",
+          "lineNumber": 78
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "StreamOffset.create",
+          "lineNumber": 79
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "redisStreamConfigProperties.getStreamName",
+          "lineNumber": 79
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "ReadOffset.lastConsumed",
+          "lineNumber": 79
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "container.receive",
+          "lineNumber": 82
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "StreamOffset.fromStart",
+          "lineNumber": 82
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "redisStreamConfigProperties.getStreamName",
+          "lineNumber": 82
+        },
+        {
+          "caller": "streamMessageListenerContainer",
+          "callee": "container.start",
+          "lineNumber": 84
+        },
+        {
+          "caller": "createThreadPool",
+          "callee": "Runtime.getRuntime().availableProcessors",
+          "lineNumber": 89
+        },
+        {
+          "caller": "createThreadPool",
+          "callee": "Runtime.getRuntime",
+          "lineNumber": 89
+        },
+        {
+          "caller": "createThreadPool",
+          "callee": "new AtomicInteger",
+          "lineNumber": 90
+        },
+        {
+          "caller": "createThreadPool",
+          "callee": "new ThreadPoolExecutor",
+          "lineNumber": 91
+        },
+        {
+          "caller": "createThreadPool",
+          "callee": "new ArrayBlockingQueue<>",
+          "lineNumber": 96
+        },
+        {
+          "caller": "createThreadPool",
+          "callee": "new Thread",
+          "lineNumber": 98
+        },
+        {
+          "caller": "createThreadPool",
+          "callee": "thread.setName",
+          "lineNumber": 99
+        },
+        {
+          "caller": "createThreadPool",
+          "callee": "threadCount.getAndIncrement",
+          "lineNumber": 99
+        },
+        {
+          "caller": "checkConsumerType",
+          "callee": "RedisStreamConstant.GROUP.equals",
+          "lineNumber": 104
+        },
+        {
+          "caller": "checkConsumerType",
+          "callee": "RedisStreamConstant.BROADCAST.equals",
+          "lineNumber": 104
+        },
+        {
+          "caller": "checkConsumerType",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 105
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/constant/RedisStreamConstant.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "RedisStreamConstant",
+          "startLine": 9,
+          "endLine": 14,
+          "methods": [],
+          "properties": [
+            "GROUP",
+            "BROADCAST"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "GROUP",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "BROADCAST",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "RedisStreamConstant",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "accept",
+          "startLine": 22,
+          "endLine": 26,
+          "params": [
+            "message"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramRedisStreamConsumer",
+          "startLine": 15,
+          "endLine": 27,
+          "methods": [
+            "accept"
+          ],
+          "properties": [
+            "programService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "accept",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramRedisStreamConsumer",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "accept",
+          "callee": "Long.parseLong",
+          "lineNumber": 24
+        },
+        {
+          "caller": "accept",
+          "callee": "message.getValue",
+          "lineNumber": 24
+        },
+        {
+          "caller": "accept",
+          "callee": "programService.delLocalCache",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

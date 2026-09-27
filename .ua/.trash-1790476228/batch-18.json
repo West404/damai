@@ -1,0 +1,402 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/AreaType.java",
+      "type": "file",
+      "name": "AreaType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/AreaType.java",
+      "summary": "Enum defining administrative area types (municipalities, province, city, district) with code/msg pairs and lookup helpers used by the base-data area service.",
+      "tags": ["enum", "type-definition", "utility", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/AreaType.java:AreaType",
+      "type": "class",
+      "name": "AreaType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/AreaType.java",
+      "lineRange": [8, 66],
+      "summary": "Area type enum carrying integer codes and Chinese messages, with static getMsg/getRc lookup methods over enum values.",
+      "tags": ["enum", "type-definition", "lookup", "area"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java",
+      "type": "file",
+      "name": "BaseDataClient.java",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java",
+      "summary": "OpenFeign client interface for the base-data service, exposing area and channel-data query endpoints with a fallback for circuit breaking.",
+      "tags": ["feign-client", "api-handler", "service", "microservices"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java:BaseDataClient",
+      "type": "class",
+      "name": "BaseDataClient",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java",
+      "lineRange": [23, 56],
+      "summary": "Feign interface declaring getByCode, get, selectByIdList and getById remote calls against the base-data service, wired to BaseDataClientFallback.",
+      "tags": ["feign-client", "interface", "remote-call", "fallback"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java",
+      "type": "file",
+      "name": "BaseDataClientFallback.java",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java",
+      "summary": "Sentinel/Feign fallback implementation for BaseDataClient that returns degraded ApiResponse error results when base-data calls fail.",
+      "tags": ["fallback", "circuit-breaker", "resilience", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java:BaseDataClientFallback",
+      "type": "class",
+      "name": "BaseDataClientFallback",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java",
+      "lineRange": [20, 41],
+      "summary": "Fallback component implementing BaseDataClient; every method returns ApiResponse.error with BaseCode.SYSTEM_ERROR to degrade gracefully.",
+      "tags": ["fallback", "circuit-breaker", "error-handling", "component"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java",
+      "type": "file",
+      "name": "AreaGetDto.java",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java",
+      "summary": "DTO carrying a single area id for point lookups of area data across service boundaries.",
+      "tags": ["dto", "data-model", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java:AreaGetDto",
+      "type": "class",
+      "name": "AreaGetDto",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java",
+      "lineRange": [13, 20],
+      "summary": "Request DTO with a validated non-null id field used to fetch one area record.",
+      "tags": ["dto", "validation", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java",
+      "type": "file",
+      "name": "AreaSelectDto.java",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java",
+      "summary": "DTO carrying a list of area ids for batch area queries across service boundaries.",
+      "tags": ["dto", "data-model", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java:AreaSelectDto",
+      "type": "class",
+      "name": "AreaSelectDto",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java",
+      "lineRange": [15, 22],
+      "summary": "Request DTO with a non-empty idList field used to fetch multiple area records in one call.",
+      "tags": ["dto", "validation", "batch-query"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java",
+      "type": "file",
+      "name": "AreaVo.java",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java",
+      "summary": "View object representing an administrative area (id, parentId, name, type, municipality flag) returned to callers of the base-data service.",
+      "tags": ["vo", "data-model", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java:AreaVo",
+      "type": "class",
+      "name": "AreaVo",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java",
+      "lineRange": [14, 49],
+      "summary": "Serializable area view object mirroring the Area entity fields for API responses.",
+      "tags": ["vo", "data-model", "area"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java",
+      "type": "file",
+      "name": "TokenDataVo.java",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java",
+      "summary": "View object for channel token data (id, name, secret, status, createTime) used when validating channel access codes.",
+      "tags": ["vo", "data-model", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java:TokenDataVo",
+      "type": "class",
+      "name": "TokenDataVo",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java",
+      "lineRange": [13, 31],
+      "summary": "Serializable channel token view object exposing credential metadata for channel data verification.",
+      "tags": ["vo", "data-model", "channel-token"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java",
+      "type": "file",
+      "name": "AreaController.java",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java",
+      "summary": "REST controller of the base-data service exposing area query endpoints: city data list, batch select, get by id, current city, and hot cities.",
+      "tags": ["api-handler", "controller", "rest", "area"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:AreaController",
+      "type": "class",
+      "name": "AreaController",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java",
+      "lineRange": [24, 61],
+      "summary": "Spring REST controller delegating area queries to AreaService and wrapping results in ApiResponse.",
+      "tags": ["api-handler", "controller", "rest"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:selectCityData",
+      "type": "function",
+      "name": "selectCityData",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java",
+      "lineRange": [32, 36],
+      "summary": "GET endpoint returning the province/municipality city selection list from AreaService.",
+      "tags": ["api-handler", "endpoint", "area"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:selectByIdList",
+      "type": "function",
+      "name": "selectByIdList",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java",
+      "lineRange": [38, 42],
+      "summary": "POST endpoint returning area records matching a list of ids supplied in AreaSelectDto.",
+      "tags": ["api-handler", "endpoint", "batch-query"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:getById",
+      "type": "function",
+      "name": "getById",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java",
+      "lineRange": [44, 48],
+      "summary": "POST endpoint returning a single area record for the id in AreaGetDto.",
+      "tags": ["api-handler", "endpoint", "area"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:current",
+      "type": "function",
+      "name": "current",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java",
+      "lineRange": [50, 54],
+      "summary": "GET endpoint returning the currently configured default city area.",
+      "tags": ["api-handler", "endpoint", "area"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:hot",
+      "type": "function",
+      "name": "hot",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java",
+      "lineRange": [56, 60],
+      "summary": "GET endpoint returning the list of hot (popular) city areas.",
+      "tags": ["api-handler", "endpoint", "area"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java",
+      "type": "file",
+      "name": "Area.java",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java",
+      "summary": "MyBatis-Plus entity mapping the area table, extending BaseTableData with id, parentId, name, type, and municipality fields.",
+      "tags": ["entity", "data-model", "mybatis-plus", "orm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java:Area",
+      "type": "class",
+      "name": "Area",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java",
+      "lineRange": [17, 48],
+      "summary": "Area table entity with table-name annotation and serializable fields for administrative region records.",
+      "tags": ["entity", "data-model", "orm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java",
+      "type": "file",
+      "name": "AreaMapper.java",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java",
+      "summary": "MyBatis-Plus mapper interface for the Area entity, providing CRUD database access via BaseMapper.",
+      "tags": ["mapper", "mybatis-plus", "orm", "data-access"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java:AreaMapper",
+      "type": "class",
+      "name": "AreaMapper",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java",
+      "lineRange": [12, 14],
+      "summary": "Mapper interface extending MyBatis-Plus BaseMapper<Area> for area table persistence operations.",
+      "tags": ["mapper", "interface", "data-access"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java",
+      "type": "file",
+      "name": "AreaService.java",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java",
+      "summary": "Service layer for area data combining MyBatis-Plus queries with Redis list caching for the city selection data used by program listings.",
+      "tags": ["service", "business-logic", "cache", "area"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:AreaService",
+      "type": "class",
+      "name": "AreaService",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java",
+      "lineRange": [31, 95],
+      "summary": "Spring service orchestrating AreaMapper queries and RedisCache-backed caching of city data lists.",
+      "tags": ["service", "business-logic", "cache-aside"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:selectCityData",
+      "type": "function",
+      "name": "selectCityData",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java",
+      "lineRange": [41, 57],
+      "summary": "Reads the city selection list from Redis cache, falling back to a database query of municipalities and provinces and repopulating the cache.",
+      "tags": ["cache-aside", "redis", "query", "business-logic"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:selectByIdList",
+      "type": "function",
+      "name": "selectByIdList",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java",
+      "lineRange": [59, 64],
+      "summary": "Queries areas by a list of ids via a lambda query and converts results to AreaVo list.",
+      "tags": ["query", "batch-query", "business-logic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:getById",
+      "type": "function",
+      "name": "getById",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java",
+      "lineRange": [66, 76],
+      "summary": "Fetches a single area by id, copies matching entity fields into an AreaVo, and logs the request payload.",
+      "tags": ["query", "single-fetch", "business-logic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:current",
+      "type": "function",
+      "name": "current",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java",
+      "lineRange": [78, 87],
+      "summary": "Resolves the current default city area record and maps it to an AreaVo.",
+      "tags": ["query", "business-logic", "area"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:hot",
+      "type": "function",
+      "name": "hot",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java",
+      "lineRange": [89, 94],
+      "summary": "Queries hot city areas by a configured id set and converts them to AreaVo list.",
+      "tags": ["query", "business-logic", "area"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:damai-common/src/main/java/com/damai/enums/AreaType.java", "target": "class:damai-common/src/main/java/com/damai/enums/AreaType.java:AreaType", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/AreaType.java", "target": "class:damai-common/src/main/java/com/damai/enums/AreaType.java:AreaType", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java:BaseDataClient", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java:BaseDataClient", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java", "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/GetChannelDataByCodeDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java:BaseDataClientFallback", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java:BaseDataClientFallback", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java:BaseDataClientFallback", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java:BaseDataClient", "type": "implements", "direction": "forward", "weight": 0.9},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java", "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java", "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/GetChannelDataByCodeDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java:AreaGetDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java:AreaGetDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java:AreaSelectDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java:AreaSelectDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java:AreaVo", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java:AreaVo", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java:TokenDataVo", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java", "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java:TokenDataVo", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:AreaController", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:AreaController", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:selectCityData", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:selectByIdList", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:getById", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:current", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:hot", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:selectCityData", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:selectCityData", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:selectByIdList", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:selectByIdList", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:getById", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:getById", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:current", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:current", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java:hot", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:hot", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java", "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java:Area", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java", "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java:Area", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "class:damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java:Area", "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData", "type": "inherits", "direction": "forward", "weight": 0.9},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java", "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java", "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java:AreaMapper", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java", "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java:AreaMapper", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java", "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:AreaService", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:AreaService", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:selectCityData", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:selectByIdList", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:getById", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:current", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:hot", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:selectCityData", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:selectByIdList", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:getById", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:current", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:hot", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "file:damai-common/src/main/java/com/damai/enums/AreaType.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "file:damai-common/src/main/java/com/damai/enums/BusinessStatus.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java:selectCityData", "target": "function:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java:createRedisKey", "type": "calls", "direction": "forward", "weight": 0.8}
+  ]
+}

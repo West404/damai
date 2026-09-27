@@ -1,0 +1,682 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/lockinfo/impl/ServiceLockInfoHandle.java",
+      "type": "file",
+      "name": "ServiceLockInfoHandle.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/lockinfo/impl/ServiceLockInfoHandle.java",
+      "summary": "LockInfoHandle implementation for the @ServiceLock feature, supplying the SERVICE_LOCK lock-name prefix.",
+      "tags": ["lock", "service-lock", "implementation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/lockinfo/impl/ServiceLockInfoHandle.java:ServiceLockInfoHandle",
+      "type": "class",
+      "name": "ServiceLockInfoHandle",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/lockinfo/impl/ServiceLockInfoHandle.java",
+      "lineRange": [10, 18],
+      "summary": "Extends AbstractLockInfoHandle, returning the service-lock prefix so distributed lock names for @ServiceLock methods are namespaced.",
+      "tags": ["lock", "service-lock", "implementation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "type": "file",
+      "name": "LockType.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "summary": "Enum of distributed lock kinds (Reentrant, Fair, Read, Write) selectable on the @ServiceLock annotation and programmatic locking APIs.",
+      "tags": ["enum", "lock", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java:LockType",
+      "type": "class",
+      "name": "LockType",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "lineRange": [8, 29],
+      "summary": "Enumerates the four supported Redisson lock semantics; used as the key when ServiceLockFactory selects a ServiceLocker from ManageLocker.",
+      "tags": ["enum", "lock", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "type": "file",
+      "name": "ServiceLocker.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "summary": "Interface abstracting distributed lock operations (getLock, lock, tryLock with wait/lease times, unlock) implemented by the Redisson-backed lockers.",
+      "tags": ["interface", "distributed-lock", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java:ServiceLocker",
+      "type": "class",
+      "name": "ServiceLocker",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "lineRange": [12, 75],
+      "summary": "Contract for distributed locking with blocking, timed-try, and unlock variants; decouples lock consumers from specific Redisson lock types.",
+      "tags": ["interface", "distributed-lock", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "type": "file",
+      "name": "ServiceLock.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "summary": "Method-level annotation marking a method for distributed locking, with configurable name, SpEL keys, lock type, wait time, time unit, and lock-timeout strategy.",
+      "tags": ["annotation", "distributed-lock", "aop", "declarative"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java:ServiceLock",
+      "type": "class",
+      "name": "ServiceLock",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "summary": "Declarative distributed-lock annotation processed by ServiceLockAspect; heavily used across order, pay, program, and user services.",
+      "tags": ["annotation", "distributed-lock", "aop"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "type": "file",
+      "name": "ServiceLockAspect.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "summary": "AOP around-aspect that applies distributed locks around @ServiceLock methods, resolving lock names via SpEL and invoking a custom lock-timeout handler reflectively when acquisition fails.",
+      "tags": ["aop", "aspect", "distributed-lock", "redisson"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java:ServiceLockAspect",
+      "type": "class",
+      "name": "ServiceLockAspect",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "lineRange": [29, 93],
+      "summary": "Aspect implementing the @ServiceLock semantics: builds the lock name, acquires the typed distributed lock with a wait time, and routes lock-timeout failures to a configurable handler method.",
+      "tags": ["aop", "aspect", "distributed-lock"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java:around",
+      "type": "function",
+      "name": "around",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "lineRange": [40, 67],
+      "summary": "Around advice that resolves the lock name, try-locks the distributed lock, proceeds on success, unlocks in finally, and on timeout applies the custom or default lock-timeout strategy.",
+      "tags": ["aop", "advice", "locking"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java:handleCustomLockTimeoutStrategy",
+      "type": "function",
+      "name": "handleCustomLockTimeoutStrategy",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "lineRange": [69, 92],
+      "summary": "Reflectively locates and invokes the user-specified lock-timeout handler method on the target bean, passing the original join-point arguments.",
+      "tags": ["reflection", "timeout-handling", "aop"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "type": "file",
+      "name": "ServiceLockFactory.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "summary": "Factory returning the ServiceLocker matching a given LockType by delegating to the ManageLocker registry, defaulting to the reentrant locker.",
+      "tags": ["factory", "distributed-lock", "redisson"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java:ServiceLockFactory",
+      "type": "class",
+      "name": "ServiceLockFactory",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "lineRange": [13, 37],
+      "summary": "Maps LockType values to ManageLocker getters (fair, write, read, reentrant) via a switch, centralizing locker selection for aspects and tools.",
+      "tags": ["factory", "distributed-lock"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java:getLock",
+      "type": "function",
+      "name": "getLock",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "lineRange": [19, 36],
+      "summary": "Selects and returns the ServiceLocker for the requested LockType, falling back to the reentrant locker when no type matches.",
+      "tags": ["factory", "distributed-lock", "selection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonFairLocker.java",
+      "type": "file",
+      "name": "RedissonFairLocker.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonFairLocker.java",
+      "summary": "ServiceLocker implementation backed by Redisson fair locks, guaranteeing FIFO lock acquisition order across the cluster.",
+      "tags": ["distributed-lock", "redisson", "fair-lock", "implementation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonFairLocker.java:RedissonFairLocker",
+      "type": "class",
+      "name": "RedissonFairLocker",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonFairLocker.java",
+      "lineRange": [15, 77],
+      "summary": "Implements all ServiceLocker operations using redissonClient.getFairLock, with lock/tryLock/unlock overloads for lease and wait times.",
+      "tags": ["distributed-lock", "redisson", "fair-lock", "implementation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java",
+      "type": "file",
+      "name": "RedissonReadLocker.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java",
+      "summary": "ServiceLocker implementation backed by the read side of a Redisson read-write lock, allowing concurrent readers.",
+      "tags": ["distributed-lock", "redisson", "read-lock", "implementation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java:RedissonReadLocker",
+      "type": "class",
+      "name": "RedissonReadLocker",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java",
+      "lineRange": [15, 77],
+      "summary": "Implements all ServiceLocker operations using redissonClient.getReadWriteLock().readLock(), with lock/tryLock/unlock overloads for lease and wait times.",
+      "tags": ["distributed-lock", "redisson", "read-lock", "implementation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java",
+      "type": "file",
+      "name": "RedissonReentrantLocker.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java",
+      "summary": "ServiceLocker implementation backed by a standard Redisson reentrant distributed lock; the default lock type for @ServiceLock.",
+      "tags": ["distributed-lock", "redisson", "reentrant-lock", "implementation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java:RedissonReentrantLocker",
+      "type": "class",
+      "name": "RedissonReentrantLocker",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java",
+      "lineRange": [15, 77],
+      "summary": "Implements all ServiceLocker operations using redissonClient.getLock, with lock/tryLock/unlock overloads for lease and wait times.",
+      "tags": ["distributed-lock", "redisson", "reentrant-lock", "implementation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java",
+      "type": "file",
+      "name": "RedissonWriteLocker.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java",
+      "summary": "ServiceLocker implementation backed by the write side of a Redisson read-write lock, providing exclusive cluster-wide access.",
+      "tags": ["distributed-lock", "redisson", "write-lock", "implementation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java:RedissonWriteLocker",
+      "type": "class",
+      "name": "RedissonWriteLocker",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java",
+      "lineRange": [15, 77],
+      "summary": "Implements all ServiceLocker operations using redissonClient.getReadWriteLock().writeLock(), with lock/tryLock/unlock overloads for lease and wait times.",
+      "tags": ["distributed-lock", "redisson", "write-lock", "implementation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutStrategy.java",
+      "type": "file",
+      "name": "LockTimeOutStrategy.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutStrategy.java",
+      "summary": "Enum of strategies applied when distributed lock acquisition times out; the default FAIL strategy throws a RuntimeException with a formatted message.",
+      "tags": ["enum", "lock", "timeout-handling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutStrategy.java:LockTimeOutStrategy",
+      "type": "class",
+      "name": "LockTimeOutStrategy",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutStrategy.java",
+      "lineRange": [9, 20],
+      "summary": "Declares lock-timeout handling strategies with a handler callback; FAIL is the default used by @ServiceLock and ServiceLockTool.",
+      "tags": ["enum", "lock", "timeout-handling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "type": "file",
+      "name": "ServiceLockTool.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "summary": "Programmatic API for running tasks under distributed locks: execute (Runnable) and submit (Callable) variants acquire a typed lock around the task and apply the FAIL timeout strategy when acquisition fails.",
+      "tags": ["utility", "distributed-lock", "api", "concurrency"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:ServiceLockTool",
+      "type": "class",
+      "name": "ServiceLockTool",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "lineRange": [21, 136],
+      "summary": "Facade combining LockInfoHandleFactory and ServiceLockFactory so services can execute code under a distributed lock without annotations; used by order and program services.",
+      "tags": ["utility", "distributed-lock", "facade"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "lineRange": [72, 86],
+      "summary": "Core execute variant: resolves the lock name, try-locks with the given wait time, runs the task, unlocks in finally, and invokes the FAIL timeout strategy when the lock is not acquired.",
+      "tags": ["distributed-lock", "execution", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:submit",
+      "type": "function",
+      "name": "submit",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "lineRange": [95, 110],
+      "summary": "Callable variant of execute: acquires the reentrant distributed lock, runs the task returning a value, unlocks in finally, and applies the FAIL timeout strategy on lock failure.",
+      "tags": ["distributed-lock", "execution", "utility"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/lockinfo/impl/ServiceLockInfoHandle.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/lockinfo/impl/ServiceLockInfoHandle.java:ServiceLockInfoHandle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java:LockType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java:ServiceLocker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java:ServiceLock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java:ServiceLockAspect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java:around",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java:handleCustomLockTimeoutStrategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java:ServiceLockFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java:getLock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonFairLocker.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonFairLocker.java:RedissonFairLocker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java:RedissonReadLocker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java:RedissonReentrantLocker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java:RedissonWriteLocker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutStrategy.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutStrategy.java:LockTimeOutStrategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:ServiceLockTool",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:submit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/lockinfo/impl/ServiceLockInfoHandle.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutStrategy.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonFairLocker.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutStrategy.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/lockinfo/impl/ServiceLockInfoHandle.java:ServiceLockInfoHandle",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:AbstractLockInfoHandle",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonFairLocker.java:RedissonFairLocker",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java:ServiceLocker",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java:RedissonReadLocker",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java:ServiceLocker",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java:RedissonReentrantLocker",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java:ServiceLocker",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java:RedissonWriteLocker",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java:ServiceLocker",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java:getLock",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java:ManageLocker",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java:around",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java:LockInfoHandleFactory",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java:around",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java:ServiceLockFactory",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java:around",
+      "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isNotEmpty",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:execute",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java:LockInfoHandleFactory",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:execute",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java:ServiceLockFactory",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:execute",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutStrategy.java:LockTimeOutStrategy",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:submit",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java:LockInfoHandleFactory",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:submit",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java:ServiceLockFactory",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java:submit",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutStrategy.java:LockTimeOutStrategy",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

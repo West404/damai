@@ -1,0 +1,964 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java",
+      "type": "file",
+      "name": "UserInfoVo.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java",
+      "summary": "订单侧用户信息 VO，承载用户 id、姓名、证件姓名、性别、手机号与地址等字段，用于订单详情中关联用户资料的传输与展示。",
+      "tags": [
+        "data-model",
+        "vo",
+        "订单",
+        "用户信息"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "type": "file",
+      "name": "BroadcastController.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "summary": "广播调用控制层，对外暴露 POST /broadcast/add 接口，将 BroadcastCallDto 交给 BroadcastService 处理后返回统一响应 ApiResponse。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "广播调用",
+        "入口点"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java",
+      "type": "file",
+      "name": "BroadcastService.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java",
+      "summary": "广播调用业务服务，接收 BroadcastCallDto 完成广播消息的组装与下发。",
+      "tags": [
+        "service",
+        "业务逻辑",
+        "广播调用"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+      "type": "file",
+      "name": "Config.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+      "summary": "网关服务通用配置类，注册 RestTemplate、HttpMessageConverters、全局异常处理器、CORS 跨域规则与监听线程池等 Bean。",
+      "tags": [
+        "configuration",
+        "gateway",
+        "bean注册",
+        "跨域"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "实现 WebFluxConfigurer 覆写 addCorsMappings；@Bean 配合 @Order(-2) 让自定义 ErrorWebExceptionHandler 优先于 Spring 默认实现。"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java",
+      "type": "file",
+      "name": "RequestTemporaryWrapper.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java",
+      "summary": "网关异常处理过程中传递临时数据的包装对象，暂存请求参数 Map 与待写出的 ApiResponse。",
+      "tags": [
+        "data-model",
+        "gateway",
+        "异常处理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "type": "file",
+      "name": "GatewayDefaultExceptionHandler.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "summary": "网关全局异常处理器，实现 ErrorWebExceptionHandler，把 NOT_FOUND、业务异常、参数异常与未知异常统一转换为 JSON 响应体。",
+      "tags": [
+        "api-handler",
+        "异常处理",
+        "gateway",
+        "webflux"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "type": "file",
+      "name": "OrderController.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "summary": "订单服务 REST 控制层，暴露订单创建、支付、支付状态检查、支付宝回调、列表、详情、缓存查询、账户订单数统计与取消等接口。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "订单",
+        "入口点"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java",
+      "type": "file",
+      "name": "Order.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java",
+      "summary": "订单实体，映射订单主表，包含订单号、节目信息、价格、支付方式、订单状态及下单/取消/支付时间等字段，继承 BaseTableData 复用公共字段。",
+      "tags": [
+        "data-model",
+        "entity",
+        "订单",
+        "mybatis-plus"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java:UserInfoVo",
+      "type": "class",
+      "name": "UserInfoVo",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java",
+      "lineRange": [
+        14,
+        33
+      ],
+      "summary": "订单侧用户信息视图对象，字段与用户基本资料一一对应，用于订单详情返回。",
+      "tags": [
+        "data-model",
+        "vo",
+        "订单",
+        "用户信息"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java:BroadcastController",
+      "type": "class",
+      "name": "BroadcastController",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "lineRange": [
+        23,
+        34
+      ],
+      "summary": "广播调用控制器，声明 /broadcast/add 接口并注入 BroadcastService。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "广播调用"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java:BroadcastService",
+      "type": "class",
+      "name": "BroadcastService",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java",
+      "lineRange": [
+        12,
+        16
+      ],
+      "summary": "广播调用业务服务类，提供 call 方法处理广播请求。",
+      "tags": [
+        "service",
+        "业务逻辑",
+        "广播调用"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java:Config",
+      "type": "class",
+      "name": "Config",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+      "lineRange": [
+        26,
+        69
+      ],
+      "summary": "网关通用配置类，声明 RestTemplate、消息转换器、异常处理器、跨域规则与监听线程池等 Bean。",
+      "tags": [
+        "configuration",
+        "gateway",
+        "bean注册"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java:RequestTemporaryWrapper",
+      "type": "class",
+      "name": "RequestTemporaryWrapper",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java",
+      "lineRange": [
+        14,
+        19
+      ],
+      "summary": "异常处理临时数据包装类，持有请求参数 Map 与 ApiResponse 两个字段。",
+      "tags": [
+        "data-model",
+        "gateway",
+        "异常处理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java:GatewayDefaultExceptionHandler",
+      "type": "class",
+      "name": "GatewayDefaultExceptionHandler",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "lineRange": [
+        24,
+        81
+      ],
+      "summary": "网关自定义异常处理器，实现 ErrorWebExceptionHandler 完成异常到 JSON 响应的转换。",
+      "tags": [
+        "api-handler",
+        "异常处理",
+        "gateway"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:OrderController",
+      "type": "class",
+      "name": "OrderController",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "lineRange": [
+        36,
+        94
+      ],
+      "summary": "订单控制器，声明订单全生命周期相关 HTTP 接口并统一委托 OrderService。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "订单"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java:Order",
+      "type": "class",
+      "name": "Order",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java",
+      "lineRange": [
+        19,
+        108
+      ],
+      "summary": "订单表实体类，继承 BaseTableData 并实现 Serializable，字段覆盖节目信息、订单金额、状态与关键时间点。",
+      "tags": [
+        "data-model",
+        "entity",
+        "订单",
+        "mybatis-plus"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java:call",
+      "type": "function",
+      "name": "call",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "lineRange": [
+        28,
+        33
+      ],
+      "summary": "广播调用接口方法：校验入参后调用 BroadcastService.call 并返回 ApiResponse.ok()。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "广播调用"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java:threadPoolExecutor",
+      "type": "function",
+      "name": "threadPoolExecutor",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+      "lineRange": [
+        58,
+        68
+      ],
+      "summary": "创建监听线程池 Bean：核心线程数为 CPU 核数、最大为核心核数 +10，使用无界队列与 listen-start-thread- 前缀线程工厂。",
+      "tags": [
+        "configuration",
+        "线程池",
+        "bean定义"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java:handle",
+      "type": "function",
+      "name": "handle",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "lineRange": [
+        26,
+        80
+      ],
+      "summary": "网关统一异常处理：判断响应是否已提交，按异常类型构造 ApiResponse 并写入响应体，业务类异常返回 200、其余返回 500。",
+      "tags": [
+        "api-handler",
+        "异常处理",
+        "webflux",
+        "reactive"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:create",
+      "type": "function",
+      "name": "create",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "lineRange": [
+        41,
+        45
+      ],
+      "summary": "订单创建接口 POST /order/create，仅供内部 program 服务调用，返回 OrderService.create 生成的订单号。",
+      "tags": [
+        "api-handler",
+        "订单创建",
+        "内部接口"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:pay",
+      "type": "function",
+      "name": "pay",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "lineRange": [
+        47,
+        51
+      ],
+      "summary": "订单支付接口 POST /order/pay，返回支付参数。",
+      "tags": [
+        "api-handler",
+        "支付",
+        "订单"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:payCheck",
+      "type": "function",
+      "name": "payCheck",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "lineRange": [
+        53,
+        57
+      ],
+      "summary": "支付后订单状态检查接口 POST /order/pay/check，返回订单支付核对结果。",
+      "tags": [
+        "api-handler",
+        "支付核对",
+        "订单"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:alipayNotify",
+      "type": "function",
+      "name": "alipayNotify",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "lineRange": [
+        59,
+        63
+      ],
+      "summary": "支付宝支付异步回调接口 POST /order/alipay/notify，直接返回业务处理结果字符串。",
+      "tags": [
+        "api-handler",
+        "支付回调",
+        "支付宝"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:selectList",
+      "type": "function",
+      "name": "selectList",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "lineRange": [
+        65,
+        69
+      ],
+      "summary": "订单列表查询接口 POST /order/select/list。",
+      "tags": [
+        "api-handler",
+        "订单查询",
+        "列表"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "lineRange": [
+        71,
+        75
+      ],
+      "summary": "订单详情查询接口 POST /order/get，返回订单与购票人/用户信息聚合结果。",
+      "tags": [
+        "api-handler",
+        "订单查询",
+        "详情"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:accountOrderCount",
+      "type": "function",
+      "name": "accountOrderCount",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "lineRange": [
+        77,
+        81
+      ],
+      "summary": "账户下某节目订单数量接口 POST /order/account/order/count，仅供内部 program 服务调用。",
+      "tags": [
+        "api-handler",
+        "订单统计",
+        "内部接口"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:getCache",
+      "type": "function",
+      "name": "getCache",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "lineRange": [
+        83,
+        87
+      ],
+      "summary": "读取缓存订单接口 POST /order/get/cache，返回 Redis 中暂存的订单号。",
+      "tags": [
+        "api-handler",
+        "缓存查询",
+        "订单"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:cancel",
+      "type": "function",
+      "name": "cancel",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "lineRange": [
+        89,
+        93
+      ],
+      "summary": "订单取消接口 POST /order/cancel，委托 OrderService.initiateCancel 完成校验与取消。",
+      "tags": [
+        "api-handler",
+        "订单取消",
+        "订单"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java",
+      "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java:UserInfoVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java:BroadcastController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java:call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java:BroadcastService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java:Config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java:threadPoolExecutor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java:RequestTemporaryWrapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java:GatewayDefaultExceptionHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java:handle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:OrderController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java:Order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:create",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:pay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:payCheck",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:alipayNotify",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:selectList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:accountOrderCount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:getCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:cancel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java",
+      "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java:UserInfoVo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java:BroadcastController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java:call",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java",
+      "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java:BroadcastService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java:Config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java:threadPoolExecutor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java:RequestTemporaryWrapper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java:GatewayDefaultExceptionHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java:handle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:OrderController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java:Order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:create",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:pay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:payCheck",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:alipayNotify",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:selectList",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:get",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:accountOrderCount",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:getCache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:cancel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java",
+      "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java:Order",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:create",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:create",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:pay",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:pay",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:payCheck",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:payCheck",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:alipayNotify",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:alipayNotify",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:selectList",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:selectList",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:get",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java:cancel",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:initiateCancel",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java:handle",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java:RequestTemporaryWrapper",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

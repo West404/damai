@@ -1,0 +1,2140 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 20,
+  "filesSkipped": [
+    "damai-common/src/main/resources/META-INF/spring.factories",
+    "damai-common/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-elasticsearch-framework/pom.xml",
+    "damai-elasticsearch-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-id-generator-framework/pom.xml"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 20,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 19,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/PermitRefund.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "PermitRefund",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "code",
+            "msg"
+          ]
+        },
+        {
+          "name": "getCode",
+          "startLine": 26,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "setCode",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 34,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "setMsg",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 42,
+          "endLine": 49,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getRc",
+          "startLine": 51,
+          "endLine": 58,
+          "params": [
+            "code"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PermitRefund",
+          "startLine": 8,
+          "endLine": 59,
+          "methods": [
+            "PermitRefund",
+            "getCode",
+            "setCode",
+            "getMsg",
+            "setMsg",
+            "getMsg",
+            "getRc"
+          ],
+          "properties": [
+            "code",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCode",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "setCode",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "setMsg",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "getRc",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "PermitRefund",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getMsg",
+          "callee": "PermitRefund.values",
+          "lineNumber": 43
+        },
+        {
+          "caller": "getMsg",
+          "callee": "re.code.intValue",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getMsg",
+          "callee": "code.intValue",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getRc",
+          "callee": "PermitRefund.values",
+          "lineNumber": 52
+        },
+        {
+          "caller": "getRc",
+          "callee": "re.code.intValue",
+          "lineNumber": 53
+        },
+        {
+          "caller": "getRc",
+          "callee": "code.intValue",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/ProgramPageType.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 58,
+      "functions": [
+        {
+          "name": "ProgramPageType",
+          "startLine": 27,
+          "endLine": 31,
+          "params": [
+            "code",
+            "value",
+            "msg"
+          ]
+        },
+        {
+          "name": "getCode",
+          "startLine": 33,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "setCode",
+          "startLine": 37,
+          "endLine": 39,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 41,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "setMsg",
+          "startLine": 45,
+          "endLine": 47,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "getValue",
+          "startLine": 49,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "setValue",
+          "startLine": 53,
+          "endLine": 55,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 57,
+          "endLine": 64,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getRc",
+          "startLine": 66,
+          "endLine": 73,
+          "params": [
+            "code"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramPageType",
+          "startLine": 8,
+          "endLine": 74,
+          "methods": [
+            "ProgramPageType",
+            "getCode",
+            "setCode",
+            "getMsg",
+            "setMsg",
+            "getValue",
+            "setValue",
+            "getMsg",
+            "getRc"
+          ],
+          "properties": [
+            "code",
+            "value",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCode",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "setCode",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "setMsg",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "getValue",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "setValue",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "getRc",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramPageType",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getMsg",
+          "callee": "ProgramPageType.values",
+          "lineNumber": 58
+        },
+        {
+          "caller": "getMsg",
+          "callee": "re.code.intValue",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getMsg",
+          "callee": "code.intValue",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getRc",
+          "callee": "ProgramPageType.values",
+          "lineNumber": 67
+        },
+        {
+          "caller": "getRc",
+          "callee": "re.code.intValue",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getRc",
+          "callee": "code.intValue",
+          "lineNumber": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/TimeType.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "TimeType",
+          "startLine": 24,
+          "endLine": 27,
+          "params": [
+            "code",
+            "msg"
+          ]
+        },
+        {
+          "name": "getCode",
+          "startLine": 29,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "getMsg",
+          "startLine": 33,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "getMsg",
+          "startLine": 37,
+          "endLine": 44,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getRc",
+          "startLine": 46,
+          "endLine": 53,
+          "params": [
+            "code"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TimeType",
+          "startLine": 8,
+          "endLine": 54,
+          "methods": [
+            "TimeType",
+            "getCode",
+            "getMsg",
+            "getMsg",
+            "getRc"
+          ],
+          "properties": [
+            "code",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCode",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "getRc",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "TimeType",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getMsg",
+          "callee": "TimeType.values",
+          "lineNumber": 38
+        },
+        {
+          "caller": "getMsg",
+          "callee": "re.code.intValue",
+          "lineNumber": 39
+        },
+        {
+          "caller": "getMsg",
+          "callee": "code.intValue",
+          "lineNumber": 39
+        },
+        {
+          "caller": "getRc",
+          "callee": "TimeType.values",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getRc",
+          "callee": "re.code.intValue",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getRc",
+          "callee": "code.intValue",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/UserLogStatus.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "UserLogStatus",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "code",
+            "msg"
+          ]
+        },
+        {
+          "name": "getCode",
+          "startLine": 26,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "setCode",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 34,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "setMsg",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 42,
+          "endLine": 49,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getRc",
+          "startLine": 51,
+          "endLine": 58,
+          "params": [
+            "code"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserLogStatus",
+          "startLine": 8,
+          "endLine": 59,
+          "methods": [
+            "UserLogStatus",
+            "getCode",
+            "setCode",
+            "getMsg",
+            "setMsg",
+            "getMsg",
+            "getRc"
+          ],
+          "properties": [
+            "code",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCode",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "setCode",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "setMsg",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "getRc",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "UserLogStatus",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getMsg",
+          "callee": "UserLogStatus.values",
+          "lineNumber": 43
+        },
+        {
+          "caller": "getMsg",
+          "callee": "re.code.intValue",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getMsg",
+          "callee": "code.intValue",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getRc",
+          "callee": "UserLogStatus.values",
+          "lineNumber": 52
+        },
+        {
+          "caller": "getRc",
+          "callee": "re.code.intValue",
+          "lineNumber": 53
+        },
+        {
+          "caller": "getRc",
+          "callee": "code.intValue",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/environment/SpringEnvironment.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "postProcessEnvironment",
+          "startLine": 14,
+          "endLine": 17,
+          "params": [
+            "environment",
+            "application"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SpringEnvironment",
+          "startLine": 12,
+          "endLine": 18,
+          "methods": [
+            "postProcessEnvironment"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "postProcessEnvironment",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "SpringEnvironment",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "postProcessEnvironment",
+          "callee": "application.setAllowBeanDefinitionOverriding",
+          "lineNumber": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/exception/BaseException.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 22,
+      "functions": [
+        {
+          "name": "BaseException",
+          "startLine": 10,
+          "endLine": 12,
+          "params": []
+        },
+        {
+          "name": "BaseException",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "BaseException",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "cause"
+          ]
+        },
+        {
+          "name": "BaseException",
+          "startLine": 22,
+          "endLine": 24,
+          "params": [
+            "message",
+            "cause"
+          ]
+        },
+        {
+          "name": "BaseException",
+          "startLine": 26,
+          "endLine": 28,
+          "params": [
+            "code",
+            "message",
+            "cause"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BaseException",
+          "startLine": 8,
+          "endLine": 29,
+          "methods": [
+            "BaseException",
+            "BaseException",
+            "BaseException",
+            "BaseException",
+            "BaseException"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BaseException",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "BaseException",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "BaseException",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "BaseException",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "BaseException",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "BaseException",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 155,
+      "nonEmptyLines": 141,
+      "functions": [
+        {
+          "name": "DamaiJsonLayout",
+          "startLine": 51,
+          "endLine": 70,
+          "params": [
+            "config",
+            "locationInfo",
+            "properties",
+            "threadContextAsList",
+            "complete",
+            "compact",
+            "eventEol",
+            "header",
+            "footer",
+            "charset",
+            "includeStacktrace",
+            "projectName",
+            "env",
+            "stacktraceAsString",
+            "objectMessageAsJson"
+          ]
+        },
+        {
+          "name": "createSerializer",
+          "startLine": 72,
+          "endLine": 80,
+          "params": [
+            "config",
+            "pattern",
+            "defaultPattern"
+          ]
+        },
+        {
+          "name": "getHeader",
+          "startLine": 82,
+          "endLine": 89,
+          "params": []
+        },
+        {
+          "name": "getFooter",
+          "startLine": 91,
+          "endLine": 98,
+          "params": []
+        },
+        {
+          "name": "getContentFormat",
+          "startLine": 100,
+          "endLine": 105,
+          "params": []
+        },
+        {
+          "name": "getContentType",
+          "startLine": 107,
+          "endLine": 110,
+          "params": []
+        },
+        {
+          "name": "toSerializable",
+          "startLine": 112,
+          "endLine": 118,
+          "params": [
+            "event",
+            "writer"
+          ]
+        },
+        {
+          "name": "newLayout",
+          "startLine": 123,
+          "endLine": 145,
+          "params": [
+            "config",
+            "locationInfo",
+            "properties",
+            "propertiesAsList",
+            "complete",
+            "compact",
+            "eventEol",
+            "header",
+            "footer",
+            "charset",
+            "includeStacktrace",
+            "projectName",
+            "env",
+            "stacktraceAsString",
+            "objectMessageAsJson"
+          ]
+        },
+        {
+          "name": "defaultLayout",
+          "startLine": 150,
+          "endLine": 154,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DamaiJsonLayout",
+          "startLine": 44,
+          "endLine": 155,
+          "methods": [
+            "DamaiJsonLayout",
+            "createSerializer",
+            "getHeader",
+            "getFooter",
+            "getContentFormat",
+            "getContentType",
+            "toSerializable",
+            "newLayout",
+            "defaultLayout"
+          ],
+          "properties": [
+            "JSON_ARRAY_START",
+            "JSON_ARRAY_END",
+            "MIME_TYPE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getHeader",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "getFooter",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "getContentFormat",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "getContentType",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "toSerializable",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "newLayout",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "defaultLayout",
+          "line": 150,
+          "isDefault": false
+        },
+        {
+          "name": "DamaiJsonLayout",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DamaiJsonLayout",
+          "callee": "JsonWriterBuilder.create()\r\n                        .threadContextAsList(threadContextAsList)\r\n                        .includeStacktrace(includeStacktrace)\r\n                        .stacktraceAsString(stacktraceAsString)\r\n                        .objectMessageAsJson(objectMessageAsJson)\r\n                        .showLocation(locationInfo)\r\n                        .showProperties(properties)\r\n                        .compactMode(compact).build",
+          "lineNumber": 57
+        },
+        {
+          "caller": "DamaiJsonLayout",
+          "callee": "JsonWriterBuilder.create()\r\n                        .threadContextAsList(threadContextAsList)\r\n                        .includeStacktrace(includeStacktrace)\r\n                        .stacktraceAsString(stacktraceAsString)\r\n                        .objectMessageAsJson(objectMessageAsJson)\r\n                        .showLocation(locationInfo)\r\n                        .showProperties(properties).compactMode",
+          "lineNumber": 57
+        },
+        {
+          "caller": "DamaiJsonLayout",
+          "callee": "JsonWriterBuilder.create()\r\n                        .threadContextAsList(threadContextAsList)\r\n                        .includeStacktrace(includeStacktrace)\r\n                        .stacktraceAsString(stacktraceAsString)\r\n                        .objectMessageAsJson(objectMessageAsJson)\r\n                        .showLocation(locationInfo).showProperties",
+          "lineNumber": 57
+        },
+        {
+          "caller": "DamaiJsonLayout",
+          "callee": "JsonWriterBuilder.create()\r\n                        .threadContextAsList(threadContextAsList)\r\n                        .includeStacktrace(includeStacktrace)\r\n                        .stacktraceAsString(stacktraceAsString)\r\n                        .objectMessageAsJson(objectMessageAsJson).showLocation",
+          "lineNumber": 57
+        },
+        {
+          "caller": "DamaiJsonLayout",
+          "callee": "JsonWriterBuilder.create()\r\n                        .threadContextAsList(threadContextAsList)\r\n                        .includeStacktrace(includeStacktrace)\r\n                        .stacktraceAsString(stacktraceAsString).objectMessageAsJson",
+          "lineNumber": 57
+        },
+        {
+          "caller": "DamaiJsonLayout",
+          "callee": "JsonWriterBuilder.create()\r\n                        .threadContextAsList(threadContextAsList)\r\n                        .includeStacktrace(includeStacktrace).stacktraceAsString",
+          "lineNumber": 57
+        },
+        {
+          "caller": "DamaiJsonLayout",
+          "callee": "JsonWriterBuilder.create()\r\n                        .threadContextAsList(threadContextAsList).includeStacktrace",
+          "lineNumber": 57
+        },
+        {
+          "caller": "DamaiJsonLayout",
+          "callee": "JsonWriterBuilder.create().threadContextAsList",
+          "lineNumber": 57
+        },
+        {
+          "caller": "DamaiJsonLayout",
+          "callee": "JsonWriterBuilder.create",
+          "lineNumber": 57
+        },
+        {
+          "caller": "DamaiJsonLayout",
+          "callee": "createSerializer",
+          "lineNumber": 67
+        },
+        {
+          "caller": "DamaiJsonLayout",
+          "callee": "createSerializer",
+          "lineNumber": 68
+        },
+        {
+          "caller": "createSerializer",
+          "callee": "PatternLayout.newSerializerBuilder()\r\n                .setConfiguration(config)\r\n                .setPattern(pattern)\r\n                .setDefaultPattern(defaultPattern)\r\n                .setAlwaysWriteExceptions(false)\r\n                .setNoConsoleNoAnsi(false).build",
+          "lineNumber": 73
+        },
+        {
+          "caller": "createSerializer",
+          "callee": "PatternLayout.newSerializerBuilder()\r\n                .setConfiguration(config)\r\n                .setPattern(pattern)\r\n                .setDefaultPattern(defaultPattern)\r\n                .setAlwaysWriteExceptions(false).setNoConsoleNoAnsi",
+          "lineNumber": 73
+        },
+        {
+          "caller": "createSerializer",
+          "callee": "PatternLayout.newSerializerBuilder()\r\n                .setConfiguration(config)\r\n                .setPattern(pattern)\r\n                .setDefaultPattern(defaultPattern).setAlwaysWriteExceptions",
+          "lineNumber": 73
+        },
+        {
+          "caller": "createSerializer",
+          "callee": "PatternLayout.newSerializerBuilder()\r\n                .setConfiguration(config)\r\n                .setPattern(pattern).setDefaultPattern",
+          "lineNumber": 73
+        },
+        {
+          "caller": "createSerializer",
+          "callee": "PatternLayout.newSerializerBuilder()\r\n                .setConfiguration(config).setPattern",
+          "lineNumber": 73
+        },
+        {
+          "caller": "createSerializer",
+          "callee": "PatternLayout.newSerializerBuilder().setConfiguration",
+          "lineNumber": 73
+        },
+        {
+          "caller": "createSerializer",
+          "callee": "PatternLayout.newSerializerBuilder",
+          "lineNumber": 73
+        },
+        {
+          "caller": "getHeader",
+          "callee": "serializeToString",
+          "lineNumber": 87
+        },
+        {
+          "caller": "getHeader",
+          "callee": "getHeaderSerializer",
+          "lineNumber": 87
+        },
+        {
+          "caller": "getHeader",
+          "callee": "getBytes",
+          "lineNumber": 88
+        },
+        {
+          "caller": "getFooter",
+          "callee": "serializeToString",
+          "lineNumber": 96
+        },
+        {
+          "caller": "getFooter",
+          "callee": "getFooterSerializer",
+          "lineNumber": 96
+        },
+        {
+          "caller": "getFooter",
+          "callee": "getBytes",
+          "lineNumber": 97
+        },
+        {
+          "caller": "getContentFormat",
+          "callee": "new HashMap<>",
+          "lineNumber": 102
+        },
+        {
+          "caller": "getContentFormat",
+          "callee": "format.put",
+          "lineNumber": 103
+        },
+        {
+          "caller": "getContentType",
+          "callee": "getCharset",
+          "lineNumber": 109
+        },
+        {
+          "caller": "toSerializable",
+          "callee": "writer.append",
+          "lineNumber": 115
+        },
+        {
+          "caller": "toSerializable",
+          "callee": "super.toSerializable",
+          "lineNumber": 117
+        },
+        {
+          "caller": "newLayout",
+          "callee": "new DamaiJsonLayout",
+          "lineNumber": 142
+        },
+        {
+          "caller": "defaultLayout",
+          "callee": "new DamaiJsonLayout",
+          "lineNumber": 151
+        },
+        {
+          "caller": "defaultLayout",
+          "callee": "new DefaultConfiguration",
+          "lineNumber": 151
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 75,
+      "functions": [
+        {
+          "name": "create",
+          "startLine": 31,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "threadContextAsList",
+          "startLine": 35,
+          "endLine": 38,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "includeStacktrace",
+          "startLine": 40,
+          "endLine": 43,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "stacktraceAsString",
+          "startLine": 45,
+          "endLine": 48,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "objectMessageAsJson",
+          "startLine": 50,
+          "endLine": 53,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "showLocation",
+          "startLine": 55,
+          "endLine": 58,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "showProperties",
+          "startLine": 60,
+          "endLine": 63,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "compactMode",
+          "startLine": 65,
+          "endLine": 68,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "build",
+          "startLine": 70,
+          "endLine": 91,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "JsonWriterBuilder",
+          "startLine": 21,
+          "endLine": 92,
+          "methods": [
+            "create",
+            "threadContextAsList",
+            "includeStacktrace",
+            "stacktraceAsString",
+            "objectMessageAsJson",
+            "showLocation",
+            "showProperties",
+            "compactMode",
+            "build"
+          ],
+          "properties": [
+            "threadContextAsList",
+            "includeStacktrace",
+            "stacktraceAsString",
+            "objectMessageAsJson",
+            "showLocation",
+            "showProperties",
+            "compactMode"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "create",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "threadContextAsList",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "includeStacktrace",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "stacktraceAsString",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "objectMessageAsJson",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "showLocation",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "showProperties",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "compactMode",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "build",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "JsonWriterBuilder",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "new JsonWriterBuilder",
+          "lineNumber": 32
+        },
+        {
+          "caller": "build",
+          "callee": "new HashSet<>",
+          "lineNumber": 72
+        },
+        {
+          "caller": "build",
+          "callee": "excludeFields.add",
+          "lineNumber": 74
+        },
+        {
+          "caller": "build",
+          "callee": "excludeFields.add",
+          "lineNumber": 77
+        },
+        {
+          "caller": "build",
+          "callee": "excludeFields.add",
+          "lineNumber": 79
+        },
+        {
+          "caller": "build",
+          "callee": "new SimpleFilterProvider",
+          "lineNumber": 81
+        },
+        {
+          "caller": "build",
+          "callee": "filterProvider.addFilter",
+          "lineNumber": 82
+        },
+        {
+          "caller": "build",
+          "callee": "Log4jLogEvent.class.getName",
+          "lineNumber": 82
+        },
+        {
+          "caller": "build",
+          "callee": "SimpleBeanPropertyFilter.serializeAllExcept",
+          "lineNumber": 83
+        },
+        {
+          "caller": "build",
+          "callee": "new Log4jJsonObjectMapper",
+          "lineNumber": 86
+        },
+        {
+          "caller": "build",
+          "callee": "mapper.writer(compactMode ? new MinimalPrettyPrinter() : new DefaultPrettyPrinter()).with",
+          "lineNumber": 89
+        },
+        {
+          "caller": "build",
+          "callee": "mapper.writer",
+          "lineNumber": 89
+        },
+        {
+          "caller": "build",
+          "callee": "new MinimalPrettyPrinter",
+          "lineNumber": 89
+        },
+        {
+          "caller": "build",
+          "callee": "new DefaultPrettyPrinter",
+          "lineNumber": 89
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/test/Test.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "execute",
+          "startLine": 27,
+          "endLine": 29,
+          "params": [
+            "runnable"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 31,
+          "endLine": 34,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Test",
+          "startLine": 14,
+          "endLine": 35,
+          "methods": [
+            "execute",
+            "main"
+          ],
+          "properties": [
+            "listenStartThreadCount",
+            "threadPool"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "execute",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "Test",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "execute",
+          "callee": "threadPool.execute",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "new Test",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "test.execute",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.currentThread().getName",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.currentThread",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/util/Base64.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 194,
+      "nonEmptyLines": 153,
+      "functions": [
+        {
+          "name": "isWhiteSpace",
+          "startLine": 79,
+          "endLine": 81,
+          "params": [
+            "octect"
+          ]
+        },
+        {
+          "name": "isPad",
+          "startLine": 83,
+          "endLine": 85,
+          "params": [
+            "octect"
+          ]
+        },
+        {
+          "name": "isData",
+          "startLine": 87,
+          "endLine": 89,
+          "params": [
+            "octect"
+          ]
+        },
+        {
+          "name": "encode",
+          "startLine": 98,
+          "endLine": 170,
+          "params": [
+            "binaryData"
+          ]
+        },
+        {
+          "name": "removeWhiteSpace",
+          "startLine": 179,
+          "endLine": 193,
+          "params": [
+            "data"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Base64",
+          "startLine": 10,
+          "endLine": 194,
+          "methods": [
+            "isWhiteSpace",
+            "isPad",
+            "isData",
+            "encode",
+            "removeWhiteSpace"
+          ],
+          "properties": [
+            "BASE_LENGTH",
+            "LOOKUP_LENGTH",
+            "TWENTY_FOUR_BIT_GROUP",
+            "EIGHT_BIT",
+            "SIXTEEN_BIT",
+            "FOUR_BYTE",
+            "SIGN",
+            "PAD",
+            "BASE64_ALPHABET",
+            "LOOKUP_BASE64_ALPHABET",
+            "A_UPPER_CASE",
+            "A_LOWER_CASE",
+            "Z_UPPER_CASE",
+            "Z_LOWER_CASE",
+            "ZERO",
+            "NINE",
+            "TWENTY_FIVE",
+            "TWENTY_SIX",
+            "FIFTY_ONE",
+            "FIFTY_TWO",
+            "SIXTY_ONE",
+            "LOW_FOUR_BITS_MASK",
+            "LOW_TWO_BITS_MASK"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "encode",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "Base64",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "encode",
+          "callee": "new String",
+          "lineNumber": 169
+        },
+        {
+          "caller": "removeWhiteSpace",
+          "callee": "isWhiteSpace",
+          "lineNumber": 188
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsProperties.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 22,
+      "classes": [
+        {
+          "name": "BusinessEsProperties",
+          "startLine": 11,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "PREFIX",
+            "ip",
+            "userName",
+            "passWord",
+            "esSwitch",
+            "esTypeSwitch",
+            "connectTimeOut",
+            "socketTimeOut",
+            "connectionRequestTimeOut",
+            "maxConnectNum"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PREFIX",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "BusinessEsProperties",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataCreateDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 18,
+      "classes": [
+        {
+          "name": "EsDataCreateDto",
+          "startLine": 10,
+          "endLine": 21,
+          "methods": [],
+          "properties": [
+            "paramName",
+            "paramValue"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "EsDataCreateDto",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 7,
+      "nonEmptyLines": 4,
+      "sections": [
+        {
+          "heading": "id生成器",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferedUidProvider.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 32,
+      "classes": [
+        {
+          "name": "BufferedUidProvider",
+          "startLine": 25,
+          "endLine": 35,
+          "methods": [
+            "provide"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BufferedUidProvider",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/DisposableWorkerIdAssigner.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 57,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 104,
+      "nonEmptyLines": 88,
+      "functions": [
+        {
+          "name": "getDockerHost",
+          "startLine": 51,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "getDockerPort",
+          "startLine": 60,
+          "endLine": 62,
+          "params": []
+        },
+        {
+          "name": "isDocker",
+          "startLine": 69,
+          "endLine": 71,
+          "params": []
+        },
+        {
+          "name": "retrieveFromEnv",
+          "startLine": 76,
+          "endLine": 102,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractDockerUtils",
+          "startLine": 27,
+          "endLine": 104,
+          "methods": [
+            "getDockerHost",
+            "getDockerPort",
+            "isDocker",
+            "retrieveFromEnv"
+          ],
+          "properties": [
+            "LOGGER",
+            "ENV_KEY_HOST",
+            "ENV_KEY_PORT",
+            "ENV_KEY_PORT_ORIGINAL",
+            "DOCKER_HOST",
+            "DOCKER_PORT",
+            "IS_DOCKER"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getDockerHost",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "getDockerPort",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "isDocker",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractDockerUtils",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "retrieveFromEnv",
+          "callee": "System.getenv",
+          "lineNumber": 78
+        },
+        {
+          "caller": "retrieveFromEnv",
+          "callee": "System.getenv",
+          "lineNumber": 79
+        },
+        {
+          "caller": "retrieveFromEnv",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 82
+        },
+        {
+          "caller": "retrieveFromEnv",
+          "callee": "System.getenv",
+          "lineNumber": 83
+        },
+        {
+          "caller": "retrieveFromEnv",
+          "callee": "StringUtils.isNotBlank",
+          "lineNumber": 86
+        },
+        {
+          "caller": "retrieveFromEnv",
+          "callee": "StringUtils.isNotBlank",
+          "lineNumber": 87
+        },
+        {
+          "caller": "retrieveFromEnv",
+          "callee": "LOGGER.error",
+          "lineNumber": 98
+        },
+        {
+          "caller": "retrieveFromEnv",
+          "callee": "new RuntimeException",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "parse",
+          "startLine": 34,
+          "endLine": 46,
+          "params": [
+            "clz",
+            "value"
+          ]
+        },
+        {
+          "name": "valueOf",
+          "startLine": 56,
+          "endLine": 62,
+          "params": [
+            "enumType",
+            "name"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractEnumUtils",
+          "startLine": 25,
+          "endLine": 64,
+          "methods": [
+            "parse",
+            "valueOf"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "parse",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "valueOf",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractEnumUtils",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parse",
+          "callee": "Assert.notNull",
+          "lineNumber": 35
+        },
+        {
+          "caller": "parse",
+          "callee": "clz.getEnumConstants",
+          "lineNumber": 40
+        },
+        {
+          "caller": "parse",
+          "callee": "value.equals",
+          "lineNumber": 41
+        },
+        {
+          "caller": "parse",
+          "callee": "t.value",
+          "lineNumber": 41
+        },
+        {
+          "caller": "valueOf",
+          "callee": "Enum.valueOf",
+          "lineNumber": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 72,
+      "functions": [
+        {
+          "name": "getLocalInetAddress",
+          "startLine": 49,
+          "endLine": 73,
+          "params": []
+        },
+        {
+          "name": "getLocalAddress",
+          "startLine": 80,
+          "endLine": 82,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractNetUtils",
+          "startLine": 28,
+          "endLine": 84,
+          "methods": [
+            "getLocalInetAddress",
+            "getLocalAddress"
+          ],
+          "properties": [
+            "localAddress"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "localAddress",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "getLocalInetAddress",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "getLocalAddress",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractNetUtils",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getLocalInetAddress",
+          "callee": "NetworkInterface.getNetworkInterfaces",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getLocalInetAddress",
+          "callee": "enu.hasMoreElements",
+          "lineNumber": 53
+        },
+        {
+          "caller": "getLocalInetAddress",
+          "callee": "enu.nextElement",
+          "lineNumber": 54
+        },
+        {
+          "caller": "getLocalInetAddress",
+          "callee": "ni.isLoopback",
+          "lineNumber": 55
+        },
+        {
+          "caller": "getLocalInetAddress",
+          "callee": "ni.getInetAddresses",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getLocalInetAddress",
+          "callee": "addressEnumeration.hasMoreElements",
+          "lineNumber": 60
+        },
+        {
+          "caller": "getLocalInetAddress",
+          "callee": "addressEnumeration.nextElement",
+          "lineNumber": 61
+        },
+        {
+          "caller": "getLocalInetAddress",
+          "callee": "address.isLinkLocalAddress",
+          "lineNumber": 64
+        },
+        {
+          "caller": "getLocalInetAddress",
+          "callee": "address.isLoopbackAddress",
+          "lineNumber": 64
+        },
+        {
+          "caller": "getLocalInetAddress",
+          "callee": "address.isAnyLocalAddress",
+          "lineNumber": 64
+        },
+        {
+          "caller": "getLocalInetAddress",
+          "callee": "new RuntimeException",
+          "lineNumber": 72
+        },
+        {
+          "caller": "getLocalAddress",
+          "callee": "localAddress.getHostAddress",
+          "lineNumber": 81
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/dao/WorkerNodeDAO.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 46,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/toolkit/IdGeneratorConstant.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "IdGeneratorConstant",
+          "startLine": 8,
+          "endLine": 16,
+          "methods": [],
+          "properties": [
+            "WORKER_ID_BITS",
+            "DATA_CENTER_ID_BITS",
+            "MAX_WORKER_ID",
+            "MAX_DATA_CENTER_ID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WORKER_ID_BITS",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "DATA_CENTER_ID_BITS",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "MAX_WORKER_ID",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "MAX_DATA_CENTER_ID",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "IdGeneratorConstant",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

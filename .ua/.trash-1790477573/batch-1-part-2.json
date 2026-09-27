@@ -1,0 +1,801 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java",
+      "type": "file",
+      "name": "AbstractDateUtils.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java",
+      "summary": "抽象日期工具类，扩展 Apache commons DateUtils，提供按天/按时间戳模式的字符串解析与格式化，供 UID 解析时间戳与设置 epoch 使用。",
+      "tags": [
+        "工具类",
+        "日期时间",
+        "格式化",
+        "abstract"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "type": "file",
+      "name": "NamingThreadFactory.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "summary": "可命名的线程工厂，按调用方类名加自增序号生成线程名，并统一设置守护态与未捕获异常处理器，便于线上排查并发问题。",
+      "tags": [
+        "并发",
+        "线程工厂",
+        "工具类",
+        "工厂"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java",
+      "type": "file",
+      "name": "PaddedAtomicLong.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java",
+      "summary": "在 AtomicLong 前后填充伪字段以消除 CPU 缓存行伪共享的高性能原子计数器，用作环形缓冲区的读写游标。",
+      "tags": [
+        "并发",
+        "工具类",
+        "伪共享",
+        "原子操作"
+      ],
+      "complexity": "simple",
+      "languageNotes": "通过 6 个无业务含义的填充字段撑开缓存行，规避 False Sharing 带来的性能抖动。"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "type": "file",
+      "name": "WorkerIdAssigner.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "summary": "workerId（机器号）分配器接口，把机器号的获取方式（Redis、数据库、IP 等）与 UID 生成逻辑解耦。",
+      "tags": [
+        "接口定义",
+        "id-generator",
+        "扩展点"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java",
+      "type": "file",
+      "name": "IdGeneratorAutoConfig.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java",
+      "summary": "分布式 ID 自动装配配置，依次注册 WorkAndDataCenterIdHandler、WorkDataCenterId 与 SnowflakeIdGenerator 三个 Bean。",
+      "tags": [
+        "配置",
+        "自动装配",
+        "id-generator",
+        "spring"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "type": "file",
+      "name": "SnowflakeIdGenerator.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "summary": "项目自研雪花算法 ID 生成器，采用 5 位数据中心 + 5 位机器位 + 12 位序列的划分，支持从 Redis 获取机器位、生成订单号以及反解 ID 生成时间。",
+      "tags": [
+        "id-generator",
+        "雪花算法",
+        "分布式",
+        "高性能"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "以 BASIS_TIME 为起始偏移，时钟回拨时用 tilNextMillis 自旋等待下一毫秒。"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java",
+      "type": "file",
+      "name": "WorkAndDataCenterIdHandler.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java",
+      "summary": "通过 Lua 脚本在 Redis 中原子申请 workerId 与 dataCenterId，避免集群多实例启动时机器号冲突。",
+      "tags": [
+        "分布式",
+        "redis",
+        "lua",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java",
+      "type": "file",
+      "name": "WorkDataCenterId.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java",
+      "summary": "workerId 与 dataCenterId 的简单值对象，作为雪花 ID 生成器的构造参数。",
+      "tags": [
+        "数据模型",
+        "dto",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java",
+      "type": "file",
+      "name": "DelayQueueAutoConfig.java",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java",
+      "summary": "延迟队列自动装配配置，注册 DelayQueueInitHandler、DelayQueueBasePart 与 DelayQueueContext，并开启 DelayQueueProperties 配置绑定。",
+      "tags": [
+        "配置",
+        "自动装配",
+        "延迟队列",
+        "spring"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java",
+      "type": "file",
+      "name": "DelayQueueProperties.java",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java",
+      "summary": "延迟队列配置属性（前缀 delay.queue），控制消费线程池的核数/最大值/队列容量以及 Redis 隔离分区数。",
+      "tags": [
+        "配置",
+        "延迟队列",
+        "线程池",
+        "properties"
+      ],
+      "complexity": "simple",
+      "languageNotes": "注解 @ConfigurationProperties(prefix = \"delay.queue\")：同一 topic 的生产者与消费者隔离分区数必须一致。"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "type": "file",
+      "name": "DelayQueueBasePart.java",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "summary": "延迟队列基础上下文，持有 RedissonClient 与配置属性，供生产者与消费者共享。",
+      "tags": [
+        "上下文",
+        "延迟队列",
+        "redisson"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java:AbstractDateUtils",
+      "type": "class",
+      "name": "AbstractDateUtils",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java",
+      "lineRange": [
+        29,
+        121
+      ],
+      "summary": "抽象日期工具类，继承 Apache commons 的 DateUtils，提供按天与按时间戳两种模式的解析与格式化方法。",
+      "tags": [
+        "工具类",
+        "日期时间",
+        "格式化",
+        "abstract"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java:NamingThreadFactory",
+      "type": "class",
+      "name": "NamingThreadFactory",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "lineRange": [
+        34,
+        165
+      ],
+      "summary": "线程工厂实现，按调用方类名生成线程名前缀并用并发 Map 维护自增序号，同时统一注入守护态与未捕获异常处理器。",
+      "tags": [
+        "并发",
+        "线程工厂",
+        "工具类",
+        "工厂"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java:PaddedAtomicLong",
+      "type": "class",
+      "name": "PaddedAtomicLong",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java",
+      "lineRange": [
+        28,
+        52
+      ],
+      "summary": "继承 AtomicLong 并填充伪字段的高性能原子计数器，用于消除缓存行伪共享。",
+      "tags": [
+        "并发",
+        "工具类",
+        "伪共享",
+        "原子操作"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java:WorkerIdAssigner",
+      "type": "class",
+      "name": "WorkerIdAssigner",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "lineRange": [
+        23,
+        33
+      ],
+      "summary": "workerId 分配器接口，声明 assignWorkerId 用于为 UID 生成器分配唯一机器号。",
+      "tags": [
+        "接口定义",
+        "id-generator",
+        "扩展点"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java:IdGeneratorAutoConfig",
+      "type": "class",
+      "name": "IdGeneratorAutoConfig",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java",
+      "lineRange": [
+        14,
+        30
+      ],
+      "summary": "分布式 ID 配置类，提供 workAndDataCenterIdHandler、workDataCenterId、snowflakeIdGenerator 三个 Bean。",
+      "tags": [
+        "配置",
+        "自动装配",
+        "id-generator",
+        "spring"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:SnowflakeIdGenerator",
+      "type": "class",
+      "name": "SnowflakeIdGenerator",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "lineRange": [
+        19,
+        199
+      ],
+      "summary": "自研雪花 ID 生成器，5 位数据中心 + 5 位机器位 + 12 位序列，可从 Redis 读取机器位，支持生成订单号与反解 ID 时间戳。",
+      "tags": [
+        "id-generator",
+        "雪花算法",
+        "分布式",
+        "高性能"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java:WorkAndDataCenterIdHandler",
+      "type": "class",
+      "name": "WorkAndDataCenterIdHandler",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java",
+      "lineRange": [
+        19,
+        56
+      ],
+      "summary": "机器号获取器，加载 lua/workAndDataCenterId.lua 脚本并借 StringRedisTemplate 执行，原子取得 workerId 与 dataCenterId。",
+      "tags": [
+        "分布式",
+        "redis",
+        "lua",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java:WorkDataCenterId",
+      "type": "class",
+      "name": "WorkDataCenterId",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java",
+      "lineRange": [
+        10,
+        16
+      ],
+      "summary": "机器号值对象，承载 workId 与 dataCenterId 两个字段。",
+      "tags": [
+        "数据模型",
+        "dto",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java:DelayQueueAutoConfig",
+      "type": "class",
+      "name": "DelayQueueAutoConfig",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java",
+      "lineRange": [
+        16,
+        33
+      ],
+      "summary": "延迟队列配置类，装配初始化监听器、基础上下文与消息发送上下文，并启用 DelayQueueProperties 属性绑定。",
+      "tags": [
+        "配置",
+        "自动装配",
+        "延迟队列",
+        "spring"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java:DelayQueueProperties",
+      "type": "class",
+      "name": "DelayQueueProperties",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java",
+      "lineRange": [
+        15,
+        47
+      ],
+      "summary": "延迟队列配置属性类，包含消费线程池核心/最大线程数、回收时间、工作队列容量与隔离分区数等字段。",
+      "tags": [
+        "配置",
+        "延迟队列",
+        "线程池",
+        "properties"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java:DelayQueueBasePart",
+      "type": "class",
+      "name": "DelayQueueBasePart",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "lineRange": [
+        13,
+        20
+      ],
+      "summary": "延迟队列基础上下文，聚合 RedissonClient 与 DelayQueueProperties。",
+      "tags": [
+        "上下文",
+        "延迟队列",
+        "redisson"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java:formatByDateTimePattern",
+      "type": "function",
+      "name": "formatByDateTimePattern",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java",
+      "lineRange": [
+        106,
+        108
+      ],
+      "summary": "按 yyyy-MM-dd HH:mm:ss 模式格式化日期，供 UID 解析结果展示。",
+      "tags": [
+        "日期时间",
+        "格式化",
+        "工具类"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java:newThread",
+      "type": "function",
+      "name": "newThread",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "lineRange": [
+        76,
+        102
+      ],
+      "summary": "创建线程：根据调用方类名与自增序号设置线程名，并应用守护态与未捕获异常处理器配置。",
+      "tags": [
+        "并发",
+        "线程工厂",
+        "工具类"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java:getSequence",
+      "type": "function",
+      "name": "getSequence",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "lineRange": [
+        125,
+        136
+      ],
+      "summary": "按调用方名称维护线程自增序号，使用 ConcurrentHashMap 保证并发安全。",
+      "tags": [
+        "并发",
+        "工具类",
+        "原子操作"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:nextId",
+      "type": "function",
+      "name": "nextId",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "lineRange": [
+        149,
+        156
+      ],
+      "summary": "生成下一个雪花 ID：同一毫秒内序列自增，跨毫秒重置序列，出现时钟回拨时等待下一毫秒。",
+      "tags": [
+        "雪花算法",
+        "并发",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:getOrderNumber",
+      "type": "function",
+      "name": "getOrderNumber",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "lineRange": [
+        162,
+        170
+      ],
+      "summary": "结合雪花 ID 与分表数量计算订单号，按用户维度散列以支撑分库分表。",
+      "tags": [
+        "订单号",
+        "分表",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:getDatacenterId",
+      "type": "function",
+      "name": "getDatacenterId",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "lineRange": [
+        89,
+        109
+      ],
+      "summary": "通过本机网卡 MAC 地址计算 dataCenterId，取不到网卡时回退为随机数，避免多实例数据中心号冲突。",
+      "tags": [
+        "分布式",
+        "id-generator",
+        "网络"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:getBase",
+      "type": "function",
+      "name": "getBase",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "lineRange": [
+        111,
+        147
+      ],
+      "summary": "雪花 ID 核心生成逻辑：取当前毫秒时间戳、处理时钟回拨与毫秒内序列溢出，再按位移拼装出 64 位 ID。",
+      "tags": [
+        "雪花算法",
+        "位运算",
+        "并发",
+        "id-generator"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java:getWorkAndDataCenterId",
+      "type": "function",
+      "name": "getWorkAndDataCenterId",
+      "filePath": "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java",
+      "lineRange": [
+        43,
+        55
+      ],
+      "summary": "执行 Lua 脚本从 Redis 原子分配机器号与数据中心号，并反序列化为 WorkDataCenterId。",
+      "tags": [
+        "分布式",
+        "redis",
+        "lua",
+        "id-generator"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java:AbstractDateUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java:AbstractDateUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java:NamingThreadFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java:NamingThreadFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java:PaddedAtomicLong",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java:PaddedAtomicLong",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java:WorkerIdAssigner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java:WorkerIdAssigner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java:IdGeneratorAutoConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java:IdGeneratorAutoConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:SnowflakeIdGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:SnowflakeIdGenerator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java:WorkAndDataCenterIdHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java:WorkAndDataCenterIdHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java:WorkDataCenterId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java:WorkDataCenterId",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java:DelayQueueAutoConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java:DelayQueueAutoConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java:DelayQueueProperties",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java:DelayQueueProperties",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java:DelayQueueBasePart",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java:DelayQueueBasePart",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java:formatByDateTimePattern",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java:newThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java:getSequence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:nextId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:getOrderNumber",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:getDatacenterId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:getBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java:getWorkAndDataCenterId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java:newThread",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java:getSequence",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java:IdGeneratorAutoConfig",
+      "target": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java:getWorkAndDataCenterId",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java:IdGeneratorAutoConfig",
+      "target": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:SnowflakeIdGenerator",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java:getWorkAndDataCenterId",
+      "target": "class:damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java:WorkDataCenterId",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java:DelayQueueAutoConfig",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java:DelayQueueInitHandler",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java:DelayQueueAutoConfig",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java:DelayQueueBasePart",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java:DelayQueueAutoConfig",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java:DelayQueueContext",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

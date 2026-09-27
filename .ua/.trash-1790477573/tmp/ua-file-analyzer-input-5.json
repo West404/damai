@@ -1,0 +1,97 @@
+{
+  "projectRoot": "E:/WorkSpace/damai",
+  "batchFiles": [
+    {"path": "damai-common/src/main/java/com/damai/enums/ApiRuleType.java", "language": "java", "sizeLines": 65, "fileCategory": "code"},
+    {"path": "damai-common/src/main/java/com/damai/enums/BaseCode.java", "language": "java", "sizeLines": 290, "fileCategory": "code"},
+    {"path": "damai-common/src/main/java/com/damai/enums/RuleTimeUnit.java", "language": "java", "sizeLines": 58, "fileCategory": "code"},
+    {"path": "damai-common/src/main/java/com/damai/enums/Status.java", "language": "java", "sizeLines": 51, "fileCategory": "code"},
+    {"path": "damai-common/src/main/java/com/damai/enums/VerifyCaptcha.java", "language": "java", "sizeLines": 71, "fileCategory": "code"},
+    {"path": "damai-common/src/main/java/com/damai/exception/ArgumentError.java", "language": "java", "sizeLines": 16, "fileCategory": "code"},
+    {"path": "damai-common/src/main/java/com/damai/exception/ArgumentException.java", "language": "java", "sizeLines": 51, "fileCategory": "code"},
+    {"path": "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java", "language": "java", "sizeLines": 66, "fileCategory": "code"},
+    {"path": "damai-common/src/main/java/com/damai/jwt/TokenUtil.java", "language": "java", "sizeLines": 71, "fileCategory": "code"},
+    {"path": "damai-common/src/main/java/com/damai/log4j/BaseJsonLayout.java", "language": "java", "sizeLines": 204, "fileCategory": "code"},
+    {"path": "damai-common/src/main/java/com/damai/util/RsaSignTool.java", "language": "java", "sizeLines": 228, "fileCategory": "code"},
+    {"path": "damai-common/src/main/java/com/damai/util/RsaTool.java", "language": "java", "sizeLines": 202, "fileCategory": "code"},
+    {"path": "damai-common/src/main/java/com/damai/util/StringUtil.java", "language": "java", "sizeLines": 91, "fileCategory": "code"},
+    {"path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/RedisDisposableWorkerIdAssigner.java", "language": "java", "sizeLines": 29, "fileCategory": "code"},
+    {"path": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java", "language": "java", "sizeLines": 127, "fileCategory": "code"},
+    {"path": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/CacheUtil.java", "language": "java", "sizeLines": 143, "fileCategory": "code"},
+    {"path": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCacheImpl.java", "language": "java", "sizeLines": 1277, "fileCategory": "code"},
+    {"path": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java", "language": "java", "sizeLines": 56, "fileCategory": "code"},
+    {"path": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/config/RedisCacheAutoConfig.java", "language": "java", "sizeLines": 19, "fileCategory": "code"},
+    {"path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/ChannelDataAddDto.java", "language": "java", "sizeLines": 49, "fileCategory": "code"},
+    {"path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/GetChannelDataByCodeDto.java", "language": "java", "sizeLines": 21, "fileCategory": "code"},
+    {"path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java", "language": "java", "sizeLines": 45, "fileCategory": "code"},
+    {"path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserRegisterDto.java", "language": "java", "sizeLines": 65, "fileCategory": "code"},
+    {"path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java", "language": "java", "sizeLines": 63, "fileCategory": "code"},
+    {"path": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/ChannelDataController.java", "language": "java", "sizeLines": 43, "fileCategory": "code"},
+    {"path": "damai-server/damai-base-data-service/src/main/java/com/damai/entity/ChannelTableData.java", "language": "java", "sizeLines": 65, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "damai-common/src/main/java/com/damai/enums/ApiRuleType.java": [],
+    "damai-common/src/main/java/com/damai/enums/BaseCode.java": [],
+    "damai-common/src/main/java/com/damai/enums/RuleTimeUnit.java": [],
+    "damai-common/src/main/java/com/damai/enums/Status.java": [],
+    "damai-common/src/main/java/com/damai/enums/VerifyCaptcha.java": [],
+    "damai-common/src/main/java/com/damai/exception/ArgumentError.java": [],
+    "damai-common/src/main/java/com/damai/exception/ArgumentException.java": [],
+    "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java"
+    ],
+    "damai-common/src/main/java/com/damai/jwt/TokenUtil.java": [
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java"
+    ],
+    "damai-common/src/main/java/com/damai/log4j/BaseJsonLayout.java": [
+      "damai-common/src/main/java/com/damai/util/StringUtil.java"
+    ],
+    "damai-common/src/main/java/com/damai/util/RsaSignTool.java": [
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java"
+    ],
+    "damai-common/src/main/java/com/damai/util/RsaTool.java": [
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java"
+    ],
+    "damai-common/src/main/java/com/damai/util/StringUtil.java": [],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/RedisDisposableWorkerIdAssigner.java": [
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java"
+    ],
+    "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java": [],
+    "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/CacheUtil.java": [
+      "damai-common/src/main/java/com/damai/util/StringUtil.java"
+    ],
+    "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCacheImpl.java": [
+      "damai-common/src/main/java/com/damai/util/StringUtil.java"
+    ],
+    "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java": [
+      "damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java"
+    ],
+    "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/config/RedisCacheAutoConfig.java": [
+      "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCacheImpl.java"
+    ],
+    "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/ChannelDataAddDto.java": [],
+    "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/GetChannelDataByCodeDto.java": [],
+    "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java": [],
+    "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserRegisterDto.java": [],
+    "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java": [
+      "damai-common/src/main/java/com/damai/util/StringUtil.java"
+    ],
+    "damai-server/damai-base-data-service/src/main/java/com/damai/controller/ChannelDataController.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/ChannelDataAddDto.java",
+      "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/GetChannelDataByCodeDto.java",
+      "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java",
+      "damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java"
+    ],
+    "damai-server/damai-base-data-service/src/main/java/com/damai/entity/ChannelTableData.java": [
+      "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java"
+    ]
+  }
+}

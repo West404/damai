@@ -1,0 +1,286 @@
+{
+  "projectRoot": "E:/WorkSpace/damai",
+  "batchFiles": [
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java",
+      "language": "java",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "language": "java",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/PayChannel.java",
+      "language": "java",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "language": "java",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "language": "java",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "language": "java",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/entity/PayBill.java",
+      "language": "java",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/entity/RefundBill.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/mapper/PayBillMapper.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/mapper/RefundBillMapper.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayAutoConfig.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayResult.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyHandler.java",
+      "language": "java",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/RefundResult.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/TradeResult.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/AlipayStrategyHandler.java",
+      "language": "java",
+      "sizeLines": 203,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/config/AlipayProperties.java",
+      "language": "java",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/service/PayBillService.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java",
+      "language": "java",
+      "sizeLines": 245,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/service/RefundBillService.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java": [],
+    "damai-common/src/main/java/com/damai/enums/PayBillStatus.java": [],
+    "damai-common/src/main/java/com/damai/enums/PayChannel.java": [],
+    "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java"
+    ],
+    "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java"
+    ],
+    "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java": [],
+    "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java": [],
+    "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java": [],
+    "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java": [],
+    "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java": [],
+    "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java": [],
+    "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java": [],
+    "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java": [],
+    "damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java"
+    ],
+    "damai-server/damai-pay-service/src/main/java/com/damai/entity/PayBill.java": [
+      "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java"
+    ],
+    "damai-server/damai-pay-service/src/main/java/com/damai/entity/RefundBill.java": [
+      "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java"
+    ],
+    "damai-server/damai-pay-service/src/main/java/com/damai/mapper/PayBillMapper.java": [
+      "damai-server/damai-pay-service/src/main/java/com/damai/entity/PayBill.java"
+    ],
+    "damai-server/damai-pay-service/src/main/java/com/damai/mapper/RefundBillMapper.java": [
+      "damai-server/damai-pay-service/src/main/java/com/damai/entity/RefundBill.java"
+    ],
+    "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayAutoConfig.java": [
+      "damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/AlipayStrategyHandler.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/config/AlipayProperties.java"
+    ],
+    "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayResult.java": [],
+    "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyHandler.java": [
+      "damai-server/damai-pay-service/src/main/java/com/damai/entity/PayBill.java"
+    ],
+    "damai-server/damai-pay-service/src/main/java/com/damai/pay/RefundResult.java": [],
+    "damai-server/damai-pay-service/src/main/java/com/damai/pay/TradeResult.java": [],
+    "damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/AlipayStrategyHandler.java": [
+      "damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java",
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "damai-common/src/main/java/com/damai/enums/PayChannel.java",
+      "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/entity/PayBill.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayResult.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyHandler.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/pay/RefundResult.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/pay/TradeResult.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/config/AlipayProperties.java"
+    ],
+    "damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/config/AlipayProperties.java": [],
+    "damai-server/damai-pay-service/src/main/java/com/damai/service/PayBillService.java": [
+      "damai-server/damai-pay-service/src/main/java/com/damai/entity/PayBill.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/mapper/PayBillMapper.java"
+    ],
+    "damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java": [
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/entity/PayBill.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/entity/RefundBill.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/mapper/PayBillMapper.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/mapper/RefundBillMapper.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayResult.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyHandler.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/pay/RefundResult.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/pay/TradeResult.java"
+    ],
+    "damai-server/damai-pay-service/src/main/java/com/damai/service/RefundBillService.java": [
+      "damai-server/damai-pay-service/src/main/java/com/damai/entity/RefundBill.java",
+      "damai-server/damai-pay-service/src/main/java/com/damai/mapper/RefundBillMapper.java"
+    ]
+  }
+}

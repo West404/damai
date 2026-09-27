@@ -1,0 +1,551 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [
+    "damai-server/damai-order-service/src/main/resources/lua/OrderProgramDataResolution.lua",
+    "damai-server/damai-order-service/src/main/resources/mapper/OrderMapper.xml",
+    "damai-server/damai-order-service/src/main/resources/mapper/OrderTicketUserMapper.xml",
+    "damai-server/damai-pay-service/pom.xml",
+    "damai-server/damai-pay-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-server/damai-program-service/pom.xml",
+    "damai-server/damai-program-service/src/main/resources/lua/programDataCreateOrderResolution.lua",
+    "damai-server/damai-program-service/src/main/resources/lua/programDataResolution.lua",
+    "damai-server/damai-program-service/src/main/resources/lua/programDel.lua",
+    "damai-server/damai-program-service/src/main/resources/lua/programSeat.lua",
+    "damai-server/damai-program-service/src/main/resources/mapper/ProgramMapper.xml",
+    "damai-server/damai-program-service/src/main/resources/mapper/TicketCategoryMapper.xml",
+    "damai-server/damai-user-service/pom.xml",
+    "damai-server/damai-user-service/src/main/resources/lua/checkNeedCaptcha.lua",
+    "damai-server/pom.xml",
+    "damai-spring-cloud-framework/damai-service-common/pom.xml"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 9,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 9,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/constant/OrderConstant.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 13,
+      "classes": [
+        {
+          "name": "OrderConstant",
+          "startLine": 10,
+          "endLine": 19,
+          "methods": [],
+          "properties": [
+            "DELAY_ORDER_CANCEL_TOPIC",
+            "DELAY_OPERATE_PROGRAM_DATA_TOPIC",
+            "DELAY_OPERATE_PROGRAM_DATA_TIME",
+            "DELAY_OPERATE_PROGRAM_DATA_TIME_UNIT"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DELAY_ORDER_CANCEL_TOPIC",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "DELAY_OPERATE_PROGRAM_DATA_TOPIC",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "DELAY_OPERATE_PROGRAM_DATA_TIME",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "DELAY_OPERATE_PROGRAM_DATA_TIME_UNIT",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "OrderConstant",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PayApplication",
+          "startLine": 14,
+          "endLine": 26,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "PayApplication",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.setProperty",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "SpringApplication.run",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "executeOrder",
+          "startLine": 20,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "executeInit",
+          "startLine": 25,
+          "endLine": 32,
+          "params": [
+            "context"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PayStrategyInitHandler",
+          "startLine": 15,
+          "endLine": 33,
+          "methods": [
+            "executeOrder",
+            "executeInit"
+          ],
+          "properties": [
+            "payStrategyContext"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "executeOrder",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "executeInit",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "PayStrategyInitHandler",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "executeInit",
+          "callee": "context.getBeansOfType",
+          "lineNumber": 27
+        },
+        {
+          "caller": "executeInit",
+          "callee": "payStrategyHandlerMap.entrySet",
+          "lineNumber": 28
+        },
+        {
+          "caller": "executeInit",
+          "callee": "entry.getValue",
+          "lineNumber": 29
+        },
+        {
+          "caller": "executeInit",
+          "callee": "payStrategyContext.put",
+          "lineNumber": 30
+        },
+        {
+          "caller": "executeInit",
+          "callee": "payStrategyHandler.getChannel",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 25,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 23,
+          "endLine": 26,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramApplication",
+          "startLine": 15,
+          "endLine": 28,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramApplication",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.setProperty",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "SpringApplication.run",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramOrderConstant.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 14,
+      "classes": [
+        {
+          "name": "ProgramOrderConstant",
+          "startLine": 10,
+          "endLine": 21,
+          "methods": [],
+          "properties": [
+            "DELAY_ORDER_CANCEL_TOPIC",
+            "DELAY_ORDER_CANCEL_TIME",
+            "DELAY_ORDER_CANCEL_TIME_UNIT",
+            "DELAY_OPERATE_PROGRAM_DATA_TOPIC",
+            "ORDER_TABLE_COUNT"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DELAY_ORDER_CANCEL_TOPIC",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "DELAY_ORDER_CANCEL_TIME",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "DELAY_ORDER_CANCEL_TIME_UNIT",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "DELAY_OPERATE_PROGRAM_DATA_TOPIC",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "ORDER_TABLE_COUNT",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramOrderConstant",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/KafkaTopic.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "KafkaTopic",
+          "startLine": 12,
+          "endLine": 19,
+          "methods": [],
+          "properties": [
+            "topic"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "KafkaTopic",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 19,
+          "endLine": 22,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserApplication",
+          "startLine": 13,
+          "endLine": 24,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "UserApplication",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.setProperty",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "SpringApplication.run",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/controller/TestDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 16,
+      "classes": [
+        {
+          "name": "TestDto",
+          "startLine": 13,
+          "endLine": 19,
+          "methods": [],
+          "properties": [
+            "id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TestDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "metaObjectHandler",
+          "startLine": 18,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "mybatisPlusInterceptor",
+          "startLine": 26,
+          "endLine": 31,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MybatisPlusAutoConfiguration",
+          "startLine": 13,
+          "endLine": 32,
+          "methods": [
+            "metaObjectHandler",
+            "mybatisPlusInterceptor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "metaObjectHandler",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "mybatisPlusInterceptor",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "MybatisPlusAutoConfiguration",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "metaObjectHandler",
+          "callee": "new MybatisPlusMetaObjectHandler",
+          "lineNumber": 20
+        },
+        {
+          "caller": "mybatisPlusInterceptor",
+          "callee": "new MybatisPlusInterceptor",
+          "lineNumber": 28
+        },
+        {
+          "caller": "mybatisPlusInterceptor",
+          "callee": "interceptor.addInnerInterceptor",
+          "lineNumber": 29
+        },
+        {
+          "caller": "mybatisPlusInterceptor",
+          "callee": "new PaginationInnerInterceptor",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,780 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 9,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 9,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ParentProgramCategoryDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "ParentProgramCategoryDto",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "parentProgramCategoryId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ParentProgramCategoryDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramCategoryAddDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 36,
+      "classes": [
+        {
+          "name": "ProgramCategoryAddDto",
+          "startLine": 16,
+          "endLine": 44,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "parentId",
+            "name",
+            "type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramCategoryAddDto",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramCategoryDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "ProgramCategoryDto",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramCategoryDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramCategoryVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 36,
+      "classes": [
+        {
+          "name": "ProgramCategoryVo",
+          "startLine": 14,
+          "endLine": 44,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "parentId",
+            "name",
+            "type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramCategoryVo",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramCategoryController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "selectAll",
+          "startLine": 33,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "selectByType",
+          "startLine": 39,
+          "endLine": 43,
+          "params": [
+            "programCategoryDto"
+          ]
+        },
+        {
+          "name": "selectByParentProgramCategoryId",
+          "startLine": 45,
+          "endLine": 49,
+          "params": [
+            "parentProgramCategoryDto"
+          ]
+        },
+        {
+          "name": "saveBatch",
+          "startLine": 51,
+          "endLine": 56,
+          "params": [
+            "programCategoryAddDtoList"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramCategoryController",
+          "startLine": 25,
+          "endLine": 57,
+          "methods": [
+            "selectAll",
+            "selectByType",
+            "selectByParentProgramCategoryId",
+            "saveBatch"
+          ],
+          "properties": [
+            "programCategoryService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "selectAll",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "selectByType",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "selectByParentProgramCategoryId",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "saveBatch",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramCategoryController",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "selectAll",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 36
+        },
+        {
+          "caller": "selectAll",
+          "callee": "programCategoryService.selectAll",
+          "lineNumber": 36
+        },
+        {
+          "caller": "selectByType",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 42
+        },
+        {
+          "caller": "selectByType",
+          "callee": "programCategoryService.selectByType",
+          "lineNumber": 42
+        },
+        {
+          "caller": "selectByParentProgramCategoryId",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 48
+        },
+        {
+          "caller": "selectByParentProgramCategoryId",
+          "callee": "programCategoryService.selectByParentProgramCategoryId",
+          "lineNumber": 48
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "programCategoryService.saveBatch",
+          "lineNumber": 54
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramCategory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 36,
+      "classes": [
+        {
+          "name": "ProgramCategory",
+          "startLine": 17,
+          "endLine": 44,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "parentId",
+            "name",
+            "type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramCategory",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramCategoryMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "ProgramCategoryMapper",
+          "startLine": 12,
+          "endLine": 14,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramCategoryMapper",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramCategoryService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 115,
+      "nonEmptyLines": 99,
+      "functions": [
+        {
+          "name": "selectAll",
+          "startLine": 54,
+          "endLine": 58,
+          "params": []
+        },
+        {
+          "name": "selectByType",
+          "startLine": 60,
+          "endLine": 65,
+          "params": [
+            "programCategoryDto"
+          ]
+        },
+        {
+          "name": "selectByParentProgramCategoryId",
+          "startLine": 67,
+          "endLine": 72,
+          "params": [
+            "parentProgramCategoryDto"
+          ]
+        },
+        {
+          "name": "saveBatch",
+          "startLine": 74,
+          "endLine": 91,
+          "params": [
+            "programCategoryAddDtoList"
+          ]
+        },
+        {
+          "name": "getProgramCategory",
+          "startLine": 93,
+          "endLine": 101,
+          "params": [
+            "programCategoryId"
+          ]
+        },
+        {
+          "name": "programCategoryRedisDataInit",
+          "startLine": 103,
+          "endLine": 114,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramCategoryService",
+          "startLine": 39,
+          "endLine": 115,
+          "methods": [
+            "selectAll",
+            "selectByType",
+            "selectByParentProgramCategoryId",
+            "saveBatch",
+            "getProgramCategory",
+            "programCategoryRedisDataInit"
+          ],
+          "properties": [
+            "programCategoryMapper",
+            "uidGenerator",
+            "redisCache"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "selectAll",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "selectByType",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "selectByParentProgramCategoryId",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "saveBatch",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "getProgramCategory",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "programCategoryRedisDataInit",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramCategoryService",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "selectAll",
+          "callee": "Wrappers.emptyWrapper",
+          "lineNumber": 55
+        },
+        {
+          "caller": "selectAll",
+          "callee": "programCategoryMapper.selectList",
+          "lineNumber": 56
+        },
+        {
+          "caller": "selectAll",
+          "callee": "BeanUtil.copyToList",
+          "lineNumber": 57
+        },
+        {
+          "caller": "selectByType",
+          "callee": "Wrappers.lambdaQuery(ProgramCategory.class).eq",
+          "lineNumber": 61
+        },
+        {
+          "caller": "selectByType",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 61
+        },
+        {
+          "caller": "selectByType",
+          "callee": "programCategoryDto.getType",
+          "lineNumber": 62
+        },
+        {
+          "caller": "selectByType",
+          "callee": "programCategoryMapper.selectList",
+          "lineNumber": 63
+        },
+        {
+          "caller": "selectByType",
+          "callee": "BeanUtil.copyToList",
+          "lineNumber": 64
+        },
+        {
+          "caller": "selectByParentProgramCategoryId",
+          "callee": "Wrappers.lambdaQuery(ProgramCategory.class).eq",
+          "lineNumber": 68
+        },
+        {
+          "caller": "selectByParentProgramCategoryId",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 68
+        },
+        {
+          "caller": "selectByParentProgramCategoryId",
+          "callee": "parentProgramCategoryDto.getParentProgramCategoryId",
+          "lineNumber": 69
+        },
+        {
+          "caller": "selectByParentProgramCategoryId",
+          "callee": "programCategoryMapper.selectList",
+          "lineNumber": 70
+        },
+        {
+          "caller": "selectByParentProgramCategoryId",
+          "callee": "BeanUtil.copyToList",
+          "lineNumber": 71
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "programCategoryAddDtoList.stream().map((programCategoryAddDto) -> {\r\n            ProgramCategory programCategory = new ProgramCategory();\r\n            BeanUtil.copyProperties(programCategoryAddDto, programCategory);\r\n            programCategory.setId(uidGenerator.getUid());\r\n            return programCategory;\r\n        }).collect",
+          "lineNumber": 77
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "programCategoryAddDtoList.stream().map",
+          "lineNumber": 77
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "programCategoryAddDtoList.stream",
+          "lineNumber": 77
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "new ProgramCategory",
+          "lineNumber": 78
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 79
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "programCategory.setId",
+          "lineNumber": 80
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 80
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "Collectors.toList",
+          "lineNumber": 82
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 84
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "this.saveBatch",
+          "lineNumber": 85
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "programCategoryList.stream().collect",
+          "lineNumber": 86
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "programCategoryList.stream",
+          "lineNumber": 86
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "Collectors.toMap",
+          "lineNumber": 87
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "String.valueOf",
+          "lineNumber": 87
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "p.getId",
+          "lineNumber": 87
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "redisCache.putHash",
+          "lineNumber": 88
+        },
+        {
+          "caller": "saveBatch",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 88
+        },
+        {
+          "caller": "getProgramCategory",
+          "callee": "redisCache.getForHash",
+          "lineNumber": 94
+        },
+        {
+          "caller": "getProgramCategory",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 94
+        },
+        {
+          "caller": "getProgramCategory",
+          "callee": "String.valueOf",
+          "lineNumber": 95
+        },
+        {
+          "caller": "getProgramCategory",
+          "callee": "Objects.isNull",
+          "lineNumber": 96
+        },
+        {
+          "caller": "getProgramCategory",
+          "callee": "programCategoryRedisDataInit",
+          "lineNumber": 97
+        },
+        {
+          "caller": "getProgramCategory",
+          "callee": "programCategoryMap.get",
+          "lineNumber": 98
+        },
+        {
+          "caller": "getProgramCategory",
+          "callee": "String.valueOf",
+          "lineNumber": 98
+        },
+        {
+          "caller": "programCategoryRedisDataInit",
+          "callee": "new HashMap<>",
+          "lineNumber": 105
+        },
+        {
+          "caller": "programCategoryRedisDataInit",
+          "callee": "Wrappers.emptyWrapper",
+          "lineNumber": 106
+        },
+        {
+          "caller": "programCategoryRedisDataInit",
+          "callee": "programCategoryMapper.selectList",
+          "lineNumber": 107
+        },
+        {
+          "caller": "programCategoryRedisDataInit",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 108
+        },
+        {
+          "caller": "programCategoryRedisDataInit",
+          "callee": "programCategoryList.stream().collect",
+          "lineNumber": 109
+        },
+        {
+          "caller": "programCategoryRedisDataInit",
+          "callee": "programCategoryList.stream",
+          "lineNumber": 109
+        },
+        {
+          "caller": "programCategoryRedisDataInit",
+          "callee": "Collectors.toMap",
+          "lineNumber": 110
+        },
+        {
+          "caller": "programCategoryRedisDataInit",
+          "callee": "String.valueOf",
+          "lineNumber": 110
+        },
+        {
+          "caller": "programCategoryRedisDataInit",
+          "callee": "p.getId",
+          "lineNumber": 110
+        },
+        {
+          "caller": "programCategoryRedisDataInit",
+          "callee": "redisCache.putHash",
+          "lineNumber": 111
+        },
+        {
+          "caller": "programCategoryRedisDataInit",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 111
+        }
+      ],
+      "metrics": {
+        "importCount": 12,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramCategory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "localLockCacheInit",
+          "startLine": 24,
+          "endLine": 27,
+          "params": []
+        },
+        {
+          "name": "get",
+          "startLine": 32,
+          "endLine": 34,
+          "params": [
+            "id",
+            "function"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LocalCacheProgramCategory",
+          "startLine": 16,
+          "endLine": 35,
+          "methods": [
+            "localLockCacheInit",
+            "get"
+          ],
+          "properties": [
+            "localCache"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "localLockCacheInit",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "LocalCacheProgramCategory",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder().build",
+          "lineNumber": 26
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder",
+          "lineNumber": 26
+        },
+        {
+          "caller": "get",
+          "callee": "localCache.get",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    }
+  ]
+}

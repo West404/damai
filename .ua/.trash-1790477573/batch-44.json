@@ -1,0 +1,767 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/service/constant/OrderConstant.java",
+      "type": "file",
+      "name": "OrderConstant.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/constant/OrderConstant.java",
+      "summary": "订单服务的常量定义类，集中维护延迟取消订单与延迟操作节目数据相关的 Topic 名称、延迟时间及时间单位，供订单超时取消等延迟消息逻辑复用。",
+      "tags": ["常量定义", "订单服务", "延迟队列", "configuration"],
+      "complexity": "simple",
+      "languageNotes": "以 public static final 常量集中管理延迟消息 Topic 与时间参数，避免魔法值散落在业务代码中。"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/resources/lua/OrderProgramDataResolution.lua",
+      "type": "file",
+      "name": "OrderProgramDataResolution.lua",
+      "filePath": "damai-server/damai-order-service/src/main/resources/lua/OrderProgramDataResolution.lua",
+      "summary": "订单侧的 Redis Lua 脚本：批量删除节目座位锁定 Hash 中的座位、回写新增座位数据，并在订单状态为 2（取消/回滚）时通过 HINCRBY 回补票档剩余数量，由 OrderProgramCacheResolutionOperate 加载执行以保证多步 Redis 操作的原子性。",
+      "tags": ["lua脚本", "redis", "原子操作", "座位解锁", "订单服务"],
+      "complexity": "simple",
+      "languageNotes": "参数通过 KEYS/ARGV 传入，使用 cjson.decode 解析 JSON 数组，所有 redis.call 在同一脚本内执行以获得原子性。"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/mapper/OrderMapper.xml",
+      "type": "config",
+      "name": "OrderMapper.xml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/mapper/OrderMapper.xml",
+      "summary": "OrderMapper 接口的 MyBatis 映射文件，提供统计用户在指定节目下有效订单数量（order_status 为 1 或 3）的查询，以及清理 d_order 历史订单的批量删除语句。",
+      "tags": ["mybatis", "mapper", "sql映射", "订单服务", "database"],
+      "complexity": "simple",
+      "languageNotes": "namespace 绑定 com.damai.mapper.OrderMapper，statement id 与接口方法名一一对应，参数使用 #{,jdbcType=} 显式声明类型。"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/mapper/OrderTicketUserMapper.xml",
+      "type": "config",
+      "name": "OrderTicketUserMapper.xml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/mapper/OrderTicketUserMapper.xml",
+      "summary": "OrderTicketUserMapper 接口的 MyBatis 映射文件，按订单编号列表批量聚合购票人数量（selectOrderTicketUserAggregate），并提供按订单状态清理 d_order_ticket_user 数据的删除语句。",
+      "tags": ["mybatis", "mapper", "sql映射", "订单服务", "database"],
+      "complexity": "simple",
+      "languageNotes": "使用 foreach 拼接 in 条件，group by order_number 聚合出每个订单的购票人数量。"
+    },
+    {
+      "id": "config:damai-server/damai-pay-service/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server/damai-pay-service/pom.xml",
+      "summary": "支付服务 damai-pay-service 的 Maven 构建配置：引入 spring-boot-starter-web/validation、MyBatis-Plus、Nacos 注册、OpenFeign+OkHttp、支付宝 SDK、Jasypt 加密、灰度发布与 service-common 等依赖，并配置 spring-boot-maven-plugin 以 com.damai.PayApplication 为主类打包。",
+      "tags": ["maven", "构建配置", "支付服务", "依赖管理", "build-system"],
+      "complexity": "moderate",
+      "languageNotes": "统一使用 ${revision} 作为版本号实现多模块版本联动，并通过 exclusion 移除 Spring Boot 自带的 logback 日志实现。"
+    },
+    {
+      "id": "file:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java",
+      "type": "file",
+      "name": "PayApplication.java",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java",
+      "summary": "支付服务启动类，设置必要的系统属性后通过 SpringApplication 引导 damai-pay-service，是支付微服务的运行入口。",
+      "tags": ["entry-point", "启动类", "支付服务", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "type": "file",
+      "name": "PayStrategyInitHandler.java",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "summary": "支付策略初始化处理器，继承 AbstractApplicationInitializingBeanHandler，在应用启动阶段从容器取出所有 PayStrategyHandler 并按支付渠道注册进 PayStrategyContext，实现支付渠道策略的动态装配与路由。",
+      "tags": ["策略模式", "初始化", "支付服务", "service", "event-handler"],
+      "complexity": "simple",
+      "languageNotes": "实现 Spring 容器初始化扩展点，通过 getBeansOfType 收集策略实现并写入静态上下文 Map。"
+    },
+    {
+      "id": "file:damai-server/damai-pay-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-server/damai-pay-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Spring Boot 自动配置注册文件，声明 com.damai.pay.PayAutoConfig 为自动配置类，使支付模块被依赖引入时自动完成装配。",
+      "tags": ["configuration", "spring-boot", "auto-configuration", "支付服务"],
+      "complexity": "simple",
+      "languageNotes": "Spring Boot 3 以 AutoConfiguration.imports 文件替代旧版的 spring.factories 注册自动配置类。"
+    },
+    {
+      "id": "config:damai-server/damai-program-service/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server/damai-program-service/pom.xml",
+      "summary": "节目服务 damai-program-service 的 Maven 构建配置：聚合 redis/redis-stream、延时队列、布隆过滤器、防重复执行、线程池、Elasticsearch、Gray 灰度等共享框架，并引入 Nacos、Sentinel、Kafka 依赖，以 com.damai.ProgramApplication 为主类打包。",
+      "tags": ["maven", "构建配置", "节目服务", "依赖管理", "kafka"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "type": "file",
+      "name": "ProgramApplication.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "summary": "节目服务启动类，设置启动属性后引导 Spring Boot 应用，是 damai-program-service 的运行入口。",
+      "tags": ["entry-point", "启动类", "节目服务", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramOrderConstant.java",
+      "type": "file",
+      "name": "ProgramOrderConstant.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramOrderConstant.java",
+      "summary": "节目服务下单相关常量类，定义延迟取消订单的 Topic 与延迟时长/单位、延迟操作节目数据的 Topic，以及订单分表数量 ORDER_TABLE_COUNT。",
+      "tags": ["常量定义", "节目服务", "分库分表", "延迟队列"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/KafkaTopic.java",
+      "type": "file",
+      "name": "KafkaTopic.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/KafkaTopic.java",
+      "summary": "节目服务的 Kafka Topic 配置持有 Bean，通过 @Value 注入 spring.kafka.topic（默认 default）并提供 getter/setter 供其他组件读取主题名。",
+      "tags": ["kafka", "配置类", "节目服务", "消息队列"],
+      "complexity": "simple",
+      "languageNotes": "使用 Lombok @Data + Spring @Component 承载 @Value 注入的配置项，属于轻量配置 Bean。"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/resources/lua/programDataCreateOrderResolution.lua",
+      "type": "file",
+      "name": "programDataCreateOrderResolution.lua",
+      "filePath": "damai-server/damai-program-service/src/main/resources/lua/programDataCreateOrderResolution.lua",
+      "summary": "演出下单抢座的 Redis Lua 脚本：原子校验票档余量与座位售卖状态（支持指定座位和自动挑选连座两种模式）、校验价格一致性，成功后扣减余量并把座位从未售 Hash 迁移到锁定 Hash，返回购票座位列表或错误码（40001/40002/40003/40004/40008/40010/40011）。",
+      "tags": ["lua脚本", "redis", "抢座", "下单", "原子操作", "节目服务"],
+      "complexity": "complex",
+      "languageNotes": "以 KEYS 传入 Hash 键、ARGV 传入 cjson 编码的 JSON 参数；脚本内定义局部函数 find_adjacent_seats 按排/列排序寻找连续座位，并以 string.format 返回 JSON 错误码。"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/resources/lua/programDataResolution.lua",
+      "type": "file",
+      "name": "programDataResolution.lua",
+      "filePath": "damai-server/damai-program-service/src/main/resources/lua/programDataResolution.lua",
+      "summary": "演出缓存整体失效的 Redis Lua 脚本：删除节目主键、分组、场次键，并按模式（KEYS）批量扫描删除座位未售/锁定/已售 Hash、票档列表与票档余量 Hash，保证节目数据与缓存一致。",
+      "tags": ["lua脚本", "redis", "缓存失效", "原子操作", "节目服务"],
+      "complexity": "simple",
+      "languageNotes": "使用 redis.call('keys', ...) 按前缀模式匹配后逐个删除，注意事项：生产环境 KEYS 命令会阻塞，脚本以单次原子执行来降低开销。"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/resources/lua/programDel.lua",
+      "type": "file",
+      "name": "programDel.lua",
+      "filePath": "damai-server/damai-program-service/src/main/resources/lua/programDel.lua",
+      "summary": "节目删除/缓存回滚的 Redis Lua 脚本：先通过 HINCRBY 回补票档余量，再批量删除座位数据 Hash（HDEL）并写回新增座位数据（HMSET），使删除节目时 Redis 与数据库状态保持一致。",
+      "tags": ["lua脚本", "redis", "缓存回滚", "原子操作", "节目服务"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/resources/lua/programSeat.lua",
+      "type": "file",
+      "name": "programSeat.lua",
+      "filePath": "damai-server/damai-program-service/src/main/resources/lua/programSeat.lua",
+      "summary": "聚合读取演出座位数据的 Redis Lua 脚本：依次取出未售、锁定、已售三个 Hash 的座位快照并合并为一个列表返回，用于座位视图查询与缓存预热。",
+      "tags": ["lua脚本", "redis", "座位查询", "缓存", "节目服务"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-program-service/src/main/resources/mapper/ProgramMapper.xml",
+      "type": "config",
+      "name": "ProgramMapper.xml",
+      "filePath": "damai-server/damai-program-service/src/main/resources/mapper/ProgramMapper.xml",
+      "summary": "ProgramMapper 接口的 MyBatis 映射文件，实现首页节目列表（按父分类 union all 各取前 7 条）与节目分页查询（关联场次表，支持地区/分类/时间过滤及热度、场次、开售时间等排序）。",
+      "tags": ["mybatis", "mapper", "sql映射", "节目服务", "database"],
+      "complexity": "moderate",
+      "languageNotes": "大量使用 if/foreach 动态 SQL 拼接条件与 union all 分片查询，体现多分类首页聚合的典型写法。"
+    },
+    {
+      "id": "config:damai-server/damai-program-service/src/main/resources/mapper/TicketCategoryMapper.xml",
+      "type": "config",
+      "name": "TicketCategoryMapper.xml",
+      "filePath": "damai-server/damai-program-service/src/main/resources/mapper/TicketCategoryMapper.xml",
+      "summary": "TicketCategoryMapper 接口的 MyBatis 映射文件，按节目 ID 列表聚合最低/最高票价（selectAggregateList），并提供单条与批量扣减票档剩余数量的 update 语句。",
+      "tags": ["mybatis", "mapper", "sql映射", "票档", "database"],
+      "complexity": "simple",
+      "languageNotes": "批量扣减使用 foreach 拼接多条 update，依靠数据库逐条执行实现票档余量的原子扣减。"
+    },
+    {
+      "id": "config:damai-server/damai-user-service/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server/damai-user-service/pom.xml",
+      "summary": "用户服务 damai-user-service 的 Maven 构建配置：引入 web/validation、MyBatis-Plus、Nacos 注册、OpenFeign、验证码框架、线程池框架与 JAXB 等依赖，以 com.damai.UserApplication 为主类打包。",
+      "tags": ["maven", "构建配置", "用户服务", "依赖管理", "build-system"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "type": "file",
+      "name": "UserApplication.java",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "summary": "用户服务启动类，设置启动属性后引导 Spring Boot 应用，是 damai-user-service 的运行入口。",
+      "tags": ["entry-point", "启动类", "用户服务", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/TestDto.java",
+      "type": "file",
+      "name": "TestDto.java",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/controller/TestDto.java",
+      "summary": "用户服务用于接口联调的简单请求 DTO，仅含必填的 Long 型 id 字段，配合 Swagger 注解与 JSR-303 校验演示参数绑定与文档生成。",
+      "tags": ["dto", "类型定义", "用户服务", "validation"],
+      "complexity": "simple",
+      "languageNotes": "同时使用 springdoc @Schema 描述接口文档与 jakarta.validation @NotNull 做参数校验。"
+    },
+    {
+      "id": "file:damai-server/damai-user-service/src/main/resources/lua/checkNeedCaptcha.lua",
+      "type": "file",
+      "name": "checkNeedCaptcha.lua",
+      "filePath": "damai-server/damai-user-service/src/main/resources/lua/checkNeedCaptcha.lua",
+      "summary": "判断是否需要图形验证码的 Redis Lua 脚本：按时间窗口累计请求次数，超过阈值或开启强制验证时写入验证码标记并设置过期时间，否则返回 false，实现用户接口的验证码触发限流。",
+      "tags": ["lua脚本", "redis", "验证码", "限流", "用户服务"],
+      "complexity": "simple",
+      "languageNotes": "通过 KEYS 传入计数器/时间戳/验证码标记键、ARGV 传入阈值与当前毫秒时间戳，在单脚本内完成计数重置与限流判定以保持原子性。"
+    },
+    {
+      "id": "config:damai-server/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server/pom.xml",
+      "summary": "damai-server 聚合模块的 Maven POM，以 pom 打包统一收录 order、gateway、base-data、user、admin、customize、program、pay、mybatis-plus 共 9 个微服务子模块。",
+      "tags": ["maven", "聚合模块", "构建配置", "微服务", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-spring-cloud-framework/damai-service-common/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/pom.xml",
+      "summary": "微服务公共包 damai-service-common 的 Maven 配置，为各业务服务统一提供 MyBatis-Plus、PageHelper、ShardingSphere JDBC 分库分表、SpringDoc/Knife4j 接口文档与 validation 等共用依赖。",
+      "tags": ["maven", "构建配置", "公共模块", "mybatis-plus", "shardingsphere"],
+      "complexity": "moderate",
+      "languageNotes": "通过 exclusions 排除 PageHelper/ShardingSphere 传递进来的 mybatis、jsqlparser、guava、logback 等冲突依赖，避免版本冲突。"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "type": "file",
+      "name": "MybatisPlusAutoConfiguration.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "summary": "MyBatis-Plus 公共自动配置类，对外提供公共字段自动填充处理器与分页内部拦截器两个 Bean，供各微服务统一复用数据访问增强能力。",
+      "tags": ["configuration", "mybatis-plus", "自动配置", "公共模块", "分页"],
+      "complexity": "simple",
+      "languageNotes": "以 @Bean 方法装配 MybatisPlusMetaObjectHandler 与 PaginationInnerInterceptor(MYSQL)，配置类本身由自动配置注册文件加载。"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/service/constant/OrderConstant.java:OrderConstant",
+      "type": "class",
+      "name": "OrderConstant",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/constant/OrderConstant.java",
+      "lineRange": [10, 19],
+      "summary": "订单服务常量持有类，仅包含静态常量：延迟取消订单 Topic、延迟操作节目数据 Topic 及其延迟时间与时间单位。",
+      "tags": ["常量定义", "订单服务", "延迟队列"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java:PayApplication",
+      "type": "class",
+      "name": "PayApplication",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java",
+      "lineRange": [14, 26],
+      "summary": "支付微服务的 Spring Boot 启动类，通过 main 方法引导应用上下文启动。",
+      "tags": ["entry-point", "启动类", "支付服务", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java",
+      "lineRange": [21, 24],
+      "summary": "设置系统属性后调用 SpringApplication.run 启动 damai-pay-service 应用。",
+      "tags": ["entry-point", "启动方法", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java:PayStrategyInitHandler",
+      "type": "class",
+      "name": "PayStrategyInitHandler",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "lineRange": [15, 33],
+      "summary": "支付策略初始化处理器，继承 AbstractApplicationInitializingBeanHandler，持有 PayStrategyContext 并在初始化阶段注册全部支付渠道策略。",
+      "tags": ["策略模式", "初始化", "支付服务", "event-handler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java:executeOrder",
+      "type": "function",
+      "name": "executeOrder",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "lineRange": [20, 23],
+      "summary": "返回该初始化处理器的执行序号 1，用于决定在初始化处理器链中的执行顺序。",
+      "tags": ["初始化", "排序", "策略模式"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java:executeInit",
+      "type": "function",
+      "name": "executeInit",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "lineRange": [25, 32],
+      "summary": "从 Spring 容器取出所有 PayStrategyHandler Bean，并按各自的支付渠道标识注册进 PayStrategyContext，完成支付策略路由表构建。",
+      "tags": ["初始化", "策略模式", "支付渠道"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java:ProgramApplication",
+      "type": "class",
+      "name": "ProgramApplication",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "lineRange": [15, 28],
+      "summary": "演出节目微服务的 Spring Boot 启动类，引导 program-service 应用上下文启动。",
+      "tags": ["entry-point", "启动类", "节目服务", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "lineRange": [23, 26],
+      "summary": "设置系统属性后调用 SpringApplication.run 启动节目服务应用。",
+      "tags": ["entry-point", "启动方法", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramOrderConstant.java:ProgramOrderConstant",
+      "type": "class",
+      "name": "ProgramOrderConstant",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramOrderConstant.java",
+      "lineRange": [10, 21],
+      "summary": "节目服务下单常量持有类，定义延迟取消订单与延迟操作节目数据的 Topic、延迟时间/单位以及订单分表数量。",
+      "tags": ["常量定义", "节目服务", "分库分表"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/KafkaTopic.java:KafkaTopic",
+      "type": "class",
+      "name": "KafkaTopic",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/KafkaTopic.java",
+      "lineRange": [12, 19],
+      "summary": "以 @Component + @Value 承载 spring.kafka.topic 配置的 Bean，为节目服务提供统一的 Kafka 主题名访问入口。",
+      "tags": ["kafka", "配置类", "节目服务"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java:UserApplication",
+      "type": "class",
+      "name": "UserApplication",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "lineRange": [13, 24],
+      "summary": "用户微服务的 Spring Boot 启动类，引导 user-service 应用上下文启动。",
+      "tags": ["entry-point", "启动类", "用户服务", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "lineRange": [19, 22],
+      "summary": "设置系统属性后调用 SpringApplication.run 启动用户服务应用。",
+      "tags": ["entry-point", "启动方法", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-user-service/src/main/java/com/damai/controller/TestDto.java:TestDto",
+      "type": "class",
+      "name": "TestDto",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/controller/TestDto.java",
+      "lineRange": [13, 19],
+      "summary": "仅含一个必填 Long 型 id 字段的测试用 DTO，用于验证接口参数校验与 Swagger 文档生成。",
+      "tags": ["dto", "类型定义", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java:MybatisPlusAutoConfiguration",
+      "type": "class",
+      "name": "MybatisPlusAutoConfiguration",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "lineRange": [13, 32],
+      "summary": "MyBatis-Plus 自动配置类，以 @Bean 方法装配公共字段自动填充处理器与 MySQL 分页拦截器。",
+      "tags": ["configuration", "mybatis-plus", "自动配置", "公共模块"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java:metaObjectHandler",
+      "type": "function",
+      "name": "metaObjectHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "lineRange": [18, 21],
+      "summary": "提供 MetaObjectHandler Bean，返回 MybatisPlusMetaObjectHandler 以实现插入/更新时公共字段（如创建时间、更新时间）的自动填充。",
+      "tags": ["mybatis-plus", "自动填充", "bean定义"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java:mybatisPlusInterceptor",
+      "type": "function",
+      "name": "mybatisPlusInterceptor",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "lineRange": [26, 31],
+      "summary": "构建 MybatisPlusInterceptor 并注册 MySQL 方言的 PaginationInnerInterceptor，为各服务提供统一分页能力。",
+      "tags": ["mybatis-plus", "分页", "bean定义"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/resources/lua/programDataCreateOrderResolution.lua:find_adjacent_seats",
+      "type": "function",
+      "name": "find_adjacent_seats",
+      "filePath": "damai-server/damai-program-service/src/main/resources/lua/programDataCreateOrderResolution.lua",
+      "lineRange": [9, 39],
+      "summary": "脚本内局部函数：先按排号、列号对候选座位排序，再滑动查找 seat_count 个同排且列号连续的座位，找到即返回该连座列表，否则返回空表。",
+      "tags": ["lua", "连座选择", "排序算法", "抢座"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/constant/OrderConstant.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/constant/OrderConstant.java:OrderConstant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java",
+      "target": "class:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java:PayApplication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java",
+      "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "target": "class:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java:PayStrategyInitHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java:executeOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java:executeInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java:ProgramApplication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramOrderConstant.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramOrderConstant.java:ProgramOrderConstant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/KafkaTopic.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/KafkaTopic.java:KafkaTopic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java:UserApplication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "target": "function:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/TestDto.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/controller/TestDto.java:TestDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java:MybatisPlusAutoConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java:metaObjectHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java:mybatisPlusInterceptor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/resources/lua/programDataCreateOrderResolution.lua",
+      "target": "function:damai-server/damai-program-service/src/main/resources/lua/programDataCreateOrderResolution.lua:find_adjacent_seats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/constant/OrderConstant.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/constant/OrderConstant.java:OrderConstant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramOrderConstant.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramOrderConstant.java:ProgramOrderConstant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/KafkaTopic.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/kafka/KafkaTopic.java:KafkaTopic",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/controller/TestDto.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/controller/TestDto.java:TestDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "target": "class:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java:PayStrategyInitHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java:MybatisPlusAutoConfiguration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java:metaObjectHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java:mybatisPlusInterceptor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationInitializingBeanHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java:PayStrategyInitHandler",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationInitializingBeanHandler.java:AbstractApplicationInitializingBeanHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyHandler.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-pay-service/pom.xml",
+      "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/pom.xml",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-user-service/pom.xml",
+      "target": "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-spring-cloud-framework/damai-service-common/pom.xml",
+      "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/pom.xml",
+      "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/pom.xml",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/pom.xml",
+      "target": "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/mapper/OrderMapper.xml",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/mapper/OrderTicketUserMapper.xml",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/src/main/resources/mapper/ProgramMapper.xml",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramMapper.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/src/main/resources/mapper/TicketCategoryMapper.xml",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/mapper/TicketCategoryMapper.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayAutoConfig.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-pay-service/pom.xml",
+      "target": "config:damai-spring-cloud-framework/damai-service-common/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/pom.xml",
+      "target": "config:damai-spring-cloud-framework/damai-service-common/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-user-service/pom.xml",
+      "target": "config:damai-spring-cloud-framework/damai-service-common/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-pay-service/pom.xml",
+      "target": "config:damai-common/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-program-service/pom.xml",
+      "target": "config:damai-common/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-user-service/pom.xml",
+      "target": "config:damai-common/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/mapper/OrderMapper.xml",
+      "target": "config:damai-server/damai-order-service/src/main/resources/mapper/OrderTicketUserMapper.xml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-program-service/src/main/resources/mapper/ProgramMapper.xml",
+      "target": "config:damai-server/damai-program-service/src/main/resources/mapper/TicketCategoryMapper.xml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

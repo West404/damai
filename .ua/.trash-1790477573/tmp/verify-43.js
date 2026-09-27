@@ -1,0 +1,34 @@
+const fs = require('fs');
+const dir = 'E:/WorkSpace/damai/.ua/intermediate/';
+const files = fs.readdirSync(dir).filter(f => /^batch-43(?:-part-\d+)?\.json$/.test(f));
+console.log('output files:', JSON.stringify(files));
+let nodes = [], edges = [];
+for (const f of files) {
+  const g = JSON.parse(fs.readFileSync(dir + f, 'utf8'));
+  nodes = nodes.concat(g.nodes || []);
+  edges = edges.concat(g.edges || []);
+}
+console.log('nodes:', nodes.length, 'edges:', edges.length);
+const ids = new Set(nodes.map(n => n.id));
+if (ids.size !== nodes.length) console.log('DUPLICATE NODE IDS');
+const input = JSON.parse(fs.readFileSync('E:/WorkSpace/damai/.ua/tmp/ua-file-analyzer-input-43.json', 'utf8'));
+const byType = {};
+nodes.forEach(n => byType[n.type] = (byType[n.type] || 0) + 1);
+console.log('node types:', JSON.stringify(byType));
+const byEdge = {};
+edges.forEach(e => byEdge[e.type] = (byEdge[e.type] || 0) + 1);
+console.log('edge types:', JSON.stringify(byEdge));
+let missing = [], paths = new Set(nodes.filter(n => n.filePath).map(n => n.filePath));
+input.batchFiles.forEach(f => { if (!paths.has(f.path)) missing.push(f.path); });
+console.log('batch files:', input.batchFiles.length, 'missing file nodes:', JSON.stringify(missing));
+let importExpected = 0;
+Object.keys(input.batchImportData).forEach(k => importExpected += input.batchImportData[k].length);
+const importActual = edges.filter(e => e.type === 'imports').length;
+console.log('imports expected/actual:', importExpected, importActual);
+const selfEdges = edges.filter(e => e.source === e.target);
+console.log('self edges:', selfEdges.length);
+const bad = edges.filter(e => !['imports','contains','calls','inherits','implements','exports','depends_on','tested_by','configures','documents','deploys','migrates','triggers','defines_schema','serves','provisions','routes','related'].includes(e.type));
+console.log('invalid edge types:', bad.length);
+const counts = {};
+edges.forEach(e => counts[e.type] = (counts[e.type] || 0) + 1);
+console.log('contains:', counts.contains || 0);

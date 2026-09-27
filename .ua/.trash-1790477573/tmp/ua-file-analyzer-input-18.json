@@ -1,0 +1,29 @@
+{
+  "projectRoot": "E:/WorkSpace/damai",
+  "batchFiles": [
+    {"path": "damai-common/src/main/java/com/damai/enums/AreaType.java", "language": "java", "sizeLines": 66, "fileCategory": "code"},
+    {"path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java", "language": "java", "sizeLines": 56, "fileCategory": "code"},
+    {"path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java", "language": "java", "sizeLines": 41, "fileCategory": "code"},
+    {"path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java", "language": "java", "sizeLines": 20, "fileCategory": "code"},
+    {"path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java", "language": "java", "sizeLines": 22, "fileCategory": "code"},
+    {"path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java", "language": "java", "sizeLines": 49, "fileCategory": "code"},
+    {"path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java", "language": "java", "sizeLines": 31, "fileCategory": "code"},
+    {"path": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java", "language": "java", "sizeLines": 61, "fileCategory": "code"},
+    {"path": "damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java", "language": "java", "sizeLines": 48, "fileCategory": "code"},
+    {"path": "damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java", "language": "java", "sizeLines": 14, "fileCategory": "code"},
+    {"path": "damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java", "language": "java", "sizeLines": 95, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "damai-common/src/main/java/com/damai/enums/AreaType.java": [],
+    "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java": ["damai-common/src/main/java/com/damai/common/ApiResponse.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/GetChannelDataByCodeDto.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java"],
+    "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java": ["damai-common/src/main/java/com/damai/common/ApiResponse.java", "damai-common/src/main/java/com/damai/enums/BaseCode.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/GetChannelDataByCodeDto.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java"],
+    "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java": [],
+    "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java": [],
+    "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java": [],
+    "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java": [],
+    "damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java": ["damai-common/src/main/java/com/damai/common/ApiResponse.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java", "damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java"],
+    "damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java": ["damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java"],
+    "damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java": ["damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java"],
+    "damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java": ["damai-common/src/main/java/com/damai/enums/AreaType.java", "damai-common/src/main/java/com/damai/enums/BusinessStatus.java", "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java", "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java", "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java", "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java", "damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java", "damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java"]
+  }
+}

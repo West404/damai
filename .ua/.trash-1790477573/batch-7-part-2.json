@@ -1,0 +1,179 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java",
+      "type": "file",
+      "name": "DelayQueueContext.java",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java",
+      "summary": "延迟队列发送端上下文，按 topic 懒加载 DelayQueueProduceCombine 生产者并向其投递延迟消息，是订单超时取消、节目数据延迟处理等场景的统一入口。",
+      "tags": ["延迟队列", "上下文", "消息发送", "redisson"],
+      "complexity": "simple",
+      "languageNotes": "用 ConcurrentHashMap.computeIfAbsent 按 topic 缓存生产者实例，避免为每个主题重复创建延迟队列。"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java:DelayQueueContext",
+      "type": "class",
+      "name": "DelayQueueContext",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java",
+      "lineRange": [12, 29],
+      "summary": "维护 topic 到延迟消息生产者的映射，对外暴露 sendMessage 统一投递带延迟时间与时间单位的消息。",
+      "tags": ["延迟队列", "消息发送", "上下文"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramAddDto.java",
+      "type": "file",
+      "name": "ProgramAddDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramAddDto.java",
+      "summary": "节目（演出）新增请求 DTO，承载场馆与分类、标题、艺人、图文详情、购票/退票规则、入场与交付说明以及票档总量等节目录入信息。",
+      "tags": ["数据模型", "dto", "节目管理", "请求参数"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramAddDto.java:ProgramAddDto",
+      "type": "class",
+      "name": "ProgramAddDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramAddDto.java",
+      "lineRange": [13, 107],
+      "summary": "节目新增入参对象，字段覆盖节目基础信息、购票与退票限制规则、入场与发票说明、演出时长及票档总数量。",
+      "tags": ["数据模型", "dto", "节目管理"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramGetDto.java",
+      "type": "file",
+      "name": "ProgramGetDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramGetDto.java",
+      "summary": "节目详情查询 DTO，仅携带节目 ID，供节目详情接口按主键获取数据。",
+      "tags": ["数据模型", "dto", "节目管理", "查询条件"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramInvalidDto.java",
+      "type": "file",
+      "name": "ProgramInvalidDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramInvalidDto.java",
+      "summary": "节目失效操作 DTO，仅包含节目 ID，用于运营后台将节目置为无效并清理相关缓存。",
+      "tags": ["数据模型", "dto", "节目管理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramListDto.java",
+      "type": "file",
+      "name": "ProgramListDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramListDto.java",
+      "summary": "节目列表查询 DTO，包含城市 ID 与父级节目分类 ID 集合，用于首页及分类列表的筛选。",
+      "tags": ["数据模型", "dto", "节目管理", "查询条件"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOperateDataDto.java",
+      "type": "file",
+      "name": "ProgramOperateDataDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOperateDataDto.java",
+      "summary": "节目数据操作 DTO，用于同步节目下的票档数量、座位列表与售卖状态，服务于下单扣减余票及延迟数据落库场景。",
+      "tags": ["数据模型", "dto", "库存", "节目管理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOperateDataDto.java:ProgramOperateDataDto",
+      "type": "class",
+      "name": "ProgramOperateDataDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOperateDataDto.java",
+      "lineRange": [15, 34],
+      "summary": "承载节目 ID、票档数量列表、座位 ID 列表与售卖状态，用于节目相关数据的一致性变更与异步处理。",
+      "tags": ["数据模型", "dto", "库存"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramPageListDto.java",
+      "type": "file",
+      "name": "ProgramPageListDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramPageListDto.java",
+      "summary": "节目分页查询 DTO，支持按城市、父级/子级分类、时间类型与起止时间等条件筛选。",
+      "tags": ["数据模型", "dto", "分页", "节目管理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramPageListDto.java:ProgramPageListDto",
+      "type": "class",
+      "name": "ProgramPageListDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramPageListDto.java",
+      "lineRange": [15, 40],
+      "summary": "节目分页列表入参，组合地域、节目分类与时间窗口等筛选条件。",
+      "tags": ["数据模型", "dto", "分页"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramRecommendListDto.java",
+      "type": "file",
+      "name": "ProgramRecommendListDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramRecommendListDto.java",
+      "summary": "节目推荐查询 DTO，包含城市、父级分类与当前节目 ID（用于在推荐结果中排除自身）。",
+      "tags": ["数据模型", "dto", "推荐", "节目管理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramResetExecuteDto.java",
+      "type": "file",
+      "name": "ProgramResetExecuteDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramResetExecuteDto.java",
+      "summary": "节目数据重置执行 DTO，仅包含目标节目 ID，用于重算并回填节目相关的缓存与统计数据。",
+      "tags": ["数据模型", "dto", "缓存", "运维"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramSearchDto.java",
+      "type": "file",
+      "name": "ProgramSearchDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramSearchDto.java",
+      "summary": "节目搜索 DTO，仅携带搜索关键字，用于 ES 全文检索节目。",
+      "tags": ["数据模型", "dto", "搜索", "elasticsearch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramShowTimeAddDto.java",
+      "type": "file",
+      "name": "ProgramShowTimeAddDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramShowTimeAddDto.java",
+      "summary": "节目演出场次新增 DTO，包含节目 ID、演出时间以及展示用的演出日期与星期字段。",
+      "tags": ["数据模型", "dto", "场次管理", "节目管理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramShowTimeAddDto.java:ProgramShowTimeAddDto",
+      "type": "class",
+      "name": "ProgramShowTimeAddDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramShowTimeAddDto.java",
+      "lineRange": [16, 35],
+      "summary": "节目场次新增入参，描述演出的具体时间点及其对应的日期、星期展示字段。",
+      "tags": ["数据模型", "dto", "场次管理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryCountDto.java",
+      "type": "file",
+      "name": "TicketCategoryCountDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryCountDto.java",
+      "summary": "票档数量 DTO，描述票档 ID 与其对应数量，用于节目余票同步与库存扣减。",
+      "tags": ["数据模型", "dto", "库存", "票档"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java", "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java:DelayQueueContext", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java", "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java:DelayQueueContext", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramAddDto.java", "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramAddDto.java:ProgramAddDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramAddDto.java", "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramAddDto.java:ProgramAddDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOperateDataDto.java", "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOperateDataDto.java:ProgramOperateDataDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOperateDataDto.java", "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOperateDataDto.java:ProgramOperateDataDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramPageListDto.java", "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramPageListDto.java:ProgramPageListDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramPageListDto.java", "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramPageListDto.java:ProgramPageListDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramShowTimeAddDto.java", "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramShowTimeAddDto.java:ProgramShowTimeAddDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramShowTimeAddDto.java", "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramShowTimeAddDto.java:ProgramShowTimeAddDto", "type": "exports", "direction": "forward", "weight": 0.8}
+  ]
+}

@@ -1,0 +1,401 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/MessageConsumer.java",
+      "type": "file",
+      "name": "MessageConsumer.java",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/MessageConsumer.java",
+      "summary": "Functional interface defining the Redis Stream message consumption contract; implementations receive a raw message value for business processing.",
+      "tags": ["interface", "type-definition", "redis-stream", "message-consumer"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/MessageConsumer.java:MessageConsumer",
+      "type": "class",
+      "name": "MessageConsumer",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/MessageConsumer.java",
+      "lineRange": [10, 19],
+      "summary": "Functional interface with a single accept(String message) method, implemented by services that consume Redis Stream records.",
+      "tags": ["interface", "functional-interface", "redis-stream"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamConfigProperties.java",
+      "type": "file",
+      "name": "RedisStreamConfigProperties.java",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamConfigProperties.java",
+      "summary": "Spring Boot configuration properties (prefix redis.stream) holding stream name, consumer group, consumer name, and consumer type (group or broadcast).",
+      "tags": ["config", "properties", "redis-stream", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamConfigProperties.java:RedisStreamConfigProperties",
+      "type": "class",
+      "name": "RedisStreamConfigProperties",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamConfigProperties.java",
+      "lineRange": [12, 37],
+      "summary": "Lombok-backed @ConfigurationProperties bean exposing stream/group/consumer settings, defaulting the consumer type to GROUP.",
+      "tags": ["config", "properties", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java",
+      "type": "file",
+      "name": "RedisStreamHandler.java",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java",
+      "summary": "Handler that manages Redis Stream consumer groups (create/bind) and pushes trigger messages into the stream to signal consumers.",
+      "tags": ["service", "redis-stream", "messaging", "event-handler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java:RedisStreamHandler",
+      "type": "class",
+      "name": "RedisStreamHandler",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java",
+      "lineRange": [18, 54],
+      "summary": "Encapsulates StringRedisTemplate stream operations: creating consumer groups, checking key existence, deleting records, and binding a group by pushing a trigger record.",
+      "tags": ["service", "redis-stream", "messaging"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java:streamBindingGroup",
+      "type": "function",
+      "name": "streamBindingGroup",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java",
+      "lineRange": [43, 53],
+      "summary": "Ensures the stream key exists (pushing and then deleting a trigger record), then creates the consumer group for the given stream.",
+      "tags": ["redis-stream", "consumer-group", "messaging"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java",
+      "type": "file",
+      "name": "RedisStreamListener.java",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java",
+      "summary": "StreamListener adapter that receives Redis Stream records, logs metadata, and delegates the message body to the injected MessageConsumer.",
+      "tags": ["event-handler", "redis-stream", "listener", "middleware"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java:RedisStreamListener",
+      "type": "class",
+      "name": "RedisStreamListener",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java",
+      "lineRange": [14, 33],
+      "summary": "Spring Data Redis StreamListener implementation bridging raw stream records to the project's MessageConsumer abstraction with error logging.",
+      "tags": ["event-handler", "redis-stream", "listener"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java:onMessage",
+      "type": "function",
+      "name": "onMessage",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java",
+      "lineRange": [21, 32],
+      "summary": "Logs the record id, value, and stream, then invokes MessageConsumer.accept with the record value, catching and logging any exception.",
+      "tags": ["event-handler", "message-dispatch", "redis-stream"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamPushHandler.java",
+      "type": "file",
+      "name": "RedisStreamPushHandler.java",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamPushHandler.java",
+      "summary": "Publishes map-based messages to the configured Redis Stream using auto-generated record ids via Spring Data Redis StreamRecords.",
+      "tags": ["service", "redis-stream", "producer", "messaging"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamPushHandler.java:RedisStreamPushHandler",
+      "type": "class",
+      "name": "RedisStreamPushHandler",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamPushHandler.java",
+      "lineRange": [15, 33],
+      "summary": "Stream producer wrapper around StringRedisTemplate that appends object records to the stream named in RedisStreamConfigProperties.",
+      "tags": ["service", "redis-stream", "producer"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "type": "file",
+      "name": "RedisStreamAutoConfig.java",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "summary": "Spring Boot auto-configuration wiring the Redis Stream producer/handler beans and the StreamMessageListenerContainer, supporting both consumer-group and broadcast modes.",
+      "tags": ["config", "auto-configuration", "redis-stream", "spring-boot"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java:RedisStreamAutoConfig",
+      "type": "class",
+      "name": "RedisStreamAutoConfig",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "lineRange": [34, 108],
+      "summary": "@Configuration class (enabled by redis.stream.enabled) declaring RedisStreamPushHandler/RedisStreamHandler beans and a listener container with a dedicated polling thread pool.",
+      "tags": ["config", "auto-configuration", "redis-stream", "factory"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java:streamMessageListenerContainer",
+      "type": "function",
+      "name": "streamMessageListenerContainer",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "lineRange": [56, 86],
+      "summary": "Builds and starts the StreamMessageListenerContainer with a 5s poll timeout and batch size 10; binds the listener either via consumer-group receiveAutoAck or broadcast receive from stream start.",
+      "tags": ["redis-stream", "listener-container", "factory"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java:createThreadPool",
+      "type": "function",
+      "name": "createThreadPool",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "lineRange": [88, 102],
+      "summary": "Creates a fixed ThreadPoolExecutor sized to available processors with a bounded queue and named threads for stream polling.",
+      "tags": ["thread-pool", "concurrency", "factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/constant/RedisStreamConstant.java",
+      "type": "file",
+      "name": "RedisStreamConstant.java",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/constant/RedisStreamConstant.java",
+      "summary": "Constants declaring the two supported Redis Stream consumption modes: GROUP and BROADCAST.",
+      "tags": ["constants", "type-definition", "redis-stream"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/constant/RedisStreamConstant.java:RedisStreamConstant",
+      "type": "class",
+      "name": "RedisStreamConstant",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/constant/RedisStreamConstant.java",
+      "lineRange": [9, 14],
+      "summary": "Constant holder with GROUP and BROADCAST string literals used to validate and select the stream consumer type.",
+      "tags": ["constants", "redis-stream"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java",
+      "type": "file",
+      "name": "ProgramRedisStreamConsumer.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java",
+      "summary": "Program-service Redis Stream consumer that parses a program id from each message and evicts that program's local cache.",
+      "tags": ["message-consumer", "redis-stream", "cache", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java:ProgramRedisStreamConsumer",
+      "type": "class",
+      "name": "ProgramRedisStreamConsumer",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java",
+      "lineRange": [15, 27],
+      "summary": "@Component MessageConsumer implementation that delegates cache invalidation for a program id to ProgramService.delLocalCache.",
+      "tags": ["message-consumer", "cache-invalidation", "redis-stream"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/MessageConsumer.java",
+      "target": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/MessageConsumer.java:MessageConsumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamConfigProperties.java",
+      "target": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamConfigProperties.java:RedisStreamConfigProperties",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamConfigProperties.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/constant/RedisStreamConstant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java",
+      "target": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java:RedisStreamHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java",
+      "target": "function:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java:streamBindingGroup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamPushHandler.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java",
+      "target": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java:RedisStreamListener",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java",
+      "target": "function:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java:onMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/MessageConsumer.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamPushHandler.java",
+      "target": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamPushHandler.java:RedisStreamPushHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamPushHandler.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamConfigProperties.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "target": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java:RedisStreamAutoConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "target": "function:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java:streamMessageListenerContainer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "target": "function:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java:createThreadPool",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/MessageConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamConfigProperties.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamPushHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/constant/RedisStreamConstant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java:streamMessageListenerContainer",
+      "target": "function:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java:streamBindingGroup",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/constant/RedisStreamConstant.java",
+      "target": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/constant/RedisStreamConstant.java:RedisStreamConstant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java:ProgramRedisStreamConsumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/MessageConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java:ProgramRedisStreamConsumer",
+      "target": "class:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/MessageConsumer.java:MessageConsumer",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java:ProgramRedisStreamConsumer",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java:delLocalCache",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

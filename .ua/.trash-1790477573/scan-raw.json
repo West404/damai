@@ -1,0 +1,4296 @@
+{
+  "scriptCompleted": true,
+  "contentDigest": "1e417c0905827a8586b25b3122851e0f27890ffbf09f8f71be0191501741260a",
+  "files": [
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 288,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/pom.xml",
+      "language": "xml",
+      "sizeLines": 25,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaBaseMapEnum.java",
+      "language": "java",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java",
+      "language": "java",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java",
+      "language": "java",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "language": "java",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "language": "java",
+      "sizeLines": 112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "language": "java",
+      "sizeLines": 259,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "language": "java",
+      "sizeLines": 99,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+      "language": "java",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+      "language": "java",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "language": "java",
+      "sizeLines": 286,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "language": "java",
+      "sizeLines": 440,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaCacheServiceMemImpl.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+      "language": "java",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "language": "java",
+      "sizeLines": 318,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "language": "java",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java",
+      "language": "java",
+      "sizeLines": 161,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "language": "java",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "language": "java",
+      "sizeLines": 142,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/CacheUtil.java",
+      "language": "java",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "language": "java",
+      "sizeLines": 150,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "language": "java",
+      "sizeLines": 137,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/ImageUtils.java",
+      "language": "java",
+      "sizeLines": 237,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/JsonUtil.java",
+      "language": "java",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Md5Util.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/RandomUtils.java",
+      "language": "java",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "language": "java",
+      "sizeLines": 152,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+      "language": "java",
+      "sizeLines": 1746,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaCacheService",
+      "language": "captchacacheservice",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaService",
+      "language": "captchaservice",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/resources/fonts/license.txt",
+      "language": "txt",
+      "sizeLines": 54,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 46,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+      "language": "java",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+      "language": "java",
+      "sizeLines": 341,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaCacheService",
+      "language": "captchacacheservice",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-captcha-manage-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 22,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-common/pom.xml",
+      "language": "xml",
+      "sizeLines": 122,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "language": "java",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java",
+      "language": "java",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "language": "java",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "language": "java",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/constant/Constant.java",
+      "language": "java",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java",
+      "language": "java",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/ApiRuleType.java",
+      "language": "java",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/AreaType.java",
+      "language": "java",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "language": "java",
+      "sizeLines": 290,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/BusinessStatus.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/CodeType.java",
+      "language": "java",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+      "language": "java",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/IdType.java",
+      "language": "java",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java",
+      "language": "java",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/JobRunStatus.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/JobRunType.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+      "language": "java",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "language": "java",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/PayBillType.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/PayChannel.java",
+      "language": "java",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/PermitRefund.java",
+      "language": "java",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/ProgramOrderVersion.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/ProgramPageType.java",
+      "language": "java",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/RuleStatus.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/RuleTimeUnit.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "language": "java",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/Status.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/TimeType.java",
+      "language": "java",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/UserLogStatus.java",
+      "language": "java",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/VerifyCaptcha.java",
+      "language": "java",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/environment/SpringEnvironment.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/exception/ArgumentError.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/exception/ArgumentException.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/exception/BaseException.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "language": "java",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/jwt/TokenUtil.java",
+      "language": "java",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/log4j/BaseJsonLayout.java",
+      "language": "java",
+      "sizeLines": 204,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/log4j/DamaiJsonLayout.java",
+      "language": "java",
+      "sizeLines": 155,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/log4j/JsonWriterBuilder.java",
+      "language": "java",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/test/Test.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/threadlocal/BaseParameterHolder.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/util/Base64.java",
+      "language": "java",
+      "sizeLines": 194,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "language": "java",
+      "sizeLines": 938,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/util/RsaSignTool.java",
+      "language": "java",
+      "sizeLines": 228,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/util/RsaTool.java",
+      "language": "java",
+      "sizeLines": 202,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "language": "java",
+      "sizeLines": 91,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/resources/META-INF/spring.factories",
+      "language": "factories",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-elasticsearch-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 81,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java",
+      "language": "java",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsProperties.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataCreateDto.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataQueryDto.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDocumentMappingDto.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsGeoPointDto.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsGeoPointSortDto.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "language": "java",
+      "sizeLines": 559,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-elasticsearch-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/README.md",
+      "language": "markdown",
+      "sizeLines": 7,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "damai-id-generator-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 50,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "language": "java",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "language": "java",
+      "sizeLines": 181,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferedUidProvider.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "language": "java",
+      "sizeLines": 261,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/DisposableWorkerIdAssigner.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/RedisDisposableWorkerIdAssigner.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java",
+      "language": "java",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "language": "java",
+      "sizeLines": 183,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "language": "java",
+      "sizeLines": 237,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java",
+      "language": "java",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDockerUtils.java",
+      "language": "java",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractEnumUtils.java",
+      "language": "java",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractNetUtils.java",
+      "language": "java",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "language": "java",
+      "sizeLines": 165,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/dao/WorkerNodeDAO.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java",
+      "language": "java",
+      "sizeLines": 131,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/toolkit/IdGeneratorConstant.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "language": "java",
+      "sizeLines": 198,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java",
+      "language": "java",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/resources/lua/workAndDataCenterId.lua",
+      "language": "lua",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/resources/scripts/WORKER_NODE.sql",
+      "language": "sql",
+      "sizeLines": 12,
+      "fileCategory": "data"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/resources/uid/cached-uid-spring.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/resources/uid/default-uid-spring.xml",
+      "language": "xml",
+      "sizeLines": 22,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/resources/uid/mybatis-spring.xml",
+      "language": "xml",
+      "sizeLines": 80,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/resources/uid/mysql.properties",
+      "language": "properties",
+      "sizeLines": 23,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-common-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 42,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-common-framework/src/main/java/com/damai/config/RedisFrameWorkAutoConfig.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-common-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 54,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "language": "java",
+      "sizeLines": 127,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/CacheUtil.java",
+      "language": "java",
+      "sizeLines": 143,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "language": "java",
+      "sizeLines": 1290,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCacheImpl.java",
+      "language": "java",
+      "sizeLines": 1277,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "language": "java",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/config/RedisCacheAutoConfig.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 54,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/MessageConsumer.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamConfigProperties.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java",
+      "language": "java",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamPushHandler.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/config/RedisStreamAutoConfig.java",
+      "language": "java",
+      "sizeLines": 108,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/constant/RedisStreamConstant.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redis-tool-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 23,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 29,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/config/BloomFilterAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/config/BloomFilterProperties.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java",
+      "language": "java",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 64,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonBaseProperties.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/core/Constants.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "language": "java",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "language": "java",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/ExtParameterNameDiscoverer.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "language": "java",
+      "sizeLines": 253,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 35,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/lockinfo/impl/RepeatExecuteLimitLockInfoHandle.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "language": "java",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/constant/RepeatExecuteLimitConstant.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 30,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/DistributedLockConstants.java",
+      "language": "java",
+      "sizeLines": 116,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/lockinfo/impl/ServiceLockInfoHandle.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "language": "java",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "language": "java",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "language": "java",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonFairLocker.java",
+      "language": "java",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java",
+      "language": "java",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java",
+      "language": "java",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java",
+      "language": "java",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutHandler.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutStrategy.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "language": "java",
+      "sizeLines": 136,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskCall.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskRun.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 24,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 50,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "language": "java",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 22,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/pom.xml",
+      "language": "xml",
+      "sizeLines": 18,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java",
+      "language": "java",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java",
+      "language": "java",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/ChannelDataAddDto.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/GetChannelDataByCodeDto.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/TokenDataDto.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java",
+      "language": "java",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/pom.xml",
+      "language": "xml",
+      "sizeLines": 19,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/AllRuleDto.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleDto.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleStatusDto.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleUpdateDto.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleDto.java",
+      "language": "java",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleGetDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleStatusDto.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleUpdateDto.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/AllDepthRuleVo.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java",
+      "language": "java",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-job-client/pom.xml",
+      "language": "xml",
+      "sizeLines": 18,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoDto.java",
+      "language": "java",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoPageDto.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/RunJobDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/pom.xml",
+      "language": "xml",
+      "sizeLines": 18,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "language": "java",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderRefundDto.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java",
+      "language": "java",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketUserVo.java",
+      "language": "java",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/pom.xml",
+      "language": "xml",
+      "sizeLines": 18,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "language": "java",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "language": "java",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/pom.xml",
+      "language": "xml",
+      "sizeLines": 26,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ParentProgramCategoryDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramAddDto.java",
+      "language": "java",
+      "sizeLines": 107,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramCategoryAddDto.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramCategoryDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramGetDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramInvalidDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramListDto.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOperateDataDto.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramPageListDto.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramRecommendListDto.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramResetExecuteDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramSearchDto.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramShowTimeAddDto.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatAddDto.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchRelateInfoAddDto.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatDto.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatListDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryAddDto.java",
+      "language": "java",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryCountDto.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryDto.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramCategoryVo.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramGroupVo.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramHomeVo.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramListVo.java",
+      "language": "java",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramShowTimeVo.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramSimpleInfoVo.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+      "language": "java",
+      "sizeLines": 184,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/pom.xml",
+      "language": "xml",
+      "sizeLines": 18,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+      "language": "java",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/ProgramOrderTicketUserDto.java",
+      "language": "java",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserMobileDto.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserRegisterDto.java",
+      "language": "java",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateDto.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateEmailDto.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateMobileDto.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdatePasswordDto.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/CheckNeedCaptchaDataVo.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserLoginVo.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java",
+      "language": "java",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/pom.xml",
+      "language": "xml",
+      "sizeLines": 54,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-admin-service/pom.xml",
+      "language": "xml",
+      "sizeLines": 99,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java",
+      "language": "java",
+      "sizeLines": 91,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/config/SecurityConfig.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java",
+      "language": "java",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/resources/application.yml",
+      "language": "yaml",
+      "sizeLines": 71,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/resources/log4j2.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/pom.xml",
+      "language": "xml",
+      "sizeLines": 167,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java",
+      "language": "java",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/ChannelDataController.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java",
+      "language": "java",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/entity/ChannelTableData.java",
+      "language": "java",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/mapper/ChannelDataMapper.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java",
+      "language": "java",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "language": "java",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "language": "java",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/resources/application-local.yml",
+      "language": "yaml",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/resources/application-pro.yml",
+      "language": "yaml",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/resources/application.yml",
+      "language": "yaml",
+      "sizeLines": 108,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/resources/log4j2.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-customize-service/pom.xml",
+      "language": "xml",
+      "sizeLines": 156,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "language": "java",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java",
+      "language": "java",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/entity/DepthRule.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/entity/Rule.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/mapper/DepthRuleMapper.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/mapper/RuleMapper.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/AllRuleService.java",
+      "language": "java",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java",
+      "language": "java",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/DepthRuleService.java",
+      "language": "java",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/RuleService.java",
+      "language": "java",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/ServiceBroadcastCall.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/resources/application-local.yml",
+      "language": "yaml",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/resources/application-pro.yml",
+      "language": "yaml",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/resources/application.yml",
+      "language": "yaml",
+      "sizeLines": 123,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/resources/log4j2.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/resources/mapper/ApiDataMapper.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/resources/mapper/DepthRuleMapper.xml",
+      "language": "xml",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/resources/mapper/RuleMapper.xml",
+      "language": "xml",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/pom.xml",
+      "language": "xml",
+      "sizeLines": 169,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+      "language": "java",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java",
+      "language": "java",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/constant/GatewayConstant.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/controller/HystrixFallBackController.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+      "language": "java",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/RequestValidationFilter.java",
+      "language": "java",
+      "sizeLines": 326,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/filter/ResponseValidationFilter.java",
+      "language": "java",
+      "sizeLines": 140,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/KafkaTopic.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiter.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterProperty.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/property/GatewayProperty.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictData.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictService.java",
+      "language": "java",
+      "sizeLines": 268,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ChannelDataService.java",
+      "language": "java",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/service/TokenService.java",
+      "language": "java",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "language": "java",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/vo/RuleVo.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/resources/application-pro.yml",
+      "language": "yaml",
+      "sizeLines": 78,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/resources/application.yml",
+      "language": "yaml",
+      "sizeLines": 113,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/resources/log4j2.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/resources/lua/apiLimit.lua",
+      "language": "lua",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-mybatis-plus-service/pom.xml",
+      "language": "xml",
+      "sizeLines": 46,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java",
+      "language": "java",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/pom.xml",
+      "language": "xml",
+      "sizeLines": 171,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "language": "java",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java",
+      "language": "java",
+      "sizeLines": 108,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+      "language": "java",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "language": "java",
+      "sizeLines": 631,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/constant/OrderConstant.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+      "language": "java",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/resources/application-local.yml",
+      "language": "yaml",
+      "sizeLines": 3,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/resources/application-pro.yml",
+      "language": "yaml",
+      "sizeLines": 3,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/resources/application.yml",
+      "language": "yaml",
+      "sizeLines": 131,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/resources/log4j2.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/resources/lua/OrderProgramDataResolution.lua",
+      "language": "lua",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/resources/mapper/OrderMapper.xml",
+      "language": "xml",
+      "sizeLines": 34,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/resources/mapper/OrderTicketUserMapper.xml",
+      "language": "xml",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/resources/shardingsphere-order-docker.yaml",
+      "language": "yaml",
+      "sizeLines": 71,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml",
+      "language": "yaml",
+      "sizeLines": 71,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/resources/shardingsphere-order-pro.yaml",
+      "language": "yaml",
+      "sizeLines": 71,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-pay-service/pom.xml",
+      "language": "xml",
+      "sizeLines": 160,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "language": "java",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/entity/PayBill.java",
+      "language": "java",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/entity/RefundBill.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/mapper/PayBillMapper.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/mapper/RefundBillMapper.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayAutoConfig.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayResult.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyContext.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyHandler.java",
+      "language": "java",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyInitHandler.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/RefundResult.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/TradeResult.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/AlipayStrategyHandler.java",
+      "language": "java",
+      "sizeLines": 203,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/config/AlipayProperties.java",
+      "language": "java",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/service/PayBillService.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java",
+      "language": "java",
+      "sizeLines": 245,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/service/RefundBillService.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/resources/application.yml",
+      "language": "yaml",
+      "sizeLines": 115,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/resources/log4j2.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-docker.yaml",
+      "language": "yaml",
+      "sizeLines": 57,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-local.yaml",
+      "language": "yaml",
+      "sizeLines": 57,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-pro.yaml",
+      "language": "yaml",
+      "sizeLines": 57,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-program-service/pom.xml",
+      "language": "xml",
+      "sizeLines": 213,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramCategoryController.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+      "language": "java",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramOrderController.java",
+      "language": "java",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java",
+      "language": "java",
+      "sizeLines": 247,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramCategory.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramJoinShowTime.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramShowTime.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java",
+      "language": "java",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/TicketCategory.java",
+      "language": "java",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/TicketCategoryAggregate.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/lock/LockTask.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramCategoryMapper.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramGroupMapper.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramMapper.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramShowTimeMapper.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/mapper/SeatMapper.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/mapper/TicketCategoryMapper.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramCategoryService.java",
+      "language": "java",
+      "sizeLines": 115,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramOrderService.java",
+      "language": "java",
+      "sizeLines": 428,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+      "language": "java",
+      "sizeLines": 881,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "language": "java",
+      "sizeLines": 201,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "language": "java",
+      "sizeLines": 235,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "language": "java",
+      "sizeLines": 172,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "language": "java",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramCategory.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramGroup.java",
+      "language": "java",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java",
+      "language": "java",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "language": "java",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramBloomFilterCheckHandler.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/ProgramRecommendCheckHandler.java",
+      "language": "java",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramDetailCheckHandler.java",
+      "language": "java",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramOrderCreateParamCheckHandler.java",
+      "language": "java",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "language": "java",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramOrderConstant.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/constant/ProgramTimeType.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/delayconsumer/DelayOperateProgramDataConsumer.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/delaysend/DelayOrderCancelSend.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java",
+      "language": "java",
+      "sizeLines": 309,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramBloomFilterInit.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramCategoryInitData.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramDocumentParamName.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramElasticsearchInitData.java",
+      "language": "java",
+      "sizeLines": 136,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/init/ProgramShowTimeRenewal.java",
+      "language": "java",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderMqDomain.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/CreateOrderSend.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/kafka/KafkaTopic.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderData.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramSeatCacheData.java",
+      "language": "java",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/scheduletask/ProgramDataTask.java",
+      "language": "java",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/BaseProgramOrder.java",
+      "language": "java",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderContext.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/ProgramOrderStrategy.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV1Strategy.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV2Strategy.java",
+      "language": "java",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV3Strategy.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/strategy/impl/ProgramOrderV4Strategy.java",
+      "language": "java",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/ProgramPageOrder.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/SeatMatch.java",
+      "language": "java",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/application.yml",
+      "language": "yaml",
+      "sizeLines": 141,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/log4j2.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/lua/programDataCreateOrderResolution.lua",
+      "language": "lua",
+      "sizeLines": 136,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/lua/programDataResolution.lua",
+      "language": "lua",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/lua/programDel.lua",
+      "language": "lua",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/lua/programSeat.lua",
+      "language": "lua",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/mapper/ProgramMapper.xml",
+      "language": "xml",
+      "sizeLines": 82,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/mapper/TicketCategoryMapper.xml",
+      "language": "xml",
+      "sizeLines": 47,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/shardingsphere-program-docker.yaml",
+      "language": "yaml",
+      "sizeLines": 116,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/shardingsphere-program-local.yaml",
+      "language": "yaml",
+      "sizeLines": 116,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/resources/shardingsphere-program-pro.yaml",
+      "language": "yaml",
+      "sizeLines": 116,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-user-service/pom.xml",
+      "language": "xml",
+      "sizeLines": 179,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/controller/TestDto.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/controller/TicketUserController.java",
+      "language": "java",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/controller/UserController.java",
+      "language": "java",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/entity/TicketUser.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+      "language": "java",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+      "language": "java",
+      "sizeLines": 96,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/TokenService.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+      "language": "java",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+      "language": "java",
+      "sizeLines": 388,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserExistCheckHandler.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "language": "java",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/init/UserBloomFilterInitData.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/lua/CheckNeedCaptchaOperate.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/resources/application.yml",
+      "language": "yaml",
+      "sizeLines": 129,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/resources/log4j2.xml",
+      "language": "xml",
+      "sizeLines": 78,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/resources/lua/checkNeedCaptcha.lua",
+      "language": "lua",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/resources/shardingsphere-user-docker.yaml",
+      "language": "yaml",
+      "sizeLines": 117,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml",
+      "language": "yaml",
+      "sizeLines": 117,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/resources/shardingsphere-user-pro.yaml",
+      "language": "yaml",
+      "sizeLines": 117,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-server/pom.xml",
+      "language": "xml",
+      "sizeLines": 30,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/pom.xml",
+      "language": "xml",
+      "sizeLines": 91,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "language": "java",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/FailureCallback.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mq/callback/SuccessCallback.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "language": "java",
+      "sizeLines": 96,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java",
+      "language": "java",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/swagger/SwaggerConfiguration.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/org/yaml/snakeyaml/representer/Representer.java",
+      "language": "java",
+      "sizeLines": 269,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/pom.xml",
+      "language": "xml",
+      "sizeLines": 72,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/ExtraFeignAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/BaseParameterFilter.java",
+      "language": "java",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/FilterAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "language": "java",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/ExtCachingServiceInstanceListSupplier.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/FilterLoadBalance.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/balance/config/GrayLoadBalanceAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/context/ContextHandler.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/EnhanceServiceInstanceListSupplierBuilder.java",
+      "language": "java",
+      "sizeLines": 458,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/enhance/config/EnhanceLoadBalancerClientConfiguration.java",
+      "language": "java",
+      "sizeLines": 394,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/AbstractServerFilter.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/filter/impl/ServerGrayFilter.java",
+      "language": "java",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/java/com/damai/fiterbalance/DefaultFilterLoadBalance.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 32,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/config/GatewayContextAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkClearFilter.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/filter/GatewayWorkRouteFilter.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHandler.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/java/com/damai/context/impl/GatewayContextHolder.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 32,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/config/WebMvcContextAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/java/com/damai/context/impl/WebMvcContextHandler.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-gray-transition-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 22,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/pom.xml",
+      "language": "xml",
+      "sizeLines": 29,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationCommandLineRunnerHandler.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationInitializingBeanHandler.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/constant/InitializeHandlerType.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java",
+      "language": "java",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeAutoConfiguration.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java",
+      "language": "java",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/init/CompositeInit.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-spring-cloud-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 24,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-thread-pool-framework/pom.xml",
+      "language": "xml",
+      "sizeLines": 31,
+      "fileCategory": "config"
+    },
+    {
+      "path": "damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "language": "java",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-thread-pool-framework/src/main/java/com/damai/filter/FilterConfig.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-thread-pool-framework/src/main/java/com/damai/namefactory/AbstractNameThreadFactory.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-thread-pool-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "language": "imports",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "docker-compose.yml",
+      "language": "yaml",
+      "sizeLines": 298,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "docker/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 15,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "docker/README.md",
+      "language": "markdown",
+      "sizeLines": 38,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "pom.xml",
+      "language": "xml",
+      "sizeLines": 189,
+      "fileCategory": "config"
+    },
+    {
+      "path": "spotless/license-header",
+      "language": "unknown",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "spotless/spotless.xml",
+      "language": "xml",
+      "sizeLines": 51,
+      "fileCategory": "config"
+    },
+    {
+      "path": "sql/cloud/1_damai_cloud_create_database.sql",
+      "language": "sql",
+      "sizeLines": 10,
+      "fileCategory": "data"
+    },
+    {
+      "path": "sql/cloud/damai_base_data.sql",
+      "language": "sql",
+      "sizeLines": 66,
+      "fileCategory": "data"
+    },
+    {
+      "path": "sql/cloud/damai_customize.sql",
+      "language": "sql",
+      "sizeLines": 110,
+      "fileCategory": "data"
+    },
+    {
+      "path": "sql/cloud/damai_order_0.sql",
+      "language": "sql",
+      "sizeLines": 348,
+      "fileCategory": "data"
+    },
+    {
+      "path": "sql/cloud/damai_order_1.sql",
+      "language": "sql",
+      "sizeLines": 344,
+      "fileCategory": "data"
+    },
+    {
+      "path": "sql/cloud/damai_pay_0.sql",
+      "language": "sql",
+      "sizeLines": 136,
+      "fileCategory": "data"
+    },
+    {
+      "path": "sql/cloud/damai_pay_1.sql",
+      "language": "sql",
+      "sizeLines": 136,
+      "fileCategory": "data"
+    },
+    {
+      "path": "sql/cloud/damai_program_0.sql",
+      "language": "sql",
+      "sizeLines": 461,
+      "fileCategory": "data"
+    },
+    {
+      "path": "sql/cloud/damai_program_1.sql",
+      "language": "sql",
+      "sizeLines": 450,
+      "fileCategory": "data"
+    },
+    {
+      "path": "sql/cloud/damai_user_0.sql",
+      "language": "sql",
+      "sizeLines": 238,
+      "fileCategory": "data"
+    },
+    {
+      "path": "sql/cloud/damai_user_1.sql",
+      "language": "sql",
+      "sizeLines": 238,
+      "fileCategory": "data"
+    }
+  ],
+  "totalFiles": 710,
+  "filteredByIgnore": 67,
+  "estimatedComplexity": "very-large",
+  "failures": [],
+  "stats": {
+    "filesScanned": 710,
+    "byCategory": {
+      "docs": 4,
+      "config": 92,
+      "code": 600,
+      "data": 12,
+      "infra": 2
+    },
+    "byLanguage": {
+      "markdown": 3,
+      "xml": 64,
+      "java": 565,
+      "captchacacheservice": 2,
+      "captchaservice": 1,
+      "txt": 1,
+      "imports": 22,
+      "factories": 1,
+      "lua": 8,
+      "sql": 12,
+      "properties": 1,
+      "yaml": 28,
+      "dockerfile": 1,
+      "unknown": 1
+    }
+  }
+}

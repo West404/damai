@@ -1,0 +1,1181 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java",
+      "type": "file",
+      "name": "DelayQueuePart.java",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java",
+      "summary": "单个主题的延迟队列上下文，把基础上下文与具体的 ConsumerTask 实现绑定在一起。",
+      "tags": [
+        "上下文",
+        "延迟队列",
+        "数据模型"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "type": "file",
+      "name": "ConsumerTask.java",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "summary": "延迟队列消费者接口，业务方实现 execute 处理消息、实现 topic 声明订阅主题。",
+      "tags": [
+        "接口定义",
+        "延迟队列",
+        "扩展点"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "type": "file",
+      "name": "DelayConsumerQueue.java",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "summary": "延迟队列消费者，继承 DelayBaseQueue，用单线程监听池阻塞拉取 Redisson 队列消息，再交给业务线程池并发执行 ConsumerTask。",
+      "tags": [
+        "延迟队列",
+        "并发",
+        "线程池",
+        "redisson"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "继承 DelayBaseQueue 复用 Redisson 阻塞队列，监听线程与业务执行线程分离，避免拉取阻塞影响消费。"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "type": "file",
+      "name": "DelayQueueInitHandler.java",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "summary": "应用启动事件监听器，扫描容器内所有 ConsumerTask Bean，按隔离分区数为每个主题创建并启动 DelayConsumerQueue。",
+      "tags": [
+        "事件监听",
+        "延迟队列",
+        "启动初始化",
+        "spring"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java",
+      "type": "file",
+      "name": "TestDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java",
+      "summary": "测试用请求 DTO，仅包含一个 id 字段。",
+      "tags": [
+        "数据模型",
+        "dto",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java",
+      "type": "file",
+      "name": "TestSendDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java",
+      "summary": "测试消息 DTO，包含 count/message/time 字段，既作延迟队列消息体也作计数器重置请求体。",
+      "tags": [
+        "数据模型",
+        "dto",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "type": "file",
+      "name": "TestController.java",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "summary": "base-data 服务的测试控制层，暴露 /test/testData1-3 三个接口，用于演示线程与线程池场景下 traceId 的传递效果。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "test",
+        "入口点"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "type": "file",
+      "name": "TestService.java",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "summary": "测试服务，横向对比 ThreadLocal、InheritableThreadLocal 与 TransmittableThreadLocal 在普通线程和线程池中的 traceId 传递差异，并演示通过 beforeExecute/afterExecute 同步 MDC 日志链路。",
+      "tags": [
+        "test",
+        "并发",
+        "thread-local",
+        "日志链路"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "同时使用 JDK ThreadLocal、InheritableThreadLocal 与阿里 TransmittableThreadLocal + TtlRunnable，专门用于验证线程池上下文透传。"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "type": "file",
+      "name": "Test.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "summary": "订单服务的延迟队列测试消费者，实现 ConsumerTask，解析 TestSendDto 并打印消息从发送到消费的实际延时。",
+      "tags": [
+        "test",
+        "延迟队列",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "type": "file",
+      "name": "TestController.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "summary": "program 服务的测试控制层，提供 /test/reset 重置消息计数器与 /test/test 占位接口。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "test",
+        "入口点"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "type": "file",
+      "name": "TestService.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "summary": "测试服务，用 PaddedAtomicLong 维护一个可被重置的原子计数器，配合延迟队列压测统计消费量。",
+      "tags": [
+        "test",
+        "原子操作",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java:DelayQueuePart",
+      "type": "class",
+      "name": "DelayQueuePart",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java",
+      "lineRange": [
+        11,
+        22
+      ],
+      "summary": "主题级延迟队列上下文，聚合基础上下文与 ConsumerTask。",
+      "tags": [
+        "上下文",
+        "延迟队列",
+        "数据模型"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java:ConsumerTask",
+      "type": "class",
+      "name": "ConsumerTask",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "lineRange": [
+        8,
+        20
+      ],
+      "summary": "延迟队列消费者接口，声明 execute 消费方法与 topic 主题方法。",
+      "tags": [
+        "接口定义",
+        "延迟队列",
+        "扩展点"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:DelayConsumerQueue",
+      "type": "class",
+      "name": "DelayConsumerQueue",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "lineRange": [
+        19,
+        84
+      ],
+      "summary": "延迟队列消费者实现，继承 DelayBaseQueue 复用 Redisson 阻塞队列，用监听线程池拉取消息、业务线程池并发执行。",
+      "tags": [
+        "延迟队列",
+        "并发",
+        "线程池",
+        "redisson"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java:DelayQueueInitHandler",
+      "type": "class",
+      "name": "DelayQueueInitHandler",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "lineRange": [
+        19,
+        43
+      ],
+      "summary": "应用启动监听器，在 ApplicationStartedEvent 之后为每个 ConsumerTask 按隔离分区数启动对应的延迟消费队列。",
+      "tags": [
+        "事件监听",
+        "延迟队列",
+        "启动初始化",
+        "spring"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java:TestDto",
+      "type": "class",
+      "name": "TestDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java",
+      "lineRange": [
+        13,
+        19
+      ],
+      "summary": "测试请求 DTO，包含 id 字段。",
+      "tags": [
+        "数据模型",
+        "dto",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java:TestSendDto",
+      "type": "class",
+      "name": "TestSendDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java",
+      "lineRange": [
+        13,
+        23
+      ],
+      "summary": "测试消息 DTO，包含 count、message、time 三个字段。",
+      "tags": [
+        "数据模型",
+        "dto",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:TestController",
+      "type": "class",
+      "name": "TestController",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "lineRange": [
+        18,
+        47
+      ],
+      "summary": "base-data 测试控制层，提供 /test/testData、/test/testData2、/test/testData3 三个 POST 接口。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "test",
+        "入口点"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:TestService",
+      "type": "class",
+      "name": "TestService",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "lineRange": [
+        20,
+        97
+      ],
+      "summary": "测试服务，定义多种 ThreadLocal 与线程池组合，用于验证 traceId 在主线程与线程池线程之间的传递与 MDC 日志链路。",
+      "tags": [
+        "test",
+        "并发",
+        "thread-local",
+        "日志链路"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java:Test",
+      "type": "class",
+      "name": "Test",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "lineRange": [
+        14,
+        29
+      ],
+      "summary": "订单服务延迟队列消费者，实现 ConsumerTask 解析 TestSendDto 并输出消息实际延时。",
+      "tags": [
+        "test",
+        "延迟队列",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java:TestController",
+      "type": "class",
+      "name": "TestController",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "lineRange": [
+        20,
+        37
+      ],
+      "summary": "program 测试控制层，提供重置消息计数器与占位测试两个接口。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "test",
+        "入口点"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java:TestService",
+      "type": "class",
+      "name": "TestService",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "lineRange": [
+        20,
+        25
+      ],
+      "summary": "program 测试服务，使用 PaddedAtomicLong 维护可重置的原子计数器。",
+      "tags": [
+        "test",
+        "原子操作",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:listenStart",
+      "type": "function",
+      "name": "listenStart",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "lineRange": [
+        50,
+        73
+      ],
+      "summary": "启动单线程监听循环：阻塞 take Redisson 阻塞队列消息，并提交业务线程池执行 ConsumerTask，异常时记录日志或触发销毁。",
+      "tags": [
+        "延迟队列",
+        "并发",
+        "线程池",
+        "redisson"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:destroy",
+      "type": "function",
+      "name": "destroy",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "lineRange": [
+        75,
+        83
+      ],
+      "summary": "优雅关闭传入的线程池，异常仅记录日志不向上抛出。",
+      "tags": [
+        "优雅停机",
+        "并发",
+        "延迟队列"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "lineRange": [
+        14,
+        14
+      ],
+      "summary": "消费一条延迟消息，由业务方实现具体处理逻辑。",
+      "tags": [
+        "接口方法",
+        "延迟队列",
+        "扩展点"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java:topic",
+      "type": "function",
+      "name": "topic",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "lineRange": [
+        19,
+        19
+      ],
+      "summary": "返回消费者订阅的主题名，决定消息的隔离分区前缀。",
+      "tags": [
+        "接口方法",
+        "延迟队列",
+        "topic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java:onApplicationEvent",
+      "type": "function",
+      "name": "onApplicationEvent",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "lineRange": [
+        24,
+        42
+      ],
+      "summary": "应用启动完成后扫描容器内全部 ConsumerTask Bean，按隔离分区数为每个主题创建并启动 DelayConsumerQueue。",
+      "tags": [
+        "事件监听",
+        "启动初始化",
+        "延迟队列",
+        "spring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:testData",
+      "type": "function",
+      "name": "testData",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "lineRange": [
+        27,
+        32
+      ],
+      "summary": "POST /test/testData，调用服务层演示 ThreadLocal 场景下的 traceId 传递。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "入口点",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:testData2",
+      "type": "function",
+      "name": "testData2",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "lineRange": [
+        34,
+        39
+      ],
+      "summary": "POST /test/testData2，调用服务层演示 InheritableThreadLocal 场景下的 traceId 传递。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "入口点",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:testData3",
+      "type": "function",
+      "name": "testData3",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "lineRange": [
+        41,
+        46
+      ],
+      "summary": "POST /test/testData3，调用服务层演示线程池场景下的 traceId 传递。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "入口点",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData",
+      "type": "function",
+      "name": "testData",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "lineRange": [
+        47,
+        55
+      ],
+      "summary": "使用普通 ThreadLocal 保存 traceId，验证 new Thread 创建的子线程无法继承主线程上下文。",
+      "tags": [
+        "test",
+        "thread-local",
+        "并发"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData2",
+      "type": "function",
+      "name": "testData2",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "lineRange": [
+        57,
+        65
+      ],
+      "summary": "使用 InheritableThreadLocal 保存 traceId，验证直接创建子线程时可以继承上下文。",
+      "tags": [
+        "test",
+        "thread-local",
+        "并发"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData3",
+      "type": "function",
+      "name": "testData3",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "lineRange": [
+        67,
+        75
+      ],
+      "summary": "使用 InheritableThreadLocal 配合固定线程池，验证线程池复用线程时上下文继承失效。",
+      "tags": [
+        "test",
+        "thread-local",
+        "线程池",
+        "并发"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData4",
+      "type": "function",
+      "name": "testData4",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "lineRange": [
+        77,
+        85
+      ],
+      "summary": "使用 TransmittableThreadLocal 配合 TtlRunnable 包装任务，验证线程池场景下上下文可正确透传。",
+      "tags": [
+        "test",
+        "thread-local",
+        "线程池",
+        "阿里ttl"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData5",
+      "type": "function",
+      "name": "testData5",
+      "filePath": "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "lineRange": [
+        87,
+        96
+      ],
+      "summary": "重写 TransmittableThreadLocal 的 beforeExecute/afterExecute 在线程池线程中设置与清理 MDC，验证日志链路 traceId 输出。",
+      "tags": [
+        "test",
+        "thread-local",
+        "日志链路",
+        "并发"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "lineRange": [
+        19,
+        23
+      ],
+      "summary": "解析 TestSendDto 消息内容，并打印消息从发送到消费的实际延时毫秒数。",
+      "tags": [
+        "test",
+        "延迟队列",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java:topic",
+      "type": "function",
+      "name": "topic",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "lineRange": [
+        25,
+        28
+      ],
+      "summary": "返回消费者订阅的主题名 test-topic。",
+      "tags": [
+        "test",
+        "延迟队列",
+        "topic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java:reset",
+      "type": "function",
+      "name": "reset",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "lineRange": [
+        27,
+        31
+      ],
+      "summary": "POST /test/reset，调用服务层把消息计数器重置为零。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "入口点",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java:test",
+      "type": "function",
+      "name": "test",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "lineRange": [
+        33,
+        36
+      ],
+      "summary": "POST /test/test 占位接口，仅返回成功响应。",
+      "tags": [
+        "api-handler",
+        "controller",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java:reset",
+      "type": "function",
+      "name": "reset",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "lineRange": [
+        21,
+        24
+      ],
+      "summary": "把 PaddedAtomicLong 计数器重置为零并返回成功。",
+      "tags": [
+        "test",
+        "原子操作",
+        "service"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java:DelayQueuePart",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java:DelayQueuePart",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java:ConsumerTask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java:ConsumerTask",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:DelayConsumerQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:DelayConsumerQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java:DelayQueueInitHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java:DelayQueueInitHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java:TestDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java:TestDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java:TestSendDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java:TestSendDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:TestController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:TestController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:TestService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "target": "class:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:TestService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java:Test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java:Test",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java:TestController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java:TestController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java:TestService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java:TestService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:listenStart",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:destroy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java:topic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java:onApplicationEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:testData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:testData2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:testData3",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData3",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData4",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData5",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java:topic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java:reset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java:test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java:reset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:DelayConsumerQueue",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java:DelayBaseQueue",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java:Test",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java:ConsumerTask",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java:onApplicationEvent",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:listenStart",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java:onApplicationEvent",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java:topic",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java:onApplicationEvent",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:DelayConsumerQueue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java:onApplicationEvent",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java:DelayQueuePart",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:listenStart",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java:execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:listenStart",
+      "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java:destroy",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:testData",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:testData2",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData2",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:testData3",
+      "target": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData3",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java:testData",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java:reset",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java:reset",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java:reset",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java:testData5",
+      "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isNotEmpty",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

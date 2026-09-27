@@ -1,0 +1,812 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java",
+      "type": "file",
+      "name": "RedissonCommonAutoConfiguration.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java",
+      "summary": "Spring Boot auto-configuration that builds the shared RedissonClient in single-server mode with a custom executor thread pool and registers the RedissonDataHandle, LocalLockCache, and LockInfoHandleFactory beans.",
+      "tags": ["configuration", "auto-configuration", "redisson", "spring-boot", "bean-factory"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java:RedissonCommonAutoConfiguration",
+      "type": "class",
+      "name": "RedissonCommonAutoConfiguration",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java",
+      "lineRange": [28, 78],
+      "summary": "Auto-configuration class providing the Redisson client and the common locking infrastructure beans used by the service-lock and repeat-execute-limit frameworks.",
+      "tags": ["auto-configuration", "redisson", "spring-boot", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java:redissonClient",
+      "type": "function",
+      "name": "redissonClient",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java",
+      "lineRange": [34, 62],
+      "summary": "Creates a RedissonClient from Spring Redis properties, configuring address, timeouts, database, password, thread counts, and a custom ThreadPoolExecutor for Redisson task execution.",
+      "tags": ["redisson", "bean-factory", "thread-pool", "configuration"],
+      "complexity": "moderate",
+      "languageNotes": "Uses Spring ReflectionUtils to support multiple Redisson Config API variants."
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java",
+      "type": "file",
+      "name": "LockInfoType.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java",
+      "summary": "Constant holder defining the lock-info type names (REPEAT_EXECUTE_LIMIT, SERVICE_LOCK) used to select LockInfoHandle implementations from the Spring context.",
+      "tags": ["constants", "lock", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java:LockInfoType",
+      "type": "class",
+      "name": "LockInfoType",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java",
+      "lineRange": [8, 20],
+      "summary": "Declares string constants naming the two lock-info categories whose values double as Spring bean names for LockInfoHandle lookups.",
+      "tags": ["constants", "lock", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java",
+      "type": "file",
+      "name": "RedissonDataHandle.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java",
+      "summary": "Thin wrapper over RedissonClient RBucket providing get/set operations with optional TTL and TimeUnit-to-Duration conversion, used to store repeat-execute success flags.",
+      "tags": ["redisson", "data-access", "utility", "cache"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java:RedissonDataHandle",
+      "type": "class",
+      "name": "RedissonDataHandle",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java",
+      "lineRange": [14, 51],
+      "summary": "Encapsulates simple Redis value reads/writes through Redisson buckets, including TTL-aware set overloads backed by Duration conversion.",
+      "tags": ["redisson", "data-access", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java:getDuration",
+      "type": "function",
+      "name": "getDuration",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java",
+      "lineRange": [31, 50],
+      "summary": "Converts a TTL value and TimeUnit into a java.time.Duration, supporting minutes, hours, and days with seconds as the fallback.",
+      "tags": ["utility", "conversion", "time"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "type": "file",
+      "name": "LocalLockCache.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "summary": "Caffeine-based local cache of JVM ReentrantLock instances keyed by lock name, providing a first-level in-process lock before distributed locking is attempted.",
+      "tags": ["cache", "caffeine", "local-lock", "concurrency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java:LocalLockCache",
+      "type": "class",
+      "name": "LocalLockCache",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "lineRange": [16, 41],
+      "summary": "Maintains an expiring Caffeine cache mapping lock keys to ReentrantLock instances so repeated lock requests reuse the same JVM monitor.",
+      "tags": ["cache", "caffeine", "concurrency", "local-lock"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "type": "file",
+      "name": "AbstractLockInfoHandle.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "summary": "Base LockInfoHandle implementation that derives lock names from annotation attributes and evaluates SpEL key expressions against join-point method arguments.",
+      "tags": ["lock", "spel", "aop", "template-method"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:AbstractLockInfoHandle",
+      "type": "class",
+      "name": "AbstractLockInfoHandle",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "lineRange": [28, 93],
+      "summary": "Implements lock-name resolution by combining an environment-specific prefix, the annotation name, and SpEL-evaluated business keys extracted from method parameters.",
+      "tags": ["lock", "spel", "aop", "abstract-class"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:simpleGetLockName",
+      "type": "function",
+      "name": "simpleGetLockName",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "lineRange": [46, 56],
+      "summary": "Builds a lock name without a join point by joining the prefix distinction name, the annotation name, and any non-blank literal keys.",
+      "tags": ["lock", "naming", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:getMethod",
+      "type": "function",
+      "name": "getMethod",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "lineRange": [67, 79],
+      "summary": "Resolves the concrete Method behind an AOP join point, falling back to the target class declared method when the signature method comes from an interface.",
+      "tags": ["reflection", "aop", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:getSpElKey",
+      "type": "function",
+      "name": "getSpElKey",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "lineRange": [81, 91],
+      "summary": "Evaluates each SpEL key expression against a MethodBasedEvaluationContext built from the intercepted method and its argument values, returning the resolved key strings.",
+      "tags": ["spel", "reflection", "aop", "evaluation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java",
+      "type": "file",
+      "name": "LockInfoHandle.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java",
+      "summary": "Interface defining how a lock name is derived, either from an AOP join point with SpEL keys (getLockName) or from a plain name and literal keys (simpleGetLockName).",
+      "tags": ["interface", "lock", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java:LockInfoHandle",
+      "type": "class",
+      "name": "LockInfoHandle",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java",
+      "lineRange": [10, 27],
+      "summary": "Contract for lock-name resolution strategies; implementations are looked up as Spring beans named by LockInfoType constants.",
+      "tags": ["interface", "lock", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "type": "file",
+      "name": "LockInfoHandleFactory.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "summary": "ApplicationContextAware factory that returns the LockInfoHandle Spring bean whose name matches the requested lock-info type.",
+      "tags": ["factory", "spring", "lock"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java:LockInfoHandleFactory",
+      "type": "class",
+      "name": "LockInfoHandleFactory",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "lineRange": [14, 26],
+      "summary": "Captures the ApplicationContext on startup and resolves LockInfoHandle beans by name at runtime, decoupling aspects from concrete handle classes.",
+      "tags": ["factory", "spring", "lock"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/ExtParameterNameDiscoverer.java",
+      "type": "file",
+      "name": "ExtParameterNameDiscoverer.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/ExtParameterNameDiscoverer.java",
+      "summary": "Parameter-name discoverer that prefers LocalVariableTableParameterNameDiscoverer when not running in a GraalVM native image, enabling SpEL argument-name resolution.",
+      "tags": ["reflection", "spring", "spel", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/ExtParameterNameDiscoverer.java:ExtParameterNameDiscoverer",
+      "type": "class",
+      "name": "ExtParameterNameDiscoverer",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/ExtParameterNameDiscoverer.java",
+      "lineRange": [11, 19],
+      "summary": "Extends PrioritizedParameterNameDiscoverer, registering the local-variable-table discoverer outside native images so debug-class-file parameter names are available.",
+      "tags": ["reflection", "spring", "spel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "type": "file",
+      "name": "RepeatExecuteLimitAutoConfiguration.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "summary": "Auto-configuration registering the repeat-execute-limit LockInfoHandle bean and the RepeatExecuteLimitAspect that enforces duplicate-request protection.",
+      "tags": ["configuration", "auto-configuration", "spring-boot", "aop"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java:RepeatExecuteLimitAutoConfiguration",
+      "type": "class",
+      "name": "RepeatExecuteLimitAutoConfiguration",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "lineRange": [18, 32],
+      "summary": "Wires RepeatExecuteLimitLockInfoHandle and RepeatExecuteLimitAspect beans, injecting the local lock cache, lock-info factory, lock factory, and Redisson data handle.",
+      "tags": ["auto-configuration", "spring-boot", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/lockinfo/impl/RepeatExecuteLimitLockInfoHandle.java",
+      "type": "file",
+      "name": "RepeatExecuteLimitLockInfoHandle.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/lockinfo/impl/RepeatExecuteLimitLockInfoHandle.java",
+      "summary": "LockInfoHandle implementation for the repeat-execute-limit feature, supplying the REPEAT_EXECUTE_LIMIT lock-name prefix.",
+      "tags": ["lock", "repeat-execute-limit", "implementation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/lockinfo/impl/RepeatExecuteLimitLockInfoHandle.java:RepeatExecuteLimitLockInfoHandle",
+      "type": "class",
+      "name": "RepeatExecuteLimitLockInfoHandle",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/lockinfo/impl/RepeatExecuteLimitLockInfoHandle.java",
+      "lineRange": [10, 18],
+      "summary": "Extends AbstractLockInfoHandle, returning the repeat-execute-limit prefix so lock names for duplicate-submission checks are namespaced.",
+      "tags": ["lock", "repeat-execute-limit", "implementation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "type": "file",
+      "name": "RepeatExecuteLimitAspect.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "summary": "AOP around-aspect that prevents duplicate method execution: it checks a Redis success flag, then guards the invocation with a local JVM lock followed by a distributed lock, marking success in Redis afterwards.",
+      "tags": ["aop", "aspect", "repeat-execute-limit", "distributed-lock", "idempotency"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java:RepeatExecuteLimitAspect",
+      "type": "class",
+      "name": "RepeatExecuteLimitAspect",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "lineRange": [32, 92],
+      "summary": "Aspect enforcing idempotent execution of @RepeatExecuteLimit methods through a Redis flag plus layered local and distributed locking, raising DaMaiFrameException on duplicates.",
+      "tags": ["aop", "aspect", "idempotency", "distributed-lock"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java:around",
+      "type": "function",
+      "name": "around",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "lineRange": [47, 91],
+      "summary": "Around advice that rejects already-executed requests via a Redis flag, acquires local and distributed locks with double-checked flag verification, proceeds, records success, and unlocks in finally blocks.",
+      "tags": ["aop", "advice", "idempotency", "locking"],
+      "complexity": "complex",
+      "languageNotes": "Uses double-checked locking across two lock layers (local ReentrantLock and distributed Redisson lock)."
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "type": "file",
+      "name": "ServiceLockAutoConfiguration.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "summary": "Auto-configuration wiring the service-lock framework beans: ServiceLockInfoHandle, ManageLocker, ServiceLockFactory, ServiceLockAspect, and ServiceLockTool.",
+      "tags": ["configuration", "auto-configuration", "spring-boot", "distributed-lock"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java:ServiceLockAutoConfiguration",
+      "type": "class",
+      "name": "ServiceLockAutoConfiguration",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "lineRange": [19, 45],
+      "summary": "Registers all service-lock infrastructure beans so @ServiceLock annotations and programmatic ServiceLockTool locking work out of the box.",
+      "tags": ["auto-configuration", "spring-boot", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "type": "file",
+      "name": "ManageLocker.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "summary": "Registry holding one ServiceLocker implementation per LockType (reentrant, fair, write, read), all backed by a shared RedissonClient and exposed through getters.",
+      "tags": ["distributed-lock", "redisson", "registry", "concurrency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java:ManageLocker",
+      "type": "class",
+      "name": "ManageLocker",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "lineRange": [24, 50],
+      "summary": "Constructs and caches the four Redisson-backed ServiceLocker implementations in a map keyed by LockType, serving them to ServiceLockFactory.",
+      "tags": ["distributed-lock", "redisson", "registry"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java:RedissonCommonAutoConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java:redissonClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java:LockInfoType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java:RedissonDataHandle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java:getDuration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java:LocalLockCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:AbstractLockInfoHandle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:simpleGetLockName",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:getMethod",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:getSpElKey",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java:LockInfoHandle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java:LockInfoHandleFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/ExtParameterNameDiscoverer.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/ExtParameterNameDiscoverer.java:ExtParameterNameDiscoverer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java:RepeatExecuteLimitAutoConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/lockinfo/impl/RepeatExecuteLimitLockInfoHandle.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/lockinfo/impl/RepeatExecuteLimitLockInfoHandle.java:RepeatExecuteLimitLockInfoHandle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java:RepeatExecuteLimitAspect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java:around",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java:ServiceLockAutoConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java:ManageLocker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "target": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/ExtParameterNameDiscoverer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/lockinfo/impl/RepeatExecuteLimitLockInfoHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/lockinfo/impl/RepeatExecuteLimitLockInfoHandle.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/lockinfo/impl/ServiceLockInfoHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonFairLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/lockinfo/impl/RepeatExecuteLimitLockInfoHandle.java:RepeatExecuteLimitLockInfoHandle",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:AbstractLockInfoHandle",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:AbstractLockInfoHandle",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java:LockInfoHandle",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java:ManageLocker",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java:RedissonReentrantLocker",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java:ManageLocker",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonFairLocker.java:RedissonFairLocker",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java:ManageLocker",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java:RedissonWriteLocker",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java:ManageLocker",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java:RedissonReadLocker",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java:around",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java:LockInfoHandleFactory",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java:around",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java:RedissonDataHandle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java:around",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java:LocalLockCache",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java:around",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java:ServiceLockFactory",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:simpleGetLockName",
+      "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isNotEmpty",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java:simpleGetLockName",
+      "target": "function:damai-common/src/main/java/com/damai/core/SpringUtil.java:getPrefixDistinctionName",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

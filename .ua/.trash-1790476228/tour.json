@@ -1,0 +1,154 @@
+[
+  {
+    "order": 1,
+    "title": "Project Overview",
+    "description": "Start here to understand what damai is: a Spring Cloud Alibaba ticketing platform for concerts, theatre and sports events, built to demonstrate real production high-concurrency solutions. The README describes the business goals, the root POM lists every module, and docker-compose.yml shows the full middleware stack the system expects (MySQL, Redis, Nacos, Kafka, Elasticsearch).",
+    "nodeIds": [
+      "document:README.md",
+      "config:pom.xml",
+      "service:docker-compose.yml"
+    ]
+  },
+  {
+    "order": 2,
+    "title": "Edge Entry: The API Gateway",
+    "description": "All client traffic enters through the Spring Cloud Gateway service. Read GatewayApplication to see how the edge is bootstrapped, the gateway application.yml for the route table that forwards /user, /program, /order and /pay prefixes to backend services, and apiLimit.lua — the Redis Lua script implementing per-API rate limiting at the edge.",
+    "nodeIds": [
+      "file:damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "config:damai-server/damai-gateway-service/src/main/resources/application.yml",
+      "file:damai-server/damai-gateway-service/src/main/resources/lua/apiLimit.lua"
+    ]
+  },
+  {
+    "order": 3,
+    "title": "How a Microservice Boots: Ordered Initialization",
+    "description": "Each service is a Spring Boot application, but they do not initialize naively. This custom initialize framework gives every service a deterministic startup order so that caches and reference data are warmed before traffic is served. Start with a service bootstrap class, then follow the SPI handler interface and the composite container that schedules the initialization tree.",
+    "nodeIds": [
+      "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/ProgramApplication.java",
+      "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationStartEventListenerHandler.java",
+      "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java"
+    ]
+  },
+  {
+    "order": 4,
+    "title": "Shared Common Contracts",
+    "description": "Before diving into business flows, look at damai-common — the shared vocabulary of the whole platform. ApiResponse is the standard envelope every service returns, DateUtils centralizes time handling across services, and RsaSignTool/RsaTool implement the request signing used to keep internal calls trustworthy.",
+    "nodeIds": [
+      "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "file:damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "file:damai-common/src/main/java/com/damai/util/RsaSignTool.java",
+      "file:damai-common/src/main/java/com/damai/util/RsaTool.java"
+    ]
+  },
+  {
+    "order": 5,
+    "title": "Distributed Locking with Redisson",
+    "description": "Seat selection and order creation must not double-sell. This in-house Redisson framework provides read/write distributed locks with timeout handling. ServiceLockTool is the entry point business code calls; ManageLocker holds the lock registry, and the read/write locker implementations show how shared vs exclusive access is modelled.",
+    "nodeIds": [
+      "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java",
+      "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java"
+    ]
+  },
+  {
+    "order": 6,
+    "title": "Atomic Stock and Seat Resolution in Redis (Lua)",
+    "description": "This is the heart of the high-concurrency design: instead of locking the database, stock and seat state live in Redis and are mutated by Lua scripts so check-and-decrement is atomic on the Redis server. programDataResolution and programSeat resolve program/seat data; programDataCreateOrderResolution and OrderProgramDataResolution pre-deduct and confirm inventory for an order.",
+    "nodeIds": [
+      "file:damai-server/damai-program-service/src/main/resources/lua/programDataResolution.lua",
+      "file:damai-server/damai-program-service/src/main/resources/lua/programSeat.lua",
+      "file:damai-server/damai-program-service/src/main/resources/lua/programDataCreateOrderResolution.lua",
+      "file:damai-server/damai-order-service/src/main/resources/lua/OrderProgramDataResolution.lua"
+    ],
+    "languageLesson": "Redis Lua scripts execute atomically on the server, so a read-modify-write of a stock counter cannot interleave with another client. This replaces a distributed lock for the hottest operations and removes a network round-trip from the critical path."
+  },
+  {
+    "order": 7,
+    "title": "Browsing Programs: Multi-Level Cache and Search",
+    "description": "Program detail is the most-read endpoint, so it is served from a Caffeine local cache in front of Redis, with Elasticsearch backing list and search queries. Read the controller for the API surface, ProgramService for the cache-resolution choreography (getByIdMultipleCache, simpleGetProgramAndShowMultipleCache), LocalCacheProgram for the local cache, and ProgramEs for the search layer.",
+    "nodeIds": [
+      "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/es/ProgramEs.java"
+    ]
+  },
+  {
+    "order": 8,
+    "title": "Cache Invalidation over Redis Streams",
+    "description": "A local cache is only useful if it can be invalidated across every instance. When program data changes, a message is published to a Redis Stream and each instance evicts its own Caffeine entry. RedisStreamHandler/PushHandler produce messages, RedisStreamListener consumes them, and ProgramRedisStreamConsumer is the domain-specific consumer that clears the program cache.",
+    "nodeIds": [
+      "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamHandler.java",
+      "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/java/com/damai/RedisStreamListener.java",
+      "file:damai-server/damai-program-service/src/main/java/com/damai/service/redisstreamconsumer/ProgramRedisStreamConsumer.java"
+    ]
+  },
+  {
+    "order": 9,
+    "title": "Order Creation",
+    "description": "Now walk the write path. OrderController exposes the order APIs and OrderService.create performs the critical section: acquire the service lock, call the program service to pre-deduct seats via the Lua scripts, persist the order and its ticket-user rows, then hand the heavy follow-up work to Kafka. CreateOrderConsumer shows the asynchronous side of order processing.",
+    "nodeIds": [
+      "file:damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+      "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+      "file:damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java"
+    ]
+  },
+  {
+    "order": 10,
+    "title": "Delayed Cancellation and the Delay Queue",
+    "description": "Every unpaid order must expire and return its seats. Rather than polling the database, the platform uses a Redisson-based delay queue. DelayQueueAutoConfig wires the queue, DelayConsumerQueue listens on it, and DelayOrderCancelConsumer is the business task that cancels expired orders and releases inventory.",
+    "nodeIds": [
+      "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java",
+      "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "file:damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java"
+    ]
+  },
+  {
+    "order": 11,
+    "title": "Payment and Refund Flow",
+    "description": "Payment is modelled with the strategy pattern so new channels can be added without touching business code. PayController receives requests, PayService orchestrates commonPay/tradeCheck/notify/refund, and AlipayStrategyHandler implements the channel-specific logic behind the PayStrategyHandler interface.",
+    "nodeIds": [
+      "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "file:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java",
+      "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyHandler.java",
+      "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/AlipayStrategyHandler.java"
+    ]
+  },
+  {
+    "order": 12,
+    "title": "Anti-Bot Captcha and Signed Requests",
+    "description": "Hot ticket sales attract scripts, so the platform embeds a captcha framework and request signing. CaptchaController and CaptchaAutoConfig expose and wire the captcha service, AbstractCaptchaService holds the shared verification lifecycle, and the user-service checkNeedCaptcha Lua script decides server-side whether a given request must pass a captcha at all.",
+    "nodeIds": [
+      "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+      "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+      "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "file:damai-server/damai-user-service/src/main/resources/lua/checkNeedCaptcha.lua"
+    ]
+  },
+  {
+    "order": 13,
+    "title": "Data Layer: Sharding and Schema",
+    "description": "Orders, users and programs are horizontally sharded, which is why table names carry numeric suffixes. The ShardingSphere YAML profiles define the sharding and encryption rules per service, and the SQL scripts under sql/cloud create the physical shards — compare the rule file with the generated tables to see how a logical table maps to its shards.",
+    "nodeIds": [
+      "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml",
+      "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml",
+      "table:sql/cloud/damai_order_0.sql:d_order_0",
+      "table:sql/cloud/damai_user_0.sql:d_user_0"
+    ],
+    "languageLesson": "ShardingSphere keeps SQL shard-agnostic: application code writes d_order, and the middleware routes to d_order_0..d_order_N using the sharding key. The physical shards remain ordinary MySQL tables, which is why the DDL repeats per shard."
+  },
+  {
+    "order": 14,
+    "title": "Deployment Topology",
+    "description": "Finally, see how the whole system is assembled for a local run. The Dockerfile builds a single reusable JVM image that every service runs, while docker-compose.yml declares the middleware (MySQL, Redis, Nacos, Kafka, Elasticsearch) and one container per microservice with its dependencies.",
+    "nodeIds": [
+      "service:docker/Dockerfile",
+      "service:docker-compose.yml",
+      "service:docker-compose.yml:nacos",
+      "service:docker-compose.yml:kafka",
+      "service:docker-compose.yml:elasticsearch"
+    ]
+  }
+]

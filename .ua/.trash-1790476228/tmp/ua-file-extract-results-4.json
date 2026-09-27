@@ -1,0 +1,3298 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 28,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 28,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 28,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 58,
+      "functions": [
+        {
+          "name": "AlipayTradeStatus",
+          "startLine": 27,
+          "endLine": 31,
+          "params": [
+            "code",
+            "value",
+            "msg"
+          ]
+        },
+        {
+          "name": "getCode",
+          "startLine": 33,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "setCode",
+          "startLine": 37,
+          "endLine": 39,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 41,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "setMsg",
+          "startLine": 45,
+          "endLine": 47,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "getValue",
+          "startLine": 49,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "setValue",
+          "startLine": 53,
+          "endLine": 55,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 57,
+          "endLine": 64,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getRc",
+          "startLine": 66,
+          "endLine": 73,
+          "params": [
+            "code"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AlipayTradeStatus",
+          "startLine": 8,
+          "endLine": 74,
+          "methods": [
+            "AlipayTradeStatus",
+            "getCode",
+            "setCode",
+            "getMsg",
+            "setMsg",
+            "getValue",
+            "setValue",
+            "getMsg",
+            "getRc"
+          ],
+          "properties": [
+            "code",
+            "value",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCode",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "setCode",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "setMsg",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "getValue",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "setValue",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "getRc",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "AlipayTradeStatus",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getMsg",
+          "callee": "AlipayTradeStatus.values",
+          "lineNumber": 58
+        },
+        {
+          "caller": "getMsg",
+          "callee": "re.code.intValue",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getMsg",
+          "callee": "code.intValue",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getRc",
+          "callee": "AlipayTradeStatus.values",
+          "lineNumber": 67
+        },
+        {
+          "caller": "getRc",
+          "callee": "re.code.intValue",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getRc",
+          "callee": "code.intValue",
+          "lineNumber": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "PayBillStatus",
+          "startLine": 22,
+          "endLine": 25,
+          "params": [
+            "code",
+            "msg"
+          ]
+        },
+        {
+          "name": "getCode",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "setCode",
+          "startLine": 31,
+          "endLine": 33,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 35,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "setMsg",
+          "startLine": 39,
+          "endLine": 41,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 43,
+          "endLine": 50,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getRc",
+          "startLine": 52,
+          "endLine": 59,
+          "params": [
+            "code"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PayBillStatus",
+          "startLine": 8,
+          "endLine": 60,
+          "methods": [
+            "PayBillStatus",
+            "getCode",
+            "setCode",
+            "getMsg",
+            "setMsg",
+            "getMsg",
+            "getRc"
+          ],
+          "properties": [
+            "code",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCode",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "setCode",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "setMsg",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "getRc",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "PayBillStatus",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getMsg",
+          "callee": "PayBillStatus.values",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getMsg",
+          "callee": "re.code.intValue",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getMsg",
+          "callee": "code.intValue",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getRc",
+          "callee": "PayBillStatus.values",
+          "lineNumber": 53
+        },
+        {
+          "caller": "getRc",
+          "callee": "re.code.intValue",
+          "lineNumber": 54
+        },
+        {
+          "caller": "getRc",
+          "callee": "code.intValue",
+          "lineNumber": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/PayChannel.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 70,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "PayChannel",
+          "startLine": 23,
+          "endLine": 27,
+          "params": [
+            "code",
+            "value",
+            "msg"
+          ]
+        },
+        {
+          "name": "getCode",
+          "startLine": 29,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "setCode",
+          "startLine": 33,
+          "endLine": 35,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 37,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "setMsg",
+          "startLine": 41,
+          "endLine": 43,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "getValue",
+          "startLine": 45,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "setValue",
+          "startLine": 49,
+          "endLine": 51,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 53,
+          "endLine": 60,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getRc",
+          "startLine": 62,
+          "endLine": 69,
+          "params": [
+            "code"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PayChannel",
+          "startLine": 8,
+          "endLine": 70,
+          "methods": [
+            "PayChannel",
+            "getCode",
+            "setCode",
+            "getMsg",
+            "setMsg",
+            "getValue",
+            "setValue",
+            "getMsg",
+            "getRc"
+          ],
+          "properties": [
+            "code",
+            "value",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCode",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "setCode",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "setMsg",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "getValue",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "setValue",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "getRc",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "PayChannel",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getMsg",
+          "callee": "PayChannel.values",
+          "lineNumber": 54
+        },
+        {
+          "caller": "getMsg",
+          "callee": "re.code.intValue",
+          "lineNumber": 55
+        },
+        {
+          "caller": "getMsg",
+          "callee": "code.intValue",
+          "lineNumber": 55
+        },
+        {
+          "caller": "getRc",
+          "callee": "PayChannel.values",
+          "lineNumber": 63
+        },
+        {
+          "caller": "getRc",
+          "callee": "re.code.intValue",
+          "lineNumber": 64
+        },
+        {
+          "caller": "getRc",
+          "callee": "code.intValue",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 49,
+      "classes": [
+        {
+          "name": "PayClient",
+          "startLine": 21,
+          "endLine": 52,
+          "methods": [
+            "commonPay",
+            "notify",
+            "tradeCheck",
+            "refund"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PayClient",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "commonPay",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "payDto"
+          ]
+        },
+        {
+          "name": "notify",
+          "startLine": 26,
+          "endLine": 29,
+          "params": [
+            "notifyDto"
+          ]
+        },
+        {
+          "name": "tradeCheck",
+          "startLine": 31,
+          "endLine": 34,
+          "params": [
+            "tradeCheckDto"
+          ]
+        },
+        {
+          "name": "refund",
+          "startLine": 36,
+          "endLine": 39,
+          "params": [
+            "dto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PayClientFallback",
+          "startLine": 18,
+          "endLine": 40,
+          "methods": [
+            "commonPay",
+            "notify",
+            "tradeCheck",
+            "refund"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "commonPay",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "notify",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "tradeCheck",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "refund",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "PayClientFallback",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "commonPay",
+          "callee": "ApiResponse.error",
+          "lineNumber": 23
+        },
+        {
+          "caller": "notify",
+          "callee": "ApiResponse.error",
+          "lineNumber": 28
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "ApiResponse.error",
+          "lineNumber": 33
+        },
+        {
+          "caller": "refund",
+          "callee": "ApiResponse.error",
+          "lineNumber": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 25,
+      "classes": [
+        {
+          "name": "NotifyDto",
+          "startLine": 17,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "channel",
+            "params"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NotifyDto",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 21,
+      "classes": [
+        {
+          "name": "PayBillDto",
+          "startLine": 16,
+          "endLine": 26,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "orderNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PayBillDto",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 44,
+      "classes": [
+        {
+          "name": "PayDto",
+          "startLine": 18,
+          "endLine": 57,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "platform",
+            "orderNumber",
+            "subject",
+            "price",
+            "channel",
+            "payBillType",
+            "notifyUrl",
+            "returnUrl"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PayDto",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 27,
+      "classes": [
+        {
+          "name": "RefundDto",
+          "startLine": 16,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "orderNumber",
+            "amount",
+            "channel",
+            "reason"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RefundDto",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 21,
+      "classes": [
+        {
+          "name": "TradeCheckDto",
+          "startLine": 15,
+          "endLine": 26,
+          "methods": [],
+          "properties": [
+            "outTradeNo",
+            "channel"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TradeCheckDto",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "NotifyVo",
+          "startLine": 14,
+          "endLine": 26,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "outTradeNo",
+            "payResult"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NotifyVo",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 87,
+      "nonEmptyLines": 72,
+      "classes": [
+        {
+          "name": "PayBillVo",
+          "startLine": 16,
+          "endLine": 87,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "payNumber",
+            "outOrderNo",
+            "payChannel",
+            "payScene",
+            "subject",
+            "tradeNumber",
+            "payAmount",
+            "payBillType",
+            "payBillStatus",
+            "payTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PayBillVo",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 25,
+      "classes": [
+        {
+          "name": "TradeCheckVo",
+          "startLine": 15,
+          "endLine": 33,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "success",
+            "payBillStatus",
+            "outTradeNo",
+            "totalAmount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TradeCheckVo",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "commonPay",
+          "startLine": 35,
+          "endLine": 39,
+          "params": [
+            "payDto"
+          ]
+        },
+        {
+          "name": "notify",
+          "startLine": 41,
+          "endLine": 45,
+          "params": [
+            "notifyDto"
+          ]
+        },
+        {
+          "name": "tradeCheck",
+          "startLine": 47,
+          "endLine": 51,
+          "params": [
+            "tradeCheckDto"
+          ]
+        },
+        {
+          "name": "refund",
+          "startLine": 53,
+          "endLine": 57,
+          "params": [
+            "refundDto"
+          ]
+        },
+        {
+          "name": "detail",
+          "startLine": 59,
+          "endLine": 63,
+          "params": [
+            "payBillDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PayController",
+          "startLine": 27,
+          "endLine": 64,
+          "methods": [
+            "commonPay",
+            "notify",
+            "tradeCheck",
+            "refund",
+            "detail"
+          ],
+          "properties": [
+            "payService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "commonPay",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "notify",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "tradeCheck",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "refund",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "detail",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "PayController",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "commonPay",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 38
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payService.commonPay",
+          "lineNumber": 38
+        },
+        {
+          "caller": "notify",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 44
+        },
+        {
+          "caller": "notify",
+          "callee": "payService.notify",
+          "lineNumber": 44
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 50
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "payService.tradeCheck",
+          "lineNumber": 50
+        },
+        {
+          "caller": "refund",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 56
+        },
+        {
+          "caller": "refund",
+          "callee": "payService.refund",
+          "lineNumber": 56
+        },
+        {
+          "caller": "detail",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 62
+        },
+        {
+          "caller": "detail",
+          "callee": "payService.detail",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 10,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/entity/PayBill.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 63,
+      "classes": [
+        {
+          "name": "PayBill",
+          "startLine": 17,
+          "endLine": 78,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "payNumber",
+            "outOrderNo",
+            "payChannel",
+            "payScene",
+            "subject",
+            "tradeNumber",
+            "payAmount",
+            "payBillType",
+            "payBillStatus",
+            "payTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PayBill",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/entity/RefundBill.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 43,
+      "classes": [
+        {
+          "name": "RefundBill",
+          "startLine": 15,
+          "endLine": 53,
+          "methods": [],
+          "properties": [
+            "id",
+            "outOrderNo",
+            "payBillId",
+            "refundAmount",
+            "refundStatus",
+            "refundTime",
+            "reason"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RefundBill",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/mapper/PayBillMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "PayBillMapper",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PayBillMapper",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/mapper/RefundBillMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "RefundBillMapper",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RefundBillMapper",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayAutoConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 43,
+      "functions": [
+        {
+          "name": "alipayClient",
+          "startLine": 22,
+          "endLine": 34,
+          "params": [
+            "aliPayProperties"
+          ]
+        },
+        {
+          "name": "payStrategyContext",
+          "startLine": 36,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "payStrategyInitHandler",
+          "startLine": 41,
+          "endLine": 44,
+          "params": [
+            "payStrategyContext"
+          ]
+        },
+        {
+          "name": "alipayCall",
+          "startLine": 46,
+          "endLine": 49,
+          "params": [
+            "alipayClient",
+            "aliPayProperties"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PayAutoConfig",
+          "startLine": 19,
+          "endLine": 50,
+          "methods": [
+            "alipayClient",
+            "payStrategyContext",
+            "payStrategyInitHandler",
+            "alipayCall"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "alipayClient",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "payStrategyContext",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "payStrategyInitHandler",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "alipayCall",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "PayAutoConfig",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "alipayClient",
+          "callee": "new AlipayConfig",
+          "lineNumber": 24
+        },
+        {
+          "caller": "alipayClient",
+          "callee": "alipayConfig.setServerUrl",
+          "lineNumber": 25
+        },
+        {
+          "caller": "alipayClient",
+          "callee": "aliPayProperties.getGatewayUrl",
+          "lineNumber": 25
+        },
+        {
+          "caller": "alipayClient",
+          "callee": "alipayConfig.setAppId",
+          "lineNumber": 26
+        },
+        {
+          "caller": "alipayClient",
+          "callee": "aliPayProperties.getAppId",
+          "lineNumber": 26
+        },
+        {
+          "caller": "alipayClient",
+          "callee": "alipayConfig.setPrivateKey",
+          "lineNumber": 27
+        },
+        {
+          "caller": "alipayClient",
+          "callee": "aliPayProperties.getMerchantPrivateKey",
+          "lineNumber": 27
+        },
+        {
+          "caller": "alipayClient",
+          "callee": "alipayConfig.setFormat",
+          "lineNumber": 28
+        },
+        {
+          "caller": "alipayClient",
+          "callee": "alipayConfig.setCharset",
+          "lineNumber": 29
+        },
+        {
+          "caller": "alipayClient",
+          "callee": "alipayConfig.setAlipayPublicKey",
+          "lineNumber": 30
+        },
+        {
+          "caller": "alipayClient",
+          "callee": "aliPayProperties.getAlipayPublicKey",
+          "lineNumber": 30
+        },
+        {
+          "caller": "alipayClient",
+          "callee": "alipayConfig.setSignType",
+          "lineNumber": 31
+        },
+        {
+          "caller": "alipayClient",
+          "callee": "new DefaultAlipayClient",
+          "lineNumber": 33
+        },
+        {
+          "caller": "payStrategyContext",
+          "callee": "new PayStrategyContext",
+          "lineNumber": 38
+        },
+        {
+          "caller": "payStrategyInitHandler",
+          "callee": "new PayStrategyInitHandler",
+          "lineNumber": 43
+        },
+        {
+          "caller": "alipayCall",
+          "callee": "new AlipayStrategyHandler",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayResult.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 14,
+      "classes": [
+        {
+          "name": "PayResult",
+          "startLine": 11,
+          "endLine": 18,
+          "methods": [],
+          "properties": [
+            "success",
+            "body"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PayResult",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/PayStrategyHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 61,
+      "nonEmptyLines": 53,
+      "classes": [
+        {
+          "name": "PayStrategyHandler",
+          "startLine": 13,
+          "endLine": 61,
+          "methods": [
+            "pay",
+            "signVerify",
+            "dataVerify",
+            "queryTrade",
+            "refund",
+            "getChannel"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PayStrategyHandler",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/RefundResult.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "RefundResult",
+          "startLine": 11,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "success",
+            "body",
+            "message"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RefundResult",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/TradeResult.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "TradeResult",
+          "startLine": 12,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "success",
+            "payBillStatus",
+            "outTradeNo",
+            "totalAmount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TradeResult",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/AlipayStrategyHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 203,
+      "nonEmptyLines": 189,
+      "functions": [
+        {
+          "name": "pay",
+          "startLine": 52,
+          "endLine": 77,
+          "params": [
+            "outTradeNo",
+            "price",
+            "subject",
+            "notifyUrl",
+            "returnUrl"
+          ]
+        },
+        {
+          "name": "signVerify",
+          "startLine": 79,
+          "endLine": 93,
+          "params": [
+            "params"
+          ]
+        },
+        {
+          "name": "dataVerify",
+          "startLine": 95,
+          "endLine": 125,
+          "params": [
+            "params",
+            "payBill"
+          ]
+        },
+        {
+          "name": "queryTrade",
+          "startLine": 127,
+          "endLine": 164,
+          "params": [
+            "outTradeNo"
+          ]
+        },
+        {
+          "name": "refund",
+          "startLine": 166,
+          "endLine": 182,
+          "params": [
+            "outTradeNo",
+            "price",
+            "reason"
+          ]
+        },
+        {
+          "name": "getChannel",
+          "startLine": 184,
+          "endLine": 187,
+          "params": []
+        },
+        {
+          "name": "convertPayBillStatus",
+          "startLine": 192,
+          "endLine": 202,
+          "params": [
+            "tradeStatus"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AlipayStrategyHandler",
+          "startLine": 38,
+          "endLine": 203,
+          "methods": [
+            "pay",
+            "signVerify",
+            "dataVerify",
+            "queryTrade",
+            "refund",
+            "getChannel",
+            "convertPayBillStatus"
+          ],
+          "properties": [
+            "alipayClient",
+            "aliPayProperties"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "pay",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "signVerify",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "dataVerify",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "queryTrade",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "refund",
+          "line": 166,
+          "isDefault": false
+        },
+        {
+          "name": "getChannel",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "AlipayStrategyHandler",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "pay",
+          "callee": "new AlipayTradePagePayRequest",
+          "lineNumber": 55
+        },
+        {
+          "caller": "pay",
+          "callee": "request.setNotifyUrl",
+          "lineNumber": 57
+        },
+        {
+          "caller": "pay",
+          "callee": "request.setReturnUrl",
+          "lineNumber": 59
+        },
+        {
+          "caller": "pay",
+          "callee": "new JSONObject",
+          "lineNumber": 61
+        },
+        {
+          "caller": "pay",
+          "callee": "bizContent.put",
+          "lineNumber": 63
+        },
+        {
+          "caller": "pay",
+          "callee": "bizContent.put",
+          "lineNumber": 65
+        },
+        {
+          "caller": "pay",
+          "callee": "bizContent.put",
+          "lineNumber": 67
+        },
+        {
+          "caller": "pay",
+          "callee": "bizContent.put",
+          "lineNumber": 69
+        },
+        {
+          "caller": "pay",
+          "callee": "request.setBizContent",
+          "lineNumber": 70
+        },
+        {
+          "caller": "pay",
+          "callee": "bizContent.toString",
+          "lineNumber": 70
+        },
+        {
+          "caller": "pay",
+          "callee": "alipayClient.pageExecute",
+          "lineNumber": 71
+        },
+        {
+          "caller": "pay",
+          "callee": "new PayResult",
+          "lineNumber": 72
+        },
+        {
+          "caller": "pay",
+          "callee": "response.isSuccess",
+          "lineNumber": 72
+        },
+        {
+          "caller": "pay",
+          "callee": "response.getBody",
+          "lineNumber": 72
+        },
+        {
+          "caller": "pay",
+          "callee": "log.error",
+          "lineNumber": 74
+        },
+        {
+          "caller": "pay",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 75
+        },
+        {
+          "caller": "signVerify",
+          "callee": "AlipaySignature.rsaCheckV1",
+          "lineNumber": 82
+        },
+        {
+          "caller": "signVerify",
+          "callee": "aliPayProperties.getAlipayPublicKey",
+          "lineNumber": 84
+        },
+        {
+          "caller": "signVerify",
+          "callee": "log.error",
+          "lineNumber": 89
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "new BigDecimal",
+          "lineNumber": 98
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "params.get",
+          "lineNumber": 98
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "payBill.getPayAmount",
+          "lineNumber": 99
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "notifyPayAmount.compareTo",
+          "lineNumber": 100
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "log.error",
+          "lineNumber": 101
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "params.get",
+          "lineNumber": 105
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "aliPayProperties.getSellerId",
+          "lineNumber": 106
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "notifySellerId.equals",
+          "lineNumber": 107
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "log.error",
+          "lineNumber": 108
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "params.get",
+          "lineNumber": 112
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "aliPayProperties.getAppId",
+          "lineNumber": 113
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "notifyAppId.equals",
+          "lineNumber": 114
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "log.error",
+          "lineNumber": 115
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "params.get",
+          "lineNumber": 119
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "AlipayTradeStatus.TRADE_SUCCESS.getValue().equals",
+          "lineNumber": 120
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "AlipayTradeStatus.TRADE_SUCCESS.getValue",
+          "lineNumber": 120
+        },
+        {
+          "caller": "dataVerify",
+          "callee": "log.error",
+          "lineNumber": 121
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "new TradeResult",
+          "lineNumber": 131
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "tradeResult.setSuccess",
+          "lineNumber": 132
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "new AlipayTradeQueryRequest",
+          "lineNumber": 135
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "WebUtils.setNeedCheckServerTrusted",
+          "lineNumber": 136
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "new JSONObject",
+          "lineNumber": 137
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "bizContent.put",
+          "lineNumber": 138
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "request.setBizContent",
+          "lineNumber": 139
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "bizContent.toString",
+          "lineNumber": 139
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "alipayClient.execute",
+          "lineNumber": 140
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "response.isSuccess",
+          "lineNumber": 141
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "JSON.parseObject",
+          "lineNumber": 142
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "response.getBody",
+          "lineNumber": 142
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "jsonResponse.getJSONObject",
+          "lineNumber": 143
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "alipayTradeQueryResponse.getString",
+          "lineNumber": 144
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "alipayTradeQueryResponse.getString",
+          "lineNumber": 145
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "successCode.equals",
+          "lineNumber": 147
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "successMsg.equals",
+          "lineNumber": 147
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "tradeResult.setSuccess",
+          "lineNumber": 148
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "tradeResult.setOutTradeNo",
+          "lineNumber": 150
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "alipayTradeQueryResponse.getString",
+          "lineNumber": 150
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "tradeResult.setTotalAmount",
+          "lineNumber": 152
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "new BigDecimal",
+          "lineNumber": 152
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "alipayTradeQueryResponse.getString",
+          "lineNumber": 152
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "tradeResult.setPayBillStatus",
+          "lineNumber": 154
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "convertPayBillStatus",
+          "lineNumber": 154
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "alipayTradeQueryResponse.getString",
+          "lineNumber": 154
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "log.error",
+          "lineNumber": 158
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 158
+        },
+        {
+          "caller": "queryTrade",
+          "callee": "log.error",
+          "lineNumber": 161
+        },
+        {
+          "caller": "refund",
+          "callee": "new AlipayTradeRefundRequest",
+          "lineNumber": 168
+        },
+        {
+          "caller": "refund",
+          "callee": "new JSONObject",
+          "lineNumber": 169
+        },
+        {
+          "caller": "refund",
+          "callee": "bizContent.put",
+          "lineNumber": 170
+        },
+        {
+          "caller": "refund",
+          "callee": "bizContent.put",
+          "lineNumber": 171
+        },
+        {
+          "caller": "refund",
+          "callee": "bizContent.put",
+          "lineNumber": 172
+        },
+        {
+          "caller": "refund",
+          "callee": "request.setBizContent",
+          "lineNumber": 174
+        },
+        {
+          "caller": "refund",
+          "callee": "bizContent.toString",
+          "lineNumber": 174
+        },
+        {
+          "caller": "refund",
+          "callee": "alipayClient.execute",
+          "lineNumber": 176
+        },
+        {
+          "caller": "refund",
+          "callee": "new RefundResult",
+          "lineNumber": 177
+        },
+        {
+          "caller": "refund",
+          "callee": "response.isSuccess",
+          "lineNumber": 177
+        },
+        {
+          "caller": "refund",
+          "callee": "response.getBody",
+          "lineNumber": 177
+        },
+        {
+          "caller": "refund",
+          "callee": "response.getMsg",
+          "lineNumber": 177
+        },
+        {
+          "caller": "refund",
+          "callee": "log.error",
+          "lineNumber": 179
+        },
+        {
+          "caller": "refund",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 180
+        },
+        {
+          "caller": "getChannel",
+          "callee": "PayChannel.ALIPAY.getValue",
+          "lineNumber": 186
+        },
+        {
+          "caller": "convertPayBillStatus",
+          "callee": "AlipayTradeStatus.WAIT_BUYER_PAY.getValue().equals",
+          "lineNumber": 193
+        },
+        {
+          "caller": "convertPayBillStatus",
+          "callee": "AlipayTradeStatus.WAIT_BUYER_PAY.getValue",
+          "lineNumber": 193
+        },
+        {
+          "caller": "convertPayBillStatus",
+          "callee": "PayBillStatus.NO_PAY.getCode",
+          "lineNumber": 194
+        },
+        {
+          "caller": "convertPayBillStatus",
+          "callee": "AlipayTradeStatus.TRADE_CLOSED.getValue().equals",
+          "lineNumber": 195
+        },
+        {
+          "caller": "convertPayBillStatus",
+          "callee": "AlipayTradeStatus.TRADE_CLOSED.getValue",
+          "lineNumber": 195
+        },
+        {
+          "caller": "convertPayBillStatus",
+          "callee": "PayBillStatus.CANCEL.getCode",
+          "lineNumber": 196
+        },
+        {
+          "caller": "convertPayBillStatus",
+          "callee": "AlipayTradeStatus.TRADE_SUCCESS.getValue().equals",
+          "lineNumber": 197
+        },
+        {
+          "caller": "convertPayBillStatus",
+          "callee": "AlipayTradeStatus.TRADE_SUCCESS.getValue",
+          "lineNumber": 197
+        },
+        {
+          "caller": "convertPayBillStatus",
+          "callee": "AlipayTradeStatus.TRADE_FINISHED.getValue().equals",
+          "lineNumber": 198
+        },
+        {
+          "caller": "convertPayBillStatus",
+          "callee": "AlipayTradeStatus.TRADE_FINISHED.getValue",
+          "lineNumber": 198
+        },
+        {
+          "caller": "convertPayBillStatus",
+          "callee": "PayBillStatus.PAY.getCode",
+          "lineNumber": 199
+        },
+        {
+          "caller": "convertPayBillStatus",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 201
+        }
+      ],
+      "metrics": {
+        "importCount": 11,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/config/AlipayProperties.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 45,
+      "classes": [
+        {
+          "name": "AlipayProperties",
+          "startLine": 11,
+          "endLine": 56,
+          "methods": [],
+          "properties": [
+            "PREFIX",
+            "appId",
+            "sellerId",
+            "gatewayUrl",
+            "merchantPrivateKey",
+            "alipayPublicKey",
+            "contentKey",
+            "returnUrl",
+            "notifyUrl"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PREFIX",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "AlipayProperties",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/service/PayBillService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "classes": [
+        {
+          "name": "PayBillService",
+          "startLine": 13,
+          "endLine": 16,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PayBillService",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 245,
+      "nonEmptyLines": 228,
+      "functions": [
+        {
+          "name": "commonPay",
+          "startLine": 69,
+          "endLine": 102,
+          "params": [
+            "payDto"
+          ]
+        },
+        {
+          "name": "notify",
+          "startLine": 104,
+          "endLine": 155,
+          "params": [
+            "notifyDto"
+          ]
+        },
+        {
+          "name": "tradeCheck",
+          "startLine": 157,
+          "endLine": 194,
+          "params": [
+            "tradeCheckDto"
+          ]
+        },
+        {
+          "name": "refund",
+          "startLine": 196,
+          "endLine": 233,
+          "params": [
+            "refundDto"
+          ]
+        },
+        {
+          "name": "detail",
+          "startLine": 235,
+          "endLine": 244,
+          "params": [
+            "payBillDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PayService",
+          "startLine": 50,
+          "endLine": 245,
+          "methods": [
+            "commonPay",
+            "notify",
+            "tradeCheck",
+            "refund",
+            "detail"
+          ],
+          "properties": [
+            "payBillMapper",
+            "refundBillMapper",
+            "payStrategyContext",
+            "uidGenerator"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "commonPay",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "notify",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "tradeCheck",
+          "line": 157,
+          "isDefault": false
+        },
+        {
+          "name": "refund",
+          "line": 196,
+          "isDefault": false
+        },
+        {
+          "name": "detail",
+          "line": 235,
+          "isDefault": false
+        },
+        {
+          "name": "PayService",
+          "line": 50,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "commonPay",
+          "callee": "Wrappers.lambdaQuery(PayBill.class).eq",
+          "lineNumber": 73
+        },
+        {
+          "caller": "commonPay",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 73
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payDto.getOrderNumber",
+          "lineNumber": 73
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBillMapper.selectOne",
+          "lineNumber": 74
+        },
+        {
+          "caller": "commonPay",
+          "callee": "Objects.nonNull",
+          "lineNumber": 75
+        },
+        {
+          "caller": "commonPay",
+          "callee": "Objects.equals",
+          "lineNumber": 75
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBill.getPayBillStatus",
+          "lineNumber": 75
+        },
+        {
+          "caller": "commonPay",
+          "callee": "PayBillStatus.NO_PAY.getCode",
+          "lineNumber": 75
+        },
+        {
+          "caller": "commonPay",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 76
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payStrategyContext.get",
+          "lineNumber": 78
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payDto.getChannel",
+          "lineNumber": 78
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payStrategyHandler.pay",
+          "lineNumber": 79
+        },
+        {
+          "caller": "commonPay",
+          "callee": "String.valueOf",
+          "lineNumber": 79
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payDto.getOrderNumber",
+          "lineNumber": 79
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payDto.getPrice",
+          "lineNumber": 79
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payDto.getSubject",
+          "lineNumber": 80
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payDto.getNotifyUrl",
+          "lineNumber": 80
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payDto.getReturnUrl",
+          "lineNumber": 80
+        },
+        {
+          "caller": "commonPay",
+          "callee": "pay.isSuccess",
+          "lineNumber": 81
+        },
+        {
+          "caller": "commonPay",
+          "callee": "Objects.isNull",
+          "lineNumber": 82
+        },
+        {
+          "caller": "commonPay",
+          "callee": "new PayBill",
+          "lineNumber": 83
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBill.setId",
+          "lineNumber": 84
+        },
+        {
+          "caller": "commonPay",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 84
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBill.setOutOrderNo",
+          "lineNumber": 85
+        },
+        {
+          "caller": "commonPay",
+          "callee": "String.valueOf",
+          "lineNumber": 85
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payDto.getOrderNumber",
+          "lineNumber": 85
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBill.setPayChannel",
+          "lineNumber": 86
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payDto.getChannel",
+          "lineNumber": 86
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBill.setPayScene",
+          "lineNumber": 87
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBill.setSubject",
+          "lineNumber": 88
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payDto.getSubject",
+          "lineNumber": 88
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBill.setPayAmount",
+          "lineNumber": 89
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payDto.getPrice",
+          "lineNumber": 89
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBill.setPayBillType",
+          "lineNumber": 90
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payDto.getPayBillType",
+          "lineNumber": 90
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBill.setPayBillStatus",
+          "lineNumber": 91
+        },
+        {
+          "caller": "commonPay",
+          "callee": "PayBillStatus.NO_PAY.getCode",
+          "lineNumber": 91
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBill.setPayTime",
+          "lineNumber": 92
+        },
+        {
+          "caller": "commonPay",
+          "callee": "DateUtils.now",
+          "lineNumber": 92
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBillMapper.insert",
+          "lineNumber": 93
+        },
+        {
+          "caller": "commonPay",
+          "callee": "new PayBill",
+          "lineNumber": 95
+        },
+        {
+          "caller": "commonPay",
+          "callee": "updatePayBill.setId",
+          "lineNumber": 96
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBill.getId",
+          "lineNumber": 96
+        },
+        {
+          "caller": "commonPay",
+          "callee": "updatePayBill.setPayTime",
+          "lineNumber": 97
+        },
+        {
+          "caller": "commonPay",
+          "callee": "DateUtils.now",
+          "lineNumber": 97
+        },
+        {
+          "caller": "commonPay",
+          "callee": "payBillMapper.updateById",
+          "lineNumber": 98
+        },
+        {
+          "caller": "commonPay",
+          "callee": "pay.getBody",
+          "lineNumber": 101
+        },
+        {
+          "caller": "notify",
+          "callee": "new NotifyVo",
+          "lineNumber": 106
+        },
+        {
+          "caller": "notify",
+          "callee": "log.info",
+          "lineNumber": 107
+        },
+        {
+          "caller": "notify",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 107
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyDto.getParams",
+          "lineNumber": 108
+        },
+        {
+          "caller": "notify",
+          "callee": "payStrategyContext.get",
+          "lineNumber": 110
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyDto.getChannel",
+          "lineNumber": 110
+        },
+        {
+          "caller": "notify",
+          "callee": "payStrategyHandler.signVerify",
+          "lineNumber": 111
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyVo.setPayResult",
+          "lineNumber": 113
+        },
+        {
+          "caller": "notify",
+          "callee": "Wrappers.lambdaQuery(PayBill.class).eq",
+          "lineNumber": 117
+        },
+        {
+          "caller": "notify",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 117
+        },
+        {
+          "caller": "notify",
+          "callee": "params.get",
+          "lineNumber": 117
+        },
+        {
+          "caller": "notify",
+          "callee": "payBillMapper.selectOne",
+          "lineNumber": 118
+        },
+        {
+          "caller": "notify",
+          "callee": "Objects.isNull",
+          "lineNumber": 119
+        },
+        {
+          "caller": "notify",
+          "callee": "log.error",
+          "lineNumber": 120
+        },
+        {
+          "caller": "notify",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 120
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyVo.setPayResult",
+          "lineNumber": 121
+        },
+        {
+          "caller": "notify",
+          "callee": "Objects.equals",
+          "lineNumber": 124
+        },
+        {
+          "caller": "notify",
+          "callee": "payBill.getPayBillStatus",
+          "lineNumber": 124
+        },
+        {
+          "caller": "notify",
+          "callee": "PayBillStatus.PAY.getCode",
+          "lineNumber": 124
+        },
+        {
+          "caller": "notify",
+          "callee": "log.info",
+          "lineNumber": 125
+        },
+        {
+          "caller": "notify",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 125
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyVo.setOutTradeNo",
+          "lineNumber": 126
+        },
+        {
+          "caller": "notify",
+          "callee": "payBill.getOutOrderNo",
+          "lineNumber": 126
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyVo.setPayResult",
+          "lineNumber": 127
+        },
+        {
+          "caller": "notify",
+          "callee": "Objects.equals",
+          "lineNumber": 130
+        },
+        {
+          "caller": "notify",
+          "callee": "payBill.getPayBillStatus",
+          "lineNumber": 130
+        },
+        {
+          "caller": "notify",
+          "callee": "PayBillStatus.CANCEL.getCode",
+          "lineNumber": 130
+        },
+        {
+          "caller": "notify",
+          "callee": "log.info",
+          "lineNumber": 131
+        },
+        {
+          "caller": "notify",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 131
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyVo.setOutTradeNo",
+          "lineNumber": 132
+        },
+        {
+          "caller": "notify",
+          "callee": "payBill.getOutOrderNo",
+          "lineNumber": 132
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyVo.setPayResult",
+          "lineNumber": 133
+        },
+        {
+          "caller": "notify",
+          "callee": "Objects.equals",
+          "lineNumber": 136
+        },
+        {
+          "caller": "notify",
+          "callee": "payBill.getPayBillStatus",
+          "lineNumber": 136
+        },
+        {
+          "caller": "notify",
+          "callee": "PayBillStatus.REFUND.getCode",
+          "lineNumber": 136
+        },
+        {
+          "caller": "notify",
+          "callee": "log.info",
+          "lineNumber": 137
+        },
+        {
+          "caller": "notify",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 137
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyVo.setOutTradeNo",
+          "lineNumber": 138
+        },
+        {
+          "caller": "notify",
+          "callee": "payBill.getOutOrderNo",
+          "lineNumber": 138
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyVo.setPayResult",
+          "lineNumber": 139
+        },
+        {
+          "caller": "notify",
+          "callee": "payStrategyHandler.dataVerify",
+          "lineNumber": 142
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyDto.getParams",
+          "lineNumber": 142
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyVo.setPayResult",
+          "lineNumber": 144
+        },
+        {
+          "caller": "notify",
+          "callee": "new PayBill",
+          "lineNumber": 147
+        },
+        {
+          "caller": "notify",
+          "callee": "updatePayBill.setPayBillStatus",
+          "lineNumber": 148
+        },
+        {
+          "caller": "notify",
+          "callee": "PayBillStatus.PAY.getCode",
+          "lineNumber": 148
+        },
+        {
+          "caller": "notify",
+          "callee": "Wrappers.lambdaUpdate(PayBill.class).eq",
+          "lineNumber": 150
+        },
+        {
+          "caller": "notify",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 150
+        },
+        {
+          "caller": "notify",
+          "callee": "params.get",
+          "lineNumber": 150
+        },
+        {
+          "caller": "notify",
+          "callee": "payBillMapper.update",
+          "lineNumber": 151
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyVo.setOutTradeNo",
+          "lineNumber": 152
+        },
+        {
+          "caller": "notify",
+          "callee": "payBill.getOutOrderNo",
+          "lineNumber": 152
+        },
+        {
+          "caller": "notify",
+          "callee": "notifyVo.setPayResult",
+          "lineNumber": 153
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "new TradeCheckVo",
+          "lineNumber": 160
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "payStrategyContext.get",
+          "lineNumber": 161
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "tradeCheckDto.getChannel",
+          "lineNumber": 161
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "payStrategyHandler.queryTrade",
+          "lineNumber": 162
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "tradeCheckDto.getOutTradeNo",
+          "lineNumber": 162
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 163
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "tradeResult.isSuccess",
+          "lineNumber": 164
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "tradeResult.getTotalAmount",
+          "lineNumber": 167
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "tradeResult.getOutTradeNo",
+          "lineNumber": 168
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "tradeResult.getPayBillStatus",
+          "lineNumber": 169
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "Wrappers.lambdaQuery(PayBill.class).eq",
+          "lineNumber": 171
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 171
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "payBillMapper.selectOne",
+          "lineNumber": 172
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "Objects.isNull",
+          "lineNumber": 173
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "log.error",
+          "lineNumber": 174
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 174
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "payBill.getPayAmount().compareTo",
+          "lineNumber": 177
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "payBill.getPayAmount",
+          "lineNumber": 177
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "log.error",
+          "lineNumber": 178
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "payBill.getPayAmount",
+          "lineNumber": 179
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 179
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "Objects.equals",
+          "lineNumber": 182
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "payBill.getPayBillStatus",
+          "lineNumber": 182
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "log.warn",
+          "lineNumber": 183
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "payBill.getPayBillStatus",
+          "lineNumber": 184
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 184
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "new PayBill",
+          "lineNumber": 185
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "updatePayBill.setId",
+          "lineNumber": 186
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "payBill.getId",
+          "lineNumber": 186
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "updatePayBill.setPayBillStatus",
+          "lineNumber": 187
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "Wrappers.lambdaUpdate(PayBill.class).eq",
+          "lineNumber": 189
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 189
+        },
+        {
+          "caller": "tradeCheck",
+          "callee": "payBillMapper.update",
+          "lineNumber": 190
+        },
+        {
+          "caller": "refund",
+          "callee": "payBillMapper.selectOne",
+          "lineNumber": 198
+        },
+        {
+          "caller": "refund",
+          "callee": "Wrappers.lambdaQuery(PayBill.class).eq",
+          "lineNumber": 198
+        },
+        {
+          "caller": "refund",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 198
+        },
+        {
+          "caller": "refund",
+          "callee": "refundDto.getOrderNumber",
+          "lineNumber": 199
+        },
+        {
+          "caller": "refund",
+          "callee": "Objects.isNull",
+          "lineNumber": 200
+        },
+        {
+          "caller": "refund",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 201
+        },
+        {
+          "caller": "refund",
+          "callee": "Objects.equals",
+          "lineNumber": 204
+        },
+        {
+          "caller": "refund",
+          "callee": "payBill.getPayBillStatus",
+          "lineNumber": 204
+        },
+        {
+          "caller": "refund",
+          "callee": "PayBillStatus.PAY.getCode",
+          "lineNumber": 204
+        },
+        {
+          "caller": "refund",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 205
+        },
+        {
+          "caller": "refund",
+          "callee": "refundDto.getAmount().compareTo",
+          "lineNumber": 208
+        },
+        {
+          "caller": "refund",
+          "callee": "refundDto.getAmount",
+          "lineNumber": 208
+        },
+        {
+          "caller": "refund",
+          "callee": "payBill.getPayAmount",
+          "lineNumber": 208
+        },
+        {
+          "caller": "refund",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 209
+        },
+        {
+          "caller": "refund",
+          "callee": "payStrategyContext.get",
+          "lineNumber": 212
+        },
+        {
+          "caller": "refund",
+          "callee": "refundDto.getChannel",
+          "lineNumber": 212
+        },
+        {
+          "caller": "refund",
+          "callee": "payStrategyHandler.refund",
+          "lineNumber": 214
+        },
+        {
+          "caller": "refund",
+          "callee": "refundDto.getOrderNumber",
+          "lineNumber": 214
+        },
+        {
+          "caller": "refund",
+          "callee": "refundDto.getAmount",
+          "lineNumber": 214
+        },
+        {
+          "caller": "refund",
+          "callee": "refundDto.getReason",
+          "lineNumber": 214
+        },
+        {
+          "caller": "refund",
+          "callee": "refundResult.isSuccess",
+          "lineNumber": 215
+        },
+        {
+          "caller": "refund",
+          "callee": "new PayBill",
+          "lineNumber": 216
+        },
+        {
+          "caller": "refund",
+          "callee": "updatePayBill.setId",
+          "lineNumber": 217
+        },
+        {
+          "caller": "refund",
+          "callee": "payBill.getId",
+          "lineNumber": 217
+        },
+        {
+          "caller": "refund",
+          "callee": "updatePayBill.setPayBillStatus",
+          "lineNumber": 218
+        },
+        {
+          "caller": "refund",
+          "callee": "PayBillStatus.REFUND.getCode",
+          "lineNumber": 218
+        },
+        {
+          "caller": "refund",
+          "callee": "payBillMapper.updateById",
+          "lineNumber": 219
+        },
+        {
+          "caller": "refund",
+          "callee": "new RefundBill",
+          "lineNumber": 220
+        },
+        {
+          "caller": "refund",
+          "callee": "refundBill.setId",
+          "lineNumber": 221
+        },
+        {
+          "caller": "refund",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 221
+        },
+        {
+          "caller": "refund",
+          "callee": "refundBill.setOutOrderNo",
+          "lineNumber": 222
+        },
+        {
+          "caller": "refund",
+          "callee": "payBill.getOutOrderNo",
+          "lineNumber": 222
+        },
+        {
+          "caller": "refund",
+          "callee": "refundBill.setPayBillId",
+          "lineNumber": 223
+        },
+        {
+          "caller": "refund",
+          "callee": "payBill.getId",
+          "lineNumber": 223
+        },
+        {
+          "caller": "refund",
+          "callee": "refundBill.setRefundAmount",
+          "lineNumber": 224
+        },
+        {
+          "caller": "refund",
+          "callee": "refundDto.getAmount",
+          "lineNumber": 224
+        },
+        {
+          "caller": "refund",
+          "callee": "refundBill.setRefundStatus",
+          "lineNumber": 225
+        },
+        {
+          "caller": "refund",
+          "callee": "refundBill.setRefundTime",
+          "lineNumber": 226
+        },
+        {
+          "caller": "refund",
+          "callee": "DateUtils.now",
+          "lineNumber": 226
+        },
+        {
+          "caller": "refund",
+          "callee": "refundBill.setReason",
+          "lineNumber": 227
+        },
+        {
+          "caller": "refund",
+          "callee": "refundDto.getReason",
+          "lineNumber": 227
+        },
+        {
+          "caller": "refund",
+          "callee": "refundBillMapper.insert",
+          "lineNumber": 228
+        },
+        {
+          "caller": "refund",
+          "callee": "refundBill.getOutOrderNo",
+          "lineNumber": 229
+        },
+        {
+          "caller": "refund",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 231
+        },
+        {
+          "caller": "refund",
+          "callee": "refundResult.getMessage",
+          "lineNumber": 231
+        },
+        {
+          "caller": "detail",
+          "callee": "new PayBillVo",
+          "lineNumber": 236
+        },
+        {
+          "caller": "detail",
+          "callee": "Wrappers.lambdaQuery(PayBill.class).eq",
+          "lineNumber": 238
+        },
+        {
+          "caller": "detail",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 238
+        },
+        {
+          "caller": "detail",
+          "callee": "payBillDto.getOrderNumber",
+          "lineNumber": 238
+        },
+        {
+          "caller": "detail",
+          "callee": "payBillMapper.selectOne",
+          "lineNumber": 239
+        },
+        {
+          "caller": "detail",
+          "callee": "Objects.nonNull",
+          "lineNumber": 240
+        },
+        {
+          "caller": "detail",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 241
+        }
+      ],
+      "metrics": {
+        "importCount": 23,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-pay-service/src/main/java/com/damai/service/RefundBillService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "classes": [
+        {
+          "name": "RefundBillService",
+          "startLine": 13,
+          "endLine": 16,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RefundBillService",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

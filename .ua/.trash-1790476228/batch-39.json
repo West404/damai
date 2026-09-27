@@ -1,0 +1,573 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-captcha-manage-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-captcha-manage-framework/pom.xml",
+      "summary": "Aggregator Maven POM for the captcha management framework, declaring the damai-base-captcha and damai-captcha-framework modules with pom packaging.",
+      "tags": ["configuration", "build-system", "maven", "aggregator"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-captcha-manage-framework/damai-base-captcha/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/pom.xml",
+      "summary": "Maven module POM for the base captcha library, depending on damai-common for shared utilities.",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-captcha-manage-framework/damai-captcha-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-captcha-manage-framework/damai-captcha-framework/pom.xml",
+      "summary": "Maven module POM for the Spring Boot captcha framework starter, depending on spring-boot-starter-web, spring-boot-starter-data-redis, damai-common, and damai-base-captcha.",
+      "tags": ["configuration", "build-system", "maven", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-common/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-common/pom.xml",
+      "summary": "Maven module POM for the shared damai-common library, pulling in commons-codec, commons-lang, jjwt, hutool, fastjson, and log4j2 dependencies.",
+      "tags": ["configuration", "build-system", "maven", "shared-library"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java",
+      "type": "file",
+      "name": "CaptchaConstant.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java",
+      "summary": "Constant holder for the captcha module, defining numeric literals and the .ttf font file suffix used by captcha image generation.",
+      "tags": ["constants", "captcha", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java:CaptchaConstant",
+      "type": "class",
+      "name": "CaptchaConstant",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java",
+      "lineRange": [8, 14],
+      "summary": "Public constants class holding numeric values and the TTF font suffix used during captcha rendering.",
+      "tags": ["constants", "captcha"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java",
+      "type": "file",
+      "name": "Base64Utils.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java",
+      "summary": "Base64 encoding/decoding utility wrapping java.util.Base64 with standard and URL-safe variants for byte arrays and strings.",
+      "tags": ["utility", "base64", "encoding", "captcha"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java:Base64Utils",
+      "type": "class",
+      "name": "Base64Utils",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java",
+      "lineRange": [17, 58],
+      "summary": "Static utility class offering Base64 encode/decode in standard and URL-safe forms, used to serialize captcha images.",
+      "tags": ["utility", "base64", "encoding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "type": "file",
+      "name": "DateUtils.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "summary": "Date/time helper library for the captcha module providing month-range listing, day-difference calculation, date arithmetic, and lenient multi-format string parsing.",
+      "tags": ["utility", "date", "parsing", "captcha"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:DateUtils",
+      "type": "class",
+      "name": "DateUtils",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "lineRange": [18, 150],
+      "summary": "Utility class with static date manipulation and parsing methods built on Calendar and SimpleDateFormat.",
+      "tags": ["utility", "date", "calendar"],
+      "complexity": "moderate",
+      "languageNotes": "Uses SimpleDateFormat/Calendar rather than the java.time API; parse attempts iterate a FORMATS list for lenient input handling."
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:getMonthBetweenDate",
+      "type": "function",
+      "name": "getMonthBetweenDate",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "lineRange": [37, 62],
+      "summary": "Builds a formatted list of all months between two date strings by iterating a Calendar in one-month steps.",
+      "tags": ["date", "calendar", "iteration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:differentDays",
+      "type": "function",
+      "name": "differentDays",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "lineRange": [64, 81],
+      "summary": "Computes the whole-day difference between two Date values after normalizing both to midnight via Calendar field resets.",
+      "tags": ["date", "calendar", "arithmetic"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:convert",
+      "type": "function",
+      "name": "convert",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java",
+      "lineRange": [106, 125],
+      "summary": "Leniently parses a date string into a Date by trying each candidate format from the FORMATS list, logging a warning on total failure; also overloaded as a Date-to-string formatter.",
+      "tags": ["date", "parsing", "formatting"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "type": "file",
+      "name": "FileCopyUtils.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "summary": "File and stream copy utilities for the captcha module, offering overloaded copy methods for byte arrays, streams, readers/writers, plus file deletion.",
+      "tags": ["utility", "io", "file-handling", "captcha"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:FileCopyUtils",
+      "type": "class",
+      "name": "FileCopyUtils",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "lineRange": [18, 136],
+      "summary": "Static IO utility class with overloaded copy operations between streams/readers/writers and a safe file deletion helper.",
+      "tags": ["utility", "io", "file-handling"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:copy",
+      "type": "function",
+      "name": "copy",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "lineRange": [23, 41],
+      "summary": "Overloaded copy methods transferring data between byte arrays, input/output streams, and readers/writers with manual close handling.",
+      "tags": ["io", "stream", "copy"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:deleteFile",
+      "type": "function",
+      "name": "deleteFile",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java",
+      "lineRange": [122, 134],
+      "summary": "Deletes a file by path after verifying it exists and is a regular file, swallowing and printing any exception.",
+      "tags": ["io", "file-handling", "cleanup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "type": "file",
+      "name": "StreamUtils.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "summary": "Stream manipulation helpers for the captcha module, including copy-to-byte-array/string, ranged copying, draining, and non-closing stream wrappers.",
+      "tags": ["utility", "io", "stream", "captcha"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:StreamUtils",
+      "type": "class",
+      "name": "StreamUtils",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "lineRange": [20, 151],
+      "summary": "Static stream utility class with buffered copy, range copy, drain, and non-closing wrapper helpers.",
+      "tags": ["utility", "io", "stream"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copyToString",
+      "type": "function",
+      "name": "copyToString",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "lineRange": [37, 53],
+      "summary": "Reads an InputStream fully through an InputStreamReader with the given charset and returns the accumulated String content.",
+      "tags": ["io", "stream", "charset"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copy",
+      "type": "function",
+      "name": "copy",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "lineRange": [65, 76],
+      "summary": "Overloaded buffered copy methods transferring bytes or characters between streams, readers, and writers using a shared buffer.",
+      "tags": ["io", "stream", "copy"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copyRange",
+      "type": "function",
+      "name": "copyRange",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java",
+      "lineRange": [78, 103],
+      "summary": "Copies only the byte range [start, end] from an input stream to an output stream, skipping ahead and capping reads at the range boundary.",
+      "tags": ["io", "stream", "range"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaCacheService",
+      "type": "file",
+      "name": "com.damai.captcha.service.CaptchaCacheService",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaCacheService",
+      "summary": "Java ServiceLoader registration file binding the CaptchaCacheService SPI to the in-memory implementation CaptchaCacheServiceMemImpl.",
+      "tags": ["spi", "serviceloader", "captcha", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaService",
+      "type": "file",
+      "name": "com.damai.captcha.service.CaptchaService",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaService",
+      "summary": "Java ServiceLoader registration file listing the block-puzzle, click-word, and default CaptchaService implementations for SPI discovery.",
+      "tags": ["spi", "serviceloader", "captcha", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:damai-captcha-manage-framework/damai-base-captcha/src/main/resources/fonts/license.txt",
+      "type": "document",
+      "name": "license.txt",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/resources/fonts/license.txt",
+      "summary": "License and attribution text for the WenQuanYi open-source Chinese font project bundled with the captcha module for text rendering.",
+      "tags": ["documentation", "license", "font"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java",
+      "type": "file",
+      "name": "CaptchaEnvironment.java",
+      "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java",
+      "summary": "Spring Boot EnvironmentPostProcessor that enables bean definition overriding for the captcha starter during application startup.",
+      "tags": ["spring-boot", "environment", "captcha", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java:CaptchaEnvironment",
+      "type": "class",
+      "name": "CaptchaEnvironment",
+      "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java",
+      "lineRange": [12, 18],
+      "summary": "EnvironmentPostProcessor implementation that sets allowBeanDefinitionOverriding on the SpringApplication to relax bean conflicts.",
+      "tags": ["spring-boot", "environment", "post-processor"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaCacheService",
+      "type": "file",
+      "name": "com.damai.captcha.service.CaptchaCacheService",
+      "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/services/com.damai.captcha.service.CaptchaCacheService",
+      "summary": "Java ServiceLoader registration file binding the CaptchaCacheService SPI to the Redis-backed CaptchaCacheServiceRedisImpl in the framework starter.",
+      "tags": ["spi", "serviceloader", "redis", "captcha"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Spring Boot 3 auto-configuration registration file exposing AjCaptchaAutoConfiguration and CaptchaAutoConfig to the auto-configure mechanism.",
+      "tags": ["spring-boot", "auto-configuration", "captcha"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java",
+      "type": "file",
+      "name": "DaMaiCommonAutoConfig.java",
+      "filePath": "damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java",
+      "summary": "Spring auto-configuration for the damai-common module, registering the JacksonCustom bean used by all downstream services.",
+      "tags": ["spring-boot", "auto-configuration", "jackson"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java:DaMaiCommonAutoConfig",
+      "type": "class",
+      "name": "DaMaiCommonAutoConfig",
+      "filePath": "damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java",
+      "lineRange": [12, 18],
+      "summary": "Configuration class exposing a jacksonCustom bean so every microservice shares the same Jackson customization.",
+      "tags": ["spring-boot", "auto-configuration", "bean"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "type": "file",
+      "name": "JacksonCustom.java",
+      "filePath": "damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "summary": "Jackson ObjectMapper customizer configuring date/time serialization formats, null handling, and numeric-as-string output shared across all services.",
+      "tags": ["jackson", "serialization", "configuration", "spring-boot"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/config/JacksonCustom.java:JacksonCustom",
+      "type": "class",
+      "name": "JacksonCustom",
+      "filePath": "damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "lineRange": [38, 91],
+      "summary": "Jackson2ObjectMapperBuilderCustomizer implementation registering SimpleModules with Date, LocalDateTime, LocalDate, and LocalTime serializers/deserializers plus feature toggles.",
+      "tags": ["jackson", "serialization", "customizer"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/config/JacksonCustom.java:customize",
+      "type": "function",
+      "name": "customize",
+      "filePath": "damai-common/src/main/java/com/damai/config/JacksonCustom.java",
+      "lineRange": [45, 85],
+      "summary": "Applies the full Jackson customization: non-null inclusion, date format modules, custom null serializer, timezone, and JSON read/write feature flags.",
+      "tags": ["jackson", "serialization", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "type": "file",
+      "name": "JsonCustomSerializer.java",
+      "filePath": "damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "summary": "Jackson BeanSerializerModifier that assigns type-aware null serializers so null fields render as empty strings, zeroes, false, or empty arrays.",
+      "tags": ["jackson", "serialization", "null-handling"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:JsonCustomSerializer",
+      "type": "class",
+      "name": "JsonCustomSerializer",
+      "filePath": "damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "lineRange": [21, 95],
+      "summary": "BeanSerializerModifier subclass that rewrites property null serializers based on the property's raw Java type.",
+      "tags": ["jackson", "serialization", "null-handling"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:changeProperties",
+      "type": "function",
+      "name": "changeProperties",
+      "filePath": "damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "lineRange": [23, 33],
+      "summary": "Iterates bean property writers and assigns each a type-appropriate null serializer produced by judgeType.",
+      "tags": ["jackson", "serialization", "properties"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:judgeType",
+      "type": "function",
+      "name": "judgeType",
+      "filePath": "damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java",
+      "lineRange": [35, 94],
+      "summary": "Returns an anonymous JsonSerializer whose null output depends on the property type: empty string for String/Number/Date/char, false for Boolean, and empty array for arrays.",
+      "tags": ["jackson", "serialization", "type-dispatch"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/constant/Constant.java",
+      "type": "file",
+      "name": "Constant.java",
+      "filePath": "damai-common/src/main/java/com/damai/constant/Constant.java",
+      "summary": "Shared constant definitions for the whole platform covering trace IDs, gray-release flags, Alipay notify results, and prefix distinction names.",
+      "tags": ["constants", "shared", "gray-release"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/constant/Constant.java:Constant",
+      "type": "class",
+      "name": "Constant",
+      "filePath": "damai-common/src/main/java/com/damai/constant/Constant.java",
+      "lineRange": [8, 41],
+      "summary": "Public constants class centralizing header names, gray routing flags, and payment callback result strings used across services.",
+      "tags": ["constants", "shared"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/CodeType.java",
+      "type": "file",
+      "name": "CodeType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/CodeType.java",
+      "summary": "Enumeration of business result codes with message lookup helpers, mapping numeric codes to human-readable messages.",
+      "tags": ["enum", "error-code", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/CodeType.java:CodeType",
+      "type": "class",
+      "name": "CodeType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/CodeType.java",
+      "lineRange": [8, 73],
+      "summary": "Enum pairing result codes with messages and values, offering static getMsg/getRc lookups by code.",
+      "tags": ["enum", "error-code"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/IdType.java",
+      "type": "file",
+      "name": "IdType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/IdType.java",
+      "summary": "Enumeration of identifier type codes used by the id-generator integration, with static message and enum lookups by code.",
+      "tags": ["enum", "id-generator", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/IdType.java:IdType",
+      "type": "class",
+      "name": "IdType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/IdType.java",
+      "lineRange": [8, 62],
+      "summary": "Enum of ID type codes with static getMsg/getRc helpers resolving enum entries from numeric codes.",
+      "tags": ["enum", "id-generator"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java",
+      "type": "file",
+      "name": "JobInfoMethodCode.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java",
+      "summary": "Enumeration of scheduled-job method codes identifying which job handler to invoke, with lookup helpers by code.",
+      "tags": ["enum", "job", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java:JobInfoMethodCode",
+      "type": "class",
+      "name": "JobInfoMethodCode",
+      "filePath": "damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java",
+      "lineRange": [8, 52],
+      "summary": "Enum mapping job method codes to descriptions with static getMsg/getRc resolution helpers.",
+      "tags": ["enum", "job"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/JobRunStatus.java",
+      "type": "file",
+      "name": "JobRunStatus.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/JobRunStatus.java",
+      "summary": "Enumeration of scheduled-job execution statuses such as success and failure, with static lookup helpers by code.",
+      "tags": ["enum", "job", "status"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/JobRunStatus.java:JobRunStatus",
+      "type": "class",
+      "name": "JobRunStatus",
+      "filePath": "damai-common/src/main/java/com/damai/enums/JobRunStatus.java",
+      "lineRange": [8, 51],
+      "summary": "Enum of job run status codes with static getMsg/getRc helpers for code-based resolution.",
+      "tags": ["enum", "job", "status"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/JobRunType.java",
+      "type": "file",
+      "name": "JobRunType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/JobRunType.java",
+      "summary": "Enumeration distinguishing scheduled-job run trigger types such as automatic versus manual execution.",
+      "tags": ["enum", "job", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/JobRunType.java:JobRunType",
+      "type": "class",
+      "name": "JobRunType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/JobRunType.java",
+      "lineRange": [8, 23],
+      "summary": "Simple enum declaring the job run trigger type constants used by the job framework.",
+      "tags": ["enum", "job"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/PayBillType.java",
+      "type": "file",
+      "name": "PayBillType.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PayBillType.java",
+      "summary": "Enumeration of payment bill type codes distinguishing order payment flows, with message and enum lookups by code.",
+      "tags": ["enum", "payment", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/PayBillType.java:PayBillType",
+      "type": "class",
+      "name": "PayBillType",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PayBillType.java",
+      "lineRange": [8, 57],
+      "summary": "Enum of pay bill type codes with static getMsg/getRc helpers resolving entries from numeric codes.",
+      "tags": ["enum", "payment"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "config:damai-captcha-manage-framework/pom.xml", "target": "config:damai-captcha-manage-framework/damai-base-captcha/pom.xml", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-captcha-manage-framework/pom.xml", "target": "config:damai-captcha-manage-framework/damai-captcha-framework/pom.xml", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-captcha-manage-framework/damai-base-captcha/pom.xml", "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-captcha-manage-framework/damai-captcha-framework/pom.xml", "target": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-common/pom.xml", "target": "file:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-captcha-manage-framework/damai-base-captcha/pom.xml", "target": "config:damai-common/pom.xml", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-captcha-manage-framework/damai-captcha-framework/pom.xml", "target": "config:damai-captcha-manage-framework/damai-base-captcha/pom.xml", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-captcha-manage-framework/damai-captcha-framework/pom.xml", "target": "config:damai-common/pom.xml", "type": "depends_on", "direction": "forward", "weight": 0.6},
+
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java", "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java:CaptchaConstant", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java", "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaConstant.java:CaptchaConstant", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java", "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java:Base64Utils", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java", "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Base64Utils.java:Base64Utils", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java", "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:DateUtils", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java", "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:DateUtils", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java", "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:getMonthBetweenDate", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java", "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:differentDays", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java", "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/DateUtils.java:convert", "type": "contains", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java", "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:FileCopyUtils", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java", "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:FileCopyUtils", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java", "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:copy", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java", "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:deleteFile", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/FileCopyUtils.java:copy", "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copy", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java", "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:StreamUtils", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java", "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:StreamUtils", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java", "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copyToString", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java", "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copy", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java", "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StreamUtils.java:copyRange", "type": "contains", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java", "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java:CaptchaEnvironment", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java", "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaEnvironment.java:CaptchaEnvironment", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java", "target": "class:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java:DaMaiCommonAutoConfig", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java", "target": "class:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java:DaMaiCommonAutoConfig", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "class:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java:DaMaiCommonAutoConfig", "target": "class:damai-common/src/main/java/com/damai/config/JacksonCustom.java:JacksonCustom", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/config/JacksonCustom.java", "target": "class:damai-common/src/main/java/com/damai/config/JacksonCustom.java:JacksonCustom", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/config/JacksonCustom.java", "target": "class:damai-common/src/main/java/com/damai/config/JacksonCustom.java:JacksonCustom", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/config/JacksonCustom.java", "target": "function:damai-common/src/main/java/com/damai/config/JacksonCustom.java:customize", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "function:damai-common/src/main/java/com/damai/config/JacksonCustom.java:customize", "target": "class:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:JsonCustomSerializer", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java", "target": "class:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:JsonCustomSerializer", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java", "target": "class:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:JsonCustomSerializer", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java", "target": "function:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:changeProperties", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java", "target": "function:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:judgeType", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "function:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:changeProperties", "target": "function:damai-common/src/main/java/com/damai/config/JsonCustomSerializer.java:judgeType", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/constant/Constant.java", "target": "class:damai-common/src/main/java/com/damai/constant/Constant.java:Constant", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/constant/Constant.java", "target": "class:damai-common/src/main/java/com/damai/constant/Constant.java:Constant", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/enums/CodeType.java", "target": "class:damai-common/src/main/java/com/damai/enums/CodeType.java:CodeType", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/CodeType.java", "target": "class:damai-common/src/main/java/com/damai/enums/CodeType.java:CodeType", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/enums/IdType.java", "target": "class:damai-common/src/main/java/com/damai/enums/IdType.java:IdType", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/IdType.java", "target": "class:damai-common/src/main/java/com/damai/enums/IdType.java:IdType", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java", "target": "class:damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java:JobInfoMethodCode", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java", "target": "class:damai-common/src/main/java/com/damai/enums/JobInfoMethodCode.java:JobInfoMethodCode", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/enums/JobRunStatus.java", "target": "class:damai-common/src/main/java/com/damai/enums/JobRunStatus.java:JobRunStatus", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/JobRunStatus.java", "target": "class:damai-common/src/main/java/com/damai/enums/JobRunStatus.java:JobRunStatus", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/enums/JobRunType.java", "target": "class:damai-common/src/main/java/com/damai/enums/JobRunType.java:JobRunType", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/JobRunType.java", "target": "class:damai-common/src/main/java/com/damai/enums/JobRunType.java:JobRunType", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/enums/PayBillType.java", "target": "class:damai-common/src/main/java/com/damai/enums/PayBillType.java:PayBillType", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/PayBillType.java", "target": "class:damai-common/src/main/java/com/damai/enums/PayBillType.java:PayBillType", "type": "exports", "direction": "forward", "weight": 0.8}
+  ]
+}

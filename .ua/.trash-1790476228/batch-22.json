@@ -1,0 +1,251 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java",
+      "type": "file",
+      "name": "ApiDataDto.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java",
+      "summary": "Request DTO for querying API call records with pagination parameters and optional filters (date range, API address, URL). Shared via the customize client module.",
+      "tags": ["data-model", "dto", "pagination", "client"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java:ApiDataDto",
+      "type": "class",
+      "name": "ApiDataDto",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java",
+      "lineRange": [15, 42],
+      "summary": "Paginated query DTO carrying pageNo/pageSize plus startDate, endDate, apiAddress and apiUrl filters for API call record lookups.",
+      "tags": ["data-model", "dto", "pagination"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java",
+      "type": "file",
+      "name": "ApiDataVo.java",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java",
+      "summary": "View object representing a single API call record returned to clients, including request metadata and per-day/hour/minute/second call timestamps.",
+      "tags": ["data-model", "vo", "client", "api-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java:ApiDataVo",
+      "type": "class",
+      "name": "ApiDataVo",
+      "filePath": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java",
+      "lineRange": [16, 60],
+      "summary": "VO exposing API call record details: address, method, body, params, URL, status and fine-grained call time buckets.",
+      "tags": ["data-model", "vo", "api-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java",
+      "type": "file",
+      "name": "ApiDataController.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java",
+      "summary": "REST controller exposing a paginated query endpoint for API call records in the customize service.",
+      "tags": ["api-handler", "controller", "rest", "customize-service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java:ApiDataController",
+      "type": "class",
+      "name": "ApiDataController",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java",
+      "lineRange": [22, 35],
+      "summary": "Spring REST controller delegating API data page queries to ApiDataService and wrapping results in ApiResponse.",
+      "tags": ["api-handler", "controller", "rest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java:pageList",
+      "type": "function",
+      "name": "pageList",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java",
+      "lineRange": [30, 34],
+      "summary": "HTTP endpoint handler that queries a page of API call records via ApiDataService and returns ApiResponse.ok.",
+      "tags": ["api-handler", "endpoint", "pagination"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java",
+      "type": "file",
+      "name": "ApiData.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java",
+      "summary": "MyBatis-Plus entity mapped to the d_api_data table, recording API invocation details such as address, method, body, params and call time buckets.",
+      "tags": ["data-model", "entity", "mybatis-plus", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java:ApiData",
+      "type": "class",
+      "name": "ApiData",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java",
+      "lineRange": [14, 41],
+      "summary": "Entity for API call records extending BaseTableData; persisted to the d_api_data table via MyBatis-Plus.",
+      "tags": ["data-model", "entity", "mybatis-plus"],
+      "complexity": "simple",
+      "languageNotes": "Uses Lombok @Data and @TableName for table mapping; inherits audit fields from BaseTableData."
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java",
+      "type": "file",
+      "name": "ApiDataMessageConsumer.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java",
+      "summary": "Kafka consumer that listens for API data messages, deserializes them into ApiData entities and persists them via ApiDataService.",
+      "tags": ["event-handler", "kafka", "consumer", "messaging"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java:ApiDataMessageConsumer",
+      "type": "class",
+      "name": "ApiDataMessageConsumer",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java",
+      "lineRange": [22, 42],
+      "summary": "Spring Kafka listener component consuming API call records produced by the gateway's API restriction flow.",
+      "tags": ["event-handler", "kafka", "consumer"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java:consumerOrderMessage",
+      "type": "function",
+      "name": "consumerOrderMessage",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java",
+      "lineRange": [30, 41],
+      "summary": "Kafka listener method parsing the record value as JSON into ApiData and saving it through ApiDataService, with error logging on failure.",
+      "tags": ["event-handler", "kafka", "consumer", "deserialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java",
+      "type": "file",
+      "name": "ApiDataMapper.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java",
+      "summary": "MyBatis-Plus mapper interface for the ApiData entity, adding a custom paginated query over API call records.",
+      "tags": ["data-model", "mapper", "mybatis-plus", "persistence"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java:ApiDataMapper",
+      "type": "class",
+      "name": "ApiDataMapper",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java",
+      "lineRange": [14, 22],
+      "summary": "Mapper interface extending MyBatis-Plus BaseMapper for ApiData with a custom pageList query method.",
+      "tags": ["mapper", "mybatis-plus", "persistence"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java",
+      "type": "file",
+      "name": "ApiDataService.java",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java",
+      "summary": "Service layer for API call records: idempotently saves incoming records (guarded by repeat-execute limiting) and runs filtered paginated queries returning ApiDataVo pages.",
+      "tags": ["service", "business-logic", "api-data", "pagination"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java:ApiDataService",
+      "type": "class",
+      "name": "ApiDataService",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java",
+      "lineRange": [31, 69],
+      "summary": "Spring service managing persistence and paginated retrieval of ApiData records via ApiDataMapper.",
+      "tags": ["service", "business-logic", "api-data"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java:saveApiData",
+      "type": "function",
+      "name": "saveApiData",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java",
+      "lineRange": [38, 45],
+      "summary": "Saves an API call record only when no row with the same id exists, preventing duplicate inserts; annotated with RepeatExecuteLimit.",
+      "tags": ["service", "persistence", "idempotency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java:pageList",
+      "type": "function",
+      "name": "pageList",
+      "filePath": "damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java",
+      "lineRange": [47, 68],
+      "summary": "Builds a conditional MyBatis-Plus lambda query (address, URL, date range), fetches a page of ApiData and maps results to ApiDataVo records.",
+      "tags": ["service", "pagination", "query", "mapping"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java",
+      "type": "file",
+      "name": "ApiDataDto.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java",
+      "summary": "Gateway-side DTO capturing full API call details (including status and type) produced during API restriction checks for asynchronous persistence via Kafka.",
+      "tags": ["data-model", "dto", "gateway", "api-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java:ApiDataDto",
+      "type": "class",
+      "name": "ApiDataDto",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java",
+      "lineRange": [12, 43],
+      "summary": "Rich DTO of an API invocation used by the gateway's ApiRestrictService when recording restricted/monitored calls.",
+      "tags": ["data-model", "dto", "gateway"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java", "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java:ApiDataDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java", "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java:ApiDataVo", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java", "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java:ApiDataController", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java", "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java:pageList", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java", "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java:ApiData", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java", "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java:ApiDataMessageConsumer", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java", "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java:consumerOrderMessage", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java", "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java:ApiDataMapper", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java:ApiDataService", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java:saveApiData", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java:pageList", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java", "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java:ApiDataDto", "type": "contains", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java", "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java:ApiDataDto", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java", "target": "class:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java:ApiDataVo", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java", "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java:ApiDataController", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java", "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java:pageList", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java", "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java:ApiData", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java", "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java:ApiDataMessageConsumer", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java", "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java:consumerOrderMessage", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java", "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java:ApiDataMapper", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "class:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java:ApiDataService", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java:saveApiData", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java:pageList", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java", "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java:ApiDataDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java", "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java", "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java", "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java", "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java", "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java", "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java", "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java", "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java", "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java", "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java", "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java", "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "file:damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java:pageList", "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java:pageList", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java:pageList", "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java:consumerOrderMessage", "target": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java:saveApiData", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java:pageList", "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isNotEmpty", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "class:damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java:ApiData", "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData", "type": "inherits", "direction": "forward", "weight": 0.9}
+  ]
+}

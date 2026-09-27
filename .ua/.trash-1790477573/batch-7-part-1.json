@@ -1,0 +1,528 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java",
+      "type": "file",
+      "name": "DateJsonDeserializer.java",
+      "filePath": "damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java",
+      "summary": "自定义 Jackson 日期反序列化器，兼容秒/毫秒级时间戳以及 yyyy-MM、yyyy-MM-dd、yyyy/MM/dd HH:mm:ss 等多种日期字符串格式，统一转换为 Date。",
+      "tags": ["序列化", "反序列化", "日期处理", "json"],
+      "complexity": "moderate",
+      "languageNotes": "静态维护候选日期格式列表，先用正则预判格式再委托 DateUtils 解析，避免逐个格式尝试解析。"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java:DateJsonDeserializer",
+      "type": "class",
+      "name": "DateJsonDeserializer",
+      "filePath": "damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java",
+      "lineRange": [21, 75],
+      "summary": "继承 Jackson JsonDeserializer<Date>，为全局日期字段提供宽松的字符串与时间戳解析能力。",
+      "tags": ["序列化", "jackson", "日期处理", "数据模型"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java",
+      "lineRange": [33, 62],
+      "summary": "将 JSON 文本节点解析为 Date：纯数字按时间戳处理，其余按正则匹配到的格式字符串解析，无法识别时抛出 IllegalArgumentException。",
+      "tags": ["反序列化", "日期处理", "入口点"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "type": "file",
+      "name": "SpringUtil.java",
+      "filePath": "damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "summary": "Spring 容器工具类，实现 ApplicationContextInitializer 在启动阶段缓存 ApplicationContext，供静态方法读取环境配置（如多环境前缀区分名）。",
+      "tags": ["工具类", "spring", "配置", "入口点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/core/SpringUtil.java:SpringUtil",
+      "type": "class",
+      "name": "SpringUtil",
+      "filePath": "damai-common/src/main/java/com/damai/core/SpringUtil.java",
+      "lineRange": [15, 29],
+      "summary": "持有静态 ConfigurableApplicationContext 引用，暴露读取 PREFIX_DISTINCTION_NAME 配置（带默认值）的静态方法，被布隆过滤器、Redis key 构建等组件复用。",
+      "tags": ["spring", "工具类", "单例"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/BusinessStatus.java",
+      "type": "file",
+      "name": "BusinessStatus.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/BusinessStatus.java",
+      "summary": "通用是否状态枚举（YES=1、NO=0），并提供按 code 反查枚举实例与描述文案的静态方法。",
+      "tags": ["枚举", "数据模型", "通用常量"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/BusinessStatus.java:BusinessStatus",
+      "type": "class",
+      "name": "BusinessStatus",
+      "filePath": "damai-common/src/main/java/com/damai/enums/BusinessStatus.java",
+      "lineRange": [9, 51],
+      "summary": "定义 YES/NO 两种通用业务状态码，并提供 getMsg/getRc 静态查询能力；节目、订单等业务用其表达是否类标记。",
+      "tags": ["枚举", "状态机", "数据模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "type": "file",
+      "name": "DateUtils.java",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "summary": "全局日期工具类，集中提供格式化、解析、日期区间计算、年/月/周维度加减与周期日期列表等 50 余个静态方法，是各微服务处理时间逻辑的基础依赖。",
+      "tags": ["工具类", "日期处理", "时间区间", "通用常量"],
+      "complexity": "complex",
+      "languageNotes": "大量重载方法（now/parse/format/getDate 等）；用 SimpleTimeZone 自行处理东八区与 UTC 转换，并以 @Data 静态内部类 DateNode 承载日期明细。"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/util/DateUtils.java:DateUtils",
+      "type": "class",
+      "name": "DateUtils",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [21, 939],
+      "summary": "日期工具类，集中封装日期格式化、解析、区间列表、加减运算与周期性日期计算能力，全类以静态方法提供。",
+      "tags": ["工具类", "日期处理", "时间区间"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/util/DateUtils.java:DateNode",
+      "type": "class",
+      "name": "DateNode",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [876, 907],
+      "summary": "日期明细数据对象，承载年、月、日、时、分、秒、毫秒、星期、年序日/周及秒级与毫秒级时间戳等派生字段。",
+      "tags": ["数据模型", "日期处理", "dto"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:parse",
+      "type": "function",
+      "name": "parse",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [254, 265],
+      "summary": "将日期字符串按指定格式解析为 Date，入参为空或解析失败时打印堆栈并返回 null。",
+      "tags": ["日期处理", "解析", "工具函数"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateStart",
+      "type": "function",
+      "name": "getDateStart",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [283, 294],
+      "summary": "获取指定日期当天的起始时间（00:00:00.000），入参为空时返回 null。",
+      "tags": ["日期处理", "时间区间", "工具函数"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateEnd",
+      "type": "function",
+      "name": "getDateEnd",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [302, 313],
+      "summary": "获取指定日期当天的结束时间（23:59:59.999），用于构造按天查询的时间上界。",
+      "tags": ["日期处理", "时间区间", "工具函数"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeek",
+      "type": "function",
+      "name": "getWeek",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [390, 409],
+      "summary": "依据 Calendar 的 DAY_OF_WEEK 将星期映射为 1-7（周一至周日）的序号，便于演出场次按周展示。",
+      "tags": ["日期处理", "工具函数", "日历"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekStr",
+      "type": "function",
+      "name": "getWeekStr",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [417, 436],
+      "summary": "返回星期对应的中文名称（如「周一」），无法识别时返回空字符串。",
+      "tags": ["日期处理", "工具函数", "格式化"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekOfYear",
+      "type": "function",
+      "name": "getWeekOfYear",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [448, 462],
+      "summary": "计算日期所在年份的周数：本年第一周为第 1 周，属于上一年最后一周时返回 0。",
+      "tags": ["日期处理", "工具函数", "日历"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekOfYearIgnoreLastYear",
+      "type": "function",
+      "name": "getWeekOfYearIgnoreLastYear",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [470, 485],
+      "summary": "计算日期所在年份的周数，忽略跨年周（不返回 0）的简化实现。",
+      "tags": ["日期处理", "工具函数", "日历"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateNode",
+      "type": "function",
+      "name": "getDateNode",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [493, 515],
+      "summary": "将 Date 拆解为 DateNode，包含年月日时分秒毫秒、星期、年序日、年内周数以及秒级/毫秒级时间戳等明细字段。",
+      "tags": ["日期处理", "工具函数", "数据转换"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekDateList",
+      "type": "function",
+      "name": "getWeekDateList",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [663, 672],
+      "summary": "获取指定日期所在周的完整日期列表，入参为空时返回空列表。",
+      "tags": ["日期处理", "时间区间", "工具函数"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getBetweenDateList",
+      "type": "function",
+      "name": "getBetweenDateList",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [772, 804],
+      "summary": "计算两个日期之间的所有日期列表，支持通过布尔参数控制是否包含首尾日期。",
+      "tags": ["日期处理", "时间区间", "工具函数"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateStrList",
+      "type": "function",
+      "name": "getDateStrList",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [838, 847],
+      "summary": "将日期集合批量格式化为 yyyy-MM-dd 字符串列表，空集合返回空列表。",
+      "tags": ["日期处理", "格式化", "工具函数"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getFormatedDateString",
+      "type": "function",
+      "name": "getFormatedDateString",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [856, 875],
+      "summary": "按指定时区偏移（默认东八区）与格式输出当前时间字符串，用于屏蔽服务器所在时区差异。",
+      "tags": ["日期处理", "格式化", "时区"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDate",
+      "type": "function",
+      "name": "getDate",
+      "filePath": "damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "lineRange": [928, 938],
+      "summary": "按自定义格式解析日期字符串，解析失败时抛出 IllegalArgumentException，入参为空时返回给定的默认日期。",
+      "tags": ["日期处理", "解析", "工具函数"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java",
+      "type": "file",
+      "name": "BusinessEsAutoConfig.java",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java",
+      "summary": "Elasticsearch 自动装配配置，构建支持账号密码鉴权、自定义请求头、IO 线程数与连接超时配置的 RestClient，并注册 BusinessEsHandle Bean。",
+      "tags": ["配置", "elasticsearch", "自动装配", "连接池"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java:BusinessEsAutoConfig",
+      "type": "class",
+      "name": "BusinessEsAutoConfig",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java",
+      "lineRange": [29, 87],
+      "summary": "Spring 配置类，将 businessEsProperties 中的节点地址、鉴权信息与超时参数映射为 ES RestClient，并据此装配 BusinessEsHandle。",
+      "tags": ["配置", "elasticsearch", "自动装配"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java:businessEsRestClient",
+      "type": "function",
+      "name": "businessEsRestClient",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java",
+      "lineRange": [35, 64],
+      "summary": "根据配置的 ip:port 列表构建 RestClient：可选 Basic 鉴权、默认 JSON 请求头、设置 IO 线程数、连接/套接字/连接请求超时。",
+      "tags": ["elasticsearch", "配置", "工厂"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java:makeHttpHost",
+      "type": "function",
+      "name": "makeHttpHost",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java",
+      "lineRange": [76, 86],
+      "summary": "将 ip:port 形式的配置字符串解析为 HttpHost，配置为空或长度不合法时返回 null。",
+      "tags": ["elasticsearch", "解析", "工具函数"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataQueryDto.java",
+      "type": "file",
+      "name": "EsDataQueryDto.java",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataQueryDto.java",
+      "summary": "ES 查询条件 DTO，描述字段名、字段值、起止时间与是否分词（analyse），供 BusinessEsHandle 组装 boolQuery。",
+      "tags": ["数据模型", "dto", "elasticsearch", "查询条件"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataQueryDto.java:EsDataQueryDto",
+      "type": "class",
+      "name": "EsDataQueryDto",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataQueryDto.java",
+      "lineRange": [12, 34],
+      "summary": "单个 ES 查询条件对象：字段名、字段值、时间范围与分词标识，最终被转换为 match/term/terms/range 查询子句。",
+      "tags": ["数据模型", "dto", "elasticsearch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDocumentMappingDto.java",
+      "type": "file",
+      "name": "EsDocumentMappingDto.java",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDocumentMappingDto.java",
+      "summary": "ES 索引映射 DTO，声明字段名与字段类型，用于创建索引时生成 mappings。",
+      "tags": ["数据模型", "dto", "elasticsearch", "索引映射"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsGeoPointDto.java",
+      "type": "file",
+      "name": "EsGeoPointDto.java",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsGeoPointDto.java",
+      "summary": "地理坐标查询条件 DTO，包含经纬度字段名与坐标值，用于 ES 的 geo_distance 距离过滤。",
+      "tags": ["数据模型", "dto", "elasticsearch", "地理位置"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsGeoPointSortDto.java",
+      "type": "file",
+      "name": "EsGeoPointSortDto.java",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/dto/EsGeoPointSortDto.java",
+      "summary": "地理坐标排序 DTO，按目标经纬度计算距离进行排序（geo_distance_sort），实现附近演出优先展示。",
+      "tags": ["数据模型", "dto", "elasticsearch", "排序"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "type": "file",
+      "name": "BusinessEsHandle.java",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "summary": "Elasticsearch 操作核心工具类，封装索引创建/校验/删除、文档写入与删除、多条件分页查询、地理位置过滤与排序、高亮回填等能力。",
+      "tags": ["工具类", "elasticsearch", "查询构建", "数据访问"],
+      "complexity": "complex",
+      "languageNotes": "直接拼装 ES REST 请求（XContentBuilder + NStringEntity），未使用 Spring Data Elasticsearch 高层 API；响应结果用 fastjson 手动映射为泛型对象。"
+    },
+    {
+      "id": "class:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:BusinessEsHandle",
+      "type": "class",
+      "name": "BusinessEsHandle",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "lineRange": [53, 559],
+      "summary": "基于 RestClient 的 ES 数据访问封装，提供索引管理、文档写入以及查询/分页/高亮/地理排序等大量重载方法。",
+      "tags": ["elasticsearch", "数据访问", "工具类", "查询构建"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:createIndex",
+      "type": "function",
+      "name": "createIndex",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "lineRange": [70, 111],
+      "summary": "按字段映射列表创建索引并设置分片数与副本数，text 类型字段自动附加 keyword 子字段以支持精确匹配与聚合。",
+      "tags": ["elasticsearch", "索引管理", "工具函数"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:checkIndex",
+      "type": "function",
+      "name": "checkIndex",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "lineRange": [120, 145],
+      "summary": "校验索引是否存在：200 表示存在、404 表示不存在，其他状态码记录错误日志。",
+      "tags": ["elasticsearch", "索引管理", "校验"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:deleteIndex",
+      "type": "function",
+      "name": "deleteIndex",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "lineRange": [152, 165],
+      "summary": "删除指定索引，非成功响应时记录错误日志。",
+      "tags": ["elasticsearch", "索引管理", "工具函数"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:add",
+      "type": "function",
+      "name": "add",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "lineRange": [200, 230],
+      "summary": "向指定索引写入单条文档，可选指定文档 ID，并根据返回状态短语判断写入是否成功。",
+      "tags": ["elasticsearch", "文档写入", "工具函数"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:queryPage",
+      "type": "function",
+      "name": "queryPage",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "lineRange": [392, 408],
+      "summary": "含地理坐标条件的 ES 分页查询入口：构建 SearchSourceBuilder 并设置 from/size，交由 executeQuery 执行并返回 PageInfo。",
+      "tags": ["elasticsearch", "分页查询", "查询构建"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:getSearchSourceBuilder",
+      "type": "function",
+      "name": "getSearchSourceBuilder",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "lineRange": [410, 471],
+      "summary": "组装 ES 查询：支持字段排序与 geo_distance 排序、地理距离过滤、match/term/terms/range 多条件组合，并按 analyse 标识决定是否分词。",
+      "tags": ["elasticsearch", "查询构建", "工具函数"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:executeQuery",
+      "type": "function",
+      "name": "executeQuery",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "lineRange": [473, 544],
+      "summary": "执行 ES 检索并解析响应：提取 total 与 hits、将高亮字段回填到文档对象，并按目标类型反序列化为对象列表。",
+      "tags": ["elasticsearch", "数据解析", "工具函数"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:deleteByDocumentId",
+      "type": "function",
+      "name": "deleteByDocumentId",
+      "filePath": "damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java",
+      "lineRange": [546, 558],
+      "summary": "按文档 ID 删除指定索引中的一条文档，失败时记录错误日志。",
+      "tags": ["elasticsearch", "文档删除", "工具函数"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/config/BloomFilterAutoConfiguration.java",
+      "type": "file",
+      "name": "BloomFilterAutoConfiguration.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/config/BloomFilterAutoConfiguration.java",
+      "summary": "布隆过滤器自动装配配置，启用 BloomFilterProperties 配置绑定并注册 BloomFilterHandler Bean，供各服务防缓存穿透使用。",
+      "tags": ["配置", "自动装配", "布隆过滤器", "redisson"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/config/BloomFilterProperties.java",
+      "type": "file",
+      "name": "BloomFilterProperties.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/config/BloomFilterProperties.java",
+      "summary": "布隆过滤器配置属性类，定义 Redis key 前缀、过滤器名称、预期插入量与误判率，由 Spring Boot 配置绑定注入。",
+      "tags": ["配置", "配置属性", "布隆过滤器"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java",
+      "type": "file",
+      "name": "BloomFilterHandler.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java",
+      "summary": "基于 Redisson RBloomFilter 的布隆过滤器封装，提供元素添加、存在性判断以及容量、误判率、哈希次数等元信息查询，用于缓解缓存穿透。",
+      "tags": ["布隆过滤器", "redisson", "工具类", "防缓存穿透"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java:BloomFilterHandler",
+      "type": "class",
+      "name": "BloomFilterHandler",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java",
+      "lineRange": [16, 55],
+      "summary": "封装 Redisson 布隆过滤器：初始化时按「环境前缀-过滤器名」构造 Redis key，并以预期插入量与误判率执行 tryInit。",
+      "tags": ["布隆过滤器", "redisson", "工具类"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java", "target": "class:damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java:DateJsonDeserializer", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java", "target": "function:damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java:deserialize", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java", "target": "class:damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java:DateJsonDeserializer", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java", "target": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "function:damai-common/src/main/java/com/damai/config/DateJsonDeserializer.java:deserialize", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:parse", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java", "target": "class:damai-common/src/main/java/com/damai/core/SpringUtil.java:SpringUtil", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java", "target": "class:damai-common/src/main/java/com/damai/core/SpringUtil.java:SpringUtil", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/enums/BusinessStatus.java", "target": "class:damai-common/src/main/java/com/damai/enums/BusinessStatus.java:BusinessStatus", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/enums/BusinessStatus.java", "target": "class:damai-common/src/main/java/com/damai/enums/BusinessStatus.java:BusinessStatus", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "class:damai-common/src/main/java/com/damai/util/DateUtils.java:DateUtils", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "class:damai-common/src/main/java/com/damai/util/DateUtils.java:DateNode", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:parse", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateStart", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateEnd", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeek", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekStr", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekOfYear", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekOfYearIgnoreLastYear", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateNode", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekDateList", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getBetweenDateList", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateStrList", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getFormatedDateString", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDate", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-common/src/main/java/com/damai/util/DateUtils.java", "target": "class:damai-common/src/main/java/com/damai/util/DateUtils.java:DateUtils", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekOfYear", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeek", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekOfYear", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekOfYearIgnoreLastYear", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateNode", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeek", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateNode", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekOfYear", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateNode", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekOfYearIgnoreLastYear", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateNode", "target": "class:damai-common/src/main/java/com/damai/util/DateUtils.java:DateNode", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekDateList", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getBetweenDateList", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getWeekDateList", "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:getDateStrList", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java", "target": "class:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java:BusinessEsAutoConfig", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java:businessEsRestClient", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java:makeHttpHost", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java", "target": "class:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java:BusinessEsAutoConfig", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java", "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java", "target": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "function:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java:businessEsRestClient", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java:makeHttpHost", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-elasticsearch-framework/src/main/java/com/damai/conf/BusinessEsAutoConfig.java:businessEsRestClient", "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isNotEmpty", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataQueryDto.java", "target": "class:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataQueryDto.java:EsDataQueryDto", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataQueryDto.java", "target": "class:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataQueryDto.java:EsDataQueryDto", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "class:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:BusinessEsHandle", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:createIndex", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:checkIndex", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:deleteIndex", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:add", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:queryPage", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:getSearchSourceBuilder", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:executeQuery", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:deleteByDocumentId", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "class:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:BusinessEsHandle", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDataQueryDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsDocumentMappingDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsGeoPointDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java", "target": "file:damai-elasticsearch-framework/src/main/java/com/damai/dto/EsGeoPointSortDto.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:queryPage", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:getSearchSourceBuilder", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:queryPage", "target": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:executeQuery", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:damai-elasticsearch-framework/src/main/java/com/damai/util/BusinessEsHandle.java:executeQuery", "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isEmpty", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/config/BloomFilterAutoConfiguration.java", "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java", "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java:BloomFilterHandler", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java", "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java:BloomFilterHandler", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java", "target": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java", "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/config/BloomFilterProperties.java", "type": "imports", "direction": "forward", "weight": 0.7}
+  ]
+}

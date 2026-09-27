@@ -1,0 +1,379 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "type": "file",
+      "name": "MybatisPlusMetaObjectHandler.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "summary": "MyBatis-Plus 字段自动填充处理器，在插入与更新时自动填充创建时间与更新时间字段。",
+      "tags": ["mybatis-plus", "字段填充", "持久化", "middleware"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java:MybatisPlusMetaObjectHandler",
+      "type": "class",
+      "name": "MybatisPlusMetaObjectHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "lineRange": [14, 29],
+      "summary": "MyBatis-Plus 元对象填充器，实现插入填充与更新填充两个回调。",
+      "tags": ["mybatis-plus", "字段填充", "持久化"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java:insertFill",
+      "type": "function",
+      "name": "insertFill",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "lineRange": [17, 22],
+      "summary": "插入时严格填充创建时间与更新时间字段，保证新记录的时间列有值。",
+      "tags": ["字段填充", "插入", "mybatis-plus"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java:updateFill",
+      "type": "function",
+      "name": "updateFill",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "lineRange": [24, 28],
+      "summary": "更新时严格填充更新时间字段，记录记录最后一次修改时间。",
+      "tags": ["字段填充", "更新", "mybatis-plus"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "type": "file",
+      "name": "PageUtil.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "summary": "分页工具类，统一构造 MyBatis-Plus 分页参数，并将分页查询结果转换为通用 PageVo。",
+      "tags": ["工具类", "分页", "转换", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java:PageUtil",
+      "type": "class",
+      "name": "PageUtil",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "lineRange": [16, 38],
+      "summary": "分页工具类，提供分页参数构造与两类分页结果转换的重载方法。",
+      "tags": ["工具类", "分页", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java:convertPage",
+      "type": "function",
+      "name": "convertPage",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "lineRange": [26, 37],
+      "summary": "两个重载分页转换方法：分别将 PageInfo 与 MyBatis-Plus IPage 结果按映射函数转换为 PageVo。",
+      "tags": ["分页转换", "泛型", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java",
+      "type": "file",
+      "name": "PageVo.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java",
+      "summary": "通用分页返回 VO，包含页码、每页条数、总条数与数据列表，供各服务统一返回分页结果。",
+      "tags": ["data-model", "分页", "VO", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java:PageVo",
+      "type": "class",
+      "name": "PageVo",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java",
+      "lineRange": [32, 47],
+      "summary": "泛型分页返回对象，携带 pageNum、pageSize、totalSize 与泛型数据列表 list。",
+      "tags": ["data-model", "分页", "VO"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "type": "file",
+      "name": "AbstractApplicationPostConstructHandler.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "summary": "应用启动后置处理器的抽象基类，定义初始化类型与初始化执行的统一扩展契约，供各服务实现启动预热逻辑。",
+      "tags": ["抽象基类", "初始化", "扩展点", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler",
+      "type": "class",
+      "name": "AbstractApplicationPostConstructHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "lineRange": [12, 18],
+      "summary": "启动初始化抽象基类，声明初始化类型 type() 以及排序与执行方法交由子类实现。",
+      "tags": ["抽象基类", "初始化", "扩展点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "type": "file",
+      "name": "BusinessThreadPool.java",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "summary": "业务线程池封装，按 CPU 核数计算最大线程数，并提供任务提交接口与线程上下文包装。",
+      "tags": ["线程池", "并发", "framework", "singleton"],
+      "complexity": "simple",
+      "languageNotes": "继承 BaseThreadPool，使用 BigDecimal 按 CPU 核数除以 0.2 计算最大线程数。"
+    },
+    {
+      "id": "class:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:BusinessThreadPool",
+      "type": "class",
+      "name": "BusinessThreadPool",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "lineRange": [22, 57],
+      "summary": "业务线程池实现类，重写最大线程数、execute 与 submit 方法，统一包装任务与线程上下文。",
+      "tags": ["线程池", "并发", "framework"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:maximumPoolSize",
+      "type": "function",
+      "name": "maximumPoolSize",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "lineRange": [43, 46],
+      "summary": "按可用 CPU 核数除以 0.2 并向上取整计算线程池最大线程数。",
+      "tags": ["线程池", "容量计算", "并发"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "lineRange": [49, 51],
+      "summary": "提交无返回值任务到业务线程池，并携带线程上下文包装 Runnable。",
+      "tags": ["线程池", "任务提交", "并发"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java",
+      "type": "file",
+      "name": "BusinessNameThreadFactory.java",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java",
+      "summary": "业务线程工厂，为线程池创建的线程统一命名前缀并附加自增序号，便于日志排查。",
+      "tags": ["线程工厂", "命名", "并发", "framework"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java:BusinessNameThreadFactory",
+      "type": "class",
+      "name": "BusinessNameThreadFactory",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java",
+      "lineRange": [9, 19],
+      "summary": "线程命名工厂实现，重写名称前缀方法返回业务前缀与原子自增编号。",
+      "tags": ["线程工厂", "命名", "并发"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java",
+      "type": "file",
+      "name": "ThreadPoolRejectedExecutionHandler.java",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java",
+      "summary": "线程池拒绝策略实现，在任务队列与线程数饱和时抛出携带任务与线程池信息的拒绝异常。",
+      "tags": ["拒绝策略", "线程池", "异常处理", "并发"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java:ThreadPoolRejectedExecutionHandler",
+      "type": "class",
+      "name": "ThreadPoolRejectedExecutionHandler",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java",
+      "lineRange": [12, 28],
+      "summary": "拒绝策略类，实现 rejectedExecution 回调，饱和时构造并抛出 RejectedExecutionException。",
+      "tags": ["拒绝策略", "线程池", "异常处理"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java:MybatisPlusMetaObjectHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java:insertFill",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java:updateFill",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java:MybatisPlusMetaObjectHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java:PageUtil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java:convertPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java:PageUtil",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java:PageVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java:PageVo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationPostConstructHandler.java:AbstractApplicationPostConstructHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "target": "class:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:BusinessThreadPool",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "target": "function:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:maximumPoolSize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "target": "class:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:BusinessThreadPool",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "target": "function:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "target": "function:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:execute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java",
+      "target": "class:damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java:BusinessNameThreadFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java",
+      "target": "class:damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java:BusinessNameThreadFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java",
+      "target": "class:damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java:ThreadPoolRejectedExecutionHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java",
+      "target": "class:damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java:ThreadPoolRejectedExecutionHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageUtil.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/dto/BasePageDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "target": "file:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "target": "file:damai-thread-pool-framework/src/main/java/com/damai/namefactory/BusinessNameThreadFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+      "target": "file:damai-thread-pool-framework/src/main/java/com/damai/rejectedexecutionhandler/ThreadPoolRejectedExecutionHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/mybatisplus/MybatisPlusMetaObjectHandler.java:insertFill",
+      "target": "function:damai-common/src/main/java/com/damai/util/DateUtils.java:now",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:BusinessThreadPool",
+      "target": "class:damai-thread-pool-framework/src/main/java/com/damai/base/BaseThreadPool.java:BaseThreadPool",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

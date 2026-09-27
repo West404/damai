@@ -1,0 +1,82 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/application-local.yml",
+      "type": "config",
+      "name": "application-local.yml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/application-local.yml",
+      "summary": "Local-profile overrides for the order service, defining the orderPayNotifyUrl and orderPayReturnUrl payment callback URLs.",
+      "tags": ["configuration", "spring-boot", "local-profile", "payment-callback"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/application-pro.yml",
+      "type": "config",
+      "name": "application-pro.yml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/application-pro.yml",
+      "summary": "Production-profile overrides for the order service, defining the orderPayNotifyUrl and orderPayReturnUrl payment callback URLs.",
+      "tags": ["configuration", "spring-boot", "production-profile", "payment-callback"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/application.yml",
+      "summary": "Main Spring Boot configuration for the order service covering server port, Spring Cloud (Nacos/Sentinel), MyBatis-Plus, Feign, Actuator endpoints, jasypt encryption, delay queue, and springdoc/knife4j API docs.",
+      "tags": ["configuration", "spring-boot", "microservice", "order-service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/log4j2.xml",
+      "summary": "Log4j2 configuration for order-service with console and rolling-file appenders (100MB size / 30-file rollover) and a traceId-aware pattern layout; commented-out Logstash socket appender for ELK shipping.",
+      "tags": ["configuration", "logging", "log4j2", "monitoring"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-docker.yaml",
+      "type": "config",
+      "name": "shardingsphere-order-docker.yaml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/shardingsphere-order-docker.yaml",
+      "summary": "ShardingSphere-JDBC configuration (docker profile) defining order_db data sources and sharding rules that split order tables across database/table shards.",
+      "tags": ["configuration", "shardingsphere", "database-sharding", "docker-profile"],
+      "complexity": "moderate",
+      "languageNotes": "Uses ShardingSphere custom YAML tags (!SHARDING) parsed via a SnakeYAML extension, so plain YAML parsers report unresolved tags."
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml",
+      "type": "config",
+      "name": "shardingsphere-order-local.yaml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml",
+      "summary": "ShardingSphere-JDBC configuration (local profile) defining order_db data sources and sharding rules that split order tables across database/table shards.",
+      "tags": ["configuration", "shardingsphere", "database-sharding", "local-profile"],
+      "complexity": "moderate",
+      "languageNotes": "Uses ShardingSphere custom YAML tags (!SHARDING) parsed via a SnakeYAML extension, so plain YAML parsers report unresolved tags."
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-pro.yaml",
+      "type": "config",
+      "name": "shardingsphere-order-pro.yaml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/shardingsphere-order-pro.yaml",
+      "summary": "ShardingSphere-JDBC configuration (production profile) defining order_db data sources and sharding rules that split order tables across database/table shards.",
+      "tags": ["configuration", "shardingsphere", "database-sharding", "production-profile"],
+      "complexity": "moderate",
+      "languageNotes": "Uses ShardingSphere custom YAML tags (!SHARDING) parsed via a SnakeYAML extension, so plain YAML parsers report unresolved tags."
+    }
+  ],
+  "edges": [
+    {"source": "config:damai-server/damai-order-service/src/main/resources/application-local.yml", "target": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-order-service/src/main/resources/application-pro.yml", "target": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-order-service/src/main/resources/application.yml", "target": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-order-service/src/main/resources/log4j2.xml", "target": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-docker.yaml", "target": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml", "target": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-pro.yaml", "target": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-order-service/src/main/resources/application-local.yml", "target": "config:damai-server/damai-order-service/src/main/resources/application-pro.yml", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-docker.yaml", "target": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml", "target": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-pro.yaml", "type": "related", "direction": "forward", "weight": 0.5}
+  ]
+}

@@ -1,0 +1,5367 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 18,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 18,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 18,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/CacheUtil.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 128,
+      "nonEmptyLines": 112,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 42,
+          "endLine": 68,
+          "params": [
+            "cacheMaxNumber",
+            "second"
+          ]
+        },
+        {
+          "name": "refresh",
+          "startLine": 75,
+          "endLine": 80,
+          "params": []
+        },
+        {
+          "name": "set",
+          "startLine": 83,
+          "endLine": 94,
+          "params": [
+            "key",
+            "value",
+            "expiresInSeconds"
+          ]
+        },
+        {
+          "name": "delete",
+          "startLine": 96,
+          "endLine": 99,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "exists",
+          "startLine": 101,
+          "endLine": 111,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 114,
+          "endLine": 119,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "clear",
+          "startLine": 124,
+          "endLine": 127,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "CacheUtil",
+          "startLine": 26,
+          "endLine": 128,
+          "methods": [
+            "init",
+            "refresh",
+            "set",
+            "delete",
+            "exists",
+            "get",
+            "clear"
+          ],
+          "properties": [
+            "logger",
+            "CACHE_MAP",
+            "CACHE_MAX_NUMBER",
+            "TWO",
+            "scheduledExecutor"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "refresh",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "delete",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "exists",
+          "line": 101,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "CacheUtil",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new ScheduledThreadPoolExecutor",
+          "lineNumber": 45
+        },
+        {
+          "caller": "init",
+          "callee": "new ThreadFactory",
+          "lineNumber": 45
+        },
+        {
+          "caller": "newThread",
+          "callee": "new Thread",
+          "lineNumber": 48
+        },
+        {
+          "caller": "init",
+          "callee": "new ThreadPoolExecutor.CallerRunsPolicy",
+          "lineNumber": 50
+        },
+        {
+          "caller": "init",
+          "callee": "scheduledExecutor.scheduleAtFixedRate",
+          "lineNumber": 51
+        },
+        {
+          "caller": "init",
+          "callee": "new Runnable",
+          "lineNumber": 51
+        },
+        {
+          "caller": "run",
+          "callee": "refresh",
+          "lineNumber": 54
+        },
+        {
+          "caller": "init",
+          "callee": "Runtime.getRuntime().addShutdownHook",
+          "lineNumber": 58
+        },
+        {
+          "caller": "init",
+          "callee": "Runtime.getRuntime",
+          "lineNumber": 58
+        },
+        {
+          "caller": "init",
+          "callee": "new Thread",
+          "lineNumber": 58
+        },
+        {
+          "caller": "init",
+          "callee": "new Runnable",
+          "lineNumber": 58
+        },
+        {
+          "caller": "run",
+          "callee": "Objects.nonNull",
+          "lineNumber": 61
+        },
+        {
+          "caller": "run",
+          "callee": "clear",
+          "lineNumber": 62
+        },
+        {
+          "caller": "run",
+          "callee": "scheduledExecutor.shutdownNow",
+          "lineNumber": 63
+        },
+        {
+          "caller": "refresh",
+          "callee": "logger.debug",
+          "lineNumber": 76
+        },
+        {
+          "caller": "refresh",
+          "callee": "CACHE_MAP.keySet",
+          "lineNumber": 77
+        },
+        {
+          "caller": "refresh",
+          "callee": "exists",
+          "lineNumber": 78
+        },
+        {
+          "caller": "set",
+          "callee": "CACHE_MAP.size",
+          "lineNumber": 85
+        },
+        {
+          "caller": "set",
+          "callee": "logger.info",
+          "lineNumber": 86
+        },
+        {
+          "caller": "set",
+          "callee": "clear",
+          "lineNumber": 87
+        },
+        {
+          "caller": "set",
+          "callee": "CACHE_MAP.put",
+          "lineNumber": 89
+        },
+        {
+          "caller": "set",
+          "callee": "CACHE_MAP.put",
+          "lineNumber": 92
+        },
+        {
+          "caller": "set",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 92
+        },
+        {
+          "caller": "delete",
+          "callee": "CACHE_MAP.remove",
+          "lineNumber": 97
+        },
+        {
+          "caller": "delete",
+          "callee": "CACHE_MAP.remove",
+          "lineNumber": 98
+        },
+        {
+          "caller": "exists",
+          "callee": "CACHE_MAP.get",
+          "lineNumber": 102
+        },
+        {
+          "caller": "exists",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 106
+        },
+        {
+          "caller": "exists",
+          "callee": "delete",
+          "lineNumber": 107
+        },
+        {
+          "caller": "get",
+          "callee": "exists",
+          "lineNumber": 115
+        },
+        {
+          "caller": "get",
+          "callee": "CACHE_MAP.get",
+          "lineNumber": 116
+        },
+        {
+          "caller": "clear",
+          "callee": "logger.debug",
+          "lineNumber": 125
+        },
+        {
+          "caller": "clear",
+          "callee": "CACHE_MAP.clear",
+          "lineNumber": 126
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/ImageUtils.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 237,
+      "nonEmptyLines": 212,
+      "functions": [
+        {
+          "name": "cacheImage",
+          "startLine": 64,
+          "endLine": 94,
+          "params": [
+            "captchaOriginalPathJigsaw",
+            "captchaOriginalPathClick",
+            "captchaOriginalPathRotate"
+          ]
+        },
+        {
+          "name": "cacheBootImage",
+          "startLine": 96,
+          "endLine": 104,
+          "params": [
+            "originalMap",
+            "slidingBlockMap",
+            "picClickMap"
+          ]
+        },
+        {
+          "name": "getRotate",
+          "startLine": 106,
+          "endLine": 114,
+          "params": []
+        },
+        {
+          "name": "getRotateBlock",
+          "startLine": 116,
+          "endLine": 124,
+          "params": []
+        },
+        {
+          "name": "getOriginal",
+          "startLine": 126,
+          "endLine": 134,
+          "params": []
+        },
+        {
+          "name": "getslidingBlock",
+          "startLine": 136,
+          "endLine": 144,
+          "params": []
+        },
+        {
+          "name": "getPicClick",
+          "startLine": 146,
+          "endLine": 154,
+          "params": []
+        },
+        {
+          "name": "getImageToBase64Str",
+          "startLine": 162,
+          "endLine": 174,
+          "params": [
+            "templateImage"
+          ]
+        },
+        {
+          "name": "getBase64StrToImage",
+          "startLine": 182,
+          "endLine": 192,
+          "params": [
+            "base64String"
+          ]
+        },
+        {
+          "name": "getResourcesImagesFile",
+          "startLine": 195,
+          "endLine": 212,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "getImagesFile",
+          "startLine": 214,
+          "endLine": 235,
+          "params": [
+            "path"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ImageUtils",
+          "startLine": 33,
+          "endLine": 237,
+          "methods": [
+            "cacheImage",
+            "cacheBootImage",
+            "getRotate",
+            "getRotateBlock",
+            "getOriginal",
+            "getslidingBlock",
+            "getPicClick",
+            "getImageToBase64Str",
+            "getBase64StrToImage",
+            "getResourcesImagesFile",
+            "getImagesFile"
+          ],
+          "properties": [
+            "logger",
+            "ORIGINAL_ROTATE_CACHE_MAP",
+            "ROTATE_BLOCK_CACHE_MAP",
+            "ORIGINAL_CACHE_MAP",
+            "SLIDING_BLOCK_CACHE_MAP",
+            "PIC_CLICK_CACHE_MAP",
+            "FILE_NAME_MAP",
+            "SIX"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "cacheImage",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "cacheBootImage",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "getRotate",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "getRotateBlock",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "getOriginal",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "getslidingBlock",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "getPicClick",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "getImageToBase64Str",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "getBase64StrToImage",
+          "line": 182,
+          "isDefault": false
+        },
+        {
+          "name": "ImageUtils",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "cacheImage",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 66
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "ORIGINAL_ROTATE_CACHE_MAP.putAll",
+          "lineNumber": 67
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "getResourcesImagesFile",
+          "lineNumber": 67
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "ROTATE_BLOCK_CACHE_MAP.putAll",
+          "lineNumber": 68
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "getResourcesImagesFile",
+          "lineNumber": 68
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "ORIGINAL_ROTATE_CACHE_MAP.putAll",
+          "lineNumber": 70
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "getImagesFile",
+          "lineNumber": 70
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "ROTATE_BLOCK_CACHE_MAP.putAll",
+          "lineNumber": 71
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "getImagesFile",
+          "lineNumber": 71
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 74
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "ORIGINAL_CACHE_MAP.putAll",
+          "lineNumber": 75
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "getResourcesImagesFile",
+          "lineNumber": 75
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "SLIDING_BLOCK_CACHE_MAP.putAll",
+          "lineNumber": 76
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "getResourcesImagesFile",
+          "lineNumber": 76
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "ORIGINAL_CACHE_MAP.putAll",
+          "lineNumber": 78
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "getImagesFile",
+          "lineNumber": 78
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "SLIDING_BLOCK_CACHE_MAP.putAll",
+          "lineNumber": 79
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "getImagesFile",
+          "lineNumber": 79
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 82
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "PIC_CLICK_CACHE_MAP.putAll",
+          "lineNumber": 83
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "getResourcesImagesFile",
+          "lineNumber": 83
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "PIC_CLICK_CACHE_MAP.putAll",
+          "lineNumber": 85
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "getImagesFile",
+          "lineNumber": 85
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "FILE_NAME_MAP.put",
+          "lineNumber": 88
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "CaptchaBaseMapEnum.ORIGINAL.getCodeValue",
+          "lineNumber": 88
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "ORIGINAL_CACHE_MAP.keySet().toArray",
+          "lineNumber": 88
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "ORIGINAL_CACHE_MAP.keySet",
+          "lineNumber": 88
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "FILE_NAME_MAP.put",
+          "lineNumber": 89
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "CaptchaBaseMapEnum.SLIDING_BLOCK.getCodeValue",
+          "lineNumber": 89
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "SLIDING_BLOCK_CACHE_MAP.keySet().toArray",
+          "lineNumber": 89
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "SLIDING_BLOCK_CACHE_MAP.keySet",
+          "lineNumber": 89
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "FILE_NAME_MAP.put",
+          "lineNumber": 90
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "CaptchaBaseMapEnum.PIC_CLICK.getCodeValue",
+          "lineNumber": 90
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "PIC_CLICK_CACHE_MAP.keySet().toArray",
+          "lineNumber": 90
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "PIC_CLICK_CACHE_MAP.keySet",
+          "lineNumber": 90
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "FILE_NAME_MAP.put",
+          "lineNumber": 91
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "CaptchaBaseMapEnum.ROTATE.getCodeValue",
+          "lineNumber": 91
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "ORIGINAL_ROTATE_CACHE_MAP.keySet().toArray",
+          "lineNumber": 91
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "ORIGINAL_ROTATE_CACHE_MAP.keySet",
+          "lineNumber": 91
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "FILE_NAME_MAP.put",
+          "lineNumber": 92
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "CaptchaBaseMapEnum.ROTATE_BLOCK.getCodeValue",
+          "lineNumber": 92
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "ROTATE_BLOCK_CACHE_MAP.keySet().toArray",
+          "lineNumber": 92
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "ROTATE_BLOCK_CACHE_MAP.keySet",
+          "lineNumber": 92
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "logger.info",
+          "lineNumber": 93
+        },
+        {
+          "caller": "cacheImage",
+          "callee": "JsonUtil.toJsonString",
+          "lineNumber": 93
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "ORIGINAL_CACHE_MAP.putAll",
+          "lineNumber": 97
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "SLIDING_BLOCK_CACHE_MAP.putAll",
+          "lineNumber": 98
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "PIC_CLICK_CACHE_MAP.putAll",
+          "lineNumber": 99
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "FILE_NAME_MAP.put",
+          "lineNumber": 100
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "CaptchaBaseMapEnum.ORIGINAL.getCodeValue",
+          "lineNumber": 100
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "ORIGINAL_CACHE_MAP.keySet().toArray",
+          "lineNumber": 100
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "ORIGINAL_CACHE_MAP.keySet",
+          "lineNumber": 100
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "FILE_NAME_MAP.put",
+          "lineNumber": 101
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "CaptchaBaseMapEnum.SLIDING_BLOCK.getCodeValue",
+          "lineNumber": 101
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "SLIDING_BLOCK_CACHE_MAP.keySet().toArray",
+          "lineNumber": 101
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "SLIDING_BLOCK_CACHE_MAP.keySet",
+          "lineNumber": 101
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "FILE_NAME_MAP.put",
+          "lineNumber": 102
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "CaptchaBaseMapEnum.PIC_CLICK.getCodeValue",
+          "lineNumber": 102
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "PIC_CLICK_CACHE_MAP.keySet().toArray",
+          "lineNumber": 102
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "PIC_CLICK_CACHE_MAP.keySet",
+          "lineNumber": 102
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "logger.info",
+          "lineNumber": 103
+        },
+        {
+          "caller": "cacheBootImage",
+          "callee": "JsonUtil.toJsonString",
+          "lineNumber": 103
+        },
+        {
+          "caller": "getRotate",
+          "callee": "FILE_NAME_MAP.get",
+          "lineNumber": 107
+        },
+        {
+          "caller": "getRotate",
+          "callee": "CaptchaBaseMapEnum.ROTATE.getCodeValue",
+          "lineNumber": 107
+        },
+        {
+          "caller": "getRotate",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 111
+        },
+        {
+          "caller": "getRotate",
+          "callee": "ORIGINAL_ROTATE_CACHE_MAP.get",
+          "lineNumber": 112
+        },
+        {
+          "caller": "getRotate",
+          "callee": "getBase64StrToImage",
+          "lineNumber": 113
+        },
+        {
+          "caller": "getRotateBlock",
+          "callee": "FILE_NAME_MAP.get",
+          "lineNumber": 117
+        },
+        {
+          "caller": "getRotateBlock",
+          "callee": "CaptchaBaseMapEnum.ROTATE_BLOCK.getCodeValue",
+          "lineNumber": 117
+        },
+        {
+          "caller": "getRotateBlock",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 121
+        },
+        {
+          "caller": "getRotateBlock",
+          "callee": "ROTATE_BLOCK_CACHE_MAP.get",
+          "lineNumber": 122
+        },
+        {
+          "caller": "getOriginal",
+          "callee": "FILE_NAME_MAP.get",
+          "lineNumber": 127
+        },
+        {
+          "caller": "getOriginal",
+          "callee": "CaptchaBaseMapEnum.ORIGINAL.getCodeValue",
+          "lineNumber": 127
+        },
+        {
+          "caller": "getOriginal",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 131
+        },
+        {
+          "caller": "getOriginal",
+          "callee": "ORIGINAL_CACHE_MAP.get",
+          "lineNumber": 132
+        },
+        {
+          "caller": "getOriginal",
+          "callee": "getBase64StrToImage",
+          "lineNumber": 133
+        },
+        {
+          "caller": "getslidingBlock",
+          "callee": "FILE_NAME_MAP.get",
+          "lineNumber": 137
+        },
+        {
+          "caller": "getslidingBlock",
+          "callee": "CaptchaBaseMapEnum.SLIDING_BLOCK.getCodeValue",
+          "lineNumber": 137
+        },
+        {
+          "caller": "getslidingBlock",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 141
+        },
+        {
+          "caller": "getslidingBlock",
+          "callee": "SLIDING_BLOCK_CACHE_MAP.get",
+          "lineNumber": 142
+        },
+        {
+          "caller": "getPicClick",
+          "callee": "FILE_NAME_MAP.get",
+          "lineNumber": 147
+        },
+        {
+          "caller": "getPicClick",
+          "callee": "CaptchaBaseMapEnum.PIC_CLICK.getCodeValue",
+          "lineNumber": 147
+        },
+        {
+          "caller": "getPicClick",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 151
+        },
+        {
+          "caller": "getPicClick",
+          "callee": "PIC_CLICK_CACHE_MAP.get",
+          "lineNumber": 152
+        },
+        {
+          "caller": "getPicClick",
+          "callee": "getBase64StrToImage",
+          "lineNumber": 153
+        },
+        {
+          "caller": "getImageToBase64Str",
+          "callee": "new ByteArrayOutputStream",
+          "lineNumber": 163
+        },
+        {
+          "caller": "getImageToBase64Str",
+          "callee": "ImageIO.write",
+          "lineNumber": 165
+        },
+        {
+          "caller": "getImageToBase64Str",
+          "callee": "e.printStackTrace",
+          "lineNumber": 167
+        },
+        {
+          "caller": "getImageToBase64Str",
+          "callee": "baos.toByteArray",
+          "lineNumber": 169
+        },
+        {
+          "caller": "getImageToBase64Str",
+          "callee": "Base64.getEncoder",
+          "lineNumber": 171
+        },
+        {
+          "caller": "getImageToBase64Str",
+          "callee": "encoder.encodeToString(bytes).trim",
+          "lineNumber": 173
+        },
+        {
+          "caller": "getImageToBase64Str",
+          "callee": "encoder.encodeToString",
+          "lineNumber": 173
+        },
+        {
+          "caller": "getBase64StrToImage",
+          "callee": "Base64.getDecoder",
+          "lineNumber": 184
+        },
+        {
+          "caller": "getBase64StrToImage",
+          "callee": "decoder.decode",
+          "lineNumber": 185
+        },
+        {
+          "caller": "getBase64StrToImage",
+          "callee": "new ByteArrayInputStream",
+          "lineNumber": 186
+        },
+        {
+          "caller": "getBase64StrToImage",
+          "callee": "ImageIO.read",
+          "lineNumber": 187
+        },
+        {
+          "caller": "getBase64StrToImage",
+          "callee": "e.printStackTrace",
+          "lineNumber": 189
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "new HashMap<>",
+          "lineNumber": 197
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "ImageUtils.class.getClassLoader",
+          "lineNumber": 198
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "classLoader.getResourceAsStream",
+          "lineNumber": 200
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "path.concat(\"/\").concat",
+          "lineNumber": 200
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "path.concat",
+          "lineNumber": 200
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "String.valueOf(i).concat",
+          "lineNumber": 200
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "String.valueOf",
+          "lineNumber": 200
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "FileCopyUtils.copyToByteArray",
+          "lineNumber": 203
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "e.printStackTrace",
+          "lineNumber": 205
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "Base64Utils.encodeToString",
+          "lineNumber": 207
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "String.valueOf(i).concat",
+          "lineNumber": 208
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "String.valueOf",
+          "lineNumber": 208
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "imgMap.put",
+          "lineNumber": 209
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "new HashMap<>",
+          "lineNumber": 215
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "new File",
+          "lineNumber": 216
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "file.exists",
+          "lineNumber": 217
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "new HashMap<>",
+          "lineNumber": 218
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "file.listFiles",
+          "lineNumber": 220
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "Arrays.stream(files).forEach",
+          "lineNumber": 222
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "Arrays.stream",
+          "lineNumber": 222
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "new FileInputStream",
+          "lineNumber": 224
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "FileCopyUtils.copyToByteArray",
+          "lineNumber": 225
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "Base64Utils.encodeToString",
+          "lineNumber": 226
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "imgMap.put",
+          "lineNumber": 227
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "item.getName",
+          "lineNumber": 227
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "e.printStackTrace",
+          "lineNumber": 229
+        },
+        {
+          "caller": "getImagesFile",
+          "callee": "e.printStackTrace",
+          "lineNumber": 231
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 10,
+        "functionCount": 11,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/JsonUtil.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 62,
+      "functions": [
+        {
+          "name": "parseArray",
+          "startLine": 19,
+          "endLine": 31,
+          "params": [
+            "text",
+            "clazz"
+          ]
+        },
+        {
+          "name": "parseObject",
+          "startLine": 33,
+          "endLine": 45,
+          "params": [
+            "text",
+            "clazz"
+          ]
+        },
+        {
+          "name": "toJsonString",
+          "startLine": 47,
+          "endLine": 68,
+          "params": [
+            "object"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "JsonUtil",
+          "startLine": 17,
+          "endLine": 69,
+          "methods": [
+            "parseArray",
+            "parseObject",
+            "toJsonString"
+          ],
+          "properties": [
+            "logger"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "parseArray",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "parseObject",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "toJsonString",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "JsonUtil",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseArray",
+          "callee": "text.replaceFirst(\"\\\\[\",\"\")\r\n\t\t\t\t\t.replaceFirst(\"\\\\]\",\"\").split",
+          "lineNumber": 23
+        },
+        {
+          "caller": "parseArray",
+          "callee": "text.replaceFirst(\"\\\\[\",\"\").replaceFirst",
+          "lineNumber": 23
+        },
+        {
+          "caller": "parseArray",
+          "callee": "text.replaceFirst",
+          "lineNumber": 23
+        },
+        {
+          "caller": "parseArray",
+          "callee": "new ArrayList<>",
+          "lineNumber": 25
+        },
+        {
+          "caller": "parseArray",
+          "callee": "ret.add",
+          "lineNumber": 27
+        },
+        {
+          "caller": "parseArray",
+          "callee": "parseObject",
+          "lineNumber": 27
+        },
+        {
+          "caller": "parseObject",
+          "callee": "clazz.getDeclaredConstructor().newInstance",
+          "lineNumber": 38
+        },
+        {
+          "caller": "parseObject",
+          "callee": "clazz.getDeclaredConstructor",
+          "lineNumber": 38
+        },
+        {
+          "caller": "parseObject",
+          "callee": "ret.parse",
+          "lineNumber": 39
+        },
+        {
+          "caller": "parseObject",
+          "callee": "logger.error",
+          "lineNumber": 41
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "t.toJsonString",
+          "lineNumber": 53
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "new StringBuilder",
+          "lineNumber": 57
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "list.stream().forEach",
+          "lineNumber": 58
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "list.stream",
+          "lineNumber": 58
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "buf.append(t.toJsonString()).append",
+          "lineNumber": 59
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "buf.append",
+          "lineNumber": 59
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "t.toJsonString",
+          "lineNumber": 59
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "buf.deleteCharAt(buf.lastIndexOf(\",\")).append(\"]\").toString",
+          "lineNumber": 61
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "buf.deleteCharAt(buf.lastIndexOf(\",\")).append",
+          "lineNumber": 61
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "buf.deleteCharAt",
+          "lineNumber": 61
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "buf.lastIndexOf",
+          "lineNumber": 61
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "((Map)object).entrySet().toString",
+          "lineNumber": 64
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "((Map)object).entrySet",
+          "lineNumber": 64
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 66
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "object.getClass().getSimpleName",
+          "lineNumber": 67
+        },
+        {
+          "caller": "toJsonString",
+          "callee": "object.getClass",
+          "lineNumber": 67
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Md5Util.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "md5",
+          "startLine": 17,
+          "endLine": 31,
+          "params": [
+            "dataStr"
+          ]
+        },
+        {
+          "name": "md5WithSalt",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "dataStr",
+            "salt"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Md5Util",
+          "startLine": 11,
+          "endLine": 42,
+          "methods": [
+            "md5",
+            "md5WithSalt"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "md5",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "md5WithSalt",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "Md5Util",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "md5",
+          "callee": "MessageDigest.getInstance",
+          "lineNumber": 19
+        },
+        {
+          "caller": "md5",
+          "callee": "m.update",
+          "lineNumber": 20
+        },
+        {
+          "caller": "md5",
+          "callee": "dataStr.getBytes",
+          "lineNumber": 20
+        },
+        {
+          "caller": "md5",
+          "callee": "m.digest",
+          "lineNumber": 21
+        },
+        {
+          "caller": "md5",
+          "callee": "new StringBuilder",
+          "lineNumber": 22
+        },
+        {
+          "caller": "md5",
+          "callee": "result.append",
+          "lineNumber": 24
+        },
+        {
+          "caller": "md5",
+          "callee": "Integer.toHexString((0x000000FF & s[i]) | 0xFFFFFF00).substring",
+          "lineNumber": 24
+        },
+        {
+          "caller": "md5",
+          "callee": "Integer.toHexString",
+          "lineNumber": 24
+        },
+        {
+          "caller": "md5",
+          "callee": "result.toString",
+          "lineNumber": 26
+        },
+        {
+          "caller": "md5",
+          "callee": "e.printStackTrace",
+          "lineNumber": 28
+        },
+        {
+          "caller": "md5WithSalt",
+          "callee": "md5",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/RandomUtils.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 94,
+      "nonEmptyLines": 81,
+      "functions": [
+        {
+          "name": "getUuid",
+          "startLine": 25,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "getRandomHan",
+          "startLine": 36,
+          "endLine": 38,
+          "params": [
+            "hanZi"
+          ]
+        },
+        {
+          "name": "getRandomInt",
+          "startLine": 40,
+          "endLine": 42,
+          "params": [
+            "bound"
+          ]
+        },
+        {
+          "name": "getRandomHan",
+          "startLine": 49,
+          "endLine": 71,
+          "params": []
+        },
+        {
+          "name": "getRandomInt",
+          "startLine": 76,
+          "endLine": 78,
+          "params": [
+            "startNum",
+            "endNum"
+          ]
+        },
+        {
+          "name": "getRandomString",
+          "startLine": 83,
+          "endLine": 92,
+          "params": [
+            "length"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RandomUtils",
+          "startLine": 19,
+          "endLine": 94,
+          "methods": [
+            "getUuid",
+            "getRandomHan",
+            "getRandomInt",
+            "getRandomHan",
+            "getRandomInt",
+            "getRandomString"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getUuid",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "getRandomHan",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "getRandomInt",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "getRandomHan",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "getRandomInt",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "getRandomString",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "RandomUtils",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getUuid",
+          "callee": "UUID.randomUUID().toString",
+          "lineNumber": 26
+        },
+        {
+          "caller": "getUuid",
+          "callee": "UUID.randomUUID",
+          "lineNumber": 26
+        },
+        {
+          "caller": "getUuid",
+          "callee": "uuid.replace",
+          "lineNumber": 27
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "String.valueOf",
+          "lineNumber": 37
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "hanZi.charAt",
+          "lineNumber": 37
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "new Random().nextInt",
+          "lineNumber": 37
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "new Random",
+          "lineNumber": 37
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "hanZi.length",
+          "lineNumber": 37
+        },
+        {
+          "caller": "getRandomInt",
+          "callee": "ThreadLocalRandom.current().nextInt",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getRandomInt",
+          "callee": "ThreadLocalRandom.current",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "new Random",
+          "lineNumber": 54
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "Math.abs",
+          "lineNumber": 57
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "random.nextInt",
+          "lineNumber": 57
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "Math.abs",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "random.nextInt",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "(Integer.valueOf(highCode)).byteValue",
+          "lineNumber": 62
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "Integer.valueOf",
+          "lineNumber": 62
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "(Integer.valueOf(lowCode)).byteValue",
+          "lineNumber": 63
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "Integer.valueOf",
+          "lineNumber": 63
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "new String",
+          "lineNumber": 66
+        },
+        {
+          "caller": "getRandomHan",
+          "callee": "e.printStackTrace",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getRandomInt",
+          "callee": "ThreadLocalRandom.current().nextInt",
+          "lineNumber": 77
+        },
+        {
+          "caller": "getRandomInt",
+          "callee": "ThreadLocalRandom.current",
+          "lineNumber": 77
+        },
+        {
+          "caller": "getRandomString",
+          "callee": "new Random",
+          "lineNumber": 85
+        },
+        {
+          "caller": "getRandomString",
+          "callee": "new StringBuffer",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getRandomString",
+          "callee": "random.nextInt",
+          "lineNumber": 88
+        },
+        {
+          "caller": "getRandomString",
+          "callee": "sb.append",
+          "lineNumber": 89
+        },
+        {
+          "caller": "getRandomString",
+          "callee": "str.charAt",
+          "lineNumber": 89
+        },
+        {
+          "caller": "getRandomString",
+          "callee": "sb.toString",
+          "lineNumber": 91
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 1747,
+      "nonEmptyLines": 1677,
+      "functions": [
+        {
+          "name": "StringUtils",
+          "startLine": 41,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "isEmpty",
+          "startLine": 65,
+          "endLine": 67,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "isNotEmpty",
+          "startLine": 83,
+          "endLine": 85,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "isBlank",
+          "startLine": 103,
+          "endLine": 118,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "isNotBlank",
+          "startLine": 137,
+          "endLine": 139,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "clean",
+          "startLine": 162,
+          "endLine": 164,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "trim",
+          "startLine": 189,
+          "endLine": 191,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "trimToNull",
+          "startLine": 215,
+          "endLine": 218,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "trimToEmpty",
+          "startLine": 241,
+          "endLine": 243,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "strip",
+          "startLine": 269,
+          "endLine": 271,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "stripToNull",
+          "startLine": 296,
+          "endLine": 302,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "stripToEmpty",
+          "startLine": 326,
+          "endLine": 328,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "strip",
+          "startLine": 356,
+          "endLine": 362,
+          "params": [
+            "str",
+            "stripChars"
+          ]
+        },
+        {
+          "name": "stripStart",
+          "startLine": 388,
+          "endLine": 406,
+          "params": [
+            "str",
+            "stripChars"
+          ]
+        },
+        {
+          "name": "stripEnd",
+          "startLine": 433,
+          "endLine": 451,
+          "params": [
+            "str",
+            "stripChars"
+          ]
+        },
+        {
+          "name": "stripAll",
+          "startLine": 474,
+          "endLine": 476,
+          "params": [
+            "strs"
+          ]
+        },
+        {
+          "name": "stripAll",
+          "startLine": 503,
+          "endLine": 513,
+          "params": [
+            "strs",
+            "stripChars"
+          ]
+        },
+        {
+          "name": "equals",
+          "startLine": 537,
+          "endLine": 539,
+          "params": [
+            "str1",
+            "str2"
+          ]
+        },
+        {
+          "name": "equalsIgnoreCase",
+          "startLine": 562,
+          "endLine": 564,
+          "params": [
+            "str1",
+            "str2"
+          ]
+        },
+        {
+          "name": "indexOf",
+          "startLine": 587,
+          "endLine": 592,
+          "params": [
+            "str",
+            "searchChar"
+          ]
+        },
+        {
+          "name": "indexOf",
+          "startLine": 619,
+          "endLine": 624,
+          "params": [
+            "str",
+            "searchChar",
+            "startPos"
+          ]
+        },
+        {
+          "name": "indexOf",
+          "startLine": 649,
+          "endLine": 654,
+          "params": [
+            "str",
+            "searchStr"
+          ]
+        },
+        {
+          "name": "ordinalIndexOf",
+          "startLine": 689,
+          "endLine": 691,
+          "params": [
+            "str",
+            "searchStr",
+            "ordinal"
+          ]
+        },
+        {
+          "name": "ordinalIndexOf",
+          "startLine": 706,
+          "endLine": 727,
+          "params": [
+            "str",
+            "searchStr",
+            "ordinal",
+            "lastIndex"
+          ]
+        },
+        {
+          "name": "indexOf",
+          "startLine": 761,
+          "endLine": 770,
+          "params": [
+            "str",
+            "searchStr",
+            "startPos"
+          ]
+        },
+        {
+          "name": "indexOfIgnoreCase",
+          "startLine": 796,
+          "endLine": 798,
+          "params": [
+            "str",
+            "searchStr"
+          ]
+        },
+        {
+          "name": "indexOfIgnoreCase",
+          "startLine": 831,
+          "endLine": 851,
+          "params": [
+            "str",
+            "searchStr",
+            "startPos"
+          ]
+        },
+        {
+          "name": "lastIndexOf",
+          "startLine": 874,
+          "endLine": 879,
+          "params": [
+            "str",
+            "searchChar"
+          ]
+        },
+        {
+          "name": "lastIndexOf",
+          "startLine": 908,
+          "endLine": 913,
+          "params": [
+            "str",
+            "searchChar",
+            "startPos"
+          ]
+        },
+        {
+          "name": "lastIndexOf",
+          "startLine": 937,
+          "endLine": 942,
+          "params": [
+            "str",
+            "searchStr"
+          ]
+        },
+        {
+          "name": "lastOrdinalIndexOf",
+          "startLine": 977,
+          "endLine": 979,
+          "params": [
+            "str",
+            "searchStr",
+            "ordinal"
+          ]
+        },
+        {
+          "name": "lastIndexOf",
+          "startLine": 1009,
+          "endLine": 1014,
+          "params": [
+            "str",
+            "searchStr",
+            "startPos"
+          ]
+        },
+        {
+          "name": "lastIndexOfIgnoreCase",
+          "startLine": 1038,
+          "endLine": 1043,
+          "params": [
+            "str",
+            "searchStr"
+          ]
+        },
+        {
+          "name": "lastIndexOfIgnoreCase",
+          "startLine": 1073,
+          "endLine": 1093,
+          "params": [
+            "str",
+            "searchStr",
+            "startPos"
+          ]
+        },
+        {
+          "name": "contains",
+          "startLine": 1116,
+          "endLine": 1121,
+          "params": [
+            "str",
+            "searchChar"
+          ]
+        },
+        {
+          "name": "contains",
+          "startLine": 1144,
+          "endLine": 1149,
+          "params": [
+            "str",
+            "searchStr"
+          ]
+        },
+        {
+          "name": "containsIgnoreCase",
+          "startLine": 1174,
+          "endLine": 1186,
+          "params": [
+            "str",
+            "searchStr"
+          ]
+        },
+        {
+          "name": "indexOfAny",
+          "startLine": 1217,
+          "endLine": 1243,
+          "params": [
+            "str",
+            "searchStrs"
+          ]
+        },
+        {
+          "name": "lastIndexOfAny",
+          "startLine": 1270,
+          "endLine": 1288,
+          "params": [
+            "str",
+            "searchStrs"
+          ]
+        },
+        {
+          "name": "substring",
+          "startLine": 1316,
+          "endLine": 1334,
+          "params": [
+            "str",
+            "start"
+          ]
+        },
+        {
+          "name": "substring",
+          "startLine": 1371,
+          "endLine": 1402,
+          "params": [
+            "str",
+            "start",
+            "end"
+          ]
+        },
+        {
+          "name": "left",
+          "startLine": 1426,
+          "endLine": 1437,
+          "params": [
+            "str",
+            "len"
+          ]
+        },
+        {
+          "name": "right",
+          "startLine": 1459,
+          "endLine": 1470,
+          "params": [
+            "str",
+            "len"
+          ]
+        },
+        {
+          "name": "mid",
+          "startLine": 1497,
+          "endLine": 1511,
+          "params": [
+            "str",
+            "pos",
+            "len"
+          ]
+        },
+        {
+          "name": "substringBefore",
+          "startLine": 1542,
+          "endLine": 1554,
+          "params": [
+            "str",
+            "separator"
+          ]
+        },
+        {
+          "name": "substringAfter",
+          "startLine": 1584,
+          "endLine": 1596,
+          "params": [
+            "str",
+            "separator"
+          ]
+        },
+        {
+          "name": "substringBeforeLast",
+          "startLine": 1625,
+          "endLine": 1634,
+          "params": [
+            "str",
+            "separator"
+          ]
+        },
+        {
+          "name": "substringAfterLast",
+          "startLine": 1665,
+          "endLine": 1677,
+          "params": [
+            "str",
+            "separator"
+          ]
+        },
+        {
+          "name": "substringBetween",
+          "startLine": 1702,
+          "endLine": 1704,
+          "params": [
+            "str",
+            "tag"
+          ]
+        },
+        {
+          "name": "substringBetween",
+          "startLine": 1733,
+          "endLine": 1745,
+          "params": [
+            "str",
+            "open",
+            "close"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StringUtils",
+          "startLine": 14,
+          "endLine": 1747,
+          "methods": [
+            "StringUtils",
+            "isEmpty",
+            "isNotEmpty",
+            "isBlank",
+            "isNotBlank",
+            "clean",
+            "trim",
+            "trimToNull",
+            "trimToEmpty",
+            "strip",
+            "stripToNull",
+            "stripToEmpty",
+            "strip",
+            "stripStart",
+            "stripEnd",
+            "stripAll",
+            "stripAll",
+            "equals",
+            "equalsIgnoreCase",
+            "indexOf",
+            "indexOf",
+            "indexOf",
+            "ordinalIndexOf",
+            "ordinalIndexOf",
+            "indexOf",
+            "indexOfIgnoreCase",
+            "indexOfIgnoreCase",
+            "lastIndexOf",
+            "lastIndexOf",
+            "lastIndexOf",
+            "lastOrdinalIndexOf",
+            "lastIndexOf",
+            "lastIndexOfIgnoreCase",
+            "lastIndexOfIgnoreCase",
+            "contains",
+            "contains",
+            "containsIgnoreCase",
+            "indexOfAny",
+            "lastIndexOfAny",
+            "substring",
+            "substring",
+            "left",
+            "right",
+            "mid",
+            "substringBefore",
+            "substringAfter",
+            "substringBeforeLast",
+            "substringAfterLast",
+            "substringBetween",
+            "substringBetween"
+          ],
+          "properties": [
+            "EMPTY",
+            "INDEX_NOT_FOUND",
+            "PAD_LIMIT"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "EMPTY",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "INDEX_NOT_FOUND",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "StringUtils",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "isEmpty",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "isNotEmpty",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "isBlank",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "isNotBlank",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "clean",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "trim",
+          "line": 189,
+          "isDefault": false
+        },
+        {
+          "name": "trimToNull",
+          "line": 215,
+          "isDefault": false
+        },
+        {
+          "name": "trimToEmpty",
+          "line": 241,
+          "isDefault": false
+        },
+        {
+          "name": "strip",
+          "line": 269,
+          "isDefault": false
+        },
+        {
+          "name": "stripToNull",
+          "line": 296,
+          "isDefault": false
+        },
+        {
+          "name": "stripToEmpty",
+          "line": 326,
+          "isDefault": false
+        },
+        {
+          "name": "strip",
+          "line": 356,
+          "isDefault": false
+        },
+        {
+          "name": "stripStart",
+          "line": 388,
+          "isDefault": false
+        },
+        {
+          "name": "stripEnd",
+          "line": 433,
+          "isDefault": false
+        },
+        {
+          "name": "stripAll",
+          "line": 474,
+          "isDefault": false
+        },
+        {
+          "name": "stripAll",
+          "line": 503,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 537,
+          "isDefault": false
+        },
+        {
+          "name": "equalsIgnoreCase",
+          "line": 562,
+          "isDefault": false
+        },
+        {
+          "name": "indexOf",
+          "line": 587,
+          "isDefault": false
+        },
+        {
+          "name": "indexOf",
+          "line": 619,
+          "isDefault": false
+        },
+        {
+          "name": "indexOf",
+          "line": 649,
+          "isDefault": false
+        },
+        {
+          "name": "ordinalIndexOf",
+          "line": 689,
+          "isDefault": false
+        },
+        {
+          "name": "indexOf",
+          "line": 761,
+          "isDefault": false
+        },
+        {
+          "name": "indexOfIgnoreCase",
+          "line": 796,
+          "isDefault": false
+        },
+        {
+          "name": "indexOfIgnoreCase",
+          "line": 831,
+          "isDefault": false
+        },
+        {
+          "name": "lastIndexOf",
+          "line": 874,
+          "isDefault": false
+        },
+        {
+          "name": "lastIndexOf",
+          "line": 908,
+          "isDefault": false
+        },
+        {
+          "name": "lastIndexOf",
+          "line": 937,
+          "isDefault": false
+        },
+        {
+          "name": "lastOrdinalIndexOf",
+          "line": 977,
+          "isDefault": false
+        },
+        {
+          "name": "lastIndexOf",
+          "line": 1009,
+          "isDefault": false
+        },
+        {
+          "name": "lastIndexOfIgnoreCase",
+          "line": 1038,
+          "isDefault": false
+        },
+        {
+          "name": "lastIndexOfIgnoreCase",
+          "line": 1073,
+          "isDefault": false
+        },
+        {
+          "name": "contains",
+          "line": 1116,
+          "isDefault": false
+        },
+        {
+          "name": "contains",
+          "line": 1144,
+          "isDefault": false
+        },
+        {
+          "name": "containsIgnoreCase",
+          "line": 1174,
+          "isDefault": false
+        },
+        {
+          "name": "indexOfAny",
+          "line": 1217,
+          "isDefault": false
+        },
+        {
+          "name": "lastIndexOfAny",
+          "line": 1270,
+          "isDefault": false
+        },
+        {
+          "name": "substring",
+          "line": 1316,
+          "isDefault": false
+        },
+        {
+          "name": "substring",
+          "line": 1371,
+          "isDefault": false
+        },
+        {
+          "name": "left",
+          "line": 1426,
+          "isDefault": false
+        },
+        {
+          "name": "right",
+          "line": 1459,
+          "isDefault": false
+        },
+        {
+          "name": "mid",
+          "line": 1497,
+          "isDefault": false
+        },
+        {
+          "name": "substringBefore",
+          "line": 1542,
+          "isDefault": false
+        },
+        {
+          "name": "substringAfter",
+          "line": 1584,
+          "isDefault": false
+        },
+        {
+          "name": "substringBeforeLast",
+          "line": 1625,
+          "isDefault": false
+        },
+        {
+          "name": "substringAfterLast",
+          "line": 1665,
+          "isDefault": false
+        },
+        {
+          "name": "substringBetween",
+          "line": 1702,
+          "isDefault": false
+        },
+        {
+          "name": "substringBetween",
+          "line": 1733,
+          "isDefault": false
+        },
+        {
+          "name": "StringUtils",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "isEmpty",
+          "callee": "str.length",
+          "lineNumber": 66
+        },
+        {
+          "caller": "isNotEmpty",
+          "callee": "StringUtils.isEmpty",
+          "lineNumber": 84
+        },
+        {
+          "caller": "isBlank",
+          "callee": "str.length",
+          "lineNumber": 105
+        },
+        {
+          "caller": "isBlank",
+          "callee": "equals",
+          "lineNumber": 109
+        },
+        {
+          "caller": "isBlank",
+          "callee": "str.trim().toLowerCase",
+          "lineNumber": 109
+        },
+        {
+          "caller": "isBlank",
+          "callee": "str.trim",
+          "lineNumber": 109
+        },
+        {
+          "caller": "isBlank",
+          "callee": "Character.isWhitespace",
+          "lineNumber": 113
+        },
+        {
+          "caller": "isBlank",
+          "callee": "str.charAt",
+          "lineNumber": 113
+        },
+        {
+          "caller": "isNotBlank",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 138
+        },
+        {
+          "caller": "clean",
+          "callee": "str.trim",
+          "lineNumber": 163
+        },
+        {
+          "caller": "trim",
+          "callee": "str.trim",
+          "lineNumber": 190
+        },
+        {
+          "caller": "trimToNull",
+          "callee": "trim",
+          "lineNumber": 216
+        },
+        {
+          "caller": "trimToNull",
+          "callee": "isEmpty",
+          "lineNumber": 217
+        },
+        {
+          "caller": "trimToEmpty",
+          "callee": "str.trim",
+          "lineNumber": 242
+        },
+        {
+          "caller": "strip",
+          "callee": "strip",
+          "lineNumber": 270
+        },
+        {
+          "caller": "stripToNull",
+          "callee": "strip",
+          "lineNumber": 300
+        },
+        {
+          "caller": "stripToNull",
+          "callee": "str.length",
+          "lineNumber": 301
+        },
+        {
+          "caller": "stripToEmpty",
+          "callee": "strip",
+          "lineNumber": 327
+        },
+        {
+          "caller": "strip",
+          "callee": "isEmpty",
+          "lineNumber": 357
+        },
+        {
+          "caller": "strip",
+          "callee": "stripStart",
+          "lineNumber": 360
+        },
+        {
+          "caller": "strip",
+          "callee": "stripEnd",
+          "lineNumber": 361
+        },
+        {
+          "caller": "stripStart",
+          "callee": "str.length",
+          "lineNumber": 390
+        },
+        {
+          "caller": "stripStart",
+          "callee": "Character.isWhitespace",
+          "lineNumber": 395
+        },
+        {
+          "caller": "stripStart",
+          "callee": "str.charAt",
+          "lineNumber": 395
+        },
+        {
+          "caller": "stripStart",
+          "callee": "stripChars.length",
+          "lineNumber": 398
+        },
+        {
+          "caller": "stripStart",
+          "callee": "stripChars.indexOf",
+          "lineNumber": 401
+        },
+        {
+          "caller": "stripStart",
+          "callee": "str.charAt",
+          "lineNumber": 401
+        },
+        {
+          "caller": "stripStart",
+          "callee": "str.substring",
+          "lineNumber": 405
+        },
+        {
+          "caller": "stripEnd",
+          "callee": "str.length",
+          "lineNumber": 435
+        },
+        {
+          "caller": "stripEnd",
+          "callee": "Character.isWhitespace",
+          "lineNumber": 440
+        },
+        {
+          "caller": "stripEnd",
+          "callee": "str.charAt",
+          "lineNumber": 440
+        },
+        {
+          "caller": "stripEnd",
+          "callee": "stripChars.length",
+          "lineNumber": 443
+        },
+        {
+          "caller": "stripEnd",
+          "callee": "stripChars.indexOf",
+          "lineNumber": 446
+        },
+        {
+          "caller": "stripEnd",
+          "callee": "str.charAt",
+          "lineNumber": 446
+        },
+        {
+          "caller": "stripEnd",
+          "callee": "str.substring",
+          "lineNumber": 450
+        },
+        {
+          "caller": "stripAll",
+          "callee": "stripAll",
+          "lineNumber": 475
+        },
+        {
+          "caller": "stripAll",
+          "callee": "strip",
+          "lineNumber": 510
+        },
+        {
+          "caller": "equals",
+          "callee": "str1.equals",
+          "lineNumber": 538
+        },
+        {
+          "caller": "equalsIgnoreCase",
+          "callee": "str1.equalsIgnoreCase",
+          "lineNumber": 563
+        },
+        {
+          "caller": "indexOf",
+          "callee": "isEmpty",
+          "lineNumber": 588
+        },
+        {
+          "caller": "indexOf",
+          "callee": "str.indexOf",
+          "lineNumber": 591
+        },
+        {
+          "caller": "indexOf",
+          "callee": "isEmpty",
+          "lineNumber": 620
+        },
+        {
+          "caller": "indexOf",
+          "callee": "str.indexOf",
+          "lineNumber": 623
+        },
+        {
+          "caller": "indexOf",
+          "callee": "str.indexOf",
+          "lineNumber": 653
+        },
+        {
+          "caller": "ordinalIndexOf",
+          "callee": "ordinalIndexOf",
+          "lineNumber": 690
+        },
+        {
+          "caller": "ordinalIndexOf",
+          "callee": "searchStr.length",
+          "lineNumber": 710
+        },
+        {
+          "caller": "ordinalIndexOf",
+          "callee": "str.length",
+          "lineNumber": 711
+        },
+        {
+          "caller": "ordinalIndexOf",
+          "callee": "str.length",
+          "lineNumber": 714
+        },
+        {
+          "caller": "ordinalIndexOf",
+          "callee": "str.lastIndexOf",
+          "lineNumber": 717
+        },
+        {
+          "caller": "ordinalIndexOf",
+          "callee": "str.indexOf",
+          "lineNumber": 719
+        },
+        {
+          "caller": "indexOf",
+          "callee": "searchStr.length",
+          "lineNumber": 766
+        },
+        {
+          "caller": "indexOf",
+          "callee": "str.length",
+          "lineNumber": 766
+        },
+        {
+          "caller": "indexOf",
+          "callee": "str.length",
+          "lineNumber": 767
+        },
+        {
+          "caller": "indexOf",
+          "callee": "str.indexOf",
+          "lineNumber": 769
+        },
+        {
+          "caller": "indexOfIgnoreCase",
+          "callee": "indexOfIgnoreCase",
+          "lineNumber": 797
+        },
+        {
+          "caller": "indexOfIgnoreCase",
+          "callee": "str.length",
+          "lineNumber": 838
+        },
+        {
+          "caller": "indexOfIgnoreCase",
+          "callee": "searchStr.length",
+          "lineNumber": 838
+        },
+        {
+          "caller": "indexOfIgnoreCase",
+          "callee": "searchStr.length",
+          "lineNumber": 842
+        },
+        {
+          "caller": "indexOfIgnoreCase",
+          "callee": "str.regionMatches",
+          "lineNumber": 846
+        },
+        {
+          "caller": "indexOfIgnoreCase",
+          "callee": "searchStr.length",
+          "lineNumber": 846
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "isEmpty",
+          "lineNumber": 875
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "str.lastIndexOf",
+          "lineNumber": 878
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "isEmpty",
+          "lineNumber": 909
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "str.lastIndexOf",
+          "lineNumber": 912
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "str.lastIndexOf",
+          "lineNumber": 941
+        },
+        {
+          "caller": "lastOrdinalIndexOf",
+          "callee": "ordinalIndexOf",
+          "lineNumber": 978
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "str.lastIndexOf",
+          "lineNumber": 1013
+        },
+        {
+          "caller": "lastIndexOfIgnoreCase",
+          "callee": "lastIndexOfIgnoreCase",
+          "lineNumber": 1042
+        },
+        {
+          "caller": "lastIndexOfIgnoreCase",
+          "callee": "str.length",
+          "lineNumber": 1042
+        },
+        {
+          "caller": "lastIndexOfIgnoreCase",
+          "callee": "str.length",
+          "lineNumber": 1077
+        },
+        {
+          "caller": "lastIndexOfIgnoreCase",
+          "callee": "searchStr.length",
+          "lineNumber": 1077
+        },
+        {
+          "caller": "lastIndexOfIgnoreCase",
+          "callee": "str.length",
+          "lineNumber": 1078
+        },
+        {
+          "caller": "lastIndexOfIgnoreCase",
+          "callee": "searchStr.length",
+          "lineNumber": 1078
+        },
+        {
+          "caller": "lastIndexOfIgnoreCase",
+          "callee": "searchStr.length",
+          "lineNumber": 1083
+        },
+        {
+          "caller": "lastIndexOfIgnoreCase",
+          "callee": "str.regionMatches",
+          "lineNumber": 1088
+        },
+        {
+          "caller": "lastIndexOfIgnoreCase",
+          "callee": "searchStr.length",
+          "lineNumber": 1088
+        },
+        {
+          "caller": "contains",
+          "callee": "isEmpty",
+          "lineNumber": 1117
+        },
+        {
+          "caller": "contains",
+          "callee": "str.indexOf",
+          "lineNumber": 1120
+        },
+        {
+          "caller": "contains",
+          "callee": "str.indexOf",
+          "lineNumber": 1148
+        },
+        {
+          "caller": "containsIgnoreCase",
+          "callee": "searchStr.length",
+          "lineNumber": 1178
+        },
+        {
+          "caller": "containsIgnoreCase",
+          "callee": "str.length",
+          "lineNumber": 1179
+        },
+        {
+          "caller": "containsIgnoreCase",
+          "callee": "str.regionMatches",
+          "lineNumber": 1181
+        },
+        {
+          "caller": "indexOfAny",
+          "callee": "str.indexOf",
+          "lineNumber": 1232
+        },
+        {
+          "caller": "lastIndexOfAny",
+          "callee": "str.lastIndexOf",
+          "lineNumber": 1282
+        },
+        {
+          "caller": "substring",
+          "callee": "str.length",
+          "lineNumber": 1323
+        },
+        {
+          "caller": "substring",
+          "callee": "str.length",
+          "lineNumber": 1329
+        },
+        {
+          "caller": "substring",
+          "callee": "str.substring",
+          "lineNumber": 1333
+        },
+        {
+          "caller": "substring",
+          "callee": "str.length",
+          "lineNumber": 1378
+        },
+        {
+          "caller": "substring",
+          "callee": "str.length",
+          "lineNumber": 1381
+        },
+        {
+          "caller": "substring",
+          "callee": "str.length",
+          "lineNumber": 1385
+        },
+        {
+          "caller": "substring",
+          "callee": "str.length",
+          "lineNumber": 1386
+        },
+        {
+          "caller": "substring",
+          "callee": "str.substring",
+          "lineNumber": 1401
+        },
+        {
+          "caller": "left",
+          "callee": "str.length",
+          "lineNumber": 1433
+        },
+        {
+          "caller": "left",
+          "callee": "str.substring",
+          "lineNumber": 1436
+        },
+        {
+          "caller": "right",
+          "callee": "str.length",
+          "lineNumber": 1466
+        },
+        {
+          "caller": "right",
+          "callee": "str.substring",
+          "lineNumber": 1469
+        },
+        {
+          "caller": "right",
+          "callee": "str.length",
+          "lineNumber": 1469
+        },
+        {
+          "caller": "mid",
+          "callee": "str.length",
+          "lineNumber": 1501
+        },
+        {
+          "caller": "mid",
+          "callee": "str.length",
+          "lineNumber": 1507
+        },
+        {
+          "caller": "mid",
+          "callee": "str.substring",
+          "lineNumber": 1508
+        },
+        {
+          "caller": "mid",
+          "callee": "str.substring",
+          "lineNumber": 1510
+        },
+        {
+          "caller": "substringBefore",
+          "callee": "isEmpty",
+          "lineNumber": 1543
+        },
+        {
+          "caller": "substringBefore",
+          "callee": "separator.length",
+          "lineNumber": 1546
+        },
+        {
+          "caller": "substringBefore",
+          "callee": "str.indexOf",
+          "lineNumber": 1549
+        },
+        {
+          "caller": "substringBefore",
+          "callee": "str.substring",
+          "lineNumber": 1553
+        },
+        {
+          "caller": "substringAfter",
+          "callee": "isEmpty",
+          "lineNumber": 1585
+        },
+        {
+          "caller": "substringAfter",
+          "callee": "str.indexOf",
+          "lineNumber": 1591
+        },
+        {
+          "caller": "substringAfter",
+          "callee": "str.substring",
+          "lineNumber": 1595
+        },
+        {
+          "caller": "substringAfter",
+          "callee": "separator.length",
+          "lineNumber": 1595
+        },
+        {
+          "caller": "substringBeforeLast",
+          "callee": "isEmpty",
+          "lineNumber": 1626
+        },
+        {
+          "caller": "substringBeforeLast",
+          "callee": "isEmpty",
+          "lineNumber": 1626
+        },
+        {
+          "caller": "substringBeforeLast",
+          "callee": "str.lastIndexOf",
+          "lineNumber": 1629
+        },
+        {
+          "caller": "substringBeforeLast",
+          "callee": "str.substring",
+          "lineNumber": 1633
+        },
+        {
+          "caller": "substringAfterLast",
+          "callee": "isEmpty",
+          "lineNumber": 1666
+        },
+        {
+          "caller": "substringAfterLast",
+          "callee": "isEmpty",
+          "lineNumber": 1669
+        },
+        {
+          "caller": "substringAfterLast",
+          "callee": "str.lastIndexOf",
+          "lineNumber": 1672
+        },
+        {
+          "caller": "substringAfterLast",
+          "callee": "str.length",
+          "lineNumber": 1673
+        },
+        {
+          "caller": "substringAfterLast",
+          "callee": "separator.length",
+          "lineNumber": 1673
+        },
+        {
+          "caller": "substringAfterLast",
+          "callee": "str.substring",
+          "lineNumber": 1676
+        },
+        {
+          "caller": "substringAfterLast",
+          "callee": "separator.length",
+          "lineNumber": 1676
+        },
+        {
+          "caller": "substringBetween",
+          "callee": "substringBetween",
+          "lineNumber": 1703
+        },
+        {
+          "caller": "substringBetween",
+          "callee": "str.indexOf",
+          "lineNumber": 1737
+        },
+        {
+          "caller": "substringBetween",
+          "callee": "str.indexOf",
+          "lineNumber": 1739
+        },
+        {
+          "caller": "substringBetween",
+          "callee": "open.length",
+          "lineNumber": 1739
+        },
+        {
+          "caller": "substringBetween",
+          "callee": "str.substring",
+          "lineNumber": 1741
+        },
+        {
+          "caller": "substringBetween",
+          "callee": "open.length",
+          "lineNumber": 1741
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 52,
+        "functionCount": 50,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaAutoConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "AjCaptchaAutoConfiguration",
+          "startLine": 15,
+          "endLine": 20,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AjCaptchaAutoConfiguration",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 100,
+      "nonEmptyLines": 87,
+      "functions": [
+        {
+          "name": "captchaService",
+          "startLine": 36,
+          "endLine": 76,
+          "params": [
+            "prop"
+          ]
+        },
+        {
+          "name": "initializeBaseMap",
+          "startLine": 78,
+          "endLine": 82,
+          "params": [
+            "jigsaw",
+            "picClick"
+          ]
+        },
+        {
+          "name": "getResourcesImagesFile",
+          "startLine": 84,
+          "endLine": 99,
+          "params": [
+            "path"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AjCaptchaServiceAutoConfiguration",
+          "startLine": 31,
+          "endLine": 100,
+          "methods": [
+            "captchaService",
+            "initializeBaseMap",
+            "getResourcesImagesFile"
+          ],
+          "properties": [
+            "logger"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "captchaService",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "getResourcesImagesFile",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "AjCaptchaServiceAutoConfiguration",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "captchaService",
+          "callee": "logger.info",
+          "lineNumber": 39
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.toString",
+          "lineNumber": 39
+        },
+        {
+          "caller": "captchaService",
+          "callee": "new Properties",
+          "lineNumber": 40
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 41
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getCacheType().name",
+          "lineNumber": 41
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getCacheType",
+          "lineNumber": 41
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 42
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getWaterMark",
+          "lineNumber": 42
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 43
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getFontType",
+          "lineNumber": 43
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 44
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getType().getCodeValue",
+          "lineNumber": 44
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getType",
+          "lineNumber": 44
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 45
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getInterferenceOptions",
+          "lineNumber": 45
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 46
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getJigsaw",
+          "lineNumber": 46
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 47
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getPicClick",
+          "lineNumber": 47
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 48
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getSlipOffset",
+          "lineNumber": 48
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 49
+        },
+        {
+          "caller": "captchaService",
+          "callee": "String.valueOf",
+          "lineNumber": 49
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getAesStatus",
+          "lineNumber": 49
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 50
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getWaterFont",
+          "lineNumber": 50
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 51
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getCacheNumber",
+          "lineNumber": 51
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 52
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getTimingClear",
+          "lineNumber": 52
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 54
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.isHistoryDataClearEnable",
+          "lineNumber": 54
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 56
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getReqFrequencyLimitEnable",
+          "lineNumber": 56
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 57
+        },
+        {
+          "caller": "captchaService",
+          "callee": "String.valueOf",
+          "lineNumber": 57
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getReqGetLockLimit",
+          "lineNumber": 57
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 58
+        },
+        {
+          "caller": "captchaService",
+          "callee": "String.valueOf",
+          "lineNumber": 58
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getReqGetLockSeconds",
+          "lineNumber": 58
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 59
+        },
+        {
+          "caller": "captchaService",
+          "callee": "String.valueOf",
+          "lineNumber": 59
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getReqGetMinuteLimit",
+          "lineNumber": 59
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 60
+        },
+        {
+          "caller": "captchaService",
+          "callee": "String.valueOf",
+          "lineNumber": 60
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getReqCheckMinuteLimit",
+          "lineNumber": 60
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 61
+        },
+        {
+          "caller": "captchaService",
+          "callee": "String.valueOf",
+          "lineNumber": 61
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getReqVerifyMinuteLimit",
+          "lineNumber": 61
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 63
+        },
+        {
+          "caller": "captchaService",
+          "callee": "String.valueOf",
+          "lineNumber": 63
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getFontSize",
+          "lineNumber": 63
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 64
+        },
+        {
+          "caller": "captchaService",
+          "callee": "String.valueOf",
+          "lineNumber": 64
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getFontStyle",
+          "lineNumber": 64
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 65
+        },
+        {
+          "caller": "captchaService",
+          "callee": "String.valueOf",
+          "lineNumber": 65
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getClickWordCount",
+          "lineNumber": 65
+        },
+        {
+          "caller": "captchaService",
+          "callee": "StringUtils.isNotBlank",
+          "lineNumber": 67
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getJigsaw",
+          "lineNumber": 67
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getJigsaw().startsWith",
+          "lineNumber": 67
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getJigsaw",
+          "lineNumber": 67
+        },
+        {
+          "caller": "captchaService",
+          "callee": "StringUtils.isNotBlank",
+          "lineNumber": 68
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getPicClick",
+          "lineNumber": 68
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getPicClick().startsWith",
+          "lineNumber": 68
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getPicClick",
+          "lineNumber": 68
+        },
+        {
+          "caller": "captchaService",
+          "callee": "config.put",
+          "lineNumber": 71
+        },
+        {
+          "caller": "captchaService",
+          "callee": "initializeBaseMap",
+          "lineNumber": 72
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getJigsaw",
+          "lineNumber": 72
+        },
+        {
+          "caller": "captchaService",
+          "callee": "prop.getPicClick",
+          "lineNumber": 72
+        },
+        {
+          "caller": "captchaService",
+          "callee": "CaptchaServiceFactory.getInstance",
+          "lineNumber": 74
+        },
+        {
+          "caller": "initializeBaseMap",
+          "callee": "ImageUtils.cacheBootImage",
+          "lineNumber": 79
+        },
+        {
+          "caller": "initializeBaseMap",
+          "callee": "getResourcesImagesFile",
+          "lineNumber": 79
+        },
+        {
+          "caller": "initializeBaseMap",
+          "callee": "getResourcesImagesFile",
+          "lineNumber": 80
+        },
+        {
+          "caller": "initializeBaseMap",
+          "callee": "getResourcesImagesFile",
+          "lineNumber": 81
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "new HashMap<>",
+          "lineNumber": 85
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "new PathMatchingResourcePatternResolver",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "resolver.getResources",
+          "lineNumber": 88
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "FileCopyUtils.copyToByteArray",
+          "lineNumber": 90
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "resource.getInputStream",
+          "lineNumber": 90
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "Base64.getEncoder().encodeToString",
+          "lineNumber": 91
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "Base64.getEncoder",
+          "lineNumber": 91
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "resource.getFilename",
+          "lineNumber": 92
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "imgMap.put",
+          "lineNumber": 93
+        },
+        {
+          "caller": "getResourcesImagesFile",
+          "callee": "e.printStackTrace",
+          "lineNumber": 96
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "captchaCacheService",
+          "startLine": 19,
+          "endLine": 24,
+          "params": [
+            "config"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AjCaptchaStorageAutoConfiguration",
+          "startLine": 16,
+          "endLine": 25,
+          "methods": [
+            "captchaCacheService"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "captchaCacheService",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "AjCaptchaStorageAutoConfiguration",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "captchaCacheService",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 23
+        },
+        {
+          "caller": "captchaCacheService",
+          "callee": "config.getCacheType().name",
+          "lineNumber": 23
+        },
+        {
+          "caller": "captchaCacheService",
+          "callee": "config.getCacheType",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "captchaHandle",
+          "startLine": 20,
+          "endLine": 23,
+          "params": [
+            "captchaService"
+          ]
+        },
+        {
+          "name": "captchaCacheService",
+          "startLine": 25,
+          "endLine": 34,
+          "params": [
+            "config",
+            "redisTemplate"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CaptchaAutoConfig",
+          "startLine": 18,
+          "endLine": 35,
+          "methods": [
+            "captchaHandle",
+            "captchaCacheService"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "captchaHandle",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "captchaCacheService",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "CaptchaAutoConfig",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "captchaHandle",
+          "callee": "new CaptchaHandle",
+          "lineNumber": 22
+        },
+        {
+          "caller": "captchaCacheService",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 29
+        },
+        {
+          "caller": "captchaCacheService",
+          "callee": "config.getCacheType().name",
+          "lineNumber": 29
+        },
+        {
+          "caller": "captchaCacheService",
+          "callee": "config.getCacheType",
+          "lineNumber": 29
+        },
+        {
+          "caller": "captchaCacheService",
+          "callee": "((CaptchaCacheServiceRedisImpl)ret).setStringRedisTemplate",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "get",
+          "startLine": 34,
+          "endLine": 39,
+          "params": [
+            "data",
+            "request"
+          ]
+        },
+        {
+          "name": "check",
+          "startLine": 41,
+          "endLine": 45,
+          "params": [
+            "data",
+            "request"
+          ]
+        },
+        {
+          "name": "getRemoteId",
+          "startLine": 48,
+          "endLine": 56,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "getRemoteIpFromXfwd",
+          "startLine": 58,
+          "endLine": 64,
+          "params": [
+            "xfwd"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CaptchaController",
+          "startLine": 27,
+          "endLine": 66,
+          "methods": [
+            "get",
+            "check",
+            "getRemoteId",
+            "getRemoteIpFromXfwd"
+          ],
+          "properties": [
+            "captchaService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "check",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "getRemoteId",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "CaptchaController",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get",
+          "callee": "request.getRemoteHost",
+          "lineNumber": 36
+        },
+        {
+          "caller": "get",
+          "callee": "data.setBrowserInfo",
+          "lineNumber": 37
+        },
+        {
+          "caller": "get",
+          "callee": "getRemoteId",
+          "lineNumber": 37
+        },
+        {
+          "caller": "get",
+          "callee": "captchaService.get",
+          "lineNumber": 38
+        },
+        {
+          "caller": "check",
+          "callee": "data.setBrowserInfo",
+          "lineNumber": 43
+        },
+        {
+          "caller": "check",
+          "callee": "getRemoteId",
+          "lineNumber": 43
+        },
+        {
+          "caller": "check",
+          "callee": "captchaService.check",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getRemoteId",
+          "callee": "request.getHeader",
+          "lineNumber": 49
+        },
+        {
+          "caller": "getRemoteId",
+          "callee": "getRemoteIpFromXfwd",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getRemoteId",
+          "callee": "request.getHeader",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getRemoteId",
+          "callee": "StringUtils.isNotBlank",
+          "lineNumber": 52
+        },
+        {
+          "caller": "getRemoteId",
+          "callee": "request.getRemoteAddr",
+          "lineNumber": 55
+        },
+        {
+          "caller": "getRemoteIpFromXfwd",
+          "callee": "StringUtils.isNotBlank",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getRemoteIpFromXfwd",
+          "callee": "xfwd.split",
+          "lineNumber": 60
+        },
+        {
+          "caller": "getRemoteIpFromXfwd",
+          "callee": "StringUtils.trim",
+          "lineNumber": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 341,
+      "nonEmptyLines": 270,
+      "functions": [
+        {
+          "name": "getFontStyle",
+          "startLine": 119,
+          "endLine": 121,
+          "params": []
+        },
+        {
+          "name": "setFontStyle",
+          "startLine": 123,
+          "endLine": 125,
+          "params": [
+            "fontStyle"
+          ]
+        },
+        {
+          "name": "getFontSize",
+          "startLine": 127,
+          "endLine": 129,
+          "params": []
+        },
+        {
+          "name": "setFontSize",
+          "startLine": 131,
+          "endLine": 133,
+          "params": [
+            "fontSize"
+          ]
+        },
+        {
+          "name": "getClickWordCount",
+          "startLine": 135,
+          "endLine": 137,
+          "params": []
+        },
+        {
+          "name": "setClickWordCount",
+          "startLine": 139,
+          "endLine": 141,
+          "params": [
+            "clickWordCount"
+          ]
+        },
+        {
+          "name": "isHistoryDataClearEnable",
+          "startLine": 143,
+          "endLine": 145,
+          "params": []
+        },
+        {
+          "name": "setHistoryDataClearEnable",
+          "startLine": 147,
+          "endLine": 149,
+          "params": [
+            "historyDataClearEnable"
+          ]
+        },
+        {
+          "name": "isReqFrequencyLimitEnable",
+          "startLine": 151,
+          "endLine": 153,
+          "params": []
+        },
+        {
+          "name": "getReqFrequencyLimitEnable",
+          "startLine": 155,
+          "endLine": 157,
+          "params": []
+        },
+        {
+          "name": "setReqFrequencyLimitEnable",
+          "startLine": 159,
+          "endLine": 161,
+          "params": [
+            "reqFrequencyLimitEnable"
+          ]
+        },
+        {
+          "name": "getReqGetLockLimit",
+          "startLine": 163,
+          "endLine": 165,
+          "params": []
+        },
+        {
+          "name": "setReqGetLockLimit",
+          "startLine": 167,
+          "endLine": 169,
+          "params": [
+            "reqGetLockLimit"
+          ]
+        },
+        {
+          "name": "getReqGetLockSeconds",
+          "startLine": 171,
+          "endLine": 173,
+          "params": []
+        },
+        {
+          "name": "setReqGetLockSeconds",
+          "startLine": 175,
+          "endLine": 177,
+          "params": [
+            "reqGetLockSeconds"
+          ]
+        },
+        {
+          "name": "getReqGetMinuteLimit",
+          "startLine": 179,
+          "endLine": 181,
+          "params": []
+        },
+        {
+          "name": "setReqGetMinuteLimit",
+          "startLine": 183,
+          "endLine": 185,
+          "params": [
+            "reqGetMinuteLimit"
+          ]
+        },
+        {
+          "name": "getReqCheckMinuteLimit",
+          "startLine": 187,
+          "endLine": 189,
+          "params": []
+        },
+        {
+          "name": "setReqCheckMinuteLimit",
+          "startLine": 191,
+          "endLine": 193,
+          "params": [
+            "reqCheckMinuteLimit"
+          ]
+        },
+        {
+          "name": "getReqVerifyMinuteLimit",
+          "startLine": 195,
+          "endLine": 197,
+          "params": []
+        },
+        {
+          "name": "setReqVerifyMinuteLimit",
+          "startLine": 199,
+          "endLine": 201,
+          "params": [
+            "reqVerifyMinuteLimit"
+          ]
+        },
+        {
+          "name": "getPrefix",
+          "startLine": 218,
+          "endLine": 220,
+          "params": []
+        },
+        {
+          "name": "getType",
+          "startLine": 222,
+          "endLine": 224,
+          "params": []
+        },
+        {
+          "name": "setType",
+          "startLine": 226,
+          "endLine": 228,
+          "params": [
+            "type"
+          ]
+        },
+        {
+          "name": "getJigsaw",
+          "startLine": 230,
+          "endLine": 232,
+          "params": []
+        },
+        {
+          "name": "setJigsaw",
+          "startLine": 234,
+          "endLine": 236,
+          "params": [
+            "jigsaw"
+          ]
+        },
+        {
+          "name": "getPicClick",
+          "startLine": 238,
+          "endLine": 240,
+          "params": []
+        },
+        {
+          "name": "setPicClick",
+          "startLine": 242,
+          "endLine": 244,
+          "params": [
+            "picClick"
+          ]
+        },
+        {
+          "name": "getWaterMark",
+          "startLine": 246,
+          "endLine": 248,
+          "params": []
+        },
+        {
+          "name": "setWaterMark",
+          "startLine": 250,
+          "endLine": 252,
+          "params": [
+            "waterMark"
+          ]
+        },
+        {
+          "name": "getWaterFont",
+          "startLine": 254,
+          "endLine": 256,
+          "params": []
+        },
+        {
+          "name": "setWaterFont",
+          "startLine": 258,
+          "endLine": 260,
+          "params": [
+            "waterFont"
+          ]
+        },
+        {
+          "name": "getFontType",
+          "startLine": 262,
+          "endLine": 264,
+          "params": []
+        },
+        {
+          "name": "setFontType",
+          "startLine": 266,
+          "endLine": 268,
+          "params": [
+            "fontType"
+          ]
+        },
+        {
+          "name": "getSlipOffset",
+          "startLine": 270,
+          "endLine": 272,
+          "params": []
+        },
+        {
+          "name": "setSlipOffset",
+          "startLine": 274,
+          "endLine": 276,
+          "params": [
+            "slipOffset"
+          ]
+        },
+        {
+          "name": "getAesStatus",
+          "startLine": 278,
+          "endLine": 280,
+          "params": []
+        },
+        {
+          "name": "setAesStatus",
+          "startLine": 282,
+          "endLine": 284,
+          "params": [
+            "aesStatus"
+          ]
+        },
+        {
+          "name": "getCacheType",
+          "startLine": 286,
+          "endLine": 288,
+          "params": []
+        },
+        {
+          "name": "setCacheType",
+          "startLine": 290,
+          "endLine": 292,
+          "params": [
+            "cacheType"
+          ]
+        },
+        {
+          "name": "getInterferenceOptions",
+          "startLine": 294,
+          "endLine": 296,
+          "params": []
+        },
+        {
+          "name": "setInterferenceOptions",
+          "startLine": 298,
+          "endLine": 300,
+          "params": [
+            "interferenceOptions"
+          ]
+        },
+        {
+          "name": "getCacheNumber",
+          "startLine": 302,
+          "endLine": 304,
+          "params": []
+        },
+        {
+          "name": "setCacheNumber",
+          "startLine": 306,
+          "endLine": 308,
+          "params": [
+            "cacheNumber"
+          ]
+        },
+        {
+          "name": "getTimingClear",
+          "startLine": 310,
+          "endLine": 312,
+          "params": []
+        },
+        {
+          "name": "setTimingClear",
+          "startLine": 314,
+          "endLine": 316,
+          "params": [
+            "timingClear"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 318,
+          "endLine": 340,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AjCaptchaProperties",
+          "startLine": 14,
+          "endLine": 341,
+          "methods": [
+            "getFontStyle",
+            "setFontStyle",
+            "getFontSize",
+            "setFontSize",
+            "getClickWordCount",
+            "setClickWordCount",
+            "isHistoryDataClearEnable",
+            "setHistoryDataClearEnable",
+            "isReqFrequencyLimitEnable",
+            "getReqFrequencyLimitEnable",
+            "setReqFrequencyLimitEnable",
+            "getReqGetLockLimit",
+            "setReqGetLockLimit",
+            "getReqGetLockSeconds",
+            "setReqGetLockSeconds",
+            "getReqGetMinuteLimit",
+            "setReqGetMinuteLimit",
+            "getReqCheckMinuteLimit",
+            "setReqCheckMinuteLimit",
+            "getReqVerifyMinuteLimit",
+            "setReqVerifyMinuteLimit",
+            "getPrefix",
+            "getType",
+            "setType",
+            "getJigsaw",
+            "setJigsaw",
+            "getPicClick",
+            "setPicClick",
+            "getWaterMark",
+            "setWaterMark",
+            "getWaterFont",
+            "setWaterFont",
+            "getFontType",
+            "setFontType",
+            "getSlipOffset",
+            "setSlipOffset",
+            "getAesStatus",
+            "setAesStatus",
+            "getCacheType",
+            "setCacheType",
+            "getInterferenceOptions",
+            "setInterferenceOptions",
+            "getCacheNumber",
+            "setCacheNumber",
+            "getTimingClear",
+            "setTimingClear",
+            "toString"
+          ],
+          "properties": [
+            "PREFIX",
+            "type",
+            "jigsaw",
+            "picClick",
+            "waterMark",
+            "waterFont",
+            "fontType",
+            "slipOffset",
+            "aesStatus",
+            "interferenceOptions",
+            "cacheNumber",
+            "timingClear",
+            "cacheType",
+            "historyDataClearEnable",
+            "reqFrequencyLimitEnable",
+            "reqGetLockLimit",
+            "reqGetLockSeconds",
+            "reqGetMinuteLimit",
+            "reqCheckMinuteLimit",
+            "reqVerifyMinuteLimit",
+            "fontStyle",
+            "fontSize",
+            "clickWordCount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PREFIX",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "getFontStyle",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "setFontStyle",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "getFontSize",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "setFontSize",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "getClickWordCount",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "setClickWordCount",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "isHistoryDataClearEnable",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "setHistoryDataClearEnable",
+          "line": 147,
+          "isDefault": false
+        },
+        {
+          "name": "isReqFrequencyLimitEnable",
+          "line": 151,
+          "isDefault": false
+        },
+        {
+          "name": "getReqFrequencyLimitEnable",
+          "line": 155,
+          "isDefault": false
+        },
+        {
+          "name": "setReqFrequencyLimitEnable",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "getReqGetLockLimit",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "setReqGetLockLimit",
+          "line": 167,
+          "isDefault": false
+        },
+        {
+          "name": "getReqGetLockSeconds",
+          "line": 171,
+          "isDefault": false
+        },
+        {
+          "name": "setReqGetLockSeconds",
+          "line": 175,
+          "isDefault": false
+        },
+        {
+          "name": "getReqGetMinuteLimit",
+          "line": 179,
+          "isDefault": false
+        },
+        {
+          "name": "setReqGetMinuteLimit",
+          "line": 183,
+          "isDefault": false
+        },
+        {
+          "name": "getReqCheckMinuteLimit",
+          "line": 187,
+          "isDefault": false
+        },
+        {
+          "name": "setReqCheckMinuteLimit",
+          "line": 191,
+          "isDefault": false
+        },
+        {
+          "name": "getReqVerifyMinuteLimit",
+          "line": 195,
+          "isDefault": false
+        },
+        {
+          "name": "setReqVerifyMinuteLimit",
+          "line": 199,
+          "isDefault": false
+        },
+        {
+          "name": "getPrefix",
+          "line": 218,
+          "isDefault": false
+        },
+        {
+          "name": "getType",
+          "line": 222,
+          "isDefault": false
+        },
+        {
+          "name": "setType",
+          "line": 226,
+          "isDefault": false
+        },
+        {
+          "name": "getJigsaw",
+          "line": 230,
+          "isDefault": false
+        },
+        {
+          "name": "setJigsaw",
+          "line": 234,
+          "isDefault": false
+        },
+        {
+          "name": "getPicClick",
+          "line": 238,
+          "isDefault": false
+        },
+        {
+          "name": "setPicClick",
+          "line": 242,
+          "isDefault": false
+        },
+        {
+          "name": "getWaterMark",
+          "line": 246,
+          "isDefault": false
+        },
+        {
+          "name": "setWaterMark",
+          "line": 250,
+          "isDefault": false
+        },
+        {
+          "name": "getWaterFont",
+          "line": 254,
+          "isDefault": false
+        },
+        {
+          "name": "setWaterFont",
+          "line": 258,
+          "isDefault": false
+        },
+        {
+          "name": "getFontType",
+          "line": 262,
+          "isDefault": false
+        },
+        {
+          "name": "setFontType",
+          "line": 266,
+          "isDefault": false
+        },
+        {
+          "name": "getSlipOffset",
+          "line": 270,
+          "isDefault": false
+        },
+        {
+          "name": "setSlipOffset",
+          "line": 274,
+          "isDefault": false
+        },
+        {
+          "name": "getAesStatus",
+          "line": 278,
+          "isDefault": false
+        },
+        {
+          "name": "setAesStatus",
+          "line": 282,
+          "isDefault": false
+        },
+        {
+          "name": "getCacheType",
+          "line": 286,
+          "isDefault": false
+        },
+        {
+          "name": "setCacheType",
+          "line": 290,
+          "isDefault": false
+        },
+        {
+          "name": "getInterferenceOptions",
+          "line": 294,
+          "isDefault": false
+        },
+        {
+          "name": "setInterferenceOptions",
+          "line": 298,
+          "isDefault": false
+        },
+        {
+          "name": "getCacheNumber",
+          "line": 302,
+          "isDefault": false
+        },
+        {
+          "name": "setCacheNumber",
+          "line": 306,
+          "isDefault": false
+        },
+        {
+          "name": "getTimingClear",
+          "line": 310,
+          "isDefault": false
+        },
+        {
+          "name": "setTimingClear",
+          "line": 314,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 318,
+          "isDefault": false
+        },
+        {
+          "name": "AjCaptchaProperties",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 49,
+        "functionCount": 47,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "type",
+          "startLine": 15,
+          "endLine": 18,
+          "params": []
+        },
+        {
+          "name": "setStringRedisTemplate",
+          "startLine": 20,
+          "endLine": 22,
+          "params": [
+            "stringRedisTemplate"
+          ]
+        },
+        {
+          "name": "set",
+          "startLine": 26,
+          "endLine": 29,
+          "params": [
+            "key",
+            "value",
+            "expiresInSeconds"
+          ]
+        },
+        {
+          "name": "exists",
+          "startLine": 31,
+          "endLine": 34,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "delete",
+          "startLine": 36,
+          "endLine": 39,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 41,
+          "endLine": 44,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "increment",
+          "startLine": 46,
+          "endLine": 49,
+          "params": [
+            "key",
+            "val"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CaptchaCacheServiceRedisImpl",
+          "startLine": 13,
+          "endLine": 50,
+          "methods": [
+            "type",
+            "setStringRedisTemplate",
+            "set",
+            "exists",
+            "delete",
+            "get",
+            "increment"
+          ],
+          "properties": [
+            "stringRedisTemplate"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "type",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "setStringRedisTemplate",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "exists",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "delete",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "increment",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "CaptchaCacheServiceRedisImpl",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "set",
+          "callee": "stringRedisTemplate.opsForValue().set",
+          "lineNumber": 28
+        },
+        {
+          "caller": "set",
+          "callee": "stringRedisTemplate.opsForValue",
+          "lineNumber": 28
+        },
+        {
+          "caller": "exists",
+          "callee": "Boolean.TRUE.equals",
+          "lineNumber": 33
+        },
+        {
+          "caller": "exists",
+          "callee": "stringRedisTemplate.hasKey",
+          "lineNumber": 33
+        },
+        {
+          "caller": "delete",
+          "callee": "stringRedisTemplate.delete",
+          "lineNumber": 38
+        },
+        {
+          "caller": "get",
+          "callee": "stringRedisTemplate.opsForValue().get",
+          "lineNumber": 43
+        },
+        {
+          "caller": "get",
+          "callee": "stringRedisTemplate.opsForValue",
+          "lineNumber": 43
+        },
+        {
+          "caller": "increment",
+          "callee": "stringRedisTemplate.opsForValue().increment",
+          "lineNumber": 48
+        },
+        {
+          "caller": "increment",
+          "callee": "stringRedisTemplate.opsForValue",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "getCaptcha",
+          "startLine": 24,
+          "endLine": 30,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "checkCaptcha",
+          "startLine": 32,
+          "endLine": 38,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "verification",
+          "startLine": 40,
+          "endLine": 42,
+          "params": [
+            "captchaVO"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CaptchaHandle",
+          "startLine": 19,
+          "endLine": 43,
+          "methods": [
+            "getCaptcha",
+            "checkCaptcha",
+            "verification"
+          ],
+          "properties": [
+            "captchaService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCaptcha",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "checkCaptcha",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "verification",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "CaptchaHandle",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getCaptcha",
+          "callee": "RequestContextHolder.getRequestAttributes",
+          "lineNumber": 25
+        },
+        {
+          "caller": "getCaptcha",
+          "callee": "((ServletRequestAttributes) requestAttributes).getRequest",
+          "lineNumber": 27
+        },
+        {
+          "caller": "getCaptcha",
+          "callee": "captchaVO.setBrowserInfo",
+          "lineNumber": 28
+        },
+        {
+          "caller": "getCaptcha",
+          "callee": "RemoteUtil.getRemoteId",
+          "lineNumber": 28
+        },
+        {
+          "caller": "getCaptcha",
+          "callee": "captchaService.get",
+          "lineNumber": 29
+        },
+        {
+          "caller": "checkCaptcha",
+          "callee": "RequestContextHolder.getRequestAttributes",
+          "lineNumber": 33
+        },
+        {
+          "caller": "checkCaptcha",
+          "callee": "((ServletRequestAttributes) requestAttributes).getRequest",
+          "lineNumber": 35
+        },
+        {
+          "caller": "checkCaptcha",
+          "callee": "captchaVO.setBrowserInfo",
+          "lineNumber": 36
+        },
+        {
+          "caller": "checkCaptcha",
+          "callee": "RemoteUtil.getRemoteId",
+          "lineNumber": 36
+        },
+        {
+          "caller": "checkCaptcha",
+          "callee": "captchaService.check",
+          "lineNumber": 37
+        },
+        {
+          "caller": "verification",
+          "callee": "captchaService.verification",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "getRemoteId",
+          "startLine": 14,
+          "endLine": 22,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "getRemoteIpFromForward",
+          "startLine": 24,
+          "endLine": 30,
+          "params": [
+            "forward"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RemoteUtil",
+          "startLine": 12,
+          "endLine": 31,
+          "methods": [
+            "getRemoteId",
+            "getRemoteIpFromForward"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getRemoteId",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "RemoteUtil",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getRemoteId",
+          "callee": "request.getHeader",
+          "lineNumber": 15
+        },
+        {
+          "caller": "getRemoteId",
+          "callee": "getRemoteIpFromForward",
+          "lineNumber": 16
+        },
+        {
+          "caller": "getRemoteId",
+          "callee": "request.getHeader",
+          "lineNumber": 17
+        },
+        {
+          "caller": "getRemoteId",
+          "callee": "StringUtils.isNotBlank",
+          "lineNumber": 18
+        },
+        {
+          "caller": "getRemoteId",
+          "callee": "request.getRemoteAddr",
+          "lineNumber": 21
+        },
+        {
+          "caller": "getRemoteIpFromForward",
+          "callee": "StringUtils.isNotBlank",
+          "lineNumber": 25
+        },
+        {
+          "caller": "getRemoteIpFromForward",
+          "callee": "forward.split",
+          "lineNumber": 26
+        },
+        {
+          "caller": "getRemoteIpFromForward",
+          "callee": "StringUtils.trim",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/CheckNeedCaptchaDataVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 16,
+      "classes": [
+        {
+          "name": "CheckNeedCaptchaDataVo",
+          "startLine": 11,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "verifyCaptcha",
+            "captchaId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CheckNeedCaptchaDataVo",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/controller/UserCaptchaController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "checkNeedCaptcha",
+          "startLine": 29,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "getCaptcha",
+          "startLine": 35,
+          "endLine": 39,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "verifyCaptcha",
+          "startLine": 41,
+          "endLine": 45,
+          "params": [
+            "captchaVO"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserCaptchaController",
+          "startLine": 21,
+          "endLine": 46,
+          "methods": [
+            "checkNeedCaptcha",
+            "getCaptcha",
+            "verifyCaptcha"
+          ],
+          "properties": [
+            "userCaptchaService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "checkNeedCaptcha",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "getCaptcha",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "verifyCaptcha",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "UserCaptchaController",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 32
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "userCaptchaService.checkNeedCaptcha",
+          "lineNumber": 32
+        },
+        {
+          "caller": "getCaptcha",
+          "callee": "userCaptchaService.getCaptcha",
+          "lineNumber": 38
+        },
+        {
+          "caller": "verifyCaptcha",
+          "callee": "userCaptchaService.verifyCaptcha",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/UserCaptchaService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "checkNeedCaptcha",
+          "startLine": 43,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "getCaptcha",
+          "startLine": 62,
+          "endLine": 64,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "verifyCaptcha",
+          "startLine": 66,
+          "endLine": 68,
+          "params": [
+            "captchaVO"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserCaptchaService",
+          "startLine": 22,
+          "endLine": 69,
+          "methods": [
+            "checkNeedCaptcha",
+            "getCaptcha",
+            "verifyCaptcha"
+          ],
+          "properties": [
+            "verifyCaptchaThreshold",
+            "verifyCaptchaIdExpireTime",
+            "alwaysVerifyCaptcha",
+            "captchaHandle",
+            "uidGenerator",
+            "checkNeedCaptchaOperate"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "checkNeedCaptcha",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "getCaptcha",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "verifyCaptcha",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "UserCaptchaService",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 44
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 45
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "new ArrayList<>",
+          "lineNumber": 46
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "keys.add",
+          "lineNumber": 47
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.COUNTER_COUNT).getRelKey",
+          "lineNumber": 47
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 47
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "keys.add",
+          "lineNumber": 48
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.COUNTER_TIMESTAMP).getRelKey",
+          "lineNumber": 48
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 48
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "keys.add",
+          "lineNumber": 49
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.VERIFY_CAPTCHA_ID,id).getRelKey",
+          "lineNumber": 49
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 49
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "String.valueOf",
+          "lineNumber": 51
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "String.valueOf",
+          "lineNumber": 52
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "String.valueOf",
+          "lineNumber": 53
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "String.valueOf",
+          "lineNumber": 54
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "checkNeedCaptchaOperate.checkNeedCaptchaOperate",
+          "lineNumber": 55
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "new CheckNeedCaptchaDataVo",
+          "lineNumber": 56
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "checkNeedCaptchaDataVo.setCaptchaId",
+          "lineNumber": 57
+        },
+        {
+          "caller": "checkNeedCaptcha",
+          "callee": "checkNeedCaptchaDataVo.setVerifyCaptcha",
+          "lineNumber": 58
+        },
+        {
+          "caller": "getCaptcha",
+          "callee": "captchaHandle.getCaptcha",
+          "lineNumber": 63
+        },
+        {
+          "caller": "verifyCaptcha",
+          "callee": "captchaHandle.checkCaptcha",
+          "lineNumber": 67
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "projectRoot": "E:/WorkSpace/damai",
+  "batchFiles": [
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "language": "java",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "language": "java",
+      "sizeLines": 181,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "language": "java",
+      "sizeLines": 261,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java",
+      "language": "java",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "language": "java",
+      "sizeLines": 183,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "language": "java",
+      "sizeLines": 237,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java",
+      "language": "java",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "language": "java",
+      "sizeLines": 165,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "language": "java",
+      "sizeLines": 198,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java",
+      "language": "java",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java",
+      "language": "java",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "language": "java",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java": [],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java": [
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java"
+    ],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java": [
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java"
+    ],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java": [],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java": [],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java": [
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java"
+    ],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java": [
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java"
+    ],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java": [
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java"
+    ],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java": [],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java": [
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java"
+    ],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java": [
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java",
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java"
+    ],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java": [],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java": [],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java": [],
+    "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java": [],
+    "damai-id-generator-framework/src/main/java/com/damai/config/IdGeneratorAutoConfig.java": [
+      "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java",
+      "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java"
+    ],
+    "damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java": [],
+    "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkAndDataCenterIdHandler.java": [],
+    "damai-id-generator-framework/src/main/java/com/damai/toolkit/WorkDataCenterId.java": [],
+    "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueAutoConfig.java": [
+      "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java",
+      "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java"
+    ],
+    "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java": [],
+    "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java": [
+      "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/config/DelayQueueProperties.java"
+    ],
+    "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java": [
+      "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java"
+    ],
+    "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java": [],
+    "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java": [
+      "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java"
+    ],
+    "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/event/DelayQueueInitHandler.java": [
+      "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueBasePart.java",
+      "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueuePart.java",
+      "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayConsumerQueue.java"
+    ],
+    "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java": [],
+    "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java": [],
+    "damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java"
+    ],
+    "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java": [
+      "damai-common/src/main/java/com/damai/util/StringUtil.java"
+    ],
+    "damai-server/damai-order-service/src/main/java/com/damai/service/test/Test.java": [
+      "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/controller/TestController.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestDto.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java",
+      "damai-server/damai-base-data-service/src/main/java/com/damai/service/TestService.java",
+      "damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java"
+    ],
+    "damai-server/damai-program-service/src/main/java/com/damai/service/TestService.java": [
+      "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java",
+      "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TestSendDto.java"
+    ]
+  }
+}

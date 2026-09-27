@@ -1,0 +1,587 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 7,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 7,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 24,
+      "classes": [
+        {
+          "name": "InitializeHandler",
+          "startLine": 10,
+          "endLine": 29,
+          "methods": [
+            "type",
+            "executeOrder",
+            "executeInit"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "InitializeHandler",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "applicationInitializingBeanExecute",
+          "startLine": 17,
+          "endLine": 21,
+          "params": [
+            "applicationContext"
+          ]
+        },
+        {
+          "name": "applicationPostConstructExecute",
+          "startLine": 23,
+          "endLine": 27,
+          "params": [
+            "applicationContext"
+          ]
+        },
+        {
+          "name": "applicationStartEventListenerExecute",
+          "startLine": 29,
+          "endLine": 33,
+          "params": [
+            "applicationContext"
+          ]
+        },
+        {
+          "name": "applicationCommandLineRunnerExecute",
+          "startLine": 35,
+          "endLine": 39,
+          "params": [
+            "applicationContext"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "InitializeAutoConfig",
+          "startLine": 15,
+          "endLine": 40,
+          "methods": [
+            "applicationInitializingBeanExecute",
+            "applicationPostConstructExecute",
+            "applicationStartEventListenerExecute",
+            "applicationCommandLineRunnerExecute"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "applicationInitializingBeanExecute",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "applicationPostConstructExecute",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "applicationStartEventListenerExecute",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "applicationCommandLineRunnerExecute",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "InitializeAutoConfig",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "applicationInitializingBeanExecute",
+          "callee": "new ApplicationInitializingBeanExecute",
+          "lineNumber": 20
+        },
+        {
+          "caller": "applicationPostConstructExecute",
+          "callee": "new ApplicationPostConstructExecute",
+          "lineNumber": 26
+        },
+        {
+          "caller": "applicationStartEventListenerExecute",
+          "callee": "new ApplicationStartEventListenerExecute",
+          "lineNumber": 32
+        },
+        {
+          "caller": "applicationCommandLineRunnerExecute",
+          "callee": "new ApplicationCommandLineRunnerExecute",
+          "lineNumber": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "ApplicationCommandLineRunnerExecute",
+          "startLine": 16,
+          "endLine": 18,
+          "params": [
+            "applicationContext"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 20,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "type",
+          "startLine": 25,
+          "endLine": 28,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ApplicationCommandLineRunnerExecute",
+          "startLine": 14,
+          "endLine": 29,
+          "methods": [
+            "ApplicationCommandLineRunnerExecute",
+            "run",
+            "type"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ApplicationCommandLineRunnerExecute",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "type",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "ApplicationCommandLineRunnerExecute",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "execute",
+          "lineNumber": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "ApplicationInitializingBeanExecute",
+          "startLine": 17,
+          "endLine": 19,
+          "params": [
+            "applicationContext"
+          ]
+        },
+        {
+          "name": "afterPropertiesSet",
+          "startLine": 21,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "type",
+          "startLine": 26,
+          "endLine": 29,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ApplicationInitializingBeanExecute",
+          "startLine": 15,
+          "endLine": 30,
+          "methods": [
+            "ApplicationInitializingBeanExecute",
+            "afterPropertiesSet",
+            "type"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ApplicationInitializingBeanExecute",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "afterPropertiesSet",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "type",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "ApplicationInitializingBeanExecute",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "afterPropertiesSet",
+          "callee": "execute",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "ApplicationPostConstructExecute",
+          "startLine": 17,
+          "endLine": 19,
+          "params": [
+            "applicationContext"
+          ]
+        },
+        {
+          "name": "postConstructExecute",
+          "startLine": 21,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "type",
+          "startLine": 26,
+          "endLine": 29,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ApplicationPostConstructExecute",
+          "startLine": 15,
+          "endLine": 30,
+          "methods": [
+            "ApplicationPostConstructExecute",
+            "postConstructExecute",
+            "type"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ApplicationPostConstructExecute",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "postConstructExecute",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "type",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "ApplicationPostConstructExecute",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "postConstructExecute",
+          "callee": "execute",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "ApplicationStartEventListenerExecute",
+          "startLine": 17,
+          "endLine": 19,
+          "params": [
+            "applicationContext"
+          ]
+        },
+        {
+          "name": "onApplicationEvent",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "event"
+          ]
+        },
+        {
+          "name": "type",
+          "startLine": 26,
+          "endLine": 29,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ApplicationStartEventListenerExecute",
+          "startLine": 15,
+          "endLine": 30,
+          "methods": [
+            "ApplicationStartEventListenerExecute",
+            "onApplicationEvent",
+            "type"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ApplicationStartEventListenerExecute",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "onApplicationEvent",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "type",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "ApplicationStartEventListenerExecute",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "onApplicationEvent",
+          "callee": "execute",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "execute",
+          "startLine": 20,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "type",
+          "startLine": 34,
+          "endLine": 34,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractApplicationExecute",
+          "startLine": 15,
+          "endLine": 35,
+          "methods": [
+            "execute",
+            "type"
+          ],
+          "properties": [
+            "applicationContext"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "execute",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "type",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractApplicationExecute",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "execute",
+          "callee": "applicationContext.getBeansOfType",
+          "lineNumber": 21
+        },
+        {
+          "caller": "execute",
+          "callee": "initializeHandlerMap.values()\r\n                .stream()\r\n                .filter(initializeHandler -> initializeHandler.type().equals(type()))\r\n                .sorted(Comparator.comparingInt(InitializeHandler::executeOrder)).forEach",
+          "lineNumber": 22
+        },
+        {
+          "caller": "execute",
+          "callee": "initializeHandlerMap.values()\r\n                .stream()\r\n                .filter(initializeHandler -> initializeHandler.type().equals(type())).sorted",
+          "lineNumber": 22
+        },
+        {
+          "caller": "execute",
+          "callee": "initializeHandlerMap.values()\r\n                .stream().filter",
+          "lineNumber": 22
+        },
+        {
+          "caller": "execute",
+          "callee": "initializeHandlerMap.values().stream",
+          "lineNumber": 22
+        },
+        {
+          "caller": "execute",
+          "callee": "initializeHandlerMap.values",
+          "lineNumber": 22
+        },
+        {
+          "caller": "execute",
+          "callee": "initializeHandler.type().equals",
+          "lineNumber": 24
+        },
+        {
+          "caller": "execute",
+          "callee": "initializeHandler.type",
+          "lineNumber": 24
+        },
+        {
+          "caller": "execute",
+          "callee": "type",
+          "lineNumber": 24
+        },
+        {
+          "caller": "execute",
+          "callee": "Comparator.comparingInt",
+          "lineNumber": 25
+        },
+        {
+          "caller": "execute",
+          "callee": "initializeHandler.executeInit",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    }
+  ]
+}

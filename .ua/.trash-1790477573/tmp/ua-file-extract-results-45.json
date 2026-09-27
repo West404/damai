@@ -1,0 +1,1235 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 10,
+  "filesSkipped": [
+    "damai-spring-cloud-framework/damai-service-common/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-spring-cloud-framework/damai-service-component/pom.xml",
+    "damai-spring-cloud-framework/damai-service-component/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/pom.xml",
+    "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-base-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/pom.xml",
+    "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-gateway-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/pom.xml",
+    "damai-spring-cloud-framework/damai-service-gray-transition-framework/damai-service-gray-transition-webmvc-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-spring-cloud-framework/damai-service-gray-transition-framework/pom.xml",
+    "damai-spring-cloud-framework/damai-service-initialize/pom.xml",
+    "damai-spring-cloud-framework/damai-service-initialize/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-spring-cloud-framework/pom.xml",
+    "damai-thread-pool-framework/pom.xml",
+    "damai-thread-pool-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 10,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 9,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/swagger/SwaggerConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 25,
+      "functions": [
+        {
+          "name": "customOpenApi",
+          "startLine": 17,
+          "endLine": 29,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SwaggerConfiguration",
+          "startLine": 14,
+          "endLine": 30,
+          "methods": [
+            "customOpenApi"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "customOpenApi",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "SwaggerConfiguration",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "customOpenApi",
+          "callee": "new OpenAPI().info",
+          "lineNumber": 20
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new OpenAPI",
+          "lineNumber": 20
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Info()\r\n                        .title(\"前端使用\")\r\n                        .version(\"1.0\")\r\n                        .description(\"项目学习\").contact",
+          "lineNumber": 21
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Info()\r\n                        .title(\"前端使用\")\r\n                        .version(\"1.0\").description",
+          "lineNumber": 21
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Info()\r\n                        .title(\"前端使用\").version",
+          "lineNumber": 21
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Info().title",
+          "lineNumber": 21
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Info",
+          "lineNumber": 21
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Contact().name",
+          "lineNumber": 25
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Contact",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/org/yaml/snakeyaml/representer/Representer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 269,
+      "nonEmptyLines": 250,
+      "functions": [
+        {
+          "name": "Representer",
+          "startLine": 48,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "Representer",
+          "startLine": 53,
+          "endLine": 56,
+          "params": [
+            "options"
+          ]
+        },
+        {
+          "name": "addTypeDescription",
+          "startLine": 58,
+          "endLine": 67,
+          "params": [
+            "td"
+          ]
+        },
+        {
+          "name": "setPropertyUtils",
+          "startLine": 69,
+          "endLine": 76,
+          "params": [
+            "propertyUtils"
+          ]
+        },
+        {
+          "name": "representJavaBean",
+          "startLine": 96,
+          "endLine": 128,
+          "params": [
+            "properties",
+            "javaBean"
+          ]
+        },
+        {
+          "name": "representJavaBeanProperty",
+          "startLine": 139,
+          "endLine": 173,
+          "params": [
+            "javaBean",
+            "property",
+            "propertyValue",
+            "customTag"
+          ]
+        },
+        {
+          "name": "checkGlobalTag",
+          "startLine": 183,
+          "endLine": 243,
+          "params": [
+            "property",
+            "node",
+            "object"
+          ]
+        },
+        {
+          "name": "resetTag",
+          "startLine": 245,
+          "endLine": 254,
+          "params": [
+            "type",
+            "node"
+          ]
+        },
+        {
+          "name": "getProperties",
+          "startLine": 263,
+          "endLine": 268,
+          "params": [
+            "type"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Representer",
+          "startLine": 44,
+          "endLine": 269,
+          "methods": [
+            "Representer",
+            "Representer",
+            "addTypeDescription",
+            "setPropertyUtils",
+            "representJavaBean",
+            "representJavaBeanProperty",
+            "checkGlobalTag",
+            "resetTag",
+            "getProperties"
+          ],
+          "properties": [
+            "typeDefinitions"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Representer",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "Representer",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "addTypeDescription",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "setPropertyUtils",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "Representer",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Representer",
+          "callee": "new DumperOptions",
+          "lineNumber": 49
+        },
+        {
+          "caller": "Representer",
+          "callee": "this.representers.put",
+          "lineNumber": 50
+        },
+        {
+          "caller": "Representer",
+          "callee": "new RepresentJavaBean",
+          "lineNumber": 50
+        },
+        {
+          "caller": "Representer",
+          "callee": "this.representers.put",
+          "lineNumber": 55
+        },
+        {
+          "caller": "Representer",
+          "callee": "new RepresentJavaBean",
+          "lineNumber": 55
+        },
+        {
+          "caller": "addTypeDescription",
+          "callee": "new HashMap<>",
+          "lineNumber": 60
+        },
+        {
+          "caller": "addTypeDescription",
+          "callee": "td.getTag",
+          "lineNumber": 62
+        },
+        {
+          "caller": "addTypeDescription",
+          "callee": "addClassTag",
+          "lineNumber": 63
+        },
+        {
+          "caller": "addTypeDescription",
+          "callee": "td.getType",
+          "lineNumber": 63
+        },
+        {
+          "caller": "addTypeDescription",
+          "callee": "td.getTag",
+          "lineNumber": 63
+        },
+        {
+          "caller": "addTypeDescription",
+          "callee": "td.setPropertyUtils",
+          "lineNumber": 65
+        },
+        {
+          "caller": "addTypeDescription",
+          "callee": "getPropertyUtils",
+          "lineNumber": 65
+        },
+        {
+          "caller": "addTypeDescription",
+          "callee": "typeDefinitions.put",
+          "lineNumber": 66
+        },
+        {
+          "caller": "addTypeDescription",
+          "callee": "td.getType",
+          "lineNumber": 66
+        },
+        {
+          "caller": "setPropertyUtils",
+          "callee": "super.setPropertyUtils",
+          "lineNumber": 71
+        },
+        {
+          "caller": "setPropertyUtils",
+          "callee": "typeDefinitions.values",
+          "lineNumber": 72
+        },
+        {
+          "caller": "setPropertyUtils",
+          "callee": "typeDescription.setPropertyUtils",
+          "lineNumber": 74
+        },
+        {
+          "caller": "representData",
+          "callee": "representJavaBean",
+          "lineNumber": 82
+        },
+        {
+          "caller": "representData",
+          "callee": "getProperties",
+          "lineNumber": 82
+        },
+        {
+          "caller": "representData",
+          "callee": "data.getClass",
+          "lineNumber": 82
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "new ArrayList<NodeTuple>",
+          "lineNumber": 97
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "properties.size",
+          "lineNumber": 97
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "classTags.get",
+          "lineNumber": 99
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "javaBean.getClass",
+          "lineNumber": 99
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "new Tag",
+          "lineNumber": 100
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "javaBean.getClass",
+          "lineNumber": 100
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "new MappingNode",
+          "lineNumber": 102
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "representedObjects.put",
+          "lineNumber": 103
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "property.get",
+          "lineNumber": 106
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "classTags.get",
+          "lineNumber": 107
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "memberValue.getClass",
+          "lineNumber": 107
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "representJavaBeanProperty",
+          "lineNumber": 109
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "((ScalarNode) tuple.getKeyNode()).isPlain",
+          "lineNumber": 113
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "tuple.getKeyNode",
+          "lineNumber": 113
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "tuple.getValueNode",
+          "lineNumber": 116
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "((ScalarNode) nodeValue).isPlain",
+          "lineNumber": 117
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "value.add",
+          "lineNumber": 120
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "node.setFlowStyle",
+          "lineNumber": 123
+        },
+        {
+          "caller": "representJavaBean",
+          "callee": "node.setFlowStyle",
+          "lineNumber": 125
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "representData",
+          "lineNumber": 141
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "property.getName",
+          "lineNumber": 141
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "this.representedObjects.containsKey",
+          "lineNumber": 143
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "representData",
+          "lineNumber": 145
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "nodeValue.getNodeId",
+          "lineNumber": 148
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "property.getType",
+          "lineNumber": 152
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "nodeValue.setTag",
+          "lineNumber": 154
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "property.getType",
+          "lineNumber": 159
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "propertyValue.getClass",
+          "lineNumber": 159
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "nodeValue.getTag().equals",
+          "lineNumber": 161
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "nodeValue.getTag",
+          "lineNumber": 161
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "nodeValue.setTag",
+          "lineNumber": 162
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "checkGlobalTag",
+          "lineNumber": 167
+        },
+        {
+          "caller": "representJavaBeanProperty",
+          "callee": "new NodeTuple",
+          "lineNumber": 172
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "object.getClass().isArray",
+          "lineNumber": 186
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "object.getClass",
+          "lineNumber": 186
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "object.getClass().getComponentType().isPrimitive",
+          "lineNumber": 186
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "object.getClass().getComponentType",
+          "lineNumber": 186
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "object.getClass",
+          "lineNumber": 186
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "property.getActualTypeArguments",
+          "lineNumber": 190
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "node.getNodeId",
+          "lineNumber": 192
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "Collections.emptyList",
+          "lineNumber": 196
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "object.getClass().isArray",
+          "lineNumber": 197
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "object.getClass",
+          "lineNumber": 197
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "Arrays.asList",
+          "lineNumber": 198
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "memberList.iterator",
+          "lineNumber": 203
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "iter.hasNext",
+          "lineNumber": 204
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "snode.getValue",
+          "lineNumber": 205
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "iter.next",
+          "lineNumber": 206
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "t.equals",
+          "lineNumber": 208
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "member.getClass",
+          "lineNumber": 208
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "childNode.getNodeId",
+          "lineNumber": 209
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "childNode.setTag",
+          "lineNumber": 210
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "mnode.getValue().iterator",
+          "lineNumber": 219
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "mnode.getValue",
+          "lineNumber": 219
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "iter.next",
+          "lineNumber": 222
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "tuple.getKeyNode",
+          "lineNumber": 223
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "t.equals",
+          "lineNumber": 224
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "member.getClass",
+          "lineNumber": 224
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "keyNode.getNodeId",
+          "lineNumber": 225
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "keyNode.setTag",
+          "lineNumber": 226
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "mnode.getValue",
+          "lineNumber": 234
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "resetTag",
+          "lineNumber": 235
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "tuple.getKeyNode",
+          "lineNumber": 235
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "resetTag",
+          "lineNumber": 236
+        },
+        {
+          "caller": "checkGlobalTag",
+          "callee": "tuple.getValueNode",
+          "lineNumber": 236
+        },
+        {
+          "caller": "resetTag",
+          "callee": "node.getTag",
+          "lineNumber": 246
+        },
+        {
+          "caller": "resetTag",
+          "callee": "tag.matches",
+          "lineNumber": 247
+        },
+        {
+          "caller": "resetTag",
+          "callee": "Enum.class.isAssignableFrom",
+          "lineNumber": 248
+        },
+        {
+          "caller": "resetTag",
+          "callee": "node.setTag",
+          "lineNumber": 249
+        },
+        {
+          "caller": "resetTag",
+          "callee": "node.setTag",
+          "lineNumber": 251
+        },
+        {
+          "caller": "getProperties",
+          "callee": "typeDefinitions.containsKey",
+          "lineNumber": 264
+        },
+        {
+          "caller": "getProperties",
+          "callee": "typeDefinitions.get(type).getProperties",
+          "lineNumber": 265
+        },
+        {
+          "caller": "getProperties",
+          "callee": "typeDefinitions.get",
+          "lineNumber": 265
+        },
+        {
+          "caller": "getProperties",
+          "callee": "getPropertyUtils().getProperties",
+          "lineNumber": 267
+        },
+        {
+          "caller": "getProperties",
+          "callee": "getPropertyUtils",
+          "lineNumber": 267
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/ExtraFeignAutoConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 17,
+      "functions": [
+        {
+          "name": "feignRequestInterceptor",
+          "startLine": 20,
+          "endLine": 23,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ExtraFeignAutoConfiguration",
+          "startLine": 15,
+          "endLine": 24,
+          "methods": [
+            "feignRequestInterceptor"
+          ],
+          "properties": [
+            "serverGray"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "serverGray",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "feignRequestInterceptor",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "ExtraFeignAutoConfiguration",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "feignRequestInterceptor",
+          "callee": "new FeignRequestInterceptor",
+          "lineNumber": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/FilterAutoConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 20,
+      "functions": [
+        {
+          "name": "requestWrapperFilter",
+          "startLine": 14,
+          "endLine": 18,
+          "params": []
+        },
+        {
+          "name": "baseParameterFilter",
+          "startLine": 20,
+          "endLine": 24,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "FilterAutoConfiguration",
+          "startLine": 12,
+          "endLine": 25,
+          "methods": [
+            "requestWrapperFilter",
+            "baseParameterFilter"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "requestWrapperFilter",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "baseParameterFilter",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "FilterAutoConfiguration",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "requestWrapperFilter",
+          "callee": "new RequestWrapperFilter",
+          "lineNumber": 17
+        },
+        {
+          "caller": "baseParameterFilter",
+          "callee": "new BaseParameterFilter",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationCommandLineRunnerHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "type",
+          "startLine": 15,
+          "endLine": 18,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractApplicationCommandLineRunnerHandler",
+          "startLine": 13,
+          "endLine": 19,
+          "methods": [
+            "type"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "type",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractApplicationCommandLineRunnerHandler",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/AbstractApplicationInitializingBeanHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 14,
+      "functions": [
+        {
+          "name": "type",
+          "startLine": 14,
+          "endLine": 17,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractApplicationInitializingBeanHandler",
+          "startLine": 12,
+          "endLine": 18,
+          "methods": [
+            "type"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "type",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractApplicationInitializingBeanHandler",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/constant/InitializeHandlerType.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 12,
+      "classes": [
+        {
+          "name": "InitializeHandlerType",
+          "startLine": 8,
+          "endLine": 17,
+          "methods": [],
+          "properties": [
+            "APPLICATION_EVENT_LISTENER",
+            "APPLICATION_POST_CONSTRUCT",
+            "APPLICATION_INITIALIZING_BEAN",
+            "APPLICATION_COMMAND_LINE_RUNNER"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "APPLICATION_EVENT_LISTENER",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "APPLICATION_POST_CONSTRUCT",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "APPLICATION_INITIALIZING_BEAN",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "APPLICATION_COMMAND_LINE_RUNNER",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "InitializeHandlerType",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-thread-pool-framework/src/main/java/com/damai/filter/FilterConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 14,
+      "functions": [
+        {
+          "name": "requestParamContextFilter",
+          "startLine": 13,
+          "endLine": 16,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "FilterConfig",
+          "startLine": 11,
+          "endLine": 17,
+          "methods": [
+            "requestParamContextFilter"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "requestParamContextFilter",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "FilterConfig",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "requestParamContextFilter",
+          "callee": "new RequestParamContextFilter",
+          "lineNumber": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-thread-pool-framework/src/main/java/com/damai/namefactory/AbstractNameThreadFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "AbstractNameThreadFactory",
+          "startLine": 21,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "getNamePrefix",
+          "startLine": 33,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "newThread",
+          "startLine": 39,
+          "endLine": 50,
+          "params": [
+            "r"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractNameThreadFactory",
+          "startLine": 11,
+          "endLine": 51,
+          "methods": [
+            "AbstractNameThreadFactory",
+            "getNamePrefix",
+            "newThread"
+          ],
+          "properties": [
+            "POOL_NUM",
+            "group",
+            "threadNum",
+            "namePrefix"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AbstractNameThreadFactory",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "getNamePrefix",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "newThread",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractNameThreadFactory",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AbstractNameThreadFactory",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 22
+        },
+        {
+          "caller": "AbstractNameThreadFactory",
+          "callee": "s.getThreadGroup",
+          "lineNumber": 23
+        },
+        {
+          "caller": "AbstractNameThreadFactory",
+          "callee": "Thread.currentThread().getThreadGroup",
+          "lineNumber": 24
+        },
+        {
+          "caller": "AbstractNameThreadFactory",
+          "callee": "Thread.currentThread",
+          "lineNumber": 24
+        },
+        {
+          "caller": "AbstractNameThreadFactory",
+          "callee": "getNamePrefix",
+          "lineNumber": 25
+        },
+        {
+          "caller": "newThread",
+          "callee": "threadNum.getAndIncrement",
+          "lineNumber": 41
+        },
+        {
+          "caller": "newThread",
+          "callee": "new Thread",
+          "lineNumber": 42
+        },
+        {
+          "caller": "newThread",
+          "callee": "t.isDaemon",
+          "lineNumber": 43
+        },
+        {
+          "caller": "newThread",
+          "callee": "t.setDaemon",
+          "lineNumber": 44
+        },
+        {
+          "caller": "newThread",
+          "callee": "t.getPriority",
+          "lineNumber": 46
+        },
+        {
+          "caller": "newThread",
+          "callee": "t.setPriority",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "docker/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 38,
+      "nonEmptyLines": 27,
+      "sections": [
+        {
+          "heading": "大麦项目 Docker 部署",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "前置条件",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "部署步骤",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "访问入口",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "配置说明",
+          "level": 2,
+          "line": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

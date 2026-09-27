@@ -1,0 +1,773 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [
+    "damai-id-generator-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-id-generator-framework/src/main/resources/lua/workAndDataCenterId.lua",
+    "damai-redis-tool-framework/damai-redis-common-framework/pom.xml",
+    "damai-redis-tool-framework/damai-redis-common-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-redis-tool-framework/damai-redis-framework/pom.xml",
+    "damai-redis-tool-framework/damai-redis-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-redis-tool-framework/damai-redis-stream-framework/pom.xml",
+    "damai-redis-tool-framework/damai-redis-stream-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-redis-tool-framework/pom.xml",
+    "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/pom.xml",
+    "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/pom.xml",
+    "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/pom.xml",
+    "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/pom.xml"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 9,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 8,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "damai-id-generator-framework/src/main/resources/scripts/WORKER_NODE.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 13,
+      "nonEmptyLines": 13,
+      "definitions": [
+        {
+          "name": "WORKER_NODE",
+          "kind": "table",
+          "fields": [],
+          "startLine": 2,
+          "endLine": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 1
+      }
+    },
+    {
+      "path": "damai-redis-tool-framework/damai-redis-common-framework/src/main/java/com/damai/config/RedisFrameWorkAutoConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "redisTemplate",
+          "startLine": 18,
+          "endLine": 24,
+          "params": [
+            "redisConnectionFactory"
+          ]
+        },
+        {
+          "name": "stringRedisTemplate",
+          "startLine": 26,
+          "endLine": 33,
+          "params": [
+            "redisConnectionFactory"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedisFrameWorkAutoConfig",
+          "startLine": 16,
+          "endLine": 34,
+          "methods": [
+            "redisTemplate",
+            "stringRedisTemplate"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "redisTemplate",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "stringRedisTemplate",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "RedisFrameWorkAutoConfig",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "redisTemplate",
+          "callee": "new RedisTemplate",
+          "lineNumber": 20
+        },
+        {
+          "caller": "redisTemplate",
+          "callee": "redisTemplate.setDefaultSerializer",
+          "lineNumber": 21
+        },
+        {
+          "caller": "redisTemplate",
+          "callee": "new StringRedisSerializer",
+          "lineNumber": 21
+        },
+        {
+          "caller": "redisTemplate",
+          "callee": "redisTemplate.setConnectionFactory",
+          "lineNumber": 22
+        },
+        {
+          "caller": "stringRedisTemplate",
+          "callee": "new StringRedisTemplate",
+          "lineNumber": 29
+        },
+        {
+          "caller": "stringRedisTemplate",
+          "callee": "myStringRedisTemplate.setDefaultSerializer",
+          "lineNumber": 30
+        },
+        {
+          "caller": "stringRedisTemplate",
+          "callee": "new StringRedisSerializer",
+          "lineNumber": 30
+        },
+        {
+          "caller": "stringRedisTemplate",
+          "callee": "myStringRedisTemplate.setConnectionFactory",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonBaseProperties.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "RedissonBaseProperties",
+          "startLine": 13,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "threads",
+            "nettyThreads",
+            "corePoolSize",
+            "maximumPoolSize",
+            "keepAliveTime",
+            "unit",
+            "workQueueSize"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RedissonBaseProperties",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/core/Constants.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 9,
+      "classes": [
+        {
+          "name": "Constants",
+          "startLine": 8,
+          "endLine": 13,
+          "methods": [],
+          "properties": [
+            "SEPARATOR"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SEPARATOR",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "Constants",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 253,
+      "nonEmptyLines": 212,
+      "functions": [
+        {
+          "name": "getParameterNames",
+          "startLine": 42,
+          "endLine": 47,
+          "params": [
+            "method"
+          ]
+        },
+        {
+          "name": "getParameterNames",
+          "startLine": 49,
+          "endLine": 53,
+          "params": [
+            "ctor"
+          ]
+        },
+        {
+          "name": "doGetParameterNames",
+          "startLine": 55,
+          "endLine": 60,
+          "params": [
+            "executable"
+          ]
+        },
+        {
+          "name": "inspectClass",
+          "startLine": 68,
+          "endLine": 113,
+          "params": [
+            "clazz"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LocalVariableTableParameterNameDiscoverer",
+          "startLine": 31,
+          "endLine": 253,
+          "methods": [
+            "getParameterNames",
+            "getParameterNames",
+            "doGetParameterNames",
+            "inspectClass"
+          ],
+          "properties": [
+            "logger",
+            "NO_DEBUG_INFO_MAP",
+            "parameterNamesCache"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getParameterNames",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "getParameterNames",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "LocalVariableTableParameterNameDiscoverer",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getParameterNames",
+          "callee": "BridgeMethodResolver.findBridgedMethod",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getParameterNames",
+          "callee": "doGetParameterNames",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getParameterNames",
+          "callee": "doGetParameterNames",
+          "lineNumber": 52
+        },
+        {
+          "caller": "doGetParameterNames",
+          "callee": "executable.getDeclaringClass",
+          "lineNumber": 57
+        },
+        {
+          "caller": "doGetParameterNames",
+          "callee": "this.parameterNamesCache.computeIfAbsent",
+          "lineNumber": 58
+        },
+        {
+          "caller": "doGetParameterNames",
+          "callee": "map.get",
+          "lineNumber": 59
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "clazz.getResourceAsStream",
+          "lineNumber": 69
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "ClassUtils.getClassFileName",
+          "lineNumber": 69
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "logger.isDebugEnabled",
+          "lineNumber": 73
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "logger.debug",
+          "lineNumber": 74
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "new ClassReader",
+          "lineNumber": 82
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "new ConcurrentHashMap<>",
+          "lineNumber": 83
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "classReader.accept",
+          "lineNumber": 84
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "new ParameterNameDiscoveringVisitor",
+          "lineNumber": 84
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "logger.isWarnEnabled",
+          "lineNumber": 85
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "logger.warn",
+          "lineNumber": 86
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "clazz.getName",
+          "lineNumber": 87
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "logger.isDebugEnabled",
+          "lineNumber": 92
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "logger.debug",
+          "lineNumber": 93
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "logger.isDebugEnabled",
+          "lineNumber": 98
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "logger.debug",
+          "lineNumber": 99
+        },
+        {
+          "caller": "inspectClass",
+          "callee": "is.close",
+          "lineNumber": 106
+        },
+        {
+          "caller": "visitMethod",
+          "callee": "isSyntheticOrBridged",
+          "lineNumber": 138
+        },
+        {
+          "caller": "visitMethod",
+          "callee": "STATIC_CLASS_INIT.equals",
+          "lineNumber": 138
+        },
+        {
+          "caller": "visitMethod",
+          "callee": "new LocalVariableTableVisitor",
+          "lineNumber": 139
+        },
+        {
+          "caller": "visitMethod",
+          "callee": "isStatic",
+          "lineNumber": 139
+        },
+        {
+          "caller": "LocalVariableTableVisitor",
+          "callee": "Type.getArgumentTypes",
+          "lineNumber": 183
+        },
+        {
+          "caller": "LocalVariableTableVisitor",
+          "callee": "computeLvtSlotIndices",
+          "lineNumber": 186
+        },
+        {
+          "caller": "visitEnd",
+          "callee": "result",
+          "lineNumber": 201
+        },
+        {
+          "caller": "visitEnd",
+          "callee": "this.executableMap.put",
+          "lineNumber": 206
+        },
+        {
+          "caller": "visitEnd",
+          "callee": "resolveExecutable",
+          "lineNumber": 206
+        },
+        {
+          "caller": "resolveExecutable",
+          "callee": "this.clazz.getClassLoader",
+          "lineNumber": 215
+        },
+        {
+          "caller": "resolveExecutable",
+          "callee": "ClassUtils.resolveClassName",
+          "lineNumber": 218
+        },
+        {
+          "caller": "resolveExecutable",
+          "callee": "this.args[i].getClassName",
+          "lineNumber": 218
+        },
+        {
+          "caller": "resolveExecutable",
+          "callee": "CONSTRUCTOR.equals",
+          "lineNumber": 221
+        },
+        {
+          "caller": "resolveExecutable",
+          "callee": "this.clazz.getDeclaredConstructor",
+          "lineNumber": 222
+        },
+        {
+          "caller": "resolveExecutable",
+          "callee": "this.clazz.getDeclaredMethod",
+          "lineNumber": 224
+        },
+        {
+          "caller": "resolveExecutable",
+          "callee": "new IllegalStateException",
+          "lineNumber": 227
+        },
+        {
+          "caller": "computeLvtSlotIndices",
+          "callee": "isWideType",
+          "lineNumber": 237
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/constant/RepeatExecuteLimitConstant.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "RepeatExecuteLimitConstant",
+          "startLine": 8,
+          "endLine": 13,
+          "methods": [],
+          "properties": [
+            "PREFIX_NAME",
+            "SUCCESS_FLAG"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PREFIX_NAME",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "SUCCESS_FLAG",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "RepeatExecuteLimitConstant",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/DistributedLockConstants.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 116,
+      "nonEmptyLines": 92,
+      "classes": [
+        {
+          "name": "DistributedLockConstants",
+          "startLine": 8,
+          "endLine": 116,
+          "methods": [],
+          "properties": [
+            "REGISTER_USER_LOCK",
+            "LOGIN_USER_LOCK",
+            "PROGRAM_LOCK",
+            "PROGRAM_GROUP_LOCK",
+            "GET_PROGRAM_LOCK",
+            "PROGRAM_SHOW_TIME_LOCK",
+            "GET_PROGRAM_SHOW_TIME_LOCK",
+            "SEAT_LOCK",
+            "GET_SEAT_LOCK",
+            "TICKET_CATEGORY_LOCK",
+            "GET_TICKET_CATEGORY_LOCK",
+            "PROGRAM_CATEGORY_LOCK",
+            "REMAIN_NUMBER_LOCK",
+            "GET_REMAIN_NUMBER_LOCK",
+            "UPDATE_ORDER_STATUS_LOCK",
+            "TRADE_CHECK",
+            "PROGRAM_ORDER_CREATE_V1",
+            "PROGRAM_ORDER_CREATE_V2",
+            "PROGRAM_ORDER_CREATE_V3",
+            "PROGRAM_ORDER_CREATE_V4",
+            "COMMON_PAY"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "REGISTER_USER_LOCK",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "LOGIN_USER_LOCK",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "PROGRAM_LOCK",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "PROGRAM_GROUP_LOCK",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "GET_PROGRAM_LOCK",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "PROGRAM_SHOW_TIME_LOCK",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "GET_PROGRAM_SHOW_TIME_LOCK",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "SEAT_LOCK",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "GET_SEAT_LOCK",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "TICKET_CATEGORY_LOCK",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "GET_TICKET_CATEGORY_LOCK",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "PROGRAM_CATEGORY_LOCK",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "REMAIN_NUMBER_LOCK",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "GET_REMAIN_NUMBER_LOCK",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "UPDATE_ORDER_STATUS_LOCK",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "TRADE_CHECK",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "PROGRAM_ORDER_CREATE_V1",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "PROGRAM_ORDER_CREATE_V2",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "PROGRAM_ORDER_CREATE_V3",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "PROGRAM_ORDER_CREATE_V4",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "COMMON_PAY",
+          "line": 115,
+          "isDefault": false
+        },
+        {
+          "name": "DistributedLockConstants",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 22,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 13,
+      "classes": [
+        {
+          "name": "LockTimeOutHandler",
+          "startLine": 8,
+          "endLine": 15,
+          "methods": [
+            "handler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "LockTimeOutHandler",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskCall.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 14,
+      "classes": [
+        {
+          "name": "TaskCall",
+          "startLine": 8,
+          "endLine": 16,
+          "methods": [
+            "call"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TaskCall",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

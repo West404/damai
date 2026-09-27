@@ -1,0 +1,749 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java",
+      "type": "file",
+      "name": "AlipayTradeStatus.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java",
+      "summary": "定义支付宝交易状态枚举（等待付款、交易关闭、交易成功、交易结束），value 保存支付宝原始状态串，并提供 code 与枚举互查的静态方法。",
+      "tags": [
+        "枚举",
+        "支付状态",
+        "支付宝",
+        "常量定义"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java:AlipayTradeStatus",
+      "type": "class",
+      "name": "AlipayTradeStatus",
+      "filePath": "damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java",
+      "lineRange": [
+        8,
+        74
+      ],
+      "summary": "支付宝交易状态枚举类，提供按 code 反查状态、按 code 取描述与状态码的静态工具方法。",
+      "tags": [
+        "枚举",
+        "支付状态",
+        "支付宝",
+        "工具类"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "type": "file",
+      "name": "PayBillStatus.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "summary": "定义支付单状态枚举（未支付、已支付、已取消、已退款），供支付服务与订单服务统一引用，避免魔法值。",
+      "tags": [
+        "枚举",
+        "支付状态",
+        "常量定义",
+        "支付"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/PayBillStatus.java:PayBillStatus",
+      "type": "class",
+      "name": "PayBillStatus",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "lineRange": [
+        8,
+        60
+      ],
+      "summary": "支付单状态枚举类，含状态码、描述字段与按 code 互查的静态方法。",
+      "tags": [
+        "枚举",
+        "支付状态",
+        "常量定义"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-common/src/main/java/com/damai/enums/PayChannel.java",
+      "type": "file",
+      "name": "PayChannel.java",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PayChannel.java",
+      "summary": "定义支付渠道枚举（如支付宝），value 为渠道标识串，支付服务据此从策略上下文中路由到对应渠道实现。",
+      "tags": [
+        "枚举",
+        "支付渠道",
+        "策略路由",
+        "常量定义"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-common/src/main/java/com/damai/enums/PayChannel.java:PayChannel",
+      "type": "class",
+      "name": "PayChannel",
+      "filePath": "damai-common/src/main/java/com/damai/enums/PayChannel.java",
+      "lineRange": [
+        8,
+        70
+      ],
+      "summary": "支付渠道枚举类，含渠道码、渠道标识与描述，并提供静态互查方法。",
+      "tags": [
+        "枚举",
+        "支付渠道",
+        "常量定义"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "type": "file",
+      "name": "PayClient.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "summary": "支付服务的 Feign 客户端接口，声明通用下单、异步回调、交易核对与退款四个跨服务调用契约，供订单服务等消费方直接注入使用。",
+      "tags": [
+        "feign-client",
+        "服务契约",
+        "支付",
+        "rpc"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java:PayClient",
+      "type": "class",
+      "name": "PayClient",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "lineRange": [
+        21,
+        52
+      ],
+      "summary": "Feign 接口，暴露支付服务对外的四个 RPC 契约方法并统一返回 ApiResponse。",
+      "tags": [
+        "feign-client",
+        "服务契约",
+        "支付",
+        "接口定义"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "type": "file",
+      "name": "PayClientFallback.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "summary": "支付服务 Feign 客户端的降级实现，四个方法在调用失败时统一返回 ApiResponse.error 兜底响应，避免故障扩散。",
+      "tags": [
+        "降级容错",
+        "feign-client",
+        "熔断",
+        "支付"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java:PayClientFallback",
+      "type": "class",
+      "name": "PayClientFallback",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "lineRange": [
+        18,
+        40
+      ],
+      "summary": "实现 PayClient 的降级类，各方法直接返回 BaseCode 定义的错误响应。",
+      "tags": [
+        "降级容错",
+        "feign-client",
+        "熔断"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "type": "file",
+      "name": "NotifyDto.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "summary": "支付回调入参传输对象，携带支付渠道标识与第三方回调的原始参数 Map，供支付服务验签与核验。",
+      "tags": [
+        "dto",
+        "data-model",
+        "支付回调"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java:NotifyDto",
+      "type": "class",
+      "name": "NotifyDto",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "lineRange": [
+        17,
+        32
+      ],
+      "summary": "回调参数传输对象，包含 channel 与 params 两个字段。",
+      "tags": [
+        "dto",
+        "data-model",
+        "支付回调"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java",
+      "type": "file",
+      "name": "PayBillDto.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java",
+      "summary": "支付单详情查询入参传输对象，通过订单号定位支付单。",
+      "tags": [
+        "dto",
+        "data-model",
+        "支付单"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java:PayBillDto",
+      "type": "class",
+      "name": "PayBillDto",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java",
+      "lineRange": [
+        16,
+        26
+      ],
+      "summary": "支付单查询入参，仅包含订单号字段。",
+      "tags": [
+        "dto",
+        "data-model",
+        "支付单"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "type": "file",
+      "name": "PayDto.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "summary": "通用支付下单入参传输对象，包含平台标识、订单号、交易标题、金额、支付渠道、支付单类型以及回调与返回地址。",
+      "tags": [
+        "dto",
+        "data-model",
+        "支付下单"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java:PayDto",
+      "type": "class",
+      "name": "PayDto",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "lineRange": [
+        18,
+        57
+      ],
+      "summary": "支付下单参数对象，聚合下单所需的订单、金额、渠道与回调配置。",
+      "tags": [
+        "dto",
+        "data-model",
+        "支付下单"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "type": "file",
+      "name": "RefundDto.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "summary": "退款入参传输对象，包含订单号、退款金额、支付渠道与退款原因。",
+      "tags": [
+        "dto",
+        "data-model",
+        "退款"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java:RefundDto",
+      "type": "class",
+      "name": "RefundDto",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "lineRange": [
+        16,
+        34
+      ],
+      "summary": "退款参数对象，描述退款金额、渠道与原因。",
+      "tags": [
+        "dto",
+        "data-model",
+        "退款"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "type": "file",
+      "name": "TradeCheckDto.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "summary": "交易核对入参传输对象，携带商户订单号与支付渠道，用于向第三方主动查询真实交易状态。",
+      "tags": [
+        "dto",
+        "data-model",
+        "交易核对"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java:TradeCheckDto",
+      "type": "class",
+      "name": "TradeCheckDto",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "lineRange": [
+        15,
+        26
+      ],
+      "summary": "交易核对参数对象，包含第三方交易号与渠道字段。",
+      "tags": [
+        "dto",
+        "data-model",
+        "交易核对"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "type": "file",
+      "name": "NotifyVo.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "summary": "支付回调处理结果视图对象，返回商户订单号与支付结果描述，供渠道方或订单服务判断幂等处理结果。",
+      "tags": [
+        "vo",
+        "data-model",
+        "支付回调"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java:NotifyVo",
+      "type": "class",
+      "name": "NotifyVo",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "lineRange": [
+        14,
+        26
+      ],
+      "summary": "回调结果视图对象，包含商户订单号与支付结果两个字段。",
+      "tags": [
+        "vo",
+        "data-model",
+        "支付回调"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "type": "file",
+      "name": "PayBillVo.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "summary": "支付单详情视图对象，向订单服务暴露支付流水号、商户订单号、渠道、场景、金额、状态与支付时间等字段。",
+      "tags": [
+        "vo",
+        "data-model",
+        "支付单"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java:PayBillVo",
+      "type": "class",
+      "name": "PayBillVo",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "lineRange": [
+        16,
+        87
+      ],
+      "summary": "支付单对外视图对象，字段与支付单实体基本一一对应。",
+      "tags": [
+        "vo",
+        "data-model",
+        "支付单"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "type": "file",
+      "name": "TradeCheckVo.java",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "summary": "交易核对结果视图对象，返回核对是否成功、支付单状态、第三方交易号与交易金额。",
+      "tags": [
+        "vo",
+        "data-model",
+        "交易核对"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java:TradeCheckVo",
+      "type": "class",
+      "name": "TradeCheckVo",
+      "filePath": "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "lineRange": [
+        15,
+        33
+      ],
+      "summary": "交易核对结果视图对象，字段由 TradeResult 拷贝而来。",
+      "tags": [
+        "vo",
+        "data-model",
+        "交易核对"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "type": "file",
+      "name": "PayController.java",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "summary": "支付服务的 REST 入口，暴露下单、异步回调、交易核对、退款与支付单详情五个接口，统一包装为 ApiResponse 并转调 PayService。",
+      "tags": [
+        "api-handler",
+        "rest-controller",
+        "入口点",
+        "支付"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController",
+      "type": "class",
+      "name": "PayController",
+      "filePath": "damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "lineRange": [
+        27,
+        64
+      ],
+      "summary": "支付服务控制器，薄封装 PayService 的五个方法并统一返回 ApiResponse。",
+      "tags": [
+        "api-handler",
+        "rest-controller",
+        "入口点"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/AlipayTradeStatus.java:AlipayTradeStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/PayBillStatus.java:PayBillStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-common/src/main/java/com/damai/enums/PayChannel.java",
+      "target": "class:damai-common/src/main/java/com/damai/enums/PayChannel.java:PayChannel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java:PayClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java:PayClientFallback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java:PayClientFallback",
+      "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java:PayClient",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java:NotifyDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java",
+      "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java:PayBillDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java:PayDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java:RefundDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java:TradeCheckDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java:NotifyVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java:PayBillVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "target": "class:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java:TradeCheckVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "target": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController",
+      "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java:commonPay",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController",
+      "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java:notify",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController",
+      "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java:tradeCheck",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController",
+      "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java:refund",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java:PayController",
+      "target": "function:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java:detail",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClientFallback.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayBillDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/PayBillVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "target": "file:damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-pay-service/src/main/java/com/damai/controller/PayController.java",
+      "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/service/PayService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

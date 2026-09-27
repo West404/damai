@@ -1,0 +1,841 @@
+{
+ "nodes": [
+  {
+   "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramGroupVo.java",
+   "type": "file",
+   "name": "ProgramGroupVo.java",
+   "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramGroupVo.java",
+   "summary": "View object carrying program group (performing-artist group) data returned to clients, including artist names and program count.",
+   "tags": [
+    "data-model",
+    "vo",
+    "program-group",
+    "serialization"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramHomeVo.java",
+   "type": "file",
+   "name": "ProgramHomeVo.java",
+   "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramHomeVo.java",
+   "summary": "View object representing a program entry on the homepage, with program id, title, poster and minimum price for listing rendering.",
+   "tags": [
+    "data-model",
+    "vo",
+    "homepage",
+    "serialization"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramListVo.java",
+   "type": "file",
+   "name": "ProgramListVo.java",
+   "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramListVo.java",
+   "summary": "View object for program list/search results, bundling program details, show time, ticket price range and category info.",
+   "tags": [
+    "data-model",
+    "vo",
+    "search-result",
+    "serialization"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramSimpleInfoVo.java",
+   "type": "file",
+   "name": "ProgramSimpleInfoVo.java",
+   "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramSimpleInfoVo.java",
+   "summary": "Lightweight view object with minimal program fields (id, title) used for cache-friendly quick lookups.",
+   "tags": [
+    "data-model",
+    "vo",
+    "lightweight",
+    "serialization"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+   "type": "file",
+   "name": "ProgramVo.java",
+   "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+   "summary": "Full view object describing a program (performance event) with title, place, show times, ticket categories and descriptive content for detail pages.",
+   "tags": [
+    "data-model",
+    "vo",
+    "program-detail",
+    "serialization"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java",
+   "type": "file",
+   "name": "ApiDataMessageSend.java",
+   "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java",
+   "summary": "Kafka message producer in the gateway service that sends API request data records to a topic prefixed with the application distinction name.",
+   "tags": [
+    "kafka",
+    "message-producer",
+    "gateway",
+    "api-data"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java",
+   "type": "file",
+   "name": "OrderDataTask.java",
+   "filePath": "damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java",
+   "summary": "Scheduled task in the order service that runs daily at 23:00 to asynchronously clean up orders and order-ticket-user records via the business thread pool.",
+   "tags": [
+    "scheduled-task",
+    "order",
+    "cleanup",
+    "async"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+   "type": "file",
+   "name": "DelayOperateProgramDataSend.java",
+   "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+   "summary": "Delay-queue message sender that schedules program-data update messages after an order is paid, using the Redisson-based delay queue.",
+   "tags": [
+    "delay-queue",
+    "message-producer",
+    "order",
+    "program-data"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "type": "file",
+   "name": "ProgramController.java",
+   "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "summary": "REST controller exposing program endpoints: add, search, homepage list, paged list, recommendations, multi-version detail queries, invalidation and local-cache detail.",
+   "tags": [
+    "api-handler",
+    "rest-controller",
+    "program",
+    "endpoint"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java",
+   "type": "file",
+   "name": "ProgramResetController.java",
+   "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java",
+   "summary": "REST controller exposing the endpoint to reset a program's execution data (idempotent program-data reset).",
+   "tags": [
+    "api-handler",
+    "rest-controller",
+    "program-reset"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java",
+   "type": "file",
+   "name": "ProgramShowTimeController.java",
+   "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java",
+   "summary": "REST controller exposing the endpoint to add a show time for a program.",
+   "tags": [
+    "api-handler",
+    "rest-controller",
+    "show-time"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java",
+   "type": "file",
+   "name": "Program.java",
+   "filePath": "damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java",
+   "summary": "MyBatis-Plus entity mapping the program table: core performance-event record with title, category, area, time, sales status and descriptive fields.",
+   "tags": [
+    "data-model",
+    "entity",
+    "mybatis-plus",
+    "program"
+   ],
+   "complexity": "complex",
+   "languageNotes": "Lombok @Data entity extending BaseTableData for shared audit fields."
+  },
+  {
+   "id": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java",
+   "type": "file",
+   "name": "ProgramGroup.java",
+   "filePath": "damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java",
+   "summary": "MyBatis-Plus entity mapping the program_group table, linking a program to a group of performing artists.",
+   "tags": [
+    "data-model",
+    "entity",
+    "mybatis-plus",
+    "program-group"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramGroupVo.java:ProgramGroupVo",
+   "type": "class",
+   "name": "ProgramGroupVo",
+   "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramGroupVo.java",
+   "lineRange": [
+    16,
+    31
+   ],
+   "summary": "Program group view object exposing artist group and program summary fields.",
+   "tags": [
+    "data-model",
+    "vo"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramHomeVo.java:ProgramHomeVo",
+   "type": "class",
+   "name": "ProgramHomeVo",
+   "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramHomeVo.java",
+   "lineRange": [
+    15,
+    30
+   ],
+   "summary": "Homepage program view object with id, title, poster and price fields.",
+   "tags": [
+    "data-model",
+    "vo"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramListVo.java:ProgramListVo",
+   "type": "class",
+   "name": "ProgramListVo",
+   "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramListVo.java",
+   "lineRange": [
+    16,
+    75
+   ],
+   "summary": "Program list view object combining program, show-time and pricing fields for search/list responses.",
+   "tags": [
+    "data-model",
+    "vo"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramSimpleInfoVo.java:ProgramSimpleInfoVo",
+   "type": "class",
+   "name": "ProgramSimpleInfoVo",
+   "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramSimpleInfoVo.java",
+   "lineRange": [
+    14,
+    29
+   ],
+   "summary": "Minimal program view object for lightweight cached lookups.",
+   "tags": [
+    "data-model",
+    "vo"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java:ProgramVo",
+   "type": "class",
+   "name": "ProgramVo",
+   "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+   "lineRange": [
+    16,
+    184
+   ],
+   "summary": "Comprehensive program view object including ticket categories and show-time details.",
+   "tags": [
+    "data-model",
+    "vo"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java:ApiDataMessageSend",
+   "type": "class",
+   "name": "ApiDataMessageSend",
+   "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java",
+   "lineRange": [
+    13,
+    25
+   ],
+   "summary": "Kafka producer component sending API metrics data with a prefixed topic name.",
+   "tags": [
+    "kafka",
+    "message-producer"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java:OrderDataTask",
+   "type": "class",
+   "name": "OrderDataTask",
+   "filePath": "damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java",
+   "lineRange": [
+    15,
+    33
+   ],
+   "summary": "Spring scheduled component triggering daily order data cleanup in a background thread pool.",
+   "tags": [
+    "scheduled-task",
+    "order"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java:DelayOperateProgramDataSend",
+   "type": "class",
+   "name": "DelayOperateProgramDataSend",
+   "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+   "lineRange": [
+    18,
+    34
+   ],
+   "summary": "Component enqueueing delayed program-data-operation messages into the delay queue.",
+   "tags": [
+    "delay-queue",
+    "message-producer"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java:ProgramController",
+   "type": "class",
+   "name": "ProgramController",
+   "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "lineRange": [
+    32,
+    100
+   ],
+   "summary": "REST controller with 10 endpoints delegating to ProgramService for program queries and mutations.",
+   "tags": [
+    "api-handler",
+    "rest-controller"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java:ProgramResetController",
+   "type": "class",
+   "name": "ProgramResetController",
+   "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java",
+   "lineRange": [
+    20,
+    33
+   ],
+   "summary": "REST controller delegating program reset-execution requests to ProgramService.",
+   "tags": [
+    "api-handler",
+    "rest-controller"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java:ProgramShowTimeController",
+   "type": "class",
+   "name": "ProgramShowTimeController",
+   "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java",
+   "lineRange": [
+    20,
+    33
+   ],
+   "summary": "REST controller delegating show-time creation to ProgramShowTimeService.",
+   "tags": [
+    "api-handler",
+    "rest-controller"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java:Program",
+   "type": "class",
+   "name": "Program",
+   "filePath": "damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java",
+   "lineRange": [
+    16,
+    247
+   ],
+   "summary": "Program table entity extending BaseTableData with full performance-event fields.",
+   "tags": [
+    "data-model",
+    "entity"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java:ProgramGroup",
+   "type": "class",
+   "name": "ProgramGroup",
+   "filePath": "damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java",
+   "lineRange": [
+    16,
+    37
+   ],
+   "summary": "Program group table entity extending BaseTableData.",
+   "tags": [
+    "data-model",
+    "entity"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java:executeTask",
+   "type": "function",
+   "name": "executeTask",
+   "filePath": "damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java",
+   "lineRange": [
+    22,
+    32
+   ],
+   "summary": "Cron-triggered task (daily 23:00) submitting order and ticket-user cleanup to BusinessThreadPool.",
+   "tags": [
+    "scheduled-task",
+    "cleanup",
+    "async"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java:sendMessage",
+   "type": "function",
+   "name": "sendMessage",
+   "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+   "lineRange": [
+    25,
+    33
+   ],
+   "summary": "Sends a delayed program-data-operation message via DelayQueueContext with the application-prefixed topic.",
+   "tags": [
+    "delay-queue",
+    "message-producer"
+   ],
+   "complexity": "simple"
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramGroupVo.java",
+   "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramGroupVo.java:ProgramGroupVo",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramGroupVo.java",
+   "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramGroupVo.java:ProgramGroupVo",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramHomeVo.java",
+   "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramHomeVo.java:ProgramHomeVo",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramHomeVo.java",
+   "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramHomeVo.java:ProgramHomeVo",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramListVo.java",
+   "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramListVo.java:ProgramListVo",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramListVo.java",
+   "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramListVo.java:ProgramListVo",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramSimpleInfoVo.java",
+   "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramSimpleInfoVo.java:ProgramSimpleInfoVo",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramSimpleInfoVo.java",
+   "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramSimpleInfoVo.java:ProgramSimpleInfoVo",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+   "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java:ProgramVo",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+   "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java:ProgramVo",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java",
+   "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java:ApiDataMessageSend",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java",
+   "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java:ApiDataMessageSend",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java",
+   "target": "class:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java:OrderDataTask",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java",
+   "target": "class:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java:OrderDataTask",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+   "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java:DelayOperateProgramDataSend",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+   "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java:DelayOperateProgramDataSend",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java:ProgramController",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java:ProgramController",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java",
+   "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java:ProgramResetController",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java",
+   "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java:ProgramResetController",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java",
+   "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java:ProgramShowTimeController",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java",
+   "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java:ProgramShowTimeController",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java",
+   "target": "class:damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java:Program",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java",
+   "target": "class:damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java:Program",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java",
+   "target": "class:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java:ProgramGroup",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java",
+   "target": "class:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java:ProgramGroup",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java",
+   "target": "function:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java:executeTask",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+   "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java:sendMessage",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java",
+   "target": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java",
+   "target": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java",
+   "target": "file:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+   "target": "file:damai-common/src/main/java/com/damai/core/SpringUtil.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+   "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramAddDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramGetDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramInvalidDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramListDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramPageListDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramRecommendListDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramSearchDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramHomeVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramListVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+   "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/page/PageVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java",
+   "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java",
+   "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramResetExecuteDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java",
+   "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java",
+   "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java",
+   "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramShowTimeAddDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java",
+   "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java",
+   "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java",
+   "target": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "class:damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java:Program",
+   "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData",
+   "type": "inherits",
+   "direction": "forward",
+   "weight": 0.9
+  },
+  {
+   "source": "class:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java:ProgramGroup",
+   "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java:BaseTableData",
+   "type": "inherits",
+   "direction": "forward",
+   "weight": 0.9
+  },
+  {
+   "source": "function:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java:executeTask",
+   "target": "function:damai-thread-pool-framework/src/main/java/com/damai/BusinessThreadPool.java:execute",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java:executeTask",
+   "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java:delOrderAndOrderTicketUser",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "function:damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java:sendMessage",
+   "target": "function:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueContext.java:sendMessage",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  }
+ ]
+}

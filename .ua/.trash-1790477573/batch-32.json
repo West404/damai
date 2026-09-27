@@ -1,0 +1,83 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-customize-service/src/main/resources/mapper/ApiDataMapper.xml",
+      "type": "config",
+      "name": "ApiDataMapper.xml",
+      "filePath": "damai-server/damai-customize-service/src/main/resources/mapper/ApiDataMapper.xml",
+      "summary": "MyBatis 映射文件，为 ApiDataMapper 接口定义 d_api_data 表的 resultMap 映射与分页统计查询 pageList，按 api_address、api_url、type 分组统计接口调用次数，并支持起止时间、接口地址、接口 URL 的条件过滤。",
+      "tags": ["mybatis", "sql-mapper", "配置文件", "数据访问", "统计聚合"],
+      "complexity": "simple",
+      "languageNotes": "MyBatis XML mapper：namespace 绑定 Java 接口，resultMap 使用下划线列名到驼峰属性的自动映射，动态 SQL 用 <if> 与 <![CDATA[ ]]> 包裹比较运算符避免 XML 转义。"
+    },
+    {
+      "id": "config:damai-server/damai-customize-service/src/main/resources/mapper/DepthRuleMapper.xml",
+      "type": "config",
+      "name": "DepthRuleMapper.xml",
+      "filePath": "damai-server/damai-customize-service/src/main/resources/mapper/DepthRuleMapper.xml",
+      "summary": "MyBatis 映射文件，为 DepthRuleMapper 接口定义 delAll 语句，用于全量清空 d_depth_rule 深度规则表，供配置刷新前重置数据使用。",
+      "tags": ["mybatis", "sql-mapper", "配置文件", "数据访问", "批量删除"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-customize-service/src/main/resources/mapper/RuleMapper.xml",
+      "type": "config",
+      "name": "RuleMapper.xml",
+      "filePath": "damai-server/damai-customize-service/src/main/resources/mapper/RuleMapper.xml",
+      "summary": "MyBatis 映射文件，为 RuleMapper 接口定义 delAll 语句，用于全量清空 d_rule 规则表，配合定时任务或配置变更时重建规则数据。",
+      "tags": ["mybatis", "sql-mapper", "配置文件", "数据访问", "批量删除"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:damai-server/damai-customize-service/src/main/resources/mapper/ApiDataMapper.xml",
+      "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-customize-service/src/main/resources/mapper/DepthRuleMapper.xml",
+      "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/DepthRuleMapper.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-customize-service/src/main/resources/mapper/RuleMapper.xml",
+      "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/RuleMapper.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-customize-service/src/main/resources/mapper/ApiDataMapper.xml",
+      "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-customize-service/src/main/resources/mapper/ApiDataMapper.xml",
+      "target": "table:sql/cloud/damai_customize.sql:d_api_data",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-customize-service/src/main/resources/mapper/DepthRuleMapper.xml",
+      "target": "table:sql/cloud/damai_customize.sql:d_depth_rule",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-customize-service/src/main/resources/mapper/RuleMapper.xml",
+      "target": "table:sql/cloud/damai_customize.sql:d_rule",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

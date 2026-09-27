@@ -1,0 +1,1525 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 11,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 11,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 11,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/SeatType.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 47,
+      "functions": [
+        {
+          "name": "SeatType",
+          "startLine": 19,
+          "endLine": 22,
+          "params": [
+            "code",
+            "msg"
+          ]
+        },
+        {
+          "name": "getCode",
+          "startLine": 24,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "setCode",
+          "startLine": 28,
+          "endLine": 30,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 32,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "setMsg",
+          "startLine": 36,
+          "endLine": 38,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 40,
+          "endLine": 47,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getRc",
+          "startLine": 49,
+          "endLine": 56,
+          "params": [
+            "code"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeatType",
+          "startLine": 8,
+          "endLine": 57,
+          "methods": [
+            "SeatType",
+            "getCode",
+            "setCode",
+            "getMsg",
+            "setMsg",
+            "getMsg",
+            "getRc"
+          ],
+          "properties": [
+            "code",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCode",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "setCode",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "setMsg",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "getRc",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "SeatType",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getMsg",
+          "callee": "SeatType.values",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getMsg",
+          "callee": "re.code.intValue",
+          "lineNumber": 42
+        },
+        {
+          "caller": "getMsg",
+          "callee": "code.intValue",
+          "lineNumber": 42
+        },
+        {
+          "caller": "getRc",
+          "callee": "SeatType.values",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getRc",
+          "callee": "re.code.intValue",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getRc",
+          "callee": "code.intValue",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/SellStatus.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "SellStatus",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "code",
+            "msg"
+          ]
+        },
+        {
+          "name": "getCode",
+          "startLine": 26,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "setCode",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 34,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "setMsg",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 42,
+          "endLine": 49,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getRc",
+          "startLine": 51,
+          "endLine": 58,
+          "params": [
+            "code"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SellStatus",
+          "startLine": 8,
+          "endLine": 59,
+          "methods": [
+            "SellStatus",
+            "getCode",
+            "setCode",
+            "getMsg",
+            "setMsg",
+            "getMsg",
+            "getRc"
+          ],
+          "properties": [
+            "code",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCode",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "setCode",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "setMsg",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "getRc",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "SellStatus",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getMsg",
+          "callee": "SellStatus.values",
+          "lineNumber": 43
+        },
+        {
+          "caller": "getMsg",
+          "callee": "re.code.intValue",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getMsg",
+          "callee": "code.intValue",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getRc",
+          "callee": "SellStatus.values",
+          "lineNumber": 52
+        },
+        {
+          "caller": "getRc",
+          "callee": "re.code.intValue",
+          "lineNumber": 53
+        },
+        {
+          "caller": "getRc",
+          "callee": "code.intValue",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatAddDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 33,
+      "classes": [
+        {
+          "name": "SeatAddDto",
+          "startLine": 15,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "programId",
+            "ticketCategoryId",
+            "rowCode",
+            "colCode",
+            "seatType",
+            "price"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeatAddDto",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchAddDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 21,
+      "classes": [
+        {
+          "name": "SeatBatchAddDto",
+          "startLine": 15,
+          "endLine": 26,
+          "methods": [],
+          "properties": [
+            "programId",
+            "seatBatchRelateInfoAddDtoList"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeatBatchAddDto",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatBatchRelateInfoAddDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 24,
+      "classes": [
+        {
+          "name": "SeatBatchRelateInfoAddDto",
+          "startLine": 16,
+          "endLine": 31,
+          "methods": [],
+          "properties": [
+            "ticketCategoryId",
+            "price",
+            "count"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeatBatchRelateInfoAddDto",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/SeatListDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "SeatListDto",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "programId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeatListDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatRelateInfoVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 31,
+      "classes": [
+        {
+          "name": "SeatRelateInfoVo",
+          "startLine": 17,
+          "endLine": 43,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "programId",
+            "place",
+            "showTime",
+            "showWeekTime",
+            "priceList",
+            "seatVoMap"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeatRelateInfoVo",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/SeatController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 32,
+          "endLine": 36,
+          "params": [
+            "seatAddDto"
+          ]
+        },
+        {
+          "name": "batchAdd",
+          "startLine": 38,
+          "endLine": 42,
+          "params": [
+            "seatBatchAddDto"
+          ]
+        },
+        {
+          "name": "relateInfo",
+          "startLine": 44,
+          "endLine": 48,
+          "params": [
+            "seatListDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeatController",
+          "startLine": 23,
+          "endLine": 49,
+          "methods": [
+            "add",
+            "batchAdd",
+            "relateInfo"
+          ],
+          "properties": [
+            "seatService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "batchAdd",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "relateInfo",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "SeatController",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 35
+        },
+        {
+          "caller": "add",
+          "callee": "seatService.add",
+          "lineNumber": 35
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 41
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seatService.batchAdd",
+          "lineNumber": 41
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 47
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatService.relateInfo",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/Seat.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 53,
+      "classes": [
+        {
+          "name": "Seat",
+          "startLine": 18,
+          "endLine": 65,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "programId",
+            "ticketCategoryId",
+            "rowCode",
+            "colCode",
+            "seatType",
+            "price",
+            "sellStatus"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Seat",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/mapper/SeatMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "SeatMapper",
+          "startLine": 12,
+          "endLine": 14,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SeatMapper",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/SeatService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 235,
+      "nonEmptyLines": 210,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 86,
+          "endLine": 100,
+          "params": [
+            "seatAddDto"
+          ]
+        },
+        {
+          "name": "selectSeatResolution",
+          "startLine": 102,
+          "endLine": 155,
+          "params": [
+            "programId",
+            "ticketCategoryId",
+            "expireTime",
+            "timeUnit"
+          ]
+        },
+        {
+          "name": "getSeatVoListByCacheResolution",
+          "startLine": 157,
+          "endLine": 166,
+          "params": [
+            "programId",
+            "ticketCategoryId"
+          ]
+        },
+        {
+          "name": "relateInfo",
+          "startLine": 168,
+          "endLine": 200,
+          "params": [
+            "seatListDto"
+          ]
+        },
+        {
+          "name": "batchAdd",
+          "startLine": 202,
+          "endLine": 234,
+          "params": [
+            "seatBatchAddDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SeatService",
+          "startLine": 56,
+          "endLine": 235,
+          "methods": [
+            "add",
+            "selectSeatResolution",
+            "getSeatVoListByCacheResolution",
+            "relateInfo",
+            "batchAdd"
+          ],
+          "properties": [
+            "uidGenerator",
+            "redisCache",
+            "seatMapper",
+            "programService",
+            "programShowTimeService",
+            "serviceLockTool",
+            "ticketCategoryService",
+            "programSeatCacheData"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "selectSeatResolution",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "getSeatVoListByCacheResolution",
+          "line": 157,
+          "isDefault": false
+        },
+        {
+          "name": "relateInfo",
+          "line": 168,
+          "isDefault": false
+        },
+        {
+          "name": "batchAdd",
+          "line": 202,
+          "isDefault": false
+        },
+        {
+          "name": "SeatService",
+          "line": 56,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "Wrappers.lambdaQuery(Seat.class)\r\n                .eq(Seat::getProgramId, seatAddDto.getProgramId())\r\n                .eq(Seat::getRowCode, seatAddDto.getRowCode()).eq",
+          "lineNumber": 87
+        },
+        {
+          "caller": "add",
+          "callee": "Wrappers.lambdaQuery(Seat.class)\r\n                .eq(Seat::getProgramId, seatAddDto.getProgramId()).eq",
+          "lineNumber": 87
+        },
+        {
+          "caller": "add",
+          "callee": "Wrappers.lambdaQuery(Seat.class).eq",
+          "lineNumber": 87
+        },
+        {
+          "caller": "add",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 87
+        },
+        {
+          "caller": "add",
+          "callee": "seatAddDto.getProgramId",
+          "lineNumber": 88
+        },
+        {
+          "caller": "add",
+          "callee": "seatAddDto.getRowCode",
+          "lineNumber": 89
+        },
+        {
+          "caller": "add",
+          "callee": "seatAddDto.getColCode",
+          "lineNumber": 90
+        },
+        {
+          "caller": "add",
+          "callee": "seatMapper.selectOne",
+          "lineNumber": 91
+        },
+        {
+          "caller": "add",
+          "callee": "Objects.nonNull",
+          "lineNumber": 92
+        },
+        {
+          "caller": "add",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 93
+        },
+        {
+          "caller": "add",
+          "callee": "new Seat",
+          "lineNumber": 95
+        },
+        {
+          "caller": "add",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 96
+        },
+        {
+          "caller": "add",
+          "callee": "seat.setId",
+          "lineNumber": 97
+        },
+        {
+          "caller": "add",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 97
+        },
+        {
+          "caller": "add",
+          "callee": "seatMapper.insert",
+          "lineNumber": 98
+        },
+        {
+          "caller": "add",
+          "callee": "seat.getId",
+          "lineNumber": 99
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "getSeatVoListByCacheResolution",
+          "lineNumber": 104
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 105
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "serviceLockTool.getLock",
+          "lineNumber": 108
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "String.valueOf",
+          "lineNumber": 108
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "String.valueOf",
+          "lineNumber": 109
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "lock.lock",
+          "lineNumber": 110
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "getSeatVoListByCacheResolution",
+          "lineNumber": 112
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 113
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "Wrappers.lambdaQuery(Seat.class).eq(Seat::getProgramId, programId).eq",
+          "lineNumber": 117
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "Wrappers.lambdaQuery(Seat.class).eq",
+          "lineNumber": 117
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 117
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "seatMapper.selectList",
+          "lineNumber": 119
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "new SeatVo",
+          "lineNumber": 121
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 122
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "seatVo.setSeatTypeName",
+          "lineNumber": 123
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "SeatType.getMsg",
+          "lineNumber": 123
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "seat.getSeatType",
+          "lineNumber": 123
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "seatVoList.add",
+          "lineNumber": 124
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "seatVoList.stream().collect",
+          "lineNumber": 126
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "seatVoList.stream",
+          "lineNumber": 126
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "Collectors.groupingBy",
+          "lineNumber": 126
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "seatMap.get",
+          "lineNumber": 127
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "SellStatus.NO_SOLD.getCode",
+          "lineNumber": 127
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "seatMap.get",
+          "lineNumber": 128
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "SellStatus.LOCK.getCode",
+          "lineNumber": 128
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "seatMap.get",
+          "lineNumber": 129
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "SellStatus.SOLD.getCode",
+          "lineNumber": 129
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 130
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "redisCache.putHash",
+          "lineNumber": 131
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 131
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "noSoldSeatVoList.stream().collect",
+          "lineNumber": 132
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "noSoldSeatVoList.stream",
+          "lineNumber": 132
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "Collectors.toMap",
+          "lineNumber": 133
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "String.valueOf",
+          "lineNumber": 133
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "s.getId",
+          "lineNumber": 133
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 136
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "redisCache.putHash",
+          "lineNumber": 137
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 137
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "lockSeatVoList.stream().collect",
+          "lineNumber": 138
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "lockSeatVoList.stream",
+          "lineNumber": 138
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "Collectors.toMap",
+          "lineNumber": 139
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "String.valueOf",
+          "lineNumber": 139
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "s.getId",
+          "lineNumber": 139
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 142
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "redisCache.putHash",
+          "lineNumber": 143
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 143
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "soldSeatVoList.stream().collect",
+          "lineNumber": 145
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "soldSeatVoList.stream",
+          "lineNumber": 145
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "Collectors.toMap",
+          "lineNumber": 146
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "String.valueOf",
+          "lineNumber": 146
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "s.getId",
+          "lineNumber": 146
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "seatVoList.stream().sorted(Comparator.comparingInt(SeatVo::getRowCode)\r\n                    .thenComparingInt(SeatVo::getColCode)).collect",
+          "lineNumber": 149
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "seatVoList.stream().sorted",
+          "lineNumber": 149
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "seatVoList.stream",
+          "lineNumber": 149
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "Comparator.comparingInt(SeatVo::getRowCode).thenComparingInt",
+          "lineNumber": 149
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "Comparator.comparingInt",
+          "lineNumber": 149
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "Collectors.toList",
+          "lineNumber": 150
+        },
+        {
+          "caller": "selectSeatResolution",
+          "callee": "lock.unlock",
+          "lineNumber": 153
+        },
+        {
+          "caller": "getSeatVoListByCacheResolution",
+          "callee": "new ArrayList<>",
+          "lineNumber": 158
+        },
+        {
+          "caller": "getSeatVoListByCacheResolution",
+          "callee": "keys.add",
+          "lineNumber": 159
+        },
+        {
+          "caller": "getSeatVoListByCacheResolution",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_SEAT_NO_SOLD_RESOLUTION_HASH,\r\n                programId, ticketCategoryId).getRelKey",
+          "lineNumber": 159
+        },
+        {
+          "caller": "getSeatVoListByCacheResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 159
+        },
+        {
+          "caller": "getSeatVoListByCacheResolution",
+          "callee": "keys.add",
+          "lineNumber": 161
+        },
+        {
+          "caller": "getSeatVoListByCacheResolution",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_SEAT_LOCK_RESOLUTION_HASH,\r\n                programId, ticketCategoryId).getRelKey",
+          "lineNumber": 161
+        },
+        {
+          "caller": "getSeatVoListByCacheResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 161
+        },
+        {
+          "caller": "getSeatVoListByCacheResolution",
+          "callee": "keys.add",
+          "lineNumber": 163
+        },
+        {
+          "caller": "getSeatVoListByCacheResolution",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_SEAT_SOLD_RESOLUTION_HASH,\r\n                programId, ticketCategoryId).getRelKey",
+          "lineNumber": 163
+        },
+        {
+          "caller": "getSeatVoListByCacheResolution",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 163
+        },
+        {
+          "caller": "getSeatVoListByCacheResolution",
+          "callee": "programSeatCacheData.getData",
+          "lineNumber": 165
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "new SeatRelateInfoVo",
+          "lineNumber": 169
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "redisCache.get",
+          "lineNumber": 171
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 171
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatListDto.getProgramId",
+          "lineNumber": 171
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "Objects.isNull",
+          "lineNumber": 172
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "new ProgramGetDto",
+          "lineNumber": 173
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "programGetDto.setId",
+          "lineNumber": 174
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatListDto.getProgramId",
+          "lineNumber": 174
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "programService.detail",
+          "lineNumber": 175
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "programShowTimeService.selectProgramShowTimeByProgramId",
+          "lineNumber": 177
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatListDto.getProgramId",
+          "lineNumber": 177
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "ticketCategoryService.selectTicketCategoryListByProgramIdMultipleCache",
+          "lineNumber": 178
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "programVo.getId",
+          "lineNumber": 179
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 179
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "new ArrayList<>",
+          "lineNumber": 181
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatVos.addAll",
+          "lineNumber": 183
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "selectSeatResolution",
+          "lineNumber": 183
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatListDto.getProgramId",
+          "lineNumber": 183
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "ticketCategoryVo.getId",
+          "lineNumber": 183
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "DateUtils.countBetweenSecond",
+          "lineNumber": 184
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "DateUtils.now",
+          "lineNumber": 184
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 184
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "programVo.getPermitChooseSeat().equals",
+          "lineNumber": 187
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "programVo.getPermitChooseSeat",
+          "lineNumber": 187
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "BusinessStatus.NO.getCode",
+          "lineNumber": 187
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 188
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatVos.stream().collect",
+          "lineNumber": 192
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatVos.stream",
+          "lineNumber": 192
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "Collectors.groupingBy",
+          "lineNumber": 192
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatVo.getPrice().toString",
+          "lineNumber": 192
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatVo.getPrice",
+          "lineNumber": 192
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatRelateInfoVo.setProgramId",
+          "lineNumber": 193
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "programVo.getId",
+          "lineNumber": 193
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatRelateInfoVo.setPlace",
+          "lineNumber": 194
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "programVo.getPlace",
+          "lineNumber": 194
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatRelateInfoVo.setShowTime",
+          "lineNumber": 195
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 195
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatRelateInfoVo.setShowWeekTime",
+          "lineNumber": 196
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "programShowTime.getShowWeekTime",
+          "lineNumber": 196
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatRelateInfoVo.setPriceList",
+          "lineNumber": 197
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatVoMap.keySet().stream().sorted().collect",
+          "lineNumber": 197
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatVoMap.keySet().stream().sorted",
+          "lineNumber": 197
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatVoMap.keySet().stream",
+          "lineNumber": 197
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatVoMap.keySet",
+          "lineNumber": 197
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "Collectors.toList",
+          "lineNumber": 197
+        },
+        {
+          "caller": "relateInfo",
+          "callee": "seatRelateInfoVo.setSeatVoMap",
+          "lineNumber": 198
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seatBatchAddDto.getProgramId",
+          "lineNumber": 204
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seatBatchAddDto.getSeatBatchRelateInfoAddDtoList",
+          "lineNumber": 205
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seatBatchRelateInfoAddDto.getTicketCategoryId",
+          "lineNumber": 210
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seatBatchRelateInfoAddDto.getPrice",
+          "lineNumber": 211
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seatBatchRelateInfoAddDto.getCount",
+          "lineNumber": 212
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "new Seat",
+          "lineNumber": 220
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seat.setProgramId",
+          "lineNumber": 221
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seat.setTicketCategoryId",
+          "lineNumber": 222
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seat.setRowCode",
+          "lineNumber": 223
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seat.setColCode",
+          "lineNumber": 224
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seat.setSeatType",
+          "lineNumber": 225
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seat.setPrice",
+          "lineNumber": 226
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seat.setSellStatus",
+          "lineNumber": 227
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "SellStatus.NO_SOLD.getCode",
+          "lineNumber": 227
+        },
+        {
+          "caller": "batchAdd",
+          "callee": "seatMapper.insert",
+          "lineNumber": 228
+        }
+      ],
+      "metrics": {
+        "importCount": 26,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    }
+  ]
+}

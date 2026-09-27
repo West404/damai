@@ -1,0 +1,1387 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "type": "file",
+      "name": "BitsAllocator.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "summary": "雪花算法位分配器，按 timestampBits/workerIdBits/sequenceBits 计算各段最大值与位移量，并把时间戳、机器号、序列号按位拼装或拆解为最终 UID。",
+      "tags": [
+        "工具类",
+        "位运算",
+        "雪花算法",
+        "id-generator"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "type": "file",
+      "name": "UidGenerator.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "summary": "UID 生成器统一接口，约定 getUid/getId/getOrderNumber/parseUid 四项能力，是百度开源 UID 与项目自研雪花实现的公共契约。",
+      "tags": [
+        "接口定义",
+        "id-generator",
+        "雪花算法",
+        "api"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "type": "file",
+      "name": "BufferPaddingExecutor.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "summary": "环形缓冲区填充执行器，通过定时任务与异步触发按秒批量预生成 UID 写入 RingBuffer，以缓冲换吞吐，避免每次取号都走时间戳计算。",
+      "tags": [
+        "并发",
+        "环形缓冲区",
+        "线程池",
+        "id-generator"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "同时使用 ScheduledThreadPoolExecutor（定时填充）与 ThreadPoolExecutor（异步填充）两条触发路径。"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java",
+      "type": "file",
+      "name": "RejectedPutBufferHandler.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java",
+      "summary": "函数式接口，定义环形缓冲区写满时丢弃 UID 的拒绝策略，支持 Lambda 实现。",
+      "tags": [
+        "接口定义",
+        "回调",
+        "环形缓冲区",
+        "id-generator"
+      ],
+      "complexity": "simple",
+      "languageNotes": "@FunctionalInterface：允许以 Lambda 形式注入环形缓冲区满时的处理策略。"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java",
+      "type": "file",
+      "name": "RejectedTakeBufferHandler.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java",
+      "summary": "函数式接口，定义环形缓冲区为空时取号失败的拒绝策略，支持 Lambda 实现。",
+      "tags": [
+        "接口定义",
+        "回调",
+        "环形缓冲区",
+        "id-generator"
+      ],
+      "complexity": "simple",
+      "languageNotes": "@FunctionalInterface：允许以 Lambda 形式注入环形缓冲区空时的处理策略。"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "type": "file",
+      "name": "RingBuffer.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "summary": "基于数组与 CAS 的环形缓冲区，用双原子游标（tail/cursor）和标志位数组实现无锁生产/消费，为 UID 生成器提供内存级取号缓冲。",
+      "tags": [
+        "并发",
+        "环形缓冲区",
+        "无锁",
+        "id-generator"
+      ],
+      "complexity": "complex",
+      "languageNotes": "以 PaddedAtomicLong + 标志位数组实现无锁环形队列，填充阈值触达时自动申请异步填充。"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java",
+      "type": "file",
+      "name": "IdGeneratorRedisConfig.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java",
+      "summary": "条件装配的 Redis 适配配置，提供 idGeneratorRedisTemplate 与基于 Redis 的 WorkerIdAssigner，使百度 UID 的 workerId 可在集群范围内分配。",
+      "tags": [
+        "配置",
+        "redis",
+        "自动装配",
+        "id-generator"
+      ],
+      "complexity": "simple",
+      "languageNotes": "@ConditionalOnProperty(\"spring.data.redis.host\")：仅在配置了 Redis 地址时生效。"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java",
+      "type": "file",
+      "name": "WorkerNodeConfig.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java",
+      "summary": "百度 UID 集成配置类，把 Redis WorkerIdAssigner 与自研 SnowflakeIdGenerator 组装进 CachedUidGenerator 并注册为 UID 生成器 Bean。",
+      "tags": [
+        "配置",
+        "自动装配",
+        "id-generator",
+        "spring"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java",
+      "type": "file",
+      "name": "UidGenerateException.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java",
+      "summary": "UID 生成异常类，提供多个构造重载并支持消息格式化，用于统一暴露取号失败错误。",
+      "tags": [
+        "异常处理",
+        "id-generator",
+        "错误处理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "type": "file",
+      "name": "CachedUidGenerator.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "summary": "带缓存的 UID 生成器实现，继承 DefaultUidGenerator，通过 RingBuffer + BufferPaddingExecutor 提前缓存 UID，把取号降级为内存操作以支撑高并发。",
+      "tags": [
+        "id-generator",
+        "雪花算法",
+        "缓存",
+        "高性能",
+        "并发"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "继承 DefaultUidGenerator 并实现 DisposableBean，兼顾位分配器复用与容器销毁时释放缓冲区资源。"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "type": "file",
+      "name": "DefaultUidGenerator.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "summary": "默认 UID 生成器实现，基于位分配器和秒级时间戳，用同步 nextId 保证同一秒内序列自增，并处理序列耗尽与时钟回拨。",
+      "tags": [
+        "id-generator",
+        "雪花算法",
+        "并发",
+        "基础实现"
+      ],
+      "complexity": "complex",
+      "languageNotes": "实现 InitializingBean，在 afterPropertiesSet 中完成位分配器构建、workerId 校验与分配。"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java:BitsAllocator",
+      "type": "class",
+      "name": "BitsAllocator",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "lineRange": [
+        28,
+        136
+      ],
+      "summary": "位分配器，负责按各段位宽计算最大时间戳增量、最大机器号与最大序列号，并把三者按位拼装/拆解为 UID。",
+      "tags": [
+        "工具类",
+        "位运算",
+        "雪花算法",
+        "id-generator"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java:UidGenerator",
+      "type": "class",
+      "name": "UidGenerator",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "lineRange": [
+        25,
+        58
+      ],
+      "summary": "UID 生成器接口，声明生成唯一 ID、生成订单号与解析 UID 的契约，由百度 DefaultUidGenerator 与本项目雪花实现共同实现。",
+      "tags": [
+        "接口定义",
+        "id-generator",
+        "雪花算法",
+        "api"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:BufferPaddingExecutor",
+      "type": "class",
+      "name": "BufferPaddingExecutor",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "lineRange": [
+        39,
+        181
+      ],
+      "summary": "缓冲区填充执行器，维护 lastSecond 与运行标志，按秒批量向 RingBuffer 预填 UID，支持定时与异步两种触发方式以及优雅停机。",
+      "tags": [
+        "并发",
+        "环形缓冲区",
+        "线程池",
+        "id-generator"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java:RejectedPutBufferHandler",
+      "type": "class",
+      "name": "RejectedPutBufferHandler",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java",
+      "lineRange": [
+        24,
+        34
+      ],
+      "summary": "函数式接口，声明环形缓冲区写满时的处理策略 rejectPutBuffer。",
+      "tags": [
+        "接口定义",
+        "回调",
+        "环形缓冲区",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java:RejectedTakeBufferHandler",
+      "type": "class",
+      "name": "RejectedTakeBufferHandler",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java",
+      "lineRange": [
+        24,
+        33
+      ],
+      "summary": "函数式接口，声明环形缓冲区为空时的处理策略 rejectTakeBuffer。",
+      "tags": [
+        "接口定义",
+        "回调",
+        "环形缓冲区",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:RingBuffer",
+      "type": "class",
+      "name": "RingBuffer",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "lineRange": [
+        39,
+        261
+      ],
+      "summary": "无锁环形缓冲区，以 slots 数组存放 UID、flags 数组标记槽位可读性、tail/cursor 双游标记录写入与读取位置，实现内存级高性能取号。",
+      "tags": [
+        "并发",
+        "环形缓冲区",
+        "无锁",
+        "id-generator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java:IdGeneratorRedisConfig",
+      "type": "class",
+      "name": "IdGeneratorRedisConfig",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java",
+      "lineRange": [
+        19,
+        35
+      ],
+      "summary": "Redis 适配配置类，提供 StringRedisSerializer 的 idGeneratorRedisTemplate 与 Redis 版 WorkerIdAssigner。",
+      "tags": [
+        "配置",
+        "redis",
+        "自动装配",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java:WorkerNodeConfig",
+      "type": "class",
+      "name": "WorkerNodeConfig",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java",
+      "lineRange": [
+        16,
+        33
+      ],
+      "summary": "百度 UID 集成配置类，创建名为 cachedUidGenerator 的 UidGenerator Bean 并注入 workerId 分配器与雪花生成器。",
+      "tags": [
+        "配置",
+        "自动装配",
+        "id-generator",
+        "spring"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java:UidGenerateException",
+      "type": "class",
+      "name": "UidGenerateException",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java",
+      "lineRange": [
+        23,
+        75
+      ],
+      "summary": "继承 RuntimeException 的 UID 生成异常，提供空参、消息、原因、格式化消息等构造重载。",
+      "tags": [
+        "异常处理",
+        "id-generator",
+        "错误处理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:CachedUidGenerator",
+      "type": "class",
+      "name": "CachedUidGenerator",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "lineRange": [
+        50,
+        183
+      ],
+      "summary": "缓存型 UID 生成器，在 DefaultUidGenerator 基础上增加 RingBuffer 缓冲与填充执行器，桶容量按 maxSequence 放大 boostPower 倍以获得更大缓冲。",
+      "tags": [
+        "id-generator",
+        "雪花算法",
+        "缓存",
+        "高性能",
+        "并发"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:DefaultUidGenerator",
+      "type": "class",
+      "name": "DefaultUidGenerator",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "lineRange": [
+        61,
+        237
+      ],
+      "summary": "默认 UID 生成器，使用 BitsAllocator 分配位段，nextId 同步生成 ID，并实现从 ID 反解时间戳/机器号/序列号的 parseUid。",
+      "tags": [
+        "id-generator",
+        "雪花算法",
+        "并发",
+        "基础实现"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java:allocate",
+      "type": "function",
+      "name": "allocate",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "lineRange": [
+        88,
+        90
+      ],
+      "summary": "把时间戳增量、workerId 与序列号按各自位宽左移后按位或，拼装出最终 UID。",
+      "tags": [
+        "位运算",
+        "雪花算法",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "lineRange": [
+        109,
+        113
+      ],
+      "summary": "启动定时填充任务，按 scheduleInterval 秒周期性调用 paddingBuffer。",
+      "tags": [
+        "并发",
+        "定时任务",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:shutdown",
+      "type": "function",
+      "name": "shutdown",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "lineRange": [
+        118,
+        126
+      ],
+      "summary": "关闭定时填充线程与填充线程池，用于应用停机时释放资源。",
+      "tags": [
+        "并发",
+        "优雅停机",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:asyncPadding",
+      "type": "function",
+      "name": "asyncPadding",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "lineRange": [
+        140,
+        142
+      ],
+      "summary": "向填充线程池提交一次异步填充任务，供取号线程在缓冲不足时主动触发。",
+      "tags": [
+        "并发",
+        "异步",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:paddingBuffer",
+      "type": "function",
+      "name": "paddingBuffer",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "lineRange": [
+        147,
+        171
+      ],
+      "summary": "单次填充逻辑：以当前秒为界批量预生成该秒 UID 并 put 入 RingBuffer，缓冲区满时用 CAS 收敛 running 标志结束本轮。",
+      "tags": [
+        "并发",
+        "环形缓冲区",
+        "id-generator"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:setScheduleInterval",
+      "type": "function",
+      "name": "setScheduleInterval",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "lineRange": [
+        176,
+        179
+      ],
+      "summary": "校验并设置定时填充的秒级间隔。",
+      "tags": [
+        "配置",
+        "校验",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:put",
+      "type": "function",
+      "name": "put",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "lineRange": [
+        111,
+        139
+      ],
+      "summary": "向环形缓冲区写入 UID：校验槽位可写、写入并与 tail 比较、置可读标志；缓冲区满时交由 RejectedPutBufferHandler 处理。",
+      "tags": [
+        "并发",
+        "环形缓冲区",
+        "无锁",
+        "id-generator"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:take",
+      "type": "function",
+      "name": "take",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "lineRange": [
+        151,
+        184
+      ],
+      "summary": "从环形缓冲区读取 UID：CAS 前移 cursor、取 UID 并置不可读标志；缓冲区空时触发异步填充并调用 RejectedTakeBufferHandler。",
+      "tags": [
+        "并发",
+        "环形缓冲区",
+        "无锁",
+        "id-generator"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:toString",
+      "type": "function",
+      "name": "toString",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "lineRange": [
+        250,
+        259
+      ],
+      "summary": "输出缓冲区大小、tail、cursor 与填充阈值等运行状态，便于监控与排查。",
+      "tags": [
+        "调试",
+        "监控",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:afterPropertiesSet",
+      "type": "function",
+      "name": "afterPropertiesSet",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "lineRange": [
+        66,
+        74
+      ],
+      "summary": "Bean 初始化回调：先完成父类位分配器初始化，再构建环形缓冲区与填充执行器。",
+      "tags": [
+        "初始化",
+        "spring",
+        "id-generator",
+        "缓存"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:destroy",
+      "type": "function",
+      "name": "destroy",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "lineRange": [
+        101,
+        104
+      ],
+      "summary": "Bean 销毁回调，关闭缓冲填充执行器，释放定时任务与线程池资源。",
+      "tags": [
+        "优雅停机",
+        "spring",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:getUid",
+      "type": "function",
+      "name": "getUid",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "lineRange": [
+        76,
+        84
+      ],
+      "summary": "直接从环形缓冲区取 UID，取号失败时包装为 UidGenerateException 抛出。",
+      "tags": [
+        "id-generator",
+        "缓存",
+        "api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:nextIdsForOneSecond",
+      "type": "function",
+      "name": "nextIdsForOneSecond",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "lineRange": [
+        112,
+        124
+      ],
+      "summary": "为指定秒批量生成该秒内全部可用 UID，作为环形缓冲区的数据来源。",
+      "tags": [
+        "id-generator",
+        "批量生成",
+        "雪花算法"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:initRingBuffer",
+      "type": "function",
+      "name": "initRingBuffer",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "lineRange": [
+        129,
+        158
+      ],
+      "summary": "初始化环形缓冲区与填充执行器：按 maxSequence 与 boostPower 计算桶容量，设置拒绝策略和填充触发，并启动定时填充。",
+      "tags": [
+        "id-generator",
+        "初始化",
+        "环形缓冲区"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:getUid",
+      "type": "function",
+      "name": "getUid",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "lineRange": [
+        103,
+        111
+      ],
+      "summary": "生成并返回一个 UID，异常统一包装为 UidGenerateException。",
+      "tags": [
+        "id-generator",
+        "api",
+        "雪花算法"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:getId",
+      "type": "function",
+      "name": "getId",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "lineRange": [
+        113,
+        116
+      ],
+      "summary": "委托自研 SnowflakeIdGenerator 生成全局唯一 ID。",
+      "tags": [
+        "id-generator",
+        "雪花算法",
+        "api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:getOrderNumber",
+      "type": "function",
+      "name": "getOrderNumber",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "lineRange": [
+        118,
+        121
+      ],
+      "summary": "委托自研雪花生成器，按用户 ID 与分表数量生成订单编号。",
+      "tags": [
+        "id-generator",
+        "订单号",
+        "api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:afterPropertiesSet",
+      "type": "function",
+      "name": "afterPropertiesSet",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "lineRange": [
+        89,
+        101
+      ],
+      "summary": "Bean 初始化回调：构建 BitsAllocator、校验 workerId 上限并调用 WorkerIdAssigner 分配机器号。",
+      "tags": [
+        "初始化",
+        "spring",
+        "id-generator"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:parseUid",
+      "type": "function",
+      "name": "parseUid",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "lineRange": [
+        123,
+        142
+      ],
+      "summary": "按位宽反解 UID，还原生成时间戳、workerId 与序列号，并格式化为可读字符串。",
+      "tags": [
+        "id-generator",
+        "位运算",
+        "调试"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:nextId",
+      "type": "function",
+      "name": "nextId",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "lineRange": [
+        150,
+        176
+      ],
+      "summary": "核心取号逻辑：同一秒内序列自增并检测溢出，跨秒或序列耗尽时切换/等待下一秒，最后用 BitsAllocator 拼装 UID。",
+      "tags": [
+        "id-generator",
+        "雪花算法",
+        "并发",
+        "位运算"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:setWorkerIdAssigner",
+      "type": "function",
+      "name": "setWorkerIdAssigner",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "lineRange": [
+        205,
+        207
+      ],
+      "summary": "注入 workerId 分配器实现。",
+      "tags": [
+        "setter",
+        "配置",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:setSnowflakeIdGenerator",
+      "type": "function",
+      "name": "setSnowflakeIdGenerator",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "lineRange": [
+        234,
+        236
+      ],
+      "summary": "注入自研雪花 ID 生成器，用于 ID 与订单号生成。",
+      "tags": [
+        "setter",
+        "配置",
+        "id-generator"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java:BitsAllocator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java:BitsAllocator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java:UidGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java:UidGenerator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:BufferPaddingExecutor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:BufferPaddingExecutor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java:RejectedPutBufferHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java:RejectedPutBufferHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java:RejectedTakeBufferHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java:RejectedTakeBufferHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:RingBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:RingBuffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java:IdGeneratorRedisConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java:IdGeneratorRedisConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java:WorkerNodeConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java:WorkerNodeConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java:UidGenerateException",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/exception/UidGenerateException.java:UidGenerateException",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:CachedUidGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:CachedUidGenerator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:DefaultUidGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:DefaultUidGenerator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java:allocate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:shutdown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:asyncPadding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:paddingBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:setScheduleInterval",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:put",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:take",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:toString",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:afterPropertiesSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:destroy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:getUid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:nextIdsForOneSecond",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:initRingBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:getUid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:getId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:getOrderNumber",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:afterPropertiesSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:parseUid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:nextId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:setWorkerIdAssigner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:setSnowflakeIdGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:CachedUidGenerator",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:DefaultUidGenerator",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:DefaultUidGenerator",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java:UidGenerator",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:nextIdsForOneSecond",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java:allocate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:initRingBuffer",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:paddingBuffer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:initRingBuffer",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:setScheduleInterval",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:initRingBuffer",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:start",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:afterPropertiesSet",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:initRingBuffer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:getUid",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:take",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:destroy",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:shutdown",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:initRingBuffer",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:RingBuffer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:nextId",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java:allocate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:afterPropertiesSet",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerIdAssigner.java:assignWorkerId",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:afterPropertiesSet",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/BitsAllocator.java:BitsAllocator",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:parseUid",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/AbstractDateUtils.java:formatByDateTimePattern",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:getId",
+      "target": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:nextId",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/DefaultUidGenerator.java:getOrderNumber",
+      "target": "function:damai-id-generator-framework/src/main/java/com/damai/toolkit/SnowflakeIdGenerator.java:getOrderNumber",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:paddingBuffer",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:put",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:BufferPaddingExecutor",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:RingBuffer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:BufferPaddingExecutor",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/NamingThreadFactory.java:NamingThreadFactory",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:BufferPaddingExecutor",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java:PaddedAtomicLong",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:RingBuffer",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/PaddedAtomicLong.java:PaddedAtomicLong",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:put",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedPutBufferHandler.java:rejectPutBuffer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:take",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RejectedTakeBufferHandler.java:rejectTakeBuffer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/RingBuffer.java:take",
+      "target": "function:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/buffer/BufferPaddingExecutor.java:asyncPadding",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/WorkerNodeConfig.java:WorkerNodeConfig",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/impl/CachedUidGenerator.java:CachedUidGenerator",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/IdGeneratorRedisConfig.java:IdGeneratorRedisConfig",
+      "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/config/RedisDisposableWorkerIdAssigner.java:RedisDisposableWorkerIdAssigner",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

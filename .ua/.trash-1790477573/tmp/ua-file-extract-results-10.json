@@ -1,0 +1,2371 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 24,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 24,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 24,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/RuleStatus.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "RuleStatus",
+          "startLine": 20,
+          "endLine": 23,
+          "params": [
+            "code",
+            "msg"
+          ]
+        },
+        {
+          "name": "getCode",
+          "startLine": 25,
+          "endLine": 27,
+          "params": []
+        },
+        {
+          "name": "setCode",
+          "startLine": 29,
+          "endLine": 31,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 33,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "setMsg",
+          "startLine": 37,
+          "endLine": 39,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 41,
+          "endLine": 48,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getRc",
+          "startLine": 50,
+          "endLine": 57,
+          "params": [
+            "code"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RuleStatus",
+          "startLine": 8,
+          "endLine": 58,
+          "methods": [
+            "RuleStatus",
+            "getCode",
+            "setCode",
+            "getMsg",
+            "setMsg",
+            "getMsg",
+            "getRc"
+          ],
+          "properties": [
+            "code",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCode",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "setCode",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "setMsg",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "getRc",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "RuleStatus",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getMsg",
+          "callee": "RuleStatus.values",
+          "lineNumber": 42
+        },
+        {
+          "caller": "getMsg",
+          "callee": "re.code.intValue",
+          "lineNumber": 43
+        },
+        {
+          "caller": "getMsg",
+          "callee": "code.intValue",
+          "lineNumber": 43
+        },
+        {
+          "caller": "getRc",
+          "callee": "RuleStatus.values",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getRc",
+          "callee": "re.code.intValue",
+          "lineNumber": 52
+        },
+        {
+          "caller": "getRc",
+          "callee": "code.intValue",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/AllRuleDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "AllRuleDto",
+          "startLine": 15,
+          "endLine": 25,
+          "methods": [],
+          "properties": [
+            "ruleDto",
+            "depthRuleDtoList"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AllRuleDto",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 41,
+      "classes": [
+        {
+          "name": "DepthRuleDto",
+          "startLine": 14,
+          "endLine": 53,
+          "methods": [],
+          "properties": [
+            "startTimeWindow",
+            "endTimeWindow",
+            "statTime",
+            "statTimeType",
+            "threshold",
+            "effectiveTime",
+            "effectiveTimeType",
+            "limitApi",
+            "message",
+            "status"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DepthRuleDto",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleStatusDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "DepthRuleStatusDto",
+          "startLine": 13,
+          "endLine": 24,
+          "methods": [],
+          "properties": [
+            "id",
+            "status"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DepthRuleStatusDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/DepthRuleUpdateDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 36,
+      "classes": [
+        {
+          "name": "DepthRuleUpdateDto",
+          "startLine": 13,
+          "endLine": 49,
+          "methods": [],
+          "properties": [
+            "id",
+            "startTimeWindow",
+            "endTimeWindow",
+            "statTime",
+            "statTimeType",
+            "threshold",
+            "effectiveTime",
+            "effectiveTimeType",
+            "limitApi",
+            "message",
+            "status"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DepthRuleUpdateDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 32,
+      "classes": [
+        {
+          "name": "RuleDto",
+          "startLine": 13,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "statTime",
+            "statTimeType",
+            "threshold",
+            "effectiveTime",
+            "effectiveTimeType",
+            "limitApi",
+            "message"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RuleDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleGetDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "RuleGetDto",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RuleGetDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleStatusDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "RuleStatusDto",
+          "startLine": 13,
+          "endLine": 24,
+          "methods": [],
+          "properties": [
+            "id",
+            "status"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RuleStatusDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/RuleUpdateDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 30,
+      "classes": [
+        {
+          "name": "RuleUpdateDto",
+          "startLine": 13,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "id",
+            "statTime",
+            "statTimeType",
+            "threshold",
+            "effectiveTime",
+            "effectiveTimeType",
+            "limitApi",
+            "message"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RuleUpdateDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/AllDepthRuleVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "AllDepthRuleVo",
+          "startLine": 13,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "ruleVo",
+            "depthRuleVoList"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AllDepthRuleVo",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 41,
+      "classes": [
+        {
+          "name": "DepthRuleVo",
+          "startLine": 16,
+          "endLine": 57,
+          "methods": [],
+          "properties": [
+            "id",
+            "startTimeWindow",
+            "endTimeWindow",
+            "statTime",
+            "statTimeType",
+            "threshold",
+            "effectiveTime",
+            "effectiveTimeType",
+            "limitApi",
+            "message",
+            "status",
+            "createTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DepthRuleVo",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/RuleVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 37,
+      "classes": [
+        {
+          "name": "RuleVo",
+          "startLine": 16,
+          "endLine": 50,
+          "methods": [],
+          "properties": [
+            "id",
+            "statTime",
+            "statTimeType",
+            "threshold",
+            "effectiveTime",
+            "effectiveTimeType",
+            "limitApi",
+            "message",
+            "status",
+            "createTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RuleVo",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/controller/AllRuleController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 30,
+          "endLine": 35,
+          "params": [
+            "allRuleDto"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 37,
+          "endLine": 41,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AllRuleController",
+          "startLine": 21,
+          "endLine": 42,
+          "methods": [
+            "add",
+            "get"
+          ],
+          "properties": [
+            "allRuleService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "AllRuleController",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "allRuleService.add",
+          "lineNumber": 33
+        },
+        {
+          "caller": "add",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 34
+        },
+        {
+          "caller": "get",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 40
+        },
+        {
+          "caller": "get",
+          "callee": "allRuleService.get",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/controller/DepthRuleController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 33,
+          "endLine": 38,
+          "params": [
+            "depthRuleDto"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 40,
+          "endLine": 45,
+          "params": [
+            "depthRuleUpdateDto"
+          ]
+        },
+        {
+          "name": "updateStatus",
+          "startLine": 47,
+          "endLine": 52,
+          "params": [
+            "depthRuleStatusDto"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 54,
+          "endLine": 58,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DepthRuleController",
+          "startLine": 25,
+          "endLine": 59,
+          "methods": [
+            "add",
+            "update",
+            "updateStatus",
+            "get"
+          ],
+          "properties": [
+            "depthRuleService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "updateStatus",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "DepthRuleController",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "depthRuleService.depthRuleAdd",
+          "lineNumber": 36
+        },
+        {
+          "caller": "add",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 37
+        },
+        {
+          "caller": "update",
+          "callee": "depthRuleService.depthRuleUpdate",
+          "lineNumber": 43
+        },
+        {
+          "caller": "update",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 44
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "depthRuleService.depthRuleUpdateStatus",
+          "lineNumber": 50
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 51
+        },
+        {
+          "caller": "get",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 57
+        },
+        {
+          "caller": "get",
+          "callee": "depthRuleService.selectList",
+          "lineNumber": 57
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/controller/RuleController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 32,
+          "endLine": 37,
+          "params": [
+            "ruleDto"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 39,
+          "endLine": 44,
+          "params": [
+            "ruleUpdateDto"
+          ]
+        },
+        {
+          "name": "updateStatus",
+          "startLine": 46,
+          "endLine": 51,
+          "params": [
+            "ruleStatusDto"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 53,
+          "endLine": 57,
+          "params": [
+            "ruleGetDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RuleController",
+          "startLine": 24,
+          "endLine": 58,
+          "methods": [
+            "add",
+            "update",
+            "updateStatus",
+            "get"
+          ],
+          "properties": [
+            "ruleService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "updateStatus",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "RuleController",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "ruleService.ruleAdd",
+          "lineNumber": 35
+        },
+        {
+          "caller": "add",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 36
+        },
+        {
+          "caller": "update",
+          "callee": "ruleService.ruleUpdate",
+          "lineNumber": 42
+        },
+        {
+          "caller": "update",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 43
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "ruleService.ruleUpdateStatus",
+          "lineNumber": 49
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 50
+        },
+        {
+          "caller": "get",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 56
+        },
+        {
+          "caller": "get",
+          "callee": "ruleService.get",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/entity/DepthRule.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 24,
+      "classes": [
+        {
+          "name": "DepthRule",
+          "startLine": 14,
+          "endLine": 37,
+          "methods": [],
+          "properties": [
+            "id",
+            "startTimeWindow",
+            "endTimeWindow",
+            "statTime",
+            "statTimeType",
+            "threshold",
+            "effectiveTime",
+            "effectiveTimeType",
+            "limitApi",
+            "message"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DepthRule",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/entity/Rule.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 22,
+      "classes": [
+        {
+          "name": "Rule",
+          "startLine": 14,
+          "endLine": 33,
+          "methods": [],
+          "properties": [
+            "id",
+            "statTime",
+            "statTimeType",
+            "threshold",
+            "effectiveTime",
+            "effectiveTimeType",
+            "limitApi",
+            "message"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Rule",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/mapper/DepthRuleMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "DepthRuleMapper",
+          "startLine": 11,
+          "endLine": 18,
+          "methods": [
+            "delAll"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DepthRuleMapper",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/mapper/RuleMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "RuleMapper",
+          "startLine": 11,
+          "endLine": 18,
+          "methods": [
+            "delAll"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RuleMapper",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/AllRuleService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 97,
+      "nonEmptyLines": 88,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 34,
+          "endLine": 47,
+          "params": [
+            "allRuleDto"
+          ]
+        },
+        {
+          "name": "checkTime",
+          "startLine": 49,
+          "endLine": 75,
+          "params": [
+            "startTimeWindow",
+            "endTimeWindow",
+            "depthRuleDtoList"
+          ]
+        },
+        {
+          "name": "filterDepthRuleDtoList",
+          "startLine": 77,
+          "endLine": 85,
+          "params": [
+            "depthRuleDtoList",
+            "coord"
+          ]
+        },
+        {
+          "name": "getTimeWindowTimestamp",
+          "startLine": 86,
+          "endLine": 89,
+          "params": [
+            "timeWindow"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 91,
+          "endLine": 96,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AllRuleService",
+          "startLine": 25,
+          "endLine": 97,
+          "methods": [
+            "add",
+            "checkTime",
+            "filterDepthRuleDtoList",
+            "getTimeWindowTimestamp",
+            "get"
+          ],
+          "properties": [
+            "ruleService",
+            "depthRuleService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "checkTime",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "filterDepthRuleDtoList",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "getTimeWindowTimestamp",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "AllRuleService",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "ruleService.add",
+          "lineNumber": 36
+        },
+        {
+          "caller": "add",
+          "callee": "allRuleDto.getRuleDto",
+          "lineNumber": 36
+        },
+        {
+          "caller": "add",
+          "callee": "depthRuleService.delAll",
+          "lineNumber": 37
+        },
+        {
+          "caller": "add",
+          "callee": "allRuleDto.getDepthRuleDtoList",
+          "lineNumber": 38
+        },
+        {
+          "caller": "add",
+          "callee": "CollUtil.isNotEmpty",
+          "lineNumber": 39
+        },
+        {
+          "caller": "add",
+          "callee": "depthRuleDtoList.size",
+          "lineNumber": 40
+        },
+        {
+          "caller": "add",
+          "callee": "depthRuleDtoList.get",
+          "lineNumber": 41
+        },
+        {
+          "caller": "add",
+          "callee": "checkTime",
+          "lineNumber": 42
+        },
+        {
+          "caller": "add",
+          "callee": "depthRuleDto.getStartTimeWindow",
+          "lineNumber": 42
+        },
+        {
+          "caller": "add",
+          "callee": "depthRuleDto.getEndTimeWindow",
+          "lineNumber": 42
+        },
+        {
+          "caller": "add",
+          "callee": "filterDepthRuleDtoList",
+          "lineNumber": 42
+        },
+        {
+          "caller": "add",
+          "callee": "depthRuleService.add",
+          "lineNumber": 43
+        },
+        {
+          "caller": "add",
+          "callee": "ruleService.saveAllRuleCache",
+          "lineNumber": 46
+        },
+        {
+          "caller": "checkTime",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 50
+        },
+        {
+          "caller": "checkTime",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 50
+        },
+        {
+          "caller": "checkTime",
+          "callee": "depthRuleDtoList.stream().filter(depthRuleDto -> {\r\n            if (depthRuleDto.getStatus() != null) {\r\n                if (depthRuleDto.getStatus().equals(RuleStatus.RUN.getCode())) {\r\n                    return true;\r\n                }else {\r\n                    return false;\r\n                }\r\n            }else {\r\n                return true;\r\n            }\r\n        }).collect",
+          "lineNumber": 53
+        },
+        {
+          "caller": "checkTime",
+          "callee": "depthRuleDtoList.stream().filter",
+          "lineNumber": 53
+        },
+        {
+          "caller": "checkTime",
+          "callee": "depthRuleDtoList.stream",
+          "lineNumber": 53
+        },
+        {
+          "caller": "checkTime",
+          "callee": "depthRuleDto.getStatus",
+          "lineNumber": 54
+        },
+        {
+          "caller": "checkTime",
+          "callee": "depthRuleDto.getStatus().equals",
+          "lineNumber": 55
+        },
+        {
+          "caller": "checkTime",
+          "callee": "depthRuleDto.getStatus",
+          "lineNumber": 55
+        },
+        {
+          "caller": "checkTime",
+          "callee": "RuleStatus.RUN.getCode",
+          "lineNumber": 55
+        },
+        {
+          "caller": "checkTime",
+          "callee": "Collectors.toList",
+          "lineNumber": 63
+        },
+        {
+          "caller": "checkTime",
+          "callee": "getTimeWindowTimestamp",
+          "lineNumber": 65
+        },
+        {
+          "caller": "checkTime",
+          "callee": "getTimeWindowTimestamp",
+          "lineNumber": 66
+        },
+        {
+          "caller": "checkTime",
+          "callee": "getTimeWindowTimestamp",
+          "lineNumber": 67
+        },
+        {
+          "caller": "checkTime",
+          "callee": "depthRuleDto.getStartTimeWindow",
+          "lineNumber": 67
+        },
+        {
+          "caller": "checkTime",
+          "callee": "getTimeWindowTimestamp",
+          "lineNumber": 68
+        },
+        {
+          "caller": "checkTime",
+          "callee": "depthRuleDto.getEndTimeWindow",
+          "lineNumber": 68
+        },
+        {
+          "caller": "checkTime",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 72
+        },
+        {
+          "caller": "filterDepthRuleDtoList",
+          "callee": "new ArrayList<>",
+          "lineNumber": 78
+        },
+        {
+          "caller": "filterDepthRuleDtoList",
+          "callee": "depthRuleDtoList.size",
+          "lineNumber": 79
+        },
+        {
+          "caller": "filterDepthRuleDtoList",
+          "callee": "fiterDepthRuleDtoList.add",
+          "lineNumber": 81
+        },
+        {
+          "caller": "filterDepthRuleDtoList",
+          "callee": "depthRuleDtoList.get",
+          "lineNumber": 81
+        },
+        {
+          "caller": "getTimeWindowTimestamp",
+          "callee": "DateUtil.today",
+          "lineNumber": 87
+        },
+        {
+          "caller": "getTimeWindowTimestamp",
+          "callee": "DateUtil.parse(today + \" \" + timeWindow).getTime",
+          "lineNumber": 88
+        },
+        {
+          "caller": "getTimeWindowTimestamp",
+          "callee": "DateUtil.parse",
+          "lineNumber": 88
+        },
+        {
+          "caller": "get",
+          "callee": "new AllDepthRuleVo",
+          "lineNumber": 92
+        },
+        {
+          "caller": "get",
+          "callee": "allDepthRuleVo.setRuleVo",
+          "lineNumber": 93
+        },
+        {
+          "caller": "get",
+          "callee": "ruleService.get",
+          "lineNumber": 93
+        },
+        {
+          "caller": "get",
+          "callee": "allDepthRuleVo.setDepthRuleVoList",
+          "lineNumber": 94
+        },
+        {
+          "caller": "get",
+          "callee": "depthRuleService.selectList",
+          "lineNumber": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/DepthRuleService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 122,
+      "nonEmptyLines": 108,
+      "functions": [
+        {
+          "name": "depthRuleAdd",
+          "startLine": 42,
+          "endLine": 47,
+          "params": [
+            "depthRuleDto"
+          ]
+        },
+        {
+          "name": "check",
+          "startLine": 49,
+          "endLine": 66,
+          "params": [
+            "startTimeWindow",
+            "endTimeWindow"
+          ]
+        },
+        {
+          "name": "getTimeWindowTimestamp",
+          "startLine": 68,
+          "endLine": 71,
+          "params": [
+            "timeWindow"
+          ]
+        },
+        {
+          "name": "add",
+          "startLine": 73,
+          "endLine": 80,
+          "params": [
+            "depthRuleDto"
+          ]
+        },
+        {
+          "name": "depthRuleUpdate",
+          "startLine": 82,
+          "endLine": 86,
+          "params": [
+            "depthRuleUpdateDto"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 88,
+          "endLine": 93,
+          "params": [
+            "depthRuleUpdateDto"
+          ]
+        },
+        {
+          "name": "depthRuleUpdateStatus",
+          "startLine": 95,
+          "endLine": 99,
+          "params": [
+            "depthRuleStatusDto"
+          ]
+        },
+        {
+          "name": "updateStatus",
+          "startLine": 100,
+          "endLine": 106,
+          "params": [
+            "depthRuleStatusDto"
+          ]
+        },
+        {
+          "name": "selectList",
+          "startLine": 108,
+          "endLine": 116,
+          "params": []
+        },
+        {
+          "name": "delAll",
+          "startLine": 118,
+          "endLine": 121,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DepthRuleService",
+          "startLine": 31,
+          "endLine": 122,
+          "methods": [
+            "depthRuleAdd",
+            "check",
+            "getTimeWindowTimestamp",
+            "add",
+            "depthRuleUpdate",
+            "update",
+            "depthRuleUpdateStatus",
+            "updateStatus",
+            "selectList",
+            "delAll"
+          ],
+          "properties": [
+            "depthRuleMapper",
+            "ruleService",
+            "uidGenerator"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "depthRuleAdd",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "check",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "getTimeWindowTimestamp",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "add",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "depthRuleUpdate",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "depthRuleUpdateStatus",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "updateStatus",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "selectList",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "delAll",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "DepthRuleService",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "depthRuleAdd",
+          "callee": "check",
+          "lineNumber": 44
+        },
+        {
+          "caller": "depthRuleAdd",
+          "callee": "depthRuleDto.getStartTimeWindow",
+          "lineNumber": 44
+        },
+        {
+          "caller": "depthRuleAdd",
+          "callee": "depthRuleDto.getEndTimeWindow",
+          "lineNumber": 44
+        },
+        {
+          "caller": "depthRuleAdd",
+          "callee": "add",
+          "lineNumber": 45
+        },
+        {
+          "caller": "depthRuleAdd",
+          "callee": "ruleService.saveAllRuleCache",
+          "lineNumber": 46
+        },
+        {
+          "caller": "check",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 50
+        },
+        {
+          "caller": "check",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 50
+        },
+        {
+          "caller": "check",
+          "callee": "Wrappers.lambdaQuery(DepthRule.class).eq",
+          "lineNumber": 53
+        },
+        {
+          "caller": "check",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 53
+        },
+        {
+          "caller": "check",
+          "callee": "RuleStatus.RUN.getCode",
+          "lineNumber": 53
+        },
+        {
+          "caller": "check",
+          "callee": "depthRuleMapper.selectList",
+          "lineNumber": 54
+        },
+        {
+          "caller": "check",
+          "callee": "getTimeWindowTimestamp",
+          "lineNumber": 56
+        },
+        {
+          "caller": "check",
+          "callee": "getTimeWindowTimestamp",
+          "lineNumber": 57
+        },
+        {
+          "caller": "check",
+          "callee": "getTimeWindowTimestamp",
+          "lineNumber": 58
+        },
+        {
+          "caller": "check",
+          "callee": "depthRule.getStartTimeWindow",
+          "lineNumber": 58
+        },
+        {
+          "caller": "check",
+          "callee": "getTimeWindowTimestamp",
+          "lineNumber": 59
+        },
+        {
+          "caller": "check",
+          "callee": "depthRule.getEndTimeWindow",
+          "lineNumber": 59
+        },
+        {
+          "caller": "check",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 63
+        },
+        {
+          "caller": "getTimeWindowTimestamp",
+          "callee": "DateUtil.today",
+          "lineNumber": 69
+        },
+        {
+          "caller": "getTimeWindowTimestamp",
+          "callee": "DateUtil.parse(today + \" \" + timeWindow).getTime",
+          "lineNumber": 70
+        },
+        {
+          "caller": "getTimeWindowTimestamp",
+          "callee": "DateUtil.parse",
+          "lineNumber": 70
+        },
+        {
+          "caller": "add",
+          "callee": "new DepthRule",
+          "lineNumber": 75
+        },
+        {
+          "caller": "add",
+          "callee": "BeanUtils.copyProperties",
+          "lineNumber": 76
+        },
+        {
+          "caller": "add",
+          "callee": "depthRule.setId",
+          "lineNumber": 77
+        },
+        {
+          "caller": "add",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 77
+        },
+        {
+          "caller": "add",
+          "callee": "depthRule.setCreateTime",
+          "lineNumber": 78
+        },
+        {
+          "caller": "add",
+          "callee": "DateUtils.now",
+          "lineNumber": 78
+        },
+        {
+          "caller": "add",
+          "callee": "depthRuleMapper.insert",
+          "lineNumber": 79
+        },
+        {
+          "caller": "depthRuleUpdate",
+          "callee": "update",
+          "lineNumber": 84
+        },
+        {
+          "caller": "depthRuleUpdate",
+          "callee": "ruleService.saveAllRuleCache",
+          "lineNumber": 85
+        },
+        {
+          "caller": "update",
+          "callee": "new DepthRule",
+          "lineNumber": 90
+        },
+        {
+          "caller": "update",
+          "callee": "BeanUtils.copyProperties",
+          "lineNumber": 91
+        },
+        {
+          "caller": "update",
+          "callee": "depthRuleMapper.updateById",
+          "lineNumber": 92
+        },
+        {
+          "caller": "depthRuleUpdateStatus",
+          "callee": "updateStatus",
+          "lineNumber": 97
+        },
+        {
+          "caller": "depthRuleUpdateStatus",
+          "callee": "ruleService.saveAllRuleCache",
+          "lineNumber": 98
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "new DepthRule",
+          "lineNumber": 102
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "depthRule.setId",
+          "lineNumber": 103
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "depthRuleStatusDto.getId",
+          "lineNumber": 103
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "depthRule.setStatus",
+          "lineNumber": 104
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "depthRuleStatusDto.getStatus",
+          "lineNumber": 104
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "depthRuleMapper.updateById",
+          "lineNumber": 105
+        },
+        {
+          "caller": "selectList",
+          "callee": "depthRuleMapper.selectList",
+          "lineNumber": 109
+        },
+        {
+          "caller": "selectList",
+          "callee": "depthRules.stream().map(depthRule -> {\r\n            DepthRuleVo depthRuleVo = new DepthRuleVo();\r\n            BeanUtils.copyProperties(depthRule, depthRuleVo);\r\n            return depthRuleVo;\r\n        }).collect",
+          "lineNumber": 110
+        },
+        {
+          "caller": "selectList",
+          "callee": "depthRules.stream().map",
+          "lineNumber": 110
+        },
+        {
+          "caller": "selectList",
+          "callee": "depthRules.stream",
+          "lineNumber": 110
+        },
+        {
+          "caller": "selectList",
+          "callee": "new DepthRuleVo",
+          "lineNumber": 111
+        },
+        {
+          "caller": "selectList",
+          "callee": "BeanUtils.copyProperties",
+          "lineNumber": 112
+        },
+        {
+          "caller": "selectList",
+          "callee": "Collectors.toList",
+          "lineNumber": 114
+        },
+        {
+          "caller": "delAll",
+          "callee": "depthRuleMapper.delAll",
+          "lineNumber": 120
+        }
+      ],
+      "metrics": {
+        "importCount": 13,
+        "exportCount": 11,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/RuleService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 135,
+      "nonEmptyLines": 117,
+      "functions": [
+        {
+          "name": "ruleAdd",
+          "startLine": 52,
+          "endLine": 56,
+          "params": [
+            "ruleDto"
+          ]
+        },
+        {
+          "name": "add",
+          "startLine": 57,
+          "endLine": 66,
+          "params": [
+            "ruleDto"
+          ]
+        },
+        {
+          "name": "ruleUpdate",
+          "startLine": 68,
+          "endLine": 72,
+          "params": [
+            "ruleUpdateDto"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 74,
+          "endLine": 79,
+          "params": [
+            "ruleUpdateDto"
+          ]
+        },
+        {
+          "name": "ruleUpdateStatus",
+          "startLine": 81,
+          "endLine": 85,
+          "params": [
+            "ruleStatusDto"
+          ]
+        },
+        {
+          "name": "updateStatus",
+          "startLine": 87,
+          "endLine": 94,
+          "params": [
+            "ruleStatusDto"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 96,
+          "endLine": 102,
+          "params": [
+            "ruleGetDto"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 104,
+          "endLine": 110,
+          "params": []
+        },
+        {
+          "name": "delAll",
+          "startLine": 112,
+          "endLine": 114,
+          "params": []
+        },
+        {
+          "name": "saveAllRuleCache",
+          "startLine": 117,
+          "endLine": 134,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "RuleService",
+          "startLine": 37,
+          "endLine": 135,
+          "methods": [
+            "ruleAdd",
+            "add",
+            "ruleUpdate",
+            "update",
+            "ruleUpdateStatus",
+            "updateStatus",
+            "get",
+            "get",
+            "delAll",
+            "saveAllRuleCache"
+          ],
+          "properties": [
+            "ruleMapper",
+            "redisCache",
+            "depthRuleMapper",
+            "uidGenerator"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ruleAdd",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "add",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "ruleUpdate",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "ruleUpdateStatus",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "updateStatus",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "delAll",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "saveAllRuleCache",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "RuleService",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ruleAdd",
+          "callee": "add",
+          "lineNumber": 54
+        },
+        {
+          "caller": "ruleAdd",
+          "callee": "saveAllRuleCache",
+          "lineNumber": 55
+        },
+        {
+          "caller": "add",
+          "callee": "delAll",
+          "lineNumber": 59
+        },
+        {
+          "caller": "add",
+          "callee": "new Rule",
+          "lineNumber": 60
+        },
+        {
+          "caller": "add",
+          "callee": "BeanUtils.copyProperties",
+          "lineNumber": 61
+        },
+        {
+          "caller": "add",
+          "callee": "rule.setId",
+          "lineNumber": 62
+        },
+        {
+          "caller": "add",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 62
+        },
+        {
+          "caller": "add",
+          "callee": "rule.setCreateTime",
+          "lineNumber": 63
+        },
+        {
+          "caller": "add",
+          "callee": "DateUtil.date",
+          "lineNumber": 63
+        },
+        {
+          "caller": "add",
+          "callee": "ruleMapper.insert",
+          "lineNumber": 64
+        },
+        {
+          "caller": "add",
+          "callee": "rule.getId",
+          "lineNumber": 65
+        },
+        {
+          "caller": "ruleUpdate",
+          "callee": "update",
+          "lineNumber": 70
+        },
+        {
+          "caller": "ruleUpdate",
+          "callee": "saveAllRuleCache",
+          "lineNumber": 71
+        },
+        {
+          "caller": "update",
+          "callee": "new Rule",
+          "lineNumber": 76
+        },
+        {
+          "caller": "update",
+          "callee": "BeanUtils.copyProperties",
+          "lineNumber": 77
+        },
+        {
+          "caller": "update",
+          "callee": "ruleMapper.updateById",
+          "lineNumber": 78
+        },
+        {
+          "caller": "ruleUpdateStatus",
+          "callee": "updateStatus",
+          "lineNumber": 83
+        },
+        {
+          "caller": "ruleUpdateStatus",
+          "callee": "saveAllRuleCache",
+          "lineNumber": 84
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "new Rule",
+          "lineNumber": 89
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "rule.setId",
+          "lineNumber": 90
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "ruleStatusDto.getId",
+          "lineNumber": 90
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "rule.setStatus",
+          "lineNumber": 91
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "ruleStatusDto.getStatus",
+          "lineNumber": 91
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "ruleMapper.updateById",
+          "lineNumber": 92
+        },
+        {
+          "caller": "updateStatus",
+          "callee": "saveAllRuleCache",
+          "lineNumber": 93
+        },
+        {
+          "caller": "get",
+          "callee": "new RuleVo",
+          "lineNumber": 97
+        },
+        {
+          "caller": "get",
+          "callee": "Optional.ofNullable(ruleMapper.selectById(ruleGetDto.getId())).ifPresent",
+          "lineNumber": 98
+        },
+        {
+          "caller": "get",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 98
+        },
+        {
+          "caller": "get",
+          "callee": "ruleMapper.selectById",
+          "lineNumber": 98
+        },
+        {
+          "caller": "get",
+          "callee": "ruleGetDto.getId",
+          "lineNumber": 98
+        },
+        {
+          "caller": "get",
+          "callee": "BeanUtils.copyProperties",
+          "lineNumber": 99
+        },
+        {
+          "caller": "get",
+          "callee": "new RuleVo",
+          "lineNumber": 105
+        },
+        {
+          "caller": "get",
+          "callee": "Optional.ofNullable(ruleMapper.selectOne(null)).ifPresent",
+          "lineNumber": 106
+        },
+        {
+          "caller": "get",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 106
+        },
+        {
+          "caller": "get",
+          "callee": "ruleMapper.selectOne",
+          "lineNumber": 106
+        },
+        {
+          "caller": "get",
+          "callee": "BeanUtils.copyProperties",
+          "lineNumber": 107
+        },
+        {
+          "caller": "delAll",
+          "callee": "ruleMapper.delAll",
+          "lineNumber": 113
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "new HashMap<>",
+          "lineNumber": 118
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "Wrappers.lambdaQuery(Rule.class).eq",
+          "lineNumber": 120
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 120
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "RuleStatus.RUN.getCode",
+          "lineNumber": 120
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "ruleMapper.selectOne",
+          "lineNumber": 121
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "Optional.ofNullable(rule).isPresent",
+          "lineNumber": 122
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 122
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "map.put",
+          "lineNumber": 123
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.RULE).getRelKey",
+          "lineNumber": 123
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 123
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "Wrappers.lambdaQuery(DepthRule.class).eq",
+          "lineNumber": 125
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 125
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "RuleStatus.RUN.getCode",
+          "lineNumber": 125
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "depthRuleMapper.selectList",
+          "lineNumber": 126
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "CollUtil.isNotEmpty",
+          "lineNumber": 127
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "map.put",
+          "lineNumber": 128
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.DEPTH_RULE).getRelKey",
+          "lineNumber": 128
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 128
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "redisCache.del",
+          "lineNumber": 130
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 130
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "map.size",
+          "lineNumber": 131
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "Objects.nonNull",
+          "lineNumber": 131
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "map.get",
+          "lineNumber": 131
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.RULE).getRelKey",
+          "lineNumber": 131
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 131
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "redisCache.putHash",
+          "lineNumber": 132
+        },
+        {
+          "caller": "saveAllRuleCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 132
+        }
+      ],
+      "metrics": {
+        "importCount": 15,
+        "exportCount": 11,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/vo/DepthRuleVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 25,
+      "classes": [
+        {
+          "name": "DepthRuleVo",
+          "startLine": 12,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "id",
+            "startTimeWindow",
+            "startTimeWindowTimestamp",
+            "endTimeWindow",
+            "endTimeWindowTimestamp",
+            "statTime",
+            "statTimeType",
+            "threshold",
+            "effectiveTime",
+            "effectiveTimeType",
+            "limitApi",
+            "message",
+            "status",
+            "createTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DepthRuleVo",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/vo/RuleVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 19,
+      "classes": [
+        {
+          "name": "RuleVo",
+          "startLine": 10,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "id",
+            "statTime",
+            "statTimeType",
+            "threshold",
+            "effectiveTime",
+            "effectiveTimeType",
+            "limitApi",
+            "message",
+            "status"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RuleVo",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

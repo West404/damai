@@ -1,0 +1,614 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java",
+      "type": "file",
+      "name": "InitializeHandler.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java",
+      "summary": "初始化执行体系的顶层抽象接口，定义初始化处理器的类型标识、执行顺序与执行逻辑三个契约方法，供各业务服务按启动时机（commandLineRunner、InitializingBean、PostConstruct、事件监听）实现。",
+      "tags": ["接口", "初始化", "spi", "扩展点", "entry-point"],
+      "complexity": "simple",
+      "languageNotes": "纯接口定义，方法均无实现；通过 type() 返回值与 AbstractApplicationExecute 的筛选逻辑配合，实现按类型分发的启动初始化扩展机制。"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java:InitializeHandler",
+      "type": "class",
+      "name": "InitializeHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java",
+      "lineRange": [10, 29],
+      "summary": "初始化处理器接口，声明 type()（类型标识）、executeOrder()（执行排序）和 executeInit(ConfigurableApplicationContext)（执行逻辑）三个方法，是所有启动初始化扩展点的统一契约。",
+      "tags": ["接口", "初始化", "扩展点", "spi", "lifecycle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "type": "file",
+      "name": "InitializeAutoConfig.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "summary": "初始化执行框架的 Spring 配置类，通过四个 @Bean 方法把四种启动时机对应的执行器（InitializingBean、PostConstruct、事件监听、CommandLineRunner）注册到容器，是自动装配的装配中心。",
+      "tags": ["configuration", "spring-bean", "初始化", "自动装配", "factory"],
+      "complexity": "simple",
+      "languageNotes": "使用 @Bean 工厂方法并注入 ConfigurableApplicationContext，使执行器可共享同一个容器上下文。"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:InitializeAutoConfig",
+      "type": "class",
+      "name": "InitializeAutoConfig",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "lineRange": [15, 40],
+      "summary": "初始化框架自动配置类，定义四个 @Bean 工厂方法分别产出四种启动时机的执行器实例，把初始化机制接入 Spring 容器。",
+      "tags": ["configuration", "spring-bean", "自动装配", "初始化", "factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationInitializingBeanExecute",
+      "type": "function",
+      "name": "applicationInitializingBeanExecute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "lineRange": [17, 21],
+      "summary": "@Bean 工厂方法，创建 InitializingBean 启动时机的执行器 ApplicationInitializingBeanExecute 并注入容器上下文。",
+      "tags": ["spring-bean", "factory", "初始化", "lifecycle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationPostConstructExecute",
+      "type": "function",
+      "name": "applicationPostConstructExecute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "lineRange": [23, 27],
+      "summary": "@Bean 工厂方法，创建 @PostConstruct 启动时机的执行器 ApplicationPostConstructExecute 并注入容器上下文。",
+      "tags": ["spring-bean", "factory", "初始化", "lifecycle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationStartEventListenerExecute",
+      "type": "function",
+      "name": "applicationStartEventListenerExecute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "lineRange": [29, 33],
+      "summary": "@Bean 工厂方法，创建 ApplicationStartedEvent 事件监听时机的执行器 ApplicationStartEventListenerExecute 并注入容器上下文。",
+      "tags": ["spring-bean", "factory", "事件监听", "初始化"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationCommandLineRunnerExecute",
+      "type": "function",
+      "name": "applicationCommandLineRunnerExecute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "lineRange": [35, 39],
+      "summary": "@Bean 工厂方法，创建 CommandLineRunner 启动时机的执行器 ApplicationCommandLineRunnerExecute 并注入容器上下文。",
+      "tags": ["spring-bean", "factory", "初始化", "启动器"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java",
+      "type": "file",
+      "name": "ApplicationCommandLineRunnerExecute.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java",
+      "summary": "对接 Spring Boot CommandLineRunner 的启动执行器，容器启动完成后在 run() 中触发类型为 APPLICATION_COMMAND_LINE_RUNNER 的初始化处理器链。",
+      "tags": ["初始化", "lifecycle", "spring-boot", "启动器", "event-handler"],
+      "complexity": "simple",
+      "languageNotes": "实现 CommandLineRunner 接口，Spring 会在应用上下文刷新完成后回调 run(String... args)。"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java:ApplicationCommandLineRunnerExecute",
+      "type": "class",
+      "name": "ApplicationCommandLineRunnerExecute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java",
+      "lineRange": [14, 29],
+      "summary": "继承 AbstractApplicationExecute 并实现 CommandLineRunner，在应用命令行启动回调时执行对应类型的初始化逻辑。",
+      "tags": ["初始化", "lifecycle", "spring-boot", "启动器"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java",
+      "lineRange": [20, 23],
+      "summary": "CommandLineRunner 回调实现，直接委托父类 execute() 执行该启动时机的初始化处理器链。",
+      "tags": ["lifecycle", "回调", "初始化", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java",
+      "type": "file",
+      "name": "ApplicationInitializingBeanExecute.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java",
+      "summary": "对接 Spring InitializingBean 的启动执行器，在 Bean 属性填充完成后通过 afterPropertiesSet() 触发类型为 APPLICATION_INITIALIZING_BEAN 的初始化处理器链。",
+      "tags": ["初始化", "lifecycle", "spring", "event-handler"],
+      "complexity": "simple",
+      "languageNotes": "实现 InitializingBean 接口，容器在依赖注入完成后回调 afterPropertiesSet()。"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java:ApplicationInitializingBeanExecute",
+      "type": "class",
+      "name": "ApplicationInitializingBeanExecute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java",
+      "lineRange": [15, 30],
+      "summary": "继承 AbstractApplicationExecute 并实现 InitializingBean，在 Bean 初始化阶段执行对应类型的初始化逻辑。",
+      "tags": ["初始化", "lifecycle", "spring", "扩展点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java:afterPropertiesSet",
+      "type": "function",
+      "name": "afterPropertiesSet",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java",
+      "lineRange": [21, 24],
+      "summary": "InitializingBean 回调实现，委托父类 execute() 执行该时机的初始化处理器链。",
+      "tags": ["lifecycle", "回调", "初始化", "spring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java",
+      "type": "file",
+      "name": "ApplicationPostConstructExecute.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java",
+      "summary": "对接 jakarta @PostConstruct 的启动执行器，在 Bean 构造后通过 postConstructExecute() 触发类型为 APPLICATION_POST_CONSTRUCT 的初始化处理器链。",
+      "tags": ["初始化", "lifecycle", "annotation", "event-handler"],
+      "complexity": "simple",
+      "languageNotes": "使用 jakarta.annotation.PostConstruct（Spring Boot 3 / Jakarta EE 命名空间）。"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java:ApplicationPostConstructExecute",
+      "type": "class",
+      "name": "ApplicationPostConstructExecute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java",
+      "lineRange": [15, 30],
+      "summary": "继承 AbstractApplicationExecute，以 @PostConstruct 注解方法作为触发点执行对应类型的初始化逻辑。",
+      "tags": ["初始化", "lifecycle", "annotation", "扩展点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java:postConstructExecute",
+      "type": "function",
+      "name": "postConstructExecute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java",
+      "lineRange": [21, 24],
+      "summary": "@PostConstruct 回调方法，委托父类 execute() 执行该时机的初始化处理器链。",
+      "tags": ["lifecycle", "回调", "初始化", "annotation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java",
+      "type": "file",
+      "name": "ApplicationStartEventListenerExecute.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java",
+      "summary": "监听 Spring Boot ApplicationStartedEvent 的启动执行器，在应用启动事件到达时触发类型为 APPLICATION_EVENT_LISTENER 的初始化处理器链。",
+      "tags": ["初始化", "event-handler", "spring-boot", "lifecycle"],
+      "complexity": "simple",
+      "languageNotes": "实现 ApplicationListener<ApplicationStartedEvent>，泛型事件类型限定为应用已启动事件。"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java:ApplicationStartEventListenerExecute",
+      "type": "class",
+      "name": "ApplicationStartEventListenerExecute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java",
+      "lineRange": [15, 30],
+      "summary": "继承 AbstractApplicationExecute 并实现 ApplicationListener<ApplicationStartedEvent>，在应用启动事件中执行对应类型的初始化逻辑。",
+      "tags": ["初始化", "event-handler", "spring-boot", "扩展点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java:onApplicationEvent",
+      "type": "function",
+      "name": "onApplicationEvent",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java",
+      "lineRange": [21, 24],
+      "summary": "ApplicationStartedEvent 事件回调实现，委托父类 execute() 执行该时机的初始化处理器链。",
+      "tags": ["event-handler", "回调", "初始化", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "type": "file",
+      "name": "AbstractApplicationExecute.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "summary": "初始化执行器的抽象基类：从容器中取出所有 InitializeHandler，按 type() 过滤并与 executeOrder() 升序排序后依次调用 executeInit，是四种启动时机执行器共享的调度核心。",
+      "tags": ["初始化", "抽象基类", "调度", "扩展点", "service"],
+      "complexity": "simple",
+      "languageNotes": "使用 Lombok @AllArgsConstructor 生成构造器；借助 Stream 的 filter/sorted/forEach 实现按类型筛选与顺序执行。"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:AbstractApplicationExecute",
+      "type": "class",
+      "name": "AbstractApplicationExecute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "lineRange": [15, 35],
+      "summary": "持有 ConfigurableApplicationContext 的抽象基类，提供 execute() 统一调度与抽象方法 type()，供各启动时机子类复用。",
+      "tags": ["初始化", "抽象基类", "调度", "扩展点"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "lineRange": [20, 29],
+      "summary": "核心调度方法：按类型过滤容器中的 InitializeHandler，并按 executeOrder 升序依次调用 executeInit 完成初始化。",
+      "tags": ["初始化", "调度", "扩展点", "service"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java:InitializeHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java:InitializeHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:InitializeAutoConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:InitializeAutoConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationInitializingBeanExecute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationInitializingBeanExecute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationPostConstructExecute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationPostConstructExecute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationStartEventListenerExecute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationStartEventListenerExecute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationCommandLineRunnerExecute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationCommandLineRunnerExecute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java:ApplicationCommandLineRunnerExecute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java:ApplicationCommandLineRunnerExecute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java:ApplicationInitializingBeanExecute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java:ApplicationInitializingBeanExecute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java:afterPropertiesSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java:afterPropertiesSet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java:ApplicationPostConstructExecute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java:ApplicationPostConstructExecute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java:postConstructExecute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java:postConstructExecute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java:ApplicationStartEventListenerExecute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java:ApplicationStartEventListenerExecute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java:onApplicationEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java:onApplicationEvent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:AbstractApplicationExecute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:AbstractApplicationExecute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:execute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java:ApplicationCommandLineRunnerExecute",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:AbstractApplicationExecute",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java:ApplicationInitializingBeanExecute",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:AbstractApplicationExecute",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java:ApplicationPostConstructExecute",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:AbstractApplicationExecute",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java:ApplicationStartEventListenerExecute",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:AbstractApplicationExecute",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationInitializingBeanExecute",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java:ApplicationInitializingBeanExecute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationPostConstructExecute",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java:ApplicationPostConstructExecute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationStartEventListenerExecute",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java:ApplicationStartEventListenerExecute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/config/InitializeAutoConfig.java:applicationCommandLineRunnerExecute",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java:ApplicationCommandLineRunnerExecute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:execute",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/base/InitializeHandler.java:InitializeHandler",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationCommandLineRunnerExecute.java:run",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationInitializingBeanExecute.java:afterPropertiesSet",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationPostConstructExecute.java:postConstructExecute",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/ApplicationStartEventListenerExecute.java:onApplicationEvent",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/execute/base/AbstractApplicationExecute.java:execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

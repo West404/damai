@@ -1,0 +1,451 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "type": "file",
+      "name": "ProgramShowTimeService.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "summary": "节目演出时间服务，负责演出时间新增、多级缓存查询以及 renewal 续期任务（把过期场次滚动到未来并同步节目与分组的最新演出时间）。",
+      "tags": [
+        "service",
+        "演出时间",
+        "多级缓存",
+        "定时任务"
+      ],
+      "complexity": "complex",
+      "languageNotes": "读方法通过 @ServiceLock(LockType.Read) 声明式加分布式读锁，缓存写入使用 RedisKeyBuild 组装带节目维度的键。"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:ProgramShowTimeService",
+      "type": "class",
+      "name": "ProgramShowTimeService",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "lineRange": [
+        53,
+        201
+      ],
+      "summary": "演出时间服务实现类，继承 ServiceImpl<ProgramShowTimeMapper, ProgramShowTime>，依赖 UUID 生成器、Redis 缓存、三个 Mapper、分布式锁工具与本地缓存组件。",
+      "tags": [
+        "service",
+        "演出时间",
+        "多级缓存"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:add",
+      "type": "function",
+      "name": "add",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "lineRange": [
+        78,
+        85
+      ],
+      "summary": "@Transactional 新增演出时间：用 UidGenerator 生成 id 后写入 d_program_show_time。",
+      "tags": [
+        "service",
+        "演出时间",
+        "事务"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:selectProgramShowTimeByProgramIdMultipleCache",
+      "type": "function",
+      "name": "selectProgramShowTimeByProgramIdMultipleCache",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "lineRange": [
+        87,
+        91
+      ],
+      "summary": "多级缓存读取演出时间：先查 Caffeine 本地缓存，未命中回源到 selectProgramShowTimeByProgramId。",
+      "tags": [
+        "service",
+        "多级缓存",
+        "缓存读取"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:simpleSelectProgramShowTimeByProgramIdMultipleCache",
+      "type": "function",
+      "name": "simpleSelectProgramShowTimeByProgramIdMultipleCache",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "lineRange": [
+        93,
+        101
+      ],
+      "summary": "轻量读取演出时间：先本地缓存、未命中再读 Redis，不从数据库回源。",
+      "tags": [
+        "service",
+        "多级缓存",
+        "缓存读取"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:selectProgramShowTimeByProgramId",
+      "type": "function",
+      "name": "selectProgramShowTimeByProgramId",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "lineRange": [
+        106,
+        131
+      ],
+      "summary": "按节目 id 读取演出时间：在分布式读锁保护下先查 Redis，未命中查询数据库并回写缓存，取不到时抛 DaMaiFrameException。",
+      "tags": [
+        "service",
+        "缓存读取",
+        "分布式锁"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:renewal",
+      "type": "function",
+      "name": "renewal",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "lineRange": [
+        136,
+        200
+      ],
+      "summary": "演出时间续期：查询演出时间记录，把已过期场次的时间按规则滚动到未来（重算 showTime/showDayTime/showWeekTime），并批量更新节目分组的最新演出时间。",
+      "tags": [
+        "service",
+        "定时任务",
+        "数据续期"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "type": "file",
+      "name": "LocalCacheProgram.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "summary": "节目详情本地缓存组件，基于 Caffeine 构建缓存，缓存过期时间取节目的演出时间，提供 getCache/del 接口。",
+      "tags": [
+        "本地缓存",
+        "caffeine",
+        "component",
+        "program"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "自定义 Caffeine Expiry 让缓存随业务时间（演出时间）自然过期；maximumSize 通过 @Value(\"${maximumSize:10000}\") 可配置。"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java:LocalCacheProgram",
+      "type": "class",
+      "name": "LocalCacheProgram",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "lineRange": [
+        22,
+        77
+      ],
+      "summary": "@Component 本地缓存类，@PostConstruct 初始化 Cache<String, ProgramVo>，读缓存使用 Caffeine 线程安全的 get/getIfPresent，失效使用 invalidate。",
+      "tags": [
+        "本地缓存",
+        "caffeine",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java:localLockCacheInit",
+      "type": "function",
+      "name": "localLockCacheInit",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "lineRange": [
+        37,
+        61
+      ],
+      "summary": "@PostConstruct 初始化 Caffeine 缓存：容量取 maximumSize 配置，过期时间由 DateUtils.countBetweenSecond(now, programVo.getShowTime()) 计算，使详情缓存与演出时间同步失效。",
+      "tags": [
+        "本地缓存",
+        "caffeine",
+        "初始化"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java:getCache",
+      "type": "function",
+      "name": "getCache",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "lineRange": [
+        66,
+        72
+      ],
+      "summary": "本地缓存读取的 getCache 重载方法（66-68 行的 getCache(id, function) 未命中时用加载函数回源，70-72 行的 getCache(id) 仅 getIfPresent），合并为一个节点。",
+      "tags": [
+        "本地缓存",
+        "caffeine",
+        "缓存读取"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java:del",
+      "type": "function",
+      "name": "del",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "lineRange": [
+        74,
+        76
+      ],
+      "summary": "按 id 使节目详情本地缓存失效，节目数据变更或重置后调用。",
+      "tags": [
+        "本地缓存",
+        "caffeine",
+        "缓存失效"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:ProgramShowTimeService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:add",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:selectProgramShowTimeByProgramIdMultipleCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:simpleSelectProgramShowTimeByProgramIdMultipleCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:selectProgramShowTimeByProgramId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:renewal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java:LocalCacheProgram",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java:localLockCacheInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java:getCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java:del",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:ProgramShowTimeService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java:LocalCacheProgram",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:selectProgramShowTimeByProgramIdMultipleCache",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java:getCache",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:simpleSelectProgramShowTimeByProgramIdMultipleCache",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java:getCache",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:selectProgramShowTimeByProgramIdMultipleCache",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java:selectProgramShowTimeByProgramId",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramShowTimeAddDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramShowTime.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramGroupMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramShowTimeMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramShowTime.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

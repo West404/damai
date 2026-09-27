@@ -1,0 +1,363 @@
+{
+ "projectRoot": "E:/WorkSpace/damai",
+ "batchFiles": [
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "language": "java",
+   "sizeLines": 52,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "language": "java",
+   "sizeLines": 37,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java",
+   "language": "java",
+   "sizeLines": 42,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java",
+   "language": "java",
+   "sizeLines": 18,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "language": "java",
+   "sizeLines": 20,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java",
+   "language": "java",
+   "sizeLines": 36,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java",
+   "language": "java",
+   "sizeLines": 27,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "language": "java",
+   "sizeLines": 18,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "language": "java",
+   "sizeLines": 18,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java",
+   "language": "java",
+   "sizeLines": 29,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java",
+   "language": "java",
+   "sizeLines": 23,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserMobileDto.java",
+   "language": "java",
+   "sizeLines": 18,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateDto.java",
+   "language": "java",
+   "sizeLines": 42,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateEmailDto.java",
+   "language": "java",
+   "sizeLines": 32,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateMobileDto.java",
+   "language": "java",
+   "sizeLines": 32,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdatePasswordDto.java",
+   "language": "java",
+   "sizeLines": 32,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+   "language": "java",
+   "sizeLines": 53,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java",
+   "language": "java",
+   "sizeLines": 22,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserLoginVo.java",
+   "language": "java",
+   "sizeLines": 19,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/controller/TicketUserController.java",
+   "language": "java",
+   "sizeLines": 52,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/controller/UserController.java",
+   "language": "java",
+   "sizeLines": 122,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/entity/TicketUser.java",
+   "language": "java",
+   "sizeLines": 46,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+   "language": "java",
+   "sizeLines": 78,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java",
+   "language": "java",
+   "sizeLines": 36,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+   "language": "java",
+   "sizeLines": 36,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+   "language": "java",
+   "sizeLines": 14,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java",
+   "language": "java",
+   "sizeLines": 13,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java",
+   "language": "java",
+   "sizeLines": 14,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java",
+   "language": "java",
+   "sizeLines": 13,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+   "language": "java",
+   "sizeLines": 96,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java",
+   "language": "java",
+   "sizeLines": 17,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+   "language": "java",
+   "sizeLines": 388,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+   "language": "java",
+   "sizeLines": 33,
+   "fileCategory": "code"
+  }
+ ],
+ "batchImportData": {
+  "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java": [
+   "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java",
+   "damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java"
+  ],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java": [
+   "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java",
+   "damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java"
+  ],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserMobileDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateEmailDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateMobileDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdatePasswordDto.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java": [
+   "damai-common/src/main/java/com/damai/util/StringUtil.java"
+  ],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java": [],
+  "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserLoginVo.java": [],
+  "damai-server/damai-user-service/src/main/java/com/damai/controller/TicketUserController.java": [
+   "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java"
+  ],
+  "damai-server/damai-user-service/src/main/java/com/damai/controller/UserController.java": [
+   "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserMobileDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserRegisterDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateEmailDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateMobileDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdatePasswordDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserLoginVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java",
+   "damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java"
+  ],
+  "damai-server/damai-user-service/src/main/java/com/damai/entity/TicketUser.java": [
+   "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java"
+  ],
+  "damai-server/damai-user-service/src/main/java/com/damai/entity/User.java": [
+   "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java"
+  ],
+  "damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java": [
+   "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java"
+  ],
+  "damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java": [
+   "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java"
+  ],
+  "damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java": [
+   "damai-server/damai-user-service/src/main/java/com/damai/entity/TicketUser.java"
+  ],
+  "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java": [
+   "damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java"
+  ],
+  "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java": [
+   "damai-server/damai-user-service/src/main/java/com/damai/entity/User.java"
+  ],
+  "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java": [
+   "damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java"
+  ],
+  "damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java": [
+   "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+   "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+   "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+   "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+   "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+   "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/entity/TicketUser.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java"
+  ],
+  "damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java": [
+   "damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java"
+  ],
+  "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java": [
+   "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+   "damai-common/src/main/java/com/damai/enums/BusinessStatus.java",
+   "damai-common/src/main/java/com/damai/enums/CompositeCheckType.java",
+   "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+   "damai-common/src/main/java/com/damai/jwt/TokenUtil.java",
+   "damai-common/src/main/java/com/damai/util/StringUtil.java",
+   "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+   "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+   "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+   "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+   "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/java/com/damai/handler/BloomFilterHandler.java",
+   "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+   "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+   "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java",
+   "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/GetChannelDataByCodeDto.java",
+   "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/GetChannelDataVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserMobileDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserRegisterDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateEmailDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateMobileDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdatePasswordDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserLoginVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java",
+   "damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/entity/TicketUser.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java",
+   "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java",
+   "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/CompositeContainer.java"
+  ],
+  "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java": []
+ }
+}

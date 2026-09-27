@@ -1,0 +1,791 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java",
+      "type": "file",
+      "name": "UserRegisterCountCheckHandler.java",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java",
+      "summary": "注册流程中的频率校验处理器，用本地请求计数器限制短时间内的注册请求量，超限抛异常。",
+      "tags": [
+        "api-handler",
+        "composite",
+        "rate-limiting",
+        "register"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java:UserRegisterCountCheckHandler",
+      "type": "class",
+      "name": "UserRegisterCountCheckHandler",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java",
+      "lineRange": [
+        16,
+        44
+      ],
+      "summary": "注册校验链中的请求频率校验节点，依赖 RequestCounter 做秒级限流。",
+      "tags": [
+        "composite",
+        "rate-limiting",
+        "register"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java",
+      "lineRange": [
+        22,
+        28
+      ],
+      "summary": "调用本地计数器判断注册请求是否超限，超限则抛出业务异常。",
+      "tags": [
+        "rate-limiting",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "type": "file",
+      "name": "UserRegisterVerifyCaptcha.java",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "summary": "注册流程中的验证码校验处理器：校验两次密码一致性、验证码缓存存在性，并调用验证码组件完成行为验证。",
+      "tags": [
+        "api-handler",
+        "composite",
+        "captcha",
+        "validation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java:UserRegisterVerifyCaptcha",
+      "type": "class",
+      "name": "UserRegisterVerifyCaptcha",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "lineRange": [
+        24,
+        73
+      ],
+      "summary": "注册校验链中的验证码与密码一致性校验节点。",
+      "tags": [
+        "composite",
+        "captcha",
+        "validation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "lineRange": [
+        34,
+        57
+      ],
+      "summary": "校验密码一致性、验证码缓存与行为验证结果，任一失败抛出注册异常。",
+      "tags": [
+        "captcha",
+        "validation",
+        "register"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java",
+      "type": "file",
+      "name": "RequestCounter.java",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java",
+      "summary": "基于原子计数器的本地秒级请求限流工具，统计每秒请求量并在超过阈值时返回失败。",
+      "tags": [
+        "utility",
+        "rate-limiting",
+        "concurrency",
+        "counter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java:RequestCounter",
+      "type": "class",
+      "name": "RequestCounter",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java",
+      "lineRange": [
+        14,
+        39
+      ],
+      "summary": "秒级窗口的本地请求计数器，用 AtomicLong 统计并限制请求量。",
+      "tags": [
+        "rate-limiting",
+        "concurrency",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java:onRequest",
+      "type": "function",
+      "name": "onRequest",
+      "filePath": "damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java",
+      "lineRange": [
+        23,
+        38
+      ],
+      "summary": "按秒窗口累加请求计数，超过最大阈值时重置计数并返回 false。",
+      "tags": [
+        "rate-limiting",
+        "concurrency"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "type": "file",
+      "name": "DatabaseOrderComplexGeneArithmetic.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "summary": "ShardingSphere 分库基因算法：从订单号与用户 ID 拼接的二进制基因中截取库基因位，计算订单应落入的数据库下标。",
+      "tags": [
+        "infrastructure",
+        "sharding",
+        "shardingsphere",
+        "algorithm"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "实现 ShardingSphere 的 ComplexKeysShardingAlgorithm，用订单号 + userId 的二进制基因做分库路由。"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java:DatabaseOrderComplexGeneArithmetic",
+      "type": "class",
+      "name": "DatabaseOrderComplexGeneArithmetic",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "lineRange": [
+        21,
+        96
+      ],
+      "summary": "订单库基因分片算法，根据拼接键的基因位决定目标数据库。",
+      "tags": [
+        "sharding",
+        "shardingsphere",
+        "algorithm"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "lineRange": [
+        30,
+        34
+      ],
+      "summary": "从分片配置读取分库数量与分表数量。",
+      "tags": [
+        "configuration",
+        "initialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java:doSharding",
+      "type": "function",
+      "name": "doSharding",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "lineRange": [
+        40,
+        70
+      ],
+      "summary": "组合订单号与 userId 基因计算库下标，返回命中的实际库名列表。",
+      "tags": [
+        "sharding",
+        "routing"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java:calculateDatabaseIndex",
+      "type": "function",
+      "name": "calculateDatabaseIndex",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "lineRange": [
+        80,
+        91
+      ],
+      "summary": "从二进制基因串截取并哈希得到数据库下标，异常时抛出分片失败错误。",
+      "tags": [
+        "sharding",
+        "algorithm"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java",
+      "type": "file",
+      "name": "TableOrderComplexGeneArithmetic.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java",
+      "summary": "ShardingSphere 分表基因算法：依据订单号与用户 ID 基因计算订单表下标，完成订单表的分表路由。",
+      "tags": [
+        "infrastructure",
+        "sharding",
+        "shardingsphere",
+        "algorithm"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java:TableOrderComplexGeneArithmetic",
+      "type": "class",
+      "name": "TableOrderComplexGeneArithmetic",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java",
+      "lineRange": [
+        20,
+        60
+      ],
+      "summary": "订单表基因分片算法，根据订单号与 userId 基因选择实际订单表。",
+      "tags": [
+        "sharding",
+        "shardingsphere",
+        "algorithm"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java",
+      "lineRange": [
+        27,
+        30
+      ],
+      "summary": "从分片配置读取分表数量。",
+      "tags": [
+        "configuration",
+        "initialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java:doSharding",
+      "type": "function",
+      "name": "doSharding",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java",
+      "lineRange": [
+        37,
+        59
+      ],
+      "summary": "根据订单号与 userId 基因计算目标订单表名列表。",
+      "tags": [
+        "sharding",
+        "routing"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java",
+      "type": "file",
+      "name": "FeignRequestInterceptor.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java",
+      "summary": "Feign 请求拦截器，把当前请求上下文中的灰度、用户与链路 header 透传到下游微服务调用。",
+      "tags": [
+        "middleware",
+        "feign-client",
+        "interceptor",
+        "gray-release"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java:FeignRequestInterceptor",
+      "type": "class",
+      "name": "FeignRequestInterceptor",
+      "filePath": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java",
+      "lineRange": [
+        26,
+        53
+      ],
+      "summary": "Feign 请求模板拦截器，负责跨服务 header 透传与灰度标记传递。",
+      "tags": [
+        "feign-client",
+        "interceptor"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java:apply",
+      "type": "function",
+      "name": "apply",
+      "filePath": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java",
+      "lineRange": [
+        32,
+        52
+      ],
+      "summary": "从当前 HTTP 请求取出灰度与用户 header 并写入 Feign 请求模板。",
+      "tags": [
+        "feign-client",
+        "header",
+        "context-propagation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java",
+      "type": "file",
+      "name": "AbstractComposite.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java",
+      "summary": "组合校验抽象基类：定义执行顺序与校验类型契约，并支持按层级 BFS 顺序批量执行子处理器。",
+      "tags": [
+        "abstract-class",
+        "composite",
+        "design-pattern",
+        "orchestration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java:AbstractComposite",
+      "type": "class",
+      "name": "AbstractComposite",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java",
+      "lineRange": [
+        14,
+        85
+      ],
+      "summary": "组合校验基类，声明 execute/优先级契约并实现层级化批量执行。",
+      "tags": [
+        "abstract-class",
+        "composite",
+        "orchestration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java:allExecute",
+      "type": "function",
+      "name": "allExecute",
+      "filePath": "damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java",
+      "lineRange": [
+        64,
+        84
+      ],
+      "summary": "以队列按层级顺序执行所有子组合处理器，保证父级先于子级完成校验。",
+      "tags": [
+        "orchestration",
+        "bfs",
+        "composite"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java",
+      "type": "file",
+      "name": "RequestParamContextFilter.java",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java",
+      "summary": "Servlet 请求过滤器，把请求头中的链路/用户参数写入 MDC 并在请求结束后清理，便于线程池与日志追踪。",
+      "tags": [
+        "middleware",
+        "filter",
+        "logging",
+        "context-propagation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java:RequestParamContextFilter",
+      "type": "class",
+      "name": "RequestParamContextFilter",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java",
+      "lineRange": [
+        22,
+        35
+      ],
+      "summary": "Web 过滤器，负责把请求头上下文注入 MDC 并保证清理。",
+      "tags": [
+        "filter",
+        "logging",
+        "mdc"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java:doFilterInternal",
+      "type": "function",
+      "name": "doFilterInternal",
+      "filePath": "damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java",
+      "lineRange": [
+        23,
+        34
+      ],
+      "summary": "从请求头提取链路参数写入 MDC，执行过滤链后清理上下文。",
+      "tags": [
+        "filter",
+        "logging",
+        "context-propagation"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java:UserRegisterCountCheckHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java",
+      "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java:UserRegisterVerifyCaptcha",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java:RequestCounter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java",
+      "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java:onRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java:DatabaseOrderComplexGeneArithmetic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java:doSharding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java:calculateDatabaseIndex",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java:TableOrderComplexGeneArithmetic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java:doSharding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java:FeignRequestInterceptor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java:apply",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java:AbstractComposite",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-initialize/src/main/java/com/damai/initialize/impl/composite/AbstractComposite.java:allExecute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java",
+      "target": "class:damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java:RequestParamContextFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java",
+      "target": "function:damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java:doFilterInternal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java:execute",
+      "target": "function:damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java:onRequest",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java:execute",
+      "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:verification",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java:execute",
+      "target": "function:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java:createRedisKey",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java:calculateDatabaseIndex",
+      "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isNotEmpty",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java:apply",
+      "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isEmpty",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java:doFilterInternal",
+      "target": "function:damai-common/src/main/java/com/damai/util/StringUtil.java:isNotEmpty",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java:UserRegisterCountCheckHandler",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java:AbstractUserRegisterCheckHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java:UserRegisterVerifyCaptcha",
+      "target": "class:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java:AbstractUserRegisterCheckHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserRegisterDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java",
+      "target": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterCountCheckHandler.java",
+      "target": "file:damai-server/damai-user-service/src/main/java/com/damai/service/tool/RequestCounter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/VerifyCaptcha.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserRegisterDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/impl/UserRegisterVerifyCaptcha.java",
+      "target": "file:damai-server/damai-user-service/src/main/java/com/damai/service/composite/register/AbstractUserRegisterCheckHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/feign/FeignRequestInterceptor.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-thread-pool-framework/src/main/java/com/damai/filter/RequestParamContextFilter.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

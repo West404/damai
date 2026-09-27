@@ -1,0 +1,311 @@
+{
+  "nodes": [
+    {
+      "id": "schema:sql/cloud/1_damai_cloud_create_database.sql",
+      "type": "schema",
+      "name": "1_damai_cloud_create_database.sql",
+      "filePath": "sql/cloud/1_damai_cloud_create_database.sql",
+      "summary": "Bootstrap script that creates the sharded MySQL databases (damai_user_0/1, damai_order_0/1, damai_pay_0/1, damai_program_0/1, damai_base_data, damai_customize) for the cloud deployment.",
+      "tags": ["database", "schema-definition", "sharding", "initialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_base_data.sql",
+      "type": "table",
+      "name": "damai_base_data.sql",
+      "filePath": "sql/cloud/damai_base_data.sql",
+      "summary": "Defines the base-data service tables: d_area (region/area hierarchy) and d_channel_data (channel signing and encryption keys).",
+      "tags": ["database", "schema-definition", "base-data", "migration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_base_data.sql:d_area",
+      "type": "table",
+      "name": "d_area",
+      "filePath": "sql/cloud/damai_base_data.sql",
+      "summary": "Area/region table storing hierarchical administrative divisions with parent_id, type and municipality flag used for program location filtering.",
+      "tags": ["database", "table", "base-data", "region"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_base_data.sql:d_channel_data",
+      "type": "table",
+      "name": "d_channel_data",
+      "filePath": "sql/cloud/damai_base_data.sql",
+      "summary": "Channel data table holding per-channel sign keys, AES keys, data keys and token secrets used to secure third-party channel integrations.",
+      "tags": ["database", "table", "base-data", "channel", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_customize.sql",
+      "type": "table",
+      "name": "damai_customize.sql",
+      "filePath": "sql/cloud/damai_customize.sql",
+      "summary": "Defines the customize-service tables d_api_data, d_depth_rule and d_rule that drive gray-release API data and depth routing rules.",
+      "tags": ["database", "schema-definition", "customize", "gray-release", "migration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_customize.sql:d_api_data",
+      "type": "table",
+      "name": "d_api_data",
+      "filePath": "sql/cloud/damai_customize.sql",
+      "summary": "API data table storing per-API customized response data used by the gray/customize service.",
+      "tags": ["database", "table", "customize", "api-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_customize.sql:d_depth_rule",
+      "type": "table",
+      "name": "d_depth_rule",
+      "filePath": "sql/cloud/damai_customize.sql",
+      "summary": "Depth rule table defining deep (conditional) matching rules for gray traffic routing in the customize service.",
+      "tags": ["database", "table", "customize", "gray-rule"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_customize.sql:d_rule",
+      "type": "table",
+      "name": "d_rule",
+      "filePath": "sql/cloud/damai_customize.sql",
+      "summary": "Rule table storing basic gray-release matching rules consumed by the customize service rule engine.",
+      "tags": ["database", "table", "customize", "gray-rule"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql",
+      "type": "table",
+      "name": "damai_order_0.sql",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "Defines the order-service tables for database shard 0: d_order_0..3 and d_order_ticket_user_0..3, sharded by ShardingSphere.",
+      "tags": ["database", "schema-definition", "order", "sharding", "migration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_0",
+      "type": "table",
+      "name": "d_order_0",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "Order table (table shard 0, database shard 0) storing core order records for ticket purchases.",
+      "tags": ["database", "table", "order", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_1",
+      "type": "table",
+      "name": "d_order_1",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "Order table (table shard 1, database shard 0) storing core order records for ticket purchases.",
+      "tags": ["database", "table", "order", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_2",
+      "type": "table",
+      "name": "d_order_2",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "Order table (table shard 2, database shard 0) storing core order records for ticket purchases.",
+      "tags": ["database", "table", "order", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_3",
+      "type": "table",
+      "name": "d_order_3",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "Order table (table shard 3, database shard 0) storing core order records for ticket purchases.",
+      "tags": ["database", "table", "order", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_0",
+      "type": "table",
+      "name": "d_order_ticket_user_0",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "Order ticket-user relation table (shard 0) linking orders to the real-name attendees (ticket users) on the order.",
+      "tags": ["database", "table", "order", "ticket-user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_1",
+      "type": "table",
+      "name": "d_order_ticket_user_1",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "Order ticket-user relation table (shard 1) linking orders to the real-name attendees (ticket users) on the order.",
+      "tags": ["database", "table", "order", "ticket-user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_2",
+      "type": "table",
+      "name": "d_order_ticket_user_2",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "Order ticket-user relation table (shard 2) linking orders to the real-name attendees (ticket users) on the order.",
+      "tags": ["database", "table", "order", "ticket-user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_3",
+      "type": "table",
+      "name": "d_order_ticket_user_3",
+      "filePath": "sql/cloud/damai_order_0.sql",
+      "summary": "Order ticket-user relation table (shard 3) linking orders to the real-name attendees (ticket users) on the order.",
+      "tags": ["database", "table", "order", "ticket-user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql",
+      "type": "table",
+      "name": "damai_order_1.sql",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "Defines the order-service tables for database shard 1: d_order_0..3 and d_order_ticket_user_0..3, mirroring shard 0 for ShardingSphere horizontal split.",
+      "tags": ["database", "schema-definition", "order", "sharding", "migration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_0",
+      "type": "table",
+      "name": "d_order_0",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "Order table (table shard 0, database shard 1) storing core order records for ticket purchases.",
+      "tags": ["database", "table", "order", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_1",
+      "type": "table",
+      "name": "d_order_1",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "Order table (table shard 1, database shard 1) storing core order records for ticket purchases.",
+      "tags": ["database", "table", "order", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_2",
+      "type": "table",
+      "name": "d_order_2",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "Order table (table shard 2, database shard 1) storing core order records for ticket purchases.",
+      "tags": ["database", "table", "order", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_3",
+      "type": "table",
+      "name": "d_order_3",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "Order table (table shard 3, database shard 1) storing core order records for ticket purchases.",
+      "tags": ["database", "table", "order", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_0",
+      "type": "table",
+      "name": "d_order_ticket_user_0",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "Order ticket-user relation table (database shard 1, table shard 0) linking orders to real-name attendees.",
+      "tags": ["database", "table", "order", "ticket-user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_1",
+      "type": "table",
+      "name": "d_order_ticket_user_1",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "Order ticket-user relation table (database shard 1, table shard 1) linking orders to real-name attendees.",
+      "tags": ["database", "table", "order", "ticket-user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_2",
+      "type": "table",
+      "name": "d_order_ticket_user_2",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "Order ticket-user relation table (database shard 1, table shard 2) linking orders to real-name attendees.",
+      "tags": ["database", "table", "order", "ticket-user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_3",
+      "type": "table",
+      "name": "d_order_ticket_user_3",
+      "filePath": "sql/cloud/damai_order_1.sql",
+      "summary": "Order ticket-user relation table (database shard 1, table shard 3) linking orders to real-name attendees.",
+      "tags": ["database", "table", "order", "ticket-user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_0.sql",
+      "type": "table",
+      "name": "damai_pay_0.sql",
+      "filePath": "sql/cloud/damai_pay_0.sql",
+      "summary": "Defines the pay-service tables for database shard 0: d_pay_bill_0/1 (payment bills) and d_refund_bill_0/1 (refund bills).",
+      "tags": ["database", "schema-definition", "payment", "sharding", "migration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_0.sql:d_pay_bill_0",
+      "type": "table",
+      "name": "d_pay_bill_0",
+      "filePath": "sql/cloud/damai_pay_0.sql",
+      "summary": "Payment bill table (shard 0, database shard 0) recording payment transactions for orders.",
+      "tags": ["database", "table", "payment", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_0.sql:d_pay_bill_1",
+      "type": "table",
+      "name": "d_pay_bill_1",
+      "filePath": "sql/cloud/damai_pay_0.sql",
+      "summary": "Payment bill table (shard 1, database shard 0) recording payment transactions for orders.",
+      "tags": ["database", "table", "payment", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_0.sql:d_refund_bill_0",
+      "type": "table",
+      "name": "d_refund_bill_0",
+      "filePath": "sql/cloud/damai_pay_0.sql",
+      "summary": "Refund bill table (shard 0, database shard 0) recording refund transactions for cancelled orders.",
+      "tags": ["database", "table", "payment", "refund", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_0.sql:d_refund_bill_1",
+      "type": "table",
+      "name": "d_refund_bill_1",
+      "filePath": "sql/cloud/damai_pay_0.sql",
+      "summary": "Refund bill table (shard 1, database shard 0) recording refund transactions for cancelled orders.",
+      "tags": ["database", "table", "payment", "refund", "sharding"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "table:sql/cloud/damai_base_data.sql", "target": "table:sql/cloud/damai_base_data.sql:d_area", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_base_data.sql", "target": "table:sql/cloud/damai_base_data.sql:d_channel_data", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_customize.sql", "target": "table:sql/cloud/damai_customize.sql:d_api_data", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_customize.sql", "target": "table:sql/cloud/damai_customize.sql:d_depth_rule", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_customize.sql", "target": "table:sql/cloud/damai_customize.sql:d_rule", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_2", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_3", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_2", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_0.sql:d_order_ticket_user_3", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_2", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_3", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_2", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_1.sql", "target": "table:sql/cloud/damai_order_1.sql:d_order_ticket_user_3", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_0.sql", "target": "table:sql/cloud/damai_pay_0.sql:d_pay_bill_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_0.sql", "target": "table:sql/cloud/damai_pay_0.sql:d_pay_bill_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_0.sql", "target": "table:sql/cloud/damai_pay_0.sql:d_refund_bill_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_0.sql", "target": "table:sql/cloud/damai_pay_0.sql:d_refund_bill_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_order_0.sql", "target": "table:sql/cloud/damai_order_1.sql", "type": "related", "direction": "forward", "weight": 0.5}
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "projectRoot": "E:/WorkSpace/damai",
+  "batchFiles": [
+    {"path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java", "language": "java", "sizeLines": 42, "fileCategory": "code"},
+    {"path": "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java", "language": "java", "sizeLines": 60, "fileCategory": "code"},
+    {"path": "damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java", "language": "java", "sizeLines": 35, "fileCategory": "code"},
+    {"path": "damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java", "language": "java", "sizeLines": 41, "fileCategory": "code"},
+    {"path": "damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java", "language": "java", "sizeLines": 42, "fileCategory": "code"},
+    {"path": "damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java", "language": "java", "sizeLines": 22, "fileCategory": "code"},
+    {"path": "damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java", "language": "java", "sizeLines": 69, "fileCategory": "code"},
+    {"path": "damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java", "language": "java", "sizeLines": 43, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java": [],
+    "damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java": [],
+    "damai-server/damai-customize-service/src/main/java/com/damai/controller/ApiDataController.java": ["damai-common/src/main/java/com/damai/common/ApiResponse.java","damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java","damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java","damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java","damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java"],
+    "damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java": ["damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java"],
+    "damai-server/damai-customize-service/src/main/java/com/damai/kafka/ApiDataMessageConsumer.java": ["damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java","damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java"],
+    "damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java": ["damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java","damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java","damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java","damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java"],
+    "damai-server/damai-customize-service/src/main/java/com/damai/service/ApiDataService.java": ["damai-common/src/main/java/com/damai/util/StringUtil.java","damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/core/RepeatExecuteLimitConstants.java","damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java","damai-server-client/damai-customize-client/src/main/java/com/damai/dto/ApiDataDto.java","damai-server-client/damai-customize-client/src/main/java/com/damai/vo/ApiDataVo.java","damai-server/damai-customize-service/src/main/java/com/damai/entity/ApiData.java","damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java","damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java"],
+    "damai-server/damai-gateway-service/src/main/java/com/damai/dto/ApiDataDto.java": []
+  }
+}

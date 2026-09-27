@@ -1,0 +1,186 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/application.yml",
+      "summary": "订单服务的主配置文件，定义 8081 服务端口、ShardingSphere 分库分表数据源、Redis、Nacos 注册发现、Kafka 消费组 create_order_data、MyBatis-Plus 逻辑删除、Feign/OkHttp、Actuator+Prometheus 监控、Jasypt 加密、延时队列线程池以及 SpringDoc/Knife4j 接口文档等全部运行时参数。",
+      "tags": ["configuration", "spring-boot", "middleware", "微服务配置", "主配置文件"],
+      "complexity": "moderate",
+      "languageNotes": "通过 spring.profiles.active 占位符把 jdbc:shardingsphere:classpath:shardingsphere-order-${spring.profiles.active}.yaml 交给 ShardingSphereDriver 加载，从而按环境切换分片配置。"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/application-local.yml",
+      "type": "config",
+      "name": "application-local.yml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/application-local.yml",
+      "summary": "订单服务 local（本地开发）环境补充配置，仅声明支付宝支付回调地址 orderPayNotifyUrl（指向 ngrok 内网穿透域名）与支付成功跳转页 orderPayReturnUrl（指向本地 Vite 前端 5173 端口）。",
+      "tags": ["configuration", "spring-profile", "本地环境", "支付回调"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/application-pro.yml",
+      "type": "config",
+      "name": "application-pro.yml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/application-pro.yml",
+      "summary": "订单服务 pro（生产）环境补充配置，把支付宝支付回调地址 orderPayNotifyUrl 与支付成功跳转页 orderPayReturnUrl 指向线上域名 damai-javaup.chat。",
+      "tags": ["configuration", "spring-profile", "生产环境", "支付回调"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/log4j2.xml",
+      "summary": "订单服务的 Log4j2 日志配置，定义带 traceId/skyWalkingTraceId 的统一日志格式、控制台与两个 RollingFile Appender（普通日志与 ERROR 日志），并按时间与大小滚动压缩、最多保留 30 个归档文件。",
+      "tags": ["configuration", "logging", "log4j2", "可观测性"],
+      "complexity": "moderate",
+      "languageNotes": "monitorInterval=600 支持配置热加载；RollingFile 同时启用 TimeBasedTriggeringPolicy 与 SizeBasedTriggeringPolicy（100MB），归档为 .log.gz；文件中预留了 Logstash Socket Appender 与 DamaiJsonLayout 但默认注释关闭。"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml",
+      "type": "config",
+      "name": "shardingsphere-order-local.yaml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml",
+      "summary": "ShardingSphere 本地环境分片配置：两个 HikariCP 数据源 ds_0/ds_1（指向 127.0.0.1 的 damai_order_0/1），对 d_order 与 d_order_ticket_user 按 order_number、user_id 双键复杂分片为 2 库 × 4 表，并绑定为广播关联表。",
+      "tags": ["configuration", "shardingsphere", "分库分表", "database", "本地环境"],
+      "complexity": "moderate",
+      "languageNotes": "使用 ShardingSphere 自定义标签 !SHARDING 声明规则，分片算法为 CLASS_BASED，通过 algorithmClassName 指向 com.damai.shardingsphere 包内的复杂分片算法实现。"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-docker.yaml",
+      "type": "config",
+      "name": "shardingsphere-order-docker.yaml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/shardingsphere-order-docker.yaml",
+      "summary": "ShardingSphere 容器（Docker Compose）环境分片配置，分片规则与本地版一致，差别在于 dataSource 的 jdbcUrl 使用 Docker 网络主机名 mysql:3306 连接 damai_order_0/1 两个库。",
+      "tags": ["configuration", "shardingsphere", "分库分表", "database", "容器环境"],
+      "complexity": "moderate",
+      "languageNotes": "自定义 !SHARDING 标签需要 ShardingSphere 自有 YAML 解析器，通用 YAML 解析器会报 Unresolved tag 警告。"
+    },
+    {
+      "id": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-pro.yaml",
+      "type": "config",
+      "name": "shardingsphere-order-pro.yaml",
+      "filePath": "damai-server/damai-order-service/src/main/resources/shardingsphere-order-pro.yaml",
+      "summary": "ShardingSphere 生产环境分片配置，分片规则与本地版一致，数据源指向生产数据库主机 www.cookframe.com:3306 的 damai_order_0/1 两个库，并开启 SQL 打印以便排查分片路由。",
+      "tags": ["configuration", "shardingsphere", "分库分表", "database", "生产环境"],
+      "complexity": "moderate",
+      "languageNotes": "props.sql-show 为 true，生产环境会打印所有实际路由 SQL；数据源账号密码以明文形式保存在配置中。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-docker.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-pro.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-order-service/src/main/resources/application-local.yml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-order-service/src/main/resources/application-pro.yml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-order-service/src/main/resources/log4j2.xml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/log4j2.xml",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/application-local.yml",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/application-pro.yml",
+      "target": "file:damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java:DatabaseOrderComplexGeneArithmetic",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-local.yaml",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java:TableOrderComplexGeneArithmetic",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-docker.yaml",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java:DatabaseOrderComplexGeneArithmetic",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-docker.yaml",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java:TableOrderComplexGeneArithmetic",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-pro.yaml",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/DatabaseOrderComplexGeneArithmetic.java:DatabaseOrderComplexGeneArithmetic",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-order-service/src/main/resources/shardingsphere-order-pro.yaml",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/shardingsphere/TableOrderComplexGeneArithmetic.java:TableOrderComplexGeneArithmetic",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

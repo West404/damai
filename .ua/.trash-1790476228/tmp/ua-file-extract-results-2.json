@@ -1,0 +1,3288 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 33,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 33,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 33,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 43,
+      "classes": [
+        {
+          "name": "UserClient",
+          "startLine": 23,
+          "endLine": 52,
+          "methods": [
+            "getById",
+            "list",
+            "getUserAndTicketUserList"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserClient",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "getById",
+          "startLine": 23,
+          "endLine": 26,
+          "params": [
+            "userIdDto"
+          ]
+        },
+        {
+          "name": "list",
+          "startLine": 28,
+          "endLine": 31,
+          "params": [
+            "dto"
+          ]
+        },
+        {
+          "name": "getUserAndTicketUserList",
+          "startLine": 33,
+          "endLine": 36,
+          "params": [
+            "dto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserClientFallback",
+          "startLine": 20,
+          "endLine": 37,
+          "methods": [
+            "getById",
+            "list",
+            "getUserAndTicketUserList"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getById",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "list",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "getUserAndTicketUserList",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "UserClientFallback",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getById",
+          "callee": "ApiResponse.error",
+          "lineNumber": 25
+        },
+        {
+          "caller": "list",
+          "callee": "ApiResponse.error",
+          "lineNumber": 30
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "ApiResponse.error",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 9,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 33,
+      "classes": [
+        {
+          "name": "TicketUserDto",
+          "startLine": 17,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "userId",
+            "relName",
+            "idType",
+            "idNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketUserDto",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "TicketUserIdDto",
+          "startLine": 12,
+          "endLine": 19,
+          "methods": [],
+          "properties": [
+            "id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketUserIdDto",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "TicketUserListDto",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "userId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketUserListDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 28,
+      "classes": [
+        {
+          "name": "UserAuthenticationDto",
+          "startLine": 17,
+          "endLine": 36,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "relName",
+            "idNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserAuthenticationDto",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 21,
+      "classes": [
+        {
+          "name": "UserExistDto",
+          "startLine": 16,
+          "endLine": 27,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "mobile"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserExistDto",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "UserGetAndTicketUserListDto",
+          "startLine": 12,
+          "endLine": 19,
+          "methods": [],
+          "properties": [
+            "userId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserGetAndTicketUserListDto",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "UserIdDto",
+          "startLine": 12,
+          "endLine": 19,
+          "methods": [],
+          "properties": [
+            "id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserIdDto",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 24,
+      "classes": [
+        {
+          "name": "UserLoginDto",
+          "startLine": 13,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "code",
+            "mobile",
+            "email",
+            "password"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserLoginDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "UserLogoutDto",
+          "startLine": 13,
+          "endLine": 24,
+          "methods": [],
+          "properties": [
+            "code",
+            "token"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserLogoutDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserMobileDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "UserMobileDto",
+          "startLine": 12,
+          "endLine": 19,
+          "methods": [],
+          "properties": [
+            "mobile"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserMobileDto",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 31,
+      "classes": [
+        {
+          "name": "UserUpdateDto",
+          "startLine": 16,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "name",
+            "relName",
+            "gender",
+            "mobile",
+            "idNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserUpdateDto",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateEmailDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 25,
+      "classes": [
+        {
+          "name": "UserUpdateEmailDto",
+          "startLine": 17,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "email"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserUpdateEmailDto",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdateMobileDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 25,
+      "classes": [
+        {
+          "name": "UserUpdateMobileDto",
+          "startLine": 17,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "mobile"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserUpdateMobileDto",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserUpdatePasswordDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 25,
+      "classes": [
+        {
+          "name": "UserUpdatePasswordDto",
+          "startLine": 17,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "password"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserUpdatePasswordDto",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "getRelName",
+          "startLine": 39,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "getIdNumber",
+          "startLine": 46,
+          "endLine": 52,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TicketUserVo",
+          "startLine": 17,
+          "endLine": 53,
+          "methods": [
+            "getRelName",
+            "getIdNumber"
+          ],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "userId",
+            "relName",
+            "idType",
+            "idNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getRelName",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "getIdNumber",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "TicketUserVo",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getRelName",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 40
+        },
+        {
+          "caller": "getRelName",
+          "callee": "StrUtil.hide",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getIdNumber",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getIdNumber",
+          "callee": "DesensitizedUtil.idCardNum",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "UserGetAndTicketUserListVo",
+          "startLine": 13,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "userVo",
+            "ticketUserVoList"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserGetAndTicketUserListVo",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserLoginVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 16,
+      "classes": [
+        {
+          "name": "UserLoginVo",
+          "startLine": 11,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "userId",
+            "token"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserLoginVo",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/controller/TicketUserController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "list",
+          "startLine": 33,
+          "endLine": 37,
+          "params": [
+            "ticketUserListDto"
+          ]
+        },
+        {
+          "name": "add",
+          "startLine": 39,
+          "endLine": 44,
+          "params": [
+            "ticketUserDto"
+          ]
+        },
+        {
+          "name": "delete",
+          "startLine": 46,
+          "endLine": 51,
+          "params": [
+            "ticketUserIdDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TicketUserController",
+          "startLine": 25,
+          "endLine": 52,
+          "methods": [
+            "list",
+            "add",
+            "delete"
+          ],
+          "properties": [
+            "ticketUserService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "list",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "add",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "delete",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "TicketUserController",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "list",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 36
+        },
+        {
+          "caller": "list",
+          "callee": "ticketUserService.list",
+          "lineNumber": 36
+        },
+        {
+          "caller": "add",
+          "callee": "ticketUserService.add",
+          "lineNumber": 42
+        },
+        {
+          "caller": "add",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 43
+        },
+        {
+          "caller": "delete",
+          "callee": "ticketUserService.delete",
+          "lineNumber": 49
+        },
+        {
+          "caller": "delete",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/controller/UserController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 122,
+      "nonEmptyLines": 104,
+      "functions": [
+        {
+          "name": "getByMobile",
+          "startLine": 42,
+          "endLine": 46,
+          "params": [
+            "userMobileDto"
+          ]
+        },
+        {
+          "name": "getById",
+          "startLine": 48,
+          "endLine": 52,
+          "params": [
+            "userIdDto"
+          ]
+        },
+        {
+          "name": "register",
+          "startLine": 54,
+          "endLine": 58,
+          "params": [
+            "userRegisterDto"
+          ]
+        },
+        {
+          "name": "exist",
+          "startLine": 60,
+          "endLine": 65,
+          "params": [
+            "userExistDto"
+          ]
+        },
+        {
+          "name": "login",
+          "startLine": 67,
+          "endLine": 71,
+          "params": [
+            "userLoginDto"
+          ]
+        },
+        {
+          "name": "logout",
+          "startLine": 73,
+          "endLine": 77,
+          "params": [
+            "userLogoutDto"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 79,
+          "endLine": 84,
+          "params": [
+            "userUpdateDto"
+          ]
+        },
+        {
+          "name": "updatePassword",
+          "startLine": 86,
+          "endLine": 91,
+          "params": [
+            "userUpdatePasswordDto"
+          ]
+        },
+        {
+          "name": "updateEmail",
+          "startLine": 93,
+          "endLine": 98,
+          "params": [
+            "userUpdateEmailDto"
+          ]
+        },
+        {
+          "name": "updateMobile",
+          "startLine": 100,
+          "endLine": 105,
+          "params": [
+            "userUpdateMobileDto"
+          ]
+        },
+        {
+          "name": "authentication",
+          "startLine": 107,
+          "endLine": 112,
+          "params": [
+            "userAuthenticationDto"
+          ]
+        },
+        {
+          "name": "getUserAndTicketUserList",
+          "startLine": 115,
+          "endLine": 119,
+          "params": [
+            "userGetAndTicketUserListDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserController",
+          "startLine": 34,
+          "endLine": 122,
+          "methods": [
+            "getByMobile",
+            "getById",
+            "register",
+            "exist",
+            "login",
+            "logout",
+            "update",
+            "updatePassword",
+            "updateEmail",
+            "updateMobile",
+            "authentication",
+            "getUserAndTicketUserList"
+          ],
+          "properties": [
+            "userService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getByMobile",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "getById",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "register",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "exist",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "login",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "logout",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "updatePassword",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "updateEmail",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "updateMobile",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "authentication",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "getUserAndTicketUserList",
+          "line": 115,
+          "isDefault": false
+        },
+        {
+          "name": "UserController",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getByMobile",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "userService.getByMobile",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getById",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getById",
+          "callee": "userService.getById",
+          "lineNumber": 51
+        },
+        {
+          "caller": "register",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 57
+        },
+        {
+          "caller": "register",
+          "callee": "userService.register",
+          "lineNumber": 57
+        },
+        {
+          "caller": "exist",
+          "callee": "userService.exist",
+          "lineNumber": 63
+        },
+        {
+          "caller": "exist",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 64
+        },
+        {
+          "caller": "login",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 70
+        },
+        {
+          "caller": "login",
+          "callee": "userService.login",
+          "lineNumber": 70
+        },
+        {
+          "caller": "logout",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 76
+        },
+        {
+          "caller": "logout",
+          "callee": "userService.logout",
+          "lineNumber": 76
+        },
+        {
+          "caller": "update",
+          "callee": "userService.update",
+          "lineNumber": 82
+        },
+        {
+          "caller": "update",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 83
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "userService.updatePassword",
+          "lineNumber": 89
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 90
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userService.updateEmail",
+          "lineNumber": 96
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 97
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userService.updateMobile",
+          "lineNumber": 103
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 104
+        },
+        {
+          "caller": "authentication",
+          "callee": "userService.authentication",
+          "lineNumber": 110
+        },
+        {
+          "caller": "authentication",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 111
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 118
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "userService.getUserAndTicketUserList",
+          "lineNumber": 118
+        }
+      ],
+      "metrics": {
+        "importCount": 18,
+        "exportCount": 13,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/entity/TicketUser.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 37,
+      "classes": [
+        {
+          "name": "TicketUser",
+          "startLine": 15,
+          "endLine": 46,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "userId",
+            "relName",
+            "idType",
+            "idNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketUser",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/entity/User.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 61,
+      "classes": [
+        {
+          "name": "User",
+          "startLine": 15,
+          "endLine": 78,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "name",
+            "relName",
+            "mobile",
+            "gender",
+            "password",
+            "emailStatus",
+            "email",
+            "relAuthenticationStatus",
+            "idNumber",
+            "address"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "User",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/entity/UserEmail.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 29,
+      "classes": [
+        {
+          "name": "UserEmail",
+          "startLine": 15,
+          "endLine": 36,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "userId",
+            "email"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserEmail",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/entity/UserMobile.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 29,
+      "classes": [
+        {
+          "name": "UserMobile",
+          "startLine": 15,
+          "endLine": 36,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "userId",
+            "mobile"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserMobile",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/mapper/TicketUserMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "TicketUserMapper",
+          "startLine": 12,
+          "endLine": 14,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketUserMapper",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserEmailMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "UserEmailMapper",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserEmailMapper",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "UserMapper",
+          "startLine": 12,
+          "endLine": 14,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserMapper",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/mapper/UserMobileMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "UserMobileMapper",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserMobileMapper",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/TicketUserService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 96,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "list",
+          "startLine": 50,
+          "endLine": 61,
+          "params": [
+            "ticketUserListDto"
+          ]
+        },
+        {
+          "name": "add",
+          "startLine": 63,
+          "endLine": 82,
+          "params": [
+            "ticketUserDto"
+          ]
+        },
+        {
+          "name": "delete",
+          "startLine": 83,
+          "endLine": 91,
+          "params": [
+            "ticketUserIdDto"
+          ]
+        },
+        {
+          "name": "delTicketUserVoListCache",
+          "startLine": 93,
+          "endLine": 95,
+          "params": [
+            "userId"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TicketUserService",
+          "startLine": 35,
+          "endLine": 96,
+          "methods": [
+            "list",
+            "add",
+            "delete",
+            "delTicketUserVoListCache"
+          ],
+          "properties": [
+            "ticketUserMapper",
+            "userMapper",
+            "uidGenerator",
+            "redisCache"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "list",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "add",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "delete",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "delTicketUserVoListCache",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "TicketUserService",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "list",
+          "callee": "redisCache.getValueIsList",
+          "lineNumber": 52
+        },
+        {
+          "caller": "list",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 52
+        },
+        {
+          "caller": "list",
+          "callee": "ticketUserListDto.getUserId",
+          "lineNumber": 53
+        },
+        {
+          "caller": "list",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 54
+        },
+        {
+          "caller": "list",
+          "callee": "Wrappers.lambdaQuery(TicketUser.class).eq",
+          "lineNumber": 57
+        },
+        {
+          "caller": "list",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 57
+        },
+        {
+          "caller": "list",
+          "callee": "ticketUserListDto.getUserId",
+          "lineNumber": 58
+        },
+        {
+          "caller": "list",
+          "callee": "ticketUserMapper.selectList",
+          "lineNumber": 59
+        },
+        {
+          "caller": "list",
+          "callee": "BeanUtil.copyToList",
+          "lineNumber": 60
+        },
+        {
+          "caller": "add",
+          "callee": "userMapper.selectById",
+          "lineNumber": 65
+        },
+        {
+          "caller": "add",
+          "callee": "ticketUserDto.getUserId",
+          "lineNumber": 65
+        },
+        {
+          "caller": "add",
+          "callee": "Objects.isNull",
+          "lineNumber": 66
+        },
+        {
+          "caller": "add",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 67
+        },
+        {
+          "caller": "add",
+          "callee": "Wrappers.lambdaQuery(TicketUser.class)\r\n                .eq(TicketUser::getUserId, ticketUserDto.getUserId())\r\n                .eq(TicketUser::getIdType, ticketUserDto.getIdType()).eq",
+          "lineNumber": 69
+        },
+        {
+          "caller": "add",
+          "callee": "Wrappers.lambdaQuery(TicketUser.class)\r\n                .eq(TicketUser::getUserId, ticketUserDto.getUserId()).eq",
+          "lineNumber": 69
+        },
+        {
+          "caller": "add",
+          "callee": "Wrappers.lambdaQuery(TicketUser.class).eq",
+          "lineNumber": 69
+        },
+        {
+          "caller": "add",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 69
+        },
+        {
+          "caller": "add",
+          "callee": "ticketUserDto.getUserId",
+          "lineNumber": 70
+        },
+        {
+          "caller": "add",
+          "callee": "ticketUserDto.getIdType",
+          "lineNumber": 71
+        },
+        {
+          "caller": "add",
+          "callee": "ticketUserDto.getIdNumber",
+          "lineNumber": 72
+        },
+        {
+          "caller": "add",
+          "callee": "ticketUserMapper.selectOne",
+          "lineNumber": 73
+        },
+        {
+          "caller": "add",
+          "callee": "Objects.nonNull",
+          "lineNumber": 74
+        },
+        {
+          "caller": "add",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 75
+        },
+        {
+          "caller": "add",
+          "callee": "new TicketUser",
+          "lineNumber": 77
+        },
+        {
+          "caller": "add",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 78
+        },
+        {
+          "caller": "add",
+          "callee": "addTicketUser.setId",
+          "lineNumber": 79
+        },
+        {
+          "caller": "add",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 79
+        },
+        {
+          "caller": "add",
+          "callee": "ticketUserMapper.insert",
+          "lineNumber": 80
+        },
+        {
+          "caller": "add",
+          "callee": "delTicketUserVoListCache",
+          "lineNumber": 81
+        },
+        {
+          "caller": "add",
+          "callee": "String.valueOf",
+          "lineNumber": 81
+        },
+        {
+          "caller": "add",
+          "callee": "ticketUserDto.getUserId",
+          "lineNumber": 81
+        },
+        {
+          "caller": "delete",
+          "callee": "ticketUserMapper.selectById",
+          "lineNumber": 85
+        },
+        {
+          "caller": "delete",
+          "callee": "ticketUserIdDto.getId",
+          "lineNumber": 85
+        },
+        {
+          "caller": "delete",
+          "callee": "Objects.isNull",
+          "lineNumber": 86
+        },
+        {
+          "caller": "delete",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 87
+        },
+        {
+          "caller": "delete",
+          "callee": "ticketUserMapper.deleteById",
+          "lineNumber": 89
+        },
+        {
+          "caller": "delete",
+          "callee": "ticketUserIdDto.getId",
+          "lineNumber": 89
+        },
+        {
+          "caller": "delete",
+          "callee": "delTicketUserVoListCache",
+          "lineNumber": 90
+        },
+        {
+          "caller": "delete",
+          "callee": "String.valueOf",
+          "lineNumber": 90
+        },
+        {
+          "caller": "delete",
+          "callee": "ticketUser.getUserId",
+          "lineNumber": 90
+        },
+        {
+          "caller": "delTicketUserVoListCache",
+          "callee": "redisCache.del",
+          "lineNumber": 94
+        },
+        {
+          "caller": "delTicketUserVoListCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 14,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/UserMobileService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 13,
+      "classes": [
+        {
+          "name": "UserMobileService",
+          "startLine": 14,
+          "endLine": 17,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserMobileService",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-user-service/src/main/java/com/damai/service/UserService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 388,
+      "nonEmptyLines": 354,
+      "functions": [
+        {
+          "name": "register",
+          "startLine": 110,
+          "endLine": 128,
+          "params": [
+            "userRegisterDto"
+          ]
+        },
+        {
+          "name": "exist",
+          "startLine": 130,
+          "endLine": 133,
+          "params": [
+            "userExistDto"
+          ]
+        },
+        {
+          "name": "doExist",
+          "startLine": 135,
+          "endLine": 145,
+          "params": [
+            "mobile"
+          ]
+        },
+        {
+          "name": "login",
+          "startLine": 152,
+          "endLine": 204,
+          "params": [
+            "userLoginDto"
+          ]
+        },
+        {
+          "name": "getChannelDataByRedis",
+          "startLine": 206,
+          "endLine": 208,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getChannelDataByClient",
+          "startLine": 210,
+          "endLine": 218,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "createToken",
+          "startLine": 220,
+          "endLine": 224,
+          "params": [
+            "userId",
+            "tokenSecret"
+          ]
+        },
+        {
+          "name": "logout",
+          "startLine": 226,
+          "endLine": 235,
+          "params": [
+            "userLogoutDto"
+          ]
+        },
+        {
+          "name": "getChannelDataByCode",
+          "startLine": 237,
+          "endLine": 243,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 245,
+          "endLine": 254,
+          "params": [
+            "userUpdateDto"
+          ]
+        },
+        {
+          "name": "updatePassword",
+          "startLine": 255,
+          "endLine": 264,
+          "params": [
+            "userUpdatePasswordDto"
+          ]
+        },
+        {
+          "name": "updateEmail",
+          "startLine": 265,
+          "endLine": 293,
+          "params": [
+            "userUpdateEmailDto"
+          ]
+        },
+        {
+          "name": "updateMobile",
+          "startLine": 295,
+          "endLine": 321,
+          "params": [
+            "userUpdateMobileDto"
+          ]
+        },
+        {
+          "name": "authentication",
+          "startLine": 323,
+          "endLine": 338,
+          "params": [
+            "userAuthenticationDto"
+          ]
+        },
+        {
+          "name": "getByMobile",
+          "startLine": 340,
+          "endLine": 355,
+          "params": [
+            "userMobileDto"
+          ]
+        },
+        {
+          "name": "getById",
+          "startLine": 357,
+          "endLine": 365,
+          "params": [
+            "userIdDto"
+          ]
+        },
+        {
+          "name": "getUserAndTicketUserList",
+          "startLine": 367,
+          "endLine": 381,
+          "params": [
+            "userGetAndTicketUserListDto"
+          ]
+        },
+        {
+          "name": "getAllMobile",
+          "startLine": 383,
+          "endLine": 387,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserService",
+          "startLine": 74,
+          "endLine": 388,
+          "methods": [
+            "register",
+            "exist",
+            "doExist",
+            "login",
+            "getChannelDataByRedis",
+            "getChannelDataByClient",
+            "createToken",
+            "logout",
+            "getChannelDataByCode",
+            "update",
+            "updatePassword",
+            "updateEmail",
+            "updateMobile",
+            "authentication",
+            "getByMobile",
+            "getById",
+            "getUserAndTicketUserList",
+            "getAllMobile"
+          ],
+          "properties": [
+            "userMapper",
+            "userMobileMapper",
+            "userEmailMapper",
+            "uidGenerator",
+            "redisCache",
+            "ticketUserMapper",
+            "bloomFilterHandler",
+            "compositeContainer",
+            "baseDataClient",
+            "tokenExpireTime",
+            "ERROR_COUNT_THRESHOLD"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "register",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "exist",
+          "line": 130,
+          "isDefault": false
+        },
+        {
+          "name": "doExist",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "login",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "createToken",
+          "line": 220,
+          "isDefault": false
+        },
+        {
+          "name": "logout",
+          "line": 226,
+          "isDefault": false
+        },
+        {
+          "name": "getChannelDataByCode",
+          "line": 237,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 245,
+          "isDefault": false
+        },
+        {
+          "name": "updatePassword",
+          "line": 255,
+          "isDefault": false
+        },
+        {
+          "name": "updateEmail",
+          "line": 265,
+          "isDefault": false
+        },
+        {
+          "name": "updateMobile",
+          "line": 295,
+          "isDefault": false
+        },
+        {
+          "name": "authentication",
+          "line": 323,
+          "isDefault": false
+        },
+        {
+          "name": "getByMobile",
+          "line": 340,
+          "isDefault": false
+        },
+        {
+          "name": "getById",
+          "line": 357,
+          "isDefault": false
+        },
+        {
+          "name": "getUserAndTicketUserList",
+          "line": 367,
+          "isDefault": false
+        },
+        {
+          "name": "getAllMobile",
+          "line": 383,
+          "isDefault": false
+        },
+        {
+          "name": "UserService",
+          "line": 74,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "register",
+          "callee": "compositeContainer.execute",
+          "lineNumber": 113
+        },
+        {
+          "caller": "register",
+          "callee": "CompositeCheckType.USER_REGISTER_CHECK.getValue",
+          "lineNumber": 113
+        },
+        {
+          "caller": "register",
+          "callee": "log.info",
+          "lineNumber": 114
+        },
+        {
+          "caller": "register",
+          "callee": "userRegisterDto.getMobile",
+          "lineNumber": 114
+        },
+        {
+          "caller": "register",
+          "callee": "new User",
+          "lineNumber": 116
+        },
+        {
+          "caller": "register",
+          "callee": "BeanUtils.copyProperties",
+          "lineNumber": 117
+        },
+        {
+          "caller": "register",
+          "callee": "user.setId",
+          "lineNumber": 118
+        },
+        {
+          "caller": "register",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 118
+        },
+        {
+          "caller": "register",
+          "callee": "userMapper.insert",
+          "lineNumber": 119
+        },
+        {
+          "caller": "register",
+          "callee": "new UserMobile",
+          "lineNumber": 121
+        },
+        {
+          "caller": "register",
+          "callee": "userMobile.setId",
+          "lineNumber": 122
+        },
+        {
+          "caller": "register",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 122
+        },
+        {
+          "caller": "register",
+          "callee": "userMobile.setUserId",
+          "lineNumber": 123
+        },
+        {
+          "caller": "register",
+          "callee": "user.getId",
+          "lineNumber": 123
+        },
+        {
+          "caller": "register",
+          "callee": "userMobile.setMobile",
+          "lineNumber": 124
+        },
+        {
+          "caller": "register",
+          "callee": "userRegisterDto.getMobile",
+          "lineNumber": 124
+        },
+        {
+          "caller": "register",
+          "callee": "userMobileMapper.insert",
+          "lineNumber": 125
+        },
+        {
+          "caller": "register",
+          "callee": "bloomFilterHandler.add",
+          "lineNumber": 126
+        },
+        {
+          "caller": "register",
+          "callee": "userMobile.getMobile",
+          "lineNumber": 126
+        },
+        {
+          "caller": "exist",
+          "callee": "doExist",
+          "lineNumber": 132
+        },
+        {
+          "caller": "exist",
+          "callee": "userExistDto.getMobile",
+          "lineNumber": 132
+        },
+        {
+          "caller": "doExist",
+          "callee": "bloomFilterHandler.contains",
+          "lineNumber": 136
+        },
+        {
+          "caller": "doExist",
+          "callee": "Wrappers.lambdaQuery(UserMobile.class).eq",
+          "lineNumber": 138
+        },
+        {
+          "caller": "doExist",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 138
+        },
+        {
+          "caller": "doExist",
+          "callee": "userMobileMapper.selectOne",
+          "lineNumber": 140
+        },
+        {
+          "caller": "doExist",
+          "callee": "Objects.nonNull",
+          "lineNumber": 141
+        },
+        {
+          "caller": "doExist",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 142
+        },
+        {
+          "caller": "login",
+          "callee": "new UserLoginVo",
+          "lineNumber": 153
+        },
+        {
+          "caller": "login",
+          "callee": "userLoginDto.getCode",
+          "lineNumber": 154
+        },
+        {
+          "caller": "login",
+          "callee": "userLoginDto.getMobile",
+          "lineNumber": 155
+        },
+        {
+          "caller": "login",
+          "callee": "userLoginDto.getEmail",
+          "lineNumber": 156
+        },
+        {
+          "caller": "login",
+          "callee": "userLoginDto.getPassword",
+          "lineNumber": 157
+        },
+        {
+          "caller": "login",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 158
+        },
+        {
+          "caller": "login",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 158
+        },
+        {
+          "caller": "login",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 159
+        },
+        {
+          "caller": "login",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 162
+        },
+        {
+          "caller": "login",
+          "callee": "redisCache.get",
+          "lineNumber": 164
+        },
+        {
+          "caller": "login",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 164
+        },
+        {
+          "caller": "login",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 165
+        },
+        {
+          "caller": "login",
+          "callee": "Integer.parseInt",
+          "lineNumber": 165
+        },
+        {
+          "caller": "login",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 166
+        },
+        {
+          "caller": "login",
+          "callee": "Wrappers.lambdaQuery(UserMobile.class).eq",
+          "lineNumber": 168
+        },
+        {
+          "caller": "login",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 168
+        },
+        {
+          "caller": "login",
+          "callee": "userMobileMapper.selectOne",
+          "lineNumber": 170
+        },
+        {
+          "caller": "login",
+          "callee": "Objects.isNull",
+          "lineNumber": 171
+        },
+        {
+          "caller": "login",
+          "callee": "redisCache.incrBy",
+          "lineNumber": 172
+        },
+        {
+          "caller": "login",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 172
+        },
+        {
+          "caller": "login",
+          "callee": "redisCache.expire",
+          "lineNumber": 173
+        },
+        {
+          "caller": "login",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 173
+        },
+        {
+          "caller": "login",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 174
+        },
+        {
+          "caller": "login",
+          "callee": "userMobile.getUserId",
+          "lineNumber": 176
+        },
+        {
+          "caller": "login",
+          "callee": "redisCache.get",
+          "lineNumber": 179
+        },
+        {
+          "caller": "login",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 179
+        },
+        {
+          "caller": "login",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 180
+        },
+        {
+          "caller": "login",
+          "callee": "Integer.parseInt",
+          "lineNumber": 180
+        },
+        {
+          "caller": "login",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 181
+        },
+        {
+          "caller": "login",
+          "callee": "Wrappers.lambdaQuery(UserEmail.class).eq",
+          "lineNumber": 183
+        },
+        {
+          "caller": "login",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 183
+        },
+        {
+          "caller": "login",
+          "callee": "userEmailMapper.selectOne",
+          "lineNumber": 185
+        },
+        {
+          "caller": "login",
+          "callee": "Objects.isNull",
+          "lineNumber": 186
+        },
+        {
+          "caller": "login",
+          "callee": "redisCache.incrBy",
+          "lineNumber": 187
+        },
+        {
+          "caller": "login",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 187
+        },
+        {
+          "caller": "login",
+          "callee": "redisCache.expire",
+          "lineNumber": 188
+        },
+        {
+          "caller": "login",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 188
+        },
+        {
+          "caller": "login",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 189
+        },
+        {
+          "caller": "login",
+          "callee": "userEmail.getUserId",
+          "lineNumber": 191
+        },
+        {
+          "caller": "login",
+          "callee": "Wrappers.lambdaQuery(User.class)\r\n                .eq(User::getId, userId).eq",
+          "lineNumber": 193
+        },
+        {
+          "caller": "login",
+          "callee": "Wrappers.lambdaQuery(User.class).eq",
+          "lineNumber": 193
+        },
+        {
+          "caller": "login",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 193
+        },
+        {
+          "caller": "login",
+          "callee": "userMapper.selectOne",
+          "lineNumber": 195
+        },
+        {
+          "caller": "login",
+          "callee": "Objects.isNull",
+          "lineNumber": 196
+        },
+        {
+          "caller": "login",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 197
+        },
+        {
+          "caller": "login",
+          "callee": "redisCache.set",
+          "lineNumber": 199
+        },
+        {
+          "caller": "login",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 199
+        },
+        {
+          "caller": "login",
+          "callee": "user.getId",
+          "lineNumber": 199
+        },
+        {
+          "caller": "login",
+          "callee": "userLoginVo.setUserId",
+          "lineNumber": 201
+        },
+        {
+          "caller": "login",
+          "callee": "userLoginVo.setToken",
+          "lineNumber": 202
+        },
+        {
+          "caller": "login",
+          "callee": "createToken",
+          "lineNumber": 202
+        },
+        {
+          "caller": "login",
+          "callee": "user.getId",
+          "lineNumber": 202
+        },
+        {
+          "caller": "login",
+          "callee": "getChannelDataByCode(code).getTokenSecret",
+          "lineNumber": 202
+        },
+        {
+          "caller": "login",
+          "callee": "getChannelDataByCode",
+          "lineNumber": 202
+        },
+        {
+          "caller": "getChannelDataByRedis",
+          "callee": "redisCache.get",
+          "lineNumber": 207
+        },
+        {
+          "caller": "getChannelDataByRedis",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 207
+        },
+        {
+          "caller": "getChannelDataByClient",
+          "callee": "new GetChannelDataByCodeDto",
+          "lineNumber": 211
+        },
+        {
+          "caller": "getChannelDataByClient",
+          "callee": "getChannelDataByCodeDto.setCode",
+          "lineNumber": 212
+        },
+        {
+          "caller": "getChannelDataByClient",
+          "callee": "baseDataClient.getByCode",
+          "lineNumber": 213
+        },
+        {
+          "caller": "getChannelDataByClient",
+          "callee": "Objects.equals",
+          "lineNumber": 214
+        },
+        {
+          "caller": "getChannelDataByClient",
+          "callee": "getChannelDataApiResponse.getCode",
+          "lineNumber": 214
+        },
+        {
+          "caller": "getChannelDataByClient",
+          "callee": "BaseCode.SUCCESS.getCode",
+          "lineNumber": 214
+        },
+        {
+          "caller": "getChannelDataByClient",
+          "callee": "getChannelDataApiResponse.getData",
+          "lineNumber": 215
+        },
+        {
+          "caller": "getChannelDataByClient",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 217
+        },
+        {
+          "caller": "createToken",
+          "callee": "new HashMap<>",
+          "lineNumber": 221
+        },
+        {
+          "caller": "createToken",
+          "callee": "map.put",
+          "lineNumber": 222
+        },
+        {
+          "caller": "createToken",
+          "callee": "TokenUtil.createToken",
+          "lineNumber": 223
+        },
+        {
+          "caller": "createToken",
+          "callee": "String.valueOf",
+          "lineNumber": 223
+        },
+        {
+          "caller": "createToken",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 223
+        },
+        {
+          "caller": "createToken",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 223
+        },
+        {
+          "caller": "logout",
+          "callee": "TokenUtil.parseToken",
+          "lineNumber": 227
+        },
+        {
+          "caller": "logout",
+          "callee": "userLogoutDto.getToken",
+          "lineNumber": 227
+        },
+        {
+          "caller": "logout",
+          "callee": "getChannelDataByCode(userLogoutDto.getCode()).getTokenSecret",
+          "lineNumber": 227
+        },
+        {
+          "caller": "logout",
+          "callee": "getChannelDataByCode",
+          "lineNumber": 227
+        },
+        {
+          "caller": "logout",
+          "callee": "userLogoutDto.getCode",
+          "lineNumber": 227
+        },
+        {
+          "caller": "logout",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 229
+        },
+        {
+          "caller": "logout",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 230
+        },
+        {
+          "caller": "logout",
+          "callee": "JSONObject.parseObject(userStr).getString",
+          "lineNumber": 232
+        },
+        {
+          "caller": "logout",
+          "callee": "JSONObject.parseObject",
+          "lineNumber": 232
+        },
+        {
+          "caller": "logout",
+          "callee": "redisCache.del",
+          "lineNumber": 233
+        },
+        {
+          "caller": "logout",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 233
+        },
+        {
+          "caller": "logout",
+          "callee": "userLogoutDto.getCode",
+          "lineNumber": 233
+        },
+        {
+          "caller": "getChannelDataByCode",
+          "callee": "getChannelDataByRedis",
+          "lineNumber": 238
+        },
+        {
+          "caller": "getChannelDataByCode",
+          "callee": "Objects.isNull",
+          "lineNumber": 239
+        },
+        {
+          "caller": "getChannelDataByCode",
+          "callee": "getChannelDataByClient",
+          "lineNumber": 240
+        },
+        {
+          "caller": "update",
+          "callee": "userMapper.selectById",
+          "lineNumber": 247
+        },
+        {
+          "caller": "update",
+          "callee": "userUpdateDto.getId",
+          "lineNumber": 247
+        },
+        {
+          "caller": "update",
+          "callee": "Objects.isNull",
+          "lineNumber": 248
+        },
+        {
+          "caller": "update",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 249
+        },
+        {
+          "caller": "update",
+          "callee": "new User",
+          "lineNumber": 251
+        },
+        {
+          "caller": "update",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 252
+        },
+        {
+          "caller": "update",
+          "callee": "userMapper.updateById",
+          "lineNumber": 253
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "userMapper.selectById",
+          "lineNumber": 257
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "userUpdatePasswordDto.getId",
+          "lineNumber": 257
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "Objects.isNull",
+          "lineNumber": 258
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 259
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "new User",
+          "lineNumber": 261
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 262
+        },
+        {
+          "caller": "updatePassword",
+          "callee": "userMapper.updateById",
+          "lineNumber": 263
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userMapper.selectById",
+          "lineNumber": 267
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userUpdateEmailDto.getId",
+          "lineNumber": 267
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "Objects.isNull",
+          "lineNumber": 268
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 269
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "new User",
+          "lineNumber": 271
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 272
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "updateUser.setEmailStatus",
+          "lineNumber": 273
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "BusinessStatus.YES.getCode",
+          "lineNumber": 273
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userMapper.updateById",
+          "lineNumber": 274
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "user.getEmail",
+          "lineNumber": 276
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "Wrappers.lambdaQuery(UserEmail.class).eq",
+          "lineNumber": 277
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 277
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userUpdateEmailDto.getEmail",
+          "lineNumber": 278
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userEmailMapper.selectOne",
+          "lineNumber": 279
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "Objects.isNull",
+          "lineNumber": 280
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "new UserEmail",
+          "lineNumber": 281
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userEmail.setId",
+          "lineNumber": 282
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 282
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userEmail.setUserId",
+          "lineNumber": 283
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "user.getId",
+          "lineNumber": 283
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userEmail.setEmail",
+          "lineNumber": 284
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userUpdateEmailDto.getEmail",
+          "lineNumber": 284
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userEmailMapper.insert",
+          "lineNumber": 285
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "Wrappers.lambdaUpdate(UserEmail.class).eq",
+          "lineNumber": 287
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 287
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "new UserEmail",
+          "lineNumber": 289
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "updateUserEmail.setEmail",
+          "lineNumber": 290
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userUpdateEmailDto.getEmail",
+          "lineNumber": 290
+        },
+        {
+          "caller": "updateEmail",
+          "callee": "userEmailMapper.update",
+          "lineNumber": 291
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userMapper.selectById",
+          "lineNumber": 297
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userUpdateMobileDto.getId",
+          "lineNumber": 297
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "Objects.isNull",
+          "lineNumber": 298
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 299
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "user.getMobile",
+          "lineNumber": 301
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "new User",
+          "lineNumber": 302
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 303
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userMapper.updateById",
+          "lineNumber": 304
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "Wrappers.lambdaQuery(UserMobile.class).eq",
+          "lineNumber": 305
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 305
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userUpdateMobileDto.getMobile",
+          "lineNumber": 306
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userMobileMapper.selectOne",
+          "lineNumber": 307
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "Objects.isNull",
+          "lineNumber": 308
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "new UserMobile",
+          "lineNumber": 309
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userMobile.setId",
+          "lineNumber": 310
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 310
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userMobile.setUserId",
+          "lineNumber": 311
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "user.getId",
+          "lineNumber": 311
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userMobile.setMobile",
+          "lineNumber": 312
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userUpdateMobileDto.getMobile",
+          "lineNumber": 312
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userMobileMapper.insert",
+          "lineNumber": 313
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "Wrappers.lambdaUpdate(UserMobile.class).eq",
+          "lineNumber": 315
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 315
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "new UserMobile",
+          "lineNumber": 317
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "updateUserMobile.setMobile",
+          "lineNumber": 318
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userUpdateMobileDto.getMobile",
+          "lineNumber": 318
+        },
+        {
+          "caller": "updateMobile",
+          "callee": "userMobileMapper.update",
+          "lineNumber": 319
+        },
+        {
+          "caller": "authentication",
+          "callee": "userMapper.selectById",
+          "lineNumber": 325
+        },
+        {
+          "caller": "authentication",
+          "callee": "userAuthenticationDto.getId",
+          "lineNumber": 325
+        },
+        {
+          "caller": "authentication",
+          "callee": "Objects.isNull",
+          "lineNumber": 326
+        },
+        {
+          "caller": "authentication",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 327
+        },
+        {
+          "caller": "authentication",
+          "callee": "Objects.equals",
+          "lineNumber": 329
+        },
+        {
+          "caller": "authentication",
+          "callee": "user.getRelAuthenticationStatus",
+          "lineNumber": 329
+        },
+        {
+          "caller": "authentication",
+          "callee": "BusinessStatus.YES.getCode",
+          "lineNumber": 329
+        },
+        {
+          "caller": "authentication",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 330
+        },
+        {
+          "caller": "authentication",
+          "callee": "new User",
+          "lineNumber": 332
+        },
+        {
+          "caller": "authentication",
+          "callee": "updateUser.setId",
+          "lineNumber": 333
+        },
+        {
+          "caller": "authentication",
+          "callee": "user.getId",
+          "lineNumber": 333
+        },
+        {
+          "caller": "authentication",
+          "callee": "updateUser.setRelName",
+          "lineNumber": 334
+        },
+        {
+          "caller": "authentication",
+          "callee": "userAuthenticationDto.getRelName",
+          "lineNumber": 334
+        },
+        {
+          "caller": "authentication",
+          "callee": "updateUser.setIdNumber",
+          "lineNumber": 335
+        },
+        {
+          "caller": "authentication",
+          "callee": "userAuthenticationDto.getIdNumber",
+          "lineNumber": 335
+        },
+        {
+          "caller": "authentication",
+          "callee": "updateUser.setRelAuthenticationStatus",
+          "lineNumber": 336
+        },
+        {
+          "caller": "authentication",
+          "callee": "BusinessStatus.YES.getCode",
+          "lineNumber": 336
+        },
+        {
+          "caller": "authentication",
+          "callee": "userMapper.updateById",
+          "lineNumber": 337
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "Wrappers.lambdaQuery(UserMobile.class).eq",
+          "lineNumber": 341
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 341
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "userMobileDto.getMobile",
+          "lineNumber": 342
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "userMobileMapper.selectOne",
+          "lineNumber": 343
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "Objects.isNull",
+          "lineNumber": 344
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 345
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "userMapper.selectById",
+          "lineNumber": 347
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "userMobile.getUserId",
+          "lineNumber": 347
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "Objects.isNull",
+          "lineNumber": 348
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 349
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "new UserVo",
+          "lineNumber": 351
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 352
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "userVo.setMobile",
+          "lineNumber": 353
+        },
+        {
+          "caller": "getByMobile",
+          "callee": "userMobile.getMobile",
+          "lineNumber": 353
+        },
+        {
+          "caller": "getById",
+          "callee": "userMapper.selectById",
+          "lineNumber": 358
+        },
+        {
+          "caller": "getById",
+          "callee": "userIdDto.getId",
+          "lineNumber": 358
+        },
+        {
+          "caller": "getById",
+          "callee": "Objects.isNull",
+          "lineNumber": 359
+        },
+        {
+          "caller": "getById",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 360
+        },
+        {
+          "caller": "getById",
+          "callee": "new UserVo",
+          "lineNumber": 362
+        },
+        {
+          "caller": "getById",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 363
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "new UserIdDto",
+          "lineNumber": 368
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "userIdDto.setId",
+          "lineNumber": 369
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "userGetAndTicketUserListDto.getUserId",
+          "lineNumber": 369
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "getById",
+          "lineNumber": 370
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "Wrappers.lambdaQuery(TicketUser.class).eq",
+          "lineNumber": 372
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 372
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "userGetAndTicketUserListDto.getUserId",
+          "lineNumber": 373
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "ticketUserMapper.selectList",
+          "lineNumber": 374
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "BeanUtil.copyToList",
+          "lineNumber": 375
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "new UserGetAndTicketUserListVo",
+          "lineNumber": 377
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "userGetAndTicketUserListVo.setUserVo",
+          "lineNumber": 378
+        },
+        {
+          "caller": "getUserAndTicketUserList",
+          "callee": "userGetAndTicketUserListVo.setTicketUserVoList",
+          "lineNumber": 379
+        },
+        {
+          "caller": "getAllMobile",
+          "callee": "Wrappers.emptyWrapper",
+          "lineNumber": 384
+        },
+        {
+          "caller": "getAllMobile",
+          "callee": "userMapper.selectList",
+          "lineNumber": 385
+        },
+        {
+          "caller": "getAllMobile",
+          "callee": "users.stream().map(User::getMobile).collect",
+          "lineNumber": 386
+        },
+        {
+          "caller": "getAllMobile",
+          "callee": "users.stream().map",
+          "lineNumber": 386
+        },
+        {
+          "caller": "getAllMobile",
+          "callee": "users.stream",
+          "lineNumber": 386
+        },
+        {
+          "caller": "getAllMobile",
+          "callee": "Collectors.toList",
+          "lineNumber": 386
+        }
+      ],
+      "metrics": {
+        "importCount": 43,
+        "exportCount": 17,
+        "functionCount": 18,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 27,
+      "classes": [
+        {
+          "name": "BaseTableData",
+          "startLine": 13,
+          "endLine": 33,
+          "methods": [],
+          "properties": [
+            "createTime",
+            "editTime",
+            "status"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BaseTableData",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

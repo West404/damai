@@ -1,0 +1,1260 @@
+{
+ "nodes": [
+  {
+   "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "type": "file",
+   "name": "StringUtils.java",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "summary": "从 commons-lang 裁剪而来的字符串工具类，提供空判断、空白处理、查找与截取等约 50 个静态方法。",
+   "tags": [
+    "utility",
+    "字符串处理",
+    "commons-lang",
+    "验证码"
+   ],
+   "complexity": "complex",
+   "languageNotes": "同一方法名存在多个重载（如 indexOf、substring、strip），图谱中每个方法名只保留一个节点。"
+  },
+  {
+   "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaAutoConfiguration.java",
+   "type": "file",
+   "name": "AjCaptchaAutoConfiguration.java",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaAutoConfiguration.java",
+   "summary": "验证码自动配置入口：开启 AjCaptchaProperties 配置绑定、扫描 com.damai 包并导入服务与存储两个自动配置类。",
+   "tags": [
+    "configuration",
+    "auto-configuration",
+    "验证码",
+    "spring-boot"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "type": "file",
+   "name": "AjCaptchaServiceAutoConfiguration.java",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "summary": "验证码服务自动配置：把 AjCaptchaProperties 转换为 Properties 交由 CaptchaServiceFactory 构建 CaptchaService Bean，并支持 classpath 底图初始化。",
+   "tags": [
+    "configuration",
+    "auto-configuration",
+    "factory",
+    "验证码"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+   "type": "file",
+   "name": "AjCaptchaStorageAutoConfiguration.java",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+   "summary": "验证码存储策略自动配置：按配置的 cacheType 通过工厂注册 CaptchaCacheService，作为缺省实现。",
+   "tags": [
+    "configuration",
+    "auto-configuration",
+    "存储策略",
+    "验证码"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "type": "file",
+   "name": "CaptchaAutoConfig.java",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "summary": "验证码框架的 Bean 配置类，装配 CaptchaHandle 与主用的 AjCaptchaCacheService（redis 实现时注入 StringRedisTemplate）。",
+   "tags": [
+    "configuration",
+    "dependency-injection",
+    "验证码",
+    "redis"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:StringUtils",
+   "type": "class",
+   "name": "StringUtils",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    14,
+    1747
+   ],
+   "summary": "从 commons-lang 裁剪的字符串工具类，提供空判断、空白处理、查找与截取等静态方法。",
+   "tags": [
+    "utility",
+    "字符串处理",
+    "commons-lang",
+    "验证码"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:isEmpty",
+   "type": "function",
+   "name": "isEmpty",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    65,
+    67
+   ],
+   "summary": "判断字符串是否为 null 或空串。",
+   "tags": [
+    "字符串处理",
+    "空判断",
+    "工具方法"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:isNotBlank",
+   "type": "function",
+   "name": "isNotBlank",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    137,
+    139
+   ],
+   "summary": "isBlank 的反向判断。",
+   "tags": [
+    "字符串处理",
+    "空判断",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:isBlank",
+   "type": "function",
+   "name": "isBlank",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    103,
+    118
+   ],
+   "summary": "判断字符串是否为 null、空串或全空白（兼容全角空格）。",
+   "tags": [
+    "字符串处理",
+    "空判断",
+    "工具方法"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:trim",
+   "type": "function",
+   "name": "trim",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    189,
+    191
+   ],
+   "summary": "null 安全的 trim。",
+   "tags": [
+    "字符串处理",
+    "去空白",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:stripStart",
+   "type": "function",
+   "name": "stripStart",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    388,
+    406
+   ],
+   "summary": "从字符串头部去除指定字符或空白字符。",
+   "tags": [
+    "字符串处理",
+    "去空白",
+    "utility"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:stripEnd",
+   "type": "function",
+   "name": "stripEnd",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    433,
+    451
+   ],
+   "summary": "从字符串尾部去除指定字符或空白字符。",
+   "tags": [
+    "字符串处理",
+    "去空白",
+    "utility"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:stripAll",
+   "type": "function",
+   "name": "stripAll",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    503,
+    513
+   ],
+   "summary": "对数组中的每个元素批量执行 strip。",
+   "tags": [
+    "字符串处理",
+    "去空白",
+    "批量处理"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:ordinalIndexOf",
+   "type": "function",
+   "name": "ordinalIndexOf",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    706,
+    727
+   ],
+   "summary": "查找子串第 ordinal 次出现的位置。",
+   "tags": [
+    "字符串处理",
+    "查找",
+    "utility"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:indexOf",
+   "type": "function",
+   "name": "indexOf",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    761,
+    770
+   ],
+   "summary": "从指定位置开始查找子串出现的位置。",
+   "tags": [
+    "字符串处理",
+    "查找",
+    "重载"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:indexOfIgnoreCase",
+   "type": "function",
+   "name": "indexOfIgnoreCase",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    831,
+    851
+   ],
+   "summary": "忽略大小写查找子串位置。",
+   "tags": [
+    "字符串处理",
+    "查找",
+    "忽略大小写"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:lastIndexOfIgnoreCase",
+   "type": "function",
+   "name": "lastIndexOfIgnoreCase",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1073,
+    1093
+   ],
+   "summary": "从指定位置反向忽略大小写查找子串。",
+   "tags": [
+    "字符串处理",
+    "查找",
+    "忽略大小写"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:containsIgnoreCase",
+   "type": "function",
+   "name": "containsIgnoreCase",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1174,
+    1186
+   ],
+   "summary": "忽略大小写的包含判断。",
+   "tags": [
+    "字符串处理",
+    "包含判断",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:indexOfAny",
+   "type": "function",
+   "name": "indexOfAny",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1217,
+    1243
+   ],
+   "summary": "返回任一候选子串最早出现的位置。",
+   "tags": [
+    "字符串处理",
+    "查找",
+    "批量处理"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:lastIndexOfAny",
+   "type": "function",
+   "name": "lastIndexOfAny",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1270,
+    1288
+   ],
+   "summary": "返回任一候选子串最晚出现的位置。",
+   "tags": [
+    "字符串处理",
+    "查找",
+    "批量处理"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substring",
+   "type": "function",
+   "name": "substring",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1371,
+    1402
+   ],
+   "summary": "null 安全且支持负索引的字符串截取。",
+   "tags": [
+    "字符串处理",
+    "截取",
+    "重载"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:left",
+   "type": "function",
+   "name": "left",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1426,
+    1437
+   ],
+   "summary": "取字符串左侧 n 个字符。",
+   "tags": [
+    "字符串处理",
+    "截取",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:right",
+   "type": "function",
+   "name": "right",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1459,
+    1470
+   ],
+   "summary": "取字符串右侧 n 个字符。",
+   "tags": [
+    "字符串处理",
+    "截取",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:mid",
+   "type": "function",
+   "name": "mid",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1497,
+    1511
+   ],
+   "summary": "从指定位置开始取 n 个字符，支持负长度。",
+   "tags": [
+    "字符串处理",
+    "截取",
+    "utility"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringBefore",
+   "type": "function",
+   "name": "substringBefore",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1542,
+    1554
+   ],
+   "summary": "取分隔符之前的子串。",
+   "tags": [
+    "字符串处理",
+    "截取",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringAfter",
+   "type": "function",
+   "name": "substringAfter",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1584,
+    1596
+   ],
+   "summary": "取分隔符之后的子串。",
+   "tags": [
+    "字符串处理",
+    "截取",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringBeforeLast",
+   "type": "function",
+   "name": "substringBeforeLast",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1625,
+    1634
+   ],
+   "summary": "取最后一个分隔符之前的子串。",
+   "tags": [
+    "字符串处理",
+    "截取",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringAfterLast",
+   "type": "function",
+   "name": "substringAfterLast",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1665,
+    1677
+   ],
+   "summary": "取最后一个分隔符之后的子串。",
+   "tags": [
+    "字符串处理",
+    "截取",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringBetween",
+   "type": "function",
+   "name": "substringBetween",
+   "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "lineRange": [
+    1733,
+    1745
+   ],
+   "summary": "取两个标记之间的子串。",
+   "tags": [
+    "字符串处理",
+    "截取",
+    "utility"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaAutoConfiguration.java:AjCaptchaAutoConfiguration",
+   "type": "class",
+   "name": "AjCaptchaAutoConfiguration",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaAutoConfiguration.java",
+   "lineRange": [
+    15,
+    20
+   ],
+   "summary": "验证码框架的自动配置入口，导入服务与存储配置并开启属性绑定与组件扫描。",
+   "tags": [
+    "auto-configuration",
+    "configuration",
+    "验证码",
+    "entry-point"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java:AjCaptchaServiceAutoConfiguration",
+   "type": "class",
+   "name": "AjCaptchaServiceAutoConfiguration",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "lineRange": [
+    31,
+    100
+   ],
+   "summary": "把配置属性转成 Properties 交给工厂创建 CaptchaService，并支持 classpath 底图预热。",
+   "tags": [
+    "auto-configuration",
+    "bean",
+    "factory",
+    "验证码"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java:captchaService",
+   "type": "function",
+   "name": "captchaService",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "lineRange": [
+    36,
+    76
+   ],
+   "summary": "装配 Const 常量键值对后通过 CaptchaServiceFactory 构建 CaptchaService，classpath 底图场景触发底图初始化。",
+   "tags": [
+    "auto-configuration",
+    "bean",
+    "factory",
+    "验证码"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java:getResourcesImagesFile",
+   "type": "function",
+   "name": "getResourcesImagesFile",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "lineRange": [
+    84,
+    99
+   ],
+   "summary": "用 PathMatchingResourcePatternResolver 加载资源并转为文件名到 Base64 的 Map。",
+   "tags": [
+    "资源加载",
+    "base64",
+    "工具方法"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java:AjCaptchaStorageAutoConfiguration",
+   "type": "class",
+   "name": "AjCaptchaStorageAutoConfiguration",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+   "lineRange": [
+    16,
+    25
+   ],
+   "summary": "缓存存储策略的自动配置，缺省注册缓存实现 Bean。",
+   "tags": [
+    "auto-configuration",
+    "bean",
+    "存储策略"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java:captchaCacheService",
+   "type": "function",
+   "name": "captchaCacheService",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+   "lineRange": [
+    19,
+    24
+   ],
+   "summary": "按 cacheType 从工厂获取缓存实现并注册为 AjCaptchaCacheService Bean。",
+   "tags": [
+    "auto-configuration",
+    "bean",
+    "存储策略"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java:CaptchaAutoConfig",
+   "type": "class",
+   "name": "CaptchaAutoConfig",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "lineRange": [
+    18,
+    35
+   ],
+   "summary": "验证码框架的 Bean 配置类，装配 CaptchaHandle 与主用的缓存服务 Bean。",
+   "tags": [
+    "configuration",
+    "bean",
+    "验证码",
+    "dependency-injection"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java:captchaHandle",
+   "type": "function",
+   "name": "captchaHandle",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "lineRange": [
+    20,
+    23
+   ],
+   "summary": "注册 CaptchaHandle Bean，注入 CaptchaService。",
+   "tags": [
+    "bean",
+    "配置",
+    "验证码"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java:captchaCacheService",
+   "type": "function",
+   "name": "captchaCacheService",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "lineRange": [
+    25,
+    34
+   ],
+   "summary": "从工厂获取缓存实现，redis 实现时注入 StringRedisTemplate，并标记为 @Primary。",
+   "tags": [
+    "bean",
+    "redis",
+    "验证码",
+    "dependency-injection"
+   ],
+   "complexity": "simple"
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:StringUtils",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:StringUtils",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:isEmpty",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:isEmpty",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:isNotBlank",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:isNotBlank",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:isBlank",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:isBlank",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:trim",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:trim",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:stripStart",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:stripStart",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:stripEnd",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:stripEnd",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:stripAll",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:stripAll",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:ordinalIndexOf",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:ordinalIndexOf",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:indexOf",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:indexOf",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:indexOfIgnoreCase",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:indexOfIgnoreCase",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:lastIndexOfIgnoreCase",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:lastIndexOfIgnoreCase",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:containsIgnoreCase",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:containsIgnoreCase",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:indexOfAny",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:indexOfAny",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:lastIndexOfAny",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:lastIndexOfAny",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substring",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substring",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:left",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:left",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:right",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:right",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:mid",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:mid",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringBefore",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringBefore",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringAfter",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringAfter",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringBeforeLast",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringBeforeLast",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringAfterLast",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringAfterLast",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringBetween",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:substringBetween",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaAutoConfiguration.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaAutoConfiguration.java:AjCaptchaAutoConfiguration",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaAutoConfiguration.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaAutoConfiguration.java:AjCaptchaAutoConfiguration",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java:AjCaptchaServiceAutoConfiguration",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java:AjCaptchaServiceAutoConfiguration",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java:captchaService",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java:captchaService",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java:getResourcesImagesFile",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java:getResourcesImagesFile",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java:AjCaptchaStorageAutoConfiguration",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java:AjCaptchaStorageAutoConfiguration",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java:captchaCacheService",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java:captchaCacheService",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java:CaptchaAutoConfig",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java:CaptchaAutoConfig",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java:captchaHandle",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java:captchaHandle",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java:captchaCacheService",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java:captchaCacheService",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaAutoConfiguration.java",
+   "target": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/ImageUtils.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+   "target": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/ImageUtils.java:cacheBootImage",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:isNotBlank",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaServiceAutoConfiguration.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java:getInstance",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/AjCaptchaStorageAutoConfiguration.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java:getCache",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java:getCache",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/config/CaptchaAutoConfig.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:setStringRedisTemplate",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  }
+ ]
+}

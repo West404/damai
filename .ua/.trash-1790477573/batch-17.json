@@ -1,0 +1,1335 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "file",
+      "name": "RedisCache.java",
+      "filePath": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "summary": "Redis 统一操作门面类，封装 String、Hash、List、Set、SortedSet 五大数据结构的读写、过期、自增等常用命令，并通过静态持有 RedisTemplate 提供全局单例访问入口，是 damai-redis-framework 对外暴露的核心能力。",
+      "tags": ["utility", "singleton", "redis", "数据访问", "缓存操作"],
+      "complexity": "complex",
+      "languageNotes": "单类承载约 150 个重载方法，通过泛型 + 方法名后缀（ForHash/ForList/ForSet/ForSortedSet）区分数据结构，属于典型的 Java 门面（Facade）+ 单例模式实现。"
+    },
+    {
+      "id": "class:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java:RedisCache",
+      "type": "class",
+      "name": "RedisCache",
+      "filePath": "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "lineRange": [22, 1290],
+      "summary": "Redis 操作单例门面类，聚合 Spring Data Redis 的 RedisTemplate 与 Lua 脚本执行能力，为全项目提供统一的缓存读写 API。",
+      "tags": ["singleton", "utility", "redis", "缓存操作"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java",
+      "type": "file",
+      "name": "ProgramClient.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java",
+      "summary": "节目服务（program-service）的 OpenFeign 客户端接口，声明按节目 ID 查询票档列表的远程调用契约，供订单等其他服务跨服务调用。",
+      "tags": ["feign-client", "api-handler", "服务间通信", "program-service"],
+      "complexity": "simple",
+      "languageNotes": "使用 @FeignClient 的 value 拼接服务注入前缀 + 服务名，并通过 fallback 指定降级实现。"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java:ProgramClient",
+      "type": "class",
+      "name": "ProgramClient",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java",
+      "lineRange": [19, 30],
+      "summary": "Feign 客户端接口，声明 selectListByProgram 方法映射到节目服务的 /ticket/category/select/list/by/program 接口。",
+      "tags": ["feign-client", "interface", "服务间通信"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "type": "file",
+      "name": "ProgramClientFallback.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "summary": "ProgramClient 的 Feign 降级实现，当节目服务不可用时返回统一的系统错误响应，避免跨服务调用异常向上传播。",
+      "tags": ["feign-fallback", "服务容错", "降级", "api-handler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java:ProgramClientFallback",
+      "type": "class",
+      "name": "ProgramClientFallback",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "lineRange": [16, 23],
+      "summary": "实现 ProgramClient 接口的熔断降级类，所有调用直接返回 BaseCode.SYSTEM_ERROR 包装的失败响应。",
+      "tags": ["feign-fallback", "降级", "服务容错"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java:selectListByProgram",
+      "type": "function",
+      "name": "selectListByProgram",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "lineRange": [19, 22],
+      "summary": "降级方法：票档列表远程查询失败时返回携带系统错误码的 ApiResponse。",
+      "tags": ["降级", "feign-fallback", "错误处理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryAddDto.java",
+      "type": "file",
+      "name": "TicketCategoryAddDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryAddDto.java",
+      "summary": "新增票档的入参 DTO，承载节目 ID、票档介绍、价格、总库存与剩余库存等字段。",
+      "tags": ["dto", "data-model", "入参模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryAddDto.java:TicketCategoryAddDto",
+      "type": "class",
+      "name": "TicketCategoryAddDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryAddDto.java",
+      "lineRange": [16, 41],
+      "summary": "票档新增请求参数对象，包含 programId、introduce、price、totalNumber、remainNumber 五个业务字段。",
+      "tags": ["dto", "data-model", "入参模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryDto.java",
+      "type": "file",
+      "name": "TicketCategoryDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryDto.java",
+      "summary": "票档详情查询的入参 DTO，仅携带票档主键 ID。",
+      "tags": ["dto", "data-model", "入参模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryDto.java:TicketCategoryDto",
+      "type": "class",
+      "name": "TicketCategoryDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryDto.java",
+      "lineRange": [13, 21],
+      "summary": "票档详情查询参数对象，仅包含票档 ID 字段。",
+      "tags": ["dto", "data-model", "入参模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java",
+      "type": "file",
+      "name": "TicketCategoryListByProgramDto.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java",
+      "summary": "按节目查询票档列表的入参 DTO，仅携带节目 ID，被 Feign 客户端与服务端控制器共同使用。",
+      "tags": ["dto", "data-model", "跨服务契约"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java:TicketCategoryListByProgramDto",
+      "type": "class",
+      "name": "TicketCategoryListByProgramDto",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java",
+      "lineRange": [13, 20],
+      "summary": "按节目查询票档列表的参数对象，仅包含 programId 字段。",
+      "tags": ["dto", "data-model", "跨服务契约"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java",
+      "type": "file",
+      "name": "TicketCategoryDetailVo.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java",
+      "summary": "票档详情出参 VO，向调用方返回票档介绍、价格与库存等展示信息，是 program-client 对外暴露的跨服务返回结构。",
+      "tags": ["vo", "data-model", "跨服务契约"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java:TicketCategoryDetailVo",
+      "type": "class",
+      "name": "TicketCategoryDetailVo",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java",
+      "lineRange": [14, 34],
+      "summary": "票档详情返回对象，包含 programId、introduce、price、totalNumber、remainNumber 字段。",
+      "tags": ["vo", "data-model", "跨服务契约"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java",
+      "type": "file",
+      "name": "TicketCategoryVo.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java",
+      "summary": "票档列表出参 VO（可序列化），承载票档 ID、介绍与价格，被节目服务缓存到 Redis 与本地 Caffeine 缓存中。",
+      "tags": ["vo", "data-model", "serialization", "缓存数据"],
+      "complexity": "simple",
+      "languageNotes": "实现 Serializable 并显式声明 serialVersionUID，保证缓存序列化与跨版本兼容。"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java:TicketCategoryVo",
+      "type": "class",
+      "name": "TicketCategoryVo",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java",
+      "lineRange": [15, 39],
+      "summary": "可序列化的票档列表返回对象，包含 serialVersionUID、id、introduce、price 字段。",
+      "tags": ["vo", "data-model", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictData.java",
+      "type": "file",
+      "name": "ApiRestrictData.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictData.java",
+      "summary": "网关接口限流（防刷）的数据载体，保存 Lua 脚本返回的触发结果、调用统计、接口计数、阈值与提示语索引，用于拼接限流提示信息。",
+      "tags": ["data-model", "网关限流", "api-handler", "anti-brush"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictData.java:ApiRestrictData",
+      "type": "class",
+      "name": "ApiRestrictData",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictData.java",
+      "lineRange": [10, 22],
+      "summary": "接口限流结果数据类，字段包括 triggerResult、triggerCallStat、apiCount、threshold、messageIndex。",
+      "tags": ["data-model", "网关限流"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "type": "file",
+      "name": "ApiRestrictCacheOperate.java",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "summary": "网关接口防刷的 Lua 执行器：启动时加载 classpath 下的限流 Lua 脚本，运行时通过 RedisCache 执行脚本并反序列化为 ApiRestrictData，实现原子化的计数与限流判定。",
+      "tags": ["lua-script", "网关限流", "redis", "anti-brush"],
+      "complexity": "simple",
+      "languageNotes": "通过 DefaultRedisScript + ResourceScriptSource 在 @PostConstruct 阶段加载 .lua 资源，保证限流判定的原子性。"
+    },
+    {
+      "id": "class:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java:ApiRestrictCacheOperate",
+      "type": "class",
+      "name": "ApiRestrictCacheOperate",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "lineRange": [21, 45],
+      "summary": "限流 Lua 脚本执行器，持有 RedisCache 与 DefaultRedisScript，提供脚本加载与执行两个入口。",
+      "tags": ["lua-script", "网关限流", "redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "lineRange": [30, 39],
+      "summary": "初始化限流 Redis 脚本：从 classpath 加载 Lua 文件、设置脚本源与返回类型，加载失败时记录错误日志。",
+      "tags": ["初始化", "lua-script", "spring-lifecycle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java:apiRuleOperate",
+      "type": "function",
+      "name": "apiRuleOperate",
+      "filePath": "damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "lineRange": [41, 44],
+      "summary": "执行限流 Lua 脚本，并将返回的 JSON 结果解析为 ApiRestrictData 对象。",
+      "tags": ["限流判定", "lua-script", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java",
+      "type": "file",
+      "name": "OrderProgramCacheResolutionOperate.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java",
+      "summary": "订单服务侧的节目缓存回滚操作类：加载并执行 Lua 脚本，在订单创建失败等场景下反向回补节目/票档缓存库存。",
+      "tags": ["lua-script", "订单服务", "缓存回滚", "redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java:OrderProgramCacheResolutionOperate",
+      "type": "class",
+      "name": "OrderProgramCacheResolutionOperate",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java",
+      "lineRange": [19, 42],
+      "summary": "订单服务中的 Lua 缓存回滚执行器，持有 RedisCache 与 DefaultRedisScript 用于库存反向补偿。",
+      "tags": ["lua-script", "缓存回滚", "订单服务"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java",
+      "lineRange": [28, 37],
+      "summary": "初始化订单侧缓存回滚 Lua 脚本，加载 classpath 资源并设置返回类型。",
+      "tags": ["初始化", "lua-script", "spring-lifecycle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java:programCacheReverseOperate",
+      "type": "function",
+      "name": "programCacheReverseOperate",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java",
+      "lineRange": [39, 41],
+      "summary": "执行节目缓存反向回补 Lua 脚本，完成库存回滚的原子操作。",
+      "tags": ["缓存回滚", "lua-script", "redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "type": "file",
+      "name": "TicketCategoryController.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "summary": "节目服务票档 HTTP 入口控制器，暴露新增票档、票档详情与按节目查询票档列表三个接口，统一以 ApiResponse 包装返回。",
+      "tags": ["api-handler", "controller", "rest-api", "票档管理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:TicketCategoryController",
+      "type": "class",
+      "name": "TicketCategoryController",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "lineRange": [25, 51],
+      "summary": "票档 REST 控制器，注入 TicketCategoryService，提供 add、detail、selectListByProgram 三个薄转发接口。",
+      "tags": ["controller", "rest-api", "api-handler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:add",
+      "type": "function",
+      "name": "add",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "lineRange": [34, 38],
+      "summary": "新增票档接口：接收 TicketCategoryAddDto，调用服务层新增后返回新票档 ID。",
+      "tags": ["api-handler", "写接口", "票档管理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:detail",
+      "type": "function",
+      "name": "detail",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "lineRange": [40, 44],
+      "summary": "票档详情接口：依据票档 ID 返回 TicketCategoryDetailVo。",
+      "tags": ["api-handler", "查询接口", "票档管理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:selectListByProgram",
+      "type": "function",
+      "name": "selectListByProgram",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "lineRange": [46, 50],
+      "summary": "按节目查询票档列表接口，对应 Feign 客户端 ProgramClient 声明的远程路径。",
+      "tags": ["api-handler", "查询接口", "跨服务契约"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "type": "file",
+      "name": "TicketCategoryService.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "summary": "票档核心业务服务：负责票档新增（分布式锁 + 雪花 ID）、多级缓存（Redis 列表 + Caffeine 本地缓存）查询、剩余库存 Hash 缓存预热与库存超时控制，是高并发抢票链路的关键读路径。",
+      "tags": ["service", "缓存操作", "分布式锁", "票档管理", "高并发"],
+      "complexity": "moderate",
+      "languageNotes": "使用 @ServiceLock 注解配合 ServiceLockTool 做分布式加锁，并用 RedisKeyManage + RedisKeyBuild 统一构建缓存 key。"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:TicketCategoryService",
+      "type": "class",
+      "name": "TicketCategoryService",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "lineRange": [52, 172],
+      "summary": "票档服务实现类，依赖 UidGenerator、RedisCache、TicketCategoryMapper、ServiceLockTool、LocalCacheTicketCategory 与 ProgramMapper 完成票档增查与缓存治理。",
+      "tags": ["service", "缓存操作", "分布式锁", "票档管理"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:add",
+      "type": "function",
+      "name": "add",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "lineRange": [74, 85],
+      "summary": "新增票档：校验节目是否存在，拷贝 DTO 属性、用 UidGenerator 生成主键并落库，返回票档 ID。",
+      "tags": ["写操作", "校验", "id-generator", "票档管理"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:selectTicketCategoryListByProgramIdMultipleCache",
+      "type": "function",
+      "name": "selectTicketCategoryListByProgramIdMultipleCache",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "lineRange": [87, 90],
+      "summary": "多级缓存查询入口：委托本地 Caffeine 缓存，并按节目开售时间与当前时间差计算缓存过期秒数。",
+      "tags": ["多级缓存", "缓存操作", "查询接口"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:selectTicketCategoryListByProgramId",
+      "type": "function",
+      "name": "selectTicketCategoryListByProgramId",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "lineRange": [92, 122],
+      "summary": "按节目 ID 查询票档列表：先读 Redis 缓存，未命中则在分布式锁保护下二次校验缓存并回源数据库，写入缓存前抹除剩余库存字段，最终转换为 TicketCategoryVo 列表返回。",
+      "tags": ["缓存操作", "分布式锁", "缓存击穿防护", "查询接口"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:getRedisRemainNumberResolution",
+      "type": "function",
+      "name": "getRedisRemainNumberResolution",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "lineRange": [124, 154],
+      "summary": "票档剩余库存解析：从 Redis Hash 读取库存，未命中时加锁回源数据库，将各票档剩余库存以 Hash 结构写回缓存，保证库存读写在缓存层的一致性。",
+      "tags": ["缓存操作", "库存管理", "分布式锁", "缓存回源"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:detail",
+      "type": "function",
+      "name": "detail",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "lineRange": [156, 161],
+      "summary": "按票档 ID 查询数据库并转换返回 TicketCategoryDetailVo 详情对象。",
+      "tags": ["查询接口", "数据转换"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:selectListByProgram",
+      "type": "function",
+      "name": "selectListByProgram",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "lineRange": [163, 171],
+      "summary": "按节目 ID 直接查库获取票档列表并映射为 TicketCategoryDetailVo 列表，供 Feign 远程调用使用。",
+      "tags": ["查询接口", "跨服务契约", "数据转换"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "type": "file",
+      "name": "LocalCacheTicketCategory.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "summary": "票档本地缓存组件：基于 Caffeine 构建多级缓存的第一层，自定义 Expiry 策略使本地缓存过期时间与对应 Redis key 的 TTL 对齐，并提供查询与失效接口。",
+      "tags": ["本地缓存", "caffeine", "多级缓存", "utility"],
+      "complexity": "moderate",
+      "languageNotes": "通过 Caffeine 的 Expiry 接口按 key 动态计算过期时间，本地缓存 TTL 与 Redis TTL 保持一致，避免两级缓存数据不一致。"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java:LocalCacheTicketCategory",
+      "type": "class",
+      "name": "LocalCacheTicketCategory",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "lineRange": [26, 81],
+      "summary": "Caffeine 本地缓存封装类，持有 localCache、maximumSize 与 redisCache，提供初始化、读取与失效三个方法。",
+      "tags": ["本地缓存", "caffeine", "多级缓存"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java:localLockCacheInit",
+      "type": "function",
+      "name": "localLockCacheInit",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "lineRange": [43, 69],
+      "summary": "初始化 Caffeine 本地缓存：设置最大容量，并注册 Expiry 回调在创建时读取 Redis key 的过期时间作为本地缓存 TTL。",
+      "tags": ["初始化", "caffeine", "本地缓存", "spring-lifecycle"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java:getCache",
+      "type": "function",
+      "name": "getCache",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "lineRange": [74, 76],
+      "summary": "按 key 读取本地缓存，未命中时通过传入的加载函数回源并写入缓存。",
+      "tags": ["本地缓存", "缓存回源", "caffeine"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java:del",
+      "type": "function",
+      "name": "del",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "lineRange": [78, 80],
+      "summary": "按 key 失效本地缓存条目，用于票档数据变更后的缓存清理。",
+      "tags": ["缓存失效", "本地缓存", "caffeine"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "type": "file",
+      "name": "ProgramCacheCreateOrderResolutionOperate.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "summary": "节目服务在下单场景下执行 Lua 脚本扣减节目/票档缓存库存的操作类，脚本结果反序列化为对象返回给业务层。",
+      "tags": ["lua-script", "库存扣减", "redis", "高并发"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java:ProgramCacheCreateOrderResolutionOperate",
+      "type": "class",
+      "name": "ProgramCacheCreateOrderResolutionOperate",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "lineRange": [20, 44],
+      "summary": "下单库存扣减 Lua 执行器，持有 RedisCache 与 DefaultRedisScript 完成原子扣减。",
+      "tags": ["lua-script", "库存扣减", "redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "lineRange": [29, 38],
+      "summary": "初始化下单扣减库存的 Lua 脚本，加载 classpath 资源并设置脚本返回类型。",
+      "tags": ["初始化", "lua-script", "spring-lifecycle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java:programCacheOperate",
+      "type": "function",
+      "name": "programCacheOperate",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "lineRange": [40, 43],
+      "summary": "执行下单扣减库存脚本，并将 JSON 结果解析为业务对象。",
+      "tags": ["库存扣减", "lua-script", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "type": "file",
+      "name": "ProgramCacheResolutionOperate.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "summary": "节目缓存补偿操作类：执行 Lua 脚本对节目相关缓存做正向回补（如支付取消后恢复库存），保证缓存与数据库最终一致。",
+      "tags": ["lua-script", "缓存补偿", "redis", "数据一致性"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java:ProgramCacheResolutionOperate",
+      "type": "class",
+      "name": "ProgramCacheResolutionOperate",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "lineRange": [19, 42],
+      "summary": "缓存补偿 Lua 执行器，封装脚本加载与执行逻辑供业务层直接调用。",
+      "tags": ["lua-script", "缓存补偿", "redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "lineRange": [28, 37],
+      "summary": "初始化缓存补偿 Lua 脚本，加载 classpath 资源并设置返回类型。",
+      "tags": ["初始化", "lua-script", "spring-lifecycle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java:programCacheOperate",
+      "type": "function",
+      "name": "programCacheOperate",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "lineRange": [39, 41],
+      "summary": "执行节目缓存补偿脚本，完成缓存数据的原子回补。",
+      "tags": ["缓存补偿", "lua-script", "redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java",
+      "type": "file",
+      "name": "ProgramDelCacheData.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java",
+      "summary": "节目缓存批量删除操作类：通过 Lua 脚本按 key 集合原子删除节目相关缓存，用于节目数据变更后的缓存清理。",
+      "tags": ["lua-script", "缓存失效", "redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java:ProgramDelCacheData",
+      "type": "class",
+      "name": "ProgramDelCacheData",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java",
+      "lineRange": [19, 42],
+      "summary": "缓存删除 Lua 执行器，提供脚本初始化与批量删除两个方法。",
+      "tags": ["lua-script", "缓存失效", "redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java",
+      "lineRange": [28, 37],
+      "summary": "初始化缓存删除 Lua 脚本，加载 classpath 资源并设置返回类型。",
+      "tags": ["初始化", "lua-script", "spring-lifecycle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java:del",
+      "type": "function",
+      "name": "del",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java",
+      "lineRange": [39, 41],
+      "summary": "执行缓存删除脚本，按传入的 key 集合原子清除节目缓存数据。",
+      "tags": ["缓存失效", "lua-script", "redis"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "target": "class:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java:RedisCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "target": "class:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java:RedisCache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java:ProgramClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java:ProgramClient",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java:ProgramClientFallback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "target": "function:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java:selectListByProgram",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java:ProgramClientFallback",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java:ProgramClientFallback",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClient.java:ProgramClient",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:damai-server-client/damai-program-client/src/main/java/com/damai/client/ProgramClientFallback.java:selectListByProgram",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:error",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryAddDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryAddDto.java:TicketCategoryAddDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryAddDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryAddDto.java:TicketCategoryAddDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryDto.java:TicketCategoryDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryDto.java:TicketCategoryDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java:TicketCategoryListByProgramDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java:TicketCategoryListByProgramDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java:TicketCategoryDetailVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java:TicketCategoryDetailVo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java:TicketCategoryVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java:TicketCategoryVo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictData.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictData.java:ApiRestrictData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictData.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictData.java:ApiRestrictData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java:ApiRestrictCacheOperate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "target": "function:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java:apiRuleOperate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "target": "class:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java:ApiRestrictCacheOperate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/lua/ApiRestrictCacheOperate.java",
+      "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/service/ApiRestrictData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java:OrderProgramCacheResolutionOperate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java",
+      "target": "function:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java:programCacheReverseOperate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java:OrderProgramCacheResolutionOperate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/OrderProgramCacheResolutionOperate.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:TicketCategoryController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:add",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:detail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:selectListByProgram",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:TicketCategoryController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryAddDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:add",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:add",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:detail",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:detail",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:selectListByProgram",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:selectListByProgram",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:add",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:detail",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/controller/TicketCategoryController.java:selectListByProgram",
+      "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:ok",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:TicketCategoryService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:add",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:selectTicketCategoryListByProgramIdMultipleCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:selectTicketCategoryListByProgramId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:getRedisRemainNumberResolution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:detail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:selectListByProgram",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:TicketCategoryService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:selectTicketCategoryListByProgramIdMultipleCache",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:selectTicketCategoryListByProgramId",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java:selectTicketCategoryListByProgramIdMultipleCache",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java:getCache",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/DateUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryAddDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryListByProgramDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryDetailVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/entity/TicketCategory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/mapper/TicketCategoryMapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/TicketCategoryService.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java:LocalCacheTicketCategory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java:localLockCacheInit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java:getCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java:del",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java:LocalCacheTicketCategory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheTicketCategory.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/TicketCategoryVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java:ProgramCacheCreateOrderResolutionOperate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java:programCacheOperate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java:ProgramCacheCreateOrderResolutionOperate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheCreateOrderResolutionOperate.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java:ProgramCacheResolutionOperate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java:programCacheOperate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java:ProgramCacheResolutionOperate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramCacheResolutionOperate.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java:ProgramDelCacheData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java:del",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java:ProgramDelCacheData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/lua/ProgramDelCacheData.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

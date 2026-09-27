@@ -1,0 +1,119 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [
+    "damai-server/damai-customize-service/src/main/resources/log4j2.xml"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "damai-server/damai-customize-service/src/main/resources/application-local.yml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "sections": [
+        {
+          "heading": "spring",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/resources/application-pro.yml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "sections": [
+        {
+          "heading": "spring",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/resources/application.yml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 124,
+      "nonEmptyLines": 124,
+      "sections": [
+        {
+          "heading": "server",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "spring",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "mybatis-plus",
+          "level": 1,
+          "line": 52
+        },
+        {
+          "heading": "feign",
+          "level": 1,
+          "line": 62
+        },
+        {
+          "heading": "management",
+          "level": 1,
+          "line": 78
+        },
+        {
+          "heading": "jasypt",
+          "level": 1,
+          "line": 96
+        },
+        {
+          "heading": "springdoc",
+          "level": 1,
+          "line": 100
+        },
+        {
+          "heading": "knife4j",
+          "level": 1,
+          "line": 113
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    }
+  ]
+}

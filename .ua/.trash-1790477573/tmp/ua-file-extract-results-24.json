@@ -1,0 +1,346 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 30,
+      "classes": [
+        {
+          "name": "ValuedEnum",
+          "startLine": 25,
+          "endLine": 31,
+          "methods": [
+            "value"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ValuedEnum",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "WorkerNodeType",
+          "startLine": 41,
+          "endLine": 43,
+          "params": [
+            "type"
+          ]
+        },
+        {
+          "name": "value",
+          "startLine": 45,
+          "endLine": 48,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "WorkerNodeType",
+          "startLine": 27,
+          "endLine": 50,
+          "methods": [
+            "WorkerNodeType",
+            "value"
+          ],
+          "properties": [
+            "type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "value",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "WorkerNodeType",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 131,
+      "nonEmptyLines": 104,
+      "functions": [
+        {
+          "name": "getId",
+          "startLine": 70,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "setId",
+          "startLine": 74,
+          "endLine": 76,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "getHostName",
+          "startLine": 78,
+          "endLine": 80,
+          "params": []
+        },
+        {
+          "name": "setHostName",
+          "startLine": 82,
+          "endLine": 84,
+          "params": [
+            "hostName"
+          ]
+        },
+        {
+          "name": "getPort",
+          "startLine": 86,
+          "endLine": 88,
+          "params": []
+        },
+        {
+          "name": "setPort",
+          "startLine": 90,
+          "endLine": 92,
+          "params": [
+            "port"
+          ]
+        },
+        {
+          "name": "getType",
+          "startLine": 94,
+          "endLine": 96,
+          "params": []
+        },
+        {
+          "name": "setType",
+          "startLine": 98,
+          "endLine": 100,
+          "params": [
+            "type"
+          ]
+        },
+        {
+          "name": "getLaunchDate",
+          "startLine": 102,
+          "endLine": 104,
+          "params": []
+        },
+        {
+          "name": "setLaunchDateDate",
+          "startLine": 106,
+          "endLine": 108,
+          "params": [
+            "launchDate"
+          ]
+        },
+        {
+          "name": "getCreated",
+          "startLine": 110,
+          "endLine": 112,
+          "params": []
+        },
+        {
+          "name": "setCreated",
+          "startLine": 114,
+          "endLine": 116,
+          "params": [
+            "created"
+          ]
+        },
+        {
+          "name": "getModified",
+          "startLine": 118,
+          "endLine": 120,
+          "params": []
+        },
+        {
+          "name": "setModified",
+          "startLine": 122,
+          "endLine": 124,
+          "params": [
+            "modified"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 126,
+          "endLine": 129,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "WorkerNodeEntity",
+          "startLine": 30,
+          "endLine": 131,
+          "methods": [
+            "getId",
+            "setId",
+            "getHostName",
+            "setHostName",
+            "getPort",
+            "setPort",
+            "getType",
+            "setType",
+            "getLaunchDate",
+            "setLaunchDateDate",
+            "getCreated",
+            "setCreated",
+            "getModified",
+            "setModified",
+            "toString"
+          ],
+          "properties": [
+            "id",
+            "hostName",
+            "port",
+            "type",
+            "launchDate",
+            "created",
+            "modified"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getId",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "setId",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "getHostName",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "setHostName",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "getPort",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "setPort",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "getType",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "setType",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "getLaunchDate",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "setLaunchDateDate",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "getCreated",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "setCreated",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "getModified",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "setModified",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "WorkerNodeEntity",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "toString",
+          "callee": "ReflectionToStringBuilder.toString",
+          "lineNumber": 128
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 16,
+        "functionCount": 15,
+        "classCount": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,1291 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "type": "file",
+      "name": "AbstractCaptchaService.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "summary": "Abstract base implementation of CaptchaService: reads configuration, caches base images, wires frequency limiting, and provides shared validation, decryption, and font/image utilities for concrete captcha types.",
+      "tags": ["service", "captcha", "abstract-class", "middleware", "validation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:AbstractCaptchaService",
+      "type": "class",
+      "name": "AbstractCaptchaService",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "lineRange": [36, 286],
+      "summary": "Template base class implementing CaptchaService; subclasses override get/check/verification while inheriting config loading, cache lookup, client-id resolution, and fail-count tracking.",
+      "tags": ["service", "captcha", "abstract-class", "template-method"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "lineRange": [92, 133],
+      "summary": "Initializes the captcha service from Properties: loads watermark/font/slip-offset/AES settings, pre-caches base images, starts the local cache, registers a shutdown hook, and installs the frequency-limit handler.",
+      "tags": ["initialization", "configuration", "lifecycle"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:verification",
+      "type": "function",
+      "name": "verification",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "lineRange": [165, 177],
+      "summary": "Template verification step that rejects empty verification codes and delegates per-minute verify-frequency limiting to the configured handler.",
+      "tags": ["validation", "rate-limiting", "template-method"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:getValidateClientId",
+      "type": "function",
+      "name": "getValidateClientId",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "lineRange": [183, 193],
+      "summary": "Resolves the client identity used for rate limiting: MD5 of browser info when present, otherwise the clientUid, otherwise null.",
+      "tags": ["rate-limiting", "identity", "md5"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:afterValidateFail",
+      "type": "function",
+      "name": "afterValidateFail",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "lineRange": [195, 205],
+      "summary": "Increments and persists the per-client failed-validation counter in the cache after a failed captcha check.",
+      "tags": ["rate-limiting", "cache", "failure-tracking"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:loadWaterMarkFont",
+      "type": "function",
+      "name": "loadWaterMarkFont",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "lineRange": [212, 226],
+      "summary": "Loads the configured TrueType/OpenType watermark font from the classpath /fonts directory, falling back to a built-in default on error.",
+      "tags": ["font", "resource-loading", "watermark"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:base64StrToImage",
+      "type": "function",
+      "name": "base64StrToImage",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "lineRange": [228, 256],
+      "summary": "Decodes a base64 image string and writes it to a file path, creating parent directories as needed.",
+      "tags": ["base64", "image", "io"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:getEnOrChLength",
+      "type": "function",
+      "name": "getEnOrChLength",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "lineRange": [269, 283],
+      "summary": "Computes the display width of a mixed Chinese/English string, counting multi-byte characters as full width for watermark layout.",
+      "tags": ["text-measurement", "unicode", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "type": "file",
+      "name": "BlockPuzzleCaptchaServiceImpl.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "summary": "Sliding block-puzzle captcha implementation: cuts a jigsaw piece from a background image, caches the expected point, and verifies user drag position within a slip offset.",
+      "tags": ["service", "captcha", "block-puzzle", "image-processing"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:BlockPuzzleCaptchaServiceImpl",
+      "type": "class",
+      "name": "BlockPuzzleCaptchaServiceImpl",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "lineRange": [32, 440],
+      "summary": "Block-puzzle CaptchaService implementation with pixel-level template cutting, interference options, AES-protected point tokens, and cache-backed verification.",
+      "tags": ["service", "captcha", "block-puzzle", "image-processing"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "lineRange": [49, 84],
+      "summary": "Generates a new block-puzzle captcha: draws the watermark, selects a jigsaw template, cuts the piece, and returns base64 images plus token metadata.",
+      "tags": ["captcha-generation", "image-processing", "api-handler"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:check",
+      "type": "function",
+      "name": "check",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "lineRange": [86, 139],
+      "summary": "Validates the user's drag point against the cached point within the slip offset, tracks failures, and on success issues an AES-encrypted second-verification token.",
+      "tags": ["validation", "captcha", "aes", "cache"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:verification",
+      "type": "function",
+      "name": "verification",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "lineRange": [141, 159],
+      "summary": "Performs second verification by checking and consuming the cached verification token (one-time use).",
+      "tags": ["validation", "token", "cache"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:pictureTemplatesCut",
+      "type": "function",
+      "name": "pictureTemplatesCut",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "lineRange": [165, 221],
+      "summary": "Cuts the jigsaw piece and background hole using the template image, applies interference, encodes both images to base64, and caches the resulting point under a UUID token.",
+      "tags": ["image-processing", "jigsaw", "cache", "base64"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:extracted",
+      "type": "function",
+      "name": "extracted",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "lineRange": [223, 252],
+      "summary": "Applies random interference jigsaw shapes to the background image according to the configured interference option.",
+      "tags": ["image-processing", "interference", "randomization"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:generateJigsawPoint",
+      "type": "function",
+      "name": "generateJigsawPoint",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "lineRange": [264, 284],
+      "summary": "Generates a random valid jigsaw position that keeps the piece clear of edges and the watermark area, attaching a fresh AES key.",
+      "tags": ["randomization", "coordinates", "aes"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:cutByTemplate",
+      "type": "function",
+      "name": "cutByTemplate",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "lineRange": [292, 328],
+      "summary": "Pixel-loop template cut: copies opaque template pixels into the new image and whitens the corresponding region of the original with anti-aliased edges.",
+      "tags": ["image-processing", "pixel-manipulation", "jigsaw"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:interferenceByTemplate",
+      "type": "function",
+      "name": "interferenceByTemplate",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "lineRange": [353, 385],
+      "summary": "Draws a decoy jigsaw-shaped interference pattern into the background image at a given x offset.",
+      "tags": ["image-processing", "interference", "jigsaw"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:readPixel",
+      "type": "function",
+      "name": "readPixel",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "lineRange": [387, 410],
+      "summary": "Reads the 3x3 pixel neighborhood around a coordinate into a matrix, tolerating image borders.",
+      "tags": ["image-processing", "pixel-manipulation", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:avgMatrix",
+      "type": "function",
+      "name": "avgMatrix",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "lineRange": [421, 437],
+      "summary": "Computes the average RGB color of a 3x3 pixel matrix used for edge smoothing of the cut jigsaw shape.",
+      "tags": ["image-processing", "color", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaCacheServiceMemImpl.java",
+      "type": "file",
+      "name": "CaptchaCacheServiceMemImpl.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaCacheServiceMemImpl.java",
+      "summary": "In-memory implementation of CaptchaCacheService delegating all operations to the local CacheUtil store.",
+      "tags": ["cache", "in-memory", "captcha", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaCacheServiceMemImpl.java:CaptchaCacheServiceMemImpl",
+      "type": "class",
+      "name": "CaptchaCacheServiceMemImpl",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaCacheServiceMemImpl.java",
+      "lineRange": [16, 49],
+      "summary": "Local-memory cache backend for captcha tokens and rate-limit counters, reporting cache type 'local'.",
+      "tags": ["cache", "in-memory", "implementation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+      "type": "file",
+      "name": "CaptchaServiceFactory.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+      "summary": "Static factory and registry that instantiates and initializes CaptchaService implementations by type and hands out the configured CaptchaCacheService backend.",
+      "tags": ["factory", "registry", "captcha", "singleton"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java:CaptchaServiceFactory",
+      "type": "class",
+      "name": "CaptchaServiceFactory",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+      "lineRange": [19, 54],
+      "summary": "Holds the static instances map of captcha services keyed by type code plus the cache service registry populated by Spring auto-configuration.",
+      "tags": ["factory", "registry", "captcha"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java:getInstance",
+      "type": "function",
+      "name": "getInstance",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+      "lineRange": [23, 32],
+      "summary": "Looks up the CaptchaService for the configured captcha type and initializes it with the given properties, failing fast on unsupported types.",
+      "tags": ["factory", "initialization", "lookup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "type": "file",
+      "name": "ClickWordCaptchaServiceImpl.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "summary": "Click-word captcha implementation: renders random Chinese characters onto a background image and verifies the user's clicked coordinates in order.",
+      "tags": ["service", "captcha", "click-word", "image-processing"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:ClickWordCaptchaServiceImpl",
+      "type": "class",
+      "name": "ClickWordCaptchaServiceImpl",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "lineRange": [37, 318],
+      "summary": "Click-word CaptchaService implementation with random word/point generation, AES-protected point lists, cache-backed ordered verification, and a large built-in Chinese character pool.",
+      "tags": ["service", "captcha", "click-word", "image-processing"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "lineRange": [53, 74],
+      "summary": "Initializes click-word specific settings: word count, font color randomness, and the click-word TrueType font from the classpath.",
+      "tags": ["initialization", "font", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "lineRange": [81, 98],
+      "summary": "Generates a new click-word captcha image and returns its base64 data and the ordered word list to click.",
+      "tags": ["captcha-generation", "image-processing", "api-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:check",
+      "type": "function",
+      "name": "check",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "lineRange": [100, 168],
+      "summary": "Validates the user's clicked point sequence against the cached points within tolerance, tracks failures, and issues an AES-encrypted second-verification token on success.",
+      "tags": ["validation", "captcha", "aes", "cache"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:verification",
+      "type": "function",
+      "name": "verification",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "lineRange": [170, 188],
+      "summary": "Consumes the cached one-time verification token to complete second verification.",
+      "tags": ["validation", "token", "cache"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:getImageData",
+      "type": "function",
+      "name": "getImageData",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "lineRange": [215, 277],
+      "summary": "Renders the random words onto the background with random colors and rotations, records their points under a UUID token in the cache, and returns the populated CaptchaVO.",
+      "tags": ["captcha-generation", "image-processing", "cache"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:getRandomWords",
+      "type": "function",
+      "name": "getRandomWords",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "lineRange": [279, 290],
+      "summary": "Picks the requested number of distinct random Chinese characters from the built-in HAN_ZI pool.",
+      "tags": ["randomization", "text", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:randomWordPoint",
+      "type": "function",
+      "name": "randomWordPoint",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "lineRange": [301, 315],
+      "summary": "Computes a random non-overlapping placement point for a word within the image bounds, avoiding the watermark area.",
+      "tags": ["randomization", "coordinates", "layout"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "type": "file",
+      "name": "DefaultCaptchaServiceImpl.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "summary": "Delegating CaptchaService that routes get/check/verification calls to the concrete implementation matching the request's captcha type.",
+      "tags": ["service", "captcha", "delegation", "facade"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java:DefaultCaptchaServiceImpl",
+      "type": "class",
+      "name": "DefaultCaptchaServiceImpl",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "lineRange": [23, 101],
+      "summary": "Facade implementation that initializes all registered captcha services except itself and dispatches each request based on CaptchaVO.captchaType.",
+      "tags": ["service", "captcha", "delegation", "facade"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "lineRange": [54, 63],
+      "summary": "Validates the request and delegates captcha generation to the service matching the requested captcha type.",
+      "tags": ["delegation", "captcha-generation", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java:check",
+      "type": "function",
+      "name": "check",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "lineRange": [65, 77],
+      "summary": "Validates captcha type and token presence, then delegates the answer check to the matching captcha service.",
+      "tags": ["delegation", "validation", "captcha"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java:verification",
+      "type": "function",
+      "name": "verification",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "lineRange": [79, 99],
+      "summary": "Performs second verification by validating and consuming the cached verification token directly against the cache backend.",
+      "tags": ["validation", "token", "cache"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java",
+      "type": "file",
+      "name": "FrequencyLimitHandler.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java",
+      "summary": "Request frequency-limit SPI with a default handler enforcing per-client get/check/verify rate limits and lock-out thresholds via the cache backend.",
+      "tags": ["rate-limiting", "spi", "captcha", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java:FrequencyLimitHandler",
+      "type": "class",
+      "name": "FrequencyLimitHandler",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java",
+      "lineRange": [18, 161],
+      "summary": "Interface plus DefaultLimitHandler inner class that increments cached counters per client id and rejects requests exceeding configured minute limits or lock thresholds.",
+      "tags": ["rate-limiting", "spi", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "type": "file",
+      "name": "RotatePuzzleCaptchaServiceImpl.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "summary": "Rotate-puzzle captcha implementation that serves a randomly rotated image and reuses the block-puzzle point checking logic.",
+      "tags": ["service", "captcha", "rotate-puzzle", "image-processing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java:RotatePuzzleCaptchaServiceImpl",
+      "type": "class",
+      "name": "RotatePuzzleCaptchaServiceImpl",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "lineRange": [18, 73],
+      "summary": "Rotate-puzzle CaptchaService implementation extending BlockPuzzleCaptchaServiceImpl, overriding only image selection and cache-service resolution.",
+      "tags": ["service", "captcha", "rotate-puzzle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "lineRange": [40, 62],
+      "summary": "Generates a rotate-puzzle captcha by fetching a rotated original image and its block counterpart, then delegates to the block-puzzle generation flow.",
+      "tags": ["captcha-generation", "image-processing", "delegation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "type": "file",
+      "name": "AesUtil.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "summary": "AES/ECB/PKCS5Padding encryption utility with base64 helpers used to protect captcha point coordinates and verification tokens.",
+      "tags": ["utility", "aes", "encryption", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java:AesUtil",
+      "type": "class",
+      "name": "AesUtil",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "lineRange": [21, 142],
+      "summary": "Static AES utility offering key generation, byte- and string-level encrypt/decrypt, and base64 conversion helpers.",
+      "tags": ["utility", "aes", "encryption"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java:aesEncryptToBytes",
+      "type": "function",
+      "name": "aesEncryptToBytes",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "lineRange": [75, 82],
+      "summary": "Encrypts plaintext content to raw bytes using AES with a SHA-1-seeded key generator derived from the given key.",
+      "tags": ["aes", "encryption", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java:aesEncrypt",
+      "type": "function",
+      "name": "aesEncrypt",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "lineRange": [92, 97],
+      "summary": "Encrypts a string and returns the base64-encoded ciphertext; returns the input unchanged when blank.",
+      "tags": ["aes", "encryption", "base64"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java:aesDecryptByBytes",
+      "type": "function",
+      "name": "aesDecryptByBytes",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "lineRange": [106, 114],
+      "summary": "Decrypts AES-encrypted bytes back to a UTF-8 string using the key-derived cipher.",
+      "tags": ["aes", "decryption", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java:aesDecrypt",
+      "type": "function",
+      "name": "aesDecrypt",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "lineRange": [124, 129],
+      "summary": "Decrypts a base64-encoded AES ciphertext string; returns the input unchanged when blank.",
+      "tags": ["aes", "decryption", "base64"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/CacheUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/ImageUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Md5Util.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/ImageUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/JsonUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/RandomUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaCacheServiceMemImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaCacheServiceMemImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/CacheUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/ImageUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/JsonUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/RandomUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/ImageUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:AbstractCaptchaService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:verification",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:getValidateClientId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:afterValidateFail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:loadWaterMarkFont",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:base64StrToImage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:getEnOrChLength",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:BlockPuzzleCaptchaServiceImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:verification",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:pictureTemplatesCut",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:extracted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:generateJigsawPoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:cutByTemplate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:interferenceByTemplate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:readPixel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:avgMatrix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaCacheServiceMemImpl.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaCacheServiceMemImpl.java:CaptchaCacheServiceMemImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java:CaptchaServiceFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java:getInstance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:ClickWordCaptchaServiceImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:verification",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:getImageData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:getRandomWords",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:randomWordPoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java:DefaultCaptchaServiceImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java:check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java:verification",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java:FrequencyLimitHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java:RotatePuzzleCaptchaServiceImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java:AesUtil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java:aesEncryptToBytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java:aesEncrypt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java:aesDecryptByBytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java:aesDecrypt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:BlockPuzzleCaptchaServiceImpl",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:AbstractCaptchaService",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:ClickWordCaptchaServiceImpl",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:AbstractCaptchaService",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java:RotatePuzzleCaptchaServiceImpl",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:BlockPuzzleCaptchaServiceImpl",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:AbstractCaptchaService",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java:CaptchaService",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java:DefaultCaptchaServiceImpl",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java:CaptchaService",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaCacheServiceMemImpl.java:CaptchaCacheServiceMemImpl",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java:CaptchaCacheService",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:init",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/CacheUtil.java:init",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java:getValidateClientId",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/Md5Util.java:md5",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:check",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java:aesEncrypt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:check",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/JsonUtil.java:parseObject",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:pictureTemplatesCut",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/JsonUtil.java:toJsonString",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java:pictureTemplatesCut",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/RandomUtils.java:getUuid",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:check",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java:aesEncrypt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:check",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/JsonUtil.java:parseArray",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java:get",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/ImageUtils.java:getPicClick",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java:get",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/ImageUtils.java:getRotate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

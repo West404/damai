@@ -1,0 +1,115 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-base-data-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-base-data-service/src/main/resources/application.yml",
+      "summary": "damai-base-data-service 的主配置文件，定义服务端口 6083、应用名（带 ${prefix.distinction.name:damai} 灰度前缀占位符）、默认激活的 local profile，以及 Redis、Nacos 注册发现、MyBatis-Plus 逻辑删除与 mapper 扫描、Feign 压缩与 OkHttp、Actuator/Prometheus 监控、Jasypt 加密、Springdoc/Knife4j 接口文档等全局设置。",
+      "tags": ["configuration", "配置文件", "spring-boot", "微服务", "基础设施"],
+      "complexity": "moderate",
+      "languageNotes": "Spring Boot 多 profile YAML：应用名使用 ${prefix.distinction.name:damai}-base-data-service 形式，可在不修改配置文件的前提下通过外部属性区分灰度实例；spring.profiles.active 指向 application-local.yml。"
+    },
+    {
+      "id": "config:damai-server/damai-base-data-service/src/main/resources/application-local.yml",
+      "type": "config",
+      "name": "application-local.yml",
+      "filePath": "damai-server/damai-base-data-service/src/main/resources/application-local.yml",
+      "summary": "本地开发环境的 profile 配置，声明 HikariCP 数据源连接本机 MySQL 的 damai_base_data 库，并设置 max-lifetime 与批量重写、多语句等 JDBC 参数。",
+      "tags": ["configuration", "配置文件", "数据源", "本地环境"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-base-data-service/src/main/resources/application-pro.yml",
+      "type": "config",
+      "name": "application-pro.yml",
+      "filePath": "damai-server/damai-base-data-service/src/main/resources/application-pro.yml",
+      "summary": "生产环境的 profile 配置，将 HikariCP 数据源指向远程 MySQL 实例上的 damai_base_data 库，JDBC 参数与本地环境保持一致以便平滑切换。",
+      "tags": ["configuration", "配置文件", "数据源", "生产环境"],
+      "complexity": "simple",
+      "languageNotes": "数据库账号密码以明文形式内联在该 YAML 中，生产环境建议改用 Jasypt 加密（主配置已配置 jasypt.encryptor）或环境变量注入。"
+    },
+    {
+      "id": "config:damai-server/damai-base-data-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-base-data-service/src/main/resources/log4j2.xml",
+      "summary": "base-data-service 的 Log4j2 日志配置，声明 Console、RollingFile、RollingFileError 三个 appender，统一使用带 traceId/skyWalkingTraceId 的日志格式，按天 + 100MB 触发滚动并最多保留 30 个归档文件，同时保留被注释的 Logstash Socket appender 以接入 ELK。",
+      "tags": ["configuration", "日志", "log4j2", "可观测性"],
+      "complexity": "moderate",
+      "languageNotes": "使用 TimeBasedTriggeringPolicy(interval=1, modulate=true) 与 SizeBasedTriggeringPolicy 组合，并以 $${date:yyyy-MM} 在归档路径中建立月份子目录；%X{traceId} 依赖链路追踪 MDC 注入。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:damai-server/damai-base-data-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-base-data-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-base-data-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/ChannelDataController.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-base-data-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/controller/TestController.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-base-data-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-base-data-service/src/main/resources/application-local.yml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-base-data-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-base-data-service/src/main/resources/application-pro.yml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-base-data-service/src/main/resources/application-local.yml",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-base-data-service/src/main/resources/application-pro.yml",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-base-data-service/src/main/resources/log4j2.xml",
+      "target": "file:damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-base-data-service/src/main/resources/log4j2.xml",
+      "target": "config:damai-server/damai-base-data-service/src/main/resources/application.yml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

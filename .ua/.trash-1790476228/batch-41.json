@@ -1,0 +1,638 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-id-generator-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-id-generator-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Spring Boot auto-configuration registration file declaring WorkerNodeConfig, IdGeneratorRedisConfig, and IdGeneratorAutoConfig for the id-generator framework.",
+      "tags": ["configuration", "auto-configuration", "spring-boot"],
+      "complexity": "simple",
+      "languageNotes": "Spring Boot 3 style auto-configuration registration replacing the legacy spring.factories mechanism."
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/resources/lua/workAndDataCenterId.lua",
+      "type": "file",
+      "name": "workAndDataCenterId.lua",
+      "filePath": "damai-id-generator-framework/src/main/resources/lua/workAndDataCenterId.lua",
+      "summary": "Redis Lua script that atomically allocates and rotates Snowflake workerId and dataCenterId counters, returning them as a JSON string for the distributed ID generator.",
+      "tags": ["lua", "redis-script", "id-generator", "atomicity"],
+      "complexity": "moderate",
+      "languageNotes": "Uses atomic Redis INCR/SET within a single Lua execution to avoid race conditions when assigning Snowflake worker identities."
+    },
+    {
+      "id": "table:damai-id-generator-framework/src/main/resources/scripts/WORKER_NODE.sql:WORKER_NODE",
+      "type": "table",
+      "name": "WORKER_NODE",
+      "filePath": "damai-id-generator-framework/src/main/resources/scripts/WORKER_NODE.sql",
+      "summary": "DDL for the WORKER_NODE table used by the Baidu UID-generator to persist worker node registrations (host, port, type) for Snowflake ID assignment.",
+      "tags": ["database", "schema-definition", "id-generator", "ddl"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-redis-tool-framework/damai-redis-common-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-redis-tool-framework/damai-redis-common-framework/pom.xml",
+      "summary": "Maven POM for the damai-redis-common-framework module, depending on spring-boot-starter-data-redis and damai-common with default logging excluded.",
+      "tags": ["configuration", "build-system", "maven", "redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redis-tool-framework/damai-redis-common-framework/src/main/java/com/damai/config/RedisFrameWorkAutoConfig.java",
+      "type": "file",
+      "name": "RedisFrameWorkAutoConfig.java",
+      "filePath": "damai-redis-tool-framework/damai-redis-common-framework/src/main/java/com/damai/config/RedisFrameWorkAutoConfig.java",
+      "summary": "Spring auto-configuration that defines RedisTemplate and StringRedisTemplate beans with StringRedisSerializer as the default serializer.",
+      "tags": ["auto-configuration", "redis", "spring-boot", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redis-tool-framework/damai-redis-common-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-redis-tool-framework/damai-redis-common-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Empty Spring Boot auto-configuration registration placeholder for the damai-redis-common-framework module.",
+      "tags": ["configuration", "auto-configuration", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-redis-tool-framework/damai-redis-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-redis-tool-framework/damai-redis-framework/pom.xml",
+      "summary": "Maven POM for the damai-redis-framework module, building on spring-boot-starter-data-redis, damai-common, and damai-redis-common-framework.",
+      "tags": ["configuration", "build-system", "maven", "redis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redis-tool-framework/damai-redis-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-redis-tool-framework/damai-redis-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Empty Spring Boot auto-configuration registration placeholder for the damai-redis-framework module.",
+      "tags": ["configuration", "auto-configuration", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-redis-tool-framework/damai-redis-stream-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/pom.xml",
+      "summary": "Maven POM for the damai-redis-stream-framework module, depending on spring-boot-starter-data-redis, damai-common, and damai-redis-common-framework.",
+      "tags": ["configuration", "build-system", "maven", "redis-stream"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redis-tool-framework/damai-redis-stream-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-redis-tool-framework/damai-redis-stream-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Empty Spring Boot auto-configuration registration placeholder for the damai-redis-stream-framework module.",
+      "tags": ["configuration", "auto-configuration", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-redis-tool-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-redis-tool-framework/pom.xml",
+      "summary": "Aggregator Maven POM for the damai-redis-tool-framework, packaging type pom, grouping the redis-common, redis, and redis-stream submodules.",
+      "tags": ["configuration", "build-system", "maven", "aggregator"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/pom.xml",
+      "summary": "Maven POM for the damai-bloom-filter-framework module (Bloom filter tool), depending on damai-redisson-common-framework and spring-boot-starter.",
+      "tags": ["configuration", "build-system", "maven", "bloom-filter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Empty Spring Boot auto-configuration registration placeholder for the damai-bloom-filter-framework module.",
+      "tags": ["configuration", "auto-configuration", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/pom.xml",
+      "summary": "Maven POM for the damai-redisson-common-framework module, pulling in redisson-spring-boot-starter, spring-data-redis, AOP, and Caffeine cache.",
+      "tags": ["configuration", "build-system", "maven", "redisson"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonBaseProperties.java",
+      "type": "file",
+      "name": "RedissonBaseProperties.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonBaseProperties.java",
+      "summary": "Configuration properties POJO holding Redisson thread-pool tuning parameters such as threads, nettyThreads, pool sizes, keep-alive time, and work queue size.",
+      "tags": ["configuration", "properties", "redisson", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/core/Constants.java",
+      "type": "file",
+      "name": "Constants.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/core/Constants.java",
+      "summary": "Shared constants class defining the SEPARATOR string used in lock key composition across the Redisson frameworks.",
+      "tags": ["constants", "utility", "redisson"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "type": "file",
+      "name": "LocalVariableTableParameterNameDiscoverer.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "summary": "ASM bytecode-based parameter name discoverer (adapted from Spring) that reads LocalVariableTable debug info to resolve method/constructor parameter names, with caching.",
+      "tags": ["reflection", "asm", "bytecode", "parameter-discovery", "utility"],
+      "complexity": "complex",
+      "languageNotes": "Uses ASM ClassReader/ClassVisitor to parse the LocalVariableTable attribute and compute LVT slot indices for wide types (long/double)."
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Empty Spring Boot auto-configuration registration placeholder for the damai-redisson-common-framework module.",
+      "tags": ["configuration", "auto-configuration", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/pom.xml",
+      "summary": "Maven POM for the damai-repeat-execute-limit-framework module (idempotency tool), depending on redisson-common and service-lock frameworks.",
+      "tags": ["configuration", "build-system", "maven", "idempotency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/constant/RepeatExecuteLimitConstant.java",
+      "type": "file",
+      "name": "RepeatExecuteLimitConstant.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/constant/RepeatExecuteLimitConstant.java",
+      "summary": "Constants class defining the Redis key prefix and success flag value used by the repeat-execute (idempotency) limiting framework.",
+      "tags": ["constants", "idempotency", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Empty Spring Boot auto-configuration registration placeholder for the damai-repeat-execute-limit-framework module.",
+      "tags": ["configuration", "auto-configuration", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/pom.xml",
+      "summary": "Maven POM for the damai-service-lock-framework module (distributed lock tool), depending on damai-redisson-common-framework.",
+      "tags": ["configuration", "build-system", "maven", "distributed-lock"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/DistributedLockConstants.java",
+      "type": "file",
+      "name": "DistributedLockConstants.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/DistributedLockConstants.java",
+      "summary": "Central catalog of distributed lock key names covering user registration/login, program, show-time, seat, ticket category, stock, order status, order creation versions, and payment scenarios.",
+      "tags": ["constants", "distributed-lock", "redisson", "lock-keys"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutHandler.java",
+      "type": "file",
+      "name": "LockTimeOutHandler.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutHandler.java",
+      "summary": "Functional interface defining the handler callback invoked when acquiring a distributed lock times out.",
+      "tags": ["interface", "distributed-lock", "callback", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskCall.java",
+      "type": "file",
+      "name": "TaskCall.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskCall.java",
+      "summary": "Functional interface wrapping a generic task invocation (call) used to execute business logic under a distributed lock.",
+      "tags": ["interface", "functional-interface", "distributed-lock", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redis-tool-framework/damai-redis-common-framework/src/main/java/com/damai/config/RedisFrameWorkAutoConfig.java:RedisFrameWorkAutoConfig",
+      "type": "class",
+      "name": "RedisFrameWorkAutoConfig",
+      "filePath": "damai-redis-tool-framework/damai-redis-common-framework/src/main/java/com/damai/config/RedisFrameWorkAutoConfig.java",
+      "lineRange": [16, 34],
+      "summary": "Auto-configuration class exposing redisTemplate and stringRedisTemplate beans pre-configured with StringRedisSerializer.",
+      "tags": ["auto-configuration", "redis", "spring-boot", "factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonBaseProperties.java:RedissonBaseProperties",
+      "type": "class",
+      "name": "RedissonBaseProperties",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonBaseProperties.java",
+      "lineRange": [13, 30],
+      "summary": "Properties class binding Redisson executor tuning settings (threads, nettyThreads, pool sizing, keep-alive, queue size).",
+      "tags": ["configuration", "properties", "redisson", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/core/Constants.java:Constants",
+      "type": "class",
+      "name": "Constants",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/core/Constants.java",
+      "lineRange": [8, 13],
+      "summary": "Constants holder defining the SEPARATOR used to join distributed lock key segments.",
+      "tags": ["constants", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:LocalVariableTableParameterNameDiscoverer",
+      "type": "class",
+      "name": "LocalVariableTableParameterNameDiscoverer",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "lineRange": [31, 253],
+      "summary": "ParameterNameDiscoverer implementation using ASM to inspect class bytecode LocalVariableTable debug information, caching results per class.",
+      "tags": ["reflection", "asm", "bytecode", "parameter-discovery"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:getParameterNames(Method)",
+      "type": "function",
+      "name": "getParameterNames(Method)",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "lineRange": [42, 47],
+      "summary": "Resolves parameter names for a Method by unwrapping bridge methods and delegating to the cached bytecode inspection.",
+      "tags": ["reflection", "parameter-discovery", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:getParameterNames(Constructor)",
+      "type": "function",
+      "name": "getParameterNames(Constructor)",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "lineRange": [49, 53],
+      "summary": "Resolves parameter names for a Constructor via the shared doGetParameterNames bytecode lookup.",
+      "tags": ["reflection", "parameter-discovery", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:inspectClass",
+      "type": "function",
+      "name": "inspectClass",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "lineRange": [68, 113],
+      "summary": "Reads the class file as a stream and parses it with an ASM ClassReader and a ParameterNameDiscoveringVisitor to build the executable-to-parameter-names map.",
+      "tags": ["asm", "bytecode", "parsing", "reflection"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/constant/RepeatExecuteLimitConstant.java:RepeatExecuteLimitConstant",
+      "type": "class",
+      "name": "RepeatExecuteLimitConstant",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/constant/RepeatExecuteLimitConstant.java",
+      "lineRange": [8, 13],
+      "summary": "Constants class holding the PREFIX_NAME Redis key prefix and SUCCESS_FLAG marker for repeat-execute limiting.",
+      "tags": ["constants", "idempotency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/DistributedLockConstants.java:DistributedLockConstants",
+      "type": "class",
+      "name": "DistributedLockConstants",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/DistributedLockConstants.java",
+      "lineRange": [8, 116],
+      "summary": "Catalog of 21 named distributed lock keys spanning user, program, seat, ticket, order, and payment business flows.",
+      "tags": ["constants", "distributed-lock", "lock-keys"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutHandler.java:LockTimeOutHandler",
+      "type": "class",
+      "name": "LockTimeOutHandler",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutHandler.java",
+      "lineRange": [8, 15],
+      "summary": "Single-method interface for handling distributed lock acquisition timeouts.",
+      "tags": ["interface", "callback", "distributed-lock"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskCall.java:TaskCall",
+      "type": "class",
+      "name": "TaskCall",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskCall.java",
+      "lineRange": [8, 16],
+      "summary": "Generic functional interface whose call method executes a task, typically wrapped by distributed lock templates.",
+      "tags": ["interface", "functional-interface", "distributed-lock"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-common-framework/src/main/java/com/damai/config/RedisFrameWorkAutoConfig.java",
+      "target": "class:damai-redis-tool-framework/damai-redis-common-framework/src/main/java/com/damai/config/RedisFrameWorkAutoConfig.java:RedisFrameWorkAutoConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redis-tool-framework/damai-redis-common-framework/src/main/java/com/damai/config/RedisFrameWorkAutoConfig.java",
+      "target": "class:damai-redis-tool-framework/damai-redis-common-framework/src/main/java/com/damai/config/RedisFrameWorkAutoConfig.java:RedisFrameWorkAutoConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonBaseProperties.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonBaseProperties.java:RedissonBaseProperties",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonBaseProperties.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonBaseProperties.java:RedissonBaseProperties",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/core/Constants.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/core/Constants.java:Constants",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/core/Constants.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/core/Constants.java:Constants",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:LocalVariableTableParameterNameDiscoverer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:LocalVariableTableParameterNameDiscoverer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:getParameterNames(Method)",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:getParameterNames(Method)",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:getParameterNames(Constructor)",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:getParameterNames(Constructor)",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:inspectClass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:getParameterNames(Method)",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:inspectClass",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:getParameterNames(Constructor)",
+      "target": "function:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java:inspectClass",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/constant/RepeatExecuteLimitConstant.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/constant/RepeatExecuteLimitConstant.java:RepeatExecuteLimitConstant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/constant/RepeatExecuteLimitConstant.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/constant/RepeatExecuteLimitConstant.java:RepeatExecuteLimitConstant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/DistributedLockConstants.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/DistributedLockConstants.java:DistributedLockConstants",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/DistributedLockConstants.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/DistributedLockConstants.java:DistributedLockConstants",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutHandler.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutHandler.java:LockTimeOutHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutHandler.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutHandler.java:LockTimeOutHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskCall.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskCall.java:TaskCall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskCall.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskCall.java:TaskCall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "config:damai-redis-tool-framework/damai-redis-common-framework/pom.xml",
+      "target": "file:damai-redis-tool-framework/damai-redis-common-framework/src/main/java/com/damai/config/RedisFrameWorkAutoConfig.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redis-tool-framework/pom.xml",
+      "target": "config:damai-redis-tool-framework/damai-redis-common-framework/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redis-tool-framework/pom.xml",
+      "target": "config:damai-redis-tool-framework/damai-redis-framework/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redis-tool-framework/pom.xml",
+      "target": "config:damai-redis-tool-framework/damai-redis-stream-framework/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redis-tool-framework/damai-redis-framework/pom.xml",
+      "target": "config:damai-redis-tool-framework/damai-redis-common-framework/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redis-tool-framework/damai-redis-stream-framework/pom.xml",
+      "target": "config:damai-redis-tool-framework/damai-redis-common-framework/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/pom.xml",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonBaseProperties.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/pom.xml",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/core/Constants.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/pom.xml",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/LocalVariableTableParameterNameDiscoverer.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-redisson-service-framework/damai-bloom-filter-framework/pom.xml",
+      "target": "config:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/pom.xml",
+      "target": "config:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/pom.xml",
+      "target": "config:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/pom.xml",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/constant/RepeatExecuteLimitConstant.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/pom.xml",
+      "target": "config:damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/pom.xml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/pom.xml",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/DistributedLockConstants.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/pom.xml",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutHandler.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/pom.xml",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskCall.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "target": "file:damai-id-generator-framework/src/main/resources/lua/workAndDataCenterId.lua",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:damai-id-generator-framework/src/main/resources/lua/workAndDataCenterId.lua",
+      "target": "table:damai-id-generator-framework/src/main/resources/scripts/WORKER_NODE.sql:WORKER_NODE",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

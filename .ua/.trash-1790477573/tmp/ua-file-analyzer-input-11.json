@@ -1,0 +1,188 @@
+{
+  "projectRoot": "E:/WorkSpace/damai",
+  "batchFiles": [
+    {
+      "path": "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "language": "java",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+      "language": "java",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "language": "java",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java",
+      "language": "java",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "damai-common/src/main/java/com/damai/common/ApiResponse.java": [
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java"
+    ],
+    "damai-common/src/main/java/com/damai/enums/OrderStatus.java": [],
+    "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java": [],
+    "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClient.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java"
+    ],
+    "damai-server-client/damai-job-client/src/main/java/com/damai/client/JobClientFallback.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java"
+    ],
+    "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobCallBackDto.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+      "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java"
+    ],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClientFallback.java": [
+      "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+      "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+      "damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java"
+    ],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java": [],
+    "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java": []
+  }
+}

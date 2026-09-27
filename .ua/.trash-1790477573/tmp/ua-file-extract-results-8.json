@@ -1,0 +1,3259 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 25,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 25,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/config/RedissonCommonAutoConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 70,
+      "functions": [
+        {
+          "name": "redissonClient",
+          "startLine": 34,
+          "endLine": 62,
+          "params": [
+            "redisProperties",
+            "redissonBaseProperties"
+          ]
+        },
+        {
+          "name": "redissonDataHandle",
+          "startLine": 64,
+          "endLine": 67,
+          "params": [
+            "redissonClient"
+          ]
+        },
+        {
+          "name": "localLockCache",
+          "startLine": 69,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "lockInfoHandleFactory",
+          "startLine": 74,
+          "endLine": 77,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedissonCommonAutoConfiguration",
+          "startLine": 28,
+          "endLine": 78,
+          "methods": [
+            "redissonClient",
+            "redissonDataHandle",
+            "localLockCache",
+            "lockInfoHandleFactory"
+          ],
+          "properties": [
+            "executeTaskThreadCount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "redissonClient",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "redissonDataHandle",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "localLockCache",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "lockInfoHandleFactory",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "RedissonCommonAutoConfiguration",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "redissonClient",
+          "callee": "new Config",
+          "lineNumber": 36
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "ReflectionUtils.findMethod",
+          "lineNumber": 38
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "ReflectionUtils.invokeMethod",
+          "lineNumber": 39
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "config.useSingleServer()\r\n                .setAddress(prefix + redisProperties.getHost() + \":\" + redisProperties.getPort())\r\n                .setConnectTimeout(1000)\r\n                .setDatabase(redisProperties.getDatabase()).setPassword",
+          "lineNumber": 42
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "config.useSingleServer()\r\n                .setAddress(prefix + redisProperties.getHost() + \":\" + redisProperties.getPort())\r\n                .setConnectTimeout(1000).setDatabase",
+          "lineNumber": 42
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "config.useSingleServer()\r\n                .setAddress(prefix + redisProperties.getHost() + \":\" + redisProperties.getPort()).setConnectTimeout",
+          "lineNumber": 42
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "config.useSingleServer().setAddress",
+          "lineNumber": 42
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "config.useSingleServer",
+          "lineNumber": 42
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redisProperties.getHost",
+          "lineNumber": 43
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redisProperties.getPort",
+          "lineNumber": 43
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redisProperties.getDatabase",
+          "lineNumber": 45
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redisProperties.getPassword",
+          "lineNumber": 46
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "config.setThreads",
+          "lineNumber": 47
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redissonBaseProperties.getThreads",
+          "lineNumber": 47
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "config.setNettyThreads",
+          "lineNumber": 48
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redissonBaseProperties.getNettyThreads",
+          "lineNumber": 48
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "Objects.nonNull",
+          "lineNumber": 49
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redissonBaseProperties.getCorePoolSize",
+          "lineNumber": 49
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "Objects.nonNull",
+          "lineNumber": 50
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redissonBaseProperties.getMaximumPoolSize",
+          "lineNumber": 50
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "new ThreadPoolExecutor",
+          "lineNumber": 51
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redissonBaseProperties.getCorePoolSize",
+          "lineNumber": 52
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redissonBaseProperties.getMaximumPoolSize",
+          "lineNumber": 53
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redissonBaseProperties.getKeepAliveTime",
+          "lineNumber": 54
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redissonBaseProperties.getUnit",
+          "lineNumber": 55
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "new LinkedBlockingQueue<>",
+          "lineNumber": 56
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "redissonBaseProperties.getWorkQueueSize",
+          "lineNumber": 56
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "new Thread",
+          "lineNumber": 57
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "Thread.currentThread().getThreadGroup",
+          "lineNumber": 57
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "Thread.currentThread",
+          "lineNumber": 57
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "executeTaskThreadCount.getAndIncrement",
+          "lineNumber": 58
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "config.setExecutor",
+          "lineNumber": 59
+        },
+        {
+          "caller": "redissonClient",
+          "callee": "Redisson.create",
+          "lineNumber": 61
+        },
+        {
+          "caller": "redissonDataHandle",
+          "callee": "new RedissonDataHandle",
+          "lineNumber": 66
+        },
+        {
+          "caller": "localLockCache",
+          "callee": "new LocalLockCache",
+          "lineNumber": 71
+        },
+        {
+          "caller": "lockInfoHandleFactory",
+          "callee": "new LockInfoHandleFactory",
+          "lineNumber": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/constant/LockInfoType.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 16,
+      "classes": [
+        {
+          "name": "LockInfoType",
+          "startLine": 8,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "REPEAT_EXECUTE_LIMIT",
+            "SERVICE_LOCK"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "REPEAT_EXECUTE_LIMIT",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "SERVICE_LOCK",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "LockInfoType",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/handle/RedissonDataHandle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "get",
+          "startLine": 19,
+          "endLine": 21,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "set",
+          "startLine": 23,
+          "endLine": 25,
+          "params": [
+            "key",
+            "value"
+          ]
+        },
+        {
+          "name": "set",
+          "startLine": 27,
+          "endLine": 29,
+          "params": [
+            "key",
+            "value",
+            "timeToLive",
+            "timeUnit"
+          ]
+        },
+        {
+          "name": "getDuration",
+          "startLine": 31,
+          "endLine": 50,
+          "params": [
+            "timeToLive",
+            "timeUnit"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedissonDataHandle",
+          "startLine": 14,
+          "endLine": 51,
+          "methods": [
+            "get",
+            "set",
+            "set",
+            "getDuration"
+          ],
+          "properties": [
+            "redissonClient"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "getDuration",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "RedissonDataHandle",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get",
+          "callee": "redissonClient.getBucket(key).get",
+          "lineNumber": 20
+        },
+        {
+          "caller": "get",
+          "callee": "redissonClient.getBucket",
+          "lineNumber": 20
+        },
+        {
+          "caller": "set",
+          "callee": "redissonClient.getBucket(key).set",
+          "lineNumber": 24
+        },
+        {
+          "caller": "set",
+          "callee": "redissonClient.getBucket",
+          "lineNumber": 24
+        },
+        {
+          "caller": "set",
+          "callee": "redissonClient.getBucket(key).set",
+          "lineNumber": 28
+        },
+        {
+          "caller": "set",
+          "callee": "redissonClient.getBucket",
+          "lineNumber": 28
+        },
+        {
+          "caller": "set",
+          "callee": "getDuration",
+          "lineNumber": 28
+        },
+        {
+          "caller": "getDuration",
+          "callee": "Duration.ofMinutes",
+          "lineNumber": 35
+        },
+        {
+          "caller": "getDuration",
+          "callee": "Duration.ofHours",
+          "lineNumber": 39
+        },
+        {
+          "caller": "getDuration",
+          "callee": "Duration.ofDays",
+          "lineNumber": 43
+        },
+        {
+          "caller": "getDuration",
+          "callee": "Duration.ofSeconds",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/locallock/LocalLockCache.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "localLockCacheInit",
+          "startLine": 28,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "getLock",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "lockKey",
+            "fair"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LocalLockCache",
+          "startLine": 16,
+          "endLine": 41,
+          "methods": [
+            "localLockCacheInit",
+            "getLock"
+          ],
+          "properties": [
+            "localLockCache",
+            "durationTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "localLockCacheInit",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "getLock",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "LocalLockCache",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder()\r\n                .expireAfterWrite(durationTime, TimeUnit.HOURS).build",
+          "lineNumber": 30
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder().expireAfterWrite",
+          "lineNumber": 30
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder",
+          "lineNumber": 30
+        },
+        {
+          "caller": "getLock",
+          "callee": "localLockCache.get",
+          "lineNumber": 39
+        },
+        {
+          "caller": "getLock",
+          "callee": "new ReentrantLock",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/AbstractLockInfoHandle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 93,
+      "nonEmptyLines": 80,
+      "functions": [
+        {
+          "name": "getLockPrefixName",
+          "startLine": 41,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "getLockName",
+          "startLine": 42,
+          "endLine": 45,
+          "params": [
+            "joinPoint",
+            "name",
+            "keys"
+          ]
+        },
+        {
+          "name": "simpleGetLockName",
+          "startLine": 46,
+          "endLine": 56,
+          "params": [
+            "name",
+            "keys"
+          ]
+        },
+        {
+          "name": "getRelKey",
+          "startLine": 61,
+          "endLine": 65,
+          "params": [
+            "joinPoint",
+            "keys"
+          ]
+        },
+        {
+          "name": "getMethod",
+          "startLine": 67,
+          "endLine": 79,
+          "params": [
+            "joinPoint"
+          ]
+        },
+        {
+          "name": "getSpElKey",
+          "startLine": 81,
+          "endLine": 91,
+          "params": [
+            "definitionKeys",
+            "method",
+            "parameterValues"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractLockInfoHandle",
+          "startLine": 28,
+          "endLine": 93,
+          "methods": [
+            "getLockPrefixName",
+            "getLockName",
+            "simpleGetLockName",
+            "getRelKey",
+            "getMethod",
+            "getSpElKey"
+          ],
+          "properties": [
+            "LOCK_DISTRIBUTE_ID_NAME_PREFIX",
+            "nameDiscoverer",
+            "parser"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getLockName",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "simpleGetLockName",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractLockInfoHandle",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getLockName",
+          "callee": "SpringUtil.getPrefixDistinctionName",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getLockName",
+          "callee": "getLockPrefixName",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getLockName",
+          "callee": "getRelKey",
+          "lineNumber": 44
+        },
+        {
+          "caller": "simpleGetLockName",
+          "callee": "new ArrayList<>",
+          "lineNumber": 48
+        },
+        {
+          "caller": "simpleGetLockName",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 50
+        },
+        {
+          "caller": "simpleGetLockName",
+          "callee": "definitionKeyList.add",
+          "lineNumber": 51
+        },
+        {
+          "caller": "simpleGetLockName",
+          "callee": "SpringUtil.getPrefixDistinctionName",
+          "lineNumber": 54
+        },
+        {
+          "caller": "simpleGetLockName",
+          "callee": "String.join",
+          "lineNumber": 55
+        },
+        {
+          "caller": "getRelKey",
+          "callee": "getMethod",
+          "lineNumber": 62
+        },
+        {
+          "caller": "getRelKey",
+          "callee": "getSpElKey",
+          "lineNumber": 63
+        },
+        {
+          "caller": "getRelKey",
+          "callee": "joinPoint.getArgs",
+          "lineNumber": 63
+        },
+        {
+          "caller": "getRelKey",
+          "callee": "String.join",
+          "lineNumber": 64
+        },
+        {
+          "caller": "getMethod",
+          "callee": "joinPoint.getSignature",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getMethod",
+          "callee": "signature.getMethod",
+          "lineNumber": 69
+        },
+        {
+          "caller": "getMethod",
+          "callee": "method.getDeclaringClass().isInterface",
+          "lineNumber": 70
+        },
+        {
+          "caller": "getMethod",
+          "callee": "method.getDeclaringClass",
+          "lineNumber": 70
+        },
+        {
+          "caller": "getMethod",
+          "callee": "joinPoint.getTarget().getClass().getDeclaredMethod",
+          "lineNumber": 72
+        },
+        {
+          "caller": "getMethod",
+          "callee": "joinPoint.getTarget().getClass",
+          "lineNumber": 72
+        },
+        {
+          "caller": "getMethod",
+          "callee": "joinPoint.getTarget",
+          "lineNumber": 72
+        },
+        {
+          "caller": "getMethod",
+          "callee": "signature.getName",
+          "lineNumber": 72
+        },
+        {
+          "caller": "getMethod",
+          "callee": "method.getParameterTypes",
+          "lineNumber": 73
+        },
+        {
+          "caller": "getMethod",
+          "callee": "log.error",
+          "lineNumber": 75
+        },
+        {
+          "caller": "getSpElKey",
+          "callee": "new ArrayList<>",
+          "lineNumber": 82
+        },
+        {
+          "caller": "getSpElKey",
+          "callee": "ObjectUtils.isEmpty",
+          "lineNumber": 84
+        },
+        {
+          "caller": "getSpElKey",
+          "callee": "new MethodBasedEvaluationContext",
+          "lineNumber": 85
+        },
+        {
+          "caller": "getSpElKey",
+          "callee": "parser.parseExpression(definitionKey).getValue",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getSpElKey",
+          "callee": "parser.parseExpression",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getSpElKey",
+          "callee": "definitionKeyList.add",
+          "lineNumber": 87
+        },
+        {
+          "caller": "getSpElKey",
+          "callee": "ObjectUtils.nullSafeToString",
+          "lineNumber": 87
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 3,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/LockInfoHandle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 24,
+      "classes": [
+        {
+          "name": "LockInfoHandle",
+          "startLine": 10,
+          "endLine": 27,
+          "methods": [
+            "getLockName",
+            "simpleGetLockName"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "LockInfoHandle",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/lockinfo/factory/LockInfoHandleFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 20,
+      "functions": [
+        {
+          "name": "getLockInfoHandle",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "lockInfoType"
+          ]
+        },
+        {
+          "name": "setApplicationContext",
+          "startLine": 22,
+          "endLine": 25,
+          "params": [
+            "applicationContext"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LockInfoHandleFactory",
+          "startLine": 14,
+          "endLine": 26,
+          "methods": [
+            "getLockInfoHandle",
+            "setApplicationContext"
+          ],
+          "properties": [
+            "applicationContext"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getLockInfoHandle",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "setApplicationContext",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "LockInfoHandleFactory",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getLockInfoHandle",
+          "callee": "applicationContext.getBean",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-redisson-common-framework/src/main/java/com/damai/parser/ExtParameterNameDiscoverer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 16,
+      "functions": [
+        {
+          "name": "ExtParameterNameDiscoverer",
+          "startLine": 13,
+          "endLine": 18,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ExtParameterNameDiscoverer",
+          "startLine": 11,
+          "endLine": 19,
+          "methods": [
+            "ExtParameterNameDiscoverer"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ExtParameterNameDiscoverer",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "ExtParameterNameDiscoverer",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ExtParameterNameDiscoverer",
+          "callee": "NativeDetector.inNativeImage",
+          "lineNumber": 15
+        },
+        {
+          "caller": "ExtParameterNameDiscoverer",
+          "callee": "addDiscoverer",
+          "lineNumber": 16
+        },
+        {
+          "caller": "ExtParameterNameDiscoverer",
+          "callee": "new LocalVariableTableParameterNameDiscoverer",
+          "lineNumber": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/config/RepeatExecuteLimitAutoConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "repeatExecuteLimitHandle",
+          "startLine": 20,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "repeatExecuteLimitAspect",
+          "startLine": 25,
+          "endLine": 31,
+          "params": [
+            "localLockCache",
+            "lockInfoHandleFactory",
+            "serviceLockFactory",
+            "redissonDataHandle"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RepeatExecuteLimitAutoConfiguration",
+          "startLine": 18,
+          "endLine": 32,
+          "methods": [
+            "repeatExecuteLimitHandle",
+            "repeatExecuteLimitAspect"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "repeatExecuteLimitHandle",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "repeatExecuteLimitAspect",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "RepeatExecuteLimitAutoConfiguration",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "repeatExecuteLimitHandle",
+          "callee": "new RepeatExecuteLimitLockInfoHandle",
+          "lineNumber": 22
+        },
+        {
+          "caller": "repeatExecuteLimitAspect",
+          "callee": "new RepeatExecuteLimitAspect",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/lockinfo/impl/RepeatExecuteLimitLockInfoHandle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 14,
+      "functions": [
+        {
+          "name": "getLockPrefixName",
+          "startLine": 14,
+          "endLine": 17,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "RepeatExecuteLimitLockInfoHandle",
+          "startLine": 10,
+          "endLine": 18,
+          "methods": [
+            "getLockPrefixName"
+          ],
+          "properties": [
+            "PREFIX_NAME"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PREFIX_NAME",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "RepeatExecuteLimitLockInfoHandle",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/aspect/RepeatExecuteLimitAspect.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 82,
+      "functions": [
+        {
+          "name": "around",
+          "startLine": 47,
+          "endLine": 91,
+          "params": [
+            "joinPoint",
+            "repeatLimit"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RepeatExecuteLimitAspect",
+          "startLine": 32,
+          "endLine": 92,
+          "methods": [
+            "around"
+          ],
+          "properties": [
+            "localLockCache",
+            "lockInfoHandleFactory",
+            "serviceLockFactory",
+            "redissonDataHandle"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "around",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "RepeatExecuteLimitAspect",
+          "line": 32,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "around",
+          "callee": "repeatLimit.durationTime",
+          "lineNumber": 49
+        },
+        {
+          "caller": "around",
+          "callee": "repeatLimit.message",
+          "lineNumber": 50
+        },
+        {
+          "caller": "around",
+          "callee": "lockInfoHandleFactory.getLockInfoHandle",
+          "lineNumber": 52
+        },
+        {
+          "caller": "around",
+          "callee": "lockInfoHandle.getLockName",
+          "lineNumber": 53
+        },
+        {
+          "caller": "around",
+          "callee": "repeatLimit.name",
+          "lineNumber": 53
+        },
+        {
+          "caller": "around",
+          "callee": "repeatLimit.keys",
+          "lineNumber": 53
+        },
+        {
+          "caller": "around",
+          "callee": "redissonDataHandle.get",
+          "lineNumber": 55
+        },
+        {
+          "caller": "around",
+          "callee": "SUCCESS_FLAG.equals",
+          "lineNumber": 56
+        },
+        {
+          "caller": "around",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 57
+        },
+        {
+          "caller": "around",
+          "callee": "localLockCache.getLock",
+          "lineNumber": 59
+        },
+        {
+          "caller": "around",
+          "callee": "localLock.tryLock",
+          "lineNumber": 60
+        },
+        {
+          "caller": "around",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 62
+        },
+        {
+          "caller": "around",
+          "callee": "serviceLockFactory.getLock",
+          "lineNumber": 65
+        },
+        {
+          "caller": "around",
+          "callee": "lock.tryLock",
+          "lineNumber": 66
+        },
+        {
+          "caller": "around",
+          "callee": "redissonDataHandle.get",
+          "lineNumber": 69
+        },
+        {
+          "caller": "around",
+          "callee": "SUCCESS_FLAG.equals",
+          "lineNumber": 70
+        },
+        {
+          "caller": "around",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 71
+        },
+        {
+          "caller": "around",
+          "callee": "joinPoint.proceed",
+          "lineNumber": 73
+        },
+        {
+          "caller": "around",
+          "callee": "redissonDataHandle.set",
+          "lineNumber": 76
+        },
+        {
+          "caller": "around",
+          "callee": "log.error",
+          "lineNumber": 78
+        },
+        {
+          "caller": "around",
+          "callee": "lock.unlock",
+          "lineNumber": 83
+        },
+        {
+          "caller": "around",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 86
+        },
+        {
+          "caller": "around",
+          "callee": "localLock.unlock",
+          "lineNumber": 89
+        }
+      ],
+      "metrics": {
+        "importCount": 10,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/config/ServiceLockAutoConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "serviceLockInfoHandle",
+          "startLine": 21,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "manageLocker",
+          "startLine": 26,
+          "endLine": 29,
+          "params": [
+            "redissonClient"
+          ]
+        },
+        {
+          "name": "serviceLockFactory",
+          "startLine": 31,
+          "endLine": 34,
+          "params": [
+            "manageLocker"
+          ]
+        },
+        {
+          "name": "serviceLockAspect",
+          "startLine": 36,
+          "endLine": 39,
+          "params": [
+            "lockInfoHandleFactory",
+            "serviceLockFactory"
+          ]
+        },
+        {
+          "name": "serviceLockUtil",
+          "startLine": 41,
+          "endLine": 44,
+          "params": [
+            "lockInfoHandleFactory",
+            "serviceLockFactory"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServiceLockAutoConfiguration",
+          "startLine": 19,
+          "endLine": 45,
+          "methods": [
+            "serviceLockInfoHandle",
+            "manageLocker",
+            "serviceLockFactory",
+            "serviceLockAspect",
+            "serviceLockUtil"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "serviceLockInfoHandle",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "manageLocker",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "serviceLockFactory",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "serviceLockAspect",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "serviceLockUtil",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "ServiceLockAutoConfiguration",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "serviceLockInfoHandle",
+          "callee": "new ServiceLockInfoHandle",
+          "lineNumber": 23
+        },
+        {
+          "caller": "manageLocker",
+          "callee": "new ManageLocker",
+          "lineNumber": 28
+        },
+        {
+          "caller": "serviceLockFactory",
+          "callee": "new ServiceLockFactory",
+          "lineNumber": 33
+        },
+        {
+          "caller": "serviceLockAspect",
+          "callee": "new ServiceLockAspect",
+          "lineNumber": 38
+        },
+        {
+          "caller": "serviceLockUtil",
+          "callee": "new ServiceLockTool",
+          "lineNumber": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/core/ManageLocker.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "ManageLocker",
+          "startLine": 28,
+          "endLine": 33,
+          "params": [
+            "redissonClient"
+          ]
+        },
+        {
+          "name": "getReentrantLocker",
+          "startLine": 35,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "getFairLocker",
+          "startLine": 39,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "getWriteLocker",
+          "startLine": 43,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "getReadLocker",
+          "startLine": 47,
+          "endLine": 49,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ManageLocker",
+          "startLine": 24,
+          "endLine": 50,
+          "methods": [
+            "ManageLocker",
+            "getReentrantLocker",
+            "getFairLocker",
+            "getWriteLocker",
+            "getReadLocker"
+          ],
+          "properties": [
+            "cacheLocker"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ManageLocker",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "getReentrantLocker",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "getFairLocker",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "getWriteLocker",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "getReadLocker",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "ManageLocker",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ManageLocker",
+          "callee": "cacheLocker.put",
+          "lineNumber": 29
+        },
+        {
+          "caller": "ManageLocker",
+          "callee": "new RedissonReentrantLocker",
+          "lineNumber": 29
+        },
+        {
+          "caller": "ManageLocker",
+          "callee": "cacheLocker.put",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ManageLocker",
+          "callee": "new RedissonFairLocker",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ManageLocker",
+          "callee": "cacheLocker.put",
+          "lineNumber": 31
+        },
+        {
+          "caller": "ManageLocker",
+          "callee": "new RedissonWriteLocker",
+          "lineNumber": 31
+        },
+        {
+          "caller": "ManageLocker",
+          "callee": "cacheLocker.put",
+          "lineNumber": 32
+        },
+        {
+          "caller": "ManageLocker",
+          "callee": "new RedissonReadLocker",
+          "lineNumber": 32
+        },
+        {
+          "caller": "getReentrantLocker",
+          "callee": "cacheLocker.get",
+          "lineNumber": 36
+        },
+        {
+          "caller": "getFairLocker",
+          "callee": "cacheLocker.get",
+          "lineNumber": 40
+        },
+        {
+          "caller": "getWriteLocker",
+          "callee": "cacheLocker.get",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getReadLocker",
+          "callee": "cacheLocker.get",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/lockinfo/impl/ServiceLockInfoHandle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 14,
+      "functions": [
+        {
+          "name": "getLockPrefixName",
+          "startLine": 14,
+          "endLine": 17,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServiceLockInfoHandle",
+          "startLine": 10,
+          "endLine": 18,
+          "methods": [
+            "getLockPrefixName"
+          ],
+          "properties": [
+            "LOCK_PREFIX_NAME"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ServiceLockInfoHandle",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "LockType",
+          "startLine": 26,
+          "endLine": 27,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "LockType",
+          "startLine": 8,
+          "endLine": 29,
+          "methods": [
+            "LockType"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "LockType",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/ServiceLocker.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 64,
+      "classes": [
+        {
+          "name": "ServiceLocker",
+          "startLine": 12,
+          "endLine": 75,
+          "methods": [
+            "getLock",
+            "lock",
+            "lock",
+            "lock",
+            "tryLock",
+            "tryLock",
+            "unlock",
+            "unlock"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ServiceLocker",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 51,
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/aspect/ServiceLockAspect.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 93,
+      "nonEmptyLines": 82,
+      "functions": [
+        {
+          "name": "around",
+          "startLine": 40,
+          "endLine": 67,
+          "params": [
+            "joinPoint",
+            "servicelock"
+          ]
+        },
+        {
+          "name": "handleCustomLockTimeoutStrategy",
+          "startLine": 69,
+          "endLine": 92,
+          "params": [
+            "customLockTimeoutStrategy",
+            "joinPoint"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServiceLockAspect",
+          "startLine": 29,
+          "endLine": 93,
+          "methods": [
+            "around",
+            "handleCustomLockTimeoutStrategy"
+          ],
+          "properties": [
+            "lockInfoHandleFactory",
+            "serviceLockFactory"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "around",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "handleCustomLockTimeoutStrategy",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "ServiceLockAspect",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "around",
+          "callee": "lockInfoHandleFactory.getLockInfoHandle",
+          "lineNumber": 42
+        },
+        {
+          "caller": "around",
+          "callee": "lockInfoHandle.getLockName",
+          "lineNumber": 43
+        },
+        {
+          "caller": "around",
+          "callee": "servicelock.name",
+          "lineNumber": 43
+        },
+        {
+          "caller": "around",
+          "callee": "servicelock.keys",
+          "lineNumber": 43
+        },
+        {
+          "caller": "around",
+          "callee": "servicelock.lockType",
+          "lineNumber": 44
+        },
+        {
+          "caller": "around",
+          "callee": "servicelock.waitTime",
+          "lineNumber": 45
+        },
+        {
+          "caller": "around",
+          "callee": "servicelock.timeUnit",
+          "lineNumber": 46
+        },
+        {
+          "caller": "around",
+          "callee": "serviceLockFactory.getLock",
+          "lineNumber": 48
+        },
+        {
+          "caller": "around",
+          "callee": "lock.tryLock",
+          "lineNumber": 49
+        },
+        {
+          "caller": "around",
+          "callee": "joinPoint.proceed",
+          "lineNumber": 53
+        },
+        {
+          "caller": "around",
+          "callee": "lock.unlock",
+          "lineNumber": 55
+        },
+        {
+          "caller": "around",
+          "callee": "log.warn",
+          "lineNumber": 58
+        },
+        {
+          "caller": "around",
+          "callee": "servicelock.customLockTimeoutStrategy",
+          "lineNumber": 59
+        },
+        {
+          "caller": "around",
+          "callee": "StringUtil.isNotEmpty",
+          "lineNumber": 60
+        },
+        {
+          "caller": "around",
+          "callee": "handleCustomLockTimeoutStrategy",
+          "lineNumber": 61
+        },
+        {
+          "caller": "around",
+          "callee": "servicelock.lockTimeoutStrategy().handler",
+          "lineNumber": 63
+        },
+        {
+          "caller": "around",
+          "callee": "servicelock.lockTimeoutStrategy",
+          "lineNumber": 63
+        },
+        {
+          "caller": "around",
+          "callee": "joinPoint.proceed",
+          "lineNumber": 65
+        },
+        {
+          "caller": "handleCustomLockTimeoutStrategy",
+          "callee": "((MethodSignature) joinPoint.getSignature()).getMethod",
+          "lineNumber": 71
+        },
+        {
+          "caller": "handleCustomLockTimeoutStrategy",
+          "callee": "joinPoint.getSignature",
+          "lineNumber": 71
+        },
+        {
+          "caller": "handleCustomLockTimeoutStrategy",
+          "callee": "joinPoint.getTarget",
+          "lineNumber": 72
+        },
+        {
+          "caller": "handleCustomLockTimeoutStrategy",
+          "callee": "target.getClass().getDeclaredMethod",
+          "lineNumber": 75
+        },
+        {
+          "caller": "handleCustomLockTimeoutStrategy",
+          "callee": "target.getClass",
+          "lineNumber": 75
+        },
+        {
+          "caller": "handleCustomLockTimeoutStrategy",
+          "callee": "currentMethod.getParameterTypes",
+          "lineNumber": 75
+        },
+        {
+          "caller": "handleCustomLockTimeoutStrategy",
+          "callee": "handleMethod.setAccessible",
+          "lineNumber": 76
+        },
+        {
+          "caller": "handleCustomLockTimeoutStrategy",
+          "callee": "new RuntimeException",
+          "lineNumber": 78
+        },
+        {
+          "caller": "handleCustomLockTimeoutStrategy",
+          "callee": "joinPoint.getArgs",
+          "lineNumber": 80
+        },
+        {
+          "caller": "handleCustomLockTimeoutStrategy",
+          "callee": "handleMethod.invoke",
+          "lineNumber": 85
+        },
+        {
+          "caller": "handleCustomLockTimeoutStrategy",
+          "callee": "new RuntimeException",
+          "lineNumber": 87
+        },
+        {
+          "caller": "handleCustomLockTimeoutStrategy",
+          "callee": "new RuntimeException",
+          "lineNumber": 89
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/factory/ServiceLockFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "getLock",
+          "startLine": 19,
+          "endLine": 36,
+          "params": [
+            "lockType"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServiceLockFactory",
+          "startLine": 13,
+          "endLine": 37,
+          "methods": [
+            "getLock"
+          ],
+          "properties": [
+            "manageLocker"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getLock",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "ServiceLockFactory",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getLock",
+          "callee": "manageLocker.getFairLocker",
+          "lineNumber": 23
+        },
+        {
+          "caller": "getLock",
+          "callee": "manageLocker.getWriteLocker",
+          "lineNumber": 26
+        },
+        {
+          "caller": "getLock",
+          "callee": "manageLocker.getReadLocker",
+          "lineNumber": 29
+        },
+        {
+          "caller": "getLock",
+          "callee": "manageLocker.getReentrantLocker",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonFairLocker.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "getLock",
+          "startLine": 20,
+          "endLine": 23,
+          "params": [
+            "lockKey"
+          ]
+        },
+        {
+          "name": "lock",
+          "startLine": 25,
+          "endLine": 30,
+          "params": [
+            "lockKey"
+          ]
+        },
+        {
+          "name": "lock",
+          "startLine": 32,
+          "endLine": 37,
+          "params": [
+            "lockKey",
+            "leaseTime"
+          ]
+        },
+        {
+          "name": "lock",
+          "startLine": 39,
+          "endLine": 44,
+          "params": [
+            "lockKey",
+            "unit",
+            "leaseTime"
+          ]
+        },
+        {
+          "name": "tryLock",
+          "startLine": 46,
+          "endLine": 54,
+          "params": [
+            "lockKey",
+            "unit",
+            "waitTime"
+          ]
+        },
+        {
+          "name": "tryLock",
+          "startLine": 56,
+          "endLine": 64,
+          "params": [
+            "lockKey",
+            "unit",
+            "waitTime",
+            "leaseTime"
+          ]
+        },
+        {
+          "name": "unlock",
+          "startLine": 66,
+          "endLine": 70,
+          "params": [
+            "lockKey"
+          ]
+        },
+        {
+          "name": "unlock",
+          "startLine": 72,
+          "endLine": 75,
+          "params": [
+            "lock"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedissonFairLocker",
+          "startLine": 15,
+          "endLine": 77,
+          "methods": [
+            "getLock",
+            "lock",
+            "lock",
+            "lock",
+            "tryLock",
+            "tryLock",
+            "unlock",
+            "unlock"
+          ],
+          "properties": [
+            "redissonClient"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getLock",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "lock",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "lock",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "lock",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "tryLock",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "tryLock",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "unlock",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "unlock",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "RedissonFairLocker",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getLock",
+          "callee": "redissonClient.getFairLock",
+          "lineNumber": 22
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getFairLock",
+          "lineNumber": 27
+        },
+        {
+          "caller": "lock",
+          "callee": "lock.lock",
+          "lineNumber": 28
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getFairLock",
+          "lineNumber": 34
+        },
+        {
+          "caller": "lock",
+          "callee": "lock.lock",
+          "lineNumber": 35
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getFairLock",
+          "lineNumber": 41
+        },
+        {
+          "caller": "lock",
+          "callee": "lock.lock",
+          "lineNumber": 42
+        },
+        {
+          "caller": "tryLock",
+          "callee": "redissonClient.getFairLock",
+          "lineNumber": 48
+        },
+        {
+          "caller": "tryLock",
+          "callee": "lock.tryLock",
+          "lineNumber": 50
+        },
+        {
+          "caller": "tryLock",
+          "callee": "redissonClient.getFairLock",
+          "lineNumber": 58
+        },
+        {
+          "caller": "tryLock",
+          "callee": "lock.tryLock",
+          "lineNumber": 60
+        },
+        {
+          "caller": "unlock",
+          "callee": "redissonClient.getFairLock",
+          "lineNumber": 68
+        },
+        {
+          "caller": "unlock",
+          "callee": "lock.unlock",
+          "lineNumber": 69
+        },
+        {
+          "caller": "unlock",
+          "callee": "lock.unlock",
+          "lineNumber": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 9,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReadLocker.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "getLock",
+          "startLine": 20,
+          "endLine": 23,
+          "params": [
+            "lockKey"
+          ]
+        },
+        {
+          "name": "lock",
+          "startLine": 25,
+          "endLine": 30,
+          "params": [
+            "lockKey"
+          ]
+        },
+        {
+          "name": "lock",
+          "startLine": 32,
+          "endLine": 37,
+          "params": [
+            "lockKey",
+            "leaseTime"
+          ]
+        },
+        {
+          "name": "lock",
+          "startLine": 39,
+          "endLine": 44,
+          "params": [
+            "lockKey",
+            "unit",
+            "leaseTime"
+          ]
+        },
+        {
+          "name": "tryLock",
+          "startLine": 46,
+          "endLine": 54,
+          "params": [
+            "lockKey",
+            "unit",
+            "waitTime"
+          ]
+        },
+        {
+          "name": "tryLock",
+          "startLine": 56,
+          "endLine": 64,
+          "params": [
+            "lockKey",
+            "unit",
+            "waitTime",
+            "leaseTime"
+          ]
+        },
+        {
+          "name": "unlock",
+          "startLine": 66,
+          "endLine": 70,
+          "params": [
+            "lockKey"
+          ]
+        },
+        {
+          "name": "unlock",
+          "startLine": 72,
+          "endLine": 75,
+          "params": [
+            "lock"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedissonReadLocker",
+          "startLine": 15,
+          "endLine": 77,
+          "methods": [
+            "getLock",
+            "lock",
+            "lock",
+            "lock",
+            "tryLock",
+            "tryLock",
+            "unlock",
+            "unlock"
+          ],
+          "properties": [
+            "redissonClient"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getLock",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "lock",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "lock",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "lock",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "tryLock",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "tryLock",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "unlock",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "unlock",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "RedissonReadLocker",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getLock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).readLock",
+          "lineNumber": 22
+        },
+        {
+          "caller": "getLock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 22
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).readLock",
+          "lineNumber": 27
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 27
+        },
+        {
+          "caller": "lock",
+          "callee": "lock.lock",
+          "lineNumber": 28
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).readLock",
+          "lineNumber": 34
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 34
+        },
+        {
+          "caller": "lock",
+          "callee": "lock.lock",
+          "lineNumber": 35
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).readLock",
+          "lineNumber": 41
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 41
+        },
+        {
+          "caller": "lock",
+          "callee": "lock.lock",
+          "lineNumber": 42
+        },
+        {
+          "caller": "tryLock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).readLock",
+          "lineNumber": 48
+        },
+        {
+          "caller": "tryLock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 48
+        },
+        {
+          "caller": "tryLock",
+          "callee": "lock.tryLock",
+          "lineNumber": 50
+        },
+        {
+          "caller": "tryLock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).readLock",
+          "lineNumber": 58
+        },
+        {
+          "caller": "tryLock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 58
+        },
+        {
+          "caller": "tryLock",
+          "callee": "lock.tryLock",
+          "lineNumber": 60
+        },
+        {
+          "caller": "unlock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).readLock",
+          "lineNumber": 68
+        },
+        {
+          "caller": "unlock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 68
+        },
+        {
+          "caller": "unlock",
+          "callee": "lock.unlock",
+          "lineNumber": 69
+        },
+        {
+          "caller": "unlock",
+          "callee": "lock.unlock",
+          "lineNumber": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 9,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonReentrantLocker.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "getLock",
+          "startLine": 20,
+          "endLine": 23,
+          "params": [
+            "lockKey"
+          ]
+        },
+        {
+          "name": "lock",
+          "startLine": 25,
+          "endLine": 30,
+          "params": [
+            "lockKey"
+          ]
+        },
+        {
+          "name": "lock",
+          "startLine": 32,
+          "endLine": 37,
+          "params": [
+            "lockKey",
+            "leaseTime"
+          ]
+        },
+        {
+          "name": "lock",
+          "startLine": 39,
+          "endLine": 44,
+          "params": [
+            "lockKey",
+            "unit",
+            "leaseTime"
+          ]
+        },
+        {
+          "name": "tryLock",
+          "startLine": 46,
+          "endLine": 54,
+          "params": [
+            "lockKey",
+            "unit",
+            "waitTime"
+          ]
+        },
+        {
+          "name": "tryLock",
+          "startLine": 56,
+          "endLine": 64,
+          "params": [
+            "lockKey",
+            "unit",
+            "waitTime",
+            "leaseTime"
+          ]
+        },
+        {
+          "name": "unlock",
+          "startLine": 66,
+          "endLine": 70,
+          "params": [
+            "lockKey"
+          ]
+        },
+        {
+          "name": "unlock",
+          "startLine": 72,
+          "endLine": 75,
+          "params": [
+            "lock"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedissonReentrantLocker",
+          "startLine": 15,
+          "endLine": 77,
+          "methods": [
+            "getLock",
+            "lock",
+            "lock",
+            "lock",
+            "tryLock",
+            "tryLock",
+            "unlock",
+            "unlock"
+          ],
+          "properties": [
+            "redissonClient"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getLock",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "lock",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "lock",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "lock",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "tryLock",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "tryLock",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "unlock",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "unlock",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "RedissonReentrantLocker",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getLock",
+          "callee": "redissonClient.getLock",
+          "lineNumber": 22
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getLock",
+          "lineNumber": 27
+        },
+        {
+          "caller": "lock",
+          "callee": "lock.lock",
+          "lineNumber": 28
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getLock",
+          "lineNumber": 34
+        },
+        {
+          "caller": "lock",
+          "callee": "lock.lock",
+          "lineNumber": 35
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getLock",
+          "lineNumber": 41
+        },
+        {
+          "caller": "lock",
+          "callee": "lock.lock",
+          "lineNumber": 42
+        },
+        {
+          "caller": "tryLock",
+          "callee": "redissonClient.getLock",
+          "lineNumber": 48
+        },
+        {
+          "caller": "tryLock",
+          "callee": "lock.tryLock",
+          "lineNumber": 50
+        },
+        {
+          "caller": "tryLock",
+          "callee": "redissonClient.getLock",
+          "lineNumber": 58
+        },
+        {
+          "caller": "tryLock",
+          "callee": "lock.tryLock",
+          "lineNumber": 60
+        },
+        {
+          "caller": "unlock",
+          "callee": "redissonClient.getLock",
+          "lineNumber": 68
+        },
+        {
+          "caller": "unlock",
+          "callee": "lock.unlock",
+          "lineNumber": 69
+        },
+        {
+          "caller": "unlock",
+          "callee": "lock.unlock",
+          "lineNumber": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 9,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/impl/RedissonWriteLocker.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "getLock",
+          "startLine": 20,
+          "endLine": 23,
+          "params": [
+            "lockKey"
+          ]
+        },
+        {
+          "name": "lock",
+          "startLine": 25,
+          "endLine": 30,
+          "params": [
+            "lockKey"
+          ]
+        },
+        {
+          "name": "lock",
+          "startLine": 32,
+          "endLine": 37,
+          "params": [
+            "lockKey",
+            "leaseTime"
+          ]
+        },
+        {
+          "name": "lock",
+          "startLine": 39,
+          "endLine": 44,
+          "params": [
+            "lockKey",
+            "unit",
+            "leaseTime"
+          ]
+        },
+        {
+          "name": "tryLock",
+          "startLine": 46,
+          "endLine": 54,
+          "params": [
+            "lockKey",
+            "unit",
+            "waitTime"
+          ]
+        },
+        {
+          "name": "tryLock",
+          "startLine": 56,
+          "endLine": 64,
+          "params": [
+            "lockKey",
+            "unit",
+            "waitTime",
+            "leaseTime"
+          ]
+        },
+        {
+          "name": "unlock",
+          "startLine": 66,
+          "endLine": 70,
+          "params": [
+            "lockKey"
+          ]
+        },
+        {
+          "name": "unlock",
+          "startLine": 72,
+          "endLine": 75,
+          "params": [
+            "lock"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedissonWriteLocker",
+          "startLine": 15,
+          "endLine": 77,
+          "methods": [
+            "getLock",
+            "lock",
+            "lock",
+            "lock",
+            "tryLock",
+            "tryLock",
+            "unlock",
+            "unlock"
+          ],
+          "properties": [
+            "redissonClient"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getLock",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "lock",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "lock",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "lock",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "tryLock",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "tryLock",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "unlock",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "unlock",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "RedissonWriteLocker",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getLock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).writeLock",
+          "lineNumber": 22
+        },
+        {
+          "caller": "getLock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 22
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).writeLock",
+          "lineNumber": 27
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 27
+        },
+        {
+          "caller": "lock",
+          "callee": "lock.lock",
+          "lineNumber": 28
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).writeLock",
+          "lineNumber": 34
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 34
+        },
+        {
+          "caller": "lock",
+          "callee": "lock.lock",
+          "lineNumber": 35
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).writeLock",
+          "lineNumber": 41
+        },
+        {
+          "caller": "lock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 41
+        },
+        {
+          "caller": "lock",
+          "callee": "lock.lock",
+          "lineNumber": 42
+        },
+        {
+          "caller": "tryLock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).writeLock",
+          "lineNumber": 48
+        },
+        {
+          "caller": "tryLock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 48
+        },
+        {
+          "caller": "tryLock",
+          "callee": "lock.tryLock",
+          "lineNumber": 50
+        },
+        {
+          "caller": "tryLock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).writeLock",
+          "lineNumber": 58
+        },
+        {
+          "caller": "tryLock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 58
+        },
+        {
+          "caller": "tryLock",
+          "callee": "lock.tryLock",
+          "lineNumber": 60
+        },
+        {
+          "caller": "unlock",
+          "callee": "redissonClient.getReadWriteLock(lockKey).writeLock",
+          "lineNumber": 68
+        },
+        {
+          "caller": "unlock",
+          "callee": "redissonClient.getReadWriteLock",
+          "lineNumber": 68
+        },
+        {
+          "caller": "unlock",
+          "callee": "lock.unlock",
+          "lineNumber": 69
+        },
+        {
+          "caller": "unlock",
+          "callee": "lock.unlock",
+          "lineNumber": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 9,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/info/LockTimeOutStrategy.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 18,
+      "classes": [
+        {
+          "name": "LockTimeOutStrategy",
+          "startLine": 9,
+          "endLine": 20,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "LockTimeOutStrategy",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "handler",
+          "callee": "String.format",
+          "lineNumber": 16
+        },
+        {
+          "caller": "handler",
+          "callee": "new RuntimeException",
+          "lineNumber": 17
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 136,
+      "nonEmptyLines": 123,
+      "functions": [
+        {
+          "name": "execute",
+          "startLine": 35,
+          "endLine": 37,
+          "params": [
+            "taskRun",
+            "name",
+            "keys"
+          ]
+        },
+        {
+          "name": "execute",
+          "startLine": 47,
+          "endLine": 49,
+          "params": [
+            "taskRun",
+            "name",
+            "keys",
+            "waitTime"
+          ]
+        },
+        {
+          "name": "execute",
+          "startLine": 59,
+          "endLine": 61,
+          "params": [
+            "lockType",
+            "taskRun",
+            "name",
+            "keys"
+          ]
+        },
+        {
+          "name": "execute",
+          "startLine": 72,
+          "endLine": 86,
+          "params": [
+            "lockType",
+            "taskRun",
+            "name",
+            "keys",
+            "waitTime"
+          ]
+        },
+        {
+          "name": "submit",
+          "startLine": 95,
+          "endLine": 110,
+          "params": [
+            "taskCall",
+            "name",
+            "keys"
+          ]
+        },
+        {
+          "name": "getLock",
+          "startLine": 119,
+          "endLine": 124,
+          "params": [
+            "lockType",
+            "name",
+            "keys"
+          ]
+        },
+        {
+          "name": "getLock",
+          "startLine": 132,
+          "endLine": 135,
+          "params": [
+            "lockType",
+            "lockName"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServiceLockTool",
+          "startLine": 21,
+          "endLine": 136,
+          "methods": [
+            "execute",
+            "execute",
+            "execute",
+            "execute",
+            "submit",
+            "getLock",
+            "getLock"
+          ],
+          "properties": [
+            "lockInfoHandleFactory",
+            "serviceLockFactory"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "execute",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "execute",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "execute",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "execute",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "submit",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "getLock",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "getLock",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "ServiceLockTool",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "execute",
+          "callee": "execute",
+          "lineNumber": 36
+        },
+        {
+          "caller": "execute",
+          "callee": "execute",
+          "lineNumber": 48
+        },
+        {
+          "caller": "execute",
+          "callee": "execute",
+          "lineNumber": 60
+        },
+        {
+          "caller": "execute",
+          "callee": "lockInfoHandleFactory.getLockInfoHandle",
+          "lineNumber": 73
+        },
+        {
+          "caller": "execute",
+          "callee": "lockInfoHandle.simpleGetLockName",
+          "lineNumber": 74
+        },
+        {
+          "caller": "execute",
+          "callee": "serviceLockFactory.getLock",
+          "lineNumber": 75
+        },
+        {
+          "caller": "execute",
+          "callee": "lock.tryLock",
+          "lineNumber": 76
+        },
+        {
+          "caller": "execute",
+          "callee": "taskRun.run",
+          "lineNumber": 79
+        },
+        {
+          "caller": "execute",
+          "callee": "lock.unlock",
+          "lineNumber": 81
+        },
+        {
+          "caller": "execute",
+          "callee": "LockTimeOutStrategy.FAIL.handler",
+          "lineNumber": 84
+        },
+        {
+          "caller": "submit",
+          "callee": "lockInfoHandleFactory.getLockInfoHandle",
+          "lineNumber": 96
+        },
+        {
+          "caller": "submit",
+          "callee": "lockInfoHandle.simpleGetLockName",
+          "lineNumber": 97
+        },
+        {
+          "caller": "submit",
+          "callee": "serviceLockFactory.getLock",
+          "lineNumber": 98
+        },
+        {
+          "caller": "submit",
+          "callee": "lock.tryLock",
+          "lineNumber": 99
+        },
+        {
+          "caller": "submit",
+          "callee": "taskCall.call",
+          "lineNumber": 102
+        },
+        {
+          "caller": "submit",
+          "callee": "lock.unlock",
+          "lineNumber": 104
+        },
+        {
+          "caller": "submit",
+          "callee": "LockTimeOutStrategy.FAIL.handler",
+          "lineNumber": 107
+        },
+        {
+          "caller": "getLock",
+          "callee": "lockInfoHandleFactory.getLockInfoHandle",
+          "lineNumber": 120
+        },
+        {
+          "caller": "getLock",
+          "callee": "lockInfoHandle.simpleGetLockName",
+          "lineNumber": 121
+        },
+        {
+          "caller": "getLock",
+          "callee": "serviceLockFactory.getLock",
+          "lineNumber": 122
+        },
+        {
+          "caller": "getLock",
+          "callee": "lock.getLock",
+          "lineNumber": 123
+        },
+        {
+          "caller": "getLock",
+          "callee": "serviceLockFactory.getLock",
+          "lineNumber": 133
+        },
+        {
+          "caller": "getLock",
+          "callee": "lock.getLock",
+          "lineNumber": 134
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    }
+  ]
+}

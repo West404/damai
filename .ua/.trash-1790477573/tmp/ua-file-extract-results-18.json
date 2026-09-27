@@ -1,0 +1,967 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 11,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 11,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 11,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-common/src/main/java/com/damai/enums/AreaType.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "AreaType",
+          "startLine": 28,
+          "endLine": 31,
+          "params": [
+            "code",
+            "msg"
+          ]
+        },
+        {
+          "name": "getCode",
+          "startLine": 33,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "setCode",
+          "startLine": 37,
+          "endLine": 39,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 41,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "setMsg",
+          "startLine": 45,
+          "endLine": 47,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "getMsg",
+          "startLine": 49,
+          "endLine": 56,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "getRc",
+          "startLine": 58,
+          "endLine": 65,
+          "params": [
+            "code"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AreaType",
+          "startLine": 8,
+          "endLine": 66,
+          "methods": [
+            "AreaType",
+            "getCode",
+            "setCode",
+            "getMsg",
+            "setMsg",
+            "getMsg",
+            "getRc"
+          ],
+          "properties": [
+            "code",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getCode",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "setCode",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "setMsg",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "getMsg",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "getRc",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "AreaType",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getMsg",
+          "callee": "AreaType.values",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getMsg",
+          "callee": "re.code.intValue",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getMsg",
+          "callee": "code.intValue",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getRc",
+          "callee": "AreaType.values",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getRc",
+          "callee": "re.code.intValue",
+          "lineNumber": 60
+        },
+        {
+          "caller": "getRc",
+          "callee": "code.intValue",
+          "lineNumber": 60
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClient.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 49,
+      "classes": [
+        {
+          "name": "BaseDataClient",
+          "startLine": 23,
+          "endLine": 56,
+          "methods": [
+            "getByCode",
+            "get",
+            "selectByIdList",
+            "getById"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BaseDataClient",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/client/BaseDataClientFallback.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "getByCode",
+          "startLine": 22,
+          "endLine": 25,
+          "params": [
+            "dto"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 27,
+          "endLine": 30,
+          "params": []
+        },
+        {
+          "name": "selectByIdList",
+          "startLine": 32,
+          "endLine": 35,
+          "params": [
+            "dto"
+          ]
+        },
+        {
+          "name": "getById",
+          "startLine": 37,
+          "endLine": 40,
+          "params": [
+            "dto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BaseDataClientFallback",
+          "startLine": 20,
+          "endLine": 41,
+          "methods": [
+            "getByCode",
+            "get",
+            "selectByIdList",
+            "getById"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getByCode",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "selectByIdList",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "getById",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "BaseDataClientFallback",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getByCode",
+          "callee": "ApiResponse.error",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get",
+          "callee": "ApiResponse.error",
+          "lineNumber": 29
+        },
+        {
+          "caller": "selectByIdList",
+          "callee": "ApiResponse.error",
+          "lineNumber": 34
+        },
+        {
+          "caller": "getById",
+          "callee": "ApiResponse.error",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaGetDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "AreaGetDto",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AreaGetDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/AreaSelectDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 18,
+      "classes": [
+        {
+          "name": "AreaSelectDto",
+          "startLine": 15,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "idList"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AreaSelectDto",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/AreaVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 41,
+      "classes": [
+        {
+          "name": "AreaVo",
+          "startLine": 14,
+          "endLine": 49,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "parentId",
+            "name",
+            "type",
+            "municipality"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AreaVo",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/vo/TokenDataVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 23,
+      "classes": [
+        {
+          "name": "TokenDataVo",
+          "startLine": 13,
+          "endLine": 31,
+          "methods": [],
+          "properties": [
+            "id",
+            "name",
+            "secret",
+            "status",
+            "createTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TokenDataVo",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/controller/AreaController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 61,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "selectCityData",
+          "startLine": 32,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "selectByIdList",
+          "startLine": 38,
+          "endLine": 42,
+          "params": [
+            "areaSelectDto"
+          ]
+        },
+        {
+          "name": "getById",
+          "startLine": 44,
+          "endLine": 48,
+          "params": [
+            "areaGetDto"
+          ]
+        },
+        {
+          "name": "current",
+          "startLine": 50,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "hot",
+          "startLine": 56,
+          "endLine": 60,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AreaController",
+          "startLine": 24,
+          "endLine": 61,
+          "methods": [
+            "selectCityData",
+            "selectByIdList",
+            "getById",
+            "current",
+            "hot"
+          ],
+          "properties": [
+            "areaService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "selectCityData",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "selectByIdList",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "getById",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "current",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "hot",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "AreaController",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "selectCityData",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 35
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "areaService.selectCityData",
+          "lineNumber": 35
+        },
+        {
+          "caller": "selectByIdList",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 41
+        },
+        {
+          "caller": "selectByIdList",
+          "callee": "areaService.selectByIdList",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getById",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getById",
+          "callee": "areaService.getById",
+          "lineNumber": 47
+        },
+        {
+          "caller": "current",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 53
+        },
+        {
+          "caller": "current",
+          "callee": "areaService.current",
+          "lineNumber": 53
+        },
+        {
+          "caller": "hot",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 59
+        },
+        {
+          "caller": "hot",
+          "callee": "areaService.hot",
+          "lineNumber": 59
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/entity/Area.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 40,
+      "classes": [
+        {
+          "name": "Area",
+          "startLine": 17,
+          "endLine": 48,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "parentId",
+            "name",
+            "type",
+            "municipality"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Area",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/mapper/AreaMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "AreaMapper",
+          "startLine": 12,
+          "endLine": 14,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AreaMapper",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/service/AreaService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "selectCityData",
+          "startLine": 41,
+          "endLine": 57,
+          "params": []
+        },
+        {
+          "name": "selectByIdList",
+          "startLine": 59,
+          "endLine": 64,
+          "params": [
+            "areaSelectDto"
+          ]
+        },
+        {
+          "name": "getById",
+          "startLine": 66,
+          "endLine": 76,
+          "params": [
+            "areaGetDto"
+          ]
+        },
+        {
+          "name": "current",
+          "startLine": 78,
+          "endLine": 87,
+          "params": []
+        },
+        {
+          "name": "hot",
+          "startLine": 89,
+          "endLine": 94,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AreaService",
+          "startLine": 31,
+          "endLine": 95,
+          "methods": [
+            "selectCityData",
+            "selectByIdList",
+            "getById",
+            "current",
+            "hot"
+          ],
+          "properties": [
+            "areaMapper",
+            "redisCache"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "selectCityData",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "selectByIdList",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "getById",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "current",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "hot",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "AreaService",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "selectCityData",
+          "callee": "redisCache.rangeForList",
+          "lineNumber": 42
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 42
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 44
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "Wrappers.lambdaQuery(Area.class)\r\n                    .eq(Area::getType, AreaType.MUNICIPALITIES.getCode()).or",
+          "lineNumber": 45
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "Wrappers.lambdaQuery(Area.class).eq",
+          "lineNumber": 45
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 45
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "AreaType.MUNICIPALITIES.getCode",
+          "lineNumber": 46
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "wrapper\r\n                            .eq(Area::getType, AreaType.PROVINCE.getCode()).eq",
+          "lineNumber": 47
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "wrapper.eq",
+          "lineNumber": 47
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "AreaType.PROVINCE.getCode",
+          "lineNumber": 48
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "BusinessStatus.YES.getCode",
+          "lineNumber": 49
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "areaMapper.selectList",
+          "lineNumber": 50
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "BeanUtil.copyToList",
+          "lineNumber": 51
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 52
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "redisCache.leftPushAllForList",
+          "lineNumber": 53
+        },
+        {
+          "caller": "selectCityData",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 53
+        },
+        {
+          "caller": "selectByIdList",
+          "callee": "Wrappers.lambdaQuery(Area.class).in",
+          "lineNumber": 60
+        },
+        {
+          "caller": "selectByIdList",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 60
+        },
+        {
+          "caller": "selectByIdList",
+          "callee": "areaSelectDto.getIdList",
+          "lineNumber": 61
+        },
+        {
+          "caller": "selectByIdList",
+          "callee": "areaMapper.selectList",
+          "lineNumber": 62
+        },
+        {
+          "caller": "selectByIdList",
+          "callee": "BeanUtil.copyToList",
+          "lineNumber": 63
+        },
+        {
+          "caller": "getById",
+          "callee": "log.info",
+          "lineNumber": 67
+        },
+        {
+          "caller": "getById",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 67
+        },
+        {
+          "caller": "getById",
+          "callee": "Wrappers.lambdaQuery(Area.class).eq",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getById",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getById",
+          "callee": "areaGetDto.getId",
+          "lineNumber": 69
+        },
+        {
+          "caller": "getById",
+          "callee": "areaMapper.selectOne",
+          "lineNumber": 70
+        },
+        {
+          "caller": "getById",
+          "callee": "new AreaVo",
+          "lineNumber": 71
+        },
+        {
+          "caller": "getById",
+          "callee": "Objects.nonNull",
+          "lineNumber": 72
+        },
+        {
+          "caller": "getById",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 73
+        },
+        {
+          "caller": "current",
+          "callee": "Wrappers.lambdaQuery(Area.class).eq",
+          "lineNumber": 79
+        },
+        {
+          "caller": "current",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 79
+        },
+        {
+          "caller": "current",
+          "callee": "areaMapper.selectOne",
+          "lineNumber": 81
+        },
+        {
+          "caller": "current",
+          "callee": "new AreaVo",
+          "lineNumber": 82
+        },
+        {
+          "caller": "current",
+          "callee": "Objects.nonNull",
+          "lineNumber": 83
+        },
+        {
+          "caller": "current",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 84
+        },
+        {
+          "caller": "hot",
+          "callee": "Wrappers.lambdaQuery(Area.class).in",
+          "lineNumber": 90
+        },
+        {
+          "caller": "hot",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 90
+        },
+        {
+          "caller": "hot",
+          "callee": "areaMapper.selectList",
+          "lineNumber": 92
+        },
+        {
+          "caller": "hot",
+          "callee": "BeanUtil.copyToList",
+          "lineNumber": 93
+        }
+      ],
+      "metrics": {
+        "importCount": 10,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    }
+  ]
+}

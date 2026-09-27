@@ -1,0 +1,405 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/config/MonitorServerConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 25,
+      "functions": [
+        {
+          "name": "dingTalkMessage",
+          "startLine": 21,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "monitorServer",
+          "startLine": 26,
+          "endLine": 29,
+          "params": [
+            "dingTalkMessage",
+            "repository"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MonitorServerConfig",
+          "startLine": 15,
+          "endLine": 32,
+          "methods": [
+            "dingTalkMessage",
+            "monitorServer"
+          ],
+          "properties": [
+            "token"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "dingTalkMessage",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "monitorServer",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "MonitorServerConfig",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "dingTalkMessage",
+          "callee": "new DingTalkMessage",
+          "lineNumber": 23
+        },
+        {
+          "caller": "monitorServer",
+          "callee": "new MonitorServer",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/monitor/DingTalkMessage.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "createMessage",
+          "startLine": 27,
+          "endLine": 36,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "sendMessage",
+          "startLine": 38,
+          "endLine": 42,
+          "params": [
+            "message"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DingTalkMessage",
+          "startLine": 20,
+          "endLine": 43,
+          "methods": [
+            "createMessage",
+            "sendMessage"
+          ],
+          "properties": [
+            "token",
+            "restTemplate"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "sendMessage",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "DingTalkMessage",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "createMessage",
+          "callee": "new HashMap<>",
+          "lineNumber": 28
+        },
+        {
+          "caller": "createMessage",
+          "callee": "new HashMap<>",
+          "lineNumber": 29
+        },
+        {
+          "caller": "createMessage",
+          "callee": "context.put",
+          "lineNumber": 30
+        },
+        {
+          "caller": "createMessage",
+          "callee": "messageJson.put",
+          "lineNumber": 31
+        },
+        {
+          "caller": "createMessage",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 31
+        },
+        {
+          "caller": "createMessage",
+          "callee": "messageJson.put",
+          "lineNumber": 32
+        },
+        {
+          "caller": "createMessage",
+          "callee": "new HttpHeaders",
+          "lineNumber": 33
+        },
+        {
+          "caller": "createMessage",
+          "callee": "headers.setContentType",
+          "lineNumber": 34
+        },
+        {
+          "caller": "createMessage",
+          "callee": "new HttpEntity<>",
+          "lineNumber": 35
+        },
+        {
+          "caller": "createMessage",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 35
+        },
+        {
+          "caller": "sendMessage",
+          "callee": "StringUtils.isNotEmpty",
+          "lineNumber": 39
+        },
+        {
+          "caller": "sendMessage",
+          "callee": "restTemplate.postForEntity",
+          "lineNumber": 40
+        },
+        {
+          "caller": "sendMessage",
+          "callee": "createMessage",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/monitor/MonitorServer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 71,
+      "nonEmptyLines": 61,
+      "functions": [
+        {
+          "name": "MonitorServer",
+          "startLine": 35,
+          "endLine": 39,
+          "params": [
+            "dingTalkMessage",
+            "repository"
+          ]
+        },
+        {
+          "name": "shouldNotify",
+          "startLine": 41,
+          "endLine": 51,
+          "params": [
+            "event",
+            "instance"
+          ]
+        },
+        {
+          "name": "doNotify",
+          "startLine": 53,
+          "endLine": 70,
+          "params": [
+            "event",
+            "instance"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MonitorServer",
+          "startLine": 25,
+          "endLine": 71,
+          "methods": [
+            "MonitorServer",
+            "shouldNotify",
+            "doNotify"
+          ],
+          "properties": [
+            "dingTalkMessage",
+            "text",
+            "ignoreStatusChanges"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MonitorServer",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "MonitorServer",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "MonitorServer",
+          "callee": "this.setIgnoreChanges",
+          "lineNumber": 37
+        },
+        {
+          "caller": "shouldNotify",
+          "callee": "this.getLastStatus",
+          "lineNumber": 45
+        },
+        {
+          "caller": "shouldNotify",
+          "callee": "event.getInstance",
+          "lineNumber": 45
+        },
+        {
+          "caller": "shouldNotify",
+          "callee": "statusChange.getStatusInfo().getStatus",
+          "lineNumber": 46
+        },
+        {
+          "caller": "shouldNotify",
+          "callee": "statusChange.getStatusInfo",
+          "lineNumber": 46
+        },
+        {
+          "caller": "shouldNotify",
+          "callee": "Arrays.binarySearch",
+          "lineNumber": 47
+        },
+        {
+          "caller": "shouldNotify",
+          "callee": "Arrays.binarySearch",
+          "lineNumber": 47
+        },
+        {
+          "caller": "shouldNotify",
+          "callee": "Arrays.binarySearch",
+          "lineNumber": 47
+        },
+        {
+          "caller": "doNotify",
+          "callee": "this.getLastStatus",
+          "lineNumber": 56
+        },
+        {
+          "caller": "doNotify",
+          "callee": "event.getInstance",
+          "lineNumber": 56
+        },
+        {
+          "caller": "doNotify",
+          "callee": "statusChange.getStatusInfo().getStatus",
+          "lineNumber": 57
+        },
+        {
+          "caller": "doNotify",
+          "callee": "statusChange.getStatusInfo",
+          "lineNumber": 57
+        },
+        {
+          "caller": "doNotify",
+          "callee": "new HashMap<>",
+          "lineNumber": 59
+        },
+        {
+          "caller": "doNotify",
+          "callee": "root.put",
+          "lineNumber": 60
+        },
+        {
+          "caller": "doNotify",
+          "callee": "root.put",
+          "lineNumber": 61
+        },
+        {
+          "caller": "doNotify",
+          "callee": "root.put",
+          "lineNumber": 62
+        },
+        {
+          "caller": "doNotify",
+          "callee": "new StandardEvaluationContext",
+          "lineNumber": 63
+        },
+        {
+          "caller": "doNotify",
+          "callee": "context.addPropertyAccessor",
+          "lineNumber": 64
+        },
+        {
+          "caller": "doNotify",
+          "callee": "new MapAccessor",
+          "lineNumber": 64
+        },
+        {
+          "caller": "doNotify",
+          "callee": "text.getValue",
+          "lineNumber": 65
+        },
+        {
+          "caller": "doNotify",
+          "callee": "Mono.fromRunnable",
+          "lineNumber": 66
+        },
+        {
+          "caller": "doNotify",
+          "callee": "log.info",
+          "lineNumber": 67
+        },
+        {
+          "caller": "doNotify",
+          "callee": "dingTalkMessage.sendMessage",
+          "lineNumber": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    }
+  ]
+}

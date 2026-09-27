@@ -1,0 +1,61 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-user-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-user-service/src/main/resources/application.yml",
+      "summary": "Main Spring Boot configuration for the user service covering server port, Spring Cloud, bloom-filter, MyBatis-Plus, Feign, Actuator endpoints, jasypt encryption, captcha verification toggle, and springdoc/knife4j API docs.",
+      "tags": ["configuration", "spring-boot", "microservice", "user-service", "captcha"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:damai-server/damai-user-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-user-service/src/main/resources/log4j2.xml",
+      "summary": "Log4j2 configuration for user-service with console and rolling-file appenders (100MB size / 30-file rollover) and a traceId-aware pattern layout; commented-out Logstash socket appender for ELK shipping.",
+      "tags": ["configuration", "logging", "log4j2", "monitoring"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-docker.yaml",
+      "type": "config",
+      "name": "shardingsphere-user-docker.yaml",
+      "filePath": "damai-server/damai-user-service/src/main/resources/shardingsphere-user-docker.yaml",
+      "summary": "ShardingSphere-JDBC configuration (docker profile) defining user_db data sources, user table sharding rules, and column encryption rules for sensitive user data.",
+      "tags": ["configuration", "shardingsphere", "database-sharding", "encryption", "docker-profile"],
+      "complexity": "moderate",
+      "languageNotes": "Uses ShardingSphere custom YAML tags (!SHARDING and !ENCRYPT) parsed via a SnakeYAML extension, so plain YAML parsers report unresolved tags."
+    },
+    {
+      "id": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml",
+      "type": "config",
+      "name": "shardingsphere-user-local.yaml",
+      "filePath": "damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml",
+      "summary": "ShardingSphere-JDBC configuration (local profile) defining user_db data sources, user table sharding rules, and column encryption rules for sensitive user data.",
+      "tags": ["configuration", "shardingsphere", "database-sharding", "encryption", "local-profile"],
+      "complexity": "moderate",
+      "languageNotes": "Uses ShardingSphere custom YAML tags (!SHARDING and !ENCRYPT) parsed via a SnakeYAML extension, so plain YAML parsers report unresolved tags."
+    },
+    {
+      "id": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-pro.yaml",
+      "type": "config",
+      "name": "shardingsphere-user-pro.yaml",
+      "filePath": "damai-server/damai-user-service/src/main/resources/shardingsphere-user-pro.yaml",
+      "summary": "ShardingSphere-JDBC configuration (production profile) defining user_db data sources, user table sharding rules, and column encryption rules for sensitive user data.",
+      "tags": ["configuration", "shardingsphere", "database-sharding", "encryption", "production-profile"],
+      "complexity": "moderate",
+      "languageNotes": "Uses ShardingSphere custom YAML tags (!SHARDING and !ENCRYPT) parsed via a SnakeYAML extension, so plain YAML parsers report unresolved tags."
+    }
+  ],
+  "edges": [
+    {"source": "config:damai-server/damai-user-service/src/main/resources/application.yml", "target": "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-user-service/src/main/resources/log4j2.xml", "target": "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-docker.yaml", "target": "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml", "target": "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-pro.yaml", "target": "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-docker.yaml", "target": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml", "target": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-pro.yaml", "type": "related", "direction": "forward", "weight": 0.5}
+  ]
+}

@@ -1,0 +1,646 @@
+{
+ "nodes": [
+  {
+   "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "type": "file",
+   "name": "UserClient.java",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "summary": "用户服务的 Feign 客户端接口，声明按 id 查用户、按 userId 查购票人列表、查询用户与购票人集合三个远程调用方法，由网关/订单等服务跨服务调用。",
+   "tags": [
+    "feign-client",
+    "service-client",
+    "接口",
+    "远程调用"
+   ],
+   "complexity": "simple",
+   "languageNotes": "@FeignClient 通过 SPRING_INJECT_PREFIX_DISTINCTION_NAME 拼接服务名，并指定 UserClientFallback 作为熔断降级实现。"
+  },
+  {
+   "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java:UserClient",
+   "type": "class",
+   "name": "UserClient",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "lineRange": [
+    23,
+    52
+   ],
+   "summary": "用户服务远程调用接口，方法上使用 @PostMapping 声明目标地址，是订单、网关等服务访问用户能力（查用户、查购票人、聚合查询）的统一入口。",
+   "tags": [
+    "feign-client",
+    "interface",
+    "service-client",
+    "远程调用"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "type": "file",
+   "name": "UserClientFallback.java",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "summary": "用户服务 Feign 调用的降级实现，三个远程方法失败时统一返回 BaseCode.SYSTEM_ERROR 包装的 ApiResponse。",
+   "tags": [
+    "fallback",
+    "feign-client",
+    "容错",
+    "service-client"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java:UserClientFallback",
+   "type": "class",
+   "name": "UserClientFallback",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "lineRange": [
+    20,
+    37
+   ],
+   "summary": "UserClient 的降级实现类，对三个远程方法一律返回 BaseCode.SYSTEM_ERROR，保证下游不可用时调用方不抛异常。",
+   "tags": [
+    "fallback",
+    "容错",
+    "service-client",
+    "降级实现"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java",
+   "type": "file",
+   "name": "TicketUserDto.java",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java",
+   "summary": "新增购票人的请求参数 DTO，承载用户 id、真实姓名、证件类型与证件号码。",
+   "tags": [
+    "dto",
+    "data-model",
+    "请求参数",
+    "购票人"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java:TicketUserDto",
+   "type": "class",
+   "name": "TicketUserDto",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java",
+   "lineRange": [
+    17,
+    42
+   ],
+   "summary": "购票人新增参数对象，字段包括 userId、relName、idType、idNumber，实现 Serializable 以便跨服务传输。",
+   "tags": [
+    "dto",
+    "data-model",
+    "购票人",
+    "序列化"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java",
+   "type": "file",
+   "name": "TicketUserIdDto.java",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java",
+   "summary": "购票人单条操作的请求参数 DTO，仅包含购票人 id，用于删除等按主键操作的接口。",
+   "tags": [
+    "dto",
+    "data-model",
+    "请求参数",
+    "购票人"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java:TicketUserIdDto",
+   "type": "class",
+   "name": "TicketUserIdDto",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java",
+   "lineRange": [
+    12,
+    19
+   ],
+   "summary": "仅含购票人主键 id 的参数对象，用于删除等单记录操作。",
+   "tags": [
+    "dto",
+    "data-model",
+    "购票人",
+    "主键参数"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "type": "file",
+   "name": "TicketUserListDto.java",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "summary": "按用户 id 查询购票人列表的请求参数 DTO。",
+   "tags": [
+    "dto",
+    "data-model",
+    "请求参数",
+    "购票人"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java:TicketUserListDto",
+   "type": "class",
+   "name": "TicketUserListDto",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "lineRange": [
+    13,
+    20
+   ],
+   "summary": "购票人列表查询参数对象，只包含 userId，用于按用户维度查询购票人。",
+   "tags": [
+    "dto",
+    "data-model",
+    "购票人",
+    "查询参数"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java",
+   "type": "file",
+   "name": "UserAuthenticationDto.java",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java",
+   "summary": "用户实名认证的请求参数 DTO，包含用户 id、真实姓名与身份证号。",
+   "tags": [
+    "dto",
+    "data-model",
+    "请求参数",
+    "实名认证"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java:UserAuthenticationDto",
+   "type": "class",
+   "name": "UserAuthenticationDto",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java",
+   "lineRange": [
+    17,
+    36
+   ],
+   "summary": "实名认证参数对象，携带用户 id、真实姓名与身份证号。",
+   "tags": [
+    "dto",
+    "data-model",
+    "实名认证",
+    "参数对象"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java",
+   "type": "file",
+   "name": "UserExistDto.java",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java",
+   "summary": "判断用户是否存在的请求参数 DTO，仅携带手机号。",
+   "tags": [
+    "dto",
+    "data-model",
+    "请求参数",
+    "校验"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java:UserExistDto",
+   "type": "class",
+   "name": "UserExistDto",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java",
+   "lineRange": [
+    16,
+    27
+   ],
+   "summary": "用户存在性校验参数对象，仅含手机号。",
+   "tags": [
+    "dto",
+    "data-model",
+    "校验",
+    "参数对象"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "type": "file",
+   "name": "UserGetAndTicketUserListDto.java",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "summary": "查询用户与购票人集合的内部调用参数 DTO，仅包含用户 id，不对外暴露给前端。",
+   "tags": [
+    "dto",
+    "data-model",
+    "请求参数",
+    "内部调用"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java:UserGetAndTicketUserListDto",
+   "type": "class",
+   "name": "UserGetAndTicketUserListDto",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "lineRange": [
+    12,
+    19
+   ],
+   "summary": "用户与购票人聚合查询参数对象，仅含 userId，仅供服务间内部调用。",
+   "tags": [
+    "dto",
+    "data-model",
+    "内部调用",
+    "参数对象"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "type": "file",
+   "name": "UserIdDto.java",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "summary": "通用用户 id 请求参数 DTO，被用户查询、支付、订单等多个服务的接口复用。",
+   "tags": [
+    "dto",
+    "data-model",
+    "请求参数",
+    "通用参数"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java:UserIdDto",
+   "type": "class",
+   "name": "UserIdDto",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "lineRange": [
+    12,
+    19
+   ],
+   "summary": "通用用户主键参数对象，被多个用户相关接口复用。",
+   "tags": [
+    "dto",
+    "data-model",
+    "通用参数",
+    "主键参数"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java",
+   "type": "file",
+   "name": "UserLoginDto.java",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java",
+   "summary": "用户登录请求参数 DTO，包含渠道 code、手机号、邮箱与密码，支持手机号或邮箱两种登录方式。",
+   "tags": [
+    "dto",
+    "data-model",
+    "请求参数",
+    "登录"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java:UserLoginDto",
+   "type": "class",
+   "name": "UserLoginDto",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java",
+   "lineRange": [
+    13,
+    30
+   ],
+   "summary": "登录参数对象，包含渠道 code、手机号、邮箱、密码，支撑手机号登录与邮箱登录两种路径。",
+   "tags": [
+    "dto",
+    "data-model",
+    "登录",
+    "参数对象"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java",
+   "type": "file",
+   "name": "UserLogoutDto.java",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java",
+   "summary": "用户退出登录的请求参数 DTO，包含渠道 code 与待失效的 token。",
+   "tags": [
+    "dto",
+    "data-model",
+    "请求参数",
+    "登出"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java:UserLogoutDto",
+   "type": "class",
+   "name": "UserLogoutDto",
+   "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java",
+   "lineRange": [
+    13,
+    24
+   ],
+   "summary": "登出参数对象，包含渠道 code 与待解析的 token。",
+   "tags": [
+    "dto",
+    "data-model",
+    "登出",
+    "参数对象"
+   ],
+   "complexity": "simple"
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java:UserExistDto",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserExistDto.java:UserExistDto",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java:TicketUserIdDto",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserIdDto.java:TicketUserIdDto",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java:UserClient",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java:UserClient",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java:UserLoginDto",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLoginDto.java:UserLoginDto",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java:UserLogoutDto",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserLogoutDto.java:UserLogoutDto",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java:TicketUserDto",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserDto.java:TicketUserDto",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java:UserIdDto",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java:UserIdDto",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java:UserClientFallback",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java:UserClientFallback",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserIdDto.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "target": "file:damai-server/damai-gateway-service/src/main/java/com/damai/vo/UserVo.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "class:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java:UserClientFallback",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java:UserClient",
+   "type": "implements",
+   "direction": "forward",
+   "weight": 0.9
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClientFallback.java",
+   "target": "function:damai-common/src/main/java/com/damai/common/ApiResponse.java:error",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java:UserGetAndTicketUserListDto",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java:UserGetAndTicketUserListDto",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java:TicketUserListDto",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java:TicketUserListDto",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java:UserAuthenticationDto",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java",
+   "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserAuthenticationDto.java:UserAuthenticationDto",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  }
+ ]
+}

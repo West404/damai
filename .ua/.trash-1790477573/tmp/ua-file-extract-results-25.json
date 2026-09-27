@@ -1,0 +1,304 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/context/DelayQueueProduceCombine.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "DelayQueueProduceCombine",
+          "startLine": 21,
+          "endLine": 28,
+          "params": [
+            "delayQueueBasePart",
+            "topic"
+          ]
+        },
+        {
+          "name": "offer",
+          "startLine": 30,
+          "endLine": 34,
+          "params": [
+            "content",
+            "delayTime",
+            "timeUnit"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DelayQueueProduceCombine",
+          "startLine": 15,
+          "endLine": 35,
+          "methods": [
+            "DelayQueueProduceCombine",
+            "offer"
+          ],
+          "properties": [
+            "isolationRegionSelector",
+            "delayProduceQueueList"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DelayQueueProduceCombine",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "offer",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "DelayQueueProduceCombine",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DelayQueueProduceCombine",
+          "callee": "delayQueueBasePart.getDelayQueueProperties().getIsolationRegionCount",
+          "lineNumber": 22
+        },
+        {
+          "caller": "DelayQueueProduceCombine",
+          "callee": "delayQueueBasePart.getDelayQueueProperties",
+          "lineNumber": 22
+        },
+        {
+          "caller": "DelayQueueProduceCombine",
+          "callee": "new IsolationRegionSelector",
+          "lineNumber": 23
+        },
+        {
+          "caller": "DelayQueueProduceCombine",
+          "callee": "delayProduceQueueList.add",
+          "lineNumber": 26
+        },
+        {
+          "caller": "DelayQueueProduceCombine",
+          "callee": "new DelayProduceQueue",
+          "lineNumber": 26
+        },
+        {
+          "caller": "DelayQueueProduceCombine",
+          "callee": "delayQueueBasePart.getRedissonClient",
+          "lineNumber": 26
+        },
+        {
+          "caller": "offer",
+          "callee": "isolationRegionSelector.getIndex",
+          "lineNumber": 31
+        },
+        {
+          "caller": "offer",
+          "callee": "delayProduceQueueList.get(index).offer",
+          "lineNumber": 33
+        },
+        {
+          "caller": "offer",
+          "callee": "delayProduceQueueList.get",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayProduceQueue.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 19,
+      "functions": [
+        {
+          "name": "DelayProduceQueue",
+          "startLine": 16,
+          "endLine": 19,
+          "params": [
+            "redissonClient",
+            "relTopic"
+          ]
+        },
+        {
+          "name": "offer",
+          "startLine": 21,
+          "endLine": 23,
+          "params": [
+            "content",
+            "delayTime",
+            "timeUnit"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DelayProduceQueue",
+          "startLine": 13,
+          "endLine": 24,
+          "methods": [
+            "DelayProduceQueue",
+            "offer"
+          ],
+          "properties": [
+            "delayedQueue"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DelayProduceQueue",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "offer",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "DelayProduceQueue",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DelayProduceQueue",
+          "callee": "redissonClient.getDelayedQueue",
+          "lineNumber": 18
+        },
+        {
+          "caller": "offer",
+          "callee": "delayedQueue.offer",
+          "lineNumber": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/IsolationRegionSelector.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "IsolationRegionSelector",
+          "startLine": 16,
+          "endLine": 18,
+          "params": [
+            "thresholdValue"
+          ]
+        },
+        {
+          "name": "reset",
+          "startLine": 20,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "getIndex",
+          "startLine": 25,
+          "endLine": 33,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "IsolationRegionSelector",
+          "startLine": 10,
+          "endLine": 34,
+          "methods": [
+            "IsolationRegionSelector",
+            "reset",
+            "getIndex"
+          ],
+          "properties": [
+            "count",
+            "thresholdValue"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "IsolationRegionSelector",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "getIndex",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "IsolationRegionSelector",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "reset",
+          "callee": "count.set",
+          "lineNumber": 21
+        },
+        {
+          "caller": "reset",
+          "callee": "count.get",
+          "lineNumber": 22
+        },
+        {
+          "caller": "getIndex",
+          "callee": "count.get",
+          "lineNumber": 26
+        },
+        {
+          "caller": "getIndex",
+          "callee": "reset",
+          "lineNumber": 28
+        },
+        {
+          "caller": "getIndex",
+          "callee": "count.incrementAndGet",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    }
+  ]
+}

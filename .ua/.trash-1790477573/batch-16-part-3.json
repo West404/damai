@@ -1,0 +1,797 @@
+{
+ "nodes": [
+  {
+   "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "type": "file",
+   "name": "CaptchaController.java",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "summary": "验证码通用 HTTP 控制层，提供 /captcha/get 与 /captcha/check 接口，并基于 X-Forwarded-For 与 User-Agent 计算客户端标识。",
+   "tags": [
+    "api-handler",
+    "controller",
+    "entry-point",
+    "验证码"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "type": "file",
+   "name": "AjCaptchaProperties.java",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "summary": "aj.captcha 前缀的配置属性类，集中定义验证码类型、字体、水印、底图路径、缓存策略与请求频率限制等参数。",
+   "tags": [
+    "config",
+    "properties",
+    "验证码",
+    "configuration"
+   ],
+   "complexity": "complex",
+   "languageNotes": "配置项访问器由 IDE 生成，条目较多但逻辑单一。"
+  },
+  {
+   "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "type": "file",
+   "name": "CaptchaCacheServiceRedisImpl.java",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "summary": "CaptchaCacheService 的 Redis 实现，基于 StringRedisTemplate 提供缓存读写、过期、自增与类型标识。",
+   "tags": [
+    "service",
+    "redis",
+    "缓存",
+    "验证码"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "type": "file",
+   "name": "CaptchaHandle.java",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "summary": "验证码业务处理器，先把当前请求的客户端标识写入 browserInfo，再委派 CaptchaService 完成获取与校验。",
+   "tags": [
+    "service",
+    "验证码",
+    "请求上下文",
+    "delegation"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+   "type": "file",
+   "name": "RemoteUtil.java",
+   "filePath": "damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+   "summary": "客户端信息工具类，拼接 X-Forwarded-For 中的首个 IP 与 User-Agent 生成客户端唯一标识。",
+   "tags": [
+    "utility",
+    "http",
+    "remote",
+    "客户端标识"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java:CaptchaController",
+   "type": "class",
+   "name": "CaptchaController",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "lineRange": [
+    27,
+    66
+   ],
+   "summary": "验证码 HTTP 控制层，暴露 /captcha/get 与 /captcha/check 并计算客户端标识。",
+   "tags": [
+    "api-handler",
+    "controller",
+    "验证码"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java:get",
+   "type": "function",
+   "name": "get",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "lineRange": [
+    34,
+    39
+   ],
+   "summary": "POST /captcha/get：补齐 browserInfo 后调用 CaptchaService.get 生成验证码。",
+   "tags": [
+    "api-handler",
+    "验证码",
+    "http"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java:check",
+   "type": "function",
+   "name": "check",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "lineRange": [
+    41,
+    45
+   ],
+   "summary": "POST /captcha/check：补齐 browserInfo 后调用 CaptchaService.check 校验验证码。",
+   "tags": [
+    "api-handler",
+    "验证码",
+    "http"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java:AjCaptchaProperties",
+   "type": "class",
+   "name": "AjCaptchaProperties",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "lineRange": [
+    14,
+    341
+   ],
+   "summary": "aj.captcha 配置属性载体，集中保存验证码类型、字体、水印、缓存与限流参数。",
+   "tags": [
+    "config",
+    "properties",
+    "验证码",
+    "configuration"
+   ],
+   "complexity": "complex"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java:toString",
+   "type": "function",
+   "name": "toString",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "lineRange": [
+    318,
+    340
+   ],
+   "summary": "输出全部配置项内容，便于启动日志排查配置问题。",
+   "tags": [
+    "配置",
+    "日志",
+    "调试"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:CaptchaCacheServiceRedisImpl",
+   "type": "class",
+   "name": "CaptchaCacheServiceRedisImpl",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "lineRange": [
+    13,
+    50
+   ],
+   "summary": "验证码缓存的 Redis 实现，基于 StringRedisTemplate 完成读写、过期与自增。",
+   "tags": [
+    "service",
+    "redis",
+    "缓存",
+    "验证码"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:type",
+   "type": "function",
+   "name": "type",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "lineRange": [
+    15,
+    18
+   ],
+   "summary": "返回缓存类型标识 redis。",
+   "tags": [
+    "redis",
+    "缓存",
+    "spi"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:setStringRedisTemplate",
+   "type": "function",
+   "name": "setStringRedisTemplate",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "lineRange": [
+    20,
+    22
+   ],
+   "summary": "由自动配置注入 StringRedisTemplate。",
+   "tags": [
+    "redis",
+    "依赖注入",
+    "配置"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:set",
+   "type": "function",
+   "name": "set",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "lineRange": [
+    26,
+    29
+   ],
+   "summary": "写入键值并设置秒级过期时间。",
+   "tags": [
+    "redis",
+    "缓存",
+    "写入"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:exists",
+   "type": "function",
+   "name": "exists",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "lineRange": [
+    31,
+    34
+   ],
+   "summary": "判断指定键是否存在。",
+   "tags": [
+    "redis",
+    "缓存",
+    "查询"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:delete",
+   "type": "function",
+   "name": "delete",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "lineRange": [
+    36,
+    39
+   ],
+   "summary": "删除指定键。",
+   "tags": [
+    "redis",
+    "缓存",
+    "删除"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:get",
+   "type": "function",
+   "name": "get",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "lineRange": [
+    41,
+    44
+   ],
+   "summary": "读取指定键的值。",
+   "tags": [
+    "redis",
+    "缓存",
+    "读取"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:increment",
+   "type": "function",
+   "name": "increment",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "lineRange": [
+    46,
+    49
+   ],
+   "summary": "对键执行原子自增，用于请求频率限制计数。",
+   "tags": [
+    "redis",
+    "缓存",
+    "原子操作"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:CaptchaHandle",
+   "type": "class",
+   "name": "CaptchaHandle",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "lineRange": [
+    19,
+    43
+   ],
+   "summary": "验证码处理器，补齐请求上下文后委派 CaptchaService 执行获取与校验。",
+   "tags": [
+    "service",
+    "验证码",
+    "delegation"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:getCaptcha",
+   "type": "function",
+   "name": "getCaptcha",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "lineRange": [
+    24,
+    30
+   ],
+   "summary": "写入客户端标识后调用 CaptchaService.get 获取验证码。",
+   "tags": [
+    "验证码",
+    "请求上下文",
+    "delegation"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:checkCaptcha",
+   "type": "function",
+   "name": "checkCaptcha",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "lineRange": [
+    32,
+    38
+   ],
+   "summary": "写入客户端标识后调用 CaptchaService.check 校验验证码。",
+   "tags": [
+    "验证码",
+    "请求上下文",
+    "delegation"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:verification",
+   "type": "function",
+   "name": "verification",
+   "filePath": "damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "lineRange": [
+    40,
+    42
+   ],
+   "summary": "二次校验入口，直接委派 CaptchaService.verification。",
+   "tags": [
+    "验证码",
+    "delegation",
+    "service"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:damai-common/src/main/java/com/damai/util/RemoteUtil.java:RemoteUtil",
+   "type": "class",
+   "name": "RemoteUtil",
+   "filePath": "damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+   "lineRange": [
+    12,
+    31
+   ],
+   "summary": "客户端标识工具类，组合转发 IP 与 User-Agent。",
+   "tags": [
+    "utility",
+    "http",
+    "客户端标识"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-common/src/main/java/com/damai/util/RemoteUtil.java:getRemoteId",
+   "type": "function",
+   "name": "getRemoteId",
+   "filePath": "damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+   "lineRange": [
+    14,
+    22
+   ],
+   "summary": "拼接 X-Forwarded-For 首个 IP 与 User-Agent 生成客户端标识。",
+   "tags": [
+    "http",
+    "客户端标识",
+    "工具方法"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:damai-common/src/main/java/com/damai/util/RemoteUtil.java:getRemoteIpFromForward",
+   "type": "function",
+   "name": "getRemoteIpFromForward",
+   "filePath": "damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+   "lineRange": [
+    24,
+    30
+   ],
+   "summary": "从 X-Forwarded-For 头中取出第一个 IP 并去空白。",
+   "tags": [
+    "http",
+    "工具方法",
+    "ip"
+   ],
+   "complexity": "simple"
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java:CaptchaController",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java:CaptchaController",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java:get",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java:get",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java:check",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java:check",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java:AjCaptchaProperties",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java:AjCaptchaProperties",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java:toString",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java:toString",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:CaptchaCacheServiceRedisImpl",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:CaptchaCacheServiceRedisImpl",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:type",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:type",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:setStringRedisTemplate",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:setStringRedisTemplate",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:set",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:set",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:exists",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:exists",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:delete",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:delete",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:get",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:get",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:increment",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:increment",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:CaptchaHandle",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:CaptchaHandle",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:getCaptcha",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:getCaptcha",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:checkCaptcha",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:checkCaptcha",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:verification",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "function:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java:verification",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+   "target": "class:damai-common/src/main/java/com/damai/util/RemoteUtil.java:RemoteUtil",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+   "target": "class:damai-common/src/main/java/com/damai/util/RemoteUtil.java:RemoteUtil",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+   "target": "function:damai-common/src/main/java/com/damai/util/RemoteUtil.java:getRemoteId",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+   "target": "function:damai-common/src/main/java/com/damai/util/RemoteUtil.java:getRemoteId",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+   "target": "function:damai-common/src/main/java/com/damai/util/RemoteUtil.java:getRemoteIpFromForward",
+   "type": "contains",
+   "direction": "forward",
+   "weight": 1.0
+  },
+  {
+   "source": "file:damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+   "target": "function:damai-common/src/main/java/com/damai/util/RemoteUtil.java:getRemoteIpFromForward",
+   "type": "exports",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/properties/AjCaptchaProperties.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "file:damai-common/src/main/java/com/damai/util/RemoteUtil.java",
+   "type": "imports",
+   "direction": "forward",
+   "weight": 0.7
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:isNotBlank",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/controller/CaptchaController.java",
+   "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java:trim",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "file:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaHandle.java",
+   "target": "function:damai-common/src/main/java/com/damai/util/RemoteUtil.java:getRemoteId",
+   "type": "calls",
+   "direction": "forward",
+   "weight": 0.8
+  },
+  {
+   "source": "class:damai-captcha-manage-framework/damai-captcha-framework/src/main/java/com/damai/service/CaptchaCacheServiceRedisImpl.java:CaptchaCacheServiceRedisImpl",
+   "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java:CaptchaCacheService",
+   "type": "implements",
+   "direction": "forward",
+   "weight": 0.9
+  }
+ ]
+}

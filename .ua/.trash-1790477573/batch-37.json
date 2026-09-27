@@ -1,0 +1,154 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-user-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-user-service/src/main/resources/application.yml",
+      "summary": "user-service 的主运行配置：定义服务端口 6082、应用名（由 prefix.distinction.name 前缀拼接）、ShardingSphere 数据源与 Redis、Nacos 注册发现，并集中配置布隆过滤器、AJ-Captcha 图形验证码、MyBatis-Plus、Feign、Actuator/Prometheus 监控、Jasypt 加密以及 SpringDoc/Knife4j 接口文档。",
+      "tags": ["configuration", "spring-boot", "数据源", "服务治理", "接口文档"],
+      "complexity": "moderate",
+      "languageNotes": "数据源 URL 为 jdbc:shardingsphere:classpath:shardingsphere-user-${spring.profiles.active}.yaml，通过 spring.profiles.active 在 local/docker/pro 三套分片配置间切换；数据库口令由 Jasypt（PBEWithMD5AndDES）加密管理。"
+    },
+    {
+      "id": "config:damai-server/damai-user-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-user-service/src/main/resources/log4j2.xml",
+      "summary": "user-service 的 Log4j2 日志配置：定义包含 traceId 与 skyWalkingTraceId 的日志格式，输出到控制台以及按天/按 100MB 滚动、最多保留 30 个分卷的普通日志和 error 日志文件，并压低 Spring/MyBatis 的 DEBUG 输出。",
+      "tags": ["configuration", "日志", "log4j2", "observability"],
+      "complexity": "moderate",
+      "languageNotes": "Configuration 的 packages 属性指向自定义 Layout 包 com.damai.log4j；向 Logstash 推送的 Socket appender 目前处于注释禁用状态，monitorInterval=600 支持配置热加载。"
+    },
+    {
+      "id": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml",
+      "type": "config",
+      "name": "shardingsphere-user-local.yaml",
+      "filePath": "damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml",
+      "summary": "本地环境分库分表配置：声明 ds_0/ds_1 两个 Hikari 数据源（127.0.0.1 上的 damai_user_0/1），对 d_user、d_user_mobile、d_user_email、d_ticket_user 按 id/mobile/email/user_id 做 INLINE 取模分片，并用 SM4 对 mobile、password、id_number 加密。",
+      "tags": ["configuration", "shardingsphere", "分库分表", "数据加密", "datasource"],
+      "complexity": "moderate",
+      "languageNotes": "使用 ShardingSphere 自定义 YAML 标签 !SHARDING 与 !ENCRYPT，通用 YAML 解析器会报 Unresolved tag 警告，属预期行为。"
+    },
+    {
+      "id": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-docker.yaml",
+      "type": "config",
+      "name": "shardingsphere-user-docker.yaml",
+      "filePath": "damai-server/damai-user-service/src/main/resources/shardingsphere-user-docker.yaml",
+      "summary": "Docker 环境分库分表配置，分片与加密规则和本地版本完全一致，仅将数据源主机指向 compose 网络中的 mysql:3306（damai_user_0/1），供容器化部署时通过 profile 切换使用。",
+      "tags": ["configuration", "shardingsphere", "容器化", "分库分表", "datasource"],
+      "complexity": "moderate",
+      "languageNotes": "与 local 版本仅数据源地址不同，说明部署环境差异被收敛在 profile 化的 ShardingSphere 配置中。"
+    },
+    {
+      "id": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-pro.yaml",
+      "type": "config",
+      "name": "shardingsphere-user-pro.yaml",
+      "filePath": "damai-server/damai-user-service/src/main/resources/shardingsphere-user-pro.yaml",
+      "summary": "生产环境分库分表配置，分片与 SM4 加密规则同 local 版本，数据源指向远程库 www.cookframe.com:3306 的 damai_user_0/1 并使用生产口令，sql-show 仍为开启状态。",
+      "tags": ["configuration", "shardingsphere", "生产环境", "分库分表", "datasource"],
+      "complexity": "moderate",
+      "languageNotes": "生产数据源口令以明文形式写在配置文件中，属可改进的安全实践（SM4 密钥同样明文内联）。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/log4j2.xml",
+      "target": "file:damai-server/damai-user-service/src/main/java/com/damai/UserApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-docker.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-pro.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml",
+      "target": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-docker.yaml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml",
+      "target": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-pro.yaml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-docker.yaml",
+      "target": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-pro.yaml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml",
+      "target": "table:sql/cloud/damai_user_0.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-local.yaml",
+      "target": "table:sql/cloud/damai_user_1.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-docker.yaml",
+      "target": "table:sql/cloud/damai_user_0.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-docker.yaml",
+      "target": "table:sql/cloud/damai_user_1.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-pro.yaml",
+      "target": "table:sql/cloud/damai_user_0.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-user-service/src/main/resources/shardingsphere-user-pro.yaml",
+      "target": "table:sql/cloud/damai_user_1.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

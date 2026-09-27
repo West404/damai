@@ -1,0 +1,5438 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 25,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 25,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramGroupVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 24,
+      "classes": [
+        {
+          "name": "ProgramGroupVo",
+          "startLine": 16,
+          "endLine": 31,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "programSimpleInfoVoList",
+            "recentShowTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramGroupVo",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramHomeVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 23,
+      "classes": [
+        {
+          "name": "ProgramHomeVo",
+          "startLine": 15,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "categoryName",
+            "categoryId",
+            "programListVoList"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramHomeVo",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramListVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 54,
+      "classes": [
+        {
+          "name": "ProgramListVo",
+          "startLine": 16,
+          "endLine": 75,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "title",
+            "actor",
+            "place",
+            "itemPicture",
+            "areaId",
+            "areaName",
+            "programCategoryId",
+            "programCategoryName",
+            "parentProgramCategoryId",
+            "parentProgramCategoryName",
+            "showTime",
+            "showDayTime",
+            "showWeekTime",
+            "minPrice",
+            "maxPrice",
+            "esId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramListVo",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramSimpleInfoVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 22,
+      "classes": [
+        {
+          "name": "ProgramSimpleInfoVo",
+          "startLine": 14,
+          "endLine": 29,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "programId",
+            "areaId",
+            "areaIdName"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramSimpleInfoVo",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 184,
+      "nonEmptyLines": 127,
+      "classes": [
+        {
+          "name": "ProgramVo",
+          "startLine": 16,
+          "endLine": 184,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "programGroupId",
+            "prime",
+            "programGroupVo",
+            "title",
+            "actor",
+            "place",
+            "itemPicture",
+            "preSell",
+            "preSellInstruction",
+            "importantNotice",
+            "areaId",
+            "areaName",
+            "programCategoryId",
+            "programCategoryName",
+            "parentProgramCategoryId",
+            "parentProgramCategoryName",
+            "detail",
+            "perOrderLimitPurchaseCount",
+            "perAccountLimitPurchaseCount",
+            "refundTicketRule",
+            "deliveryInstruction",
+            "entryRule",
+            "childPurchase",
+            "invoiceSpecification",
+            "realTicketPurchaseRule",
+            "abnormalOrderDescription",
+            "kindReminder",
+            "performanceDuration",
+            "entryTime",
+            "minPerformanceCount",
+            "mainActor",
+            "minPerformanceDuration",
+            "prohibitedItem",
+            "depositSpecification",
+            "totalCount",
+            "permitRefund",
+            "refundExplain",
+            "relNameTicketEntrance",
+            "relNameTicketEntranceExplain",
+            "permitChooseSeat",
+            "chooseSeatExplain",
+            "electronicDeliveryTicket",
+            "electronicDeliveryTicketExplain",
+            "electronicInvoice",
+            "electronicInvoiceExplain",
+            "highHeat",
+            "programStatus",
+            "issueTime",
+            "showTime",
+            "showDayTime",
+            "showWeekTime",
+            "ticketCategoryVoList"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramVo",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ApiDataMessageSend.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 20,
+      "functions": [
+        {
+          "name": "sendMessage",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "message"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ApiDataMessageSend",
+          "startLine": 13,
+          "endLine": 25,
+          "methods": [
+            "sendMessage"
+          ],
+          "properties": [
+            "kafkaTemplate",
+            "topic"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "sendMessage",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "ApiDataMessageSend",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sendMessage",
+          "callee": "log.info",
+          "lineNumber": 22
+        },
+        {
+          "caller": "sendMessage",
+          "callee": "kafkaTemplate.send",
+          "lineNumber": 23
+        },
+        {
+          "caller": "sendMessage",
+          "callee": "SpringUtil.getPrefixDistinctionName",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/scheduletask/OrderDataTask.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "executeTask",
+          "startLine": 22,
+          "endLine": 32,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "OrderDataTask",
+          "startLine": 15,
+          "endLine": 33,
+          "methods": [
+            "executeTask"
+          ],
+          "properties": [
+            "orderService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "executeTask",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "OrderDataTask",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "executeTask",
+          "callee": "BusinessThreadPool.execute",
+          "lineNumber": 24
+        },
+        {
+          "caller": "executeTask",
+          "callee": "log.warn",
+          "lineNumber": 26
+        },
+        {
+          "caller": "executeTask",
+          "callee": "orderService.delOrderAndOrderTicketUser",
+          "lineNumber": 27
+        },
+        {
+          "caller": "executeTask",
+          "callee": "log.error",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "sendMessage",
+          "startLine": 25,
+          "endLine": 33,
+          "params": [
+            "message"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DelayOperateProgramDataSend",
+          "startLine": 18,
+          "endLine": 34,
+          "methods": [
+            "sendMessage"
+          ],
+          "properties": [
+            "delayQueueContext"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "sendMessage",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "DelayOperateProgramDataSend",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sendMessage",
+          "callee": "delayQueueContext.sendMessage",
+          "lineNumber": 27
+        },
+        {
+          "caller": "sendMessage",
+          "callee": "SpringUtil.getPrefixDistinctionName",
+          "lineNumber": 27
+        },
+        {
+          "caller": "sendMessage",
+          "callee": "log.error",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 100,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 41,
+          "endLine": 45,
+          "params": [
+            "programAddDto"
+          ]
+        },
+        {
+          "name": "search",
+          "startLine": 47,
+          "endLine": 51,
+          "params": [
+            "programSearchDto"
+          ]
+        },
+        {
+          "name": "selectHomeList",
+          "startLine": 53,
+          "endLine": 57,
+          "params": [
+            "programListDto"
+          ]
+        },
+        {
+          "name": "selectPage",
+          "startLine": 59,
+          "endLine": 63,
+          "params": [
+            "programPageListDto"
+          ]
+        },
+        {
+          "name": "recommendList",
+          "startLine": 65,
+          "endLine": 69,
+          "params": [
+            "programRecommendListDto"
+          ]
+        },
+        {
+          "name": "getDetail",
+          "startLine": 71,
+          "endLine": 75,
+          "params": [
+            "programGetDto"
+          ]
+        },
+        {
+          "name": "getDetailV1",
+          "startLine": 77,
+          "endLine": 81,
+          "params": [
+            "programGetDto"
+          ]
+        },
+        {
+          "name": "getDetailV2",
+          "startLine": 83,
+          "endLine": 87,
+          "params": [
+            "programGetDto"
+          ]
+        },
+        {
+          "name": "invalid",
+          "startLine": 89,
+          "endLine": 93,
+          "params": [
+            "programInvalidDto"
+          ]
+        },
+        {
+          "name": "localDetail",
+          "startLine": 95,
+          "endLine": 99,
+          "params": [
+            "programGetDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramController",
+          "startLine": 32,
+          "endLine": 100,
+          "methods": [
+            "add",
+            "search",
+            "selectHomeList",
+            "selectPage",
+            "recommendList",
+            "getDetail",
+            "getDetailV1",
+            "getDetailV2",
+            "invalid",
+            "localDetail"
+          ],
+          "properties": [
+            "programService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "search",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "selectHomeList",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "selectPage",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "recommendList",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "getDetail",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "getDetailV1",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "getDetailV2",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "invalid",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "localDetail",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramController",
+          "line": 32,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 44
+        },
+        {
+          "caller": "add",
+          "callee": "programService.add",
+          "lineNumber": 44
+        },
+        {
+          "caller": "search",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 50
+        },
+        {
+          "caller": "search",
+          "callee": "programService.search",
+          "lineNumber": 50
+        },
+        {
+          "caller": "selectHomeList",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 56
+        },
+        {
+          "caller": "selectHomeList",
+          "callee": "programService.selectHomeList",
+          "lineNumber": 56
+        },
+        {
+          "caller": "selectPage",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 62
+        },
+        {
+          "caller": "selectPage",
+          "callee": "programService.selectPage",
+          "lineNumber": 62
+        },
+        {
+          "caller": "recommendList",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 68
+        },
+        {
+          "caller": "recommendList",
+          "callee": "programService.recommendList",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getDetail",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 74
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programService.detail",
+          "lineNumber": 74
+        },
+        {
+          "caller": "getDetailV1",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 80
+        },
+        {
+          "caller": "getDetailV1",
+          "callee": "programService.detailV1",
+          "lineNumber": 80
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programService.detailV2",
+          "lineNumber": 86
+        },
+        {
+          "caller": "invalid",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 92
+        },
+        {
+          "caller": "invalid",
+          "callee": "programService.invalid",
+          "lineNumber": 92
+        },
+        {
+          "caller": "localDetail",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 98
+        },
+        {
+          "caller": "localDetail",
+          "callee": "programService.localDetail",
+          "lineNumber": 98
+        }
+      ],
+      "metrics": {
+        "importCount": 13,
+        "exportCount": 11,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramResetController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "resetExecute",
+          "startLine": 28,
+          "endLine": 32,
+          "params": [
+            "programResetExecuteDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramResetController",
+          "startLine": 20,
+          "endLine": 33,
+          "methods": [
+            "resetExecute"
+          ],
+          "properties": [
+            "programService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "resetExecute",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramResetController",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "resetExecute",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 31
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "programService.resetExecute",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/controller/ProgramShowTimeController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 28,
+          "endLine": 32,
+          "params": [
+            "programShowTimeAddDto"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramShowTimeController",
+          "startLine": 20,
+          "endLine": 33,
+          "methods": [
+            "add"
+          ],
+          "properties": [
+            "programShowTimeService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramShowTimeController",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 31
+        },
+        {
+          "caller": "add",
+          "callee": "programShowTimeService.add",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/Program.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 247,
+      "nonEmptyLines": 198,
+      "classes": [
+        {
+          "name": "Program",
+          "startLine": 16,
+          "endLine": 247,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "programGroupId",
+            "prime",
+            "areaId",
+            "programCategoryId",
+            "parentProgramCategoryId",
+            "title",
+            "actor",
+            "place",
+            "itemPicture",
+            "preSell",
+            "preSellInstruction",
+            "importantNotice",
+            "detail",
+            "perOrderLimitPurchaseCount",
+            "perAccountLimitPurchaseCount",
+            "refundTicketRule",
+            "deliveryInstruction",
+            "entryRule",
+            "childPurchase",
+            "invoiceSpecification",
+            "realTicketPurchaseRule",
+            "abnormalOrderDescription",
+            "kindReminder",
+            "performanceDuration",
+            "entryTime",
+            "minPerformanceCount",
+            "mainActor",
+            "minPerformanceDuration",
+            "prohibitedItem",
+            "depositSpecification",
+            "totalCount",
+            "permitRefund",
+            "refundExplain",
+            "relNameTicketEntrance",
+            "relNameTicketEntranceExplain",
+            "permitChooseSeat",
+            "chooseSeatExplain",
+            "electronicDeliveryTicket",
+            "electronicDeliveryTicketExplain",
+            "electronicInvoice",
+            "electronicInvoiceExplain",
+            "highHeat",
+            "programStatus",
+            "issueTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Program",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramGroup.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 30,
+      "classes": [
+        {
+          "name": "ProgramGroup",
+          "startLine": 16,
+          "endLine": 37,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "programJson",
+            "recentShowTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramGroup",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramJoinShowTime.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 27,
+      "classes": [
+        {
+          "name": "ProgramJoinShowTime",
+          "startLine": 14,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "showTime",
+            "showDayTime",
+            "showWeekTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramJoinShowTime",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/ProgramShowTime.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 38,
+      "classes": [
+        {
+          "name": "ProgramShowTime",
+          "startLine": 16,
+          "endLine": 47,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "programId",
+            "showTime",
+            "showDayTime",
+            "showWeekTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramShowTime",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/TicketCategory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 42,
+      "classes": [
+        {
+          "name": "TicketCategory",
+          "startLine": 16,
+          "endLine": 54,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "programId",
+            "introduce",
+            "price",
+            "totalNumber",
+            "remainNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketCategory",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/entity/TicketCategoryAggregate.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 24,
+      "classes": [
+        {
+          "name": "TicketCategoryAggregate",
+          "startLine": 13,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "programId",
+            "minPrice",
+            "maxPrice"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketCategoryAggregate",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramGroupMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "ProgramGroupMapper",
+          "startLine": 12,
+          "endLine": 14,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramGroupMapper",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 30,
+      "classes": [
+        {
+          "name": "ProgramMapper",
+          "startLine": 19,
+          "endLine": 36,
+          "methods": [
+            "selectHomeList",
+            "selectPage"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramMapper",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/mapper/ProgramShowTimeMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "ProgramShowTimeMapper",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramShowTimeMapper",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/mapper/TicketCategoryMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 37,
+      "classes": [
+        {
+          "name": "TicketCategoryMapper",
+          "startLine": 16,
+          "endLine": 43,
+          "methods": [
+            "selectAggregateList",
+            "updateRemainNumber",
+            "batchUpdateRemainNumber"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TicketCategoryMapper",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 881,
+      "nonEmptyLines": 780,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 203,
+          "endLine": 209,
+          "params": [
+            "programAddDto"
+          ]
+        },
+        {
+          "name": "search",
+          "startLine": 217,
+          "endLine": 221,
+          "params": [
+            "programSearchDto"
+          ]
+        },
+        {
+          "name": "selectHomeList",
+          "startLine": 228,
+          "endLine": 235,
+          "params": [
+            "programListDto"
+          ]
+        },
+        {
+          "name": "dbSelectHomeList",
+          "startLine": 242,
+          "endLine": 300,
+          "params": [
+            "programPageListDto"
+          ]
+        },
+        {
+          "name": "setQueryTime",
+          "startLine": 306,
+          "endLine": 337,
+          "params": [
+            "programPageListDto"
+          ]
+        },
+        {
+          "name": "selectPage",
+          "startLine": 344,
+          "endLine": 351,
+          "params": [
+            "programPageListDto"
+          ]
+        },
+        {
+          "name": "recommendList",
+          "startLine": 358,
+          "endLine": 361,
+          "params": [
+            "programRecommendListDto"
+          ]
+        },
+        {
+          "name": "dbSelectPage",
+          "startLine": 368,
+          "endLine": 407,
+          "params": [
+            "programPageListDto"
+          ]
+        },
+        {
+          "name": "detail",
+          "startLine": 414,
+          "endLine": 417,
+          "params": [
+            "programGetDto"
+          ]
+        },
+        {
+          "name": "detailV1",
+          "startLine": 424,
+          "endLine": 427,
+          "params": [
+            "programGetDto"
+          ]
+        },
+        {
+          "name": "detailV2",
+          "startLine": 434,
+          "endLine": 437,
+          "params": [
+            "programGetDto"
+          ]
+        },
+        {
+          "name": "getDetail",
+          "startLine": 444,
+          "endLine": 474,
+          "params": [
+            "programGetDto"
+          ]
+        },
+        {
+          "name": "getDetailV2",
+          "startLine": 481,
+          "endLine": 512,
+          "params": [
+            "programGetDto"
+          ]
+        },
+        {
+          "name": "getByIdMultipleCache",
+          "startLine": 520,
+          "endLine": 529,
+          "params": [
+            "programId",
+            "showTime"
+          ]
+        },
+        {
+          "name": "simpleGetByIdMultipleCache",
+          "startLine": 531,
+          "endLine": 538,
+          "params": [
+            "programId"
+          ]
+        },
+        {
+          "name": "simpleGetProgramAndShowMultipleCache",
+          "startLine": 540,
+          "endLine": 557,
+          "params": [
+            "programId"
+          ]
+        },
+        {
+          "name": "getById",
+          "startLine": 559,
+          "endLine": 578,
+          "params": [
+            "programId",
+            "expireTime",
+            "timeUnit"
+          ]
+        },
+        {
+          "name": "getProgramGroupMultipleCache",
+          "startLine": 580,
+          "endLine": 584,
+          "params": [
+            "programGroupId"
+          ]
+        },
+        {
+          "name": "getProgramGroup",
+          "startLine": 585,
+          "endLine": 606,
+          "params": [
+            "programGroupId"
+          ]
+        },
+        {
+          "name": "selectProgramCategoryMap",
+          "startLine": 608,
+          "endLine": 615,
+          "params": [
+            "programCategoryIdList"
+          ]
+        },
+        {
+          "name": "selectTicketCategorieMap",
+          "startLine": 617,
+          "endLine": 623,
+          "params": [
+            "programIdList"
+          ]
+        },
+        {
+          "name": "operateProgramData",
+          "startLine": 625,
+          "endLine": 659,
+          "params": [
+            "programOperateDataDto"
+          ]
+        },
+        {
+          "name": "createProgramVo",
+          "startLine": 661,
+          "endLine": 678,
+          "params": [
+            "programId"
+          ]
+        },
+        {
+          "name": "createProgramGroupVo",
+          "startLine": 680,
+          "endLine": 689,
+          "params": [
+            "programGroupId"
+          ]
+        },
+        {
+          "name": "getAllProgramIdList",
+          "startLine": 691,
+          "endLine": 697,
+          "params": []
+        },
+        {
+          "name": "getDetailFromDb",
+          "startLine": 699,
+          "endLine": 721,
+          "params": [
+            "programId"
+          ]
+        },
+        {
+          "name": "preloadTicketUserList",
+          "startLine": 723,
+          "endLine": 756,
+          "params": [
+            "highHeat"
+          ]
+        },
+        {
+          "name": "preloadAccountOrderCount",
+          "startLine": 758,
+          "endLine": 790,
+          "params": [
+            "programId"
+          ]
+        },
+        {
+          "name": "getProgramCategoryMultipleCache",
+          "startLine": 792,
+          "endLine": 795,
+          "params": [
+            "programCategoryId"
+          ]
+        },
+        {
+          "name": "getProgramCategory",
+          "startLine": 797,
+          "endLine": 799,
+          "params": [
+            "programCategoryId"
+          ]
+        },
+        {
+          "name": "resetExecute",
+          "startLine": 801,
+          "endLine": 837,
+          "params": [
+            "programResetExecuteDto"
+          ]
+        },
+        {
+          "name": "delRedisData",
+          "startLine": 839,
+          "endLine": 852,
+          "params": [
+            "programId"
+          ]
+        },
+        {
+          "name": "invalid",
+          "startLine": 854,
+          "endLine": 867,
+          "params": [
+            "programInvalidDto"
+          ]
+        },
+        {
+          "name": "localDetail",
+          "startLine": 869,
+          "endLine": 871,
+          "params": [
+            "programGetDto"
+          ]
+        },
+        {
+          "name": "delLocalCache",
+          "startLine": 873,
+          "endLine": 879,
+          "params": [
+            "programId"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramService",
+          "startLine": 115,
+          "endLine": 880,
+          "methods": [
+            "add",
+            "search",
+            "selectHomeList",
+            "dbSelectHomeList",
+            "setQueryTime",
+            "selectPage",
+            "recommendList",
+            "dbSelectPage",
+            "detail",
+            "detailV1",
+            "detailV2",
+            "getDetail",
+            "getDetailV2",
+            "getByIdMultipleCache",
+            "simpleGetByIdMultipleCache",
+            "simpleGetProgramAndShowMultipleCache",
+            "getById",
+            "getProgramGroupMultipleCache",
+            "getProgramGroup",
+            "selectProgramCategoryMap",
+            "selectTicketCategorieMap",
+            "operateProgramData",
+            "createProgramVo",
+            "createProgramGroupVo",
+            "getAllProgramIdList",
+            "getDetailFromDb",
+            "preloadTicketUserList",
+            "preloadAccountOrderCount",
+            "getProgramCategoryMultipleCache",
+            "getProgramCategory",
+            "resetExecute",
+            "delRedisData",
+            "invalid",
+            "localDetail",
+            "delLocalCache"
+          ],
+          "properties": [
+            "uidGenerator",
+            "programMapper",
+            "programGroupMapper",
+            "programShowTimeMapper",
+            "programCategoryMapper",
+            "ticketCategoryMapper",
+            "seatMapper",
+            "baseDataClient",
+            "userClient",
+            "orderClient",
+            "redisCache",
+            "programService",
+            "programShowTimeService",
+            "ticketCategoryService",
+            "programCategoryService",
+            "programEs",
+            "serviceLockTool",
+            "redisStreamPushHandler",
+            "localCacheProgram",
+            "localCacheProgramGroup",
+            "localCacheProgramCategory",
+            "localCacheProgramShowTime",
+            "localCacheTicketCategory",
+            "compositeContainer",
+            "tokenExpireManager",
+            "programDelCacheData"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 203,
+          "isDefault": false
+        },
+        {
+          "name": "search",
+          "line": 217,
+          "isDefault": false
+        },
+        {
+          "name": "selectHomeList",
+          "line": 228,
+          "isDefault": false
+        },
+        {
+          "name": "setQueryTime",
+          "line": 306,
+          "isDefault": false
+        },
+        {
+          "name": "selectPage",
+          "line": 344,
+          "isDefault": false
+        },
+        {
+          "name": "recommendList",
+          "line": 358,
+          "isDefault": false
+        },
+        {
+          "name": "dbSelectPage",
+          "line": 368,
+          "isDefault": false
+        },
+        {
+          "name": "detail",
+          "line": 414,
+          "isDefault": false
+        },
+        {
+          "name": "detailV1",
+          "line": 424,
+          "isDefault": false
+        },
+        {
+          "name": "detailV2",
+          "line": 434,
+          "isDefault": false
+        },
+        {
+          "name": "getDetail",
+          "line": 444,
+          "isDefault": false
+        },
+        {
+          "name": "getDetailV2",
+          "line": 481,
+          "isDefault": false
+        },
+        {
+          "name": "getByIdMultipleCache",
+          "line": 520,
+          "isDefault": false
+        },
+        {
+          "name": "simpleGetByIdMultipleCache",
+          "line": 531,
+          "isDefault": false
+        },
+        {
+          "name": "simpleGetProgramAndShowMultipleCache",
+          "line": 540,
+          "isDefault": false
+        },
+        {
+          "name": "getById",
+          "line": 559,
+          "isDefault": false
+        },
+        {
+          "name": "getProgramGroupMultipleCache",
+          "line": 580,
+          "isDefault": false
+        },
+        {
+          "name": "getProgramGroup",
+          "line": 585,
+          "isDefault": false
+        },
+        {
+          "name": "selectProgramCategoryMap",
+          "line": 608,
+          "isDefault": false
+        },
+        {
+          "name": "selectTicketCategorieMap",
+          "line": 617,
+          "isDefault": false
+        },
+        {
+          "name": "operateProgramData",
+          "line": 625,
+          "isDefault": false
+        },
+        {
+          "name": "getAllProgramIdList",
+          "line": 691,
+          "isDefault": false
+        },
+        {
+          "name": "getDetailFromDb",
+          "line": 699,
+          "isDefault": false
+        },
+        {
+          "name": "getProgramCategoryMultipleCache",
+          "line": 792,
+          "isDefault": false
+        },
+        {
+          "name": "getProgramCategory",
+          "line": 797,
+          "isDefault": false
+        },
+        {
+          "name": "resetExecute",
+          "line": 801,
+          "isDefault": false
+        },
+        {
+          "name": "delRedisData",
+          "line": 839,
+          "isDefault": false
+        },
+        {
+          "name": "invalid",
+          "line": 854,
+          "isDefault": false
+        },
+        {
+          "name": "localDetail",
+          "line": 869,
+          "isDefault": false
+        },
+        {
+          "name": "delLocalCache",
+          "line": 873,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramService",
+          "line": 115,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "new Program",
+          "lineNumber": 204
+        },
+        {
+          "caller": "add",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 205
+        },
+        {
+          "caller": "add",
+          "callee": "program.setId",
+          "lineNumber": 206
+        },
+        {
+          "caller": "add",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 206
+        },
+        {
+          "caller": "add",
+          "callee": "programMapper.insert",
+          "lineNumber": 207
+        },
+        {
+          "caller": "add",
+          "callee": "program.getId",
+          "lineNumber": 208
+        },
+        {
+          "caller": "search",
+          "callee": "setQueryTime",
+          "lineNumber": 219
+        },
+        {
+          "caller": "search",
+          "callee": "programEs.search",
+          "lineNumber": 220
+        },
+        {
+          "caller": "selectHomeList",
+          "callee": "programEs.selectHomeList",
+          "lineNumber": 230
+        },
+        {
+          "caller": "selectHomeList",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 231
+        },
+        {
+          "caller": "selectHomeList",
+          "callee": "dbSelectHomeList",
+          "lineNumber": 234
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "new ArrayList<>",
+          "lineNumber": 243
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "selectProgramCategoryMap",
+          "lineNumber": 244
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programPageListDto.getParentProgramCategoryIds",
+          "lineNumber": 244
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programMapper.selectHomeList",
+          "lineNumber": 246
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 247
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programList.stream().map(Program::getId).collect",
+          "lineNumber": 251
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programList.stream().map",
+          "lineNumber": 251
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programList.stream",
+          "lineNumber": 251
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Collectors.toList",
+          "lineNumber": 251
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Wrappers.lambdaQuery(ProgramShowTime.class).in",
+          "lineNumber": 252
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 252
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programShowTimeMapper.selectList",
+          "lineNumber": 254
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programShowTimeList.stream().collect",
+          "lineNumber": 256
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programShowTimeList.stream",
+          "lineNumber": 256
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Collectors.groupingBy",
+          "lineNumber": 256
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "selectTicketCategorieMap",
+          "lineNumber": 258
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programList.stream().collect",
+          "lineNumber": 260
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programList.stream",
+          "lineNumber": 260
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Collectors.groupingBy",
+          "lineNumber": 261
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programMap.entrySet",
+          "lineNumber": 263
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programEntry.getKey",
+          "lineNumber": 264
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programEntry.getValue",
+          "lineNumber": 265
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "new ArrayList<>",
+          "lineNumber": 266
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "new ProgramListVo",
+          "lineNumber": 268
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 269
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programListVo.setShowTime",
+          "lineNumber": 271
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(programShowTimeMap.get(program.getId()))\r\n                        .filter(list -> !list.isEmpty())\r\n                        .map(list -> list.get(0))\r\n                        .map(ProgramShowTime::getShowTime).orElse",
+          "lineNumber": 271
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(programShowTimeMap.get(program.getId()))\r\n                        .filter(list -> !list.isEmpty())\r\n                        .map(list -> list.get(0)).map",
+          "lineNumber": 271
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(programShowTimeMap.get(program.getId()))\r\n                        .filter(list -> !list.isEmpty()).map",
+          "lineNumber": 271
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(programShowTimeMap.get(program.getId())).filter",
+          "lineNumber": 271
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 271
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programShowTimeMap.get",
+          "lineNumber": 271
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "program.getId",
+          "lineNumber": 271
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "list.isEmpty",
+          "lineNumber": 272
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "list.get",
+          "lineNumber": 273
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programListVo.setShowDayTime",
+          "lineNumber": 276
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(programShowTimeMap.get(program.getId()))\r\n                        .filter(list -> !list.isEmpty())\r\n                        .map(list -> list.get(0))\r\n                        .map(ProgramShowTime::getShowDayTime).orElse",
+          "lineNumber": 276
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(programShowTimeMap.get(program.getId()))\r\n                        .filter(list -> !list.isEmpty())\r\n                        .map(list -> list.get(0)).map",
+          "lineNumber": 276
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(programShowTimeMap.get(program.getId()))\r\n                        .filter(list -> !list.isEmpty()).map",
+          "lineNumber": 276
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(programShowTimeMap.get(program.getId())).filter",
+          "lineNumber": 276
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 276
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programShowTimeMap.get",
+          "lineNumber": 276
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "program.getId",
+          "lineNumber": 276
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "list.isEmpty",
+          "lineNumber": 277
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "list.get",
+          "lineNumber": 278
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programListVo.setShowWeekTime",
+          "lineNumber": 281
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(programShowTimeMap.get(program.getId()))\r\n                        .filter(list -> !list.isEmpty())\r\n                        .map(list -> list.get(0))\r\n                        .map(ProgramShowTime::getShowWeekTime).orElse",
+          "lineNumber": 281
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(programShowTimeMap.get(program.getId()))\r\n                        .filter(list -> !list.isEmpty())\r\n                        .map(list -> list.get(0)).map",
+          "lineNumber": 281
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(programShowTimeMap.get(program.getId()))\r\n                        .filter(list -> !list.isEmpty()).map",
+          "lineNumber": 281
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(programShowTimeMap.get(program.getId())).filter",
+          "lineNumber": 281
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 281
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programShowTimeMap.get",
+          "lineNumber": 281
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "program.getId",
+          "lineNumber": 281
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "list.isEmpty",
+          "lineNumber": 282
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "list.get",
+          "lineNumber": 283
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programListVo.setMaxPrice",
+          "lineNumber": 287
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(ticketCategorieMap.get(program.getId()))\r\n                        .map(TicketCategoryAggregate::getMaxPrice).orElse",
+          "lineNumber": 287
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(ticketCategorieMap.get(program.getId())).map",
+          "lineNumber": 287
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 287
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "ticketCategorieMap.get",
+          "lineNumber": 287
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "program.getId",
+          "lineNumber": 287
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programListVo.setMinPrice",
+          "lineNumber": 289
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(ticketCategorieMap.get(program.getId()))\r\n                        .map(TicketCategoryAggregate::getMinPrice).orElse",
+          "lineNumber": 289
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable(ticketCategorieMap.get(program.getId())).map",
+          "lineNumber": 289
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 289
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "ticketCategorieMap.get",
+          "lineNumber": 289
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "program.getId",
+          "lineNumber": 289
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programListVoList.add",
+          "lineNumber": 291
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "new ProgramHomeVo",
+          "lineNumber": 293
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programHomeVo.setCategoryName",
+          "lineNumber": 294
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programCategoryMap.get",
+          "lineNumber": 294
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programHomeVo.setCategoryId",
+          "lineNumber": 295
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programHomeVo.setProgramListVoList",
+          "lineNumber": 296
+        },
+        {
+          "caller": "dbSelectHomeList",
+          "callee": "programHomeVoList.add",
+          "lineNumber": 297
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.getTimeType",
+          "lineNumber": 307
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.setStartDateTime",
+          "lineNumber": 309
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "DateUtils.now",
+          "lineNumber": 309
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.setEndDateTime",
+          "lineNumber": 310
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "DateUtils.now",
+          "lineNumber": 310
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.setStartDateTime",
+          "lineNumber": 313
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "DateUtils.now",
+          "lineNumber": 313
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.setEndDateTime",
+          "lineNumber": 314
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "DateUtils.addDay",
+          "lineNumber": 314
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "DateUtils.now",
+          "lineNumber": 314
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.setStartDateTime",
+          "lineNumber": 317
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "DateUtils.now",
+          "lineNumber": 317
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.setEndDateTime",
+          "lineNumber": 318
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "DateUtils.addWeek",
+          "lineNumber": 318
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "DateUtils.now",
+          "lineNumber": 318
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.setStartDateTime",
+          "lineNumber": 321
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "DateUtils.now",
+          "lineNumber": 321
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.setEndDateTime",
+          "lineNumber": 322
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "DateUtils.addMonth",
+          "lineNumber": 322
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "DateUtils.now",
+          "lineNumber": 322
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "Objects.isNull",
+          "lineNumber": 325
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.getStartDateTime",
+          "lineNumber": 325
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 326
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "Objects.isNull",
+          "lineNumber": 328
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.getEndDateTime",
+          "lineNumber": 328
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 329
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.setStartDateTime",
+          "lineNumber": 333
+        },
+        {
+          "caller": "setQueryTime",
+          "callee": "programPageListDto.setEndDateTime",
+          "lineNumber": 334
+        },
+        {
+          "caller": "selectPage",
+          "callee": "setQueryTime",
+          "lineNumber": 345
+        },
+        {
+          "caller": "selectPage",
+          "callee": "programEs.selectPage",
+          "lineNumber": 346
+        },
+        {
+          "caller": "selectPage",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 347
+        },
+        {
+          "caller": "selectPage",
+          "callee": "pageVo.getList",
+          "lineNumber": 347
+        },
+        {
+          "caller": "selectPage",
+          "callee": "dbSelectPage",
+          "lineNumber": 350
+        },
+        {
+          "caller": "recommendList",
+          "callee": "compositeContainer.execute",
+          "lineNumber": 359
+        },
+        {
+          "caller": "recommendList",
+          "callee": "CompositeCheckType.PROGRAM_RECOMMEND_CHECK.getValue",
+          "lineNumber": 359
+        },
+        {
+          "caller": "recommendList",
+          "callee": "programEs.recommendList",
+          "lineNumber": 360
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "programMapper.selectPage",
+          "lineNumber": 370
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "PageUtil.getPageParams",
+          "lineNumber": 370
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 371
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords",
+          "lineNumber": 371
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "new PageVo<>",
+          "lineNumber": 372
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getCurrent",
+          "lineNumber": 372
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getSize",
+          "lineNumber": 372
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getTotal",
+          "lineNumber": 372
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "new ArrayList<>",
+          "lineNumber": 372
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords().stream().map(Program::getProgramCategoryId).collect",
+          "lineNumber": 375
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords().stream().map",
+          "lineNumber": 375
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords().stream",
+          "lineNumber": 375
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords",
+          "lineNumber": 375
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "Collectors.toSet",
+          "lineNumber": 375
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "selectProgramCategoryMap",
+          "lineNumber": 376
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords().stream().map(Program::getId).collect",
+          "lineNumber": 378
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords().stream().map",
+          "lineNumber": 378
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords().stream",
+          "lineNumber": 378
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords",
+          "lineNumber": 378
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "Collectors.toList",
+          "lineNumber": 378
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "selectTicketCategorieMap",
+          "lineNumber": 379
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "new HashMap<>",
+          "lineNumber": 381
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "new AreaSelectDto",
+          "lineNumber": 382
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "areaSelectDto.setIdList",
+          "lineNumber": 383
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords().stream().map(Program::getAreaId).distinct().collect",
+          "lineNumber": 383
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords().stream().map(Program::getAreaId).distinct",
+          "lineNumber": 383
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords().stream().map",
+          "lineNumber": 383
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords().stream",
+          "lineNumber": 383
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "iPage.getRecords",
+          "lineNumber": 383
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "Collectors.toList",
+          "lineNumber": 383
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "baseDataClient.selectByIdList",
+          "lineNumber": 384
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "Objects.equals",
+          "lineNumber": 385
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "areaResponse.getCode",
+          "lineNumber": 385
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "ApiResponse.ok().getCode",
+          "lineNumber": 385
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 385
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 386
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "areaResponse.getData",
+          "lineNumber": 386
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "areaResponse.getData().stream().collect",
+          "lineNumber": 387
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "areaResponse.getData().stream",
+          "lineNumber": 387
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "areaResponse.getData",
+          "lineNumber": 387
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "Collectors.toMap",
+          "lineNumber": 388
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "log.error",
+          "lineNumber": 391
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 391
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "PageUtil.convertPage",
+          "lineNumber": 395
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "new ProgramListVo",
+          "lineNumber": 396
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 397
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "programListVo.setAreaName",
+          "lineNumber": 399
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "areaMap.get",
+          "lineNumber": 399
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "programJoinShowTime.getAreaId",
+          "lineNumber": 399
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "programListVo.setProgramCategoryName",
+          "lineNumber": 400
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "programCategoryMap.get",
+          "lineNumber": 400
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "programJoinShowTime.getProgramCategoryId",
+          "lineNumber": 400
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "programListVo.setMinPrice",
+          "lineNumber": 401
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "Optional.ofNullable(ticketCategorieMap.get(programJoinShowTime.getId()))\r\n                    .map(TicketCategoryAggregate::getMinPrice).orElse",
+          "lineNumber": 401
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "Optional.ofNullable(ticketCategorieMap.get(programJoinShowTime.getId())).map",
+          "lineNumber": 401
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 401
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "ticketCategorieMap.get",
+          "lineNumber": 401
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "programJoinShowTime.getId",
+          "lineNumber": 401
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "programListVo.setMaxPrice",
+          "lineNumber": 403
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "Optional.ofNullable(ticketCategorieMap.get(programJoinShowTime.getId()))\r\n                    .map(TicketCategoryAggregate::getMaxPrice).orElse",
+          "lineNumber": 403
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "Optional.ofNullable(ticketCategorieMap.get(programJoinShowTime.getId())).map",
+          "lineNumber": 403
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 403
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "ticketCategorieMap.get",
+          "lineNumber": 403
+        },
+        {
+          "caller": "dbSelectPage",
+          "callee": "programJoinShowTime.getId",
+          "lineNumber": 403
+        },
+        {
+          "caller": "detail",
+          "callee": "compositeContainer.execute",
+          "lineNumber": 415
+        },
+        {
+          "caller": "detail",
+          "callee": "CompositeCheckType.PROGRAM_DETAIL_CHECK.getValue",
+          "lineNumber": 415
+        },
+        {
+          "caller": "detail",
+          "callee": "getDetail",
+          "lineNumber": 416
+        },
+        {
+          "caller": "detailV1",
+          "callee": "compositeContainer.execute",
+          "lineNumber": 425
+        },
+        {
+          "caller": "detailV1",
+          "callee": "CompositeCheckType.PROGRAM_DETAIL_CHECK.getValue",
+          "lineNumber": 425
+        },
+        {
+          "caller": "detailV1",
+          "callee": "getDetail",
+          "lineNumber": 426
+        },
+        {
+          "caller": "detailV2",
+          "callee": "compositeContainer.execute",
+          "lineNumber": 435
+        },
+        {
+          "caller": "detailV2",
+          "callee": "CompositeCheckType.PROGRAM_DETAIL_CHECK.getValue",
+          "lineNumber": 435
+        },
+        {
+          "caller": "detailV2",
+          "callee": "getDetailV2",
+          "lineNumber": 436
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programShowTimeService.selectProgramShowTimeByProgramId",
+          "lineNumber": 445
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programGetDto.getId",
+          "lineNumber": 445
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programService.getById",
+          "lineNumber": 446
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programGetDto.getId",
+          "lineNumber": 446
+        },
+        {
+          "caller": "getDetail",
+          "callee": "DateUtils.countBetweenSecond",
+          "lineNumber": 446
+        },
+        {
+          "caller": "getDetail",
+          "callee": "DateUtils.now",
+          "lineNumber": 446
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 447
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.setShowTime",
+          "lineNumber": 448
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 448
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.setShowDayTime",
+          "lineNumber": 449
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programShowTime.getShowDayTime",
+          "lineNumber": 449
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.setShowWeekTime",
+          "lineNumber": 450
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programShowTime.getShowWeekTime",
+          "lineNumber": 450
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programService.getProgramGroup",
+          "lineNumber": 452
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.getProgramGroupId",
+          "lineNumber": 452
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.setProgramGroupVo",
+          "lineNumber": 453
+        },
+        {
+          "caller": "getDetail",
+          "callee": "preloadTicketUserList",
+          "lineNumber": 455
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.getHighHeat",
+          "lineNumber": 455
+        },
+        {
+          "caller": "getDetail",
+          "callee": "preloadAccountOrderCount",
+          "lineNumber": 457
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.getId",
+          "lineNumber": 457
+        },
+        {
+          "caller": "getDetail",
+          "callee": "getProgramCategory",
+          "lineNumber": 459
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.getProgramCategoryId",
+          "lineNumber": 459
+        },
+        {
+          "caller": "getDetail",
+          "callee": "Objects.nonNull",
+          "lineNumber": 460
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.setProgramCategoryName",
+          "lineNumber": 461
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programCategory.getName",
+          "lineNumber": 461
+        },
+        {
+          "caller": "getDetail",
+          "callee": "getProgramCategory",
+          "lineNumber": 463
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.getParentProgramCategoryId",
+          "lineNumber": 463
+        },
+        {
+          "caller": "getDetail",
+          "callee": "Objects.nonNull",
+          "lineNumber": 464
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.setParentProgramCategoryName",
+          "lineNumber": 465
+        },
+        {
+          "caller": "getDetail",
+          "callee": "parentProgramCategory.getName",
+          "lineNumber": 465
+        },
+        {
+          "caller": "getDetail",
+          "callee": "ticketCategoryService.selectTicketCategoryListByProgramId",
+          "lineNumber": 469
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.getId",
+          "lineNumber": 469
+        },
+        {
+          "caller": "getDetail",
+          "callee": "DateUtils.countBetweenSecond",
+          "lineNumber": 470
+        },
+        {
+          "caller": "getDetail",
+          "callee": "DateUtils.now",
+          "lineNumber": 470
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 470
+        },
+        {
+          "caller": "getDetail",
+          "callee": "programVo.setTicketCategoryVoList",
+          "lineNumber": 471
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programShowTimeService.selectProgramShowTimeByProgramIdMultipleCache",
+          "lineNumber": 483
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programGetDto.getId",
+          "lineNumber": 483
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programService.getByIdMultipleCache",
+          "lineNumber": 485
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programGetDto.getId",
+          "lineNumber": 485
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 485
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.setShowTime",
+          "lineNumber": 487
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 487
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.setShowDayTime",
+          "lineNumber": 488
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programShowTime.getShowDayTime",
+          "lineNumber": 488
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.setShowWeekTime",
+          "lineNumber": 489
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programShowTime.getShowWeekTime",
+          "lineNumber": 489
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programService.getProgramGroupMultipleCache",
+          "lineNumber": 491
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.getProgramGroupId",
+          "lineNumber": 491
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.setProgramGroupVo",
+          "lineNumber": 492
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "preloadTicketUserList",
+          "lineNumber": 494
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.getHighHeat",
+          "lineNumber": 494
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "preloadAccountOrderCount",
+          "lineNumber": 496
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.getId",
+          "lineNumber": 496
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "getProgramCategoryMultipleCache",
+          "lineNumber": 498
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.getProgramCategoryId",
+          "lineNumber": 498
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "Objects.nonNull",
+          "lineNumber": 499
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.setProgramCategoryName",
+          "lineNumber": 500
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programCategory.getName",
+          "lineNumber": 500
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "getProgramCategoryMultipleCache",
+          "lineNumber": 502
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.getParentProgramCategoryId",
+          "lineNumber": 502
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "Objects.nonNull",
+          "lineNumber": 503
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.setParentProgramCategoryName",
+          "lineNumber": 504
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "parentProgramCategory.getName",
+          "lineNumber": 504
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "ticketCategoryService.selectTicketCategoryListByProgramIdMultipleCache",
+          "lineNumber": 507
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.getId",
+          "lineNumber": 508
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 508
+        },
+        {
+          "caller": "getDetailV2",
+          "callee": "programVo.setTicketCategoryVoList",
+          "lineNumber": 509
+        },
+        {
+          "caller": "getByIdMultipleCache",
+          "callee": "localCacheProgram.getCache",
+          "lineNumber": 521
+        },
+        {
+          "caller": "getByIdMultipleCache",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM, programId).getRelKey",
+          "lineNumber": 521
+        },
+        {
+          "caller": "getByIdMultipleCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 521
+        },
+        {
+          "caller": "getByIdMultipleCache",
+          "callee": "log.info",
+          "lineNumber": 523
+        },
+        {
+          "caller": "getByIdMultipleCache",
+          "callee": "getById",
+          "lineNumber": 524
+        },
+        {
+          "caller": "getByIdMultipleCache",
+          "callee": "DateUtils.countBetweenSecond",
+          "lineNumber": 524
+        },
+        {
+          "caller": "getByIdMultipleCache",
+          "callee": "DateUtils.now",
+          "lineNumber": 524
+        },
+        {
+          "caller": "getByIdMultipleCache",
+          "callee": "programVo.setShowTime",
+          "lineNumber": 526
+        },
+        {
+          "caller": "simpleGetByIdMultipleCache",
+          "callee": "localCacheProgram.getCache",
+          "lineNumber": 532
+        },
+        {
+          "caller": "simpleGetByIdMultipleCache",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM, \r\n                programId).getRelKey",
+          "lineNumber": 532
+        },
+        {
+          "caller": "simpleGetByIdMultipleCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 532
+        },
+        {
+          "caller": "simpleGetByIdMultipleCache",
+          "callee": "Objects.nonNull",
+          "lineNumber": 534
+        },
+        {
+          "caller": "simpleGetByIdMultipleCache",
+          "callee": "redisCache.get",
+          "lineNumber": 537
+        },
+        {
+          "caller": "simpleGetByIdMultipleCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 537
+        },
+        {
+          "caller": "simpleGetProgramAndShowMultipleCache",
+          "callee": "programShowTimeService.simpleSelectProgramShowTimeByProgramIdMultipleCache",
+          "lineNumber": 542
+        },
+        {
+          "caller": "simpleGetProgramAndShowMultipleCache",
+          "callee": "Objects.isNull",
+          "lineNumber": 543
+        },
+        {
+          "caller": "simpleGetProgramAndShowMultipleCache",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 544
+        },
+        {
+          "caller": "simpleGetProgramAndShowMultipleCache",
+          "callee": "simpleGetByIdMultipleCache",
+          "lineNumber": 547
+        },
+        {
+          "caller": "simpleGetProgramAndShowMultipleCache",
+          "callee": "Objects.isNull",
+          "lineNumber": 548
+        },
+        {
+          "caller": "simpleGetProgramAndShowMultipleCache",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 549
+        },
+        {
+          "caller": "simpleGetProgramAndShowMultipleCache",
+          "callee": "programVo.setShowTime",
+          "lineNumber": 552
+        },
+        {
+          "caller": "simpleGetProgramAndShowMultipleCache",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 552
+        },
+        {
+          "caller": "simpleGetProgramAndShowMultipleCache",
+          "callee": "programVo.setShowDayTime",
+          "lineNumber": 553
+        },
+        {
+          "caller": "simpleGetProgramAndShowMultipleCache",
+          "callee": "programShowTime.getShowDayTime",
+          "lineNumber": 553
+        },
+        {
+          "caller": "simpleGetProgramAndShowMultipleCache",
+          "callee": "programVo.setShowWeekTime",
+          "lineNumber": 554
+        },
+        {
+          "caller": "simpleGetProgramAndShowMultipleCache",
+          "callee": "programShowTime.getShowWeekTime",
+          "lineNumber": 554
+        },
+        {
+          "caller": "getById",
+          "callee": "redisCache.get",
+          "lineNumber": 562
+        },
+        {
+          "caller": "getById",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 562
+        },
+        {
+          "caller": "getById",
+          "callee": "Objects.nonNull",
+          "lineNumber": 563
+        },
+        {
+          "caller": "getById",
+          "callee": "log.info",
+          "lineNumber": 566
+        },
+        {
+          "caller": "getById",
+          "callee": "serviceLockTool.getLock",
+          "lineNumber": 567
+        },
+        {
+          "caller": "getById",
+          "callee": "String.valueOf",
+          "lineNumber": 567
+        },
+        {
+          "caller": "getById",
+          "callee": "lock.lock",
+          "lineNumber": 568
+        },
+        {
+          "caller": "getById",
+          "callee": "redisCache.get",
+          "lineNumber": 570
+        },
+        {
+          "caller": "getById",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 570
+        },
+        {
+          "caller": "getById",
+          "callee": "createProgramVo",
+          "lineNumber": 572
+        },
+        {
+          "caller": "getById",
+          "callee": "lock.unlock",
+          "lineNumber": 576
+        },
+        {
+          "caller": "getProgramGroupMultipleCache",
+          "callee": "localCacheProgramGroup.getCache",
+          "lineNumber": 581
+        },
+        {
+          "caller": "getProgramGroupMultipleCache",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_GROUP, programGroupId).getRelKey",
+          "lineNumber": 582
+        },
+        {
+          "caller": "getProgramGroupMultipleCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 582
+        },
+        {
+          "caller": "getProgramGroupMultipleCache",
+          "callee": "getProgramGroup",
+          "lineNumber": 583
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "redisCache.get",
+          "lineNumber": 588
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 588
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "Objects.nonNull",
+          "lineNumber": 589
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "serviceLockTool.getLock",
+          "lineNumber": 592
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "String.valueOf",
+          "lineNumber": 592
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "lock.lock",
+          "lineNumber": 593
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "redisCache.get",
+          "lineNumber": 595
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 595
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "Objects.isNull",
+          "lineNumber": 597
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "createProgramGroupVo",
+          "lineNumber": 598
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "redisCache.set",
+          "lineNumber": 599
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 599
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "DateUtils.countBetweenSecond",
+          "lineNumber": 600
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "DateUtils.now",
+          "lineNumber": 600
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "programGroupVo.getRecentShowTime",
+          "lineNumber": 600
+        },
+        {
+          "caller": "getProgramGroup",
+          "callee": "lock.unlock",
+          "lineNumber": 604
+        },
+        {
+          "caller": "selectProgramCategoryMap",
+          "callee": "Wrappers.lambdaQuery(ProgramCategory.class).in",
+          "lineNumber": 609
+        },
+        {
+          "caller": "selectProgramCategoryMap",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 609
+        },
+        {
+          "caller": "selectProgramCategoryMap",
+          "callee": "programCategoryMapper.selectList",
+          "lineNumber": 611
+        },
+        {
+          "caller": "selectProgramCategoryMap",
+          "callee": "programCategoryList\r\n                .stream().collect",
+          "lineNumber": 612
+        },
+        {
+          "caller": "selectProgramCategoryMap",
+          "callee": "programCategoryList.stream",
+          "lineNumber": 612
+        },
+        {
+          "caller": "selectProgramCategoryMap",
+          "callee": "Collectors.toMap",
+          "lineNumber": 614
+        },
+        {
+          "caller": "selectTicketCategorieMap",
+          "callee": "ticketCategoryMapper.selectAggregateList",
+          "lineNumber": 618
+        },
+        {
+          "caller": "selectTicketCategorieMap",
+          "callee": "ticketCategorieList\r\n                .stream().collect",
+          "lineNumber": 619
+        },
+        {
+          "caller": "selectTicketCategorieMap",
+          "callee": "ticketCategorieList.stream",
+          "lineNumber": 619
+        },
+        {
+          "caller": "selectTicketCategorieMap",
+          "callee": "Collectors.toMap",
+          "lineNumber": 621
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "programOperateDataDto.getTicketCategoryCountDtoList",
+          "lineNumber": 628
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "programOperateDataDto.getSeatIdList",
+          "lineNumber": 629
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "Wrappers.lambdaQuery(Seat.class)\r\n                        .eq(Seat::getProgramId,programOperateDataDto.getProgramId()).in",
+          "lineNumber": 631
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "Wrappers.lambdaQuery(Seat.class).eq",
+          "lineNumber": 631
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 631
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "programOperateDataDto.getProgramId",
+          "lineNumber": 632
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "seatMapper.selectList",
+          "lineNumber": 634
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "CollectionUtil.isEmpty",
+          "lineNumber": 635
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 636
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "seatList.size",
+          "lineNumber": 638
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "seatIdList.size",
+          "lineNumber": 638
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 639
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "Objects.equals",
+          "lineNumber": 642
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "seat.getSellStatus",
+          "lineNumber": 642
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "SellStatus.SOLD.getCode",
+          "lineNumber": 642
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 643
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "Wrappers.lambdaUpdate(Seat.class)\r\n                        .eq(Seat::getProgramId,programOperateDataDto.getProgramId()).in",
+          "lineNumber": 647
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "Wrappers.lambdaUpdate(Seat.class).eq",
+          "lineNumber": 647
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 647
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "programOperateDataDto.getProgramId",
+          "lineNumber": 648
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "new Seat",
+          "lineNumber": 650
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "updateSeat.setSellStatus",
+          "lineNumber": 651
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "SellStatus.SOLD.getCode",
+          "lineNumber": 651
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "seatMapper.update",
+          "lineNumber": 652
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "ticketCategoryMapper.batchUpdateRemainNumber",
+          "lineNumber": 655
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "programOperateDataDto.getProgramId",
+          "lineNumber": 655
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "ticketCategoryCountDtoList.size",
+          "lineNumber": 656
+        },
+        {
+          "caller": "operateProgramData",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 657
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "new ProgramVo",
+          "lineNumber": 662
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "Optional.ofNullable(programMapper.selectById(programId)).orElseThrow",
+          "lineNumber": 664
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 664
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "programMapper.selectById",
+          "lineNumber": 664
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 665
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 666
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "new AreaGetDto",
+          "lineNumber": 667
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "areaGetDto.setId",
+          "lineNumber": 668
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "program.getAreaId",
+          "lineNumber": 668
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "baseDataClient.getById",
+          "lineNumber": 669
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "Objects.equals",
+          "lineNumber": 670
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "areaResponse.getCode",
+          "lineNumber": 670
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "ApiResponse.ok().getCode",
+          "lineNumber": 670
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "ApiResponse.ok",
+          "lineNumber": 670
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "Objects.nonNull",
+          "lineNumber": 671
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "areaResponse.getData",
+          "lineNumber": 671
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "programVo.setAreaName",
+          "lineNumber": 672
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "areaResponse.getData().getName",
+          "lineNumber": 672
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "areaResponse.getData",
+          "lineNumber": 672
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "log.error",
+          "lineNumber": 675
+        },
+        {
+          "caller": "createProgramVo",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 675
+        },
+        {
+          "caller": "createProgramGroupVo",
+          "callee": "new ProgramGroupVo",
+          "lineNumber": 681
+        },
+        {
+          "caller": "createProgramGroupVo",
+          "callee": "Optional.ofNullable(programGroupMapper.selectById(programGroupId)).orElseThrow",
+          "lineNumber": 683
+        },
+        {
+          "caller": "createProgramGroupVo",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 683
+        },
+        {
+          "caller": "createProgramGroupVo",
+          "callee": "programGroupMapper.selectById",
+          "lineNumber": 683
+        },
+        {
+          "caller": "createProgramGroupVo",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 684
+        },
+        {
+          "caller": "createProgramGroupVo",
+          "callee": "programGroupVo.setId",
+          "lineNumber": 685
+        },
+        {
+          "caller": "createProgramGroupVo",
+          "callee": "programGroup.getId",
+          "lineNumber": 685
+        },
+        {
+          "caller": "createProgramGroupVo",
+          "callee": "programGroupVo.setProgramSimpleInfoVoList",
+          "lineNumber": 686
+        },
+        {
+          "caller": "createProgramGroupVo",
+          "callee": "JSON.parseArray",
+          "lineNumber": 686
+        },
+        {
+          "caller": "createProgramGroupVo",
+          "callee": "programGroup.getProgramJson",
+          "lineNumber": 686
+        },
+        {
+          "caller": "createProgramGroupVo",
+          "callee": "programGroupVo.setRecentShowTime",
+          "lineNumber": 687
+        },
+        {
+          "caller": "createProgramGroupVo",
+          "callee": "programGroup.getRecentShowTime",
+          "lineNumber": 687
+        },
+        {
+          "caller": "getAllProgramIdList",
+          "callee": "Wrappers.lambdaQuery(Program.class).eq(Program::getProgramStatus, BusinessStatus.YES.getCode()).select",
+          "lineNumber": 693
+        },
+        {
+          "caller": "getAllProgramIdList",
+          "callee": "Wrappers.lambdaQuery(Program.class).eq",
+          "lineNumber": 693
+        },
+        {
+          "caller": "getAllProgramIdList",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 693
+        },
+        {
+          "caller": "getAllProgramIdList",
+          "callee": "BusinessStatus.YES.getCode",
+          "lineNumber": 693
+        },
+        {
+          "caller": "getAllProgramIdList",
+          "callee": "programMapper.selectList",
+          "lineNumber": 695
+        },
+        {
+          "caller": "getAllProgramIdList",
+          "callee": "programs.stream().map(Program::getId).collect",
+          "lineNumber": 696
+        },
+        {
+          "caller": "getAllProgramIdList",
+          "callee": "programs.stream().map",
+          "lineNumber": 696
+        },
+        {
+          "caller": "getAllProgramIdList",
+          "callee": "programs.stream",
+          "lineNumber": 696
+        },
+        {
+          "caller": "getAllProgramIdList",
+          "callee": "Collectors.toList",
+          "lineNumber": 696
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "createProgramVo",
+          "lineNumber": 700
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "getProgramCategory",
+          "lineNumber": 702
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "programVo.getProgramCategoryId",
+          "lineNumber": 702
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "Objects.nonNull",
+          "lineNumber": 703
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "programVo.setProgramCategoryName",
+          "lineNumber": 704
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "programCategory.getName",
+          "lineNumber": 704
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "getProgramCategory",
+          "lineNumber": 706
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "programVo.getParentProgramCategoryId",
+          "lineNumber": 706
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "Objects.nonNull",
+          "lineNumber": 707
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "programVo.setParentProgramCategoryName",
+          "lineNumber": 708
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "parentProgramCategory.getName",
+          "lineNumber": 708
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "Wrappers.lambdaQuery(ProgramShowTime.class).eq",
+          "lineNumber": 712
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 712
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "Optional.ofNullable(programShowTimeMapper.selectOne(programShowTimeLambdaQueryWrapper)).orElseThrow",
+          "lineNumber": 713
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 713
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "programShowTimeMapper.selectOne",
+          "lineNumber": 713
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 714
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "programVo.setShowTime",
+          "lineNumber": 716
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 716
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "programVo.setShowDayTime",
+          "lineNumber": 717
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "programShowTime.getShowDayTime",
+          "lineNumber": 717
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "programVo.setShowWeekTime",
+          "lineNumber": 718
+        },
+        {
+          "caller": "getDetailFromDb",
+          "callee": "programShowTime.getShowWeekTime",
+          "lineNumber": 718
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "Objects.equals",
+          "lineNumber": 724
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "BusinessStatus.NO.getCode",
+          "lineNumber": 724
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "BaseParameterHolder.getParameter",
+          "lineNumber": 727
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "BaseParameterHolder.getParameter",
+          "lineNumber": 728
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 729
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 729
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "redisCache.hasKey",
+          "lineNumber": 733
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 733
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "BusinessThreadPool.execute",
+          "lineNumber": 737
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "redisCache.hasKey",
+          "lineNumber": 739
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 739
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "new TicketUserListDto",
+          "lineNumber": 740
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "ticketUserListDto.setUserId",
+          "lineNumber": 741
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "Long.parseLong",
+          "lineNumber": 741
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "userClient.list",
+          "lineNumber": 742
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "Objects.equals",
+          "lineNumber": 743
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "apiResponse.getCode",
+          "lineNumber": 743
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "BaseCode.SUCCESS.getCode",
+          "lineNumber": 743
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "Optional.ofNullable(apiResponse.getData()).filter(CollectionUtil::isNotEmpty).ifPresent",
+          "lineNumber": 744
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "Optional.ofNullable(apiResponse.getData()).filter",
+          "lineNumber": 744
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 744
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "apiResponse.getData",
+          "lineNumber": 744
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "redisCache.set",
+          "lineNumber": 745
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 745
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "log.warn",
+          "lineNumber": 748
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 748
+        },
+        {
+          "caller": "preloadTicketUserList",
+          "callee": "log.error",
+          "lineNumber": 753
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "BaseParameterHolder.getParameter",
+          "lineNumber": 759
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "BaseParameterHolder.getParameter",
+          "lineNumber": 760
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 761
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "StringUtil.isEmpty",
+          "lineNumber": 761
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "redisCache.hasKey",
+          "lineNumber": 765
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 765
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "BusinessThreadPool.execute",
+          "lineNumber": 769
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "redisCache.hasKey",
+          "lineNumber": 771
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 771
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "new AccountOrderCountDto",
+          "lineNumber": 772
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "accountOrderCountDto.setUserId",
+          "lineNumber": 773
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "Long.parseLong",
+          "lineNumber": 773
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "accountOrderCountDto.setProgramId",
+          "lineNumber": 774
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "orderClient.accountOrderCount",
+          "lineNumber": 775
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "Objects.equals",
+          "lineNumber": 776
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "apiResponse.getCode",
+          "lineNumber": 776
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "BaseCode.SUCCESS.getCode",
+          "lineNumber": 776
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "Optional.ofNullable(apiResponse.getData()).ifPresent",
+          "lineNumber": 777
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 777
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "apiResponse.getData",
+          "lineNumber": 777
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "redisCache.set",
+          "lineNumber": 778
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 779
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "accountOrderCountVo.getCount",
+          "lineNumber": 780
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "tokenExpireManager.getTokenExpireTime",
+          "lineNumber": 780
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "log.warn",
+          "lineNumber": 783
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "JSON.toJSONString",
+          "lineNumber": 783
+        },
+        {
+          "caller": "preloadAccountOrderCount",
+          "callee": "log.error",
+          "lineNumber": 787
+        },
+        {
+          "caller": "getProgramCategoryMultipleCache",
+          "callee": "localCacheProgramCategory.get",
+          "lineNumber": 793
+        },
+        {
+          "caller": "getProgramCategoryMultipleCache",
+          "callee": "String.valueOf",
+          "lineNumber": 793
+        },
+        {
+          "caller": "getProgramCategoryMultipleCache",
+          "callee": "getProgramCategory",
+          "lineNumber": 794
+        },
+        {
+          "caller": "getProgramCategory",
+          "callee": "programCategoryService.getProgramCategory",
+          "lineNumber": 798
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "programResetExecuteDto.getProgramId",
+          "lineNumber": 803
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "Wrappers.lambdaQuery(Seat.class).eq(Seat::getProgramId, programId).in",
+          "lineNumber": 805
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "Wrappers.lambdaQuery(Seat.class).eq",
+          "lineNumber": 805
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 805
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "SellStatus.LOCK.getCode",
+          "lineNumber": 806
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "SellStatus.SOLD.getCode",
+          "lineNumber": 806
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "seatMapper.selectList",
+          "lineNumber": 807
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 808
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "Wrappers.lambdaUpdate(Seat.class).eq",
+          "lineNumber": 810
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 810
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "new Seat",
+          "lineNumber": 811
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "seatUpdate.setSellStatus",
+          "lineNumber": 812
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "SellStatus.NO_SOLD.getCode",
+          "lineNumber": 812
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "seatMapper.update",
+          "lineNumber": 813
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "Wrappers.lambdaQuery(TicketCategory.class).eq",
+          "lineNumber": 816
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 816
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "ticketCategoryMapper.selectList",
+          "lineNumber": 817
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 818
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "ticketCategory.getRemainNumber",
+          "lineNumber": 820
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "ticketCategory.getTotalNumber",
+          "lineNumber": 821
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "remainNumber.equals",
+          "lineNumber": 822
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "new TicketCategory",
+          "lineNumber": 823
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "ticketCategoryUpdate.setRemainNumber",
+          "lineNumber": 824
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "Wrappers.lambdaUpdate(TicketCategory.class)\r\n                                    .eq(TicketCategory::getProgramId, programId).eq",
+          "lineNumber": 827
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "Wrappers.lambdaUpdate(TicketCategory.class).eq",
+          "lineNumber": 827
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 827
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "ticketCategory.getId",
+          "lineNumber": 829
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "ticketCategoryMapper.update",
+          "lineNumber": 830
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "delRedisData",
+          "lineNumber": 834
+        },
+        {
+          "caller": "resetExecute",
+          "callee": "delLocalCache",
+          "lineNumber": 835
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "Optional.ofNullable(programMapper.selectById(programId)).orElseThrow",
+          "lineNumber": 840
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 840
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "programMapper.selectById",
+          "lineNumber": 840
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 841
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "new ArrayList<>",
+          "lineNumber": 842
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "keys.add",
+          "lineNumber": 843
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM,programId).getRelKey",
+          "lineNumber": 843
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 843
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "keys.add",
+          "lineNumber": 844
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_GROUP,program.getProgramGroupId()).getRelKey",
+          "lineNumber": 844
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 844
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "program.getProgramGroupId",
+          "lineNumber": 844
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "keys.add",
+          "lineNumber": 845
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_SHOW_TIME,programId).getRelKey",
+          "lineNumber": 845
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 845
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "keys.add",
+          "lineNumber": 846
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_SEAT_NO_SOLD_RESOLUTION_HASH, programId,\"*\").getRelKey",
+          "lineNumber": 846
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 846
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "keys.add",
+          "lineNumber": 847
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_SEAT_LOCK_RESOLUTION_HASH, programId,\"*\").getRelKey",
+          "lineNumber": 847
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 847
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "keys.add",
+          "lineNumber": 848
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_SEAT_SOLD_RESOLUTION_HASH, programId,\"*\").getRelKey",
+          "lineNumber": 848
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 848
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "keys.add",
+          "lineNumber": 849
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_TICKET_CATEGORY_LIST, programId).getRelKey",
+          "lineNumber": 849
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 849
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "keys.add",
+          "lineNumber": 850
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_TICKET_REMAIN_NUMBER_HASH_RESOLUTION, programId,\"*\").getRelKey",
+          "lineNumber": 850
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 850
+        },
+        {
+          "caller": "delRedisData",
+          "callee": "programDelCacheData.del",
+          "lineNumber": 851
+        },
+        {
+          "caller": "invalid",
+          "callee": "new Program",
+          "lineNumber": 855
+        },
+        {
+          "caller": "invalid",
+          "callee": "program.setId",
+          "lineNumber": 856
+        },
+        {
+          "caller": "invalid",
+          "callee": "programInvalidDto.getId",
+          "lineNumber": 856
+        },
+        {
+          "caller": "invalid",
+          "callee": "program.setProgramStatus",
+          "lineNumber": 857
+        },
+        {
+          "caller": "invalid",
+          "callee": "BusinessStatus.NO.getCode",
+          "lineNumber": 857
+        },
+        {
+          "caller": "invalid",
+          "callee": "programMapper.updateById",
+          "lineNumber": 858
+        },
+        {
+          "caller": "invalid",
+          "callee": "delRedisData",
+          "lineNumber": 860
+        },
+        {
+          "caller": "invalid",
+          "callee": "programInvalidDto.getId",
+          "lineNumber": 860
+        },
+        {
+          "caller": "invalid",
+          "callee": "redisStreamPushHandler.push",
+          "lineNumber": 861
+        },
+        {
+          "caller": "invalid",
+          "callee": "String.valueOf",
+          "lineNumber": 861
+        },
+        {
+          "caller": "invalid",
+          "callee": "programInvalidDto.getId",
+          "lineNumber": 861
+        },
+        {
+          "caller": "invalid",
+          "callee": "programEs.deleteByProgramId",
+          "lineNumber": 862
+        },
+        {
+          "caller": "invalid",
+          "callee": "programInvalidDto.getId",
+          "lineNumber": 862
+        },
+        {
+          "caller": "localDetail",
+          "callee": "localCacheProgram.getCache",
+          "lineNumber": 870
+        },
+        {
+          "caller": "localDetail",
+          "callee": "String.valueOf",
+          "lineNumber": 870
+        },
+        {
+          "caller": "localDetail",
+          "callee": "programGetDto.getId",
+          "lineNumber": 870
+        },
+        {
+          "caller": "delLocalCache",
+          "callee": "log.info",
+          "lineNumber": 874
+        },
+        {
+          "caller": "delLocalCache",
+          "callee": "localCacheProgram.del",
+          "lineNumber": 875
+        },
+        {
+          "caller": "delLocalCache",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM, programId).getRelKey",
+          "lineNumber": 875
+        },
+        {
+          "caller": "delLocalCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 875
+        },
+        {
+          "caller": "delLocalCache",
+          "callee": "localCacheProgramGroup.del",
+          "lineNumber": 876
+        },
+        {
+          "caller": "delLocalCache",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_GROUP, programId).getRelKey",
+          "lineNumber": 876
+        },
+        {
+          "caller": "delLocalCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 876
+        },
+        {
+          "caller": "delLocalCache",
+          "callee": "localCacheProgramShowTime.del",
+          "lineNumber": 877
+        },
+        {
+          "caller": "delLocalCache",
+          "callee": "RedisKeyBuild.createRedisKey(RedisKeyManage.PROGRAM_SHOW_TIME, programId).getRelKey",
+          "lineNumber": 877
+        },
+        {
+          "caller": "delLocalCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 877
+        },
+        {
+          "caller": "delLocalCache",
+          "callee": "localCacheTicketCategory.del",
+          "lineNumber": 878
+        }
+      ],
+      "metrics": {
+        "importCount": 71,
+        "exportCount": 31,
+        "functionCount": 35,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramShowTimeService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 201,
+      "nonEmptyLines": 177,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 78,
+          "endLine": 85,
+          "params": [
+            "programShowTimeAddDto"
+          ]
+        },
+        {
+          "name": "selectProgramShowTimeByProgramIdMultipleCache",
+          "startLine": 87,
+          "endLine": 91,
+          "params": [
+            "programId"
+          ]
+        },
+        {
+          "name": "simpleSelectProgramShowTimeByProgramIdMultipleCache",
+          "startLine": 93,
+          "endLine": 101,
+          "params": [
+            "programId"
+          ]
+        },
+        {
+          "name": "selectProgramShowTimeByProgramId",
+          "startLine": 106,
+          "endLine": 131,
+          "params": [
+            "programId"
+          ]
+        },
+        {
+          "name": "renewal",
+          "startLine": 136,
+          "endLine": 200,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramShowTimeService",
+          "startLine": 53,
+          "endLine": 201,
+          "methods": [
+            "add",
+            "selectProgramShowTimeByProgramIdMultipleCache",
+            "simpleSelectProgramShowTimeByProgramIdMultipleCache",
+            "selectProgramShowTimeByProgramId",
+            "renewal"
+          ],
+          "properties": [
+            "uidGenerator",
+            "redisCache",
+            "programMapper",
+            "programShowTimeMapper",
+            "programGroupMapper",
+            "serviceLockTool",
+            "localCacheProgramShowTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "selectProgramShowTimeByProgramIdMultipleCache",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "simpleSelectProgramShowTimeByProgramIdMultipleCache",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "selectProgramShowTimeByProgramId",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "renewal",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "ProgramShowTimeService",
+          "line": 53,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "new ProgramShowTime",
+          "lineNumber": 80
+        },
+        {
+          "caller": "add",
+          "callee": "BeanUtil.copyProperties",
+          "lineNumber": 81
+        },
+        {
+          "caller": "add",
+          "callee": "programShowTime.setId",
+          "lineNumber": 82
+        },
+        {
+          "caller": "add",
+          "callee": "uidGenerator.getUid",
+          "lineNumber": 82
+        },
+        {
+          "caller": "add",
+          "callee": "programShowTimeMapper.insert",
+          "lineNumber": 83
+        },
+        {
+          "caller": "add",
+          "callee": "programShowTime.getId",
+          "lineNumber": 84
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramIdMultipleCache",
+          "callee": "localCacheProgramShowTime.getCache",
+          "lineNumber": 88
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramIdMultipleCache",
+          "callee": "RedisKeyBuild.createRedisKey\r\n                (RedisKeyManage.PROGRAM_SHOW_TIME, programId).getRelKey",
+          "lineNumber": 88
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramIdMultipleCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 88
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramIdMultipleCache",
+          "callee": "selectProgramShowTimeByProgramId",
+          "lineNumber": 90
+        },
+        {
+          "caller": "simpleSelectProgramShowTimeByProgramIdMultipleCache",
+          "callee": "localCacheProgramShowTime.getCache",
+          "lineNumber": 94
+        },
+        {
+          "caller": "simpleSelectProgramShowTimeByProgramIdMultipleCache",
+          "callee": "RedisKeyBuild.createRedisKey(\r\n                RedisKeyManage.PROGRAM_SHOW_TIME, programId).getRelKey",
+          "lineNumber": 94
+        },
+        {
+          "caller": "simpleSelectProgramShowTimeByProgramIdMultipleCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 94
+        },
+        {
+          "caller": "simpleSelectProgramShowTimeByProgramIdMultipleCache",
+          "callee": "Objects.nonNull",
+          "lineNumber": 96
+        },
+        {
+          "caller": "simpleSelectProgramShowTimeByProgramIdMultipleCache",
+          "callee": "redisCache.get",
+          "lineNumber": 99
+        },
+        {
+          "caller": "simpleSelectProgramShowTimeByProgramIdMultipleCache",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 99
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "redisCache.get",
+          "lineNumber": 108
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 108
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "Objects.nonNull",
+          "lineNumber": 110
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "serviceLockTool.getLock",
+          "lineNumber": 113
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "String.valueOf",
+          "lineNumber": 114
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "lock.lock",
+          "lineNumber": 115
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "redisCache.get",
+          "lineNumber": 117
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 117
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "Objects.isNull",
+          "lineNumber": 119
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "Wrappers.lambdaQuery(ProgramShowTime.class).eq",
+          "lineNumber": 121
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 121
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "Optional.ofNullable(programShowTimeMapper.selectOne(programShowTimeLambdaQueryWrapper)).orElseThrow",
+          "lineNumber": 122
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 122
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "programShowTimeMapper.selectOne",
+          "lineNumber": 122
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "new DaMaiFrameException",
+          "lineNumber": 123
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "redisCache.set",
+          "lineNumber": 124
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "RedisKeyBuild.createRedisKey",
+          "lineNumber": 124
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "DateUtils.countBetweenSecond",
+          "lineNumber": 125
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "DateUtils.now",
+          "lineNumber": 125
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 125
+        },
+        {
+          "caller": "selectProgramShowTimeByProgramId",
+          "callee": "lock.unlock",
+          "lineNumber": 129
+        },
+        {
+          "caller": "renewal",
+          "callee": "new HashSet<>",
+          "lineNumber": 138
+        },
+        {
+          "caller": "renewal",
+          "callee": "Wrappers.lambdaQuery(ProgramShowTime.class).le",
+          "lineNumber": 140
+        },
+        {
+          "caller": "renewal",
+          "callee": "Wrappers.lambdaQuery",
+          "lineNumber": 140
+        },
+        {
+          "caller": "renewal",
+          "callee": "DateUtils.addDay",
+          "lineNumber": 141
+        },
+        {
+          "caller": "renewal",
+          "callee": "DateUtils.now",
+          "lineNumber": 141
+        },
+        {
+          "caller": "renewal",
+          "callee": "programShowTimeMapper.selectList",
+          "lineNumber": 142
+        },
+        {
+          "caller": "renewal",
+          "callee": "new ArrayList<>",
+          "lineNumber": 144
+        },
+        {
+          "caller": "renewal",
+          "callee": "programShowTimes.size",
+          "lineNumber": 144
+        },
+        {
+          "caller": "renewal",
+          "callee": "programIdSet.add",
+          "lineNumber": 147
+        },
+        {
+          "caller": "renewal",
+          "callee": "programShowTime.getProgramId",
+          "lineNumber": 147
+        },
+        {
+          "caller": "renewal",
+          "callee": "programShowTime.getShowTime",
+          "lineNumber": 148
+        },
+        {
+          "caller": "renewal",
+          "callee": "DateUtils.addMonth",
+          "lineNumber": 149
+        },
+        {
+          "caller": "renewal",
+          "callee": "DateUtils.now",
+          "lineNumber": 150
+        },
+        {
+          "caller": "renewal",
+          "callee": "newShowTime.before",
+          "lineNumber": 151
+        },
+        {
+          "caller": "renewal",
+          "callee": "DateUtils.addMonth",
+          "lineNumber": 152
+        },
+        {
+          "caller": "renewal",
+          "callee": "DateUtils.parseDateTime",
+          "lineNumber": 154
+        },
+        {
+          "caller": "renewal",
+          "callee": "DateUtils.formatDate",
+          "lineNumber": 154
+        },
+        {
+          "caller": "renewal",
+          "callee": "new ProgramShowTime",
+          "lineNumber": 155
+        },
+        {
+          "caller": "renewal",
+          "callee": "updateProgramShowTime.setShowTime",
+          "lineNumber": 156
+        },
+        {
+          "caller": "renewal",
+          "callee": "updateProgramShowTime.setShowDayTime",
+          "lineNumber": 157
+        },
+        {
+          "caller": "renewal",
+          "callee": "updateProgramShowTime.setShowWeekTime",
+          "lineNumber": 158
+        },
+        {
+          "caller": "renewal",
+          "callee": "DateUtils.getWeekStr",
+          "lineNumber": 158
+        },
+        {
+          "caller": "renewal",
+          "callee": "Wrappers.lambdaUpdate(ProgramShowTime.class)\r\n                            .eq(ProgramShowTime::getProgramId, programShowTime.getProgramId()).eq",
+          "lineNumber": 160
+        },
+        {
+          "caller": "renewal",
+          "callee": "Wrappers.lambdaUpdate(ProgramShowTime.class).eq",
+          "lineNumber": 160
+        },
+        {
+          "caller": "renewal",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 160
+        },
+        {
+          "caller": "renewal",
+          "callee": "programShowTime.getProgramId",
+          "lineNumber": 161
+        },
+        {
+          "caller": "renewal",
+          "callee": "programShowTime.getId",
+          "lineNumber": 162
+        },
+        {
+          "caller": "renewal",
+          "callee": "programShowTimeMapper.update",
+          "lineNumber": 164
+        },
+        {
+          "caller": "renewal",
+          "callee": "new ProgramShowTime",
+          "lineNumber": 166
+        },
+        {
+          "caller": "renewal",
+          "callee": "newProgramShowTime.setProgramId",
+          "lineNumber": 167
+        },
+        {
+          "caller": "renewal",
+          "callee": "programShowTime.getProgramId",
+          "lineNumber": 167
+        },
+        {
+          "caller": "renewal",
+          "callee": "newProgramShowTime.setShowTime",
+          "lineNumber": 168
+        },
+        {
+          "caller": "renewal",
+          "callee": "newProgramShowTimes.add",
+          "lineNumber": 169
+        },
+        {
+          "caller": "renewal",
+          "callee": "new HashMap<>",
+          "lineNumber": 171
+        },
+        {
+          "caller": "renewal",
+          "callee": "newProgramShowTimes.size",
+          "lineNumber": 171
+        },
+        {
+          "caller": "renewal",
+          "callee": "programMapper.selectById",
+          "lineNumber": 173
+        },
+        {
+          "caller": "renewal",
+          "callee": "newProgramShowTime.getProgramId",
+          "lineNumber": 173
+        },
+        {
+          "caller": "renewal",
+          "callee": "Objects.isNull",
+          "lineNumber": 174
+        },
+        {
+          "caller": "renewal",
+          "callee": "program.getProgramGroupId",
+          "lineNumber": 177
+        },
+        {
+          "caller": "renewal",
+          "callee": "programGroupMap.get",
+          "lineNumber": 178
+        },
+        {
+          "caller": "renewal",
+          "callee": "Objects.isNull",
+          "lineNumber": 179
+        },
+        {
+          "caller": "renewal",
+          "callee": "programGroupMap.put",
+          "lineNumber": 180
+        },
+        {
+          "caller": "renewal",
+          "callee": "newProgramShowTime.getShowTime",
+          "lineNumber": 180
+        },
+        {
+          "caller": "renewal",
+          "callee": "DateUtil.compare",
+          "lineNumber": 182
+        },
+        {
+          "caller": "renewal",
+          "callee": "newProgramShowTime.getShowTime",
+          "lineNumber": 182
+        },
+        {
+          "caller": "renewal",
+          "callee": "programGroupMap.put",
+          "lineNumber": 183
+        },
+        {
+          "caller": "renewal",
+          "callee": "newProgramShowTime.getShowTime",
+          "lineNumber": 183
+        },
+        {
+          "caller": "renewal",
+          "callee": "CollectionUtil.isNotEmpty",
+          "lineNumber": 187
+        },
+        {
+          "caller": "renewal",
+          "callee": "programGroupMap.forEach",
+          "lineNumber": 188
+        },
+        {
+          "caller": "renewal",
+          "callee": "new ProgramGroup",
+          "lineNumber": 189
+        },
+        {
+          "caller": "renewal",
+          "callee": "programGroup.setRecentShowTime",
+          "lineNumber": 190
+        },
+        {
+          "caller": "renewal",
+          "callee": "Wrappers.lambdaUpdate(ProgramGroup.class).eq",
+          "lineNumber": 193
+        },
+        {
+          "caller": "renewal",
+          "callee": "Wrappers.lambdaUpdate",
+          "lineNumber": 193
+        },
+        {
+          "caller": "renewal",
+          "callee": "programGroupMapper.update",
+          "lineNumber": 195
+        }
+      ],
+      "metrics": {
+        "importCount": 18,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgram.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "localLockCacheInit",
+          "startLine": 37,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "getCache",
+          "startLine": 66,
+          "endLine": 68,
+          "params": [
+            "id",
+            "function"
+          ]
+        },
+        {
+          "name": "getCache",
+          "startLine": 70,
+          "endLine": 72,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "del",
+          "startLine": 74,
+          "endLine": 76,
+          "params": [
+            "id"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LocalCacheProgram",
+          "startLine": 22,
+          "endLine": 77,
+          "methods": [
+            "localLockCacheInit",
+            "getCache",
+            "getCache",
+            "del"
+          ],
+          "properties": [
+            "localCache",
+            "maximumSize"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "localLockCacheInit",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "getCache",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "getCache",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "del",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "LocalCacheProgram",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder()\r\n                .maximumSize(maximumSize)\r\n                .expireAfter(new Expiry<String, ProgramVo>() {\r\n                    @Override\r\n                    public long expireAfterCreate(@NonNull final String key, @NonNull final ProgramVo value, \r\n                                                  final long currentTime) {\r\n                        return TimeUnit.MILLISECONDS.toNanos(DateUtils.countBetweenSecond(DateUtils.now(),value.getShowTime()));\r\n                    }\r\n                    \r\n                    @Override\r\n                    public long expireAfterUpdate(@NonNull final String key, @NonNull final ProgramVo value, \r\n                                                  final long currentTime, @NonNegative final long currentDuration) {\r\n                        return currentDuration;\r\n                    }\r\n                    \r\n                    @Override\r\n                    public long expireAfterRead(@NonNull final String key, @NonNull final ProgramVo value, \r\n                                                final long currentTime, @NonNegative final long currentDuration) {\r\n                        return currentDuration;\r\n                    }\r\n                }).build",
+          "lineNumber": 39
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder()\r\n                .maximumSize(maximumSize).expireAfter",
+          "lineNumber": 39
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder().maximumSize",
+          "lineNumber": 39
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder",
+          "lineNumber": 39
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "new Expiry<String, ProgramVo>",
+          "lineNumber": 41
+        },
+        {
+          "caller": "expireAfterCreate",
+          "callee": "TimeUnit.MILLISECONDS.toNanos",
+          "lineNumber": 45
+        },
+        {
+          "caller": "expireAfterCreate",
+          "callee": "DateUtils.countBetweenSecond",
+          "lineNumber": 45
+        },
+        {
+          "caller": "expireAfterCreate",
+          "callee": "DateUtils.now",
+          "lineNumber": 45
+        },
+        {
+          "caller": "expireAfterCreate",
+          "callee": "value.getShowTime",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getCache",
+          "callee": "localCache.get",
+          "lineNumber": 67
+        },
+        {
+          "caller": "getCache",
+          "callee": "localCache.getIfPresent",
+          "lineNumber": 71
+        },
+        {
+          "caller": "del",
+          "callee": "localCache.invalidate",
+          "lineNumber": 75
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-program-service/src/main/java/com/damai/service/cache/local/LocalCacheProgramGroup.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 63,
+      "functions": [
+        {
+          "name": "localLockCacheInit",
+          "startLine": 37,
+          "endLine": 62,
+          "params": []
+        },
+        {
+          "name": "getCache",
+          "startLine": 67,
+          "endLine": 69,
+          "params": [
+            "id",
+            "function"
+          ]
+        },
+        {
+          "name": "del",
+          "startLine": 71,
+          "endLine": 73,
+          "params": [
+            "id"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LocalCacheProgramGroup",
+          "startLine": 22,
+          "endLine": 74,
+          "methods": [
+            "localLockCacheInit",
+            "getCache",
+            "del"
+          ],
+          "properties": [
+            "localCache",
+            "maximumSize"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "localLockCacheInit",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "getCache",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "del",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "LocalCacheProgramGroup",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder()\r\n                .maximumSize(maximumSize)\r\n                .expireAfter(new Expiry<String, ProgramGroupVo>() {\r\n                    @Override\r\n                    public long expireAfterCreate(@NonNull final String key, @NonNull final ProgramGroupVo value,\r\n                                                  final long currentTime) {\r\n                        return TimeUnit.MILLISECONDS.toNanos\r\n                                (DateUtils.countBetweenSecond(DateUtils.now(),value.getRecentShowTime()));\r\n                    }\r\n                    \r\n                    @Override\r\n                    public long expireAfterUpdate(@NonNull final String key, @NonNull final ProgramGroupVo value,\r\n                                                  final long currentTime, @NonNegative final long currentDuration) {\r\n                        return currentDuration;\r\n                    }\r\n                    \r\n                    @Override\r\n                    public long expireAfterRead(@NonNull final String key, @NonNull final ProgramGroupVo value,\r\n                                                final long currentTime, @NonNegative final long currentDuration) {\r\n                        return currentDuration;\r\n                    }\r\n                }).build",
+          "lineNumber": 39
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder()\r\n                .maximumSize(maximumSize).expireAfter",
+          "lineNumber": 39
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder().maximumSize",
+          "lineNumber": 39
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "Caffeine.newBuilder",
+          "lineNumber": 39
+        },
+        {
+          "caller": "localLockCacheInit",
+          "callee": "new Expiry<String, ProgramGroupVo>",
+          "lineNumber": 41
+        },
+        {
+          "caller": "expireAfterCreate",
+          "callee": "TimeUnit.MILLISECONDS.toNanos",
+          "lineNumber": 45
+        },
+        {
+          "caller": "expireAfterCreate",
+          "callee": "DateUtils.countBetweenSecond",
+          "lineNumber": 46
+        },
+        {
+          "caller": "expireAfterCreate",
+          "callee": "DateUtils.now",
+          "lineNumber": 46
+        },
+        {
+          "caller": "expireAfterCreate",
+          "callee": "value.getRecentShowTime",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getCache",
+          "callee": "localCache.get",
+          "lineNumber": 68
+        },
+        {
+          "caller": "del",
+          "callee": "localCache.invalidate",
+          "lineNumber": 72
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    }
+  ]
+}

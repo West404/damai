@@ -1,0 +1,36 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-customize-service/src/main/resources/mapper/ApiDataMapper.xml",
+      "type": "config",
+      "name": "ApiDataMapper.xml",
+      "filePath": "damai-server/damai-customize-service/src/main/resources/mapper/ApiDataMapper.xml",
+      "summary": "MyBatis mapper for com.damai.mapper.ApiDataMapper: resultMap for the ApiData entity and a pageList query aggregating API call statistics from d_api_data grouped by address/url/type with optional date-range and prefix filters.",
+      "tags": ["configuration", "mybatis", "mapper", "sql", "data-access"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-customize-service/src/main/resources/mapper/DepthRuleMapper.xml",
+      "type": "config",
+      "name": "DepthRuleMapper.xml",
+      "filePath": "damai-server/damai-customize-service/src/main/resources/mapper/DepthRuleMapper.xml",
+      "summary": "MyBatis mapper for com.damai.mapper.DepthRuleMapper exposing a delAll statement that truncates the d_depth_rule table.",
+      "tags": ["configuration", "mybatis", "mapper", "data-access"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-customize-service/src/main/resources/mapper/RuleMapper.xml",
+      "type": "config",
+      "name": "RuleMapper.xml",
+      "filePath": "damai-server/damai-customize-service/src/main/resources/mapper/RuleMapper.xml",
+      "summary": "MyBatis mapper for com.damai.mapper.RuleMapper exposing a delAll statement that truncates the d_rule table.",
+      "tags": ["configuration", "mybatis", "mapper", "data-access"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "config:damai-server/damai-customize-service/src/main/resources/mapper/ApiDataMapper.xml", "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/ApiDataMapper.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-customize-service/src/main/resources/mapper/DepthRuleMapper.xml", "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/DepthRuleMapper.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-customize-service/src/main/resources/mapper/RuleMapper.xml", "target": "file:damai-server/damai-customize-service/src/main/java/com/damai/mapper/RuleMapper.java", "type": "configures", "direction": "forward", "weight": 0.6}
+  ]
+}

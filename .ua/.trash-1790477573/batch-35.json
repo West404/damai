@@ -1,0 +1,119 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-pay-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-pay-service/src/main/resources/application.yml",
+      "summary": "damai-pay-service 的主配置文件，集中定义 6087 端口、按 profile 动态装配 ShardingSphere 分片数据源、Redis 与 Nacos 注册发现、MyBatis-Plus 逻辑删除、Feign+OkHttp 压缩、Actuator/Prometheus 监控、Jasypt 加密与 Springdoc/Knife4j 接口文档。末尾承载支付宝沙箱的 appId、商户私钥、公钥与 AES 内容密钥，供 AlipayProperties 绑定。",
+      "tags": ["configuration", "spring-boot", "shardingsphere", "nacos", "alipay"],
+      "complexity": "moderate",
+      "languageNotes": "数据源 url 使用 jdbc:shardingsphere:classpath:shardingsphere-pay-${spring.profiles.active}.yaml 占位符，由 ShardingSphereDriver 在运行时按激活 profile 选择分片规则文件。"
+    },
+    {
+      "id": "config:damai-server/damai-pay-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-pay-service/src/main/resources/log4j2.xml",
+      "summary": "pay-service 的 Log4j2 日志配置，定义带 traceId/skyWalkingTraceId 的日志格式、INFO 级控制台输出、按天与 100MB 双策略滚动的全量日志和独立 error 日志（最多保留 30 个文件），并压制 Spring 与 MyBatis 的 DEBUG 噪声。Logstash Socket 输出通道以注释形式预留。",
+      "tags": ["configuration", "logging", "log4j2", "可观测性"],
+      "complexity": "moderate",
+      "languageNotes": "通过 Properties 段把 PROJECT_NAME/ENV/PATTERN 抽为占位符，便于按环境替换；RollingFile 使用 $${date:...} 转义避免启动时即被解析。"
+    },
+    {
+      "id": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-docker.yaml",
+      "type": "config",
+      "name": "shardingsphere-pay-docker.yaml",
+      "filePath": "damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-docker.yaml",
+      "summary": "Docker 环境专用分库分表规则：两个 Hikari 数据源指向容器网络中的 mysql:3306 上的 damai_pay_0/1 库，对 d_pay_bill 与 d_refund_bill 按 out_order_no 做 2 库 2 表取模分片，并开启 SQL 打印。",
+      "tags": ["configuration", "shardingsphere", "分库分表", "docker"],
+      "complexity": "moderate",
+      "languageNotes": "规则节点使用 ShardingSphere 自定义标签 !SHARDING，普通 YAML 解析器会产生 Unresolved tag 告警，须由 ShardingSphereDriver 解析。"
+    },
+    {
+      "id": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-local.yaml",
+      "type": "config",
+      "name": "shardingsphere-pay-local.yaml",
+      "filePath": "damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-local.yaml",
+      "summary": "本地开发环境的分库分表规则：数据源指向 127.0.0.1:3306 的 damai_pay_0/1，对 d_pay_bill 与 d_refund_bill 以 out_order_no 为分片键做 ds_${0..1} 库 + 表内 2 表取模路由，并开启 SQL 打印便于调试。",
+      "tags": ["configuration", "shardingsphere", "分库分表", "本地环境"],
+      "complexity": "moderate",
+      "languageNotes": "分片算法为 INLINE 类型，表达式用 Math.abs(out_order_no.hashCode()) % 2 选库、intdiv(2) % 2 选表，保证同库同表的计算一致性。"
+    },
+    {
+      "id": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-pro.yaml",
+      "type": "config",
+      "name": "shardingsphere-pay-pro.yaml",
+      "filePath": "damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-pro.yaml",
+      "summary": "生产环境的分库分表规则：两个数据源指向 www.cookframe.com:3306 上的 damai_pay_0/1 库，分片逻辑与本地/docker 版本完全一致，对 d_pay_bill、d_refund_bill 按 out_order_no 做 2 库 2 表取模分片。",
+      "tags": ["configuration", "shardingsphere", "分库分表", "生产环境"],
+      "complexity": "moderate",
+      "languageNotes": "与 local/docker 变体仅数据源地址和凭据不同，规则段逐行同构，属于典型的按 profile 分文件的环境差异化配置。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:damai-server/damai-pay-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-pay-service/src/main/resources/application.yml",
+      "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/pay/alipay/config/AlipayProperties.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-pay-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-local.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-pay-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-docker.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-pay-service/src/main/resources/application.yml",
+      "target": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-pro.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-pay-service/src/main/resources/log4j2.xml",
+      "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-local.yaml",
+      "target": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-docker.yaml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-local.yaml",
+      "target": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-pro.yaml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-docker.yaml",
+      "target": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-pro.yaml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

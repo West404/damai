@@ -1,0 +1,652 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskRun.java",
+      "type": "file",
+      "name": "TaskRun.java",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskRun.java",
+      "summary": "Simple Runnable task implementation used to demonstrate or exercise the distributed lock framework.",
+      "tags": ["utility", "runnable", "distributed-lock"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskRun.java:TaskRun",
+      "type": "class",
+      "name": "TaskRun",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskRun.java",
+      "lineRange": [8, 15],
+      "summary": "Runnable task class printing a message when executed, used in distributed lock examples.",
+      "tags": ["runnable", "utility", "example"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Spring Boot auto-configuration registry declaring ServiceLockAutoConfiguration for the distributed lock starter.",
+      "tags": ["auto-configuration", "spring-boot", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-redisson-framework/damai-redisson-service-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-redisson-framework/damai-redisson-service-framework/pom.xml",
+      "summary": "Aggregator POM for the Redisson service framework, grouping distributed lock and related Redisson service submodules.",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-redisson-framework/damai-service-delay-queue-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/pom.xml",
+      "summary": "Maven build descriptor for the Redisson-based delayed queue framework, declaring Redisson and Spring Boot dependencies.",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java",
+      "type": "file",
+      "name": "DelayBaseQueue.java",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java",
+      "summary": "Base delayed queue abstraction wrapping a Redisson blocking queue for delayed message consumption.",
+      "tags": ["delay-queue", "redisson", "messaging"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java:DelayBaseQueue",
+      "type": "class",
+      "name": "DelayBaseQueue",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java",
+      "lineRange": [12, 23],
+      "summary": "Generic base class that initializes a Redisson RBlockingQueue by topic for delayed queue consumers and producers.",
+      "tags": ["delay-queue", "redisson", "base-class"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "type": "file",
+      "name": "org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "filePath": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "summary": "Spring Boot auto-configuration registry declaring DelayQueueAutoConfig for the delayed queue starter.",
+      "tags": ["auto-configuration", "spring-boot", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-redisson-framework/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-redisson-framework/pom.xml",
+      "summary": "Parent aggregator POM for the Redisson framework modules, including service lock and delayed queue submodules.",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server-client/damai-base-data-client/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server-client/damai-base-data-client/pom.xml",
+      "summary": "Maven build descriptor for the base-data service client module providing shared DTOs.",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/TokenDataDto.java",
+      "type": "file",
+      "name": "TokenDataDto.java",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/TokenDataDto.java",
+      "summary": "DTO carrying token name and secret used for internal service authentication with the base-data service.",
+      "tags": ["dto", "data-model", "authentication"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/TokenDataDto.java:TokenDataDto",
+      "type": "class",
+      "name": "TokenDataDto",
+      "filePath": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/TokenDataDto.java",
+      "lineRange": [13, 24],
+      "summary": "Data transfer object holding token name and secret fields for service-to-service authentication.",
+      "tags": ["dto", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server-client/damai-customize-client/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server-client/damai-customize-client/pom.xml",
+      "summary": "Maven build descriptor for the customize service client module.",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server-client/damai-job-client/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server-client/damai-job-client/pom.xml",
+      "summary": "Maven build descriptor for the job service client module providing job scheduling DTOs.",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoDto.java",
+      "type": "file",
+      "name": "JobInfoDto.java",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoDto.java",
+      "summary": "DTO describing a scheduled HTTP job with URL, method, headers, params, and retry configuration.",
+      "tags": ["dto", "data-model", "job-scheduling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoDto.java:JobInfoDto",
+      "type": "class",
+      "name": "JobInfoDto",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoDto.java",
+      "lineRange": [14, 45],
+      "summary": "Data transfer object holding job definition fields including name, description, URL, HTTP method, headers, params, and retry policy.",
+      "tags": ["dto", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoPageDto.java",
+      "type": "file",
+      "name": "JobInfoPageDto.java",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoPageDto.java",
+      "summary": "DTO for paginated job info queries carrying page size and page number.",
+      "tags": ["dto", "data-model", "pagination"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoPageDto.java:JobInfoPageDto",
+      "type": "class",
+      "name": "JobInfoPageDto",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoPageDto.java",
+      "lineRange": [13, 24],
+      "summary": "Data transfer object holding pageSize and pageNo for paginated job listing requests.",
+      "tags": ["dto", "data-model", "pagination"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/RunJobDto.java",
+      "type": "file",
+      "name": "RunJobDto.java",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/RunJobDto.java",
+      "summary": "DTO used to trigger execution of a scheduled job by its id.",
+      "tags": ["dto", "data-model", "job-scheduling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-job-client/src/main/java/com/damai/dto/RunJobDto.java:RunJobDto",
+      "type": "class",
+      "name": "RunJobDto",
+      "filePath": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/RunJobDto.java",
+      "lineRange": [13, 20],
+      "summary": "Data transfer object carrying the id of the job to run.",
+      "tags": ["dto", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server-client/damai-order-client/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server-client/damai-order-client/pom.xml",
+      "summary": "Maven build descriptor for the order service client module providing order-related DTOs and VOs.",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderRefundDto.java",
+      "type": "file",
+      "name": "OrderRefundDto.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderRefundDto.java",
+      "summary": "DTO used to request an order refund by order number.",
+      "tags": ["dto", "data-model", "order"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderRefundDto.java:OrderRefundDto",
+      "type": "class",
+      "name": "OrderRefundDto",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderRefundDto.java",
+      "lineRange": [13, 21],
+      "summary": "Data transfer object carrying the order number for refund requests.",
+      "tags": ["dto", "data-model", "order"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketUserVo.java",
+      "type": "file",
+      "name": "OrderTicketUserVo.java",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketUserVo.java",
+      "summary": "View object exposing per-ticket-holder order details including seat info, prices, status, and order lifecycle timestamps.",
+      "tags": ["vo", "data-model", "order"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketUserVo.java:OrderTicketUserVo",
+      "type": "class",
+      "name": "OrderTicketUserVo",
+      "filePath": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketUserVo.java",
+      "lineRange": [14, 62],
+      "summary": "View object with 14 fields describing a ticket user's order: ids, seat info, order and pay prices, pay type, order status, and create/cancel/pay timestamps.",
+      "tags": ["vo", "data-model", "order"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server-client/damai-pay-client/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server-client/damai-pay-client/pom.xml",
+      "summary": "Maven build descriptor for the pay service client module.",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server-client/damai-program-client/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server-client/damai-program-client/pom.xml",
+      "summary": "Maven build descriptor for the program service client module providing program-related view objects.",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramShowTimeVo.java",
+      "type": "file",
+      "name": "ProgramShowTimeVo.java",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramShowTimeVo.java",
+      "summary": "View object exposing program show time details including show time, day time, and week time.",
+      "tags": ["vo", "data-model", "program"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramShowTimeVo.java:ProgramShowTimeVo",
+      "type": "class",
+      "name": "ProgramShowTimeVo",
+      "filePath": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramShowTimeVo.java",
+      "lineRange": [13, 47],
+      "summary": "View object holding id, programId, showTime, showDayTime, and showWeekTime for program schedule display.",
+      "tags": ["vo", "data-model", "program"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server-client/damai-user-client/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server-client/damai-user-client/pom.xml",
+      "summary": "Maven build descriptor for the user service client module providing user-related DTOs.",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/ProgramOrderTicketUserDto.java",
+      "type": "file",
+      "name": "ProgramOrderTicketUserDto.java",
+      "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/ProgramOrderTicketUserDto.java",
+      "summary": "Serializable DTO carrying ticket purchaser identity (name, id type, id number) for program order creation.",
+      "tags": ["dto", "data-model", "order"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/ProgramOrderTicketUserDto.java:ProgramOrderTicketUserDto",
+      "type": "class",
+      "name": "ProgramOrderTicketUserDto",
+      "filePath": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/ProgramOrderTicketUserDto.java",
+      "lineRange": [17, 45],
+      "summary": "Serializable data transfer object with id, userId, relName, idType, and idNumber identifying a ticket holder in an order.",
+      "tags": ["dto", "data-model", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server-client/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server-client/pom.xml",
+      "summary": "Parent aggregator POM grouping all service client modules (base-data, customize, job, order, pay, program, user).",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:damai-server/damai-admin-service/pom.xml",
+      "type": "config",
+      "name": "pom.xml",
+      "filePath": "damai-server/damai-admin-service/pom.xml",
+      "summary": "Maven build descriptor for the admin service, declaring Spring Boot admin, web, and shared damai framework dependencies.",
+      "tags": ["configuration", "build-system", "maven"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java",
+      "type": "file",
+      "name": "AdminApplication.java",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java",
+      "summary": "Spring Boot entry point for the admin service, bootstrapping the application with the common auto-configuration imported.",
+      "tags": ["entry-point", "spring-boot", "admin"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java:AdminApplication",
+      "type": "class",
+      "name": "AdminApplication",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java",
+      "lineRange": [13, 23],
+      "summary": "Spring Boot application class annotated with @SpringBootApplication that launches the admin service.",
+      "tags": ["entry-point", "spring-boot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java",
+      "lineRange": [18, 21],
+      "summary": "Application entry method setting a system property and starting the Spring application context.",
+      "tags": ["entry-point", "bootstrap"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskRun.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskRun.java:TaskRun",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskRun.java",
+      "target": "class:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskRun.java:TaskRun",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java:DelayBaseQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java",
+      "target": "class:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java:DelayBaseQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/TokenDataDto.java",
+      "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/TokenDataDto.java:TokenDataDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/TokenDataDto.java",
+      "target": "class:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/TokenDataDto.java:TokenDataDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoDto.java",
+      "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoDto.java:JobInfoDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoDto.java",
+      "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoDto.java:JobInfoDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoPageDto.java",
+      "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoPageDto.java:JobInfoPageDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoPageDto.java",
+      "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoPageDto.java:JobInfoPageDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/RunJobDto.java",
+      "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/dto/RunJobDto.java:RunJobDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/RunJobDto.java",
+      "target": "class:damai-server-client/damai-job-client/src/main/java/com/damai/dto/RunJobDto.java:RunJobDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderRefundDto.java",
+      "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderRefundDto.java:OrderRefundDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderRefundDto.java",
+      "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderRefundDto.java:OrderRefundDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketUserVo.java",
+      "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketUserVo.java:OrderTicketUserVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketUserVo.java",
+      "target": "class:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketUserVo.java:OrderTicketUserVo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramShowTimeVo.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramShowTimeVo.java:ProgramShowTimeVo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramShowTimeVo.java",
+      "target": "class:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramShowTimeVo.java:ProgramShowTimeVo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/ProgramOrderTicketUserDto.java",
+      "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/ProgramOrderTicketUserDto.java:ProgramOrderTicketUserDto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/ProgramOrderTicketUserDto.java",
+      "target": "class:damai-server-client/damai-user-client/src/main/java/com/damai/dto/ProgramOrderTicketUserDto.java:ProgramOrderTicketUserDto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java",
+      "target": "class:damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java:AdminApplication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java",
+      "target": "function:damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java",
+      "target": "file:damai-common/src/main/java/com/damai/config/DaMaiCommonAutoConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "config:damai-redisson-framework/pom.xml",
+      "target": "config:damai-redisson-framework/damai-redisson-service-framework/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/pom.xml",
+      "target": "config:damai-redisson-framework/damai-service-delay-queue-framework/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-redisson-service-framework/pom.xml",
+      "target": "file:damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskRun.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-redisson-framework/damai-service-delay-queue-framework/pom.xml",
+      "target": "file:damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/pom.xml",
+      "target": "config:damai-server-client/damai-base-data-client/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/pom.xml",
+      "target": "config:damai-server-client/damai-customize-client/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/pom.xml",
+      "target": "config:damai-server-client/damai-job-client/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/pom.xml",
+      "target": "config:damai-server-client/damai-order-client/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/pom.xml",
+      "target": "config:damai-server-client/damai-pay-client/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/pom.xml",
+      "target": "config:damai-server-client/damai-program-client/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/pom.xml",
+      "target": "config:damai-server-client/damai-user-client/pom.xml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/damai-base-data-client/pom.xml",
+      "target": "file:damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/TokenDataDto.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/damai-job-client/pom.xml",
+      "target": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoDto.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/damai-job-client/pom.xml",
+      "target": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoPageDto.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/damai-job-client/pom.xml",
+      "target": "file:damai-server-client/damai-job-client/src/main/java/com/damai/dto/RunJobDto.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/damai-order-client/pom.xml",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderRefundDto.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/damai-order-client/pom.xml",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketUserVo.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/damai-program-client/pom.xml",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramShowTimeVo.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server-client/damai-user-client/pom.xml",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/ProgramOrderTicketUserDto.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:damai-server/damai-admin-service/pom.xml",
+      "target": "file:damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

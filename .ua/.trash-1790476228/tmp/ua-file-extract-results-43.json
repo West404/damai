@@ -1,0 +1,1472 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 16,
+  "filesSkipped": [
+    "damai-server/damai-admin-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-server/damai-admin-service/src/main/resources/log4j2.xml",
+    "damai-server/damai-base-data-service/pom.xml",
+    "damai-server/damai-customize-service/pom.xml",
+    "damai-server/damai-gateway-service/pom.xml",
+    "damai-server/damai-gateway-service/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-server/damai-gateway-service/src/main/resources/lua/apiLimit.lua",
+    "damai-server/damai-mybatis-plus-service/pom.xml",
+    "damai-server/damai-order-service/pom.xml"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 16,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 15,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/config/AdminConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "jacksonCustomEnhance",
+          "startLine": 19,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "customOpenApi",
+          "startLine": 25,
+          "endLine": 37,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AdminConfig",
+          "startLine": 17,
+          "endLine": 38,
+          "methods": [
+            "jacksonCustomEnhance",
+            "customOpenApi"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "jacksonCustomEnhance",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "customOpenApi",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "AdminConfig",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "jacksonCustomEnhance",
+          "callee": "new JacksonCustomEnhance",
+          "lineNumber": 22
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new OpenAPI().info",
+          "lineNumber": 28
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new OpenAPI",
+          "lineNumber": 28
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Info()\r\n                        .title(\"前端使用\")\r\n                        .version(\"1.0\")\r\n                        .description(\"项目学习\").contact",
+          "lineNumber": 29
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Info()\r\n                        .title(\"前端使用\")\r\n                        .version(\"1.0\").description",
+          "lineNumber": 29
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Info()\r\n                        .title(\"前端使用\").version",
+          "lineNumber": 29
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Info().title",
+          "lineNumber": 29
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Info",
+          "lineNumber": 29
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Contact().name",
+          "lineNumber": 33
+        },
+        {
+          "caller": "customOpenApi",
+          "callee": "new Contact",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/config/JacksonCustomEnhance.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "customize",
+          "startLine": 46,
+          "endLine": 86,
+          "params": [
+            "builder"
+          ]
+        },
+        {
+          "name": "getOrder",
+          "startLine": 88,
+          "endLine": 91,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "JacksonCustomEnhance",
+          "startLine": 39,
+          "endLine": 92,
+          "methods": [
+            "customize",
+            "getOrder"
+          ],
+          "properties": [
+            "dateTimeFormat"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "customize",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "getOrder",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "JacksonCustomEnhance",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "customize",
+          "callee": "builder.serializationInclusion",
+          "lineNumber": 48
+        },
+        {
+          "caller": "customize",
+          "callee": "builder.featuresToEnable",
+          "lineNumber": 49
+        },
+        {
+          "caller": "customize",
+          "callee": "builder.featuresToEnable",
+          "lineNumber": 50
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule().setSerializerModifier",
+          "lineNumber": 54
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule",
+          "lineNumber": 54
+        },
+        {
+          "caller": "customize",
+          "callee": "new JsonCustomSerializer",
+          "lineNumber": 54
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule().addSerializer",
+          "lineNumber": 55
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule",
+          "lineNumber": 55
+        },
+        {
+          "caller": "customize",
+          "callee": "new JsonSerializer<Date>",
+          "lineNumber": 55
+        },
+        {
+          "caller": "serialize",
+          "callee": "new SimpleDateFormat",
+          "lineNumber": 60
+        },
+        {
+          "caller": "serialize",
+          "callee": "sdf.format",
+          "lineNumber": 61
+        },
+        {
+          "caller": "serialize",
+          "callee": "gen.writeString",
+          "lineNumber": 62
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule().addDeserializer",
+          "lineNumber": 66
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule",
+          "lineNumber": 66
+        },
+        {
+          "caller": "customize",
+          "callee": "new DateJsonDeserializer",
+          "lineNumber": 66
+        },
+        {
+          "caller": "customize",
+          "callee": "DateTimeFormatter.ofPattern",
+          "lineNumber": 67
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule().addSerializer",
+          "lineNumber": 68
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule",
+          "lineNumber": 68
+        },
+        {
+          "caller": "customize",
+          "callee": "new LocalDateTimeSerializer",
+          "lineNumber": 68
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule().addDeserializer",
+          "lineNumber": 69
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule",
+          "lineNumber": 69
+        },
+        {
+          "caller": "customize",
+          "callee": "new LocalDateTimeDeserializer",
+          "lineNumber": 69
+        },
+        {
+          "caller": "customize",
+          "callee": "DateTimeFormatter.ofPattern",
+          "lineNumber": 71
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule().addSerializer",
+          "lineNumber": 72
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule",
+          "lineNumber": 72
+        },
+        {
+          "caller": "customize",
+          "callee": "new LocalDateSerializer",
+          "lineNumber": 72
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule().addDeserializer",
+          "lineNumber": 73
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule",
+          "lineNumber": 73
+        },
+        {
+          "caller": "customize",
+          "callee": "new LocalDateDeserializer",
+          "lineNumber": 73
+        },
+        {
+          "caller": "customize",
+          "callee": "DateTimeFormatter.ofPattern",
+          "lineNumber": 75
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule().addSerializer",
+          "lineNumber": 76
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule",
+          "lineNumber": 76
+        },
+        {
+          "caller": "customize",
+          "callee": "new LocalTimeSerializer",
+          "lineNumber": 76
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule().addDeserializer",
+          "lineNumber": 77
+        },
+        {
+          "caller": "customize",
+          "callee": "new SimpleModule",
+          "lineNumber": 77
+        },
+        {
+          "caller": "customize",
+          "callee": "new LocalTimeDeserializer",
+          "lineNumber": 77
+        },
+        {
+          "caller": "customize",
+          "callee": "builder.modules",
+          "lineNumber": 79
+        },
+        {
+          "caller": "customize",
+          "callee": "builder.modules",
+          "lineNumber": 80
+        },
+        {
+          "caller": "customize",
+          "callee": "new JavaTimeModule",
+          "lineNumber": 80
+        },
+        {
+          "caller": "customize",
+          "callee": "builder.timeZone",
+          "lineNumber": 82
+        },
+        {
+          "caller": "customize",
+          "callee": "TimeZone.getDefault",
+          "lineNumber": 82
+        },
+        {
+          "caller": "customize",
+          "callee": "builder.featuresToDisable",
+          "lineNumber": 83
+        },
+        {
+          "caller": "customize",
+          "callee": "builder.featuresToEnable",
+          "lineNumber": 84
+        },
+        {
+          "caller": "customize",
+          "callee": "JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature",
+          "lineNumber": 84
+        },
+        {
+          "caller": "customize",
+          "callee": "builder.featuresToEnable",
+          "lineNumber": 85
+        },
+        {
+          "caller": "customize",
+          "callee": "JsonWriteFeature.WRITE_NUMBERS_AS_STRINGS.mappedFeature",
+          "lineNumber": 85
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/config/SecurityConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "SecurityConfig",
+          "startLine": 22,
+          "endLine": 24,
+          "params": [
+            "adminServerProperties"
+          ]
+        },
+        {
+          "name": "filterChain",
+          "startLine": 26,
+          "endLine": 49,
+          "params": [
+            "http"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SecurityConfig",
+          "startLine": 17,
+          "endLine": 50,
+          "methods": [
+            "SecurityConfig",
+            "filterChain"
+          ],
+          "properties": [
+            "adminContextPath"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SecurityConfig",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "SecurityConfig",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SecurityConfig",
+          "callee": "adminServerProperties.getContextPath",
+          "lineNumber": 23
+        },
+        {
+          "caller": "filterChain",
+          "callee": "new SavedRequestAwareAuthenticationSuccessHandler",
+          "lineNumber": 29
+        },
+        {
+          "caller": "filterChain",
+          "callee": "successHandler.setTargetUrlParameter",
+          "lineNumber": 30
+        },
+        {
+          "caller": "filterChain",
+          "callee": "successHandler.setDefaultTargetUrl",
+          "lineNumber": 31
+        },
+        {
+          "caller": "filterChain",
+          "callee": "http\r\n            .authorizeHttpRequests(authorize -> authorize\r\n                    .requestMatchers(adminContextPath + \"/assets/**\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/login\", \"/css/**\", \"/js/**\", \"/image/*\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/v3/api-docs/**\").permitAll()\r\n                    .anyRequest().authenticated())\r\n            .formLogin(form -> form\r\n                    .loginPage(adminContextPath + \"/login\")\r\n                    .successHandler(successHandler))\r\n            .logout(logout -> logout\r\n                    .logoutUrl(adminContextPath + \"/logout\"))\r\n            .httpBasic(withDefaults()).csrf",
+          "lineNumber": 34
+        },
+        {
+          "caller": "filterChain",
+          "callee": "http\r\n            .authorizeHttpRequests(authorize -> authorize\r\n                    .requestMatchers(adminContextPath + \"/assets/**\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/login\", \"/css/**\", \"/js/**\", \"/image/*\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/v3/api-docs/**\").permitAll()\r\n                    .anyRequest().authenticated())\r\n            .formLogin(form -> form\r\n                    .loginPage(adminContextPath + \"/login\")\r\n                    .successHandler(successHandler))\r\n            .logout(logout -> logout\r\n                    .logoutUrl(adminContextPath + \"/logout\")).httpBasic",
+          "lineNumber": 34
+        },
+        {
+          "caller": "filterChain",
+          "callee": "http\r\n            .authorizeHttpRequests(authorize -> authorize\r\n                    .requestMatchers(adminContextPath + \"/assets/**\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/login\", \"/css/**\", \"/js/**\", \"/image/*\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/v3/api-docs/**\").permitAll()\r\n                    .anyRequest().authenticated())\r\n            .formLogin(form -> form\r\n                    .loginPage(adminContextPath + \"/login\")\r\n                    .successHandler(successHandler)).logout",
+          "lineNumber": 34
+        },
+        {
+          "caller": "filterChain",
+          "callee": "http\r\n            .authorizeHttpRequests(authorize -> authorize\r\n                    .requestMatchers(adminContextPath + \"/assets/**\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/login\", \"/css/**\", \"/js/**\", \"/image/*\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/v3/api-docs/**\").permitAll()\r\n                    .anyRequest().authenticated()).formLogin",
+          "lineNumber": 34
+        },
+        {
+          "caller": "filterChain",
+          "callee": "http.authorizeHttpRequests",
+          "lineNumber": 34
+        },
+        {
+          "caller": "filterChain",
+          "callee": "authorize\r\n                    .requestMatchers(adminContextPath + \"/assets/**\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/login\", \"/css/**\", \"/js/**\", \"/image/*\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/v3/api-docs/**\").permitAll()\r\n                    .anyRequest().authenticated",
+          "lineNumber": 35
+        },
+        {
+          "caller": "filterChain",
+          "callee": "authorize\r\n                    .requestMatchers(adminContextPath + \"/assets/**\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/login\", \"/css/**\", \"/js/**\", \"/image/*\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/v3/api-docs/**\").permitAll().anyRequest",
+          "lineNumber": 35
+        },
+        {
+          "caller": "filterChain",
+          "callee": "authorize\r\n                    .requestMatchers(adminContextPath + \"/assets/**\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/login\", \"/css/**\", \"/js/**\", \"/image/*\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/v3/api-docs/**\").permitAll",
+          "lineNumber": 35
+        },
+        {
+          "caller": "filterChain",
+          "callee": "authorize\r\n                    .requestMatchers(adminContextPath + \"/assets/**\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/login\", \"/css/**\", \"/js/**\", \"/image/*\").permitAll().requestMatchers",
+          "lineNumber": 35
+        },
+        {
+          "caller": "filterChain",
+          "callee": "authorize\r\n                    .requestMatchers(adminContextPath + \"/assets/**\").permitAll()\r\n                    .requestMatchers(adminContextPath + \"/login\", \"/css/**\", \"/js/**\", \"/image/*\").permitAll",
+          "lineNumber": 35
+        },
+        {
+          "caller": "filterChain",
+          "callee": "authorize\r\n                    .requestMatchers(adminContextPath + \"/assets/**\").permitAll().requestMatchers",
+          "lineNumber": 35
+        },
+        {
+          "caller": "filterChain",
+          "callee": "authorize\r\n                    .requestMatchers(adminContextPath + \"/assets/**\").permitAll",
+          "lineNumber": 35
+        },
+        {
+          "caller": "filterChain",
+          "callee": "authorize.requestMatchers",
+          "lineNumber": 35
+        },
+        {
+          "caller": "filterChain",
+          "callee": "form\r\n                    .loginPage(adminContextPath + \"/login\").successHandler",
+          "lineNumber": 40
+        },
+        {
+          "caller": "filterChain",
+          "callee": "form.loginPage",
+          "lineNumber": 40
+        },
+        {
+          "caller": "filterChain",
+          "callee": "logout.logoutUrl",
+          "lineNumber": 43
+        },
+        {
+          "caller": "filterChain",
+          "callee": "withDefaults",
+          "lineNumber": 45
+        },
+        {
+          "caller": "filterChain",
+          "callee": "csrf.ignoringRequestMatchers",
+          "lineNumber": 46
+        },
+        {
+          "caller": "filterChain",
+          "callee": "http.build",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/resources/application.yml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 71,
+      "nonEmptyLines": 70,
+      "sections": [
+        {
+          "heading": "server",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "spring",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "management",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "springdoc",
+          "level": 1,
+          "line": 47
+        },
+        {
+          "heading": "knife4j",
+          "level": 1,
+          "line": 60
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "damai-server/damai-base-data-service/src/main/java/com/damai/BaseDataApplication.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BaseDataApplication",
+          "startLine": 14,
+          "endLine": 26,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "BaseDataApplication",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.setProperty",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "SpringApplication.run",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/CustomizeApplication.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 19,
+          "endLine": 22,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CustomizeApplication",
+          "startLine": 13,
+          "endLine": 24,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "CustomizeApplication",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.setProperty",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "SpringApplication.run",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/ServiceBroadcastCall.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "call",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "serviceId"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServiceBroadcastCall",
+          "startLine": 10,
+          "endLine": 18,
+          "methods": [
+            "call"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "call",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "ServiceBroadcastCall",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/GatewayApplication.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 19,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 17,
+          "endLine": 20,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GatewayApplication",
+          "startLine": 12,
+          "endLine": 22,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "GatewayApplication",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.setProperty",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "SpringApplication.run",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/sentinel/GatewaySentinelConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "GatewaySentinelConfiguration",
+          "startLine": 27,
+          "endLine": 31,
+          "params": [
+            "viewResolversProvider",
+            "serverCodecConfigurer"
+          ]
+        },
+        {
+          "name": "sentinelGatewayBlockExceptionHandler",
+          "startLine": 33,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "sentinelGatewayFilter",
+          "startLine": 40,
+          "endLine": 44,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "GatewaySentinelConfiguration",
+          "startLine": 21,
+          "endLine": 45,
+          "methods": [
+            "GatewaySentinelConfiguration",
+            "sentinelGatewayBlockExceptionHandler",
+            "sentinelGatewayFilter"
+          ],
+          "properties": [
+            "viewResolvers",
+            "serverCodecConfigurer"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "GatewaySentinelConfiguration",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "sentinelGatewayBlockExceptionHandler",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "sentinelGatewayFilter",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "GatewaySentinelConfiguration",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "GatewaySentinelConfiguration",
+          "callee": "viewResolversProvider.getIfAvailable",
+          "lineNumber": 29
+        },
+        {
+          "caller": "sentinelGatewayBlockExceptionHandler",
+          "callee": "new SentinelGatewayBlockExceptionHandler",
+          "lineNumber": 37
+        },
+        {
+          "caller": "sentinelGatewayFilter",
+          "callee": "new SentinelGatewayFilter",
+          "lineNumber": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/constant/GatewayConstant.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 18,
+      "classes": [
+        {
+          "name": "GatewayConstant",
+          "startLine": 8,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "REQUEST_BODY",
+            "ENCRYPT",
+            "CHARSET",
+            "BUSINESS_BODY",
+            "CODE",
+            "TOKEN",
+            "NO_VERIFY",
+            "VERIFY_VALUE",
+            "USER_ID",
+            "V2"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "REQUEST_BODY",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "ENCRYPT",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "CHARSET",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "BUSINESS_BODY",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "CODE",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "TOKEN",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "NO_VERIFY",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "VERIFY_VALUE",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "USER_ID",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "V2",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "GatewayConstant",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 11,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/controller/HystrixFallBackController.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "fallBackHandler",
+          "startLine": 14,
+          "endLine": 17,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "HystrixFallBackController",
+          "startLine": 11,
+          "endLine": 18,
+          "methods": [
+            "fallBackHandler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "fallBackHandler",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "HystrixFallBackController",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/KafkaTopic.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 13,
+      "classes": [
+        {
+          "name": "KafkaTopic",
+          "startLine": 11,
+          "endLine": 17,
+          "methods": [],
+          "properties": [
+            "topic"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "KafkaTopic",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/kafka/ProducerConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 20,
+      "functions": [
+        {
+          "name": "kafkaTopic",
+          "startLine": 15,
+          "endLine": 18,
+          "params": []
+        },
+        {
+          "name": "apiDataMessageSend",
+          "startLine": 20,
+          "endLine": 23,
+          "params": [
+            "kafkaTemplate",
+            "kafkaTopic"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProducerConfig",
+          "startLine": 12,
+          "endLine": 24,
+          "methods": [
+            "kafkaTopic",
+            "apiDataMessageSend"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "kafkaTopic",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "apiDataMessageSend",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "ProducerConfig",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "kafkaTopic",
+          "callee": "new KafkaTopic",
+          "lineNumber": 17
+        },
+        {
+          "caller": "apiDataMessageSend",
+          "callee": "new ApiDataMessageSend",
+          "lineNumber": 22
+        },
+        {
+          "caller": "apiDataMessageSend",
+          "callee": "kafkaTopic.getTopic",
+          "lineNumber": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-gateway-service/src/main/java/com/damai/pro/limit/RateLimiterConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 19,
+      "functions": [
+        {
+          "name": "rateLimiterProperty",
+          "startLine": 14,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "rateLimiter",
+          "startLine": 19,
+          "endLine": 22,
+          "params": [
+            "rateLimiterProperty"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RateLimiterConfig",
+          "startLine": 11,
+          "endLine": 23,
+          "methods": [
+            "rateLimiterProperty",
+            "rateLimiter"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "rateLimiterProperty",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "rateLimiter",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "RateLimiterConfig",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "rateLimiterProperty",
+          "callee": "new RateLimiterProperty",
+          "lineNumber": 16
+        },
+        {
+          "caller": "rateLimiter",
+          "callee": "new RateLimiter",
+          "lineNumber": 21
+        },
+        {
+          "caller": "rateLimiter",
+          "callee": "rateLimiterProperty.getRatePermits",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-mybatis-plus-service/src/main/java/com/damai/MybatisPlusGenerator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 18,
+          "endLine": 55,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MybatisPlusGenerator",
+          "startLine": 16,
+          "endLine": 56,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "MybatisPlusGenerator",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "FastAutoGenerator.create(\"jdbc:mysql://www.cookframe.com:3306/damai?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&remarks=true&useInformationSchema=true\", \"root\", \"root\")\r\n                .globalConfig(builder -> {\r\n                    builder.author(\"k\") // 设置作者\r\n                            //.enableSwagger() // 开启 swagger 模式\r\n                            .outputDir(\"D://\"); // 指定输出目录\r\n                })\r\n                .dataSourceConfig(builder -> builder.typeConvertHandler((globalConfig, typeRegistry, metaInfo) -> {\r\n                    int typeCode = metaInfo.getJdbcType().TYPE_CODE;\r\n                    if (typeCode == Types.SMALLINT) {\r\n                        // 自定义类型转换\r\n                        return DbColumnType.INTEGER;\r\n                    }\r\n                    if (typeCode == Types.TINYINT) {\r\n                        // 自定义类型转换\r\n                        return DbColumnType.INTEGER; \r\n                    }\r\n                    return typeRegistry.getColumnType(metaInfo);\r\n                    \r\n                }))\r\n                .packageConfig(builder -> {\r\n                    builder.parent(\"baomidou\") // 设置父包名\r\n                            .moduleName(\"system\") // 设置父包模块名\r\n                            // 设置mapperXml生成路径\r\n                            .pathInfo(Collections.singletonMap(OutputFile.xml, \"D://baomidou/mybatispluscode\")); \r\n                })\r\n                .strategyConfig(builder -> {\r\n                    // 设置需要生成的表名\r\n                    builder.addInclude(\"d_user_mobile\")\r\n                            // 设置过滤表前缀\r\n                            .addTablePrefix(\"d_\"); \r\n                })\r\n                // 使用Freemarker引擎模板，默认的是Velocity引擎模板\r\n                .templateEngine(new FreemarkerTemplateEngine()).execute",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "FastAutoGenerator.create(\"jdbc:mysql://www.cookframe.com:3306/damai?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&remarks=true&useInformationSchema=true\", \"root\", \"root\")\r\n                .globalConfig(builder -> {\r\n                    builder.author(\"k\") // 设置作者\r\n                            //.enableSwagger() // 开启 swagger 模式\r\n                            .outputDir(\"D://\"); // 指定输出目录\r\n                })\r\n                .dataSourceConfig(builder -> builder.typeConvertHandler((globalConfig, typeRegistry, metaInfo) -> {\r\n                    int typeCode = metaInfo.getJdbcType().TYPE_CODE;\r\n                    if (typeCode == Types.SMALLINT) {\r\n                        // 自定义类型转换\r\n                        return DbColumnType.INTEGER;\r\n                    }\r\n                    if (typeCode == Types.TINYINT) {\r\n                        // 自定义类型转换\r\n                        return DbColumnType.INTEGER; \r\n                    }\r\n                    return typeRegistry.getColumnType(metaInfo);\r\n                    \r\n                }))\r\n                .packageConfig(builder -> {\r\n                    builder.parent(\"baomidou\") // 设置父包名\r\n                            .moduleName(\"system\") // 设置父包模块名\r\n                            // 设置mapperXml生成路径\r\n                            .pathInfo(Collections.singletonMap(OutputFile.xml, \"D://baomidou/mybatispluscode\")); \r\n                })\r\n                .strategyConfig(builder -> {\r\n                    // 设置需要生成的表名\r\n                    builder.addInclude(\"d_user_mobile\")\r\n                            // 设置过滤表前缀\r\n                            .addTablePrefix(\"d_\"); \r\n                }).templateEngine",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "FastAutoGenerator.create(\"jdbc:mysql://www.cookframe.com:3306/damai?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&remarks=true&useInformationSchema=true\", \"root\", \"root\")\r\n                .globalConfig(builder -> {\r\n                    builder.author(\"k\") // 设置作者\r\n                            //.enableSwagger() // 开启 swagger 模式\r\n                            .outputDir(\"D://\"); // 指定输出目录\r\n                })\r\n                .dataSourceConfig(builder -> builder.typeConvertHandler((globalConfig, typeRegistry, metaInfo) -> {\r\n                    int typeCode = metaInfo.getJdbcType().TYPE_CODE;\r\n                    if (typeCode == Types.SMALLINT) {\r\n                        // 自定义类型转换\r\n                        return DbColumnType.INTEGER;\r\n                    }\r\n                    if (typeCode == Types.TINYINT) {\r\n                        // 自定义类型转换\r\n                        return DbColumnType.INTEGER; \r\n                    }\r\n                    return typeRegistry.getColumnType(metaInfo);\r\n                    \r\n                }))\r\n                .packageConfig(builder -> {\r\n                    builder.parent(\"baomidou\") // 设置父包名\r\n                            .moduleName(\"system\") // 设置父包模块名\r\n                            // 设置mapperXml生成路径\r\n                            .pathInfo(Collections.singletonMap(OutputFile.xml, \"D://baomidou/mybatispluscode\")); \r\n                }).strategyConfig",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "FastAutoGenerator.create(\"jdbc:mysql://www.cookframe.com:3306/damai?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&remarks=true&useInformationSchema=true\", \"root\", \"root\")\r\n                .globalConfig(builder -> {\r\n                    builder.author(\"k\") // 设置作者\r\n                            //.enableSwagger() // 开启 swagger 模式\r\n                            .outputDir(\"D://\"); // 指定输出目录\r\n                })\r\n                .dataSourceConfig(builder -> builder.typeConvertHandler((globalConfig, typeRegistry, metaInfo) -> {\r\n                    int typeCode = metaInfo.getJdbcType().TYPE_CODE;\r\n                    if (typeCode == Types.SMALLINT) {\r\n                        // 自定义类型转换\r\n                        return DbColumnType.INTEGER;\r\n                    }\r\n                    if (typeCode == Types.TINYINT) {\r\n                        // 自定义类型转换\r\n                        return DbColumnType.INTEGER; \r\n                    }\r\n                    return typeRegistry.getColumnType(metaInfo);\r\n                    \r\n                })).packageConfig",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "FastAutoGenerator.create(\"jdbc:mysql://www.cookframe.com:3306/damai?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&remarks=true&useInformationSchema=true\", \"root\", \"root\")\r\n                .globalConfig(builder -> {\r\n                    builder.author(\"k\") // 设置作者\r\n                            //.enableSwagger() // 开启 swagger 模式\r\n                            .outputDir(\"D://\"); // 指定输出目录\r\n                }).dataSourceConfig",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "FastAutoGenerator.create(\"jdbc:mysql://www.cookframe.com:3306/damai?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&remarks=true&useInformationSchema=true\", \"root\", \"root\").globalConfig",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "FastAutoGenerator.create",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "builder.author(\"k\").outputDir",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "builder.author",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "builder.typeConvertHandler",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "metaInfo.getJdbcType",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "typeRegistry.getColumnType",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "builder.parent(\"baomidou\") // 设置父包名\r\n                            .moduleName(\"system\").pathInfo",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "builder.parent(\"baomidou\").moduleName",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "builder.parent",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "Collections.singletonMap",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "builder.addInclude(\"d_user_mobile\").addTablePrefix",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "builder.addInclude",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "new FreemarkerTemplateEngine",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-order-service/src/main/java/com/damai/OrderApplication.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 19,
+          "endLine": 22,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "OrderApplication",
+          "startLine": 13,
+          "endLine": 24,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "OrderApplication",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.setProperty",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "SpringApplication.run",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

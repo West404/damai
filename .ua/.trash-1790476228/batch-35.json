@@ -1,0 +1,61 @@
+{
+  "nodes": [
+    {
+      "id": "config:damai-server/damai-pay-service/src/main/resources/application.yml",
+      "type": "config",
+      "name": "application.yml",
+      "filePath": "damai-server/damai-pay-service/src/main/resources/application.yml",
+      "summary": "Main Spring Boot configuration for the pay service covering server port, Spring Cloud, MyBatis-Plus, Feign, Actuator endpoints, jasypt encryption, springdoc/knife4j API docs, and Alipay integration settings.",
+      "tags": ["configuration", "spring-boot", "microservice", "pay-service", "alipay"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:damai-server/damai-pay-service/src/main/resources/log4j2.xml",
+      "type": "config",
+      "name": "log4j2.xml",
+      "filePath": "damai-server/damai-pay-service/src/main/resources/log4j2.xml",
+      "summary": "Log4j2 configuration for pay-service with console and rolling-file appenders (100MB size / 30-file rollover) and a traceId-aware pattern layout; commented-out Logstash socket appender for ELK shipping.",
+      "tags": ["configuration", "logging", "log4j2", "monitoring"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-docker.yaml",
+      "type": "config",
+      "name": "shardingsphere-pay-docker.yaml",
+      "filePath": "damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-docker.yaml",
+      "summary": "ShardingSphere-JDBC configuration (docker profile) defining pay_db data sources and sharding rules for payment tables.",
+      "tags": ["configuration", "shardingsphere", "database-sharding", "docker-profile"],
+      "complexity": "moderate",
+      "languageNotes": "Uses ShardingSphere custom YAML tags (!SHARDING) parsed via a SnakeYAML extension, so plain YAML parsers report unresolved tags."
+    },
+    {
+      "id": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-local.yaml",
+      "type": "config",
+      "name": "shardingsphere-pay-local.yaml",
+      "filePath": "damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-local.yaml",
+      "summary": "ShardingSphere-JDBC configuration (local profile) defining pay_db data sources and sharding rules for payment tables.",
+      "tags": ["configuration", "shardingsphere", "database-sharding", "local-profile"],
+      "complexity": "moderate",
+      "languageNotes": "Uses ShardingSphere custom YAML tags (!SHARDING) parsed via a SnakeYAML extension, so plain YAML parsers report unresolved tags."
+    },
+    {
+      "id": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-pro.yaml",
+      "type": "config",
+      "name": "shardingsphere-pay-pro.yaml",
+      "filePath": "damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-pro.yaml",
+      "summary": "ShardingSphere-JDBC configuration (production profile) defining pay_db data sources and sharding rules for payment tables.",
+      "tags": ["configuration", "shardingsphere", "database-sharding", "production-profile"],
+      "complexity": "moderate",
+      "languageNotes": "Uses ShardingSphere custom YAML tags (!SHARDING) parsed via a SnakeYAML extension, so plain YAML parsers report unresolved tags."
+    }
+  ],
+  "edges": [
+    {"source": "config:damai-server/damai-pay-service/src/main/resources/application.yml", "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-pay-service/src/main/resources/log4j2.xml", "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-docker.yaml", "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-local.yaml", "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-pro.yaml", "target": "file:damai-server/damai-pay-service/src/main/java/com/damai/PayApplication.java", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-docker.yaml", "target": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-local.yaml", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-local.yaml", "target": "config:damai-server/damai-pay-service/src/main/resources/shardingsphere-pay-pro.yaml", "type": "related", "direction": "forward", "weight": 0.5}
+  ]
+}

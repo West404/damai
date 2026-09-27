@@ -1,0 +1,493 @@
+{
+  "nodes": [
+    {
+      "id": "table:sql/cloud/damai_pay_1.sql",
+      "type": "table",
+      "name": "damai_pay_1.sql",
+      "filePath": "sql/cloud/damai_pay_1.sql",
+      "summary": "Defines the pay-service tables for database shard 1: d_pay_bill_0/1 (payment bills) and d_refund_bill_0/1 (refund bills), mirroring shard 0.",
+      "tags": ["database", "schema-definition", "payment", "sharding", "migration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_1.sql:d_pay_bill_0",
+      "type": "table",
+      "name": "d_pay_bill_0",
+      "filePath": "sql/cloud/damai_pay_1.sql",
+      "summary": "Payment bill table (shard 0, database shard 1) recording payment transactions for orders.",
+      "tags": ["database", "table", "payment", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_1.sql:d_pay_bill_1",
+      "type": "table",
+      "name": "d_pay_bill_1",
+      "filePath": "sql/cloud/damai_pay_1.sql",
+      "summary": "Payment bill table (shard 1, database shard 1) recording payment transactions for orders.",
+      "tags": ["database", "table", "payment", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_1.sql:d_refund_bill_0",
+      "type": "table",
+      "name": "d_refund_bill_0",
+      "filePath": "sql/cloud/damai_pay_1.sql",
+      "summary": "Refund bill table (shard 0, database shard 1) recording refund transactions for cancelled orders.",
+      "tags": ["database", "table", "payment", "refund", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_pay_1.sql:d_refund_bill_1",
+      "type": "table",
+      "name": "d_refund_bill_1",
+      "filePath": "sql/cloud/damai_pay_1.sql",
+      "summary": "Refund bill table (shard 1, database shard 1) recording refund transactions for cancelled orders.",
+      "tags": ["database", "table", "payment", "refund", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql",
+      "type": "table",
+      "name": "damai_program_0.sql",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Defines the program-service tables for database shard 0: sharded program, program group, show time, seat and ticket category tables, the program category table, and the Seata undo_log table.",
+      "tags": ["database", "schema-definition", "program", "sharding", "migration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_0",
+      "type": "table",
+      "name": "d_program_0",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Program (event/show) table, shard 0, storing full program detail: title, actor, place, purchase limits, refund rules, delivery and invoice options.",
+      "tags": ["database", "table", "program", "sharding"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_1",
+      "type": "table",
+      "name": "d_program_1",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Program (event/show) table, shard 1, storing full program detail: title, actor, place, purchase limits, refund rules, delivery and invoice options.",
+      "tags": ["database", "table", "program", "sharding"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_category",
+      "type": "table",
+      "name": "d_program_category",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Program category table with parent/child hierarchy (concerts, drama, sports, etc.) used to classify programs.",
+      "tags": ["database", "table", "program", "category"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_group_0",
+      "type": "table",
+      "name": "d_program_group_0",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Program group table, shard 0, storing aggregated program JSON and recent show time for list-page fast queries.",
+      "tags": ["database", "table", "program", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_group_1",
+      "type": "table",
+      "name": "d_program_group_1",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Program group table, shard 1, storing aggregated program JSON and recent show time for list-page fast queries.",
+      "tags": ["database", "table", "program", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_show_time_0",
+      "type": "table",
+      "name": "d_program_show_time_0",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Program show time table, shard 0, recording performance date/time (show_time, day and week fields) per program and area.",
+      "tags": ["database", "table", "program", "show-time", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_program_show_time_1",
+      "type": "table",
+      "name": "d_program_show_time_1",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Program show time table, shard 1, recording performance date/time (show_time, day and week fields) per program and area.",
+      "tags": ["database", "table", "program", "show-time", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_seat_0",
+      "type": "table",
+      "name": "d_seat_0",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Seat table, shard 0, storing per-seat row/column codes, seat type, price and sell status for seat-selection ticket sales.",
+      "tags": ["database", "table", "program", "seat", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_seat_1",
+      "type": "table",
+      "name": "d_seat_1",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Seat table, shard 1, storing per-seat row/column codes, seat type, price and sell status for seat-selection ticket sales.",
+      "tags": ["database", "table", "program", "seat", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_ticket_category_0",
+      "type": "table",
+      "name": "d_ticket_category_0",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Ticket category table, shard 0, holding price tiers with total and remaining inventory counts per program.",
+      "tags": ["database", "table", "program", "ticket-category", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:d_ticket_category_1",
+      "type": "table",
+      "name": "d_ticket_category_1",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Ticket category table, shard 1, holding price tiers with total and remaining inventory counts per program.",
+      "tags": ["database", "table", "program", "ticket-category", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_0.sql:undo_log",
+      "type": "table",
+      "name": "undo_log",
+      "filePath": "sql/cloud/damai_program_0.sql",
+      "summary": "Seata AT-mode undo_log table storing rollback images for distributed transactions on the program database.",
+      "tags": ["database", "table", "seata", "distributed-transaction"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql",
+      "type": "table",
+      "name": "damai_program_1.sql",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Defines the program-service tables for database shard 1: sharded program, program group, show time, seat and ticket category tables, the program category table, and the Seata undo_log table; mirrors shard 0.",
+      "tags": ["database", "schema-definition", "program", "sharding", "migration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_0",
+      "type": "table",
+      "name": "d_program_0",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Program (event/show) table, shard 0 of database shard 1, storing full program detail and purchase/refund rules.",
+      "tags": ["database", "table", "program", "sharding"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_1",
+      "type": "table",
+      "name": "d_program_1",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Program (event/show) table, shard 1 of database shard 1, storing full program detail and purchase/refund rules.",
+      "tags": ["database", "table", "program", "sharding"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_category",
+      "type": "table",
+      "name": "d_program_category",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Program category table (database shard 1) with parent/child hierarchy used to classify programs.",
+      "tags": ["database", "table", "program", "category"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_group_0",
+      "type": "table",
+      "name": "d_program_group_0",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Program group table (database shard 1, shard 0) storing aggregated program JSON and recent show time for list-page queries.",
+      "tags": ["database", "table", "program", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_group_1",
+      "type": "table",
+      "name": "d_program_group_1",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Program group table (database shard 1, shard 1) storing aggregated program JSON and recent show time for list-page queries.",
+      "tags": ["database", "table", "program", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_show_time_0",
+      "type": "table",
+      "name": "d_program_show_time_0",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Program show time table (database shard 1, shard 0) recording performance date/time per program and area.",
+      "tags": ["database", "table", "program", "show-time", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_program_show_time_1",
+      "type": "table",
+      "name": "d_program_show_time_1",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Program show time table (database shard 1, shard 1) recording performance date/time per program and area.",
+      "tags": ["database", "table", "program", "show-time", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_seat_0",
+      "type": "table",
+      "name": "d_seat_0",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Seat table (database shard 1, shard 0) storing per-seat row/column codes, type, price and sell status.",
+      "tags": ["database", "table", "program", "seat", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_seat_1",
+      "type": "table",
+      "name": "d_seat_1",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Seat table (database shard 1, shard 1) storing per-seat row/column codes, type, price and sell status.",
+      "tags": ["database", "table", "program", "seat", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_ticket_category_0",
+      "type": "table",
+      "name": "d_ticket_category_0",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Ticket category table (database shard 1, shard 0) holding price tiers with total and remaining inventory per program.",
+      "tags": ["database", "table", "program", "ticket-category", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:d_ticket_category_1",
+      "type": "table",
+      "name": "d_ticket_category_1",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Ticket category table (database shard 1, shard 1) holding price tiers with total and remaining inventory per program.",
+      "tags": ["database", "table", "program", "ticket-category", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_program_1.sql:undo_log",
+      "type": "table",
+      "name": "undo_log",
+      "filePath": "sql/cloud/damai_program_1.sql",
+      "summary": "Seata AT-mode undo_log table (database shard 1) storing rollback images for distributed transactions.",
+      "tags": ["database", "table", "seata", "distributed-transaction"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql",
+      "type": "table",
+      "name": "damai_user_0.sql",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "Defines the user-service tables for database shard 0: sharded d_user, d_ticket_user (real-name attendees), d_user_email and d_user_mobile lookup tables.",
+      "tags": ["database", "schema-definition", "user", "sharding", "migration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_ticket_user_0",
+      "type": "table",
+      "name": "d_ticket_user_0",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "Ticket user table, shard 0, storing real-name attendees (name, ID type and ID number) attached to a user account.",
+      "tags": ["database", "table", "user", "ticket-user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_ticket_user_1",
+      "type": "table",
+      "name": "d_ticket_user_1",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "Ticket user table, shard 1, storing real-name attendees (name, ID type and ID number) attached to a user account.",
+      "tags": ["database", "table", "user", "ticket-user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_user_0",
+      "type": "table",
+      "name": "d_user_0",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "User account table, shard 0, storing credentials, profile, email/real-name authentication status and address.",
+      "tags": ["database", "table", "user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_user_1",
+      "type": "table",
+      "name": "d_user_1",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "User account table, shard 1, storing credentials, profile, email/real-name authentication status and address.",
+      "tags": ["database", "table", "user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_user_email_0",
+      "type": "table",
+      "name": "d_user_email_0",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "User-email lookup table, shard 0, mapping email addresses to user ids for login routing in the sharded user database.",
+      "tags": ["database", "table", "user", "email", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_user_email_1",
+      "type": "table",
+      "name": "d_user_email_1",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "User-email lookup table, shard 1, mapping email addresses to user ids for login routing in the sharded user database.",
+      "tags": ["database", "table", "user", "email", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_user_mobile_0",
+      "type": "table",
+      "name": "d_user_mobile_0",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "User-mobile lookup table, shard 0, mapping mobile numbers to user ids for login routing in the sharded user database.",
+      "tags": ["database", "table", "user", "mobile", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_0.sql:d_user_mobile_1",
+      "type": "table",
+      "name": "d_user_mobile_1",
+      "filePath": "sql/cloud/damai_user_0.sql",
+      "summary": "User-mobile lookup table, shard 1, mapping mobile numbers to user ids for login routing in the sharded user database.",
+      "tags": ["database", "table", "user", "mobile", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql",
+      "type": "table",
+      "name": "damai_user_1.sql",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "Defines the user-service tables for database shard 1: sharded d_user, d_ticket_user (real-name attendees), d_user_email and d_user_mobile lookup tables; mirrors shard 0.",
+      "tags": ["database", "schema-definition", "user", "sharding", "migration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_ticket_user_0",
+      "type": "table",
+      "name": "d_ticket_user_0",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "Ticket user table (database shard 1, shard 0) storing real-name attendees attached to a user account.",
+      "tags": ["database", "table", "user", "ticket-user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_ticket_user_1",
+      "type": "table",
+      "name": "d_ticket_user_1",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "Ticket user table (database shard 1, shard 1) storing real-name attendees attached to a user account.",
+      "tags": ["database", "table", "user", "ticket-user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_user_0",
+      "type": "table",
+      "name": "d_user_0",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "User account table (database shard 1, shard 0) storing credentials, profile and authentication status.",
+      "tags": ["database", "table", "user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_user_1",
+      "type": "table",
+      "name": "d_user_1",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "User account table (database shard 1, shard 1) storing credentials, profile and authentication status.",
+      "tags": ["database", "table", "user", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_user_email_0",
+      "type": "table",
+      "name": "d_user_email_0",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "User-email lookup table (database shard 1, shard 0) mapping email addresses to user ids for login routing.",
+      "tags": ["database", "table", "user", "email", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_user_email_1",
+      "type": "table",
+      "name": "d_user_email_1",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "User-email lookup table (database shard 1, shard 1) mapping email addresses to user ids for login routing.",
+      "tags": ["database", "table", "user", "email", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_user_mobile_0",
+      "type": "table",
+      "name": "d_user_mobile_0",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "User-mobile lookup table (database shard 1, shard 0) mapping mobile numbers to user ids for login routing.",
+      "tags": ["database", "table", "user", "mobile", "sharding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:sql/cloud/damai_user_1.sql:d_user_mobile_1",
+      "type": "table",
+      "name": "d_user_mobile_1",
+      "filePath": "sql/cloud/damai_user_1.sql",
+      "summary": "User-mobile lookup table (database shard 1, shard 1) mapping mobile numbers to user ids for login routing.",
+      "tags": ["database", "table", "user", "mobile", "sharding"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "table:sql/cloud/damai_pay_1.sql", "target": "table:sql/cloud/damai_pay_1.sql:d_pay_bill_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_1.sql", "target": "table:sql/cloud/damai_pay_1.sql:d_pay_bill_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_1.sql", "target": "table:sql/cloud/damai_pay_1.sql:d_refund_bill_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_pay_1.sql", "target": "table:sql/cloud/damai_pay_1.sql:d_refund_bill_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_category", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_group_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_group_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_show_time_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_program_show_time_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_seat_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_seat_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_ticket_category_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:d_ticket_category_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_0.sql:undo_log", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_category", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_group_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_group_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_show_time_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_program_show_time_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_seat_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_seat_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_ticket_category_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:d_ticket_category_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_1.sql", "target": "table:sql/cloud/damai_program_1.sql:undo_log", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_ticket_user_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_ticket_user_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_user_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_user_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_user_email_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_user_email_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_user_mobile_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_0.sql:d_user_mobile_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_ticket_user_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_ticket_user_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_user_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_user_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_user_email_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_user_email_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_user_mobile_0", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_user_1.sql", "target": "table:sql/cloud/damai_user_1.sql:d_user_mobile_1", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "table:sql/cloud/damai_program_0.sql", "target": "table:sql/cloud/damai_program_1.sql", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "table:sql/cloud/damai_user_0.sql", "target": "table:sql/cloud/damai_user_1.sql", "type": "related", "direction": "forward", "weight": 0.5}
+  ]
+}

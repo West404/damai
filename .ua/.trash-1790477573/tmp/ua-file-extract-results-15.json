@@ -1,0 +1,6196 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 18,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 18,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 18,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaBaseMapEnum.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "CaptchaBaseMapEnum",
+          "startLine": 24,
+          "endLine": 27,
+          "params": [
+            "codeValue",
+            "codeDesc"
+          ]
+        },
+        {
+          "name": "parseFromCodeValue",
+          "startLine": 32,
+          "endLine": 39,
+          "params": [
+            "codeValue"
+          ]
+        },
+        {
+          "name": "getString",
+          "startLine": 45,
+          "endLine": 52,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "CaptchaBaseMapEnum",
+          "startLine": 10,
+          "endLine": 54,
+          "methods": [
+            "CaptchaBaseMapEnum",
+            "parseFromCodeValue",
+            "getString"
+          ],
+          "properties": [
+            "codeValue",
+            "codeDesc"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "parseFromCodeValue",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "getString",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "CaptchaBaseMapEnum",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseFromCodeValue",
+          "callee": "CaptchaBaseMapEnum.values",
+          "lineNumber": 33
+        },
+        {
+          "caller": "parseFromCodeValue",
+          "callee": "e.codeValue.equals",
+          "lineNumber": 34
+        },
+        {
+          "caller": "getString",
+          "callee": "new StringBuilder",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getString",
+          "callee": "CaptchaBaseMapEnum.values",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.append(e.codeValue).append(\"--\").append(e.getCodeDesc()).append",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.append(e.codeValue).append(\"--\").append",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.append(e.codeValue).append",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.append",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getString",
+          "callee": "e.getCodeDesc",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.deleteCharAt",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.lastIndexOf",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.toString().trim",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.toString",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 63,
+      "functions": [
+        {
+          "name": "CaptchaTypeEnum",
+          "startLine": 32,
+          "endLine": 35,
+          "params": [
+            "codeValue",
+            "codeDesc"
+          ]
+        },
+        {
+          "name": "parseFromCodeValue",
+          "startLine": 40,
+          "endLine": 45,
+          "params": [
+            "codeValue"
+          ]
+        },
+        {
+          "name": "getCodeDescByCodeBalue",
+          "startLine": 50,
+          "endLine": 53,
+          "params": [
+            "codeValue"
+          ]
+        },
+        {
+          "name": "validateCodeValue",
+          "startLine": 58,
+          "endLine": 58,
+          "params": [
+            "codeValue"
+          ]
+        },
+        {
+          "name": "getString",
+          "startLine": 63,
+          "endLine": 70,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "CaptchaTypeEnum",
+          "startLine": 10,
+          "endLine": 72,
+          "methods": [
+            "CaptchaTypeEnum",
+            "parseFromCodeValue",
+            "getCodeDescByCodeBalue",
+            "validateCodeValue",
+            "getString"
+          ],
+          "properties": [
+            "codeValue",
+            "codeDesc"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "parseFromCodeValue",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "getCodeDescByCodeBalue",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "validateCodeValue",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "getString",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "CaptchaTypeEnum",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseFromCodeValue",
+          "callee": "CaptchaTypeEnum.values",
+          "lineNumber": 41
+        },
+        {
+          "caller": "parseFromCodeValue",
+          "callee": "e.codeValue.equals",
+          "lineNumber": 42
+        },
+        {
+          "caller": "getCodeDescByCodeBalue",
+          "callee": "parseFromCodeValue",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getCodeDescByCodeBalue",
+          "callee": "enumItem.getCodeDesc",
+          "lineNumber": 52
+        },
+        {
+          "caller": "validateCodeValue",
+          "callee": "parseFromCodeValue",
+          "lineNumber": 58
+        },
+        {
+          "caller": "getString",
+          "callee": "new StringBuffer",
+          "lineNumber": 64
+        },
+        {
+          "caller": "getString",
+          "callee": "CaptchaTypeEnum.values",
+          "lineNumber": 65
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.append(e.codeValue).append(\"--\").append(e.getCodeDesc()).append",
+          "lineNumber": 66
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.append(e.codeValue).append(\"--\").append",
+          "lineNumber": 66
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.append(e.codeValue).append",
+          "lineNumber": 66
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.append",
+          "lineNumber": 66
+        },
+        {
+          "caller": "getString",
+          "callee": "e.getCodeDesc",
+          "lineNumber": 66
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.deleteCharAt",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.lastIndexOf",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.toString().trim",
+          "lineNumber": 69
+        },
+        {
+          "caller": "getString",
+          "callee": "buffer.toString",
+          "lineNumber": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 119,
+      "nonEmptyLines": 98,
+      "classes": [
+        {
+          "name": "Const",
+          "startLine": 8,
+          "endLine": 119,
+          "methods": [],
+          "properties": [
+            "ORIGINAL_PATH_JIGSAW",
+            "ORIGINAL_PATH_PIC_CLICK",
+            "ORIGINAL_PATH_ROTATE",
+            "CAPTCHA_CACHETYPE",
+            "CAPTCHA_WATER_MARK",
+            "CAPTCHA_FONT_TYPE",
+            "CAPTCHA_FONT_STYLE",
+            "CAPTCHA_FONT_SIZE",
+            "CAPTCHA_TYPE",
+            "CAPTCHA_INTERFERENCE_OPTIONS",
+            "CAPTCHA_INIT_ORIGINAL",
+            "CAPTCHA_SLIP_OFFSET",
+            "CAPTCHA_AES_STATUS",
+            "CAPTCHA_WATER_FONT",
+            "CAPTCHA_CACAHE_MAX_NUMBER",
+            "CAPTCHA_TIMING_CLEAR_SECOND",
+            "HISTORY_DATA_CLEAR_ENABLE",
+            "REQ_FREQUENCY_LIMIT_ENABLE",
+            "REQ_GET_MINUTE_LIMIT",
+            "REQ_GET_LOCK_LIMIT",
+            "REQ_GET_LOCK_SECONDS",
+            "REQ_VALIDATE_MINUTE_LIMIT",
+            "REQ_CHECK_MINUTE_LIMIT",
+            "CAPTCHA_WORD_COUNT"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Const",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 59,
+      "functions": [
+        {
+          "name": "RepCodeEnum",
+          "startLine": 49,
+          "endLine": 52,
+          "params": [
+            "code",
+            "desc"
+          ]
+        },
+        {
+          "name": "getName",
+          "startLine": 54,
+          "endLine": 56,
+          "params": []
+        },
+        {
+          "name": "parseError",
+          "startLine": 63,
+          "endLine": 70,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "RepCodeEnum",
+          "startLine": 19,
+          "endLine": 72,
+          "methods": [
+            "RepCodeEnum",
+            "getName",
+            "parseError"
+          ],
+          "properties": [
+            "code",
+            "desc"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getName",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "parseError",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "RepCodeEnum",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getName",
+          "callee": "this.name",
+          "lineNumber": 55
+        },
+        {
+          "caller": "parseError",
+          "callee": "new ResponseModel",
+          "lineNumber": 64
+        },
+        {
+          "caller": "parseError",
+          "callee": "MessageFormat.format",
+          "lineNumber": 65
+        },
+        {
+          "caller": "parseError",
+          "callee": "errorMessage.setRepCode",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parseError",
+          "callee": "errorMessage.setRepMsg",
+          "lineNumber": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 112,
+      "nonEmptyLines": 94,
+      "functions": [
+        {
+          "name": "ResponseModel",
+          "startLine": 32,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "ResponseModel",
+          "startLine": 36,
+          "endLine": 38,
+          "params": [
+            "repCodeEnum"
+          ]
+        },
+        {
+          "name": "success",
+          "startLine": 43,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "successMsg",
+          "startLine": 46,
+          "endLine": 50,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "successData",
+          "startLine": 51,
+          "endLine": 56,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "errorMsg",
+          "startLine": 61,
+          "endLine": 65,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "errorMsg",
+          "startLine": 66,
+          "endLine": 71,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "errorMsg",
+          "startLine": 72,
+          "endLine": 77,
+          "params": [
+            "repCodeEnum",
+            "message"
+          ]
+        },
+        {
+          "name": "exceptionMsg",
+          "startLine": 78,
+          "endLine": 83,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 85,
+          "endLine": 89,
+          "params": []
+        },
+        {
+          "name": "isSuccess",
+          "startLine": 91,
+          "endLine": 93,
+          "params": []
+        },
+        {
+          "name": "setRepCode",
+          "startLine": 95,
+          "endLine": 97,
+          "params": [
+            "repCode"
+          ]
+        },
+        {
+          "name": "setRepCodeEnum",
+          "startLine": 98,
+          "endLine": 101,
+          "params": [
+            "repCodeEnum"
+          ]
+        },
+        {
+          "name": "setRepMsg",
+          "startLine": 103,
+          "endLine": 105,
+          "params": [
+            "repMsg"
+          ]
+        },
+        {
+          "name": "setRepData",
+          "startLine": 107,
+          "endLine": 109,
+          "params": [
+            "repData"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ResponseModel",
+          "startLine": 20,
+          "endLine": 112,
+          "methods": [
+            "ResponseModel",
+            "ResponseModel",
+            "success",
+            "successMsg",
+            "successData",
+            "errorMsg",
+            "errorMsg",
+            "errorMsg",
+            "exceptionMsg",
+            "toString",
+            "isSuccess",
+            "setRepCode",
+            "setRepCodeEnum",
+            "setRepMsg",
+            "setRepData"
+          ],
+          "properties": [
+            "serialVersionUID",
+            "repCode",
+            "repMsg",
+            "repData"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ResponseModel",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "ResponseModel",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "success",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "successMsg",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "successData",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "errorMsg",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "errorMsg",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "errorMsg",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "exceptionMsg",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "isSuccess",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "setRepCode",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "setRepCodeEnum",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "setRepMsg",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "setRepData",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "ResponseModel",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ResponseModel",
+          "callee": "RepCodeEnum.SUCCESS.getCode",
+          "lineNumber": 33
+        },
+        {
+          "caller": "ResponseModel",
+          "callee": "this.setRepCodeEnum",
+          "lineNumber": 37
+        },
+        {
+          "caller": "success",
+          "callee": "ResponseModel.successMsg",
+          "lineNumber": 44
+        },
+        {
+          "caller": "successMsg",
+          "callee": "new ResponseModel",
+          "lineNumber": 47
+        },
+        {
+          "caller": "successMsg",
+          "callee": "responseModel.setRepMsg",
+          "lineNumber": 48
+        },
+        {
+          "caller": "successData",
+          "callee": "new ResponseModel",
+          "lineNumber": 52
+        },
+        {
+          "caller": "successData",
+          "callee": "responseModel.setRepCode",
+          "lineNumber": 53
+        },
+        {
+          "caller": "successData",
+          "callee": "RepCodeEnum.SUCCESS.getCode",
+          "lineNumber": 53
+        },
+        {
+          "caller": "successData",
+          "callee": "responseModel.setRepData",
+          "lineNumber": 54
+        },
+        {
+          "caller": "errorMsg",
+          "callee": "new ResponseModel",
+          "lineNumber": 62
+        },
+        {
+          "caller": "errorMsg",
+          "callee": "responseModel.setRepCodeEnum",
+          "lineNumber": 63
+        },
+        {
+          "caller": "errorMsg",
+          "callee": "new ResponseModel",
+          "lineNumber": 67
+        },
+        {
+          "caller": "errorMsg",
+          "callee": "responseModel.setRepCode",
+          "lineNumber": 68
+        },
+        {
+          "caller": "errorMsg",
+          "callee": "RepCodeEnum.ERROR.getCode",
+          "lineNumber": 68
+        },
+        {
+          "caller": "errorMsg",
+          "callee": "responseModel.setRepMsg",
+          "lineNumber": 69
+        },
+        {
+          "caller": "errorMsg",
+          "callee": "new ResponseModel",
+          "lineNumber": 73
+        },
+        {
+          "caller": "errorMsg",
+          "callee": "responseModel.setRepCode",
+          "lineNumber": 74
+        },
+        {
+          "caller": "errorMsg",
+          "callee": "repCodeEnum.getCode",
+          "lineNumber": 74
+        },
+        {
+          "caller": "errorMsg",
+          "callee": "responseModel.setRepMsg",
+          "lineNumber": 75
+        },
+        {
+          "caller": "exceptionMsg",
+          "callee": "new ResponseModel",
+          "lineNumber": 79
+        },
+        {
+          "caller": "exceptionMsg",
+          "callee": "responseModel.setRepCode",
+          "lineNumber": 80
+        },
+        {
+          "caller": "exceptionMsg",
+          "callee": "RepCodeEnum.EXCEPTION.getCode",
+          "lineNumber": 80
+        },
+        {
+          "caller": "exceptionMsg",
+          "callee": "responseModel.setRepMsg",
+          "lineNumber": 81
+        },
+        {
+          "caller": "exceptionMsg",
+          "callee": "RepCodeEnum.EXCEPTION.getDesc",
+          "lineNumber": 81
+        },
+        {
+          "caller": "isSuccess",
+          "callee": "StringUtils.equals",
+          "lineNumber": 92
+        },
+        {
+          "caller": "isSuccess",
+          "callee": "RepCodeEnum.SUCCESS.getCode",
+          "lineNumber": 92
+        },
+        {
+          "caller": "setRepCodeEnum",
+          "callee": "repCodeEnum.getCode",
+          "lineNumber": 99
+        },
+        {
+          "caller": "setRepCodeEnum",
+          "callee": "repCodeEnum.getDesc",
+          "lineNumber": 100
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 16,
+        "functionCount": 15,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 259,
+      "nonEmptyLines": 198,
+      "functions": [
+        {
+          "name": "resetClientFlag",
+          "startLine": 103,
+          "endLine": 106,
+          "params": []
+        },
+        {
+          "name": "getCaptchaId",
+          "startLine": 108,
+          "endLine": 110,
+          "params": []
+        },
+        {
+          "name": "setCaptchaId",
+          "startLine": 112,
+          "endLine": 114,
+          "params": [
+            "captchaId"
+          ]
+        },
+        {
+          "name": "getProjectCode",
+          "startLine": 116,
+          "endLine": 118,
+          "params": []
+        },
+        {
+          "name": "setProjectCode",
+          "startLine": 120,
+          "endLine": 122,
+          "params": [
+            "projectCode"
+          ]
+        },
+        {
+          "name": "getCaptchaType",
+          "startLine": 124,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "setCaptchaType",
+          "startLine": 128,
+          "endLine": 130,
+          "params": [
+            "captchaType"
+          ]
+        },
+        {
+          "name": "getCaptchaOriginalPath",
+          "startLine": 132,
+          "endLine": 134,
+          "params": []
+        },
+        {
+          "name": "setCaptchaOriginalPath",
+          "startLine": 136,
+          "endLine": 138,
+          "params": [
+            "captchaOriginalPath"
+          ]
+        },
+        {
+          "name": "getCaptchaFontType",
+          "startLine": 140,
+          "endLine": 142,
+          "params": []
+        },
+        {
+          "name": "setCaptchaFontType",
+          "startLine": 144,
+          "endLine": 146,
+          "params": [
+            "captchaFontType"
+          ]
+        },
+        {
+          "name": "getCaptchaFontSize",
+          "startLine": 148,
+          "endLine": 150,
+          "params": []
+        },
+        {
+          "name": "setCaptchaFontSize",
+          "startLine": 152,
+          "endLine": 154,
+          "params": [
+            "captchaFontSize"
+          ]
+        },
+        {
+          "name": "getOriginalImageBase64",
+          "startLine": 156,
+          "endLine": 158,
+          "params": []
+        },
+        {
+          "name": "setOriginalImageBase64",
+          "startLine": 160,
+          "endLine": 162,
+          "params": [
+            "originalImageBase64"
+          ]
+        },
+        {
+          "name": "getPoint",
+          "startLine": 164,
+          "endLine": 166,
+          "params": []
+        },
+        {
+          "name": "setPoint",
+          "startLine": 168,
+          "endLine": 170,
+          "params": [
+            "point"
+          ]
+        },
+        {
+          "name": "getJigsawImageBase64",
+          "startLine": 172,
+          "endLine": 174,
+          "params": []
+        },
+        {
+          "name": "setJigsawImageBase64",
+          "startLine": 176,
+          "endLine": 178,
+          "params": [
+            "jigsawImageBase64"
+          ]
+        },
+        {
+          "name": "getWordList",
+          "startLine": 180,
+          "endLine": 182,
+          "params": []
+        },
+        {
+          "name": "setWordList",
+          "startLine": 184,
+          "endLine": 186,
+          "params": [
+            "wordList"
+          ]
+        },
+        {
+          "name": "getPointList",
+          "startLine": 188,
+          "endLine": 190,
+          "params": []
+        },
+        {
+          "name": "setPointList",
+          "startLine": 192,
+          "endLine": 194,
+          "params": [
+            "pointList"
+          ]
+        },
+        {
+          "name": "getPointJson",
+          "startLine": 196,
+          "endLine": 198,
+          "params": []
+        },
+        {
+          "name": "setPointJson",
+          "startLine": 200,
+          "endLine": 202,
+          "params": [
+            "pointJson"
+          ]
+        },
+        {
+          "name": "getToken",
+          "startLine": 204,
+          "endLine": 206,
+          "params": []
+        },
+        {
+          "name": "setToken",
+          "startLine": 208,
+          "endLine": 210,
+          "params": [
+            "token"
+          ]
+        },
+        {
+          "name": "getResult",
+          "startLine": 212,
+          "endLine": 214,
+          "params": []
+        },
+        {
+          "name": "setResult",
+          "startLine": 216,
+          "endLine": 218,
+          "params": [
+            "result"
+          ]
+        },
+        {
+          "name": "getCaptchaVerification",
+          "startLine": 220,
+          "endLine": 222,
+          "params": []
+        },
+        {
+          "name": "setCaptchaVerification",
+          "startLine": 224,
+          "endLine": 226,
+          "params": [
+            "captchaVerification"
+          ]
+        },
+        {
+          "name": "getSecretKey",
+          "startLine": 228,
+          "endLine": 230,
+          "params": []
+        },
+        {
+          "name": "setSecretKey",
+          "startLine": 232,
+          "endLine": 234,
+          "params": [
+            "secretKey"
+          ]
+        },
+        {
+          "name": "getClientUid",
+          "startLine": 236,
+          "endLine": 238,
+          "params": []
+        },
+        {
+          "name": "setClientUid",
+          "startLine": 240,
+          "endLine": 242,
+          "params": [
+            "clientUid"
+          ]
+        },
+        {
+          "name": "getTs",
+          "startLine": 244,
+          "endLine": 246,
+          "params": []
+        },
+        {
+          "name": "setTs",
+          "startLine": 248,
+          "endLine": 250,
+          "params": [
+            "ts"
+          ]
+        },
+        {
+          "name": "getBrowserInfo",
+          "startLine": 252,
+          "endLine": 254,
+          "params": []
+        },
+        {
+          "name": "setBrowserInfo",
+          "startLine": 256,
+          "endLine": 258,
+          "params": [
+            "browserInfo"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CaptchaVO",
+          "startLine": 20,
+          "endLine": 259,
+          "methods": [
+            "resetClientFlag",
+            "getCaptchaId",
+            "setCaptchaId",
+            "getProjectCode",
+            "setProjectCode",
+            "getCaptchaType",
+            "setCaptchaType",
+            "getCaptchaOriginalPath",
+            "setCaptchaOriginalPath",
+            "getCaptchaFontType",
+            "setCaptchaFontType",
+            "getCaptchaFontSize",
+            "setCaptchaFontSize",
+            "getOriginalImageBase64",
+            "setOriginalImageBase64",
+            "getPoint",
+            "setPoint",
+            "getJigsawImageBase64",
+            "setJigsawImageBase64",
+            "getWordList",
+            "setWordList",
+            "getPointList",
+            "setPointList",
+            "getPointJson",
+            "setPointJson",
+            "getToken",
+            "setToken",
+            "getResult",
+            "setResult",
+            "getCaptchaVerification",
+            "setCaptchaVerification",
+            "getSecretKey",
+            "setSecretKey",
+            "getClientUid",
+            "setClientUid",
+            "getTs",
+            "setTs",
+            "getBrowserInfo",
+            "setBrowserInfo"
+          ],
+          "properties": [
+            "captchaId",
+            "projectCode",
+            "captchaType",
+            "captchaOriginalPath",
+            "captchaFontType",
+            "captchaFontSize",
+            "secretKey",
+            "originalImageBase64",
+            "point",
+            "jigsawImageBase64",
+            "wordList",
+            "pointList",
+            "pointJson",
+            "token",
+            "result",
+            "captchaVerification",
+            "clientUid",
+            "ts",
+            "browserInfo"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "resetClientFlag",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "getCaptchaId",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "setCaptchaId",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "getProjectCode",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "setProjectCode",
+          "line": 120,
+          "isDefault": false
+        },
+        {
+          "name": "getCaptchaType",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "setCaptchaType",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "getCaptchaOriginalPath",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "setCaptchaOriginalPath",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "getCaptchaFontType",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "setCaptchaFontType",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "getCaptchaFontSize",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "setCaptchaFontSize",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "getOriginalImageBase64",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "setOriginalImageBase64",
+          "line": 160,
+          "isDefault": false
+        },
+        {
+          "name": "getPoint",
+          "line": 164,
+          "isDefault": false
+        },
+        {
+          "name": "setPoint",
+          "line": 168,
+          "isDefault": false
+        },
+        {
+          "name": "getJigsawImageBase64",
+          "line": 172,
+          "isDefault": false
+        },
+        {
+          "name": "setJigsawImageBase64",
+          "line": 176,
+          "isDefault": false
+        },
+        {
+          "name": "getWordList",
+          "line": 180,
+          "isDefault": false
+        },
+        {
+          "name": "setWordList",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "getPointList",
+          "line": 188,
+          "isDefault": false
+        },
+        {
+          "name": "setPointList",
+          "line": 192,
+          "isDefault": false
+        },
+        {
+          "name": "getPointJson",
+          "line": 196,
+          "isDefault": false
+        },
+        {
+          "name": "setPointJson",
+          "line": 200,
+          "isDefault": false
+        },
+        {
+          "name": "getToken",
+          "line": 204,
+          "isDefault": false
+        },
+        {
+          "name": "setToken",
+          "line": 208,
+          "isDefault": false
+        },
+        {
+          "name": "getResult",
+          "line": 212,
+          "isDefault": false
+        },
+        {
+          "name": "setResult",
+          "line": 216,
+          "isDefault": false
+        },
+        {
+          "name": "getCaptchaVerification",
+          "line": 220,
+          "isDefault": false
+        },
+        {
+          "name": "setCaptchaVerification",
+          "line": 224,
+          "isDefault": false
+        },
+        {
+          "name": "getSecretKey",
+          "line": 228,
+          "isDefault": false
+        },
+        {
+          "name": "setSecretKey",
+          "line": 232,
+          "isDefault": false
+        },
+        {
+          "name": "getClientUid",
+          "line": 236,
+          "isDefault": false
+        },
+        {
+          "name": "setClientUid",
+          "line": 240,
+          "isDefault": false
+        },
+        {
+          "name": "getTs",
+          "line": 244,
+          "isDefault": false
+        },
+        {
+          "name": "setTs",
+          "line": 248,
+          "isDefault": false
+        },
+        {
+          "name": "getBrowserInfo",
+          "line": 252,
+          "isDefault": false
+        },
+        {
+          "name": "setBrowserInfo",
+          "line": 256,
+          "isDefault": false
+        },
+        {
+          "name": "CaptchaVO",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 40,
+        "functionCount": 39,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 99,
+      "nonEmptyLines": 80,
+      "functions": [
+        {
+          "name": "getSecretKey",
+          "startLine": 23,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "setSecretKey",
+          "startLine": 27,
+          "endLine": 29,
+          "params": [
+            "secretKey"
+          ]
+        },
+        {
+          "name": "getX",
+          "startLine": 31,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "setX",
+          "startLine": 35,
+          "endLine": 37,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "getY",
+          "startLine": 39,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "setY",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "y"
+          ]
+        },
+        {
+          "name": "PointVO",
+          "startLine": 47,
+          "endLine": 51,
+          "params": [
+            "x",
+            "y",
+            "secretKey"
+          ]
+        },
+        {
+          "name": "PointVO",
+          "startLine": 53,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "PointVO",
+          "startLine": 56,
+          "endLine": 59,
+          "params": [
+            "x",
+            "y"
+          ]
+        },
+        {
+          "name": "toJsonString",
+          "startLine": 61,
+          "endLine": 63,
+          "params": []
+        },
+        {
+          "name": "parse",
+          "startLine": 65,
+          "endLine": 80,
+          "params": [
+            "jsonStr"
+          ]
+        },
+        {
+          "name": "equals",
+          "startLine": 82,
+          "endLine": 92,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "startLine": 94,
+          "endLine": 98,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "PointVO",
+          "startLine": 15,
+          "endLine": 99,
+          "methods": [
+            "getSecretKey",
+            "setSecretKey",
+            "getX",
+            "setX",
+            "getY",
+            "setY",
+            "PointVO",
+            "PointVO",
+            "PointVO",
+            "toJsonString",
+            "parse",
+            "equals",
+            "hashCode"
+          ],
+          "properties": [
+            "secretKey",
+            "x",
+            "y"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "x",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "y",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "getSecretKey",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "setSecretKey",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "getX",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "setX",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "getY",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "setY",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "PointVO",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "PointVO",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "PointVO",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "toJsonString",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "parse",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "PointVO",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "toJsonString",
+          "callee": "String.format",
+          "lineNumber": 62
+        },
+        {
+          "caller": "parse",
+          "callee": "new HashMap",
+          "lineNumber": 66
+        },
+        {
+          "caller": "parse",
+          "callee": "Arrays.stream(jsonStr\r\n                .replaceFirst(\",\\\\{\", \"\\\\{\")\r\n                .replaceFirst(\"\\\\{\", \"\")\r\n                .replaceFirst(\"\\\\}\", \"\")\r\n                .replaceAll(\"\\\"\", \"\")\r\n                .split(\",\")).forEach",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parse",
+          "callee": "Arrays.stream",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parse",
+          "callee": "jsonStr\r\n                .replaceFirst(\",\\\\{\", \"\\\\{\")\r\n                .replaceFirst(\"\\\\{\", \"\")\r\n                .replaceFirst(\"\\\\}\", \"\")\r\n                .replaceAll(\"\\\"\", \"\").split",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parse",
+          "callee": "jsonStr\r\n                .replaceFirst(\",\\\\{\", \"\\\\{\")\r\n                .replaceFirst(\"\\\\{\", \"\")\r\n                .replaceFirst(\"\\\\}\", \"\").replaceAll",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parse",
+          "callee": "jsonStr\r\n                .replaceFirst(\",\\\\{\", \"\\\\{\")\r\n                .replaceFirst(\"\\\\{\", \"\").replaceFirst",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parse",
+          "callee": "jsonStr\r\n                .replaceFirst(\",\\\\{\", \"\\\\{\").replaceFirst",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parse",
+          "callee": "jsonStr.replaceFirst",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parse",
+          "callee": "m.put",
+          "lineNumber": 73
+        },
+        {
+          "caller": "parse",
+          "callee": "item.split",
+          "lineNumber": 73
+        },
+        {
+          "caller": "parse",
+          "callee": "item.split",
+          "lineNumber": 73
+        },
+        {
+          "caller": "parse",
+          "callee": "setX",
+          "lineNumber": 76
+        },
+        {
+          "caller": "parse",
+          "callee": "Double.valueOf(String.valueOf(m.getOrDefault(\"x\",\"0\"))).intValue",
+          "lineNumber": 76
+        },
+        {
+          "caller": "parse",
+          "callee": "Double.valueOf",
+          "lineNumber": 76
+        },
+        {
+          "caller": "parse",
+          "callee": "String.valueOf",
+          "lineNumber": 76
+        },
+        {
+          "caller": "parse",
+          "callee": "m.getOrDefault",
+          "lineNumber": 76
+        },
+        {
+          "caller": "parse",
+          "callee": "setY",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse",
+          "callee": "Double.valueOf(String.valueOf(m.getOrDefault(\"y\",\"0\"))).intValue",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse",
+          "callee": "Double.valueOf",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse",
+          "callee": "String.valueOf",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse",
+          "callee": "m.getOrDefault",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse",
+          "callee": "setSecretKey",
+          "lineNumber": 78
+        },
+        {
+          "caller": "parse",
+          "callee": "String.valueOf",
+          "lineNumber": 78
+        },
+        {
+          "caller": "parse",
+          "callee": "m.getOrDefault",
+          "lineNumber": 78
+        },
+        {
+          "caller": "equals",
+          "callee": "getClass",
+          "lineNumber": 87
+        },
+        {
+          "caller": "equals",
+          "callee": "o.getClass",
+          "lineNumber": 87
+        },
+        {
+          "caller": "equals",
+          "callee": "Objects.equals",
+          "lineNumber": 91
+        },
+        {
+          "caller": "hashCode",
+          "callee": "Objects.hash",
+          "lineNumber": 97
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 16,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 62,
+      "nonEmptyLines": 53,
+      "classes": [
+        {
+          "name": "CaptchaCacheService",
+          "startLine": 14,
+          "endLine": 62,
+          "methods": [
+            "set",
+            "exists",
+            "delete",
+            "get",
+            "type",
+            "increment"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CaptchaCacheService",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 51,
+      "classes": [
+        {
+          "name": "CaptchaService",
+          "startLine": 19,
+          "endLine": 59,
+          "methods": [
+            "init",
+            "get",
+            "check",
+            "verification",
+            "captchaType",
+            "destroy"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CaptchaService",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/AbstractCaptchaService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 286,
+      "nonEmptyLines": 242,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 92,
+          "endLine": 133,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "getCacheService",
+          "startLine": 135,
+          "endLine": 137,
+          "params": [
+            "cacheType"
+          ]
+        },
+        {
+          "name": "destroy",
+          "startLine": 139,
+          "endLine": 142,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 146,
+          "endLine": 153,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "check",
+          "startLine": 155,
+          "endLine": 163,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "verification",
+          "startLine": 165,
+          "endLine": 177,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "validatedReq",
+          "startLine": 179,
+          "endLine": 181,
+          "params": [
+            "resp"
+          ]
+        },
+        {
+          "name": "getValidateClientId",
+          "startLine": 183,
+          "endLine": 193,
+          "params": [
+            "req"
+          ]
+        },
+        {
+          "name": "afterValidateFail",
+          "startLine": 195,
+          "endLine": 205,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "loadWaterMarkFont",
+          "startLine": 212,
+          "endLine": 226,
+          "params": []
+        },
+        {
+          "name": "base64StrToImage",
+          "startLine": 228,
+          "endLine": 256,
+          "params": [
+            "imgStr",
+            "path"
+          ]
+        },
+        {
+          "name": "decrypt",
+          "startLine": 265,
+          "endLine": 267,
+          "params": [
+            "point",
+            "key"
+          ]
+        },
+        {
+          "name": "getEnOrChLength",
+          "startLine": 269,
+          "endLine": 283,
+          "params": [
+            "s"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractCaptchaService",
+          "startLine": 36,
+          "endLine": 286,
+          "methods": [
+            "init",
+            "getCacheService",
+            "destroy",
+            "get",
+            "check",
+            "verification",
+            "validatedReq",
+            "getValidateClientId",
+            "afterValidateFail",
+            "loadWaterMarkFont",
+            "base64StrToImage",
+            "decrypt",
+            "getEnOrChLength"
+          ],
+          "properties": [
+            "logger",
+            "IMAGE_TYPE_PNG",
+            "HAN_ZI_SIZE",
+            "HAN_ZI_SIZE_HALF",
+            "REDIS_CAPTCHA_KEY",
+            "REDIS_SECOND_CAPTCHA_KEY",
+            "EXPIRE_SIN_SECONDS",
+            "EXPIRE_SIN_THREE",
+            "waterMark",
+            "waterMarkFontStr",
+            "waterMarkFont",
+            "slipOffset",
+            "captchaAesStatus",
+            "clickWordFontStr",
+            "cacheType",
+            "captchaInterferenceOptions",
+            "local",
+            "one",
+            "zero",
+            "ttf",
+            "ttc",
+            "limitHandler"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "destroy",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "check",
+          "line": 155,
+          "isDefault": false
+        },
+        {
+          "name": "verification",
+          "line": 165,
+          "isDefault": false
+        },
+        {
+          "name": "base64StrToImage",
+          "line": 228,
+          "isDefault": false
+        },
+        {
+          "name": "decrypt",
+          "line": 265,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractCaptchaService",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "Boolean.parseBoolean",
+          "lineNumber": 95
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 95
+        },
+        {
+          "caller": "init",
+          "callee": "ImageUtils.cacheImage",
+          "lineNumber": 97
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 97
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 98
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 98
+        },
+        {
+          "caller": "init",
+          "callee": "logger.info",
+          "lineNumber": 100
+        },
+        {
+          "caller": "init",
+          "callee": "captchaType",
+          "lineNumber": 100
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 101
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 102
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 103
+        },
+        {
+          "caller": "init",
+          "callee": "Boolean.parseBoolean",
+          "lineNumber": 104
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 104
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 105
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 106
+        },
+        {
+          "caller": "init",
+          "callee": "Integer.parseInt",
+          "lineNumber": 107
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 108
+        },
+        {
+          "caller": "init",
+          "callee": "loadWaterMarkFont",
+          "lineNumber": 112
+        },
+        {
+          "caller": "init",
+          "callee": "local.equals",
+          "lineNumber": 113
+        },
+        {
+          "caller": "init",
+          "callee": "logger.info",
+          "lineNumber": 114
+        },
+        {
+          "caller": "init",
+          "callee": "CacheUtil.init",
+          "lineNumber": 115
+        },
+        {
+          "caller": "init",
+          "callee": "Integer.parseInt",
+          "lineNumber": 115
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 115
+        },
+        {
+          "caller": "init",
+          "callee": "Long.parseLong",
+          "lineNumber": 116
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 116
+        },
+        {
+          "caller": "init",
+          "callee": "one.equals",
+          "lineNumber": 118
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 118
+        },
+        {
+          "caller": "init",
+          "callee": "logger.info",
+          "lineNumber": 119
+        },
+        {
+          "caller": "init",
+          "callee": "captchaType",
+          "lineNumber": 119
+        },
+        {
+          "caller": "init",
+          "callee": "Runtime.getRuntime().addShutdownHook",
+          "lineNumber": 120
+        },
+        {
+          "caller": "init",
+          "callee": "Runtime.getRuntime",
+          "lineNumber": 120
+        },
+        {
+          "caller": "init",
+          "callee": "new Thread",
+          "lineNumber": 120
+        },
+        {
+          "caller": "init",
+          "callee": "new Runnable",
+          "lineNumber": 120
+        },
+        {
+          "caller": "run",
+          "callee": "destroy",
+          "lineNumber": 123
+        },
+        {
+          "caller": "init",
+          "callee": "one.equals",
+          "lineNumber": 127
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 127
+        },
+        {
+          "caller": "init",
+          "callee": "logger.info",
+          "lineNumber": 129
+        },
+        {
+          "caller": "init",
+          "callee": "new FrequencyLimitHandler.DefaultLimitHandler",
+          "lineNumber": 130
+        },
+        {
+          "caller": "init",
+          "callee": "getCacheService",
+          "lineNumber": 130
+        },
+        {
+          "caller": "getCacheService",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 136
+        },
+        {
+          "caller": "get",
+          "callee": "captchaVO.setClientUid",
+          "lineNumber": 149
+        },
+        {
+          "caller": "get",
+          "callee": "getValidateClientId",
+          "lineNumber": 149
+        },
+        {
+          "caller": "get",
+          "callee": "limitHandler.validateGet",
+          "lineNumber": 150
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.setClientUid",
+          "lineNumber": 159
+        },
+        {
+          "caller": "check",
+          "callee": "getValidateClientId",
+          "lineNumber": 159
+        },
+        {
+          "caller": "check",
+          "callee": "limitHandler.validateCheck",
+          "lineNumber": 160
+        },
+        {
+          "caller": "verification",
+          "callee": "RepCodeEnum.NULL_ERROR.parseError",
+          "lineNumber": 168
+        },
+        {
+          "caller": "verification",
+          "callee": "StringUtils.isEmpty",
+          "lineNumber": 170
+        },
+        {
+          "caller": "verification",
+          "callee": "captchaVO.getCaptchaVerification",
+          "lineNumber": 170
+        },
+        {
+          "caller": "verification",
+          "callee": "RepCodeEnum.NULL_ERROR.parseError",
+          "lineNumber": 171
+        },
+        {
+          "caller": "verification",
+          "callee": "limitHandler.validateVerify",
+          "lineNumber": 174
+        },
+        {
+          "caller": "validatedReq",
+          "callee": "resp.isSuccess",
+          "lineNumber": 180
+        },
+        {
+          "caller": "getValidateClientId",
+          "callee": "StringUtils.isNotEmpty",
+          "lineNumber": 185
+        },
+        {
+          "caller": "getValidateClientId",
+          "callee": "req.getBrowserInfo",
+          "lineNumber": 185
+        },
+        {
+          "caller": "getValidateClientId",
+          "callee": "Md5Util.md5",
+          "lineNumber": 186
+        },
+        {
+          "caller": "getValidateClientId",
+          "callee": "req.getBrowserInfo",
+          "lineNumber": 186
+        },
+        {
+          "caller": "getValidateClientId",
+          "callee": "StringUtils.isNotEmpty",
+          "lineNumber": 189
+        },
+        {
+          "caller": "getValidateClientId",
+          "callee": "req.getClientUid",
+          "lineNumber": 189
+        },
+        {
+          "caller": "getValidateClientId",
+          "callee": "req.getClientUid",
+          "lineNumber": 190
+        },
+        {
+          "caller": "afterValidateFail",
+          "callee": "String.format",
+          "lineNumber": 198
+        },
+        {
+          "caller": "afterValidateFail",
+          "callee": "data.getClientUid",
+          "lineNumber": 198
+        },
+        {
+          "caller": "afterValidateFail",
+          "callee": "getCacheService",
+          "lineNumber": 199
+        },
+        {
+          "caller": "afterValidateFail",
+          "callee": "cs.exists",
+          "lineNumber": 200
+        },
+        {
+          "caller": "afterValidateFail",
+          "callee": "cs.set",
+          "lineNumber": 201
+        },
+        {
+          "caller": "afterValidateFail",
+          "callee": "cs.increment",
+          "lineNumber": 203
+        },
+        {
+          "caller": "loadWaterMarkFont",
+          "callee": "waterMarkFontStr.toLowerCase().endsWith",
+          "lineNumber": 214
+        },
+        {
+          "caller": "loadWaterMarkFont",
+          "callee": "waterMarkFontStr.toLowerCase",
+          "lineNumber": 214
+        },
+        {
+          "caller": "loadWaterMarkFont",
+          "callee": "waterMarkFontStr.toLowerCase().endsWith",
+          "lineNumber": 214
+        },
+        {
+          "caller": "loadWaterMarkFont",
+          "callee": "waterMarkFontStr.toLowerCase",
+          "lineNumber": 214
+        },
+        {
+          "caller": "loadWaterMarkFont",
+          "callee": "waterMarkFontStr.toLowerCase().endsWith",
+          "lineNumber": 215
+        },
+        {
+          "caller": "loadWaterMarkFont",
+          "callee": "waterMarkFontStr.toLowerCase",
+          "lineNumber": 215
+        },
+        {
+          "caller": "loadWaterMarkFont",
+          "callee": "Font.createFont(Font.TRUETYPE_FONT,\r\n                        getClass().getResourceAsStream(\"/fonts/\" + waterMarkFontStr)).deriveFont",
+          "lineNumber": 216
+        },
+        {
+          "caller": "loadWaterMarkFont",
+          "callee": "Font.createFont",
+          "lineNumber": 216
+        },
+        {
+          "caller": "loadWaterMarkFont",
+          "callee": "getClass().getResourceAsStream",
+          "lineNumber": 217
+        },
+        {
+          "caller": "loadWaterMarkFont",
+          "callee": "getClass",
+          "lineNumber": 217
+        },
+        {
+          "caller": "loadWaterMarkFont",
+          "callee": "new Font",
+          "lineNumber": 220
+        },
+        {
+          "caller": "loadWaterMarkFont",
+          "callee": "logger.error",
+          "lineNumber": 224
+        },
+        {
+          "caller": "base64StrToImage",
+          "callee": "Base64.getDecoder",
+          "lineNumber": 233
+        },
+        {
+          "caller": "base64StrToImage",
+          "callee": "decoder.decode",
+          "lineNumber": 236
+        },
+        {
+          "caller": "base64StrToImage",
+          "callee": "new File",
+          "lineNumber": 244
+        },
+        {
+          "caller": "base64StrToImage",
+          "callee": "tempFile.getParentFile().exists",
+          "lineNumber": 245
+        },
+        {
+          "caller": "base64StrToImage",
+          "callee": "tempFile.getParentFile",
+          "lineNumber": 245
+        },
+        {
+          "caller": "base64StrToImage",
+          "callee": "tempFile.getParentFile().mkdirs",
+          "lineNumber": 246
+        },
+        {
+          "caller": "base64StrToImage",
+          "callee": "tempFile.getParentFile",
+          "lineNumber": 246
+        },
+        {
+          "caller": "base64StrToImage",
+          "callee": "new FileOutputStream",
+          "lineNumber": 248
+        },
+        {
+          "caller": "base64StrToImage",
+          "callee": "out.write",
+          "lineNumber": 249
+        },
+        {
+          "caller": "base64StrToImage",
+          "callee": "out.flush",
+          "lineNumber": 250
+        },
+        {
+          "caller": "base64StrToImage",
+          "callee": "out.close",
+          "lineNumber": 251
+        },
+        {
+          "caller": "decrypt",
+          "callee": "AesUtil.aesDecrypt",
+          "lineNumber": 266
+        },
+        {
+          "caller": "getEnOrChLength",
+          "callee": "s.length",
+          "lineNumber": 272
+        },
+        {
+          "caller": "getEnOrChLength",
+          "callee": "String.valueOf(s.charAt(i)).getBytes",
+          "lineNumber": 273
+        },
+        {
+          "caller": "getEnOrChLength",
+          "callee": "String.valueOf",
+          "lineNumber": 273
+        },
+        {
+          "caller": "getEnOrChLength",
+          "callee": "s.charAt",
+          "lineNumber": 273
+        }
+      ],
+      "metrics": {
+        "importCount": 11,
+        "exportCount": 8,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/BlockPuzzleCaptchaServiceImpl.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 440,
+      "nonEmptyLines": 399,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 34,
+          "endLine": 37,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "destroy",
+          "startLine": 39,
+          "endLine": 42,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "captchaType",
+          "startLine": 44,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "get",
+          "startLine": 49,
+          "endLine": 84,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "check",
+          "startLine": 86,
+          "endLine": 139,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "verification",
+          "startLine": 141,
+          "endLine": 159,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "pictureTemplatesCut",
+          "startLine": 165,
+          "endLine": 221,
+          "params": [
+            "originalImage",
+            "jigsawImage",
+            "jigsawImageBase64"
+          ]
+        },
+        {
+          "name": "extracted",
+          "startLine": 223,
+          "endLine": 252,
+          "params": [
+            "originalImage",
+            "jigsawImageBase64",
+            "originalWidth",
+            "jigsawWidth",
+            "x"
+          ]
+        },
+        {
+          "name": "generateJigsawPoint",
+          "startLine": 264,
+          "endLine": 284,
+          "params": [
+            "originalWidth",
+            "originalHeight",
+            "jigsawWidth",
+            "jigsawHeight"
+          ]
+        },
+        {
+          "name": "cutByTemplate",
+          "startLine": 292,
+          "endLine": 328,
+          "params": [
+            "oriImage",
+            "templateImage",
+            "newImage",
+            "x"
+          ]
+        },
+        {
+          "name": "case1",
+          "startLine": 330,
+          "endLine": 332,
+          "params": [
+            "rgb",
+            "rightRgb"
+          ]
+        },
+        {
+          "name": "case2",
+          "startLine": 334,
+          "endLine": 336,
+          "params": [
+            "rgb",
+            "rightRgb"
+          ]
+        },
+        {
+          "name": "case3",
+          "startLine": 338,
+          "endLine": 340,
+          "params": [
+            "rgb",
+            "downRgb"
+          ]
+        },
+        {
+          "name": "case4",
+          "startLine": 342,
+          "endLine": 344,
+          "params": [
+            "rgb",
+            "downRgb"
+          ]
+        },
+        {
+          "name": "interferenceByTemplate",
+          "startLine": 353,
+          "endLine": 385,
+          "params": [
+            "oriImage",
+            "templateImage",
+            "x"
+          ]
+        },
+        {
+          "name": "readPixel",
+          "startLine": 387,
+          "endLine": 410,
+          "params": [
+            "img",
+            "x",
+            "y",
+            "pixels"
+          ]
+        },
+        {
+          "name": "fillMatrix",
+          "startLine": 412,
+          "endLine": 419,
+          "params": [
+            "matrix",
+            "values"
+          ]
+        },
+        {
+          "name": "avgMatrix",
+          "startLine": 421,
+          "endLine": 437,
+          "params": [
+            "matrix"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BlockPuzzleCaptchaServiceImpl",
+          "startLine": 32,
+          "endLine": 440,
+          "methods": [
+            "init",
+            "destroy",
+            "captchaType",
+            "get",
+            "check",
+            "verification",
+            "pictureTemplatesCut",
+            "extracted",
+            "generateJigsawPoint",
+            "cutByTemplate",
+            "case1",
+            "case2",
+            "case3",
+            "case4",
+            "interferenceByTemplate",
+            "readPixel",
+            "fillMatrix",
+            "avgMatrix"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "destroy",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "captchaType",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "check",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "verification",
+          "line": 141,
+          "isDefault": false
+        },
+        {
+          "name": "pictureTemplatesCut",
+          "line": 165,
+          "isDefault": false
+        },
+        {
+          "name": "case1",
+          "line": 330,
+          "isDefault": false
+        },
+        {
+          "name": "case2",
+          "line": 334,
+          "isDefault": false
+        },
+        {
+          "name": "case3",
+          "line": 338,
+          "isDefault": false
+        },
+        {
+          "name": "case4",
+          "line": 342,
+          "isDefault": false
+        },
+        {
+          "name": "BlockPuzzleCaptchaServiceImpl",
+          "line": 32,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "super.init",
+          "lineNumber": 36
+        },
+        {
+          "caller": "destroy",
+          "callee": "logger.info",
+          "lineNumber": 41
+        },
+        {
+          "caller": "destroy",
+          "callee": "captchaType",
+          "lineNumber": 41
+        },
+        {
+          "caller": "captchaType",
+          "callee": "CaptchaTypeEnum.BLOCKPUZZLE.getCodeValue",
+          "lineNumber": 46
+        },
+        {
+          "caller": "get",
+          "callee": "super.get",
+          "lineNumber": 51
+        },
+        {
+          "caller": "get",
+          "callee": "validatedReq",
+          "lineNumber": 52
+        },
+        {
+          "caller": "get",
+          "callee": "ImageUtils.getOriginal",
+          "lineNumber": 56
+        },
+        {
+          "caller": "get",
+          "callee": "logger.error",
+          "lineNumber": 58
+        },
+        {
+          "caller": "get",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 59
+        },
+        {
+          "caller": "get",
+          "callee": "originalImage.getGraphics",
+          "lineNumber": 62
+        },
+        {
+          "caller": "get",
+          "callee": "originalImage.getWidth",
+          "lineNumber": 63
+        },
+        {
+          "caller": "get",
+          "callee": "originalImage.getHeight",
+          "lineNumber": 64
+        },
+        {
+          "caller": "get",
+          "callee": "backgroundGraphics.setFont",
+          "lineNumber": 65
+        },
+        {
+          "caller": "get",
+          "callee": "backgroundGraphics.setColor",
+          "lineNumber": 66
+        },
+        {
+          "caller": "get",
+          "callee": "backgroundGraphics.drawString",
+          "lineNumber": 67
+        },
+        {
+          "caller": "get",
+          "callee": "getEnOrChLength",
+          "lineNumber": 67
+        },
+        {
+          "caller": "get",
+          "callee": "ImageUtils.getslidingBlock",
+          "lineNumber": 70
+        },
+        {
+          "caller": "get",
+          "callee": "ImageUtils.getBase64StrToImage",
+          "lineNumber": 71
+        },
+        {
+          "caller": "get",
+          "callee": "logger.error",
+          "lineNumber": 73
+        },
+        {
+          "caller": "get",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 74
+        },
+        {
+          "caller": "get",
+          "callee": "pictureTemplatesCut",
+          "lineNumber": 76
+        },
+        {
+          "caller": "get",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 78
+        },
+        {
+          "caller": "get",
+          "callee": "captcha.getJigsawImageBase64",
+          "lineNumber": 78
+        },
+        {
+          "caller": "get",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 79
+        },
+        {
+          "caller": "get",
+          "callee": "captcha.getOriginalImageBase64",
+          "lineNumber": 79
+        },
+        {
+          "caller": "get",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 80
+        },
+        {
+          "caller": "get",
+          "callee": "logger.info",
+          "lineNumber": 82
+        },
+        {
+          "caller": "get",
+          "callee": "captcha.getSecretKey",
+          "lineNumber": 82
+        },
+        {
+          "caller": "get",
+          "callee": "ResponseModel.successData",
+          "lineNumber": 83
+        },
+        {
+          "caller": "check",
+          "callee": "super.check",
+          "lineNumber": 88
+        },
+        {
+          "caller": "check",
+          "callee": "validatedReq",
+          "lineNumber": 89
+        },
+        {
+          "caller": "check",
+          "callee": "String.format",
+          "lineNumber": 93
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getToken",
+          "lineNumber": 93
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).exists",
+          "lineNumber": 94
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 94
+        },
+        {
+          "caller": "check",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 95
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).get",
+          "lineNumber": 97
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 97
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).delete",
+          "lineNumber": 99
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 99
+        },
+        {
+          "caller": "check",
+          "callee": "JsonUtil.parseObject",
+          "lineNumber": 104
+        },
+        {
+          "caller": "check",
+          "callee": "decrypt",
+          "lineNumber": 106
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getPointJson",
+          "lineNumber": 106
+        },
+        {
+          "caller": "check",
+          "callee": "point.getSecretKey",
+          "lineNumber": 106
+        },
+        {
+          "caller": "check",
+          "callee": "JsonUtil.parseObject",
+          "lineNumber": 107
+        },
+        {
+          "caller": "check",
+          "callee": "logger.error",
+          "lineNumber": 109
+        },
+        {
+          "caller": "check",
+          "callee": "afterValidateFail",
+          "lineNumber": 110
+        },
+        {
+          "caller": "check",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 111
+        },
+        {
+          "caller": "check",
+          "callee": "e.getMessage",
+          "lineNumber": 111
+        },
+        {
+          "caller": "check",
+          "callee": "Integer.parseInt",
+          "lineNumber": 113
+        },
+        {
+          "caller": "check",
+          "callee": "Integer.parseInt",
+          "lineNumber": 114
+        },
+        {
+          "caller": "check",
+          "callee": "afterValidateFail",
+          "lineNumber": 116
+        },
+        {
+          "caller": "check",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 117
+        },
+        {
+          "caller": "check",
+          "callee": "point.getSecretKey",
+          "lineNumber": 120
+        },
+        {
+          "caller": "check",
+          "callee": "AesUtil.aesEncrypt",
+          "lineNumber": 123
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getToken().concat(\"---\").concat",
+          "lineNumber": 123
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getToken().concat",
+          "lineNumber": 123
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getToken",
+          "lineNumber": 123
+        },
+        {
+          "caller": "check",
+          "callee": "logger.info",
+          "lineNumber": 124
+        },
+        {
+          "caller": "check",
+          "callee": "logger.info",
+          "lineNumber": 125
+        },
+        {
+          "caller": "check",
+          "callee": "logger.error",
+          "lineNumber": 127
+        },
+        {
+          "caller": "check",
+          "callee": "afterValidateFail",
+          "lineNumber": 128
+        },
+        {
+          "caller": "check",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 129
+        },
+        {
+          "caller": "check",
+          "callee": "e.getMessage",
+          "lineNumber": 129
+        },
+        {
+          "caller": "check",
+          "callee": "String.format",
+          "lineNumber": 131
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).set",
+          "lineNumber": 132
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 132
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getToken",
+          "lineNumber": 132
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.setResult",
+          "lineNumber": 133
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.resetClientFlag",
+          "lineNumber": 134
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.setCaptchaVerification",
+          "lineNumber": 135
+        },
+        {
+          "caller": "check",
+          "callee": "logger.info",
+          "lineNumber": 136
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getPointJson",
+          "lineNumber": 136
+        },
+        {
+          "caller": "check",
+          "callee": "logger.info",
+          "lineNumber": 137
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getToken",
+          "lineNumber": 137
+        },
+        {
+          "caller": "check",
+          "callee": "ResponseModel.successData",
+          "lineNumber": 138
+        },
+        {
+          "caller": "verification",
+          "callee": "super.verification",
+          "lineNumber": 143
+        },
+        {
+          "caller": "verification",
+          "callee": "validatedReq",
+          "lineNumber": 144
+        },
+        {
+          "caller": "verification",
+          "callee": "String.format",
+          "lineNumber": 148
+        },
+        {
+          "caller": "verification",
+          "callee": "captchaVO.getCaptchaVerification",
+          "lineNumber": 148
+        },
+        {
+          "caller": "verification",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).exists",
+          "lineNumber": 149
+        },
+        {
+          "caller": "verification",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 149
+        },
+        {
+          "caller": "verification",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 150
+        },
+        {
+          "caller": "verification",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).delete",
+          "lineNumber": 153
+        },
+        {
+          "caller": "verification",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 153
+        },
+        {
+          "caller": "verification",
+          "callee": "logger.error",
+          "lineNumber": 155
+        },
+        {
+          "caller": "verification",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 156
+        },
+        {
+          "caller": "verification",
+          "callee": "e.getMessage",
+          "lineNumber": 156
+        },
+        {
+          "caller": "verification",
+          "callee": "ResponseModel.success",
+          "lineNumber": 158
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "new CaptchaVO",
+          "lineNumber": 167
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "originalImage.getWidth",
+          "lineNumber": 169
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "originalImage.getHeight",
+          "lineNumber": 170
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "jigsawImage.getWidth",
+          "lineNumber": 171
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "jigsawImage.getHeight",
+          "lineNumber": 172
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "generateJigsawPoint",
+          "lineNumber": 175
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "point.getX",
+          "lineNumber": 176
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "new BufferedImage",
+          "lineNumber": 179
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "jigsawImage.getType",
+          "lineNumber": 179
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "newJigsawImage.createGraphics",
+          "lineNumber": 180
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "graphics.getDeviceConfiguration().createCompatibleImage",
+          "lineNumber": 184
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "graphics.getDeviceConfiguration",
+          "lineNumber": 184
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "cutByTemplate",
+          "lineNumber": 186
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "extracted",
+          "lineNumber": 188
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "graphics.setRenderingHint",
+          "lineNumber": 191
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "graphics.setStroke",
+          "lineNumber": 192
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "new BasicStroke",
+          "lineNumber": 192
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "graphics.drawImage",
+          "lineNumber": 193
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "graphics.dispose",
+          "lineNumber": 194
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "new ByteArrayOutputStream",
+          "lineNumber": 196
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "ImageIO.write",
+          "lineNumber": 198
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "os.toByteArray",
+          "lineNumber": 199
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "new ByteArrayOutputStream",
+          "lineNumber": 201
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "ImageIO.write",
+          "lineNumber": 203
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "oriImagesOs.toByteArray",
+          "lineNumber": 204
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "Base64.getEncoder",
+          "lineNumber": 205
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "dataVO.setOriginalImageBase64",
+          "lineNumber": 206
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "encoder.encodeToString(oriCopyImages).replaceAll",
+          "lineNumber": 206
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "encoder.encodeToString",
+          "lineNumber": 206
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "dataVO.setJigsawImageBase64",
+          "lineNumber": 208
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "encoder.encodeToString(jigsawImages).replaceAll",
+          "lineNumber": 208
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "encoder.encodeToString",
+          "lineNumber": 208
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "dataVO.setToken",
+          "lineNumber": 209
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "RandomUtils.getUuid",
+          "lineNumber": 209
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "dataVO.setSecretKey",
+          "lineNumber": 210
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "point.getSecretKey",
+          "lineNumber": 210
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "String.format",
+          "lineNumber": 213
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "dataVO.getToken",
+          "lineNumber": 213
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).set",
+          "lineNumber": 214
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 214
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "JsonUtil.toJsonString",
+          "lineNumber": 214
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "logger.debug",
+          "lineNumber": 215
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "dataVO.getToken",
+          "lineNumber": 215
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "JsonUtil.toJsonString",
+          "lineNumber": 215
+        },
+        {
+          "caller": "pictureTemplatesCut",
+          "callee": "e.printStackTrace",
+          "lineNumber": 218
+        },
+        {
+          "caller": "extracted",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 228
+        },
+        {
+          "caller": "extracted",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 231
+        },
+        {
+          "caller": "extracted",
+          "callee": "ImageUtils.getslidingBlock",
+          "lineNumber": 234
+        },
+        {
+          "caller": "extracted",
+          "callee": "jigsawImageBase64.equals",
+          "lineNumber": 235
+        },
+        {
+          "caller": "extracted",
+          "callee": "interferenceByTemplate",
+          "lineNumber": 236
+        },
+        {
+          "caller": "extracted",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 236
+        },
+        {
+          "caller": "extracted",
+          "callee": "ImageUtils.getBase64StrToImage",
+          "lineNumber": 236
+        },
+        {
+          "caller": "extracted",
+          "callee": "ImageUtils.getslidingBlock",
+          "lineNumber": 243
+        },
+        {
+          "caller": "extracted",
+          "callee": "jigsawImageBase64.equals",
+          "lineNumber": 244
+        },
+        {
+          "caller": "extracted",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 245
+        },
+        {
+          "caller": "extracted",
+          "callee": "interferenceByTemplate",
+          "lineNumber": 246
+        },
+        {
+          "caller": "extracted",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 246
+        },
+        {
+          "caller": "extracted",
+          "callee": "ImageUtils.getBase64StrToImage",
+          "lineNumber": 246
+        },
+        {
+          "caller": "generateJigsawPoint",
+          "callee": "new Random",
+          "lineNumber": 265
+        },
+        {
+          "caller": "generateJigsawPoint",
+          "callee": "random.nextInt",
+          "lineNumber": 272
+        },
+        {
+          "caller": "generateJigsawPoint",
+          "callee": "random.nextInt",
+          "lineNumber": 277
+        },
+        {
+          "caller": "generateJigsawPoint",
+          "callee": "AesUtil.getKey",
+          "lineNumber": 281
+        },
+        {
+          "caller": "generateJigsawPoint",
+          "callee": "new PointVO",
+          "lineNumber": 283
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "templateImage.getWidth",
+          "lineNumber": 297
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "templateImage.getHeight",
+          "lineNumber": 298
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "templateImage.getRGB",
+          "lineNumber": 304
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "newImage.setRGB",
+          "lineNumber": 306
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "oriImage.getRGB",
+          "lineNumber": 306
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "readPixel",
+          "lineNumber": 309
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "fillMatrix",
+          "lineNumber": 310
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "oriImage.setRGB",
+          "lineNumber": 311
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "avgMatrix",
+          "lineNumber": 311
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "templateImage.getRGB",
+          "lineNumber": 318
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "templateImage.getRGB",
+          "lineNumber": 319
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "case1",
+          "lineNumber": 321
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "case2",
+          "lineNumber": 321
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "case3",
+          "lineNumber": 321
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "case4",
+          "lineNumber": 321
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "newImage.setRGB",
+          "lineNumber": 322
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "Color.white.getRGB",
+          "lineNumber": 322
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "oriImage.setRGB",
+          "lineNumber": 323
+        },
+        {
+          "caller": "cutByTemplate",
+          "callee": "Color.white.getRGB",
+          "lineNumber": 323
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "templateImage.getWidth",
+          "lineNumber": 358
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "templateImage.getHeight",
+          "lineNumber": 359
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "templateImage.getRGB",
+          "lineNumber": 365
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "readPixel",
+          "lineNumber": 368
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "fillMatrix",
+          "lineNumber": 369
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "oriImage.setRGB",
+          "lineNumber": 370
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "avgMatrix",
+          "lineNumber": 370
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "templateImage.getRGB",
+          "lineNumber": 376
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "templateImage.getRGB",
+          "lineNumber": 377
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "case1",
+          "lineNumber": 379
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "case2",
+          "lineNumber": 379
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "case3",
+          "lineNumber": 379
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "case4",
+          "lineNumber": 379
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "oriImage.setRGB",
+          "lineNumber": 380
+        },
+        {
+          "caller": "interferenceByTemplate",
+          "callee": "Color.white.getRGB",
+          "lineNumber": 380
+        },
+        {
+          "caller": "readPixel",
+          "callee": "img.getWidth",
+          "lineNumber": 397
+        },
+        {
+          "caller": "readPixel",
+          "callee": "img.getHeight",
+          "lineNumber": 403
+        },
+        {
+          "caller": "readPixel",
+          "callee": "img.getRGB",
+          "lineNumber": 406
+        },
+        {
+          "caller": "avgMatrix",
+          "callee": "new Color",
+          "lineNumber": 430
+        },
+        {
+          "caller": "avgMatrix",
+          "callee": "c.getRed",
+          "lineNumber": 431
+        },
+        {
+          "caller": "avgMatrix",
+          "callee": "c.getGreen",
+          "lineNumber": 432
+        },
+        {
+          "caller": "avgMatrix",
+          "callee": "c.getBlue",
+          "lineNumber": 433
+        },
+        {
+          "caller": "avgMatrix",
+          "callee": "new Color(r / 8, g / 8, b / 8).getRGB",
+          "lineNumber": 436
+        },
+        {
+          "caller": "avgMatrix",
+          "callee": "new Color",
+          "lineNumber": 436
+        }
+      ],
+      "metrics": {
+        "importCount": 10,
+        "exportCount": 12,
+        "functionCount": 18,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaCacheServiceMemImpl.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "set",
+          "startLine": 17,
+          "endLine": 21,
+          "params": [
+            "key",
+            "value",
+            "expiresInSeconds"
+          ]
+        },
+        {
+          "name": "exists",
+          "startLine": 23,
+          "endLine": 26,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "delete",
+          "startLine": 28,
+          "endLine": 31,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 33,
+          "endLine": 36,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "increment",
+          "startLine": 38,
+          "endLine": 43,
+          "params": [
+            "key",
+            "val"
+          ]
+        },
+        {
+          "name": "type",
+          "startLine": 45,
+          "endLine": 48,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "CaptchaCacheServiceMemImpl",
+          "startLine": 16,
+          "endLine": 49,
+          "methods": [
+            "set",
+            "exists",
+            "delete",
+            "get",
+            "increment",
+            "type"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "set",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "exists",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "delete",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "increment",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "type",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "CaptchaCacheServiceMemImpl",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "set",
+          "callee": "CacheUtil.set",
+          "lineNumber": 20
+        },
+        {
+          "caller": "exists",
+          "callee": "CacheUtil.exists",
+          "lineNumber": 25
+        },
+        {
+          "caller": "delete",
+          "callee": "CacheUtil.delete",
+          "lineNumber": 30
+        },
+        {
+          "caller": "get",
+          "callee": "CacheUtil.get",
+          "lineNumber": 35
+        },
+        {
+          "caller": "increment",
+          "callee": "Long.parseLong",
+          "lineNumber": 40
+        },
+        {
+          "caller": "increment",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 40
+        },
+        {
+          "caller": "increment",
+          "callee": "CacheUtil.get",
+          "lineNumber": 40
+        },
+        {
+          "caller": "increment",
+          "callee": "CacheUtil.set",
+          "lineNumber": 41
+        },
+        {
+          "caller": "increment",
+          "callee": "String.valueOf",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/CaptchaServiceFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "getInstance",
+          "startLine": 23,
+          "endLine": 32,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "getCache",
+          "startLine": 34,
+          "endLine": 36,
+          "params": [
+            "cacheType"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CaptchaServiceFactory",
+          "startLine": 19,
+          "endLine": 54,
+          "methods": [
+            "getInstance",
+            "getCache"
+          ],
+          "properties": [
+            "logger",
+            "instances",
+            "cacheService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getInstance",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "getCache",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "instances",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "cacheService",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "CaptchaServiceFactory",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getInstance",
+          "callee": "config.getProperty",
+          "lineNumber": 25
+        },
+        {
+          "caller": "getInstance",
+          "callee": "instances.get",
+          "lineNumber": 26
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new RuntimeException",
+          "lineNumber": 28
+        },
+        {
+          "caller": "getInstance",
+          "callee": "ret.init",
+          "lineNumber": 30
+        },
+        {
+          "caller": "getCache",
+          "callee": "cacheService.get",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 5,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/ClickWordCaptchaServiceImpl.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 318,
+      "nonEmptyLines": 288,
+      "functions": [
+        {
+          "name": "captchaType",
+          "startLine": 48,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 53,
+          "endLine": 74,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "destroy",
+          "startLine": 76,
+          "endLine": 79,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 81,
+          "endLine": 98,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "check",
+          "startLine": 100,
+          "endLine": 168,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "verification",
+          "startLine": 170,
+          "endLine": 188,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "getWordTotalCount",
+          "startLine": 190,
+          "endLine": 192,
+          "params": []
+        },
+        {
+          "name": "setWordTotalCount",
+          "startLine": 194,
+          "endLine": 196,
+          "params": [
+            "wordTotalCount"
+          ]
+        },
+        {
+          "name": "isFontColorRandom",
+          "startLine": 198,
+          "endLine": 200,
+          "params": []
+        },
+        {
+          "name": "setFontColorRandom",
+          "startLine": 202,
+          "endLine": 204,
+          "params": [
+            "fontColorRandom"
+          ]
+        },
+        {
+          "name": "getImageData",
+          "startLine": 215,
+          "endLine": 277,
+          "params": [
+            "backgroundImage"
+          ]
+        },
+        {
+          "name": "getRandomWords",
+          "startLine": 279,
+          "endLine": 290,
+          "params": [
+            "wordCount"
+          ]
+        },
+        {
+          "name": "randomWordPoint",
+          "startLine": 301,
+          "endLine": 315,
+          "params": [
+            "imageWidth",
+            "imageHeight",
+            "wordSortIndex",
+            "wordCount"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ClickWordCaptchaServiceImpl",
+          "startLine": 37,
+          "endLine": 318,
+          "methods": [
+            "captchaType",
+            "init",
+            "destroy",
+            "get",
+            "check",
+            "verification",
+            "getWordTotalCount",
+            "setWordTotalCount",
+            "isFontColorRandom",
+            "setFontColorRandom",
+            "getImageData",
+            "getRandomWords",
+            "randomWordPoint"
+          ],
+          "properties": [
+            "HAN_ZI",
+            "clickWordFontStr",
+            "clickWordFont",
+            "wordTotalCount",
+            "fontColorRandom"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "HAN_ZI",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "captchaType",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "destroy",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "check",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "verification",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "getWordTotalCount",
+          "line": 190,
+          "isDefault": false
+        },
+        {
+          "name": "setWordTotalCount",
+          "line": 194,
+          "isDefault": false
+        },
+        {
+          "name": "isFontColorRandom",
+          "line": 198,
+          "isDefault": false
+        },
+        {
+          "name": "setFontColorRandom",
+          "line": 202,
+          "isDefault": false
+        },
+        {
+          "name": "ClickWordCaptchaServiceImpl",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "captchaType",
+          "callee": "CaptchaTypeEnum.CLICKWORD.getCodeValue",
+          "lineNumber": 50
+        },
+        {
+          "caller": "init",
+          "callee": "super.init",
+          "lineNumber": 55
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 56
+        },
+        {
+          "caller": "init",
+          "callee": "Integer.valueOf",
+          "lineNumber": 58
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 58
+        },
+        {
+          "caller": "init",
+          "callee": "clickWordFontStr.toLowerCase().endsWith",
+          "lineNumber": 60
+        },
+        {
+          "caller": "init",
+          "callee": "clickWordFontStr.toLowerCase",
+          "lineNumber": 60
+        },
+        {
+          "caller": "init",
+          "callee": "clickWordFontStr.toLowerCase().endsWith",
+          "lineNumber": 61
+        },
+        {
+          "caller": "init",
+          "callee": "clickWordFontStr.toLowerCase",
+          "lineNumber": 61
+        },
+        {
+          "caller": "init",
+          "callee": "clickWordFontStr.toLowerCase().endsWith",
+          "lineNumber": 62
+        },
+        {
+          "caller": "init",
+          "callee": "clickWordFontStr.toLowerCase",
+          "lineNumber": 62
+        },
+        {
+          "caller": "init",
+          "callee": "Font.createFont(Font.TRUETYPE_FONT,\r\n                                getClass().getResourceAsStream(\"/fonts/\" + clickWordFontStr)).deriveFont",
+          "lineNumber": 63
+        },
+        {
+          "caller": "init",
+          "callee": "Font.createFont",
+          "lineNumber": 63
+        },
+        {
+          "caller": "init",
+          "callee": "getClass().getResourceAsStream",
+          "lineNumber": 64
+        },
+        {
+          "caller": "init",
+          "callee": "getClass",
+          "lineNumber": 64
+        },
+        {
+          "caller": "init",
+          "callee": "Integer.valueOf",
+          "lineNumber": 67
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 67
+        },
+        {
+          "caller": "init",
+          "callee": "new Font",
+          "lineNumber": 68
+        },
+        {
+          "caller": "init",
+          "callee": "logger.error",
+          "lineNumber": 71
+        },
+        {
+          "caller": "init",
+          "callee": "Integer.valueOf",
+          "lineNumber": 73
+        },
+        {
+          "caller": "init",
+          "callee": "config.getProperty",
+          "lineNumber": 73
+        },
+        {
+          "caller": "destroy",
+          "callee": "logger.info",
+          "lineNumber": 78
+        },
+        {
+          "caller": "destroy",
+          "callee": "captchaType",
+          "lineNumber": 78
+        },
+        {
+          "caller": "get",
+          "callee": "super.get",
+          "lineNumber": 83
+        },
+        {
+          "caller": "get",
+          "callee": "validatedReq",
+          "lineNumber": 84
+        },
+        {
+          "caller": "get",
+          "callee": "ImageUtils.getPicClick",
+          "lineNumber": 87
+        },
+        {
+          "caller": "get",
+          "callee": "logger.error",
+          "lineNumber": 89
+        },
+        {
+          "caller": "get",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 90
+        },
+        {
+          "caller": "get",
+          "callee": "getImageData",
+          "lineNumber": 92
+        },
+        {
+          "caller": "get",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 94
+        },
+        {
+          "caller": "get",
+          "callee": "imageData.getOriginalImageBase64",
+          "lineNumber": 94
+        },
+        {
+          "caller": "get",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 95
+        },
+        {
+          "caller": "get",
+          "callee": "ResponseModel.successData",
+          "lineNumber": 97
+        },
+        {
+          "caller": "check",
+          "callee": "super.check",
+          "lineNumber": 102
+        },
+        {
+          "caller": "check",
+          "callee": "validatedReq",
+          "lineNumber": 103
+        },
+        {
+          "caller": "check",
+          "callee": "String.format",
+          "lineNumber": 107
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getToken",
+          "lineNumber": 107
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).exists",
+          "lineNumber": 108
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 108
+        },
+        {
+          "caller": "check",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 109
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).get",
+          "lineNumber": 111
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 111
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).delete",
+          "lineNumber": 113
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 113
+        },
+        {
+          "caller": "check",
+          "callee": "JsonUtil.parseArray",
+          "lineNumber": 134
+        },
+        {
+          "caller": "check",
+          "callee": "decrypt",
+          "lineNumber": 136
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getPointJson",
+          "lineNumber": 136
+        },
+        {
+          "caller": "check",
+          "callee": "point.get(0).getSecretKey",
+          "lineNumber": 136
+        },
+        {
+          "caller": "check",
+          "callee": "point.get",
+          "lineNumber": 136
+        },
+        {
+          "caller": "check",
+          "callee": "JsonUtil.parseArray",
+          "lineNumber": 137
+        },
+        {
+          "caller": "check",
+          "callee": "logger.error",
+          "lineNumber": 139
+        },
+        {
+          "caller": "check",
+          "callee": "afterValidateFail",
+          "lineNumber": 140
+        },
+        {
+          "caller": "check",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 141
+        },
+        {
+          "caller": "check",
+          "callee": "e.getMessage",
+          "lineNumber": 141
+        },
+        {
+          "caller": "check",
+          "callee": "point.size",
+          "lineNumber": 143
+        },
+        {
+          "caller": "check",
+          "callee": "point.get",
+          "lineNumber": 144
+        },
+        {
+          "caller": "check",
+          "callee": "point1.get",
+          "lineNumber": 144
+        },
+        {
+          "caller": "check",
+          "callee": "point1.get",
+          "lineNumber": 145
+        },
+        {
+          "caller": "check",
+          "callee": "point.get",
+          "lineNumber": 145
+        },
+        {
+          "caller": "check",
+          "callee": "point.get",
+          "lineNumber": 146
+        },
+        {
+          "caller": "check",
+          "callee": "point1.get",
+          "lineNumber": 146
+        },
+        {
+          "caller": "check",
+          "callee": "point1.get",
+          "lineNumber": 147
+        },
+        {
+          "caller": "check",
+          "callee": "point.get",
+          "lineNumber": 147
+        },
+        {
+          "caller": "check",
+          "callee": "afterValidateFail",
+          "lineNumber": 148
+        },
+        {
+          "caller": "check",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 149
+        },
+        {
+          "caller": "check",
+          "callee": "point.get(0).getSecretKey",
+          "lineNumber": 153
+        },
+        {
+          "caller": "check",
+          "callee": "point.get",
+          "lineNumber": 153
+        },
+        {
+          "caller": "check",
+          "callee": "AesUtil.aesEncrypt",
+          "lineNumber": 156
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getToken().concat(\"---\").concat",
+          "lineNumber": 156
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getToken().concat",
+          "lineNumber": 156
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getToken",
+          "lineNumber": 156
+        },
+        {
+          "caller": "check",
+          "callee": "logger.error",
+          "lineNumber": 158
+        },
+        {
+          "caller": "check",
+          "callee": "afterValidateFail",
+          "lineNumber": 159
+        },
+        {
+          "caller": "check",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 160
+        },
+        {
+          "caller": "check",
+          "callee": "e.getMessage",
+          "lineNumber": 160
+        },
+        {
+          "caller": "check",
+          "callee": "String.format",
+          "lineNumber": 162
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).set",
+          "lineNumber": 163
+        },
+        {
+          "caller": "check",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 163
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getToken",
+          "lineNumber": 163
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.setResult",
+          "lineNumber": 164
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.resetClientFlag",
+          "lineNumber": 165
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.setCaptchaVerification",
+          "lineNumber": 166
+        },
+        {
+          "caller": "check",
+          "callee": "ResponseModel.successData",
+          "lineNumber": 167
+        },
+        {
+          "caller": "verification",
+          "callee": "super.verification",
+          "lineNumber": 172
+        },
+        {
+          "caller": "verification",
+          "callee": "validatedReq",
+          "lineNumber": 173
+        },
+        {
+          "caller": "verification",
+          "callee": "String.format",
+          "lineNumber": 177
+        },
+        {
+          "caller": "verification",
+          "callee": "captchaVO.getCaptchaVerification",
+          "lineNumber": 177
+        },
+        {
+          "caller": "verification",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).exists",
+          "lineNumber": 178
+        },
+        {
+          "caller": "verification",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 178
+        },
+        {
+          "caller": "verification",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 179
+        },
+        {
+          "caller": "verification",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).delete",
+          "lineNumber": 182
+        },
+        {
+          "caller": "verification",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 182
+        },
+        {
+          "caller": "verification",
+          "callee": "logger.error",
+          "lineNumber": 184
+        },
+        {
+          "caller": "verification",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 185
+        },
+        {
+          "caller": "verification",
+          "callee": "e.getMessage",
+          "lineNumber": 185
+        },
+        {
+          "caller": "verification",
+          "callee": "ResponseModel.success",
+          "lineNumber": 187
+        },
+        {
+          "caller": "getImageData",
+          "callee": "new CaptchaVO",
+          "lineNumber": 216
+        },
+        {
+          "caller": "getImageData",
+          "callee": "new ArrayList<String>",
+          "lineNumber": 217
+        },
+        {
+          "caller": "getImageData",
+          "callee": "new ArrayList",
+          "lineNumber": 218
+        },
+        {
+          "caller": "getImageData",
+          "callee": "backgroundImage.getGraphics",
+          "lineNumber": 220
+        },
+        {
+          "caller": "getImageData",
+          "callee": "backgroundImage.getWidth",
+          "lineNumber": 221
+        },
+        {
+          "caller": "getImageData",
+          "callee": "backgroundImage.getHeight",
+          "lineNumber": 222
+        },
+        {
+          "caller": "getImageData",
+          "callee": "getWordTotalCount",
+          "lineNumber": 224
+        },
+        {
+          "caller": "getImageData",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 226
+        },
+        {
+          "caller": "getImageData",
+          "callee": "getRandomWords",
+          "lineNumber": 227
+        },
+        {
+          "caller": "getImageData",
+          "callee": "AesUtil.getKey",
+          "lineNumber": 230
+        },
+        {
+          "caller": "getImageData",
+          "callee": "randomWordPoint",
+          "lineNumber": 235
+        },
+        {
+          "caller": "getImageData",
+          "callee": "point.setSecretKey",
+          "lineNumber": 236
+        },
+        {
+          "caller": "getImageData",
+          "callee": "isFontColorRandom",
+          "lineNumber": 238
+        },
+        {
+          "caller": "getImageData",
+          "callee": "backgroundGraphics.setColor",
+          "lineNumber": 239
+        },
+        {
+          "caller": "getImageData",
+          "callee": "new Color",
+          "lineNumber": 239
+        },
+        {
+          "caller": "getImageData",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 239
+        },
+        {
+          "caller": "getImageData",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 240
+        },
+        {
+          "caller": "getImageData",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 240
+        },
+        {
+          "caller": "getImageData",
+          "callee": "backgroundGraphics.setColor",
+          "lineNumber": 242
+        },
+        {
+          "caller": "getImageData",
+          "callee": "new AffineTransform",
+          "lineNumber": 245
+        },
+        {
+          "caller": "getImageData",
+          "callee": "affineTransform.rotate",
+          "lineNumber": 246
+        },
+        {
+          "caller": "getImageData",
+          "callee": "Math.toRadians",
+          "lineNumber": 246
+        },
+        {
+          "caller": "getImageData",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 246
+        },
+        {
+          "caller": "getImageData",
+          "callee": "clickWordFont.deriveFont",
+          "lineNumber": 247
+        },
+        {
+          "caller": "getImageData",
+          "callee": "backgroundGraphics.setFont",
+          "lineNumber": 248
+        },
+        {
+          "caller": "getImageData",
+          "callee": "backgroundGraphics.drawString",
+          "lineNumber": 249
+        },
+        {
+          "caller": "getImageData",
+          "callee": "point.getX",
+          "lineNumber": 249
+        },
+        {
+          "caller": "getImageData",
+          "callee": "point.getY",
+          "lineNumber": 249
+        },
+        {
+          "caller": "getImageData",
+          "callee": "wordList.add",
+          "lineNumber": 252
+        },
+        {
+          "caller": "getImageData",
+          "callee": "pointList.add",
+          "lineNumber": 253
+        },
+        {
+          "caller": "getImageData",
+          "callee": "backgroundGraphics.setFont",
+          "lineNumber": 258
+        },
+        {
+          "caller": "getImageData",
+          "callee": "backgroundGraphics.setColor",
+          "lineNumber": 259
+        },
+        {
+          "caller": "getImageData",
+          "callee": "backgroundGraphics.drawString",
+          "lineNumber": 260
+        },
+        {
+          "caller": "getImageData",
+          "callee": "getEnOrChLength",
+          "lineNumber": 260
+        },
+        {
+          "caller": "getImageData",
+          "callee": "new BufferedImage",
+          "lineNumber": 263
+        },
+        {
+          "caller": "getImageData",
+          "callee": "combinedImage.getGraphics",
+          "lineNumber": 264
+        },
+        {
+          "caller": "getImageData",
+          "callee": "combinedGraphics.drawImage",
+          "lineNumber": 265
+        },
+        {
+          "caller": "getImageData",
+          "callee": "dataVO.setOriginalImageBase64",
+          "lineNumber": 267
+        },
+        {
+          "caller": "getImageData",
+          "callee": "ImageUtils.getImageToBase64Str(backgroundImage).replaceAll",
+          "lineNumber": 267
+        },
+        {
+          "caller": "getImageData",
+          "callee": "ImageUtils.getImageToBase64Str",
+          "lineNumber": 267
+        },
+        {
+          "caller": "getImageData",
+          "callee": "dataVO.setWordList",
+          "lineNumber": 269
+        },
+        {
+          "caller": "getImageData",
+          "callee": "dataVO.setToken",
+          "lineNumber": 270
+        },
+        {
+          "caller": "getImageData",
+          "callee": "RandomUtils.getUuid",
+          "lineNumber": 270
+        },
+        {
+          "caller": "getImageData",
+          "callee": "dataVO.setSecretKey",
+          "lineNumber": 271
+        },
+        {
+          "caller": "getImageData",
+          "callee": "String.format",
+          "lineNumber": 273
+        },
+        {
+          "caller": "getImageData",
+          "callee": "dataVO.getToken",
+          "lineNumber": 273
+        },
+        {
+          "caller": "getImageData",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).set",
+          "lineNumber": 274
+        },
+        {
+          "caller": "getImageData",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 274
+        },
+        {
+          "caller": "getImageData",
+          "callee": "JsonUtil.toJsonString",
+          "lineNumber": 274
+        },
+        {
+          "caller": "getRandomWords",
+          "callee": "new HashSet<>",
+          "lineNumber": 280
+        },
+        {
+          "caller": "getRandomWords",
+          "callee": "HAN_ZI.length",
+          "lineNumber": 281
+        },
+        {
+          "caller": "getRandomWords",
+          "callee": "HAN_ZI.charAt",
+          "lineNumber": 283
+        },
+        {
+          "caller": "getRandomWords",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 283
+        },
+        {
+          "caller": "getRandomWords",
+          "callee": "words.add",
+          "lineNumber": 284
+        },
+        {
+          "caller": "getRandomWords",
+          "callee": "words.size",
+          "lineNumber": 285
+        },
+        {
+          "caller": "randomWordPoint",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 305
+        },
+        {
+          "caller": "randomWordPoint",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 308
+        },
+        {
+          "caller": "randomWordPoint",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 310
+        },
+        {
+          "caller": "randomWordPoint",
+          "callee": "RandomUtils.getRandomInt",
+          "lineNumber": 313
+        },
+        {
+          "caller": "randomWordPoint",
+          "callee": "new PointVO",
+          "lineNumber": 314
+        }
+      ],
+      "metrics": {
+        "importCount": 11,
+        "exportCount": 12,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/DefaultCaptchaServiceImpl.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 101,
+      "nonEmptyLines": 89,
+      "functions": [
+        {
+          "name": "captchaType",
+          "startLine": 25,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 30,
+          "endLine": 38,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "destroy",
+          "startLine": 40,
+          "endLine": 48,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "getService",
+          "startLine": 50,
+          "endLine": 52,
+          "params": [
+            "captchaType"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 54,
+          "endLine": 63,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "check",
+          "startLine": 65,
+          "endLine": 77,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "verification",
+          "startLine": 79,
+          "endLine": 99,
+          "params": [
+            "captchaVO"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DefaultCaptchaServiceImpl",
+          "startLine": 23,
+          "endLine": 101,
+          "methods": [
+            "captchaType",
+            "init",
+            "destroy",
+            "getService",
+            "get",
+            "check",
+            "verification"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "captchaType",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "destroy",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "check",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "verification",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "DefaultCaptchaServiceImpl",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "CaptchaServiceFactory.instances.keySet",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "captchaType().equals",
+          "lineNumber": 33
+        },
+        {
+          "caller": "init",
+          "callee": "captchaType",
+          "lineNumber": 33
+        },
+        {
+          "caller": "init",
+          "callee": "getService(s).init",
+          "lineNumber": 36
+        },
+        {
+          "caller": "init",
+          "callee": "getService",
+          "lineNumber": 36
+        },
+        {
+          "caller": "destroy",
+          "callee": "CaptchaServiceFactory.instances.keySet",
+          "lineNumber": 42
+        },
+        {
+          "caller": "destroy",
+          "callee": "captchaType().equals",
+          "lineNumber": 43
+        },
+        {
+          "caller": "destroy",
+          "callee": "captchaType",
+          "lineNumber": 43
+        },
+        {
+          "caller": "destroy",
+          "callee": "getService(s).destroy",
+          "lineNumber": 46
+        },
+        {
+          "caller": "destroy",
+          "callee": "getService",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getService",
+          "callee": "CaptchaServiceFactory.instances.get",
+          "lineNumber": 51
+        },
+        {
+          "caller": "get",
+          "callee": "RepCodeEnum.NULL_ERROR.parseError",
+          "lineNumber": 57
+        },
+        {
+          "caller": "get",
+          "callee": "StringUtils.isEmpty",
+          "lineNumber": 59
+        },
+        {
+          "caller": "get",
+          "callee": "captchaVO.getCaptchaType",
+          "lineNumber": 59
+        },
+        {
+          "caller": "get",
+          "callee": "RepCodeEnum.NULL_ERROR.parseError",
+          "lineNumber": 60
+        },
+        {
+          "caller": "get",
+          "callee": "getService(captchaVO.getCaptchaType()).get",
+          "lineNumber": 62
+        },
+        {
+          "caller": "get",
+          "callee": "getService",
+          "lineNumber": 62
+        },
+        {
+          "caller": "get",
+          "callee": "captchaVO.getCaptchaType",
+          "lineNumber": 62
+        },
+        {
+          "caller": "check",
+          "callee": "RepCodeEnum.NULL_ERROR.parseError",
+          "lineNumber": 68
+        },
+        {
+          "caller": "check",
+          "callee": "StringUtils.isEmpty",
+          "lineNumber": 70
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getCaptchaType",
+          "lineNumber": 70
+        },
+        {
+          "caller": "check",
+          "callee": "RepCodeEnum.NULL_ERROR.parseError",
+          "lineNumber": 71
+        },
+        {
+          "caller": "check",
+          "callee": "StringUtils.isEmpty",
+          "lineNumber": 73
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getToken",
+          "lineNumber": 73
+        },
+        {
+          "caller": "check",
+          "callee": "RepCodeEnum.NULL_ERROR.parseError",
+          "lineNumber": 74
+        },
+        {
+          "caller": "check",
+          "callee": "getService(captchaVO.getCaptchaType()).check",
+          "lineNumber": 76
+        },
+        {
+          "caller": "check",
+          "callee": "getService",
+          "lineNumber": 76
+        },
+        {
+          "caller": "check",
+          "callee": "captchaVO.getCaptchaType",
+          "lineNumber": 76
+        },
+        {
+          "caller": "verification",
+          "callee": "RepCodeEnum.NULL_ERROR.parseError",
+          "lineNumber": 82
+        },
+        {
+          "caller": "verification",
+          "callee": "StringUtils.isEmpty",
+          "lineNumber": 84
+        },
+        {
+          "caller": "verification",
+          "callee": "captchaVO.getCaptchaVerification",
+          "lineNumber": 84
+        },
+        {
+          "caller": "verification",
+          "callee": "RepCodeEnum.NULL_ERROR.parseError",
+          "lineNumber": 85
+        },
+        {
+          "caller": "verification",
+          "callee": "String.format",
+          "lineNumber": 88
+        },
+        {
+          "caller": "verification",
+          "callee": "captchaVO.getCaptchaVerification",
+          "lineNumber": 88
+        },
+        {
+          "caller": "verification",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).exists",
+          "lineNumber": 89
+        },
+        {
+          "caller": "verification",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 89
+        },
+        {
+          "caller": "verification",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 90
+        },
+        {
+          "caller": "verification",
+          "callee": "CaptchaServiceFactory.getCache(cacheType).delete",
+          "lineNumber": 93
+        },
+        {
+          "caller": "verification",
+          "callee": "CaptchaServiceFactory.getCache",
+          "lineNumber": 93
+        },
+        {
+          "caller": "verification",
+          "callee": "logger.error",
+          "lineNumber": 95
+        },
+        {
+          "caller": "verification",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 96
+        },
+        {
+          "caller": "verification",
+          "callee": "e.getMessage",
+          "lineNumber": 96
+        },
+        {
+          "caller": "verification",
+          "callee": "ResponseModel.success",
+          "lineNumber": 98
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/FrequencyLimitHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 161,
+      "nonEmptyLines": 142,
+      "classes": [
+        {
+          "name": "FrequencyLimitHandler",
+          "startLine": 18,
+          "endLine": 161,
+          "methods": [
+            "validateGet",
+            "validateCheck",
+            "validateVerify"
+          ],
+          "properties": [
+            "LIMIT_KEY",
+            "ONE_HUNDRED_AND_TWENTY",
+            "FIVE",
+            "SIX_HUNDRED"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FrequencyLimitHandler",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getClientCid",
+          "callee": "String.format",
+          "lineNumber": 76
+        },
+        {
+          "caller": "getClientCid",
+          "callee": "input.getClientUid",
+          "lineNumber": 76
+        },
+        {
+          "caller": "validateGet",
+          "callee": "StringUtils.isEmpty",
+          "lineNumber": 82
+        },
+        {
+          "caller": "validateGet",
+          "callee": "d.getClientUid",
+          "lineNumber": 82
+        },
+        {
+          "caller": "validateGet",
+          "callee": "getClientCid",
+          "lineNumber": 85
+        },
+        {
+          "caller": "validateGet",
+          "callee": "getClientCid",
+          "lineNumber": 86
+        },
+        {
+          "caller": "validateGet",
+          "callee": "Objects.nonNull",
+          "lineNumber": 88
+        },
+        {
+          "caller": "validateGet",
+          "callee": "cacheService.get",
+          "lineNumber": 88
+        },
+        {
+          "caller": "validateGet",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 89
+        },
+        {
+          "caller": "validateGet",
+          "callee": "cacheService.get",
+          "lineNumber": 91
+        },
+        {
+          "caller": "validateGet",
+          "callee": "Objects.isNull",
+          "lineNumber": 92
+        },
+        {
+          "caller": "validateGet",
+          "callee": "cacheService.set",
+          "lineNumber": 93
+        },
+        {
+          "caller": "validateGet",
+          "callee": "cacheService.increment",
+          "lineNumber": 96
+        },
+        {
+          "caller": "validateGet",
+          "callee": "Long.parseLong",
+          "lineNumber": 98
+        },
+        {
+          "caller": "validateGet",
+          "callee": "Long.parseLong",
+          "lineNumber": 98
+        },
+        {
+          "caller": "validateGet",
+          "callee": "config.getProperty",
+          "lineNumber": 98
+        },
+        {
+          "caller": "validateGet",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 99
+        },
+        {
+          "caller": "validateGet",
+          "callee": "getClientCid",
+          "lineNumber": 103
+        },
+        {
+          "caller": "validateGet",
+          "callee": "cacheService.get",
+          "lineNumber": 104
+        },
+        {
+          "caller": "validateGet",
+          "callee": "Objects.isNull",
+          "lineNumber": 106
+        },
+        {
+          "caller": "validateGet",
+          "callee": "Long.parseLong",
+          "lineNumber": 110
+        },
+        {
+          "caller": "validateGet",
+          "callee": "Long.parseLong",
+          "lineNumber": 110
+        },
+        {
+          "caller": "validateGet",
+          "callee": "config.getProperty",
+          "lineNumber": 110
+        },
+        {
+          "caller": "validateGet",
+          "callee": "cacheService.set",
+          "lineNumber": 112
+        },
+        {
+          "caller": "validateGet",
+          "callee": "Long.parseLong",
+          "lineNumber": 112
+        },
+        {
+          "caller": "validateGet",
+          "callee": "config.getProperty",
+          "lineNumber": 112
+        },
+        {
+          "caller": "validateGet",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 113
+        },
+        {
+          "caller": "validateCheck",
+          "callee": "StringUtils.isEmpty",
+          "lineNumber": 121
+        },
+        {
+          "caller": "validateCheck",
+          "callee": "d.getClientUid",
+          "lineNumber": 121
+        },
+        {
+          "caller": "validateCheck",
+          "callee": "getClientCid",
+          "lineNumber": 128
+        },
+        {
+          "caller": "validateCheck",
+          "callee": "cacheService.get",
+          "lineNumber": 129
+        },
+        {
+          "caller": "validateCheck",
+          "callee": "Objects.isNull",
+          "lineNumber": 130
+        },
+        {
+          "caller": "validateCheck",
+          "callee": "cacheService.set",
+          "lineNumber": 131
+        },
+        {
+          "caller": "validateCheck",
+          "callee": "cacheService.increment",
+          "lineNumber": 134
+        },
+        {
+          "caller": "validateCheck",
+          "callee": "Long.parseLong",
+          "lineNumber": 135
+        },
+        {
+          "caller": "validateCheck",
+          "callee": "Long.parseLong",
+          "lineNumber": 135
+        },
+        {
+          "caller": "validateCheck",
+          "callee": "config.getProperty",
+          "lineNumber": 135
+        },
+        {
+          "caller": "validateCheck",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 136
+        },
+        {
+          "caller": "validateVerify",
+          "callee": "getClientCid",
+          "lineNumber": 147
+        },
+        {
+          "caller": "validateVerify",
+          "callee": "cacheService.get",
+          "lineNumber": 148
+        },
+        {
+          "caller": "validateVerify",
+          "callee": "Objects.isNull",
+          "lineNumber": 149
+        },
+        {
+          "caller": "validateVerify",
+          "callee": "cacheService.set",
+          "lineNumber": 150
+        },
+        {
+          "caller": "validateVerify",
+          "callee": "cacheService.increment",
+          "lineNumber": 153
+        },
+        {
+          "caller": "validateVerify",
+          "callee": "Long.parseLong",
+          "lineNumber": 154
+        },
+        {
+          "caller": "validateVerify",
+          "callee": "Long.parseLong",
+          "lineNumber": 154
+        },
+        {
+          "caller": "validateVerify",
+          "callee": "config.getProperty",
+          "lineNumber": 154
+        },
+        {
+          "caller": "validateVerify",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 155
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/impl/RotatePuzzleCaptchaServiceImpl.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 61,
+      "functions": [
+        {
+          "name": "captchaType",
+          "startLine": 20,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 25,
+          "endLine": 28,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "getCacheService",
+          "startLine": 30,
+          "endLine": 33,
+          "params": [
+            "cacheType"
+          ]
+        },
+        {
+          "name": "destroy",
+          "startLine": 35,
+          "endLine": 38,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 40,
+          "endLine": 62,
+          "params": [
+            "captchaVO"
+          ]
+        },
+        {
+          "name": "check",
+          "startLine": 64,
+          "endLine": 72,
+          "params": [
+            "captchaVO"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RotatePuzzleCaptchaServiceImpl",
+          "startLine": 18,
+          "endLine": 73,
+          "methods": [
+            "captchaType",
+            "init",
+            "getCacheService",
+            "destroy",
+            "get",
+            "check"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "captchaType",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "destroy",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "check",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "RotatePuzzleCaptchaServiceImpl",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "captchaType",
+          "callee": "CaptchaTypeEnum.ROTATEPUZZLE.getCodeValue",
+          "lineNumber": 22
+        },
+        {
+          "caller": "init",
+          "callee": "super.init",
+          "lineNumber": 27
+        },
+        {
+          "caller": "getCacheService",
+          "callee": "super.getCacheService",
+          "lineNumber": 32
+        },
+        {
+          "caller": "destroy",
+          "callee": "logger.info",
+          "lineNumber": 37
+        },
+        {
+          "caller": "destroy",
+          "callee": "captchaType",
+          "lineNumber": 37
+        },
+        {
+          "caller": "get",
+          "callee": "super.get",
+          "lineNumber": 42
+        },
+        {
+          "caller": "get",
+          "callee": "validatedReq",
+          "lineNumber": 43
+        },
+        {
+          "caller": "get",
+          "callee": "ImageUtils.getRotate",
+          "lineNumber": 47
+        },
+        {
+          "caller": "get",
+          "callee": "logger.error",
+          "lineNumber": 49
+        },
+        {
+          "caller": "get",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 50
+        },
+        {
+          "caller": "get",
+          "callee": "ImageUtils.getRotateBlock",
+          "lineNumber": 54
+        },
+        {
+          "caller": "get",
+          "callee": "ImageUtils.getBase64StrToImage",
+          "lineNumber": 55
+        },
+        {
+          "caller": "get",
+          "callee": "logger.error",
+          "lineNumber": 57
+        },
+        {
+          "caller": "get",
+          "callee": "ResponseModel.errorMsg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "get",
+          "callee": "super.get",
+          "lineNumber": 61
+        },
+        {
+          "caller": "check",
+          "callee": "super.check",
+          "lineNumber": 66
+        },
+        {
+          "caller": "check",
+          "callee": "validatedReq",
+          "lineNumber": 67
+        },
+        {
+          "caller": "check",
+          "callee": "super.check",
+          "lineNumber": 71
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/AesUtil.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 142,
+      "nonEmptyLines": 123,
+      "functions": [
+        {
+          "name": "getKey",
+          "startLine": 31,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "binary",
+          "startLine": 42,
+          "endLine": 45,
+          "params": [
+            "bytes",
+            "radix"
+          ]
+        },
+        {
+          "name": "base64Encode",
+          "startLine": 52,
+          "endLine": 54,
+          "params": [
+            "bytes"
+          ]
+        },
+        {
+          "name": "base64Decode",
+          "startLine": 62,
+          "endLine": 65,
+          "params": [
+            "base64Code"
+          ]
+        },
+        {
+          "name": "aesEncryptToBytes",
+          "startLine": 75,
+          "endLine": 82,
+          "params": [
+            "content",
+            "encryptKey"
+          ]
+        },
+        {
+          "name": "aesEncrypt",
+          "startLine": 92,
+          "endLine": 97,
+          "params": [
+            "content",
+            "encryptKey"
+          ]
+        },
+        {
+          "name": "aesDecryptByBytes",
+          "startLine": 106,
+          "endLine": 114,
+          "params": [
+            "encryptBytes",
+            "decryptKey"
+          ]
+        },
+        {
+          "name": "aesDecrypt",
+          "startLine": 124,
+          "endLine": 129,
+          "params": [
+            "encryptStr",
+            "decryptKey"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 134,
+          "endLine": 140,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AesUtil",
+          "startLine": 21,
+          "endLine": 142,
+          "methods": [
+            "getKey",
+            "binary",
+            "base64Encode",
+            "base64Decode",
+            "aesEncryptToBytes",
+            "aesEncrypt",
+            "aesDecryptByBytes",
+            "aesDecrypt",
+            "main"
+          ],
+          "properties": [
+            "ALGORITHMSTR"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getKey",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "binary",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "base64Encode",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "base64Decode",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "aesEncryptToBytes",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "aesEncrypt",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "aesDecryptByBytes",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "aesDecrypt",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 134,
+          "isDefault": false
+        },
+        {
+          "name": "AesUtil",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getKey",
+          "callee": "RandomUtils.getRandomString",
+          "lineNumber": 32
+        },
+        {
+          "caller": "binary",
+          "callee": "new BigInteger(1, bytes).toString",
+          "lineNumber": 44
+        },
+        {
+          "caller": "binary",
+          "callee": "new BigInteger",
+          "lineNumber": 44
+        },
+        {
+          "caller": "base64Encode",
+          "callee": "Base64.getEncoder().encodeToString",
+          "lineNumber": 53
+        },
+        {
+          "caller": "base64Encode",
+          "callee": "Base64.getEncoder",
+          "lineNumber": 53
+        },
+        {
+          "caller": "base64Decode",
+          "callee": "Base64.getDecoder",
+          "lineNumber": 63
+        },
+        {
+          "caller": "base64Decode",
+          "callee": "StringUtils.isEmpty",
+          "lineNumber": 64
+        },
+        {
+          "caller": "base64Decode",
+          "callee": "decoder.decode",
+          "lineNumber": 64
+        },
+        {
+          "caller": "aesEncryptToBytes",
+          "callee": "KeyGenerator.getInstance",
+          "lineNumber": 76
+        },
+        {
+          "caller": "aesEncryptToBytes",
+          "callee": "kgen.init",
+          "lineNumber": 77
+        },
+        {
+          "caller": "aesEncryptToBytes",
+          "callee": "Cipher.getInstance",
+          "lineNumber": 78
+        },
+        {
+          "caller": "aesEncryptToBytes",
+          "callee": "cipher.init",
+          "lineNumber": 79
+        },
+        {
+          "caller": "aesEncryptToBytes",
+          "callee": "new SecretKeySpec",
+          "lineNumber": 79
+        },
+        {
+          "caller": "aesEncryptToBytes",
+          "callee": "encryptKey.getBytes",
+          "lineNumber": 79
+        },
+        {
+          "caller": "aesEncryptToBytes",
+          "callee": "cipher.doFinal",
+          "lineNumber": 81
+        },
+        {
+          "caller": "aesEncryptToBytes",
+          "callee": "content.getBytes",
+          "lineNumber": 81
+        },
+        {
+          "caller": "aesEncrypt",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 93
+        },
+        {
+          "caller": "aesEncrypt",
+          "callee": "base64Encode",
+          "lineNumber": 96
+        },
+        {
+          "caller": "aesEncrypt",
+          "callee": "aesEncryptToBytes",
+          "lineNumber": 96
+        },
+        {
+          "caller": "aesDecryptByBytes",
+          "callee": "KeyGenerator.getInstance",
+          "lineNumber": 107
+        },
+        {
+          "caller": "aesDecryptByBytes",
+          "callee": "kgen.init",
+          "lineNumber": 108
+        },
+        {
+          "caller": "aesDecryptByBytes",
+          "callee": "Cipher.getInstance",
+          "lineNumber": 110
+        },
+        {
+          "caller": "aesDecryptByBytes",
+          "callee": "cipher.init",
+          "lineNumber": 111
+        },
+        {
+          "caller": "aesDecryptByBytes",
+          "callee": "new SecretKeySpec",
+          "lineNumber": 111
+        },
+        {
+          "caller": "aesDecryptByBytes",
+          "callee": "decryptKey.getBytes",
+          "lineNumber": 111
+        },
+        {
+          "caller": "aesDecryptByBytes",
+          "callee": "cipher.doFinal",
+          "lineNumber": 112
+        },
+        {
+          "caller": "aesDecryptByBytes",
+          "callee": "new String",
+          "lineNumber": 113
+        },
+        {
+          "caller": "aesDecrypt",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 125
+        },
+        {
+          "caller": "aesDecrypt",
+          "callee": "StringUtils.isEmpty",
+          "lineNumber": 128
+        },
+        {
+          "caller": "aesDecrypt",
+          "callee": "aesDecryptByBytes",
+          "lineNumber": 128
+        },
+        {
+          "caller": "aesDecrypt",
+          "callee": "base64Decode",
+          "lineNumber": 128
+        },
+        {
+          "caller": "main",
+          "callee": "AesUtil.aesEncrypt",
+          "lineNumber": 138
+        },
+        {
+          "caller": "main",
+          "callee": "token.concat(\"---\").concat",
+          "lineNumber": 138
+        },
+        {
+          "caller": "main",
+          "callee": "token.concat",
+          "lineNumber": 138
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 139
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    }
+  ]
+}

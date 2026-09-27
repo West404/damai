@@ -1,0 +1,359 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaBaseMapEnum.java",
+      "type": "file",
+      "name": "CaptchaBaseMapEnum.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaBaseMapEnum.java",
+      "summary": "Enum defining the built-in image resource keys (original jigsaw, sliding block, pic-click backgrounds) used by the captcha image cache.",
+      "tags": ["enum", "data-model", "captcha", "constants"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaBaseMapEnum.java:CaptchaBaseMapEnum",
+      "type": "class",
+      "name": "CaptchaBaseMapEnum",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaBaseMapEnum.java",
+      "lineRange": [10, 54],
+      "summary": "Enumeration of captcha base image map keys with lookup by code value and a diagnostic string dump of all entries.",
+      "tags": ["enum", "captcha", "lookup", "constants"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java",
+      "type": "file",
+      "name": "CaptchaTypeEnum.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java",
+      "summary": "Enum of supported captcha types (block puzzle, click word, rotate puzzle, default) with code-value parsing and validation helpers.",
+      "tags": ["enum", "captcha", "type-definition", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java:CaptchaTypeEnum",
+      "type": "class",
+      "name": "CaptchaTypeEnum",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java",
+      "lineRange": [10, 72],
+      "summary": "Captcha type enumeration offering parseFromCodeValue, code description lookup, and code validation used when dispatching to a captcha service implementation.",
+      "tags": ["enum", "captcha", "lookup", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java",
+      "type": "file",
+      "name": "Const.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java",
+      "summary": "Constant holder for all captcha configuration property keys: resource paths, watermark, font, AES toggle, cache limits, and request frequency-limit thresholds.",
+      "tags": ["constants", "configuration", "captcha", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java:Const",
+      "type": "class",
+      "name": "Const",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java",
+      "lineRange": [8, 119],
+      "summary": "Interface-style constants class declaring the property keys read from captcha configuration during service initialization and frequency limiting.",
+      "tags": ["constants", "configuration", "captcha"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "type": "file",
+      "name": "RepCodeEnum.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "summary": "Enum of captcha API response codes (success, error, exception, null parameter, frequency limit) with a helper to build error ResponseModel instances.",
+      "tags": ["enum", "error-code", "captcha", "api-response"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java:RepCodeEnum",
+      "type": "class",
+      "name": "RepCodeEnum",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "lineRange": [19, 72],
+      "summary": "Response code enumeration whose parseError method formats the code description with arguments and wraps it in a ResponseModel.",
+      "tags": ["enum", "error-code", "api-response"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "type": "file",
+      "name": "ResponseModel.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "summary": "Generic serializable API response wrapper with repCode/repMsg/repData plus static success, error, and exception factory methods.",
+      "tags": ["api-response", "data-model", "serialization", "factory"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java:ResponseModel",
+      "type": "class",
+      "name": "ResponseModel",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "lineRange": [20, 112],
+      "summary": "Standard response model for the captcha module providing static factories for success/error/exception results and an isSuccess check based on RepCodeEnum.",
+      "tags": ["api-response", "data-model", "factory"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "type": "file",
+      "name": "CaptchaVO.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "summary": "Value object carrying captcha request/response state: type, base64 images, point data, token, secret key, client identity, and verification result.",
+      "tags": ["data-model", "value-object", "captcha", "serialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java:CaptchaVO",
+      "type": "class",
+      "name": "CaptchaVO",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "lineRange": [20, 259],
+      "summary": "Central captcha DTO exchanged between controller, service implementations, and cache; mostly getters/setters plus a client flag reset helper.",
+      "tags": ["data-model", "value-object", "captcha"],
+      "complexity": "moderate",
+      "languageNotes": "Classic JavaBean with 19 fields and full getter/setter pairs; JSON-annotated fields control which properties are serialized to the client."
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "type": "file",
+      "name": "PointVO.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "summary": "Value object representing an (x, y) coordinate with an AES secret key, including JSON serialization, lenient parsing, and equality support.",
+      "tags": ["data-model", "value-object", "captcha", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java:PointVO",
+      "type": "class",
+      "name": "PointVO",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "lineRange": [15, 99],
+      "summary": "Coordinate point model used for jigsaw and click-word captcha answers; supports custom JSON round-trip without a JSON library.",
+      "tags": ["data-model", "value-object", "coordinates"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java:parse",
+      "type": "function",
+      "name": "parse",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "lineRange": [65, 80],
+      "summary": "Parses a loosely formatted JSON string (including single-element arrays) into a PointVO by string splitting and map lookup.",
+      "tags": ["parsing", "serialization", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java:equals",
+      "type": "function",
+      "name": "equals",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "lineRange": [82, 92],
+      "summary": "Equality comparison based on class, x, and y coordinates (secret key excluded).",
+      "tags": ["equality", "value-object", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+      "type": "file",
+      "name": "CaptchaCacheService.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+      "summary": "SPI interface abstracting captcha token/limit storage with set/get/exists/delete/increment operations and a cache-type discriminator.",
+      "tags": ["interface", "spi", "cache", "captcha"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java:CaptchaCacheService",
+      "type": "class",
+      "name": "CaptchaCacheService",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+      "lineRange": [14, 62],
+      "summary": "Cache service interface implemented by in-memory and Redis-backed stores, selected at runtime through CaptchaServiceFactory.",
+      "tags": ["interface", "spi", "cache"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+      "type": "file",
+      "name": "CaptchaService.java",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+      "summary": "Core captcha service interface declaring the get/check/verification lifecycle plus init/destroy and captcha-type identification.",
+      "tags": ["interface", "spi", "captcha", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java:CaptchaService",
+      "type": "class",
+      "name": "CaptchaService",
+      "filePath": "damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+      "lineRange": [19, 59],
+      "summary": "Service contract implemented by AbstractCaptchaService subclasses (block puzzle, click word, rotate puzzle) and the delegating DefaultCaptchaServiceImpl.",
+      "tags": ["interface", "spi", "captcha", "service"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/util/StringUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+      "target": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaBaseMapEnum.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaBaseMapEnum.java:CaptchaBaseMapEnum",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java:CaptchaTypeEnum",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java:Const",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java:RepCodeEnum",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java:ResponseModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java:CaptchaVO",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java:PointVO",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java:parse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "target": "function:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java:equals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java:CaptchaCacheService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java:CaptchaService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaBaseMapEnum.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaBaseMapEnum.java:CaptchaBaseMapEnum",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/CaptchaTypeEnum.java:CaptchaTypeEnum",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/Const.java:Const",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/RepCodeEnum.java:RepCodeEnum",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/common/ResponseModel.java:ResponseModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/CaptchaVO.java:CaptchaVO",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/model/vo/PointVO.java:PointVO",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaCacheService.java:CaptchaCacheService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java",
+      "target": "class:damai-captcha-manage-framework/damai-base-captcha/src/main/java/com/damai/captcha/service/CaptchaService.java:CaptchaService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

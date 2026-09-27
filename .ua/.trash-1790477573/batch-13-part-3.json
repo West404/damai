@@ -1,0 +1,623 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java",
+      "type": "file",
+      "name": "OrderProperties.java",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java",
+      "summary": "订单支付回调相关配置，通过 @Value 注入支付成功通知接口地址与支付成功跳转页面地址。",
+      "tags": [
+        "configuration",
+        "properties",
+        "支付回调"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "type": "file",
+      "name": "ProgramUserExistCheckHandler.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "summary": "节目下单流程中的用户与购票人校验处理器，作为责任链一环校验购票人有效性与账号限购数量。",
+      "tags": [
+        "handler",
+        "责任链",
+        "校验",
+        "下单流程"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java",
+      "type": "file",
+      "name": "TokenExpireManager.java",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java",
+      "summary": "token 失效时间配置组件，通过 @Value 注入 token.expire.time（默认 40），供缓存过期时间计算使用。",
+      "tags": [
+        "configuration",
+        "token",
+        "缓存过期"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "type": "file",
+      "name": "DefaultExceptionHandler.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "summary": "服务通用全局异常处理器（@RestControllerAdvice），统一处理业务异常、参数校验异常与未捕获异常并返回 ApiResponse。",
+      "tags": [
+        "api-handler",
+        "异常处理",
+        "spring-boot",
+        "全局advice"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java",
+      "type": "file",
+      "name": "RequestWrapperFilter.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java",
+      "summary": "Servlet 过滤器，用 CustomizeRequestWrapper 包装请求后继续执行过滤链，使后续逻辑可重复读取请求体。",
+      "tags": [
+        "filter",
+        "middleware",
+        "请求包装"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "type": "file",
+      "name": "CustomizeRequestWrapper.java",
+      "filePath": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "summary": "HttpServletRequestWrapper 实现，构造时缓存请求体并重写 getInputStream/getReader，解决 Servlet 请求体只能读取一次的问题。",
+      "tags": [
+        "middleware",
+        "请求包装",
+        "servlet",
+        "工具类"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "继承 HttpServletRequestWrapper，用匿名内部类实现 ServletInputStream 以提供可重复读取的输入流。"
+    },
+    {
+      "id": "class:damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java:OrderProperties",
+      "type": "class",
+      "name": "OrderProperties",
+      "filePath": "damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java",
+      "lineRange": [
+        14,
+        27
+      ],
+      "summary": "订单支付回调配置类，以 @Value 注入通知地址与跳转页面地址。",
+      "tags": [
+        "configuration",
+        "properties",
+        "支付回调"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java:ProgramUserExistCheckHandler",
+      "type": "class",
+      "name": "ProgramUserExistCheckHandler",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "lineRange": [
+        41,
+        135
+      ],
+      "summary": "下单校验责任链中的用户与购票人校验处理器，继承 AbstractProgramCheckHandler 并声明执行顺序。",
+      "tags": [
+        "handler",
+        "责任链",
+        "校验",
+        "下单流程"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java:TokenExpireManager",
+      "type": "class",
+      "name": "TokenExpireManager",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java",
+      "lineRange": [
+        14,
+        18
+      ],
+      "summary": "token 失效时间管理组件，持有 tokenExpireTime 配置属性。",
+      "tags": [
+        "configuration",
+        "token",
+        "缓存过期"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java:DefaultExceptionHandler",
+      "type": "class",
+      "name": "DefaultExceptionHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "lineRange": [
+        23,
+        69
+      ],
+      "summary": "全局异常处理器类，声明三类 @ExceptionHandler 方法与请求信息提取辅助方法。",
+      "tags": [
+        "api-handler",
+        "异常处理",
+        "全局advice"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java:RequestWrapperFilter",
+      "type": "class",
+      "name": "RequestWrapperFilter",
+      "filePath": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java",
+      "lineRange": [
+        17,
+        25
+      ],
+      "summary": "请求包装过滤器，继承 OncePerRequestFilter 并覆写 doFilterInternal。",
+      "tags": [
+        "filter",
+        "middleware",
+        "请求包装"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java:CustomizeRequestWrapper",
+      "type": "class",
+      "name": "CustomizeRequestWrapper",
+      "filePath": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "lineRange": [
+        20,
+        65
+      ],
+      "summary": "请求包装器类，继承 HttpServletRequestWrapper 并缓存请求体以支持重复读取。",
+      "tags": [
+        "middleware",
+        "请求包装",
+        "servlet"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "lineRange": [
+        58,
+        119
+      ],
+      "summary": "校验下单用户与购票人：读取购票人缓存或调用用户服务补全、校验购票人有效性、查询节目与账号限购数量并写入缓存。",
+      "tags": [
+        "handler",
+        "校验",
+        "rpc调用",
+        "缓存"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java:toolkitExceptionHandler",
+      "type": "function",
+      "name": "toolkitExceptionHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "lineRange": [
+        28,
+        32
+      ],
+      "summary": "处理 DaMaiFrameException 业务异常，记录请求信息并返回业务错误码与错误信息。",
+      "tags": [
+        "api-handler",
+        "异常处理",
+        "业务异常"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java:validExceptionHandler",
+      "type": "function",
+      "name": "validExceptionHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "lineRange": [
+        36,
+        51
+      ],
+      "summary": "处理 MethodArgumentNotValidException：把字段校验错误映射为 ArgumentError 列表并以参数错误码返回。",
+      "tags": [
+        "api-handler",
+        "异常处理",
+        "参数校验"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java:defaultErrorHandler",
+      "type": "function",
+      "name": "defaultErrorHandler",
+      "filePath": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "lineRange": [
+        56,
+        60
+      ],
+      "summary": "兜底处理未捕获异常，记录日志后返回默认错误响应。",
+      "tags": [
+        "api-handler",
+        "异常处理",
+        "兜底"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java:doFilterInternal",
+      "type": "function",
+      "name": "doFilterInternal",
+      "filePath": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java",
+      "lineRange": [
+        19,
+        24
+      ],
+      "summary": "用 CustomizeRequestWrapper 包装原始请求后继续执行过滤链，使后续逻辑可重复读取请求体。",
+      "tags": [
+        "filter",
+        "middleware",
+        "请求包装"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java:getInputStream",
+      "type": "function",
+      "name": "getInputStream",
+      "filePath": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "lineRange": [
+        30,
+        55
+      ],
+      "summary": "重写 getInputStream：基于缓存的请求体字节构造可反复读取的 ServletInputStream 匿名实现。",
+      "tags": [
+        "middleware",
+        "请求包装",
+        "servlet"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java:OrderProperties",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java:ProgramUserExistCheckHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java:TokenExpireManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java:DefaultExceptionHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java:RequestWrapperFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java:doFilterInternal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java:CustomizeRequestWrapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java:getInputStream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java:toolkitExceptionHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java:validExceptionHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java:defaultErrorHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java",
+      "target": "class:damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java:OrderProperties",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java:ProgramUserExistCheckHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java:TokenExpireManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java:DefaultExceptionHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java:RequestWrapperFilter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "target": "class:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java:CustomizeRequestWrapper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java:getInputStream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java:toolkitExceptionHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java:validExceptionHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "target": "function:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java:defaultErrorHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramGetDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+      "target": "file:damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/common/ApiResponse.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+      "target": "file:damai-common/src/main/java/com/damai/enums/BaseCode.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java",
+      "target": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+      "target": "file:damai-common/src/main/java/com/damai/util/StringUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java:ProgramUserExistCheckHandler",
+      "target": "class:damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java:AbstractProgramCheckHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java:execute",
+      "target": "function:damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java:detailV2",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java:doFilterInternal",
+      "target": "class:damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java:CustomizeRequestWrapper",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

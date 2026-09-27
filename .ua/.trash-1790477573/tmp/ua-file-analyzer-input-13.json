@@ -1,0 +1,296 @@
+{
+ "projectRoot": "E:/WorkSpace/damai",
+ "batchFiles": [
+  {
+   "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java",
+   "language": "java",
+   "sizeLines": 33,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java",
+   "language": "java",
+   "sizeLines": 34,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java",
+   "language": "java",
+   "sizeLines": 16,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java",
+   "language": "java",
+   "sizeLines": 69,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java",
+   "language": "java",
+   "sizeLines": 19,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java",
+   "language": "java",
+   "sizeLines": 81,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java",
+   "language": "java",
+   "sizeLines": 94,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java",
+   "language": "java",
+   "sizeLines": 108,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+   "language": "java",
+   "sizeLines": 98,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java",
+   "language": "java",
+   "sizeLines": 16,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java",
+   "language": "java",
+   "sizeLines": 28,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+   "language": "java",
+   "sizeLines": 30,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java",
+   "language": "java",
+   "sizeLines": 631,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java",
+   "language": "java",
+   "sizeLines": 16,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java",
+   "language": "java",
+   "sizeLines": 57,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java",
+   "language": "java",
+   "sizeLines": 77,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java",
+   "language": "java",
+   "sizeLines": 27,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java",
+   "language": "java",
+   "sizeLines": 135,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java",
+   "language": "java",
+   "sizeLines": 18,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java",
+   "language": "java",
+   "sizeLines": 69,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java",
+   "language": "java",
+   "sizeLines": 25,
+   "fileCategory": "code"
+  },
+  {
+   "path": "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java",
+   "language": "java",
+   "sizeLines": 65,
+   "fileCategory": "code"
+  }
+ ],
+ "batchImportData": {
+  "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java": [],
+  "damai-server/damai-customize-service/src/main/java/com/damai/controller/BroadcastController.java": [
+   "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java",
+   "damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java"
+  ],
+  "damai-server/damai-customize-service/src/main/java/com/damai/service/BroadcastService.java": [
+   "damai-server-client/damai-customize-client/src/main/java/com/damai/dto/BroadcastCallDto.java"
+  ],
+  "damai-server/damai-gateway-service/src/main/java/com/damai/conf/Config.java": [
+   "damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java"
+  ],
+  "damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java": [
+   "damai-common/src/main/java/com/damai/common/ApiResponse.java"
+  ],
+  "damai-server/damai-gateway-service/src/main/java/com/damai/exception/GatewayDefaultExceptionHandler.java": [
+   "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+   "damai-server/damai-gateway-service/src/main/java/com/damai/conf/RequestTemporaryWrapper.java"
+  ],
+  "damai-server/damai-order-service/src/main/java/com/damai/controller/OrderController.java": [
+   "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java",
+   "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java"
+  ],
+  "damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java": [
+   "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java"
+  ],
+  "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java": [
+   "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/data/BaseTableData.java"
+  ],
+  "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java": [],
+  "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java": [
+   "damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java"
+  ],
+  "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java": [
+   "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+   "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java"
+  ],
+  "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java": [
+   "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+   "damai-common/src/main/java/com/damai/enums/BusinessStatus.java",
+   "damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+   "damai-common/src/main/java/com/damai/enums/PayBillStatus.java",
+   "damai-common/src/main/java/com/damai/enums/PayChannel.java",
+   "damai-common/src/main/java/com/damai/enums/SellStatus.java",
+   "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+   "damai-common/src/main/java/com/damai/util/DateUtils.java",
+   "damai-common/src/main/java/com/damai/util/StringUtil.java",
+   "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/UidGenerator.java",
+   "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+   "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+   "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+   "damai-redisson-framework/damai-redisson-service-framework/damai-repeat-execute-limit-framework/src/main/java/com/damai/repeatexecutelimit/annotion/RepeatExecuteLimit.java",
+   "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/LockType.java",
+   "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/servicelock/annotion/ServiceLock.java",
+   "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/ServiceLockTool.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderGetDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderListDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayCheckDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderPayDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderGetVo.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderListVo.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderPayCheckVo.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketInfoVo.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/TicketUserInfoVo.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserAndTicketUserInfoVo.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/UserInfoVo.java",
+   "damai-server-client/damai-pay-client/src/main/java/com/damai/client/PayClient.java",
+   "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/NotifyDto.java",
+   "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/PayDto.java",
+   "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/RefundDto.java",
+   "damai-server-client/damai-pay-client/src/main/java/com/damai/dto/TradeCheckDto.java",
+   "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/NotifyVo.java",
+   "damai-server-client/damai-pay-client/src/main/java/com/damai/vo/TradeCheckVo.java",
+   "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOperateDataDto.java",
+   "damai-server-client/damai-program-client/src/main/java/com/damai/dto/TicketCategoryCountDto.java",
+   "damai-server-client/damai-program-client/src/main/java/com/damai/vo/SeatVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/UserGetAndTicketUserListDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/UserGetAndTicketUserListVo.java",
+   "damai-server/damai-order-service/src/main/java/com/damai/entity/Order.java",
+   "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+   "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUserAggregate.java",
+   "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderMapper.java",
+   "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java",
+   "damai-server/damai-order-service/src/main/java/com/damai/service/delaysend/DelayOperateProgramDataSend.java",
+   "damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java",
+   "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java"
+  ],
+  "damai-server/damai-order-service/src/main/java/com/damai/service/OrderTicketUserService.java": [
+   "damai-server/damai-order-service/src/main/java/com/damai/entity/OrderTicketUser.java",
+   "damai-server/damai-order-service/src/main/java/com/damai/mapper/OrderTicketUserMapper.java"
+  ],
+  "damai-server/damai-order-service/src/main/java/com/damai/service/delayconsumer/DelayOrderCancelConsumer.java": [
+   "damai-common/src/main/java/com/damai/core/SpringUtil.java",
+   "damai-common/src/main/java/com/damai/util/StringUtil.java",
+   "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/ConsumerTask.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCancelDto.java",
+   "damai-server-client/damai-program-client/src/main/java/com/damai/dto/DelayOrderCancelDto.java",
+   "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java"
+  ],
+  "damai-server/damai-order-service/src/main/java/com/damai/service/kafka/CreateOrderConsumer.java": [
+   "damai-common/src/main/java/com/damai/enums/OrderStatus.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderCreateDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderTicketUserCreateDto.java",
+   "damai-server/damai-order-service/src/main/java/com/damai/service/OrderService.java"
+  ],
+  "damai-server/damai-order-service/src/main/java/com/damai/service/properties/OrderProperties.java": [],
+  "damai-server/damai-program-service/src/main/java/com/damai/service/composite/impl/ProgramUserExistCheckHandler.java": [
+   "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "damai-common/src/main/java/com/damai/enums/BaseCode.java",
+   "damai-common/src/main/java/com/damai/exception/DaMaiFrameException.java",
+   "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/core/RedisKeyManage.java",
+   "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisCache.java",
+   "damai-redis-tool-framework/damai-redis-framework/src/main/java/com/damai/redis/RedisKeyBuild.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/client/OrderClient.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/dto/AccountOrderCountDto.java",
+   "damai-server-client/damai-order-client/src/main/java/com/damai/vo/AccountOrderCountVo.java",
+   "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramGetDto.java",
+   "damai-server-client/damai-program-client/src/main/java/com/damai/dto/ProgramOrderCreateDto.java",
+   "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramVo.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/client/UserClient.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/dto/TicketUserListDto.java",
+   "damai-server-client/damai-user-client/src/main/java/com/damai/vo/TicketUserVo.java",
+   "damai-server/damai-program-service/src/main/java/com/damai/service/ProgramService.java",
+   "damai-server/damai-program-service/src/main/java/com/damai/service/composite/AbstractProgramCheckHandler.java",
+   "damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java"
+  ],
+  "damai-server/damai-program-service/src/main/java/com/damai/service/tool/TokenExpireManager.java": [],
+  "damai-spring-cloud-framework/damai-service-common/src/main/java/com/damai/exception/DefaultExceptionHandler.java": [
+   "damai-common/src/main/java/com/damai/common/ApiResponse.java",
+   "damai-common/src/main/java/com/damai/enums/BaseCode.java"
+  ],
+  "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/filter/RequestWrapperFilter.java": [
+   "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java"
+  ],
+  "damai-spring-cloud-framework/damai-service-component/src/main/java/com/damai/request/CustomizeRequestWrapper.java": [
+   "damai-common/src/main/java/com/damai/util/StringUtil.java"
+  ]
+ }
+}

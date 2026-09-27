@@ -1,0 +1,459 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 11,
+  "filesSkipped": [
+    "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-redisson-framework/damai-redisson-service-framework/pom.xml",
+    "damai-redisson-framework/damai-service-delay-queue-framework/pom.xml",
+    "damai-redisson-framework/damai-service-delay-queue-framework/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+    "damai-redisson-framework/pom.xml",
+    "damai-server-client/damai-base-data-client/pom.xml",
+    "damai-server-client/damai-customize-client/pom.xml",
+    "damai-server-client/damai-job-client/pom.xml",
+    "damai-server-client/damai-order-client/pom.xml",
+    "damai-server-client/damai-pay-client/pom.xml",
+    "damai-server-client/damai-program-client/pom.xml",
+    "damai-server-client/damai-user-client/pom.xml",
+    "damai-server-client/pom.xml",
+    "damai-server/damai-admin-service/pom.xml"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 11,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 11,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "damai-redisson-framework/damai-redisson-service-framework/damai-service-lock-framework/src/main/java/com/damai/util/TaskRun.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 13,
+      "classes": [
+        {
+          "name": "TaskRun",
+          "startLine": 8,
+          "endLine": 15,
+          "methods": [
+            "run"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TaskRun",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-redisson-framework/damai-service-delay-queue-framework/src/main/java/com/damai/core/DelayBaseQueue.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 18,
+      "functions": [
+        {
+          "name": "DelayBaseQueue",
+          "startLine": 19,
+          "endLine": 22,
+          "params": [
+            "redissonClient",
+            "relTopic"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DelayBaseQueue",
+          "startLine": 12,
+          "endLine": 23,
+          "methods": [
+            "DelayBaseQueue"
+          ],
+          "properties": [
+            "redissonClient",
+            "blockingQueue"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DelayBaseQueue",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "DelayBaseQueue",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DelayBaseQueue",
+          "callee": "redissonClient.getBlockingQueue",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-base-data-client/src/main/java/com/damai/dto/TokenDataDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "TokenDataDto",
+          "startLine": 13,
+          "endLine": 24,
+          "methods": [],
+          "properties": [
+            "name",
+            "secret"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TokenDataDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 35,
+      "classes": [
+        {
+          "name": "JobInfoDto",
+          "startLine": 14,
+          "endLine": 45,
+          "methods": [],
+          "properties": [
+            "name",
+            "description",
+            "url",
+            "headers",
+            "method",
+            "params",
+            "retry",
+            "retryNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "JobInfoDto",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/JobInfoPageDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "JobInfoPageDto",
+          "startLine": 13,
+          "endLine": 24,
+          "methods": [],
+          "properties": [
+            "pageSize",
+            "pageNo"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "JobInfoPageDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-job-client/src/main/java/com/damai/dto/RunJobDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "RunJobDto",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RunJobDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/dto/OrderRefundDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "OrderRefundDto",
+          "startLine": 13,
+          "endLine": 21,
+          "methods": [],
+          "properties": [
+            "orderNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderRefundDto",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-order-client/src/main/java/com/damai/vo/OrderTicketUserVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 62,
+      "nonEmptyLines": 45,
+      "classes": [
+        {
+          "name": "OrderTicketUserVo",
+          "startLine": 14,
+          "endLine": 62,
+          "methods": [],
+          "properties": [
+            "id",
+            "orderId",
+            "programId",
+            "userId",
+            "ticketUserId",
+            "seatId",
+            "seatInfo",
+            "orderPrice",
+            "payOrderPrice",
+            "payOrderType",
+            "orderStatus",
+            "createOrderTime",
+            "cancelOrderTime",
+            "payOrderTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OrderTicketUserVo",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-program-client/src/main/java/com/damai/vo/ProgramShowTimeVo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 38,
+      "classes": [
+        {
+          "name": "ProgramShowTimeVo",
+          "startLine": 13,
+          "endLine": 47,
+          "methods": [],
+          "properties": [
+            "id",
+            "programId",
+            "showTime",
+            "showDayTime",
+            "showWeekTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramShowTimeVo",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server-client/damai-user-client/src/main/java/com/damai/dto/ProgramOrderTicketUserDto.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 36,
+      "classes": [
+        {
+          "name": "ProgramOrderTicketUserDto",
+          "startLine": 17,
+          "endLine": 45,
+          "methods": [],
+          "properties": [
+            "serialVersionUID",
+            "id",
+            "userId",
+            "relName",
+            "idType",
+            "idNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProgramOrderTicketUserDto",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "damai-server/damai-admin-service/src/main/java/com/damai/AdminApplication.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 20,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 18,
+          "endLine": 21,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AdminApplication",
+          "startLine": 13,
+          "endLine": 23,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "AdminApplication",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.setProperty",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "SpringApplication.run",
+          "lineNumber": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

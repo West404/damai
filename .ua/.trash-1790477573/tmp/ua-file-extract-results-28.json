@@ -1,0 +1,218 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [
+    "pom.xml"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 2,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 2
+    }
+  },
+  "results": [
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 288,
+      "nonEmptyLines": 166,
+      "sections": [
+        {
+          "heading": "项目背景",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "项目介绍",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "项目优势",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "本项目主打的是真实性和独特性，都是根据真实架构和实际遇到的问题总结的",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "技术结构",
+          "level": 1,
+          "line": 64
+        },
+        {
+          "heading": "业务结构",
+          "level": 1,
+          "line": 84
+        },
+        {
+          "heading": "技术选型",
+          "level": 1,
+          "line": 90
+        },
+        {
+          "heading": "架构和组件设计",
+          "level": 1,
+          "line": 124
+        },
+        {
+          "heading": "业务流程",
+          "level": 1,
+          "line": 134
+        },
+        {
+          "heading": "项目的亮点质量高吗",
+          "level": 1,
+          "line": 140
+        },
+        {
+          "heading": "这里有一点要注意 就是不要让大家过于的陷入项目中的复杂业务中",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "项目中的各个亮点部分",
+          "level": 2,
+          "line": 152
+        },
+        {
+          "heading": "大麦pro",
+          "level": 1,
+          "line": 208
+        },
+        {
+          "heading": "大麦pro详细介绍：[👉 点击查看讲解](https://javaup.chat/damai/damai-pro/release-intro)",
+          "level": 3,
+          "line": 227
+        },
+        {
+          "heading": "项目展示",
+          "level": 1,
+          "line": 230
+        },
+        {
+          "heading": "主页列表",
+          "level": 3,
+          "line": 234
+        },
+        {
+          "heading": "分类列表",
+          "level": 3,
+          "line": 237
+        },
+        {
+          "heading": "节目详情",
+          "level": 3,
+          "line": 240
+        },
+        {
+          "heading": "生成订单",
+          "level": 3,
+          "line": 243
+        },
+        {
+          "heading": "订单列表",
+          "level": 3,
+          "line": 246
+        },
+        {
+          "heading": "订单详情",
+          "level": 3,
+          "line": 249
+        },
+        {
+          "heading": "欢迎联系我",
+          "level": 1,
+          "line": 252
+        },
+        {
+          "heading": "小伙伴的疑惑",
+          "level": 1,
+          "line": 262
+        },
+        {
+          "heading": "学生人群",
+          "level": 3,
+          "line": 264
+        },
+        {
+          "heading": "工作了几年的人群",
+          "level": 3,
+          "line": 270
+        },
+        {
+          "heading": "提供的服务",
+          "level": 1,
+          "line": 274
+        },
+        {
+          "heading": "如何启动项目",
+          "level": 1,
+          "line": 280
+        },
+        {
+          "heading": "文档和视频目录",
+          "level": 1,
+          "line": 286
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 28
+      }
+    },
+    {
+      "path": "docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 298,
+      "nonEmptyLines": 281,
+      "sections": [
+        {
+          "heading": "x-app-common",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "x-app-env",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "networks",
+          "level": 1,
+          "line": 289
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 293
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

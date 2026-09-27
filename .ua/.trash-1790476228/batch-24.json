@@ -1,0 +1,73 @@
+{
+  "nodes": [
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java",
+      "type": "file",
+      "name": "ValuedEnum.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java",
+      "summary": "Generic interface for enums that expose an integer value, borrowed from the Baidu UIDGenerator codebase used by the id-generator framework.",
+      "tags": ["interface", "type-definition", "enum", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java:ValuedEnum",
+      "type": "class",
+      "name": "ValuedEnum",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java",
+      "lineRange": [25, 31],
+      "summary": "Interface declaring a single value() method returning the integer backing value of an enum constant.",
+      "tags": ["interface", "enum", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java",
+      "type": "file",
+      "name": "WorkerNodeType.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java",
+      "summary": "Enum distinguishing snowflake worker node types (container vs actual physical node) for the Baidu UID-based distributed id generator.",
+      "tags": ["enum", "id-generator", "snowflake", "worker-node"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java:WorkerNodeType",
+      "type": "class",
+      "name": "WorkerNodeType",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java",
+      "lineRange": [27, 50],
+      "summary": "Enum with CONTAINER and ACTUAL constants implementing ValuedEnum to expose each worker node type's integer code persisted in the worker node table.",
+      "tags": ["enum", "id-generator", "worker-node"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java",
+      "type": "file",
+      "name": "WorkerNodeEntity.java",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java",
+      "summary": "JPA-style entity mapping the WORKER_NODE table that registers snowflake worker nodes by host/port with type, launch date, and audit timestamps.",
+      "tags": ["entity", "data-model", "id-generator", "worker-node", "persistence"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java:WorkerNodeEntity",
+      "type": "class",
+      "name": "WorkerNodeEntity",
+      "filePath": "damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java",
+      "lineRange": [30, 131],
+      "summary": "Entity with id, hostName, port, type, launchDate, created, and modified fields plus accessors; used to persist and look up unique worker ids for the distributed id generator.",
+      "tags": ["entity", "data-model", "persistence"],
+      "complexity": "moderate",
+      "languageNotes": "Plain getter/setter entity using ReflectionToStringBuilder for toString; WorkerNodeType enum is stored via its integer value."
+    }
+  ],
+  "edges": [
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java:ValuedEnum", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java:ValuedEnum", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java:WorkerNodeType", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java:WorkerNodeType", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java", "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java:WorkerNodeType", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/utils/ValuedEnum.java:ValuedEnum", "type": "implements", "direction": "forward", "weight": 0.9},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java:WorkerNodeEntity", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java", "target": "class:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java:WorkerNodeEntity", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/entity/WorkerNodeEntity.java", "target": "file:damai-id-generator-framework/src/main/java/com/baidu/fsg/uid/worker/WorkerNodeType.java", "type": "imports", "direction": "forward", "weight": 0.7}
+  ]
+}

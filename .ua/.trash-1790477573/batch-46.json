@@ -1,0 +1,33 @@
+{
+  "nodes": [
+    {
+      "id": "file:spotless/license-header",
+      "type": "file",
+      "name": "license-header",
+      "filePath": "spotless/license-header",
+      "summary": "Apache License 2.0 许可证头模板，供 Spotless Maven 插件在 check/apply 阶段注入到项目源文件顶部，统一全仓库的版权声明。",
+      "tags": ["configuration", "license", "构建工具", "spotless"],
+      "complexity": "simple",
+      "languageNotes": "无扩展名的纯文本模板，内容为 Java 块注释格式的 Apache License 2.0 声明，需与 spotless/license-header 同目录的格式化配置配合使用。"
+    },
+    {
+      "id": "config:spotless/spotless.xml",
+      "type": "config",
+      "name": "spotless.xml",
+      "filePath": "spotless/spotless.xml",
+      "summary": "Eclipse JDT 代码格式化配置（ShardingSphere Apache Current 风格），由 Spotless Maven 插件引用以统一 Java 代码风格：4 空格缩进、200 列换行、Java 8 编译级别。",
+      "tags": ["configuration", "code-formatter", "spotless", "构建工具", "java"],
+      "complexity": "simple",
+      "languageNotes": "XML 序列化的 Eclipse JDT CodeFormatterProfile，source/compliance/targetPlatform 三项均指定为 1.8，并关闭 Javadoc 自动格式化与换行合并。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:spotless/spotless.xml",
+      "target": "file:spotless/license-header",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}
