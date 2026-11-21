@@ -27,8 +27,14 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       TZ: Asia/Shanghai
+    # 初始化 SQL 按非严格模式导出（部分列数据超出定义长度），关闭严格模式与作者本地环境保持一致
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --sql-mode=NO_ENGINE_SUBSTITUTION
     ports:
-      - "3306:3306"
+      # 宿主机 3306 已被本地 MySQL 占用，映射到 13306（容器间通信不受影响）
+      - "13306:3306"
     volumes:
       - damai-mysql-data:/var/lib/mysql
       # 首次启动自动初始化库表（1_ 开头的建库脚本会最先执行）
@@ -46,7 +52,8 @@ services:
     container_name: damai-redis
     restart: unless-stopped
     ports:
-      - "6379:6379"
+      # 宿主机 6379 已被本地 Redis 占用，映射到 16379
+      - "16379:6379"
     volumes:
       - damai-redis-data:/data
     networks:
@@ -83,27 +90,32 @@ services:
       retries: 30
 
   kafka:
-    image: bitnami/kafka:3.7
+    # Apache 官方镜像（bitnami 版本化 tag 已下架，改用官方 KRaft 单节点）
+    image: apache/kafka:3.7.0
     container_name: damai-kafka
     restart: unless-stopped
     environment:
-      KAFKA_CFG_NODE_ID: "0"
-      KAFKA_CFG_PROCESS_ROLES: controller,broker
-      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 0@kafka:9093
-      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
-      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
-      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_NODE_ID: "0"
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 0@kafka:9093
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: "1"
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: "1"
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: "1"
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: "0"
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
       KAFKA_HEAP_OPTS: -Xms512m -Xmx512m
     ports:
       - "9092:9092"
     volumes:
-      - damai-kafka-data:/bitnami/kafka
+      - damai-kafka-data:/var/lib/kafka/data
     networks:
       - damai-net
     healthcheck:
-      test: ["CMD", "kafka-topics.sh", "--list", "--bootstrap-server", "127.0.0.1:9092"]
+      test: ["CMD", "/opt/kafka/bin/kafka-broker-api-versions.sh", "--bootstrap-server", "127.0.0.1:9092"]
       interval: 10s
       timeout: 10s
       retries: 30
@@ -263,7 +275,8 @@ services:
       SPRING_PROFILES_ACTIVE: docker
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     ports:
-      - "8081:8081"
+      # 宿主机 8081 已被占用，映射到 18081
+      - "18081:8081"
     depends_on:
       nacos:
         condition: service_healthy
@@ -318,7 +331,8 @@ services:
     container_name: damai-web
     restart: unless-stopped
     ports:
-      - "80:80"
+      # 宿主机 80 已被宝塔 Nginx 占用，映射到 8000
+      - "8000:80"
     networks:
       - damai-net
     depends_on:

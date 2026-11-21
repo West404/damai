@@ -26,7 +26,7 @@ MySQL 首次启动会自动执行 `sql/cloud/` 下的建库建表脚本。
 
 | 入口 | 地址 |
 |---|---|
-| 前端页面 | http://localhost （80 端口，/api 由 Nginx 代理到网关） |
+| 前端页面 | http://localhost:8000 （宿主机 80 被宝塔占用故映射 8000，/api 由 Nginx 代理到网关） |
 | 网关（前端对接口） | http://localhost:6085 |
 | Nacos 控制台 | http://localhost:8848/nacos （nacos/nacos） |
 | 服务监控中心 | http://localhost:10082 （admin/admin） |
