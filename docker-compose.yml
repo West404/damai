@@ -39,6 +39,8 @@ services:
       - damai-mysql-data:/var/lib/mysql
       # 首次启动自动初始化库表（1_ 开头的建库脚本会最先执行）
       - ./sql/cloud:/docker-entrypoint-initdb.d
+      # 让容器内 mysql 客户端默认使用 utf8mb4，避免中文数据乱码
+      - ./docker/mysql-client.cnf:/etc/mysql/conf.d/client.cnf:ro
     networks:
       - damai-net
     healthcheck:

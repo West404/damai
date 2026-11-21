@@ -1,0 +1,8 @@
+# MySQL 客户端默认字符集配置
+# 官方镜像容器内 locale 为 POSIX，mysql CLI 默认回退 latin1，
+# 导致初始化脚本（UTF-8 中文）被按 latin1 二次编码入库。
+[client]
+default-character-set=utf8mb4
+
+[mysql]
+default-character-set=utf8mb4
